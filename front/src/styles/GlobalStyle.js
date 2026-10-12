@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     color: ${({ theme }) => theme.colors.text};
     background: ${({ theme }) => theme.colors.background};
     line-height: 1.5;
@@ -19,8 +19,11 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-  button {
+  button, input, select, textarea {
     font: inherit;
+  }
+
+  button {
     cursor: pointer;
   }
 

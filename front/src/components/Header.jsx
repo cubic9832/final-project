@@ -75,7 +75,7 @@ export default function Header() {
               <a href="/#intro">서비스 소개</a>
             </li>
             <li>
-              <a href="/#financial">재무 진단</a>
+              <NavLink to="/financial">재무 진단</NavLink>
             </li>
             <li>
               <a href="/#how-it-works">차량 찾기</a>

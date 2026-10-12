@@ -5,6 +5,8 @@ import CompanyDetailPage from './pages/CompanyDetailPage';
 import CompanyListPage from './pages/CompanyListPage';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import FinancialPage from './pages/FinancialPage';
+import FinancialAssetsPage from './pages/FinancialAssetsPage';
 import NotFound from './pages/NotFound';
 import PredictPage from './pages/PredictPage';
 import SearchPage from './pages/SearchPage';
@@ -15,6 +17,8 @@ function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/financial" element={<FinancialPage />} />
+        <Route path="/financial/assets" element={<FinancialAssetsPage />} />
         <Route path="/companies" element={<CompanyListPage />} />
         <Route path="/companies/:code" element={<CompanyDetailPage />} />
         <Route path="/search" element={<SearchPage />} />
