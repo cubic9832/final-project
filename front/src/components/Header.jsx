@@ -51,6 +51,19 @@ const Navigation = styled.nav`
   }
 `;
 
+const LoginLink = styled(NavLink)`
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #edf3fa;
+  color: #193b64;
+  font-size: 12px;
+  font-weight: 700;
+
+  &:hover {
+    background: #dfeaf7;
+  }
+`;
+
 export default function Header() {
   return (
     <HeaderWrapper>
@@ -72,6 +85,7 @@ export default function Header() {
             </li>
           </ul>
         </Navigation>
+        <LoginLink to="/login">로그인</LoginLink>
       </HeaderContent>
     </HeaderWrapper>
   );
