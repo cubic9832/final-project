@@ -1,10 +1,15 @@
 # 실제 DB 스키마
 
-`schema.sql`은 제공된 CreditCompass Auto ERD의 15개 테이블을 MySQL 8.0용으로 작성한 파일입니다.
+`src/main/resources/db/migration/V1__create_schema.sql`은 제공된 CreditCompass Auto ERD의 15개 테이블을 MySQL 8.0용으로 작성한 파일입니다.
 
 ## 적용
 
-MySQL Workbench에서 새 DB를 생성하고 `USE 새_DB명;`으로 선택한 뒤 `schema.sql`을 실행합니다. DB 이름은 아직 확정되지 않았으므로 파일에 고정하지 않았습니다. 기존 `final_sample`과 계정 권한, application.yml은 변경하지 않았습니다. Spring Boot 자동 초기화 파일 위치가 아닌 back/schema.sql에 두어 수동 실행하도록 했습니다.
+스키마는 [Flyway](https://documentation.red-gate.com/fd)로 버전 관리합니다. Spring Boot를 시작하면 `application.yml`의 datasource DB(`final_sample`)에 `db/migration`의 SQL이 버전 순서대로 자동 적용되고, 적용 이력은 `flyway_schema_history` 테이블에 기록됩니다. 수동으로 실행할 필요가 없습니다.
+
+- 스키마를 변경할 때는 `V{다음 번호}__{설명}.sql` 파일을 추가합니다. 예: `V3__add_vehicle_color.sql`
+- 이미 적용된 파일은 수정하지 않습니다. 내용이 바뀌면 체크섬 불일치로 서버가 시작되지 않습니다.
+- `V2__create_company_sample.sql`은 기존 종목 API 예제용 `company` 테이블과 샘플 데이터입니다.
+- 로컬 Docker DB를 처음 상태로 되돌리려면 저장소 루트에서 `./dev.sh reset`을 실행합니다.
 
 ## ERD 반영
 
@@ -21,4 +26,4 @@ MySQL Workbench에서 새 DB를 생성하고 `USE 새_DB명;`으로 선택한 �
 - purchase_plans 소유자와 연결된 입력 소유자가 같은지는 서비스에서 검증해야 합니다. 단순 FK만으로는 보장되지 않습니다.
 - 이전 snapshot 연결도 같은 소유자인지, 순환하지 않는지 서비스 검증이 필요합니다.
 
-이 SQL은 테이블 구조만 제공합니다. 기존 종목 API를 차량 분석 API로 전환하는 작업이나 실제 DB 적용은 포함하지 않습니다.
+V1은 테이블 구조만 제공합니다. 기존 종목 API를 차량 분석 API로 전환하는 작업은 포함하지 않습니다.
