@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from './Header';
@@ -9,7 +10,12 @@ const Main = styled.main`
 `;
 
 export default function Layout() {
-  const home = useLocation().pathname === '/';
+  const { pathname } = useLocation();
+  const home = pathname === '/';
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [pathname]);
 
   return (
     <>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import theme from '../styles/theme';
 import './HomePage.css';
@@ -33,9 +34,9 @@ export default function HomePage() {
               <a className="button primary" href="#financial">
                 재무 진단 알아보기 <ArrowUpRight size={theme.iconSize.sm} aria-hidden="true" />
               </a>
-              <a className="button secondary" href="#how-it-works">
+              <Link className="button secondary" to="/search">
                 차량 찾기 <ArrowRight size={theme.iconSize.sm} aria-hidden="true" />
-              </a>
+              </Link>
             </div>
             <small>내 재무를 이해하는 것부터, 간편하게</small>
           </div>

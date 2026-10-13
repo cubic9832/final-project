@@ -82,10 +82,10 @@ export default function Header() {
               <NavLink to="/financial">재무 진단</NavLink>
             </li>
             <li>
-              <a href="/#how-it-works">차량 찾기</a>
+              <NavLink to="/search">차량 찾기</NavLink>
             </li>
             <li>
-              <a href="/#analysis">분석 비교</a>
+              <NavLink to="/vehicles/compare">차량 비교</NavLink>
             </li>
           </ul>
         </Navigation>

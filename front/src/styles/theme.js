@@ -21,6 +21,7 @@ const theme = {
     border: '#e2e8f0',
     borderInput: '#cbd5e1',
     danger: '#dc2626',
+    warningTint: '#fff7e2',
   },
   fontSize: {
     display: 'clamp(28px, 3.1vw, 44px)',
