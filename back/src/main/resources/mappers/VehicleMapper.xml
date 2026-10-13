@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kh.back.vehicle.VehicleRepository">
+    <select id="findAll" resultType="com.kh.back.vehicle.VehicleResponse">
+        SELECT v.id, b.name AS brand, v.name, v.trim_name, v.model_year,
+               v.condition_code, v.class_code, v.fuel_code, v.seating_capacity,
+               v.price, v.efficiency_value, v.efficiency_unit, v.image_url,
+               v.source_name, v.source_url, v.is_example
+        FROM vehicles v
+        JOIN brands b ON b.id = v.brand_id
+        ORDER BY v.price, v.id
+    </select>
+</mapper>

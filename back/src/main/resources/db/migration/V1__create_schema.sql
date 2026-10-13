@@ -1,6 +1,6 @@
 -- CreditCompass Auto / MySQL 8.0 / utf8mb4
--- Run in an explicitly selected NEW database: USE your_database;
--- This script neither creates accounts nor changes the example final_sample DB.
+-- Flyway migration V1: applied automatically to the datasource DB on Spring Boot startup.
+-- Do not edit after it has been applied; add a new V{n}__description.sql instead.
 -- ERD assumptions: required identifiers/FKs are NOT NULL; optional inputs/results are NULL.
 -- No cascading deletes: history is retained via RESTRICT. Timestamps use CURRENT_TIMESTAMP.
 -- users.not_member has no physical name/type in the ERD and is intentionally omitted.
