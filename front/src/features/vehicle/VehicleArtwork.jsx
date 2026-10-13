@@ -1,4 +1,4 @@
-import avanteImage from '../../assets/vehicles/vehicle-0.jpg';
+import avanteImage from '../../assets/vehicles/vehicle-0.webp';
 
 export default function VehicleArtwork({ vehicle, photo = false }) {
   if (photo && vehicle.imageUrl) return <img className="vehicle-photo" src={vehicle.imageUrl} alt={vehicle.name} />;
