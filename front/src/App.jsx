@@ -10,6 +10,7 @@ import FinancialPage from './pages/FinancialPage';
 import FinancialAssetsPage from './pages/FinancialAssetsPage';
 import NotFound from './pages/NotFound';
 import PredictPage from './pages/PredictPage';
+import VehicleCatalogGate from './features/vehicle/VehicleCatalogGate';
 import { VehicleProvider } from './features/vehicle/VehicleContext';
 import { VehicleSearchPage, VehicleResultsPage } from './features/vehicle/VehicleSearchPage';
 import VehicleDetailPage from './features/vehicle/VehicleDetailPage';
@@ -28,11 +29,11 @@ function App() {
         <Route path="/financial/assets" element={<FinancialAssetsPage />} />
         <Route path="/companies" element={<CompanyListPage />} />
         <Route path="/companies/:code" element={<CompanyDetailPage />} />
-        <Route path="/search" element={<VehicleSearchPage />} />
-        <Route path="/vehicles" element={<VehicleResultsPage />} />
-        <Route path="/vehicles/compare" element={<VehicleComparePage />} />
-        <Route path="/vehicles/:id" element={<VehicleDetailPage />} />
-        <Route path="/vehicles/:id/simulation" element={<VehicleSimulationPage />} />
+        <Route path="/search" element={<VehicleCatalogGate><VehicleSearchPage /></VehicleCatalogGate>} />
+        <Route path="/vehicles" element={<VehicleCatalogGate><VehicleResultsPage /></VehicleCatalogGate>} />
+        <Route path="/vehicles/compare" element={<VehicleCatalogGate><VehicleComparePage /></VehicleCatalogGate>} />
+        <Route path="/vehicles/:id" element={<VehicleCatalogGate><VehicleDetailPage /></VehicleCatalogGate>} />
+        <Route path="/vehicles/:id/simulation" element={<VehicleCatalogGate><VehicleSimulationPage /></VehicleCatalogGate>} />
         <Route path="/predict" element={<PredictPage />} />
       </Route>
       <Route path="*" element={<NotFound />} />

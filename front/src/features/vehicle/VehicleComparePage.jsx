@@ -1,6 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom';
 import { useVehicle } from './useVehicle';
-import { calculateCosts, formatAmount, vehicles } from './vehicleData';
+import { calculateCosts, formatAmount } from './vehicleData';
 import VehicleArtwork from './VehicleArtwork';
 import { findProfilePreset } from '../preset/profilePresets';
 import './VehiclePages.css';
@@ -9,7 +9,7 @@ export default function VehicleComparePage() {
   const [params] = useSearchParams();
   const presetId = params.get('preset');
   const preset = findProfilePreset(presetId);
-  const { conditions, comparison, toggleComparison } = useVehicle();
+  const { vehicles, conditions, comparison, toggleComparison } = useVehicle();
   const selected = comparison.map((id) => vehicles.find((vehicle) => vehicle.id === id)).filter(Boolean);
   const rows = [['차량 가격', (v) => formatAmount(v.price)], ['선수금', () => formatAmount(conditions.downPayment)], ['월 할부금', (_, c) => formatAmount(c.installment)], ['복합 연비', (v) => `${v.efficiency}km/L`], ['월 유류비', (_, c) => formatAmount(c.fuel)], ['월 보험료', (_, c) => formatAmount(c.insurance)], ['월 세금', (_, c) => formatAmount(c.tax)], ['월 정비비', (_, c) => formatAmount(c.maintenance)], ['월 총비용', (_, c) => formatAmount(c.total)], ['3년 총비용', (_, c) => formatAmount(conditions.downPayment + c.total * 36)], ['구매 후 월 가용자금', (_, c) => formatAmount(c.remaining)], ['재무 적합도', (_, c) => `${c.score}%`]];
   if (presetId !== null && !preset) return <section className="vehicle-page panel vehicle-empty"><h1>프로필을 찾을 수 없습니다.</h1><p>메인에서 예시 프로필을 다시 선택해 주세요.</p><Link className="vehicle-button primary" to="/">프리셋 선택하기</Link></section>;

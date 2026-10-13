@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { calculateCosts, defaultConditions, defaultFinance, vehicles } from './vehicleData.js';
+import { calculateCosts, defaultConditions, defaultFinance } from './vehicleData.js';
+
+const vehicles = [{ price: 2555, efficiency: 21.1, type: '준중형 세단' }];
 
 test('zero interest divides only the outstanding principal', () => {
   const result = calculateCosts(vehicles[0], defaultConditions, { ...defaultFinance, rate: 0 });

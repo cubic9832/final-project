@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useVehicle } from './useVehicle';
-import { calculateCosts, defaultFinance, formatAmount, vehicles } from './vehicleData';
+import { calculateCosts, defaultFinance, formatAmount } from './vehicleData';
 import './VehiclePages.css';
 
 export default function VehicleSimulationPage() {
   const { id } = useParams();
+  const { vehicles, conditions } = useVehicle();
   const vehicle = vehicles.find((v) => v.id === id);
-  const { conditions } = useVehicle();
   const initialDownPayment = Math.min(conditions.downPayment, vehicle?.price ?? 0, conditions.cash);
   const [downPayment, setDownPayment] = useState(initialDownPayment);
   const [finance, setFinance] = useState(defaultFinance);
