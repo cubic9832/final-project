@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import Header from './Header';
 
 const Main = styled.main`
-  max-width: ${({ theme }) => theme.maxWidth};
+  max-width: var(--layout-max-width);
   margin: 0 auto;
-  padding: 24px 16px;
+  padding: var(--space-24) var(--layout-gutter);
 `;
 
 export default function Layout() {

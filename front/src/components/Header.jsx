@@ -2,29 +2,28 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const HeaderWrapper = styled.header`
-  background: #fff;
-  border-bottom: 1px solid #e5eaf2;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
 `;
 
 const HeaderContent = styled.div`
-  max-width: 1280px;
+  max-width: var(--layout-max-width);
   margin: 0 auto;
-  padding: 19px 32px;
+  padding: var(--space-16) var(--layout-gutter);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 24px;
-  color: #193b64;
+  gap: var(--space-24);
+  color: var(--color-primary);
 
-  @media (max-width: 650px) {
-    padding: 18px 20px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     flex-wrap: wrap;
-    gap: 14px;
+    gap: var(--space-16);
   }
 `;
 
 const Brand = styled(NavLink)`
-  font-size: 17px;
+  font-size: var(--font-subtitle);
   font-weight: 800;
   letter-spacing: -0.5px;
 `;
@@ -33,34 +32,39 @@ const Navigation = styled.nav`
   ul {
     display: flex;
     align-items: center;
-    gap: 26px;
-    font-size: 12px;
-    color: #68778b;
+    gap: var(--space-24);
+    font-size: var(--font-body);
+    color: var(--color-muted);
   }
 
   a:hover {
-    color: #078579;
+    color: var(--color-blue-strong);
   }
 
-  @media (max-width: 650px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    order: 3;
+    width: 100%;
+
     ul {
-      gap: 17px;
+      gap: var(--space-16);
       flex-wrap: wrap;
-      font-size: 11px;
     }
   }
 `;
 
 const LoginLink = styled(NavLink)`
-  padding: 6px 12px;
-  border-radius: 6px;
-  background: #edf3fa;
-  color: #193b64;
-  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--layout-control-height);
+  padding: 0 var(--space-16);
+  border-radius: var(--radius-sm);
+  background: var(--color-blue-tint);
+  color: var(--color-primary);
+  font-size: var(--font-body);
   font-weight: 700;
 
   &:hover {
-    background: #dfeaf7;
+    background: var(--color-border);
   }
 `;
 
