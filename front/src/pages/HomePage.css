@@ -438,7 +438,9 @@
 }
 
 .footer-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
   color: var(--color-mint);
   font-weight: 700;
   margin-top: var(--space-24);

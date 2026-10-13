@@ -1,3 +1,5 @@
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import theme from '../styles/theme';
 import './HomePage.css';
 
 const steps = [
@@ -29,10 +31,10 @@ export default function HomePage() {
             </p>
             <div className="button-row">
               <a className="button primary" href="#financial">
-                재무 진단 알아보기 <span>↗</span>
+                재무 진단 알아보기 <ArrowUpRight size={theme.iconSize.sm} aria-hidden="true" />
               </a>
               <a className="button secondary" href="#how-it-works">
-                차량 찾기 <span>→</span>
+                차량 찾기 <ArrowRight size={theme.iconSize.sm} aria-hidden="true" />
               </a>
             </div>
             <small>내 재무를 이해하는 것부터, 간편하게</small>
@@ -159,7 +161,7 @@ export default function HomePage() {
               신용·재무 정보와 선호도, 차량 가격, 유지 비용을 어떻게 반영했는지 확인하고 나에게 맞는 선택을 해보세요.
             </p>
             <a className="button secondary" href="#analysis-factors">
-              분석 기준 알아보기 <span>→</span>
+              분석 기준 알아보기 <ArrowRight size={theme.iconSize.sm} aria-hidden="true" />
             </a>
           </div>
           <article className="factor-card" id="analysis-factors">
@@ -184,7 +186,7 @@ export default function HomePage() {
           <h2>내 재무에 맞는 자동차 예산부터 확인해 보세요.</h2>
           <p>무리 없는 선택으로 향하는 가장 현실적인 시작입니다.</p>
           <a className="footer-link" href="#financial">
-            내 자동차 예산 확인하기 ↗
+            내 자동차 예산 확인하기 <ArrowUpRight size={theme.iconSize.sm} aria-hidden="true" />
           </a>
           <div className="footer-bottom">
             <strong>CreditComPass Auto</strong>

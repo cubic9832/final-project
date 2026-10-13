@@ -54,6 +54,12 @@ const theme = {
     48: '48px',
     64: '64px',
   },
+  // lucide-react의 size에 넘기는 값(px)
+  iconSize: {
+    sm: 16,
+    md: 20,
+    lg: 24,
+  },
   breakpoints: {
     desktop: '1024px',
     tablet: '768px',
