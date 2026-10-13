@@ -11,7 +11,7 @@ const Main = styled.main`
 
 export default function Layout() {
   const { pathname } = useLocation();
-  const home = pathname === '/';
+  const home = pathname === '/' || pathname === '/about';
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });

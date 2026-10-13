@@ -76,7 +76,7 @@ export default function Header() {
         <Navigation aria-label="주 메뉴">
           <ul>
             <li>
-              <a href="/#intro">서비스 소개</a>
+              <NavLink to="/about">About Us</NavLink>
             </li>
             <li>
               <NavLink to="/financial">재무 진단</NavLink>
