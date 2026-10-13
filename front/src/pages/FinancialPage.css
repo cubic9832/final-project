@@ -1,6 +1,7 @@
 .financial-page {
   --financial-panel-height: 800px;
-  padding: var(--space-8) 0 var(--space-64);
+  padding: var(--space-8) 0 calc(var(--space-64) + var(--space-48));
+  color: var(--color-text);
 }
 
 .financial-page-heading {
@@ -305,6 +306,39 @@
   display: flex;
   justify-content: flex-end;
   margin-top: var(--space-48);
+  position: sticky;
+  width: max-content;
+  max-width: 100%;
+  margin-left: auto;
+  bottom: var(--space-24);
+  z-index: 50;
+  gap: var(--space-12);
+  padding: var(--space-8);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-background);
+  box-shadow: 0 4px 16px #20396012;
+}
+
+.financial-next-row > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--layout-control-height);
+  min-height: var(--layout-control-height);
+  padding: var(--space-8) var(--space-12);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.financial-next-row > .financial-next-button {
+  width: 120px;
+  min-width: 120px;
+}
+
+.financial-next-row > button:not(.financial-next-button) {
+  width: 132px;
+  min-width: 132px;
 }
 
 .financial-next-button {

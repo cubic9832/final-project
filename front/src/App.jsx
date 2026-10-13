@@ -8,6 +8,10 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import FinancialPage from './pages/FinancialPage';
 import FinancialAssetsPage from './pages/FinancialAssetsPage';
+import FinancialCreditPage from './pages/FinancialCreditPage';
+import FinancialVehiclePage from './pages/FinancialVehiclePage';
+import FinancialReviewPage from './pages/FinancialReviewPage';
+import FinancialResultPage from './pages/FinancialResultPage';
 import NotFound from './pages/NotFound';
 import PredictPage from './pages/PredictPage';
 import VehicleCatalogGate from './features/vehicle/VehicleCatalogGate';
@@ -27,6 +31,10 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/financial" element={<FinancialPage />} />
         <Route path="/financial/assets" element={<FinancialAssetsPage />} />
+        <Route path="/financial/credit" element={<FinancialCreditPage />} />
+        <Route path="/financial/vehicle" element={<FinancialVehiclePage />} />
+        <Route path="/financial/review" element={<FinancialReviewPage />} />
+        <Route path="/financial/result" element={<FinancialResultPage />} />
         <Route path="/companies" element={<CompanyListPage />} />
         <Route path="/companies/:code" element={<CompanyDetailPage />} />
         <Route path="/search" element={<VehicleCatalogGate><VehicleSearchPage /></VehicleCatalogGate>} />

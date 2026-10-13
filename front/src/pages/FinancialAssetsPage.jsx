@@ -26,7 +26,6 @@ export default function FinancialAssetsPage() {
   const navigate = useNavigate();
   const [assets, setAssets] = useState(state?.assets ?? { deposit: '', downPayment: '', emergency: '' });
   const [loans, setLoans] = useState(() => state?.loans ?? [createLoan()]);
-  const [notice, setNotice] = useState('');
   const income = Number(state?.values?.income || 0);
   const balance = loans.reduce((sum, loan) => sum + Number(loan.balance || 0), 0);
   const payment = loans.reduce((sum, loan) => sum + Number(loan.payment || 0), 0);
@@ -41,7 +40,7 @@ export default function FinancialAssetsPage() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    setNotice('자산·부채 입력을 완료했습니다. 다음 신용정보 화면은 준비 중입니다.');
+    navigate(state?.reviewReturn ? '/financial/review' : '/financial/credit', { state: { ...state, assets, loans, reviewReturn: false } });
   }
 
   function renderInput({ name, label, unit = '만 원', step = '0.01' }, loan) {
@@ -174,9 +173,8 @@ export default function FinancialAssetsPage() {
           >
             이전
           </button>
-          <button className="financial-next-button" type="submit">다음 단계</button>
+          <button className="financial-next-button" type="submit">{state?.reviewReturn ? '수정 완료' : '다음 단계'}</button>
         </div>
-        <p className="assets-notice" role="status">{notice}</p>
       </form>
     </div>
   );
