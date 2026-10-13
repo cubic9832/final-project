@@ -40,7 +40,7 @@ export default function FinancialAssetsPage() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    navigate('/financial/credit', { state: { ...state, assets, loans } });
+    navigate(state?.reviewReturn ? '/financial/review' : '/financial/credit', { state: { ...state, assets, loans, reviewReturn: false } });
   }
 
   function renderInput({ name, label, unit = '만 원', step = '0.01' }, loan) {
@@ -173,7 +173,7 @@ export default function FinancialAssetsPage() {
           >
             이전
           </button>
-          <button className="financial-next-button" type="submit">다음 단계</button>
+          <button className="financial-next-button" type="submit">{state?.reviewReturn ? '수정 완료' : '다음 단계'}</button>
         </div>
       </form>
     </div>

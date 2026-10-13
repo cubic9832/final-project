@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { calculateFinancialSummary } from '../features/financial/calculateFinancialSummary';
 import './FinancialPage.css';
 
 const fields = [
@@ -44,19 +45,14 @@ export default function FinancialPage() {
     extraFields.some(({ name }) => location.state?.values?.[name] !== undefined)
   );
 
-  const amount = (name) => Number(values[name] || 0);
-  const income = amount('income') + amount('extraIncome');
-  const expenses = ['housing', 'fixed', 'living', 'loan', 'transport', 'phone']
-    .reduce((sum, name) => sum + amount(name), 0);
-  const savings = amount('savings');
-  const available = income - expenses - savings;
+  const { income, expenses, savings, available } = calculateFinancialSummary(values);
   const format = (value) => value.toLocaleString('ko-KR', { maximumFractionDigits: 2 });
   const started = Object.values(values).some((value) => value !== '');
 
   function handleSubmit(event) {
     event.preventDefault();
     if (!event.currentTarget.reportValidity()) return;
-    navigate('/financial/assets', { state: { ...location.state, values } });
+    navigate(location.state?.reviewReturn ? '/financial/review' : '/financial/assets', { state: { ...location.state, values, reviewReturn: false } });
   }
 
   function renderField({ name, label, required }) {
@@ -154,7 +150,7 @@ export default function FinancialPage() {
           </aside>
         </div>
         <div className="financial-next-row">
-          <button className="financial-next-button" type="submit">다음 단계</button>
+          <button className="financial-next-button" type="submit">{location.state?.reviewReturn ? '수정 완료' : '다음 단계'}</button>
         </div>
       </form>
     </div>
