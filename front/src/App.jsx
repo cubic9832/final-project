@@ -12,6 +12,7 @@ import FinancialCreditPage from './pages/FinancialCreditPage';
 import FinancialVehiclePage from './pages/FinancialVehiclePage';
 import FinancialReviewPage from './pages/FinancialReviewPage';
 import FinancialResultPage from './pages/FinancialResultPage';
+import AdminPage from './pages/AdminPage';
 import MyPage from './pages/MyPage';
 import NotFound from './pages/NotFound';
 import PredictPage from './pages/PredictPage';
@@ -32,6 +33,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/mypage" element={<MyPage />} />
+        <Route path="/admin" element={<AdminPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/financial" element={<FinancialPage />} />
         <Route path="/financial/assets" element={<FinancialAssetsPage />} />
