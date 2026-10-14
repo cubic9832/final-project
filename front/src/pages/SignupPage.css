@@ -19,13 +19,7 @@
   font-size: 13px;
 }
 
-.signup-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.8fr) minmax(280px, 1fr);
-  gap: 24px;
-  align-items: start;
-}
-
+/* 기본 정보 카드가 화면 폭 전체를 쓴다 (계정 권한 안내 패널 제거) */
 .signup-form-card {
   padding: 32px;
   border: 1px solid #dfe7f1;
@@ -34,8 +28,7 @@
   box-shadow: 0 5px 16px #193b6406;
 }
 
-.signup-form-card h2,
-.signup-permission-panel > h2 {
+.signup-form-card h2 {
   font-size: 21px;
   letter-spacing: -0.5px;
 }
@@ -249,73 +242,6 @@
   text-decoration: underline;
 }
 
-.signup-permission-panel {
-  padding: 28px;
-  border-radius: 14px;
-  background: #edf3fa;
-}
-
-.signup-permission-panel > p {
-  margin: 6px 0 18px;
-  color: #708198;
-  font-size: 11px;
-}
-
-.signup-role-card {
-  margin-top: 12px;
-  padding: 18px;
-  border: 1px solid #e5ebf3;
-  border-radius: 10px;
-  background: #fff;
-}
-
-.signup-role-card h3 {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 15px;
-}
-
-.signup-role-card p {
-  margin-top: 8px;
-  color: #61738a;
-  font-size: 11px;
-  line-height: 1.7;
-}
-
-.signup-role-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.signup-role-dot-user {
-  background: #29b9aa;
-}
-
-.signup-role-dot-admin {
-  background: #356ca3;
-}
-
-.signup-safe-info {
-  margin-top: 18px;
-  padding: 14px 16px;
-  border-radius: 9px;
-  background: #e7f6f2;
-}
-
-.signup-safe-info strong {
-  color: #078579;
-  font-size: 11px;
-}
-
-.signup-safe-info p {
-  margin-top: 5px;
-  color: #617f7a;
-  font-size: 10px;
-  line-height: 1.7;
-}
-
 .signup-footer {
   margin-top: 24px;
   padding: 28px;
@@ -341,15 +267,8 @@
   line-height: 1.8;
 }
 
-@media (max-width: 820px) {
-  .signup-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 560px) {
-  .signup-form-card,
-  .signup-permission-panel {
+  .signup-form-card {
     padding: 24px;
   }
 

@@ -156,157 +156,135 @@ export default function SignupPage() {
         <p>첫차 의사결정을 위한 개인 재무 프로필을 안전하게 시작합니다.</p>
       </header>
 
-      <div className="signup-grid">
-        <section className="signup-form-card" aria-labelledby="signup-form-title">
-          <h2 id="signup-form-title">기본 정보</h2>
-          <p className="signup-subtitle">서비스 이용에 필요한 최소한의 정보만 받습니다.</p>
+      <section className="signup-form-card" aria-labelledby="signup-form-title">
+        <h2 id="signup-form-title">기본 정보</h2>
+        <p className="signup-subtitle">서비스 이용에 필요한 최소한의 정보만 받습니다.</p>
 
-          <form onSubmit={handleSubmit} noValidate>
-            {/* 시안 기준: 라벨은 왼쪽, 입력칸(+중복 확인 버튼)은 오른쪽 */}
-            <div className="signup-fields">
-              <div className="signup-field">
-                <label htmlFor="signup-nickname">이름 또는 닉네임</label>
-                <div className="signup-input-wrap">
-                  <div className="signup-input-row">
-                    <input
-                      id="signup-nickname"
-                      type="text"
-                      placeholder="첫차준비생"
-                      autoComplete="nickname"
-                      {...fieldProps('nickname')}
-                    />
-                    <button
-                      className="signup-check-button"
-                      type="button"
-                      onClick={() => handleDuplicateCheck('nickname')}
-                    >
-                      중복 확인
-                    </button>
-                  </div>
-                  {renderError('nickname')}
-                </div>
-              </div>
-
-              <div className="signup-field">
-                <label htmlFor="signup-email">이메일</label>
-                <div className="signup-input-wrap">
-                  <div className="signup-input-row">
-                    <input
-                      id="signup-email"
-                      type="email"
-                      placeholder="user@example.com"
-                      autoComplete="email"
-                      {...fieldProps('email')}
-                    />
-                    <button
-                      className="signup-check-button"
-                      type="button"
-                      onClick={() => handleDuplicateCheck('email')}
-                    >
-                      중복 확인
-                    </button>
-                  </div>
-                  {renderError('email')}
-                </div>
-              </div>
-
-              <div className="signup-field">
-                <label htmlFor="signup-password">비밀번호</label>
-                <div className="signup-input-wrap">
+        <form onSubmit={handleSubmit} noValidate>
+          {/* 시안 기준: 라벨은 왼쪽, 입력칸(+중복 확인 버튼)은 오른쪽 */}
+          <div className="signup-fields">
+            <div className="signup-field">
+              <label htmlFor="signup-nickname">이름 또는 닉네임</label>
+              <div className="signup-input-wrap">
+                <div className="signup-input-row">
                   <input
-                    id="signup-password"
-                    type={showPassword ? 'text' : 'password'}
-                    placeholder="영문·숫자 포함 8자 이상"
-                    autoComplete="new-password"
-                    {...fieldProps('password')}
+                    id="signup-nickname"
+                    type="text"
+                    placeholder="첫차준비생"
+                    autoComplete="nickname"
+                    {...fieldProps('nickname')}
                   />
-                  <ul className="signup-password-requirements" aria-label="비밀번호 조건">
-                    {passwordRequirements.map((requirement) => (
-                      <li className={requirement.met ? 'is-met' : ''} key={requirement.label}>
-                        <span aria-hidden="true">{requirement.met ? '✓' : '○'}</span>
-                        {requirement.label}
-                      </li>
-                    ))}
-                  </ul>
-                  {renderError('password')}
+                  <button
+                    className="signup-check-button"
+                    type="button"
+                    onClick={() => handleDuplicateCheck('nickname')}
+                  >
+                    중복 확인
+                  </button>
                 </div>
+                {renderError('nickname')}
               </div>
             </div>
 
-            <label className="signup-password-toggle" htmlFor="signup-show-password">
-              <input
-                id="signup-show-password"
-                type="checkbox"
-                checked={showPassword}
-                onChange={(event) => setShowPassword(event.target.checked)}
-              />
-              비밀번호 표시
-            </label>
-
-            <fieldset
-              className={errors.terms ? 'signup-terms has-error' : 'signup-terms'}
-              aria-describedby={errors.terms ? 'signup-terms-error' : undefined}
-            >
-              <legend>약관 동의</legend>
-              <div className="signup-term signup-term-all">
-                <label htmlFor="signup-term-all">
-                  <input id="signup-term-all" type="checkbox" checked={allAgreed} onChange={handleAllAgree} />
-                  <span>만 14세 이상이며 모든 약관에 동의합니다.</span>
-                </label>
-              </div>
-              {terms.map((term) => (
-                <div className="signup-term" key={term.id}>
-                  <label htmlFor={`signup-term-${term.id}`}>
-                    <input
-                      id={`signup-term-${term.id}`}
-                      name={term.id}
-                      type="checkbox"
-                      checked={agreements[term.id]}
-                      onChange={handleTermChange}
-                    />
-                    <span>
-                      [{term.required ? '필수' : '선택'}] {term.label}
-                    </span>
-                  </label>
-                  <span className="signup-term-detail">보기</span>
+            <div className="signup-field">
+              <label htmlFor="signup-email">이메일</label>
+              <div className="signup-input-wrap">
+                <div className="signup-input-row">
+                  <input
+                    id="signup-email"
+                    type="email"
+                    placeholder="user@example.com"
+                    autoComplete="email"
+                    {...fieldProps('email')}
+                  />
+                  <button
+                    className="signup-check-button"
+                    type="button"
+                    onClick={() => handleDuplicateCheck('email')}
+                  >
+                    중복 확인
+                  </button>
                 </div>
-              ))}
-            </fieldset>
-            {renderError('terms')}
+                {renderError('email')}
+              </div>
+            </div>
 
-            <p className="signup-notice" role="status">
-              {notice}
-            </p>
-            <button className="signup-submit" type="submit">
-              회원가입 완료
-            </button>
-          </form>
+            <div className="signup-field">
+              <label htmlFor="signup-password">비밀번호</label>
+              <div className="signup-input-wrap">
+                <input
+                  id="signup-password"
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="영문·숫자 포함 8자 이상"
+                  autoComplete="new-password"
+                  {...fieldProps('password')}
+                />
+                <ul className="signup-password-requirements" aria-label="비밀번호 조건">
+                  {passwordRequirements.map((requirement) => (
+                    <li className={requirement.met ? 'is-met' : ''} key={requirement.label}>
+                      <span aria-hidden="true">{requirement.met ? '✓' : '○'}</span>
+                      {requirement.label}
+                    </li>
+                  ))}
+                </ul>
+                {renderError('password')}
+              </div>
+            </div>
+          </div>
 
-          <p className="signup-login-link">
-            이미 계정이 있으신가요? <Link to="/login">로그인</Link>
+          <label className="signup-password-toggle" htmlFor="signup-show-password">
+            <input
+              id="signup-show-password"
+              type="checkbox"
+              checked={showPassword}
+              onChange={(event) => setShowPassword(event.target.checked)}
+            />
+            비밀번호 표시
+          </label>
+
+          <fieldset
+            className={errors.terms ? 'signup-terms has-error' : 'signup-terms'}
+            aria-describedby={errors.terms ? 'signup-terms-error' : undefined}
+          >
+            <legend>약관 동의</legend>
+            <div className="signup-term signup-term-all">
+              <label htmlFor="signup-term-all">
+                <input id="signup-term-all" type="checkbox" checked={allAgreed} onChange={handleAllAgree} />
+                <span>만 14세 이상이며 모든 약관에 동의합니다.</span>
+              </label>
+            </div>
+            {terms.map((term) => (
+              <div className="signup-term" key={term.id}>
+                <label htmlFor={`signup-term-${term.id}`}>
+                  <input
+                    id={`signup-term-${term.id}`}
+                    name={term.id}
+                    type="checkbox"
+                    checked={agreements[term.id]}
+                    onChange={handleTermChange}
+                  />
+                  <span>
+                    [{term.required ? '필수' : '선택'}] {term.label}
+                  </span>
+                </label>
+                <span className="signup-term-detail">보기</span>
+              </div>
+            ))}
+          </fieldset>
+          {renderError('terms')}
+
+          <p className="signup-notice" role="status">
+            {notice}
           </p>
-        </section>
+          <button className="signup-submit" type="submit">
+            회원가입 완료
+          </button>
+        </form>
 
-        <aside className="signup-permission-panel" aria-labelledby="permission-title">
-          <h2 id="permission-title">계정 권한 안내</h2>
-          <p>권한에 따라 사용할 수 있는 기능이 달라집니다.</p>
-
-          <div className="signup-role-card">
-            <h3><span className="signup-role-dot signup-role-dot-user" />사용자</h3>
-            <p>회원가입 시 기본 역할입니다. 분석 저장, 관심차량, 구매 계획 기능을 이용합니다.</p>
-          </div>
-
-          <div className="signup-role-card">
-            <h3><span className="signup-role-dot signup-role-dot-admin" />관리자</h3>
-            <p>관리자 계정은 별도 승인 방식으로 발급되며 일반 회원가입으로 생성할 수 없습니다.</p>
-          </div>
-
-          <div className="signup-safe-info">
-            <strong>안전한 정보 입력</strong>
-            <p>주민등록번호, 계좌번호, 카드번호는 수집하지 않습니다.</p>
-          </div>
-        </aside>
-      </div>
+        <p className="signup-login-link">
+          이미 계정이 있으신가요? <Link to="/login">로그인</Link>
+        </p>
+      </section>
 
       <footer className="signup-footer">
         <strong>CreditComPass Auto</strong>
