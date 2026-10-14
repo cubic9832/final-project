@@ -51,13 +51,17 @@
   letter-spacing: -0.5px;
 }
 
+/* 시안 기준: 라벨은 왼쪽, 입력칸은 오른쪽에 한 줄로 배치 */
 .login-field {
-  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+  margin-top: 18px;
 }
 
 .login-field label {
-  display: block;
-  margin-bottom: 7px;
+  padding-top: 12px;
   font-size: 12px;
   font-weight: 700;
   color: #536780;
@@ -65,7 +69,6 @@
 
 .login-field input {
   width: 100%;
-  max-width: 300px;
   padding: 11px 13px;
   border: 1px solid #cbd9ec;
   border-radius: 8px;
@@ -82,6 +85,16 @@
 .login-field input:focus-visible {
   outline: 2px solid #09988f;
   outline-offset: 2px;
+}
+
+.login-field input.has-error {
+  border-color: #d14343;
+}
+
+.login-error {
+  margin-top: 6px;
+  color: #d14343;
+  font-size: 11px;
 }
 
 .login-checkbox {

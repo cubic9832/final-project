@@ -5,9 +5,11 @@ import CompanyDetailPage from './pages/CompanyDetailPage';
 import CompanyListPage from './pages/CompanyListPage';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import MyPage from './pages/MyPage';
 import NotFound from './pages/NotFound';
 import PredictPage from './pages/PredictPage';
 import SearchPage from './pages/SearchPage';
+import SignupPage from './pages/SignupPage';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/mypage" element={<MyPage />} />
+        <Route path="/signup" element={<SignupPage />} />
         <Route path="/companies" element={<CompanyListPage />} />
         <Route path="/companies/:code" element={<CompanyDetailPage />} />
         <Route path="/search" element={<SearchPage />} />

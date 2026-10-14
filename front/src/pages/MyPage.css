@@ -1,0 +1,529 @@
+/* 마이페이지 — Figma FLOW 05-2 기준 색상·간격 */
+
+.my-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 12px 0 48px;
+  color: #152238;
+}
+
+.my-page h1,
+.my-page h2,
+.my-page h3 {
+  letter-spacing: -0.5px;
+}
+
+/* 공통 카드 */
+.my-card {
+  border: 1px solid #dce3ec;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.my-section-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.my-section-heading h2 {
+  font-size: 22px;
+}
+
+.my-section-heading p {
+  margin-top: 5px;
+  color: #6d7988;
+  font-size: 13px;
+}
+
+.my-text-button {
+  flex-shrink: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #1d5ea8;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.my-text-button:hover {
+  text-decoration: underline;
+}
+
+.my-page button:focus-visible {
+  outline: 2px solid #0c9b8e;
+  outline-offset: 3px;
+}
+
+/* 제목 영역 */
+.my-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.my-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.my-heading h1 {
+  font-size: 30px;
+}
+
+.my-heading p {
+  margin-top: 8px;
+  color: #6d7988;
+  font-size: 14px;
+}
+
+.my-example-badge {
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #fff7e3;
+  color: #8b6100;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.my-role-badge {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #eaf7f5;
+  color: #0c766d;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.my-badge-small {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+/* 프로필 + 요약 카드 */
+.my-overview {
+  display: grid;
+  grid-template-columns: minmax(300px, 400px) 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.my-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 26px;
+}
+
+.my-profile-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.my-avatar {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #12335b;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.my-identity h2 {
+  font-size: 22px;
+}
+
+.my-identity p {
+  margin-top: 5px;
+  color: #6d7988;
+  font-size: 13px;
+}
+
+.my-profile-badges {
+  display: flex;
+  gap: 8px;
+}
+
+.my-tag-badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #edf3fa;
+  color: #1d5ea8;
+  font-size: 12px;
+}
+
+.my-outline-button {
+  align-self: flex-start;
+  height: 46px;
+  padding: 0 20px;
+  border: 1px solid #b8c7d9;
+  border-radius: 12px;
+  background: #fff;
+  color: #12335b;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.my-outline-button:hover {
+  background: #f6f8fb;
+}
+
+.my-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.my-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 132px;
+  padding: 20px;
+  border: 1px solid #dce3ec;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.my-metric span,
+.my-metric small {
+  color: #6d7988;
+}
+
+.my-metric span {
+  font-size: 13px;
+}
+
+.my-metric strong {
+  color: #12335b;
+  font-size: 24px;
+}
+
+.my-metric small {
+  font-size: 12px;
+}
+
+.my-metric-highlight {
+  border-color: #cdebe6;
+  background: #eaf7f5;
+}
+
+.my-metric-highlight strong {
+  color: #0c766d;
+}
+
+/* 관심차량 + 분석 기록·구매계획 */
+.my-saved {
+  display: grid;
+  grid-template-columns: minmax(0, 520fr) minmax(0, 656fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.my-favorites {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.my-vehicle-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 400px;
+  padding: 18px;
+}
+
+.my-vehicle-image {
+  display: grid;
+  place-items: center;
+  height: 168px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #e3eefb, #f2f7fd);
+}
+
+.my-vehicle-image span {
+  width: 55%;
+  height: 34%;
+  border-radius: 18px;
+  background: #6f8fb2;
+}
+
+.my-fit-badge {
+  align-self: flex-start;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: #eaf7f5;
+  color: #0c766d;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.my-vehicle-card h3 {
+  font-size: 20px;
+}
+
+.my-vehicle-summary {
+  color: #5e6b7a;
+  font-size: 14px;
+}
+
+.my-vehicle-stats {
+  display: flex;
+  gap: 22px;
+}
+
+.my-vehicle-stats dt {
+  color: #6d7988;
+  font-size: 12px;
+}
+
+.my-vehicle-stats dd {
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.my-vehicle-reason {
+  padding: 14px;
+  border-radius: 10px;
+  background: #f2f8ff;
+}
+
+.my-vehicle-reason strong {
+  color: #1d5ea8;
+  font-size: 12px;
+}
+
+.my-vehicle-reason p {
+  margin-top: 5px;
+  color: #44556b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.my-history-plan {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.my-history {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+}
+
+.my-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.my-history-record {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #f6f8fb;
+}
+
+.my-record-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #edf3fa;
+  color: #1d5ea8;
+}
+
+.my-record-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.my-record-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.my-record-copy strong {
+  font-size: 14px;
+}
+
+.my-record-copy span {
+  color: #6d7988;
+  font-size: 12px;
+}
+
+.my-risk {
+  flex-shrink: 0;
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: #fff7e3;
+  color: #8b6100;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.my-risk-low {
+  background: #eaf7f5;
+  color: #0c766d;
+}
+
+/* 저장한 구매계획 (남색 카드) */
+.my-plan {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 18px;
+  background: #12335b;
+  color: #fff;
+}
+
+.my-plan-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.my-plan-heading span {
+  color: #79d7cc;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.my-plan-heading h2 {
+  margin-top: 5px;
+  font-size: 18px;
+}
+
+.my-plan-dday {
+  color: #bfd0e1 !important;
+  font-weight: 400 !important;
+}
+
+.my-plan-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.my-plan-progress-labels span {
+  color: #bfd0e1;
+}
+
+.my-plan-track {
+  height: 10px;
+  border-radius: 999px;
+  background: #dce3ec;
+  overflow: hidden;
+}
+
+.my-plan-track span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: #79d7cc;
+}
+
+.my-plan-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.my-plan-summary div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #ffffff14;
+}
+
+.my-plan-summary span {
+  color: #bfd0e1;
+  font-size: 12px;
+}
+
+.my-plan-summary strong {
+  font-size: 14px;
+}
+
+.my-plan-button {
+  align-self: flex-start;
+  height: 46px;
+  padding: 0 20px;
+  border: 1px solid #ffffff40;
+  border-radius: 12px;
+  background: #12335b;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.my-plan-button:hover {
+  background: #1b4472;
+}
+
+/* 계정 및 데이터 */
+.my-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+}
+
+.my-settings ul {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.my-settings li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: #44556b;
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .my-overview,
+  .my-saved {
+    grid-template-columns: 1fr;
+  }
+
+  .my-vehicle-card {
+    max-width: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .my-metrics,
+  .my-plan-summary {
+    grid-template-columns: 1fr;
+  }
+}
