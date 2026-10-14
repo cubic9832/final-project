@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import SignupCompleteModal from '../features/auth/SignupCompleteModal';
+import TermsModal from '../features/auth/TermsModal';
 import './SignupPage.css';
 
 // 개별 약관. "전체 동의"는 이 목록의 체크 상태로 계산한다
+// title 은 "보기" 팝업 제목에 쓴다
 const terms = [
-  { id: 'service', label: '서비스 이용약관에 동의합니다.', required: true },
-  { id: 'privacy', label: '개인정보 수집·이용에 동의합니다.', required: true },
-  { id: 'updates', label: '차량 추천 업데이트 소식을 받습니다.', required: false },
+  { id: 'service', title: '서비스 이용약관', label: '서비스 이용약관에 동의합니다.', required: true },
+  { id: 'privacy', title: '개인정보 수집·이용 동의', label: '개인정보 수집·이용에 동의합니다.', required: true },
+  { id: 'updates', title: '차량 추천 업데이트 수신', label: '차량 추천 업데이트 소식을 받습니다.', required: false },
 ];
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -71,6 +74,8 @@ export default function SignupPage() {
   const [notice, setNotice] = useState('');
   // "중복 확인" 결과 안내 문구 { nickname, email }. 서버 연결 후 실제 결과로 바꾼다
   const [duplicateNotices, setDuplicateNotices] = useState({});
+  const [viewingTerm, setViewingTerm] = useState(null); // "보기"로 연 약관 (없으면 null)
+  const [isCompleteOpen, setIsCompleteOpen] = useState(false); // 회원가입 완료 팝업 열림 여부
 
   const passwordRequirements = getPasswordRequirements(form.password);
   const allAgreed = terms.every((term) => agreements[term.id]);
@@ -120,8 +125,16 @@ export default function SignupPage() {
       setNotice('');
       return;
     }
-    // 백엔드(POST /api/v1/auth/signup) 연결 전이라 안내만 표시한다
-    setNotice('입력 확인이 끝났습니다. 실제 회원가입은 서버 연결 후 동작합니다.');
+    // 백엔드(POST /api/v1/auth/signup) 연결 전이라 완료 팝업을 미리보기로 띄운다
+    setNotice('');
+    setIsCompleteOpen(true);
+  }
+
+  // 약관 팝업에서 "동의하고 닫기": 해당 약관을 체크하고 팝업을 닫는다
+  function handleAgreeTerm() {
+    setAgreements((prev) => ({ ...prev, [viewingTerm.id]: true }));
+    setErrors((prev) => ({ ...prev, terms: undefined }));
+    setViewingTerm(null);
   }
 
   // 입력칸에 오류 상태와 오류 문구 연결(aria)을 붙인다
@@ -267,7 +280,14 @@ export default function SignupPage() {
                     [{term.required ? '필수' : '선택'}] {term.label}
                   </span>
                 </label>
-                <span className="signup-term-detail">보기</span>
+                <button
+                  className="signup-term-detail"
+                  type="button"
+                  aria-label={`${term.title} 보기`}
+                  onClick={() => setViewingTerm(term)}
+                >
+                  보기
+                </button>
               </div>
             ))}
           </fieldset>
@@ -291,6 +311,19 @@ export default function SignupPage() {
         <p>첫차 구매 전, 감당 가능한 비용부터 확인하세요.</p>
         <small>본 서비스는 교육·시연용이며 실제 NICE·KCB 신용점수나 금융기관 심사 결과를 의미하지 않습니다.</small>
       </footer>
+
+      {/* 팝업: 약관 보기, 회원가입 완료 */}
+      {viewingTerm && (
+        <TermsModal
+          term={viewingTerm}
+          agreed={agreements[viewingTerm.id]}
+          onAgree={handleAgreeTerm}
+          onClose={() => setViewingTerm(null)}
+        />
+      )}
+      {isCompleteOpen && (
+        <SignupCompleteModal email={form.email.trim()} onClose={() => setIsCompleteOpen(false)} />
+      )}
     </div>
   );
 }

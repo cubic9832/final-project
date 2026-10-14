@@ -1,5 +1,9 @@
 import { useRef, useState } from 'react';
-import ProfileEditModal from '../components/ProfileEditModal';
+import AccountManageModal from '../features/auth/AccountManageModal';
+import AuthToast from '../features/auth/AuthToast';
+import EmailNotificationModal from '../features/auth/EmailNotificationModal';
+import { NOTIFICATION_OPTIONS } from '../features/auth/notificationOptions';
+import ProfileEditModal from '../features/auth/ProfileEditModal';
 import './MyPage.css';
 
 // ── 예시 데이터 (Figma 2조 류상민 ACCOUNT 01 기준) ──
@@ -44,22 +48,35 @@ const savedPlan = {
   shortage: '300만 원',
 };
 
-const accountSettings = [
-  { label: '이메일 알림 · 중요 계획 알림만 수신', action: '설정' },
-  { label: '내 데이터 다운로드 및 회원 탈퇴', action: '관리' },
-];
-
 export default function MyPage() {
   const [profile, setProfile] = useState(exampleProfile);
   const [isEditOpen, setIsEditOpen] = useState(false);
   const editButtonRef = useRef(null); // 팝업을 닫으면 이 버튼으로 포커스를 돌려준다
+  // 계정 및 데이터 팝업: 'notification'(이메일 알림 설정) | 'account'(데이터·탈퇴) | null
+  const [settingsModal, setSettingsModal] = useState(null);
+  const [notification, setNotification] = useState('IMPORTANT'); // 이메일 알림 범위 (예시 값)
+  const [toast, setToast] = useState(''); // 저장 결과 알림 문구 (빈 문자열이면 숨김)
 
   const planPercent = Math.round((savedPlan.saved / savedPlan.goal) * 100);
+  const notificationLabel = NOTIFICATION_OPTIONS.find((option) => option.value === notification).label;
 
   // 팝업에서 저장한 닉네임을 화면에 반영한다 (서버 저장은 API 연결 단계에서)
   function handleSaveProfile(nickname) {
     setProfile((prev) => ({ ...prev, nickname }));
     closeEdit();
+    setToast('프로필을 저장했어요.');
+  }
+
+  function handleSaveNotification(value) {
+    setNotification(value);
+    setSettingsModal(null);
+    setToast('이메일 알림 설정을 저장했어요.');
+  }
+
+  // 탈퇴 API 연결 전이라 팝업만 닫고 안내한다
+  function handleWithdraw() {
+    setSettingsModal(null);
+    setToast('회원 탈퇴는 서버 연결 후 처리됩니다.');
   }
 
   function closeEdit() {
@@ -233,16 +250,22 @@ export default function MyPage() {
           </div>
         </div>
         <ul>
-          {accountSettings.map((setting) => (
-            <li key={setting.label}>
-              <span>{setting.label}</span>
-              <button className="my-text-button" type="button">{setting.action}</button>
-            </li>
-          ))}
+          <li>
+            <span>이메일 알림 · {notificationLabel}</span>
+            <button className="my-text-button" type="button" onClick={() => setSettingsModal('notification')}>
+              설정
+            </button>
+          </li>
+          <li>
+            <span>내 데이터 다운로드 및 회원 탈퇴</span>
+            <button className="my-text-button" type="button" onClick={() => setSettingsModal('account')}>
+              관리
+            </button>
+          </li>
         </ul>
       </section>
 
-      {/* 열 때마다 새로 만들어서 입력값이 이전 상태로 남지 않게 한다 */}
+      {/* 팝업은 열 때마다 새로 만들어서 입력값이 이전 상태로 남지 않게 한다 */}
       {isEditOpen && (
         <ProfileEditModal
           nickname={profile.nickname}
@@ -251,6 +274,17 @@ export default function MyPage() {
           onClose={closeEdit}
         />
       )}
+      {settingsModal === 'notification' && (
+        <EmailNotificationModal
+          currentValue={notification}
+          onSave={handleSaveNotification}
+          onClose={() => setSettingsModal(null)}
+        />
+      )}
+      {settingsModal === 'account' && (
+        <AccountManageModal onWithdraw={handleWithdraw} onClose={() => setSettingsModal(null)} />
+      )}
+      {toast && <AuthToast message={toast} onClose={() => setToast('')} />}
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Car } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import PasswordResetModal from '../features/auth/PasswordResetModal';
 import theme from '../styles/theme';
 import './LoginPage.css';
 
@@ -27,6 +28,7 @@ export default function LoginPage() {
   const [rememberEmail, setRememberEmail] = useState(true);
   // 서버 응답 메시지 자리. API 연결 후 LOGIN_FAILED 등의 오류 문구를 여기에 넣는다
   const [notice, setNotice] = useState('');
+  const [isResetOpen, setIsResetOpen] = useState(false); // 비밀번호 찾기 팝업 열림 여부
 
   // 입력할 때마다 값을 저장하고, 그 칸의 오류와 안내 문구는 지운다
   function handleChange(event) {
@@ -129,8 +131,7 @@ export default function LoginPage() {
                 />
                 이메일 저장
               </label>
-              {/* 비밀번호 찾기 팝업은 다음 단계에서 연결한다 */}
-              <button className="login-text-button" type="button">
+              <button className="login-text-button" type="button" onClick={() => setIsResetOpen(true)}>
                 비밀번호 찾기
               </button>
             </div>
@@ -183,6 +184,11 @@ export default function LoginPage() {
         <p>첫차 구매 전, 감당 가능한 비용부터 확인하세요.</p>
         <small>본 서비스는 교육·시연용이며 실제 NICE·KCB 신용점수나 금융기관 심사 결과를 의미하지 않습니다.</small>
       </footer>
+
+      {/* 비밀번호 찾기 팝업. 로그인 칸에 적은 이메일을 미리 채워 준다 */}
+      {isResetOpen && (
+        <PasswordResetModal initialEmail={form.email} onClose={() => setIsResetOpen(false)} />
+      )}
     </div>
   );
 }

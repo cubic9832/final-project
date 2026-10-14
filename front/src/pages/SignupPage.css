@@ -199,7 +199,15 @@
 
 .signup-term-detail {
   flex: 0 0 auto;
+  border: 0;
+  padding: 0;
+  background: transparent;
   color: #356ca3;
+  font-size: inherit;
+}
+
+.signup-term-detail:hover {
+  text-decoration: underline;
 }
 
 .signup-notice:not(:empty) {

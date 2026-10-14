@@ -1,0 +1,32 @@
+/* 회원가입 완료 팝업 — 공통 부분은 AuthModal.css */
+
+.signup-complete-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-mint-tint);
+  color: var(--color-mint-strong);
+}
+
+.signup-complete-text {
+  margin-top: var(--space-16);
+  color: var(--color-text);
+  font-size: var(--font-body);
+  line-height: 1.7;
+}
+
+.signup-complete-account {
+  margin-top: var(--space-12);
+  padding: var(--space-12);
+  border-radius: var(--radius-sm);
+  background: var(--color-background);
+  color: var(--color-text-sub);
+  font-size: var(--font-caption);
+  word-break: break-all;
+}
+
+.signup-complete-account strong {
+  color: var(--color-primary);
+}
