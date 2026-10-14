@@ -1,0 +1,51 @@
+.result-page { --result-primary: #203960; --result-muted: #75849b; --result-border: #e2e8f0; }
+.result-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 20px; }
+.result-card { padding: 24px; border: 1px solid var(--result-border); border-radius: 12px; background: white; box-shadow: 0 4px 12px #20396005; }
+.result-card h2 { font-size: 16px; }
+.result-card > p, .result-estimate-heading p { margin-top: 6px; color: var(--result-muted); font-size: 11px; }
+.result-metrics h2 { color: var(--result-muted); font-size: 12px; font-weight: 400; }
+.result-metrics strong { display: block; margin-top: 8px; font-size: 24px; color: var(--result-primary); }
+.result-metrics .result-caution { color: #a16c00; }
+.result-metrics .result-budget { color: #087f78; font-size: 22px; }
+.result-chart-grid, .result-factor-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 20px; }
+.result-stacked-bar { display: flex; height: 24px; margin-top: 20px; border-radius: 6px; overflow: hidden; background: #edf2f8; }
+.result-stacked-bar span { flex-basis: 0; }
+.result-distribution { display: grid; gap: 12px; margin-top: 16px; font-size: 12px; }
+.result-distribution > div { display: flex; justify-content: space-between; gap: 12px; }
+.result-distribution dt { display: flex; align-items: center; gap: 8px; color: #526780; }
+.result-distribution i { width: 7px; height: 7px; border-radius: 50%; }
+.result-distribution dd { font-weight: 700; }
+.result-chart-legend { display: flex; justify-content: flex-end; gap: 12px; margin-top: 8px; font-size: 11px; color: #526780; }
+.result-chart-legend span::before { content: ''; display: inline-block; width: 8px; height: 8px; margin-right: 4px; background: #b9cce5; border-radius: 2px; }
+.result-chart-legend span:last-child::before { background: #54b19d; }
+.result-bars { display: flex; justify-content: space-around; gap: 16px; margin-top: 8px; }
+.result-bar-group { flex: 1; text-align: center; font-size: 11px; color: #526780; }
+.result-bar-pair { height: 120px; display: flex; align-items: flex-end; justify-content: center; gap: 8px; margin-bottom: 8px; }
+.result-bar-pair span { width: 24px; border-radius: 4px; background: #b9cce5; }
+.result-bar-pair span:last-child { background: #54b19d; }
+.result-factors { padding: 24px; border-radius: 12px; min-height: 144px; }
+.result-factors h2 { font-size: 14px; }
+.result-factors ul { list-style: disc; padding-left: 16px; margin-top: 12px; font-size: 12px; line-height: 1.8; }
+.result-factors li + li { margin-top: 6px; }
+.result-higher { background: #fff7e2; color: #926500; }
+.result-lower { background: #e9f7f5; color: #087f78; }
+.result-estimate-heading { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.result-estimate-heading > strong { font-size: 13px; color: #087f78; }
+.result-table-wrap { overflow-x: auto; margin-top: 16px; }
+.result-estimate table { border-collapse: collapse; width: 100%; font-size: 12px; text-align: left; }
+.result-estimate th, .result-estimate td { padding: 10px 12px; }
+.result-estimate thead { background: #edf3fa; color: var(--result-primary); }
+.result-estimate tbody tr:nth-child(even) { background: #f7f8fb; }
+.result-estimate tbody th { font-weight: 400; }
+.result-card .result-assumptions { line-height: 1.8; margin-top: 16px; }
+.result-warning { margin-top: 16px; padding: 16px; border-radius: 12px; background: #fff7e2; }
+.result-warning h2 { font-size: 12px; color: #926500; }
+.result-warning p, .result-status { margin-top: 6px; color: #75849b; font-size: 11px; line-height: 1.8; }
+.result-navigation { margin-top: 20px; }
+.result-previous { border: 1px solid #cbd9ec; border-radius: 8px; background: white; color: var(--result-primary); font-size: 12px; font-weight: 700; }
+.result-previous:hover { background: #edf3fa; }
+.result-navigation > .financial-next-button { font-size: 11px; }
+.result-status:empty { display: none; }
+.result-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.result-missing { margin-bottom: 16px; padding: 12px 16px; border-radius: 8px; background: #fff7e2; color: #926500; font-size: 12px; }
+@media (max-width: 700px) { .result-metrics, .result-chart-grid, .result-factor-grid { grid-template-columns: 1fr; } }

@@ -1,0 +1,26 @@
+# 개발용 MySQL. 접속 정보는 back/src/main/resources/application.yml 과 같아야 한다.
+# 테이블은 여기서 만들지 않고 Spring Boot 시작 시 Flyway(back/src/main/resources/db/migration)가 적용한다.
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: final_sample
+      MYSQL_USER: server
+      MYSQL_PASSWORD: server
+      TZ: Asia/Seoul
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "${DB_PORT:-3306}:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -userver -pserver --silent"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+
+volumes:
+  db-data:

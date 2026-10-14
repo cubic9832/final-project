@@ -7,6 +7,11 @@ spring:
     username: server
     password: server
     driver-class-name: com.mysql.cj.jdbc.Driver
+  # 서버 시작 시 classpath:db/migration 의 SQL 을 버전 순서대로 적용
+  flyway:
+    # 테이블이 이미 있는 DB 에서도 V1 부터 적용
+    baseline-on-migrate: true
+    baseline-version: 0
 
 # 서버 포트 (React 의 vite.config.js API_TARGET 과 같아야 한다)
 server:

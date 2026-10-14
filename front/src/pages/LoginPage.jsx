@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { Car } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import theme from '../styles/theme';
 import './LoginPage.css';
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -149,9 +151,7 @@ export default function LoginPage() {
 
         <aside className="login-demo-card" aria-labelledby="demo-title">
           <div className="login-demo-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="m5 10 2-5h10l2 5M5 10h14v8H5zM8 18v2m8-2v2M8 13h2m4 0h2" />
-            </svg>
+            <Car size={theme.iconSize.lg} strokeWidth={1.5} />
           </div>
           <span className="login-demo-eyebrow">로그인 없이 먼저 확인</span>
           <h2 id="demo-title">예시 조건으로 간편 체험해 보세요.</h2>
