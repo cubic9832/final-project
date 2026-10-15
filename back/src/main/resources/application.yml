@@ -26,6 +26,14 @@ mybatis:
     # 컬럼명이 sector_name 처럼 snake_case 여도 자바 필드 sectorName 에 자동 매핑
     map-underscore-to-camel-case: true
 
+# 로그인 토큰 설정
+jwt:
+  # 토큰 서명 키. 32바이트(영문 32자) 이상이어야 서버가 시작된다.
+  # 환경변수 JWT_SECRET 이 있으면 그 값을 쓰고, 없으면 아래 로컬 개발용 값을 쓴다. 배포할 때는 반드시 환경변수로 바꾼다.
+  secret: ${JWT_SECRET:creditcompass-local-dev-secret-key-change-me-0123456789}
+  # access token 유효 시간 (30m = 30분, 10s = 10초)
+  access-token-validity: 30m
+
 # 실행되는 SQL 을 콘솔에서 보기 위한 로그 레벨
 logging:
   level:
