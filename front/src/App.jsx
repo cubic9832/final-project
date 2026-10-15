@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 
 import Layout from './components/Layout';
+import RequireAuth from './components/RequireAuth';
 import CompanyDetailPage from './pages/CompanyDetailPage';
 import CompanyListPage from './pages/CompanyListPage';
 import AboutPage from './pages/AboutPage';
@@ -32,7 +33,10 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/mypage" element={<MyPage />} />
+        {/* 로그인이 필요한 화면 — 로그인 전이면 RequireAuth 가 /login 으로 보낸다 */}
+        <Route element={<RequireAuth />}>
+          <Route path="/mypage" element={<MyPage />} />
+        </Route>
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/financial" element={<FinancialPage />} />

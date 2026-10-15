@@ -1,4 +1,5 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { getMe } from '../api/memberApi';
 import AccountManageModal from '../features/auth/AccountManageModal';
 import AuthToast from '../features/auth/AuthToast';
 import EmailNotificationModal from '../features/auth/EmailNotificationModal';
@@ -6,14 +7,20 @@ import { NOTIFICATION_OPTIONS } from '../features/auth/notificationOptions';
 import ProfileEditModal from '../features/auth/ProfileEditModal';
 import './MyPage.css';
 
-// ── 예시 데이터 (Figma 2조 류상민 ACCOUNT 01 기준) ──
-// 백엔드 연결 전이라 화면 확인용 값만 둔다. 실제 회원·금액 정보가 아니다.
-const exampleProfile = {
-  nickname: '김첫차',
-  email: 'firstcar@example.com',
-  role: '사용자',
+// 서버의 role 값 → 화면에 보여 줄 이름
+const ROLE_LABELS = { USER: '사용자', ADMIN: '관리자' };
+
+// 프로필 카드: 닉네임 · 이메일 · 권한은 서버(GET /members/me)에서 받아 채운다.
+// tag 는 아직 저장하는 곳이 없어 예시 값으로 둔다.
+const initialProfile = {
+  nickname: '',
+  email: '',
+  role: '',
   tag: '취업 2년 차',
 };
+
+// ── 예시 데이터 (Figma 2조 류상민 ACCOUNT 01 기준) ──
+// 아래 활동 · 관심차량 · 분석 · 구매계획은 백엔드 연결 전이라 화면 확인용 값만 둔다. 실제 회원·금액 정보가 아니다.
 
 const metrics = [
   { label: '관심차량', value: '4대', note: '최근 추가 2일 전' },
@@ -49,7 +56,9 @@ const savedPlan = {
 };
 
 export default function MyPage() {
-  const [profile, setProfile] = useState(exampleProfile);
+  const [profile, setProfile] = useState(initialProfile);
+  const [meStatus, setMeStatus] = useState('loading'); // 내 정보 불러오기: 'loading' | 'done' | 'error'
+  const [reloadKey, setReloadKey] = useState(0); // 값이 바뀌면 내 정보를 다시 불러온다 (다시 시도 버튼)
   const [isEditOpen, setIsEditOpen] = useState(false);
   const editButtonRef = useRef(null); // 팝업을 닫으면 이 버튼으로 포커스를 돌려준다
   // 계정 및 데이터 팝업: 'notification'(이메일 알림 설정) | 'account'(데이터·탈퇴) | null
@@ -57,10 +66,39 @@ export default function MyPage() {
   const [notification, setNotification] = useState('IMPORTANT'); // 이메일 알림 범위 (예시 값)
   const [toast, setToast] = useState(''); // 저장 결과 알림 문구 (빈 문자열이면 숨김)
 
+  // 화면에 들어오면(또는 다시 시도하면) 서버에서 내 정보를 불러와 프로필 카드에 넣는다
+  useEffect(() => {
+    let ignore = false; // 응답이 오기 전에 화면을 떠나면 결과를 버린다
+    getMe()
+      .then((me) => {
+        if (ignore) return;
+        setProfile((prev) => ({
+          ...prev,
+          nickname: me.nickName,
+          email: me.email,
+          role: ROLE_LABELS[me.role] ?? me.role,
+        }));
+        setMeStatus('done');
+      })
+      .catch(() => {
+        // 토큰 만료(401)면 client 인터셉터가 로그인 정보를 지워 RequireAuth 가 /login 으로 보낸다.
+        // 그 밖의 실패(서버 꺼짐 등)는 다시 시도 버튼을 보여 준다.
+        if (!ignore) setMeStatus('error');
+      });
+    return () => {
+      ignore = true;
+    };
+  }, [reloadKey]);
+
+  function handleRetry() {
+    setMeStatus('loading');
+    setReloadKey((key) => key + 1);
+  }
+
   const planPercent = Math.round((savedPlan.saved / savedPlan.goal) * 100);
   const notificationLabel = NOTIFICATION_OPTIONS.find((option) => option.value === notification).label;
 
-  // 팝업에서 저장한 닉네임을 화면에 반영한다 (서버 저장은 API 연결 단계에서)
+  // 팝업에서 저장한 닉네임을 화면에 반영한다 (서버 저장은 아직 없다 → 다시 들어오면 서버 값으로 돌아간다)
   function handleSaveProfile(nickname) {
     setProfile((prev) => ({ ...prev, nickname }));
     closeEdit();
@@ -90,36 +128,55 @@ export default function MyPage() {
         <div>
           <div className="my-title-row">
             <h1>마이페이지</h1>
-            <span className="my-example-badge">예시 데이터</span>
+            <span className="my-example-badge">일부 예시 데이터</span>
           </div>
           <p>저장한 분석 결과와 관심차량, 구매계획을 한곳에서 관리하세요.</p>
         </div>
-        <span className="my-role-badge">{profile.role}</span>
+        {meStatus === 'done' && <span className="my-role-badge">{profile.role}</span>}
       </header>
 
       <div className="my-overview">
         <section className="my-card my-profile" aria-labelledby="my-profile-name">
-          <div className="my-profile-row">
-            <div className="my-avatar" aria-hidden="true">
-              {profile.nickname.charAt(0)}
-            </div>
-            <div className="my-identity">
-              <h2 id="my-profile-name">{profile.nickname}님</h2>
-              <p>{profile.email}</p>
-            </div>
-          </div>
-          <div className="my-profile-badges">
-            <span className="my-role-badge my-badge-small">{profile.role}</span>
-            <span className="my-tag-badge">{profile.tag}</span>
-          </div>
-          <button
-            ref={editButtonRef}
-            className="my-outline-button"
-            type="button"
-            onClick={() => setIsEditOpen(true)}
-          >
-            프로필 수정
-          </button>
+          {meStatus === 'loading' && (
+            <p id="my-profile-name" className="my-profile-status" role="status">
+              내 정보를 불러오는 중입니다…
+            </p>
+          )}
+          {meStatus === 'error' && (
+            <>
+              <p id="my-profile-name" className="my-profile-status" role="alert">
+                내 정보를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.
+              </p>
+              <button className="my-outline-button" type="button" onClick={handleRetry}>
+                다시 시도
+              </button>
+            </>
+          )}
+          {meStatus === 'done' && (
+            <>
+              <div className="my-profile-row">
+                <div className="my-avatar" aria-hidden="true">
+                  {profile.nickname.charAt(0)}
+                </div>
+                <div className="my-identity">
+                  <h2 id="my-profile-name">{profile.nickname}님</h2>
+                  <p>{profile.email}</p>
+                </div>
+              </div>
+              <div className="my-profile-badges">
+                <span className="my-role-badge my-badge-small">{profile.role}</span>
+                <span className="my-tag-badge">{profile.tag}</span>
+              </div>
+              <button
+                ref={editButtonRef}
+                className="my-outline-button"
+                type="button"
+                onClick={() => setIsEditOpen(true)}
+              >
+                프로필 수정
+              </button>
+            </>
+          )}
         </section>
 
         <section className="my-metrics" aria-label="내 활동 요약">

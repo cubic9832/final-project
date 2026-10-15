@@ -528,3 +528,11 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* 내 정보 불러오는 중 · 실패 안내 (프로필 카드 안) */
+.my-profile-status {
+  margin: 0;
+  color: #44556b;
+  font-size: 14px;
+  line-height: 1.6;
+}
