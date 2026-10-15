@@ -1,5 +1,5 @@
 // 회원가입 완료 팝업 (Figma: AUTH 02-2 · 회원가입 완료 팝업)
-// 서버 연결 전에는 입력 검증을 통과했을 때 미리보기로 띄운다.
+// 회원가입 API(POST /api/v1/auth/signup)가 성공한 뒤에 띄운다.
 import { CircleCheck } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import theme from '../../styles/theme';
@@ -20,7 +20,6 @@ export default function SignupCompleteModal({ email, onClose }) {
       <p className="signup-complete-account">
         <strong>{email}</strong> 계정으로 가입되었습니다.
       </p>
-      <p className="auth-modal-hint">서버 연결 전 미리보기라 실제 계정은 만들어지지 않았습니다.</p>
 
       <div className="auth-modal-actions">
         <button className="auth-modal-button" type="button" onClick={() => navigate('/')}>

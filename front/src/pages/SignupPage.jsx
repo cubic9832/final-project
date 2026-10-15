@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { signup } from '../api/authApi';
 import SignupCompleteModal from '../features/auth/SignupCompleteModal';
 import TermsModal from '../features/auth/TermsModal';
 import './SignupPage.css';
@@ -76,6 +77,9 @@ export default function SignupPage() {
   const [duplicateNotices, setDuplicateNotices] = useState({});
   const [viewingTerm, setViewingTerm] = useState(null); // "보기"로 연 약관 (없으면 null)
   const [isCompleteOpen, setIsCompleteOpen] = useState(false); // 회원가입 완료 팝업 열림 여부
+  const [submitting, setSubmitting] = useState(false); // 가입 요청 중 (버튼 비활성, 중복 요청 방지)
+  const [serverError, setServerError] = useState(''); // 특정 칸에 붙일 수 없는 서버 오류 문구
+  const [joinedEmail, setJoinedEmail] = useState(''); // 가입된 이메일 (서버가 정리한 값, 완료 팝업에 표시)
 
   const passwordRequirements = getPasswordRequirements(form.password);
   const allAgreed = terms.every((term) => agreements[term.id]);
@@ -87,17 +91,16 @@ export default function SignupPage() {
     setErrors((prev) => ({ ...prev, [name]: undefined }));
     setDuplicateNotices((prev) => ({ ...prev, [name]: undefined }));
     setNotice('');
+    setServerError('');
   }
 
-  // 중복 확인: 먼저 형식을 검사하고, 통과하면 서버 확인 자리에 안내를 표시한다
-  // 서버 연결 후 409 응답이면 errors에 "이미 사용 중인 이름 또는 닉네임입니다." /
-  // "이미 가입된 이메일입니다."를 넣는다
+  // 중복 확인: 형식만 검사한다. 중복 여부는 전용 API 없이 가입 요청(409 EMAIL_DUPLICATED)에서 확인한다
   function handleDuplicateCheck(name) {
     const message = duplicateValidators[name](form[name]);
     setErrors((prev) => ({ ...prev, [name]: message || undefined }));
     setDuplicateNotices((prev) => ({
       ...prev,
-      [name]: message ? undefined : '형식이 올바릅니다. 중복 여부는 서버 연결 후 확인됩니다.',
+      [name]: message ? undefined : '형식이 올바릅니다. 중복 여부는 가입할 때 확인됩니다.',
     }));
   }
 
@@ -116,18 +119,38 @@ export default function SignupPage() {
     setNotice('');
   }
 
-  function handleSubmit(event) {
+  // 제출: 화면에서 먼저 검사하고, 통과하면 POST /api/v1/auth/signup 을 부른다
+  async function handleSubmit(event) {
     event.preventDefault();
+    if (submitting) return; // 요청 중 중복 제출 방지
+
     const nextErrors = validateSignup(form, agreements);
     setErrors(nextErrors);
-
-    if (Object.keys(nextErrors).length > 0) {
-      setNotice('');
-      return;
-    }
-    // 백엔드(POST /api/v1/auth/signup) 연결 전이라 완료 팝업을 미리보기로 띄운다
     setNotice('');
-    setIsCompleteOpen(true);
+    setServerError('');
+    if (Object.keys(nextErrors).length > 0) return;
+
+    setSubmitting(true);
+    try {
+      // 약관 동의는 users 테이블에 저장할 곳이 없어 화면에서만 검사한다
+      const member = await signup({
+        email: form.email.trim(),
+        password: form.password,
+        nickName: form.nickname.trim(),
+      });
+      setJoinedEmail(member.email);
+      setIsCompleteOpen(true);
+    } catch (error) {
+      // 서버 실패 봉투: { error: { code, message } }. 실패해도 입력값은 그대로 둔다
+      const { code, message } = error.response?.data?.error ?? {};
+      if (code === 'EMAIL_DUPLICATED') {
+        setErrors((prev) => ({ ...prev, email: message }));
+      } else {
+        setServerError(message ?? '회원가입에 실패했습니다. 잠시 후 다시 시도해 주세요.');
+      }
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   // 약관 팝업에서 "동의하고 닫기": 해당 약관을 체크하고 팝업을 닫는다
@@ -296,8 +319,13 @@ export default function SignupPage() {
           <p className="signup-notice" role="status">
             {notice}
           </p>
-          <button className="signup-submit" type="submit">
-            회원가입 완료
+          {serverError && (
+            <p className="signup-error" role="alert">
+              {serverError}
+            </p>
+          )}
+          <button className="signup-submit" type="submit" disabled={submitting}>
+            {submitting ? '가입 중…' : '회원가입 완료'}
           </button>
         </form>
 
@@ -322,7 +350,7 @@ export default function SignupPage() {
         />
       )}
       {isCompleteOpen && (
-        <SignupCompleteModal email={form.email.trim()} onClose={() => setIsCompleteOpen(false)} />
+        <SignupCompleteModal email={joinedEmail} onClose={() => setIsCompleteOpen(false)} />
       )}
     </div>
   );

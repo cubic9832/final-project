@@ -231,8 +231,14 @@
   font-weight: 700;
 }
 
-.signup-submit:hover {
+.signup-submit:hover:not(:disabled) {
   background: #244a75;
+}
+
+/* 가입 요청 중에는 버튼을 비활성으로 표시 */
+.signup-submit:disabled {
+  opacity: 0.6;
+  cursor: default;
 }
 
 .signup-login-link {
