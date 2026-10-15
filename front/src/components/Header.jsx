@@ -1,5 +1,7 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { logout } from '../api/authApi';
+import useAuthStore from '../stores/useAuthStore';
 
 const HeaderWrapper = styled.header`
   background: var(--color-surface);
@@ -68,7 +70,37 @@ const LoginLink = styled(NavLink)`
   }
 `;
 
+// 로그인 후 우측 영역: "닉네임님"(마이페이지 링크) + 로그아웃 버튼
+const AccountArea = styled.div`
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  font-size: var(--font-body);
+
+  a {
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  a:hover {
+    color: var(--color-blue-strong);
+  }
+`;
+
+const LogoutButton = styled(LoginLink).attrs({ as: 'button', type: 'button' })`
+  border: 0;
+  cursor: pointer;
+`;
+
 export default function Header() {
+  const navigate = useNavigate();
+  const member = useAuthStore((state) => state.member); // 로그인 상태가 바뀌면 헤더가 다시 그려진다
+
+  function handleLogout() {
+    logout();
+    navigate('/');
+  }
+
   return (
     <HeaderWrapper>
       <HeaderContent>
@@ -89,7 +121,14 @@ export default function Header() {
             </li>
           </ul>
         </Navigation>
-        <LoginLink to="/login">로그인</LoginLink>
+        {member ? (
+          <AccountArea>
+            <NavLink to="/mypage">{member.nickName}님</NavLink>
+            <LogoutButton onClick={handleLogout}>로그아웃</LogoutButton>
+          </AccountArea>
+        ) : (
+          <LoginLink to="/login">로그인</LoginLink>
+        )}
       </HeaderContent>
     </HeaderWrapper>
   );

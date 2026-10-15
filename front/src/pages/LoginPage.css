@@ -151,17 +151,19 @@
   color: var(--color-surface);
 }
 
-.login-submit:hover {
+.login-submit:hover:not(:disabled) {
   background: var(--color-primary-hover);
 }
 
-.login-notice {
-  color: var(--color-text-sub);
-  font-size: var(--font-caption);
+/* 로그인 요청 중에는 버튼을 비활성으로 표시 */
+.login-submit:disabled {
+  opacity: 0.6;
+  cursor: default;
 }
 
-.login-notice:not(:empty) {
-  margin-bottom: var(--space-16);
+/* 서버 로그인 실패 문구 (예: 이메일 또는 비밀번호가 올바르지 않습니다) — 버튼 바로 위 */
+.login-failed {
+  margin: 0 0 var(--space-16);
 }
 
 .login-card-footer {

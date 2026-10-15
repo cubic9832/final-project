@@ -1,11 +1,32 @@
 import { useState } from 'react';
 import { Car } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { login } from '../api/authApi';
 import PasswordResetModal from '../features/auth/PasswordResetModal';
 import theme from '../styles/theme';
 import './LoginPage.css';
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// "이메일 저장"을 체크하고 로그인하면 이메일만 브라우저에 저장한다 (비밀번호 · 토큰은 저장하지 않는다)
+const SAVED_EMAIL_KEY = 'savedLoginEmail';
+
+// 저장해 둔 이메일 읽기. 브라우저 저장소를 쓸 수 없는 환경이면 빈 값
+function readSavedEmail() {
+  try {
+    return localStorage.getItem(SAVED_EMAIL_KEY) ?? '';
+  } catch {
+    return '';
+  }
+}
+
+function writeSavedEmail(email) {
+  try {
+    if (email) localStorage.setItem(SAVED_EMAIL_KEY, email);
+    else localStorage.removeItem(SAVED_EMAIL_KEY);
+  } catch {
+    // 저장소를 쓸 수 없어도 로그인은 계속 진행한다
+  }
+}
 
 // 입력값을 검사해 { 항목 이름: 오류 메시지 } 를 돌려준다. 오류가 없으면 빈 객체
 function validateLogin(form) {
@@ -22,33 +43,49 @@ function validateLogin(form) {
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ email: '', password: '' });
+  const location = useLocation();
+  // 저장해 둔 이메일이 있으면 처음부터 채워 둔다
+  const [form, setForm] = useState(() => ({ email: readSavedEmail(), password: '' }));
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [rememberEmail, setRememberEmail] = useState(true);
-  // 서버 응답 메시지 자리. API 연결 후 LOGIN_FAILED 등의 오류 문구를 여기에 넣는다
-  const [notice, setNotice] = useState('');
+  const [loginError, setLoginError] = useState(''); // 서버가 돌려준 실패 문구 (예: LOGIN_FAILED)
+  const [submitting, setSubmitting] = useState(false); // 로그인 요청 중 (버튼 비활성, 중복 요청 방지)
   const [isResetOpen, setIsResetOpen] = useState(false); // 비밀번호 찾기 팝업 열림 여부
 
-  // 입력할 때마다 값을 저장하고, 그 칸의 오류와 안내 문구는 지운다
+  // 입력할 때마다 값을 저장하고, 그 칸의 오류와 실패 문구는 지운다
   function handleChange(event) {
     const { name, value } = event.target;
     setForm((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: undefined }));
-    setNotice('');
+    setLoginError('');
   }
 
-  function handleSubmit(event) {
+  // 제출: 화면에서 먼저 검사하고, 통과하면 POST /api/v1/auth/login 을 부른다
+  async function handleSubmit(event) {
     event.preventDefault();
+    if (submitting) return; // 요청 중 중복 제출 방지
+
     const nextErrors = validateLogin(form);
     setErrors(nextErrors);
+    setLoginError('');
+    if (Object.keys(nextErrors).length > 0) return;
 
-    if (Object.keys(nextErrors).length > 0) {
-      setNotice('');
-      return;
+    setSubmitting(true);
+    try {
+      const email = form.email.trim();
+      await login({ email, password: form.password }); // 성공하면 토큰 · 회원 정보가 스토어에 저장된다
+      writeSavedEmail(rememberEmail ? email : '');
+      // 로그인이 필요한 화면에서 넘어왔으면 그 화면으로, 아니면 메인으로 이동한다
+      navigate(location.state?.from ?? '/', { replace: true });
+    } catch (error) {
+      // 실패해도 이메일은 그대로 두고 비밀번호만 비운다
+      const message = error.response?.data?.error?.message;
+      setLoginError(message ?? '로그인에 실패했습니다. 잠시 후 다시 시도해 주세요.');
+      setForm((prev) => ({ ...prev, password: '' }));
+    } finally {
+      setSubmitting(false);
     }
-    // 백엔드(POST /api/v1/auth/login) 연결 전이라 안내만 표시한다
-    setNotice('입력 확인이 끝났습니다. 실제 로그인은 서버 연결 후 동작합니다.');
   }
 
   // 입력칸에 오류 상태와 오류 문구 연결(aria)을 붙인다
@@ -136,9 +173,13 @@ export default function LoginPage() {
               </button>
             </div>
 
-            <p className="login-notice" role="status">{notice}</p>
-            <button className="login-submit" type="submit">
-              로그인
+            {loginError && (
+              <p className="login-error login-failed" role="alert">
+                {loginError}
+              </p>
+            )}
+            <button className="login-submit" type="submit" disabled={submitting}>
+              {submitting ? '로그인 중…' : '로그인'}
             </button>
           </form>
 

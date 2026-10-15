@@ -1,6 +1,8 @@
 package com.kh.back.auth.controller;
 
+import com.kh.back.auth.dto.LoginRequest;
 import com.kh.back.auth.dto.SignupRequest;
+import com.kh.back.auth.dto.TokenResponse;
 import com.kh.back.auth.service.AuthService;
 import com.kh.back.common.dto.ApiResponse;
 import com.kh.back.member.dto.MemberResponse;
@@ -28,5 +30,11 @@ public class AuthApiController {
     @PostMapping("/signup")
     public ResponseEntity<ApiResponse<MemberResponse>> signup(@Valid @RequestBody SignupRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(ApiResponse.ok(authService.signup(request)));
+    }
+
+    // POST /api/v1/auth/login — 로그인. 성공하면 200 과 { accessToken, member }
+    @PostMapping("/login")
+    public ResponseEntity<ApiResponse<TokenResponse>> login(@Valid @RequestBody LoginRequest request) {
+        return ResponseEntity.ok(ApiResponse.ok(authService.login(request)));
     }
 }
