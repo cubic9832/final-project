@@ -55,7 +55,7 @@ Windows에서는 `.venv\Scripts\activate` 로 가상환경을 켭니다.
 
 ```bash
 python -m recommender train --segment domestic-car
-python -m recommender train --segment imported-car --data ../data/generated/imported-car
+python -m recommender train --segment imported-car
 ```
 
 - `--data`를 생략하면 `data/seed/{segment}`를 읽습니다.
@@ -120,18 +120,22 @@ python -m recommender evaluate --run runs/domestic-car/20261016T163000 --data ..
 
 `recommender/runs/`는 Git에 포함하지 않습니다.
 
+`report.json`의 `train`, `validation`, `evaluation`은 검증 top-3이 가장 높았던 에포크로 되돌린 가중치에서 측정합니다. `selected_epoch`가 그 에포크 번호이고, `epochs`는 그 후보의 에포크별 학습·검증 top-3과 로그손실입니다. 평가는 모델을 고른 뒤에만 계산합니다.
+
+학습 top-3이 검증보다 크게 높고 에포크가 지날수록 간격이 벌어지거나 검증 로그손실이 다시 올라가면 과학습입니다. 선택한 에포크가 그 이전인지 같이 봅니다. 검증과 평가가 비슷하면 검증으로 고른 결과가 평가 분할에 기대지 않은 것입니다.
+
 | 파일 | 내용 |
 | --- | --- |
 | `preprocessor.json` | 수치 평균·표준편차, 범주 코드, 라벨과 모델·차체·차급 |
 | `model.json` | MLP 설정과 입력·출력 크기 |
 | `model.pt` | 가중치 |
-| `report.json` | 고른 설정, 후보별 검증 top-3, 검증·평가 지표 |
+| `report.json` | 고른 설정, 학습·검증·평가 지표, 선택 에포크와 에포크별 곡선, 후보별 검증 top-3 |
 
 ## 공통 로직과 교체
 
 조인, 누수 컬럼 제거, 분할, 전처리, top-3·로그손실, 산출물 저장은 학습과 추론이 같이 쓰는 공통 코드입니다. 모델만 바꿉니다.
 
-다른 구조를 넣을 때는 `fit`, `predict_proba`, `save`, `describe`를 가진 클래스를 만들고 `train`의 후보로 넘깁니다. 데이터와 지표 코드는 그대로 둡니다. 후보를 넘기지 않으면 `candidate_rankers`의 MLP를 비교합니다.
+다른 구조를 넣을 때는 `fit`, `predict_proba`, `save`, `describe`, `learning_curve`를 가진 클래스를 만들고 `train`의 후보로 넘깁니다. 데이터와 지표 코드는 그대로 둡니다. 후보를 넘기지 않으면 `candidate_rankers`의 MLP를 비교합니다.
 
 ## 테스트
 

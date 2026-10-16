@@ -71,6 +71,18 @@ class ModelTest(unittest.TestCase):
             )
             report = read_report(run)
             self.assertEqual(report["selected"]["hidden"], [8, 4])
+            for split_name in ("train", "validation", "evaluation"):
+                self.assertIn("top3", report[split_name])
+                self.assertIn("log_loss", report[split_name])
+            self.assertEqual(len(report["epochs"]), 2)
+            self.assertEqual([row["epoch"] for row in report["epochs"]], [1, 2])
+            chosen = max(
+                report["epochs"],
+                key=lambda row: (row["validation_top3"], -row["validation_log_loss"]),
+            )
+            self.assertEqual(report["selected_epoch"], chosen["epoch"])
+            self.assertAlmostEqual(report["validation"]["top3"], chosen["validation_top3"])
+            self.assertAlmostEqual(report["train"]["top3"], chosen["train_top3"])
             income = NUMERIC_FEATURES.index("개인_연간세전소득_원")
             saved = json.loads((run / "preprocessor.json").read_text(encoding="utf-8"))
             self.assertAlmostEqual(saved["means"][income], float(np.log1p(1000)))

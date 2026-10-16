@@ -18,6 +18,8 @@ class Ranker(Protocol):
 
     def describe(self) -> dict[str, object]: ...
 
+    def learning_curve(self) -> tuple[int, list[dict[str, float | int]]]: ...
+
 
 def select_best(scored: Sequence[tuple[Ranker, float]]) -> tuple[Ranker, float]:
     """검증 top-3이 가장 높은 모델을 고른다. 같으면 앞에 있는 모델을 유지한다."""

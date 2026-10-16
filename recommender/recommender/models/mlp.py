@@ -66,6 +66,8 @@ class MlpRanker:
         self._net: _MlpNet | None = None
         self._category_sizes: tuple[int, ...] | None = None
         self._class_count: int | None = None
+        self.epoch_history: list[dict[str, float | int]] = []
+        self.selected_epoch: int | None = None
 
     @property
     def category_sizes(self) -> tuple[int, ...]:
@@ -102,7 +104,9 @@ class MlpRanker:
 
         best_state: dict[str, torch.Tensor] | None = None
         best_key: tuple[float, float] | None = None
-        for _ in range(self.config.epochs):
+        best_epoch = 0
+        history: list[dict[str, float | int]] = []
+        for epoch in range(1, self.config.epochs + 1):
             net.train()
             for numeric, categorical, labels in _batches(
                 train_numeric,
@@ -115,13 +119,25 @@ class MlpRanker:
                 loss = loss_fn(net(numeric, categorical), labels)
                 loss.backward()
                 optimizer.step()
-            probabilities = _probabilities(net, valid)
-            key = (
-                top_k_hit_rate(probabilities, valid.labels, k=3),
-                -log_loss(probabilities, valid.labels),
+            train_probabilities = _probabilities(net, train)
+            valid_probabilities = _probabilities(net, valid)
+            train_top3 = top_k_hit_rate(train_probabilities, train.labels, k=3)
+            train_loss = log_loss(train_probabilities, train.labels)
+            valid_top3 = top_k_hit_rate(valid_probabilities, valid.labels, k=3)
+            valid_loss = log_loss(valid_probabilities, valid.labels)
+            history.append(
+                {
+                    "epoch": epoch,
+                    "train_top3": train_top3,
+                    "train_log_loss": train_loss,
+                    "validation_top3": valid_top3,
+                    "validation_log_loss": valid_loss,
+                }
             )
+            key = (valid_top3, -valid_loss)
             if best_key is None or key > best_key:
                 best_key = key
+                best_epoch = epoch
                 best_state = {name: value.detach().cpu().clone() for name, value in net.state_dict().items()}
         if best_state is None:
             raise ValueError("학습 에포크가 없습니다")
@@ -130,6 +146,8 @@ class MlpRanker:
         self._net = net
         self._category_sizes = train.category_sizes
         self._class_count = train.class_count
+        self.epoch_history = history
+        self.selected_epoch = best_epoch
 
     def predict_proba(self, data: PreparedSplit) -> np.ndarray:
         net = self._require_net()
@@ -181,6 +199,11 @@ class MlpRanker:
 
     def describe(self) -> dict[str, object]:
         return self.config.to_dict()
+
+    def learning_curve(self) -> tuple[int, list[dict[str, float | int]]]:
+        if self.selected_epoch is None:
+            raise ValueError("학습 곡선이 없습니다")
+        return self.selected_epoch, self.epoch_history
 
     def _require_net(self) -> "_MlpNet":
         if self._net is None:
