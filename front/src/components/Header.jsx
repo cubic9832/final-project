@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { logout } from '../api/authApi';
 import useAuthStore from '../stores/useAuthStore';
+import ExploreMenu from './ExploreMenu';
 
 const HeaderWrapper = styled.header`
   background: var(--color-surface);
@@ -116,9 +117,7 @@ export default function Header() {
             <li>
               <NavLink to="/search">차량 찾기</NavLink>
             </li>
-            <li>
-              <NavLink to="/vehicles/compare">차량 비교</NavLink>
-            </li>
+            <ExploreMenu />
           </ul>
         </Navigation>
         {member ? (

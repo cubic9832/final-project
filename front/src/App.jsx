@@ -26,6 +26,7 @@ import { VehicleSearchPage, VehicleResultsPage } from './features/vehicle/Vehicl
 import VehicleDetailPage from './features/vehicle/VehicleDetailPage';
 import VehicleComparePage from './features/vehicle/VehicleComparePage';
 import VehicleSimulationPage from './features/vehicle/VehicleSimulationPage';
+import TasteTestPage from './features/taste-test/TasteTestPage';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/taste-test" element={<TasteTestPage />} />
         <Route path="/login" element={<LoginPage />} />
         {/* 로그인이 필요한 화면 — 로그인 전이면 RequireAuth 가 /login 으로 보낸다 */}
         <Route element={<RequireAuth />}>
