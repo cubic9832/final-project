@@ -10,6 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.Date;
 import javax.crypto.SecretKey;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -28,13 +29,17 @@ public class JwtProvider {
 
     private final SecretKey key;
     private final Duration accessTokenValidity;
+    @Getter
+    private final Duration refreshTokenValidity; // refresh token 은 JWT 가 아니지만 유효 시간 설정을 여기서 함께 관리한다
 
     // application.yml 의 jwt.* 값을 생성자로 받는다 ("30m" 같은 글자가 Duration 으로 바뀐다)
     public JwtProvider(
             @Value("${jwt.secret}") String secret,
-            @Value("${jwt.access-token-validity}") Duration accessTokenValidity) {
+            @Value("${jwt.access-token-validity}") Duration accessTokenValidity,
+            @Value("${jwt.refresh-token-validity}") Duration refreshTokenValidity) {
         this.key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8)); // 32바이트 미만이면 서버 시작 시 오류
         this.accessTokenValidity = accessTokenValidity;
+        this.refreshTokenValidity = refreshTokenValidity;
     }
 
     // 회원 번호와 역할을 담은 access token 을 만든다

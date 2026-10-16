@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+import { refreshAccessToken } from './api/tokenRefresh';
 import Layout from './components/Layout';
 import RequireAuth from './components/RequireAuth';
 import CompanyDetailPage from './pages/CompanyDetailPage';
@@ -24,8 +26,16 @@ import { VehicleSearchPage, VehicleResultsPage } from './features/vehicle/Vehicl
 import VehicleDetailPage from './features/vehicle/VehicleDetailPage';
 import VehicleComparePage from './features/vehicle/VehicleComparePage';
 import VehicleSimulationPage from './features/vehicle/VehicleSimulationPage';
+import useAuthStore from './stores/useAuthStore';
 
 function App() {
+  // 앱이 처음 열릴 때 한 번: refresh token 쿠키가 있으면 로그인 상태를 되살린다 (새로고침 · 브라우저 재시작 후 로그인 유지)
+  useEffect(() => {
+    refreshAccessToken()
+      .catch(() => {}) // 쿠키가 없거나 만료 → 로그아웃 상태로 시작 (정상)
+      .finally(() => useAuthStore.getState().setInitialized());
+  }, []);
+
   return (
     <VehicleProvider>
     <Routes>
