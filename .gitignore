@@ -1,2 +1,5 @@
 .idea/
 .DS_Store
+
+# 생성기 출력. 시드(data/seed)는 포함한다.
+data/generated/
