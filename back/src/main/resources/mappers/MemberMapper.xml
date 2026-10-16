@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원(users 테이블). 테이블은 Flyway V1__create_schema.sql 이 만든다 -->
+<mapper namespace="com.kh.back.member.mapper.MemberMapper">
+
+    <!-- 컬럼은 snake_case, 필드는 camelCase. map-underscore-to-camel-case 설정이 자동으로 맞춰 준다 -->
+    <select id="findById" resultType="MemberDto">
+        SELECT id, email, password_hash, nick_name, role, created_at
+        FROM users
+        WHERE id = #{id}
+    </select>
+
+    <select id="findByEmail" resultType="MemberDto">
+        SELECT id, email, password_hash, nick_name, role, created_at
+        FROM users
+        WHERE email = #{email}
+    </select>
+
+    <!-- useGeneratedKeys: AUTO_INCREMENT 로 만들어진 번호를 id 필드에 넣어 준다 -->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        INSERT INTO users (email, password_hash, nick_name, role)
+        VALUES (#{email}, #{passwordHash}, #{nickName}, #{role})
+    </insert>
+
+</mapper>

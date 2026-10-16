@@ -1,0 +1,44 @@
+/* 결과 알림(토스트) — 화면 아래 가운데에 잠깐 표시 */
+
+.auth-toast {
+  position: fixed;
+  bottom: var(--space-24);
+  left: 50%;
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  max-width: calc(100vw - 32px);
+  padding: var(--space-12) var(--space-12) var(--space-12) var(--space-16);
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: #fff;
+  font-size: var(--font-body);
+  transform: translateX(-50%);
+}
+
+.auth-toast svg:first-child {
+  flex-shrink: 0;
+  color: var(--color-mint);
+}
+
+.auth-toast-close {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-on-primary);
+}
+
+.auth-toast-close:hover {
+  background: var(--color-tint-on-primary);
+}
+
+.auth-toast-close:focus-visible {
+  outline: 2px solid var(--color-mint);
+  outline-offset: 2px;
+}

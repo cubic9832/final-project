@@ -1,6 +1,9 @@
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+import { refreshAccessToken } from './api/tokenRefresh';
 import Layout from './components/Layout';
+import RequireAuth from './components/RequireAuth';
 import CompanyDetailPage from './pages/CompanyDetailPage';
 import CompanyListPage from './pages/CompanyListPage';
 import AboutPage from './pages/AboutPage';
@@ -12,16 +15,27 @@ import FinancialCreditPage from './pages/FinancialCreditPage';
 import FinancialVehiclePage from './pages/FinancialVehiclePage';
 import FinancialReviewPage from './pages/FinancialReviewPage';
 import FinancialResultPage from './pages/FinancialResultPage';
+import AdminPage from './pages/AdminPage';
+import MyPage from './pages/MyPage';
 import NotFound from './pages/NotFound';
 import PredictPage from './pages/PredictPage';
+import SignupPage from './pages/SignupPage';
 import VehicleCatalogGate from './features/vehicle/VehicleCatalogGate';
 import { VehicleProvider } from './features/vehicle/VehicleContext';
 import { VehicleSearchPage, VehicleResultsPage } from './features/vehicle/VehicleSearchPage';
 import VehicleDetailPage from './features/vehicle/VehicleDetailPage';
 import VehicleComparePage from './features/vehicle/VehicleComparePage';
 import VehicleSimulationPage from './features/vehicle/VehicleSimulationPage';
+import useAuthStore from './stores/useAuthStore';
 
 function App() {
+  // 앱이 처음 열릴 때 한 번: refresh token 쿠키가 있으면 로그인 상태를 되살린다 (새로고침 · 브라우저 재시작 후 로그인 유지)
+  useEffect(() => {
+    refreshAccessToken()
+      .catch(() => {}) // 쿠키가 없거나 만료 → 로그아웃 상태로 시작 (정상)
+      .finally(() => useAuthStore.getState().setInitialized());
+  }, []);
+
   return (
     <VehicleProvider>
     <Routes>
@@ -29,6 +43,12 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/login" element={<LoginPage />} />
+        {/* 로그인이 필요한 화면 — 로그인 전이면 RequireAuth 가 /login 으로 보낸다 */}
+        <Route element={<RequireAuth />}>
+          <Route path="/mypage" element={<MyPage />} />
+        </Route>
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/signup" element={<SignupPage />} />
         <Route path="/financial" element={<FinancialPage />} />
         <Route path="/financial/assets" element={<FinancialAssetsPage />} />
         <Route path="/financial/credit" element={<FinancialCreditPage />} />
