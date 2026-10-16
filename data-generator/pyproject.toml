@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "datagen"
+version = "1.0.0"
+description = "차량 보유자 더미 데이터 생성기"
+requires-python = ">=3.11"
+dependencies = ["numpy"]
+
+[project.scripts]
+datagen = "datagen.cli:main"
+
+[tool.setuptools]
+packages = ["datagen"]

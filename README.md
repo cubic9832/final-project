@@ -39,3 +39,23 @@ cd front && npm install && npm run dev
 ## DB 스키마
 
 테이블은 서버 시작 시 Flyway 가 `back/src/main/resources/db/migration` 의 SQL 로 자동 생성합니다. 변경 방법은 [back/SCHEMA.md](back/SCHEMA.md) 를 참고하세요.
+
+## 더미 데이터
+
+시드는 `data/seed`, 생성 결과는 `data/generated` 입니다. 생성 결과는 Git에 포함하지 않습니다. 준비 방법과 컬럼 규칙은 [data-generator/README.md](data-generator/README.md) 를 참고하세요.
+
+```bash
+cd data-generator
+python -m datagen generate --segment domestic-car --rows 100000 --seed 42
+python -m datagen generate --segment imported-car --rows 100000 --seed 42
+```
+
+## 차량 추천 모델
+
+구매 전 프로필로 차량 라벨을 학습하고 상위 k대를 추천합니다. 데이터 파이프라인과 실행 방법은 [recommender/README.md](recommender/README.md)를 참고하세요.
+
+```bash
+cd recommender
+python -m recommender train --segment domestic-car
+python -m recommender predict --run runs/domestic-car/<시각> --profile profile.json --k 3
+```
