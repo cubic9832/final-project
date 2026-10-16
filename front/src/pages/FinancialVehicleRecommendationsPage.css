@@ -1,0 +1,41 @@
+.financial-vehicle-recommendations { max-width: 1120px; margin: 0 auto; color: var(--color-primary); }
+.financial-vehicle-recommendations h1 { font-size: 28px; margin: 0 0 var(--space-8); }
+.financial-vehicle-recommendations header > p { font-size: 12px; color: var(--color-muted); }
+.fvr-summary, .fvr-badge { display: inline-block; background: var(--color-mint-tint); color: var(--color-mint-strong); border-radius: var(--radius-sm); font-size: 12px; padding: var(--space-8); }
+.fvr-toolbar { display: flex; gap: var(--space-16); margin: var(--space-16) 0; }
+.fvr-search { display: flex; flex: 1; align-items: center; gap: var(--space-8); padding: 0 var(--space-16); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); }
+.fvr-search input { width: 100%; min-width: 0; border: 0; background: transparent; padding: var(--space-8) 0; min-height: 44px; outline: 0; font: inherit; font-size: 14px; }
+.fvr-search:focus-within { outline: 2px solid var(--color-blue); outline-offset: 2px; }
+.fvr-sort select { min-height: 44px; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-8); background: var(--color-surface); color: var(--color-primary); }
+.fvr-filters { display: flex; flex-wrap: wrap; gap: var(--space-8); }
+.fvr-filters button { min-height: 40px; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-8) var(--space-16); background: var(--color-surface); color: var(--color-primary); }
+.fvr-filters button[aria-pressed=true] { background: var(--color-primary); color: var(--color-surface); }
+.fvr-list-heading { display: flex; justify-content: space-between; align-items: center; gap: var(--space-16); margin: var(--space-24) 0 var(--space-16); }
+.fvr-list-heading h2 { font-size: 16px; margin: 0; }
+.fvr-list-heading small { font-size: 12px; color: var(--color-muted); }
+.fvr-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-16); }
+.fvr-card { display: flex; flex-direction: column; padding: var(--space-16); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); color: inherit; text-decoration: none; }
+.fvr-card:hover { border-color: var(--color-blue); }
+.fvr-image { height: 180px; background: var(--color-blue-tint); border-radius: var(--radius-md); overflow: hidden; }
+.fvr-image .vehicle-photo { width: 100%; height: 180px; object-fit: contain; }
+.fvr-image .vehicle-art { height: 180px; min-height: 180px; }
+.fvr-badge { align-self: flex-start; margin: var(--space-16) 0 var(--space-8); }
+.fvr-card h3 { font-size: 20px; margin: 0 0 var(--space-8); }
+.fvr-card > p { font-size: 12px; color: var(--color-muted); margin: 0 0 var(--space-8); }
+.fvr-trim { min-height: 40px; }
+.fvr-card dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-8); margin: var(--space-16) 0; }
+.fvr-card dt { font-size: 12px; color: var(--color-muted); }
+.fvr-card dd { font-size: 14px; font-weight: 700; margin: var(--space-8) 0 0; }
+.fvr-reason { margin-top: auto; padding: var(--space-16); background: var(--color-blue-tint); border-radius: var(--radius-md); font-size: 12px; }
+.fvr-reason p { line-height: 1.6; margin: var(--space-8) 0 0; }
+.fvr-disclaimer { font-size: 12px; color: var(--color-muted); line-height: 1.7; margin: var(--space-24) 0; }
+.financial-vehicle-recommendations footer { display: flex; justify-content: center; gap: var(--space-16); margin: var(--space-32) 0; }
+.financial-vehicle-recommendations footer a, .fvr-message a, .fvr-message button { display: inline-flex; align-items: center; min-height: 44px; padding: var(--space-8) var(--space-16); border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-primary); font-size: 14px; font-weight: 700; }
+.financial-vehicle-recommendations footer a:first-child { background: var(--color-primary); color: var(--color-surface); }
+.fvr-message { padding: var(--space-32); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); }
+.fvr-message button { margin-right: var(--space-8); }
+.fvr-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.financial-vehicle-recommendations :is(button, select, a):focus-visible { outline: 2px solid var(--color-blue); outline-offset: 3px; }
+@media (max-width: 1024px) { .fvr-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 768px) { .fvr-toolbar { flex-direction: column; } .fvr-sort select { width: 100%; } .fvr-list-heading { align-items: flex-start; flex-direction: column; } }
+@media (max-width: 480px) { .fvr-grid { grid-template-columns: 1fr; } .financial-vehicle-recommendations h1 { font-size: 24px; } .financial-vehicle-recommendations footer { flex-wrap: wrap; } }
