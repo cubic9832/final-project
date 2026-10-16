@@ -1,4 +1,4 @@
-// 값의 기준은 docs/ui.md다. GlobalStyle이 CSS 변수(--color-*, --font-* 등)로 내보낸다.
+// 값의 기준은 .agents/skills/ui-standards/SKILL.md다. GlobalStyle이 CSS 변수(--color-*, --font-* 등)로 내보낸다.
 const theme = {
   colors: {
     primary: '#203960',

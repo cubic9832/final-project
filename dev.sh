@@ -4,6 +4,7 @@
 #   ./dev.sh down    DB 컨테이너 중지 (데이터 유지)
 #   ./dev.sh reset   DB 컨테이너와 데이터 삭제 (다음 실행 때 Flyway 가 처음부터 적용)
 #   DB_PORT=3307 ./dev.sh   3306 을 이미 쓰고 있을 때
+# Windows 는 Git Bash 없이 dev.cmd 를 사용한다.
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
