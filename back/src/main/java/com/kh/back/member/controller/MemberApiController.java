@@ -21,6 +21,7 @@ public class MemberApiController {
     private final MemberService memberService;
 
     // GET /api/v1/members/me — 내 정보
+    // 호출: MyPage.jsx 화면이 열릴 때(useEffect) · [다시 시도] 버튼 → memberApi.getMe
     // 회원 번호는 요청 값으로 받지 않고, JwtAuthenticationFilter 가 토큰에서 꺼내 넣어 둔 값을 쓴다.
     // (요청 값으로 받으면 다른 사람 번호를 넣어 남의 정보를 볼 수 있기 때문)
     @GetMapping("/me")

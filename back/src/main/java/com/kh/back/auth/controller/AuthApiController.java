@@ -45,12 +45,14 @@ public class AuthApiController {
     private boolean cookieSecure;
 
     // POST /api/v1/auth/signup — 회원가입. 성공하면 201 과 가입한 회원 정보
+    // 호출: SignupPage.jsx [회원가입 완료] 버튼(handleSubmit) → authApi.signup
     @PostMapping("/signup")
     public ResponseEntity<ApiResponse<MemberResponse>> signup(@Valid @RequestBody SignupRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(ApiResponse.ok(authService.signup(request)));
     }
 
     // POST /api/v1/auth/login — 로그인. 성공하면 200 + 본문 { accessToken, member } + refresh token 쿠키
+    // 호출: LoginPage.jsx [로그인] 버튼(handleSubmit) → authApi.login
     @PostMapping("/login")
     public ResponseEntity<ApiResponse<TokenResponse>> login(@Valid @RequestBody LoginRequest request) {
         return withTokens(authService.login(request));
@@ -58,6 +60,7 @@ public class AuthApiController {
 
     // POST /api/v1/auth/refresh — access token 재발급. 브라우저가 refresh token 쿠키를 자동으로 실어 보낸다
     // 실패하면 401 REFRESH_INVALID 와 함께 쓸모없어진 쿠키도 지운다
+    // 호출: ① App.jsx 앱 시작 시(로그인 복원) ② client.js 토큰 만료(TOKEN_EXPIRED) 시 → 둘 다 tokenRefresh.refreshAccessToken
     @PostMapping("/refresh")
     public ResponseEntity<?> refresh(
             @CookieValue(name = REFRESH_COOKIE, required = false) String refreshToken) {
@@ -71,6 +74,7 @@ public class AuthApiController {
     }
 
     // POST /api/v1/auth/logout — DB 의 refresh token 을 지우고 쿠키도 지운다. 이미 로그아웃 상태여도 200
+    // 호출: Header.jsx [로그아웃] 버튼(handleLogout) → authApi.logout
     @PostMapping("/logout")
     public ResponseEntity<ApiResponse<Void>> logout(
             @CookieValue(name = REFRESH_COOKIE, required = false) String refreshToken) {
