@@ -49,3 +49,13 @@ cd data-generator
 python -m datagen generate --segment domestic-car --rows 100000 --seed 42
 python -m datagen generate --segment imported-car --rows 100000 --seed 42
 ```
+
+## 차량 추천 모델
+
+구매 전 프로필로 차량 라벨을 학습하고 상위 k대를 추천합니다. 데이터 파이프라인과 실행 방법은 [recommender/README.md](recommender/README.md)를 참고하세요.
+
+```bash
+cd recommender
+python -m recommender train --segment domestic-car
+python -m recommender predict --run runs/domestic-car/<시각> --profile profile.json --k 3
+```
