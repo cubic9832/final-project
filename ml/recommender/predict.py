@@ -5,12 +5,22 @@ import numpy as np
 
 from recommender.artifact import load_bundle
 from recommender.dataset import profile_sample
+from recommender.models.mlp import MlpRanker
+from recommender.preprocessing import Preprocessor
 
 
 def recommend(run_dir: Path, profile: Mapping[str, object], k: int = 3) -> list[dict[str, object]]:
     if k < 1:
         raise ValueError("k는 1 이상이어야 합니다")
     preprocessor, ranker = load_bundle(run_dir)
+    return recommend_loaded(preprocessor, ranker, profile, k)
+
+
+def recommend_loaded(preprocessor: Preprocessor, ranker: MlpRanker,
+                     profile: Mapping[str, object], k: int = 3) -> list[dict[str, object]]:
+    """CLI와 API가 공유하는 저장 모델 추천 로직."""
+    if k < 1:
+        raise ValueError("k는 1 이상이어야 합니다")
     catalog = preprocessor.labels
     if catalog is None:
         raise ValueError("저장된 라벨이 없습니다")

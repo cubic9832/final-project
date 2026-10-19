@@ -13,7 +13,7 @@ import FinancialVehiclePage from './features/financial/pages/vehicle/FinancialVe
 import FinancialReviewPage from './features/financial/pages/review/FinancialReviewPage';
 import FinancialResultPage from './features/financial/pages/result/FinancialResultPage';
 import NotFound from './pages/not-found/NotFound';
-import PredictPage from './pages/predict/PredictPage';
+import PredictPage from './features/recommendation/pages/predict/PredictPage';
 import VehicleCatalogGate from './features/vehicle/components/VehicleCatalogGate';
 import { VehicleProvider } from './features/vehicle/VehicleContext';
 import { VehicleSearchPage } from './features/vehicle/pages/search/VehicleSearchPage';

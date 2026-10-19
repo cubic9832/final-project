@@ -10,6 +10,14 @@ export default defineConfig({
   server: {
     port: 5173,
     proxy: {
+      '/api/v1/recommendation-options': {
+        target: 'http://127.0.0.1:8001',
+        changeOrigin: true,
+      },
+      '/api/v1/recommendations': {
+        target: 'http://127.0.0.1:8001',
+        changeOrigin: true,
+      },
       '/api': {
         target: API_TARGET,
         changeOrigin: true,

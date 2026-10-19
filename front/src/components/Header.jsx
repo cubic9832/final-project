@@ -85,6 +85,9 @@ export default function Header() {
               <NavLink to="/search">차량 찾기</NavLink>
             </li>
             <li>
+              <NavLink to="/predict">차량 추천</NavLink>
+            </li>
+            <li>
               <NavLink to="/vehicles/compare">차량 비교</NavLink>
             </li>
           </ul>

@@ -149,7 +149,7 @@ python -m unittest discover -s tests
 
 ## test 브랜치 통합
 
-원본 구현은 `feat/data`의 `recommender` 패키지다. `test`에서는 `ml/recommender`로 배치하고 기본 산출물 경로를 `ml/outputs/models`로 변경했다. 데이터 생성기는 기존 `tools/data`를 유지하며 별도 `data-generator` 패키지는 가져오지 않았다. 프런트·HTTP API 연동은 이 통합에 포함하지 않는다.
+원본 구현은 `feat/data`의 `recommender` 패키지다. `test`에서는 `ml/recommender`로 배치하고 기본 산출물 경로를 `ml/outputs/models`로 변경했다. 데이터 생성기는 기존 `tools/data`를 유지하며 별도 `data-generator` 패키지는 가져오지 않았다. React 추천 화면과 Python API는 [차량 추천 실행 방법](../docs/recommendation.md)을 참고한다.
 
 `ml/config/datasets.json`은 국내 100,000명·수입 96,000명의 기존 확장 데이터 경로를 보존한 참고 설정이다. 이번 모델의 기본 입력은 `data/seed`의 국내 10,000명·수입 6,000명이다. 다른 자료를 쓰려면 동일 스키마의 `owners.csv`, `purchases.csv` 디렉터리를 `--data`로 지정한다. 이전 설정을 자동으로 읽는다고 가정하지 않는다.
 
