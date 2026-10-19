@@ -306,3 +306,54 @@
   font-size: 12px;
   font-weight: 700;
 }
+
+/* 보완 8: 구글 로그인 */
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 14px;
+  color: #8d9bb0;
+  font-size: 12px;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+.login-google {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.login-google-disabled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 320px;
+  height: 40px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  background: #fff;
+  color: #9aa7b8;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: not-allowed;
+}
+
+.login-google-disabled span {
+  color: #4285f4;
+  font-weight: 700;
+}
+
+.login-google-hint {
+  color: #8d9bb0;
+  font-size: 11px;
+}

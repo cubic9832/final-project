@@ -52,9 +52,9 @@ features/auth/
 pages/
   home/{HomePage.jsx,HomePage.css}
   about/{AboutPage.jsx,AboutPage.css}
-  login/{LoginPage.jsx,LoginPage.css,PasswordResetModal,RecaptchaBox}
+  login/{LoginPage.jsx,LoginPage.css,PasswordResetModal,RecaptchaBox,GoogleLoginButton}
   signup/{SignupPage.jsx,SignupPage.css,TermsModal,SignupCompleteModal,
-          passwordPolicy.js,emailTypo.js,profileRules.js}
+          passwordPolicy.js,emailTypo.js,profileRules.js,GoogleSignupPage}
   mypage/{MyPage.jsx,MyPage.css,ProfileEditModal,EmailNotificationModal,
           AccountManageModal,notificationOptions.js}
   admin/{AdminPage.jsx,AdminPage.css,ModelMetricChart,adminExampleData.js}

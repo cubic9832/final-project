@@ -33,6 +33,24 @@ export const confirmEmailCode = async (email, code) => {
   await client.post('/auth/email-verification/confirm', { email, code });
 };
 
+// 보완 8: 구글 로그인 — 연결된 회원이면 로그인 처리 후 { member }, 처음 온 사람이면 { signup: { signupToken, email, name } }
+export const googleLogin = async (idToken) => {
+  const res = await client.post('/auth/google', { idToken });
+  const data = res.data.data;
+  if (data.accessToken) {
+    useAuthStore.getState().setAuth(data);
+    return { member: data.member };
+  }
+  return { signup: data };
+};
+
+// 보완 8: 구글 첫 로그인 후 추가 정보로 가입 — 가입과 동시에 로그인된다
+export const googleSignup = async ({ signupToken, nickName, phone, birthDate, gender }) => {
+  const res = await client.post('/auth/google/signup', { signupToken, nickName, phone, birthDate, gender });
+  useAuthStore.getState().setAuth(res.data.data);
+  return res.data.data.member;
+};
+
 // 로그인 — 응답의 access token · 회원 정보를 스토어에 넣고, 회원 정보를 돌려준다
 // (refresh token 은 서버가 HttpOnly 쿠키로 보내서 브라우저에 이미 저장되어 있다)
 // 보완 6: 여러 번 실패한 뒤에는 recaptchaToken("로봇이 아닙니다" 체크 결과)도 함께 보낸다

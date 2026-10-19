@@ -29,9 +29,14 @@ public class AuthServiceImpl implements AuthService {
     // (도로교통법 기준 — 법 조항은 확인 필요. 프론트 profileRules.js 의 MIN_SIGNUP_AGE 와 같은 값)
     private static final int MIN_SIGNUP_AGE = 18;
 
+    private static final String GOOGLE = "GOOGLE"; // social_accounts.provider
+
     private final MemberMapper memberMapper;
     private final LoginAttemptLimiter loginAttemptLimiter;
     private final EmailVerificationService emailVerificationService;
+    private final GoogleTokenVerifier googleTokenVerifier;
+    private final GoogleSignupStore googleSignupStore;
+    private final SocialAccountMapper socialAccountMapper;
     private final RecaptchaVerifier recaptchaVerifier;
     private final UserProfileMapper userProfileMapper;
     private final RefreshTokenMapper refreshTokenMapper;
@@ -143,6 +148,81 @@ public class AuthServiceImpl implements AuthService {
             throw new ApiException(HttpStatus.BAD_REQUEST, "BAD_REQUEST", "이름 또는 닉네임은 2~12자로 입력해 주세요.");
         }
         return memberMapper.countByNickName(trimmed) == 0;
+    }
+
+    // 보완 8: 구글 로그인
+    // ① 이미 연결된 구글 계정 → 그 회원으로 로그인
+    // ② 연결은 없지만 같은 이메일로 가입한 회원 → 자동 연결 후 로그인 (구글이 확인한 이메일이라 같은 사람으로 본다)
+    // ③ 처음 온 사람 → 가입 대기 번호를 주고 추가 정보 입력 화면으로 (보완 5 필수 항목 · 만 18세 확인)
+    @Override
+    @Transactional
+    public GoogleLoginResult googleLogin(String idToken) {
+        GoogleTokenVerifier.GoogleUser google = googleTokenVerifier.verify(idToken);
+
+        Long linkedUserId = socialAccountMapper.findUserId(GOOGLE, google.sub());
+        if (linkedUserId != null) {
+            MemberDto member = memberMapper.findById(linkedUserId);
+            if (member != null) {
+                return new GoogleLoginResult(issueTokens(member), null);
+            }
+        }
+
+        MemberDto sameEmail = memberMapper.findByEmail(google.email());
+        if (sameEmail != null) {
+            socialAccountMapper.insert(sameEmail.getId(), GOOGLE, google.sub(), google.email());
+            loginAttemptLimiter.reset(google.email()); // 구글로 본인 확인이 됐으니 비밀번호 실패 기록은 지운다
+            return new GoogleLoginResult(issueTokens(sameEmail), null);
+        }
+
+        String signupToken = googleSignupStore.save(google);
+        return new GoogleLoginResult(null,
+                new GoogleLoginResult.SignupRequired(signupToken, google.email(), google.name()));
+    }
+
+    // 보완 8: 추가 정보로 가입 — 회원가입과 같은 검사(만 18세 · 닉네임 중복), 비밀번호 · 이메일 인증은 없다 (구글이 확인)
+    @Override
+    @Transactional
+    public AuthTokens googleSignup(GoogleSignupRequest request) {
+        GoogleSignupStore.Pending pending = googleSignupStore.take(request.getSignupToken());
+        if (pending == null) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "GOOGLE_SIGNUP_EXPIRED", "시간이 지났습니다. 구글 로그인을 다시 시도해 주세요.");
+        }
+        if (Period.between(request.getBirthDate(), LocalDate.now()).getYears() < MIN_SIGNUP_AGE) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "AGE_RESTRICTED",
+                    "만 " + MIN_SIGNUP_AGE + "세 이상만 가입할 수 있습니다. (운전면허 취득 가능 나이 기준)");
+        }
+        // 추가 정보를 입력하는 사이 같은 이메일로 가입했으면 그 회원에 연결한다
+        MemberDto existing = memberMapper.findByEmail(pending.email());
+        if (existing != null) {
+            socialAccountMapper.insert(existing.getId(), GOOGLE, pending.sub(), pending.email());
+            return issueTokens(existing);
+        }
+        String nickName = request.getNickName().trim();
+        if (memberMapper.countByNickName(nickName) > 0) {
+            throw nickNameDuplicated();
+        }
+
+        MemberDto member = new MemberDto();
+        member.setEmail(pending.email());
+        member.setPasswordHash(MemberDto.SOCIAL_ONLY_PASSWORD); // 비밀번호 없음 → 이메일 · 비밀번호 로그인은 항상 실패
+        member.setNickName(nickName);
+        member.setRole(DEFAULT_ROLE);
+        try {
+            memberMapper.insert(member);
+        } catch (DuplicateKeyException e) {
+            String reason = String.valueOf(e.getMessage());
+            throw reason.contains("uq_users_nick_name") ? nickNameDuplicated() : emailDuplicated();
+        }
+
+        UserProfileDto profile = new UserProfileDto();
+        profile.setUserId(member.getId());
+        profile.setPhone(request.getPhone().replace("-", ""));
+        profile.setBirthDate(request.getBirthDate());
+        profile.setGender(request.getGender());
+        userProfileMapper.insert(profile);
+
+        socialAccountMapper.insert(member.getId(), GOOGLE, pending.sub(), pending.email());
+        return issueTokens(member);
     }
 
     @Override

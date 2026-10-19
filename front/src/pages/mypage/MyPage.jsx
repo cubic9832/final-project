@@ -82,6 +82,7 @@ export default function MyPage() {
           nickname: me.nickName,
           email: me.email,
           role: ROLE_LABELS[me.role] ?? me.role,
+          socialOnly: me.socialOnly, // 보완 8: 구글로만 가입 → 탈퇴 확인 방법이 다르다
         }));
         setMeStatus('done');
       })
@@ -121,8 +122,8 @@ export default function MyPage() {
 
   // 회원 탈퇴 (보완 4): 서버 탈퇴 → 메인으로 이동 → 로그아웃 처리 → 공용 알림
   // 실패하면(비밀번호 틀림 등) 예외가 그대로 팝업으로 전달되어 팝업 안에 오류가 표시된다
-  async function handleWithdraw(password) {
-    await withdraw(password);
+  async function handleWithdraw(confirmation) {
+    await withdraw(confirmation); // { password } 또는 구글 가입자는 { confirmText: '탈퇴' } (보완 8)
     setSettingsModal(null);
     navigate('/'); // 먼저 이동 — 로그인 정보가 지워지면 마이페이지 보호(RequireAuth)가 로그인 화면으로 보내기 때문
     await logout(); // 브라우저의 refresh token 쿠키 삭제 + 화면 로그인 정보 지우기 (서버 토큰은 탈퇴 때 이미 삭제됨)
@@ -351,7 +352,7 @@ export default function MyPage() {
         />
       )}
       {settingsModal === 'account' && (
-        <AccountManageModal onWithdraw={handleWithdraw} onClose={() => setSettingsModal(null)} />
+        <AccountManageModal socialOnly={profile.socialOnly} onWithdraw={handleWithdraw} onClose={() => setSettingsModal(null)} />
       )}
       {toast && <AuthToast message={toast} onClose={() => setToast('')} />}
     </div>

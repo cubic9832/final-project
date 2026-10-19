@@ -17,10 +17,18 @@ import lombok.ToString;
 @ToString(exclude = "passwordHash") // 로그에 비밀번호가 찍히지 않게
 public class MemberDto {
 
+    // 보완 8: 구글로만 가입한 회원의 password_hash 표시값. BCrypt 모양이 아니라서 어떤 비밀번호로도 로그인되지 않는다
+    public static final String SOCIAL_ONLY_PASSWORD = "SOCIAL_ONLY";
+
     private Long id;
     private String email;
     private String passwordHash;
     private String nickName;
     private String role;           // USER · ADMIN
     private LocalDateTime createdAt;
+
+    // 보완 8: 비밀번호 없이 구글로만 가입했는지 (회원 탈퇴 확인 방법이 달라진다)
+    public boolean isSocialOnly() {
+        return SOCIAL_ONLY_PASSWORD.equals(passwordHash);
+    }
 }

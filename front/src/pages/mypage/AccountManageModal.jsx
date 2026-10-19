@@ -6,8 +6,9 @@ import AuthModal from '../../features/auth/components/AuthModal';
 import PasswordInput from '../../features/auth/components/PasswordInput';
 import './AccountManageModal.css';
 
-// onWithdraw(password): 탈퇴 요청. 실패하면 예외를 던지고, 이 팝업이 오류 문구를 보여 준다
-export default function AccountManageModal({ onWithdraw, onClose }) {
+// onWithdraw({ password, confirmText }): 탈퇴 요청. 실패하면 예외를 던지고, 이 팝업이 오류 문구를 보여 준다
+// socialOnly(보완 8): 구글로만 가입해 비밀번호가 없으면 비밀번호 대신 "탈퇴" 를 입력해 확인한다
+export default function AccountManageModal({ socialOnly = false, onWithdraw, onClose }) {
   const [confirmed, setConfirmed] = useState(false);
   const [password, setPassword] = useState('');
   const [error, setError] = useState(''); // 탈퇴 실패 문구 (예: 비밀번호가 올바르지 않습니다.)
@@ -17,7 +18,8 @@ export default function AccountManageModal({ onWithdraw, onClose }) {
     setWithdrawing(true);
     setError('');
     try {
-      await onWithdraw(password); // 성공하면 마이페이지가 팝업을 닫고 메인으로 이동한다
+      // 성공하면 마이페이지가 팝업을 닫고 메인으로 이동한다
+      await onWithdraw(socialOnly ? { confirmText: password } : { password });
     } catch (err) {
       setError(err.response?.data?.error?.message ?? '탈퇴에 실패했습니다. 잠시 후 다시 시도해 주세요.');
       setPassword('');
@@ -49,10 +51,26 @@ export default function AccountManageModal({ onWithdraw, onClose }) {
           위 내용을 확인했으며 탈퇴에 동의합니다.
         </label>
 
-        {/* 보완 4: 되돌릴 수 없는 작업이라 비밀번호를 한 번 더 확인한다 */}
+        {/* 보완 4: 되돌릴 수 없는 작업이라 비밀번호를 한 번 더 확인한다
+            보완 8: 구글로만 가입한 회원은 비밀번호가 없어 "탈퇴" 를 직접 입력한다 */}
         <label className="account-manage-password-label" htmlFor="withdraw-password">
-          비밀번호 확인
+          {socialOnly ? '확인을 위해 "탈퇴"를 입력해 주세요' : '비밀번호 확인'}
         </label>
+        {socialOnly ? (
+          <input
+            id="withdraw-password"
+            className="account-manage-password"
+            type="text"
+            placeholder="탈퇴"
+            autoComplete="off"
+            value={password}
+            onChange={(event) => {
+              setPassword(event.target.value);
+              setError('');
+            }}
+            disabled={withdrawing}
+          />
+        ) : (
         <PasswordInput
           id="withdraw-password"
           className="account-manage-password"
@@ -65,6 +83,7 @@ export default function AccountManageModal({ onWithdraw, onClose }) {
           }}
           disabled={withdrawing}
         />
+        )}
         {error && (
           <p className="account-manage-error" role="alert">
             {error}
@@ -80,7 +99,7 @@ export default function AccountManageModal({ onWithdraw, onClose }) {
           className="auth-modal-button auth-modal-button-danger"
           type="button"
           onClick={handleWithdraw}
-          disabled={!confirmed || !password || withdrawing}
+          disabled={!confirmed || (socialOnly ? password.trim() !== '탈퇴' : !password) || withdrawing}
         >
           {withdrawing ? '처리 중…' : '회원 탈퇴'}
         </button>

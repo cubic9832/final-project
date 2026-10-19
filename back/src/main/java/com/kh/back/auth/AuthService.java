@@ -13,6 +13,12 @@ public interface AuthService {
 
     void confirmEmailVerification(String email, String code);
 
+    // 보완 8: 구글 로그인 — 연결된 회원이면 로그인, 처음이면 추가 정보 입력 필요
+    GoogleLoginResult googleLogin(String idToken);
+
+    // 보완 8: 구글 첫 로그인 후 추가 정보로 가입 + 로그인
+    AuthTokens googleSignup(GoogleSignupRequest request);
+
     AuthTokens login(LoginRequest request, String clientIp); // 보완 6: clientIp 는 reCAPTCHA 확인 요청에 함께 보낸다
 
     // 재발급. refresh token 이 유효하면 새 access token 과 새 refresh token 으로 바꿔 준다 (이전 refresh token 은 폐기)

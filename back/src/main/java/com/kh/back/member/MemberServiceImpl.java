@@ -51,11 +51,18 @@ public class MemberServiceImpl implements MemberService {
     // 한 트랜잭션: 중간에 하나라도 실패하면 모두 취소되어 "반만 탈퇴된" 상태가 생기지 않는다
     @Override
     @Transactional
-    public void withdraw(Long userId, String password) {
+    public void withdraw(Long userId, String password, String confirmText) {
         MemberDto member = findMember(userId);
 
-        // 되돌릴 수 없는 작업이라 비밀번호를 한 번 더 확인한다 (로그인과 같은 BCrypt 비교)
-        if (!passwordEncoder.matches(password, member.getPasswordHash())) {
+        if (member.isSocialOnly()) {
+            // 보완 8: 구글로만 가입한 회원은 비밀번호가 없다 → "탈퇴" 를 직접 입력했는지로 확인
+            if (!"탈퇴".equals(confirmText == null ? null : confirmText.trim())) {
+                throw new ApiException(HttpStatus.BAD_REQUEST, "CONFIRM_TEXT_MISMATCH", "확인을 위해 \"탈퇴\"를 정확히 입력해 주세요.");
+            }
+        } else if (password == null || password.isBlank()) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "BAD_REQUEST", "비밀번호를 입력해 주세요.");
+        } else if (!passwordEncoder.matches(password, member.getPasswordHash())) {
+            // 되돌릴 수 없는 작업이라 비밀번호를 한 번 더 확인한다 (로그인과 같은 BCrypt 비교)
             throw new ApiException(HttpStatus.BAD_REQUEST, "PASSWORD_MISMATCH", "비밀번호가 올바르지 않습니다.");
         }
 

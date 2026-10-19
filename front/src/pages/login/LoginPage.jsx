@@ -1,10 +1,11 @@
 import { useCallback, useState } from 'react';
 import { Car } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { login } from '../../features/auth/authApi';
+import { googleLogin, login } from '../../features/auth/authApi';
 import PasswordInput from '../../features/auth/components/PasswordInput';
 import PasswordResetModal from './PasswordResetModal';
 import RecaptchaBox from './RecaptchaBox';
+import GoogleLoginButton from './GoogleLoginButton';
 import theme from '../../styles/theme';
 import './LoginPage.css';
 
@@ -66,6 +67,24 @@ export default function LoginPage() {
       setLoginError(''); // 체크했으니 "로봇이 아님을 확인해 주세요" 같은 이전 실패 문구도 지운다
     }
   }, []);
+
+  // 보완 8: 구글 계정을 고르면 서버에 확인 → 연결된 회원이면 로그인, 처음이면 추가 정보 입력 화면으로
+  const handleGoogleCredential = useCallback(
+    async (idToken) => {
+      setLoginError('');
+      try {
+        const result = await googleLogin(idToken);
+        if (result.signup) {
+          navigate('/signup/google', { state: result.signup }); // { signupToken, email, name }
+        } else {
+          navigate(location.state?.from ?? '/', { replace: true });
+        }
+      } catch (error) {
+        setLoginError(error.response?.data?.error?.message ?? '구글 로그인에 실패했습니다. 잠시 후 다시 시도해 주세요.');
+      }
+    },
+    [navigate, location.state],
+  );
 
   // 입력할 때마다 값을 저장하고, 그 칸의 오류와 실패 문구는 지운다
   function handleChange(event) {
@@ -199,6 +218,12 @@ export default function LoginPage() {
               {submitting ? '로그인 중…' : '로그인'}
             </button>
           </form>
+
+          {/* 보완 8: 구글 로그인 */}
+          <div className="login-divider">
+            <span>또는</span>
+          </div>
+          <GoogleLoginButton onCredential={handleGoogleCredential} />
 
           <p className="login-signup login-card-footer">
             처음이신가요?{' '}
