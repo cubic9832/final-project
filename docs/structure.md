@@ -52,7 +52,7 @@ features/auth/
 pages/
   home/{HomePage.jsx,HomePage.css}
   about/{AboutPage.jsx,AboutPage.css}
-  login/{LoginPage.jsx,LoginPage.css,PasswordResetModal}
+  login/{LoginPage.jsx,LoginPage.css,PasswordResetModal,RecaptchaBox}
   signup/{SignupPage.jsx,SignupPage.css,TermsModal,SignupCompleteModal,
           passwordPolicy.js,emailTypo.js,profileRules.js}
   mypage/{MyPage.jsx,MyPage.css,ProfileEditModal,EmailNotificationModal,

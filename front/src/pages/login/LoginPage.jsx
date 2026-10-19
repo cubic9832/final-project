@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Car } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { login } from '../../features/auth/authApi';
 import PasswordInput from '../../features/auth/components/PasswordInput';
 import PasswordResetModal from './PasswordResetModal';
+import RecaptchaBox from './RecaptchaBox';
 import theme from '../../styles/theme';
 import './LoginPage.css';
 
@@ -52,6 +53,19 @@ export default function LoginPage() {
   const [loginError, setLoginError] = useState(''); // 서버가 돌려준 실패 문구 (예: LOGIN_FAILED)
   const [submitting, setSubmitting] = useState(false); // 로그인 요청 중 (버튼 비활성, 중복 요청 방지)
   const [isResetOpen, setIsResetOpen] = useState(false); // 비밀번호 찾기 팝업 열림 여부
+  // 보완 6: 서버가 CAPTCHA_REQUIRED 를 돌려주면 reCAPTCHA 체크박스를 보여 준다
+  const [captchaRequired, setCaptchaRequired] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState(''); // 체크하면 구글이 준 토큰 (한 번만 쓸 수 있다)
+  const [captchaResetKey, setCaptchaResetKey] = useState(0); // 값이 바뀌면 체크를 푼다
+
+  // 체크하면 토큰을 저장하고 "확인해 주세요" · 이전 실패 문구를 지운다 (useCallback: RecaptchaBox 가 같은 함수를 계속 받도록)
+  const handleCaptchaChange = useCallback((token) => {
+    setCaptchaToken(token);
+    if (token) {
+      setErrors((prev) => ({ ...prev, captcha: undefined }));
+      setLoginError(''); // 체크했으니 "로봇이 아님을 확인해 주세요" 같은 이전 실패 문구도 지운다
+    }
+  }, []);
 
   // 입력할 때마다 값을 저장하고, 그 칸의 오류와 실패 문구는 지운다
   function handleChange(event) {
@@ -67,6 +81,8 @@ export default function LoginPage() {
     if (submitting) return; // 요청 중 중복 제출 방지
 
     const nextErrors = validateLogin(form);
+    // 보완 6: 체크박스가 보이는데 체크하지 않았으면 서버에 보내지 않는다
+    if (captchaRequired && !captchaToken) nextErrors.captcha = '로봇이 아님을 확인해 주세요.';
     setErrors(nextErrors);
     setLoginError('');
     if (Object.keys(nextErrors).length > 0) return;
@@ -74,13 +90,17 @@ export default function LoginPage() {
     setSubmitting(true);
     try {
       const email = form.email.trim();
-      await login({ email, password: form.password }); // 성공하면 토큰 · 회원 정보가 스토어에 저장된다
+      // 성공하면 토큰 · 회원 정보가 스토어에 저장된다
+      await login({ email, password: form.password, recaptchaToken: captchaToken || undefined });
       writeSavedEmail(rememberEmail ? email : '');
       // 로그인이 필요한 화면에서 넘어왔으면 그 화면으로, 아니면 메인으로 이동한다
       navigate(location.state?.from ?? '/', { replace: true });
     } catch (error) {
       // 실패해도 이메일은 그대로 두고 비밀번호만 비운다
-      const message = error.response?.data?.error?.message;
+      const { code, message } = error.response?.data?.error ?? {};
+      // 보완 6: 서버가 로봇 확인을 요구하면 체크박스를 보여 주고, 이미 보이고 있었으면 체크를 풀어 다시 받게 한다
+      if (code === 'CAPTCHA_REQUIRED' || code === 'CAPTCHA_FAILED') setCaptchaRequired(true);
+      if (captchaRequired) setCaptchaResetKey((key) => key + 1);
       setLoginError(message ?? '로그인에 실패했습니다. 잠시 후 다시 시도해 주세요.');
       setForm((prev) => ({ ...prev, password: '' }));
     } finally {
@@ -162,6 +182,13 @@ export default function LoginPage() {
                 비밀번호 찾기
               </button>
             </div>
+
+            {captchaRequired && (
+              <>
+                <RecaptchaBox onChange={handleCaptchaChange} resetKey={captchaResetKey} />
+                {renderError('captcha')}
+              </>
+            )}
 
             {loginError && (
               <p className="login-error login-failed" role="alert">

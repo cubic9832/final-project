@@ -291,3 +291,18 @@
     min-height: auto;
   }
 }
+
+/* 보완 6: 로그인 여러 번 실패 후 나타나는 reCAPTCHA */
+.login-recaptcha {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #fff7e3;
+}
+
+.login-recaptcha > p {
+  margin-bottom: 10px;
+  color: #8b6100;
+  font-size: 12px;
+  font-weight: 700;
+}

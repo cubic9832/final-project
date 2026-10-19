@@ -30,6 +30,8 @@ public class AuthServiceImpl implements AuthService {
     private static final int MIN_SIGNUP_AGE = 18;
 
     private final MemberMapper memberMapper;
+    private final LoginAttemptLimiter loginAttemptLimiter;
+    private final RecaptchaVerifier recaptchaVerifier;
     private final UserProfileMapper userProfileMapper;
     private final RefreshTokenMapper refreshTokenMapper;
     private final PasswordEncoder passwordEncoder;
@@ -110,13 +112,34 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     @Transactional
-    public AuthTokens login(LoginRequest request) {
-        MemberDto member = memberMapper.findByEmail(normalizeEmail(request.getEmail()));
+    public AuthTokens login(LoginRequest request, String clientIp) {
+        String email = normalizeEmail(request.getEmail());
+
+        // 보완 6: 이미 여러 번 틀렸으면 비밀번호를 보기 전에 reCAPTCHA 부터 확인한다 (자동 대입 공격 차단)
+        if (loginAttemptLimiter.isCaptchaRequired(email, clientIp)) {
+            String token = request.getRecaptchaToken();
+            if (token == null || token.isBlank()) {
+                throw new ApiException(HttpStatus.BAD_REQUEST, "CAPTCHA_REQUIRED", "로봇이 아님을 확인해 주세요.");
+            }
+            if (!recaptchaVerifier.verify(token, clientIp)) {
+                throw new ApiException(HttpStatus.BAD_REQUEST, "CAPTCHA_FAILED", "로봇 확인에 실패했습니다. 다시 체크해 주세요.");
+            }
+        }
+
+        MemberDto member = memberMapper.findByEmail(email);
 
         // 이메일이 없을 때와 비밀번호가 틀렸을 때 같은 메시지를 쓴다 → 어떤 이메일이 가입되어 있는지 알려 주지 않기 위해
         if (member == null || !passwordEncoder.matches(request.getPassword(), member.getPasswordHash())) {
+            loginAttemptLimiter.recordFailure(email, clientIp);
+            // 이번 실패로 기준(3번)을 넘었으면 화면에 reCAPTCHA 를 띄우라고 알린다
+            if (loginAttemptLimiter.isCaptchaRequired(email, clientIp)) {
+                throw new ApiException(HttpStatus.UNAUTHORIZED, "CAPTCHA_REQUIRED",
+                        "이메일 또는 비밀번호가 올바르지 않습니다. 로봇이 아님을 확인해 주세요.");
+            }
             throw new ApiException(HttpStatus.UNAUTHORIZED, "LOGIN_FAILED", "이메일 또는 비밀번호가 올바르지 않습니다.");
         }
+
+        loginAttemptLimiter.reset(email);
         return issueTokens(member);
     }
 

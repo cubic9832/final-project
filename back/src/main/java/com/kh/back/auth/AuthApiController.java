@@ -4,6 +4,7 @@ import com.kh.back.common.dto.ApiResponse;
 import com.kh.back.common.exception.ApiException;
 import com.kh.back.common.jwt.JwtProvider;
 import com.kh.back.member.MemberResponse;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import java.time.Duration;
 import lombok.RequiredArgsConstructor;
@@ -65,8 +66,10 @@ public class AuthApiController {
     // POST /api/v1/auth/login — 로그인. 성공하면 200 + 본문 { accessToken, member } + refresh token 쿠키
     // 호출: LoginPage.jsx [로그인] 버튼(handleSubmit) → authApi.login
     @PostMapping("/login")
-    public ResponseEntity<ApiResponse<TokenResponse>> login(@Valid @RequestBody LoginRequest request) {
-        return withTokens(authService.login(request));
+    public ResponseEntity<ApiResponse<TokenResponse>> login(@Valid @RequestBody LoginRequest request,
+                                                           HttpServletRequest httpRequest) {
+        // 보완 6: 접속 IP 는 실패 횟수 세기에 쓴다 (X-Forwarded-For 는 위조할 수 있어 쓰지 않는다)
+        return withTokens(authService.login(request, httpRequest.getRemoteAddr()));
     }
 
     // POST /api/v1/auth/refresh — access token 재발급. 브라우저가 refresh token 쿠키를 자동으로 실어 보낸다

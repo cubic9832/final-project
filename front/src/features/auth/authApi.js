@@ -23,8 +23,9 @@ export const checkNickName = async (nickName) => {
 
 // 로그인 — 응답의 access token · 회원 정보를 스토어에 넣고, 회원 정보를 돌려준다
 // (refresh token 은 서버가 HttpOnly 쿠키로 보내서 브라우저에 이미 저장되어 있다)
-export const login = async ({ email, password }) => {
-  const res = await client.post('/auth/login', { email, password });
+// 보완 6: 여러 번 실패한 뒤에는 recaptchaToken("로봇이 아닙니다" 체크 결과)도 함께 보낸다
+export const login = async ({ email, password, recaptchaToken }) => {
+  const res = await client.post('/auth/login', { email, password, recaptchaToken });
   useAuthStore.getState().setAuth(res.data.data);
   return res.data.data.member;
 };

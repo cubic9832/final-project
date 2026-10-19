@@ -20,6 +20,9 @@ public class LoginRequest {
     @NotBlank(message = "비밀번호를 입력해 주세요.")
     private String password;
 
+    // 보완 6: 로그인에 여러 번 실패한 뒤에만 필요한 reCAPTCHA 토큰 ("로봇이 아닙니다" 체크 결과). 평소에는 비어 있다
+    private String recaptchaToken;
+
     // 회원가입과 같은 규칙: 앞뒤 공백을 먼저 지운다 (비밀번호는 그대로)
     public void setEmail(String email) {
         this.email = email == null ? null : email.trim();
