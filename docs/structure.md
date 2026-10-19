@@ -79,4 +79,4 @@ pages/
 - 설치 의존성·Python 캐시·가상환경·임시 파일은 루트 `.gitignore`에서 제외한다. 원본·재현에 필요한 설정과 공유할 결과는 의도적으로 관리한다.
 - `examples/legacy`는 웹 빌드 대상이 아니며 예전 IDE 프로젝트를 보존한다.
 
-추천 요청 변환과 API 호출은 features/financial의 일반 모듈로, 클릭 후 결과 표시만 pages/result/FinancialRecommendationResults에 둔다. 결과 페이지의 기존 추천 버튼 이벤트에서만 API를 요청한다. 다른 진단 페이지·헤더·라우트는 변경하지 않는다. [실행 및 API 계약](recommendation.md)을 참고한다.
+추천 요청 변환과 API 호출은 features/financial의 일반 모듈로, 추천 화면·차량 카드·스타일·이미지 매핑은 pages/recommendations/에 함께 둔다. 종합 결과 페이지의 기존 추천 버튼 이벤트에서만 API를 요청하고 성공하면 /financial/recommendations로 이동한다. 기존 진단 입력 화면과 헤더는 유지한다. [실행 및 API 계약](recommendation.md)을 참고한다.
