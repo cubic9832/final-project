@@ -22,7 +22,16 @@ description: React·Spring Java·Python 코드를 생성하거나 파일·폴더
 - JSX를 포함하면 `.jsx` 또는 `.tsx`, 일반 로직은 `.js` 또는 `.ts`를 사용한다. JavaScript·TypeScript 선택은 프론트엔드 구성 시 정하며 혼용을 위해 중복 파일을 만들지 않는다.
 - 도메인별 파일은 `features/vehicle/`처럼 기능 단위로 모으고, 여러 기능에서 실제로 재사용하는 요소만 `shared/`에 둔다. 기능 폴더는 소문자 kebab-case를 사용한다.
 
+### React 화면별 배치
+
+- 기능 안에서 `pages/result/`, `pages/recommendations/`처럼 화면 단위로 한 번 더 묶는다. 화면 폴더명도 소문자 kebab-case를 사용한다.
+- 한 화면에서만 사용하는 JSX·CSS·컴포넌트·로직은 해당 화면 폴더에 함께 둔다. 확장자를 기준으로 JSX와 CSS를 각각 별도 폴더에 모으지 않는다.
+- 예: `features/financial/pages/recommendations/`에 `FinancialRecommendationsPage.jsx`, `FinancialRecommendationsPage.css`, `RecommendationCard.jsx`, `recommendationImages.js`를 함께 둔다.
+- 기능 내 여러 화면에서 사용하는 컴포넌트는 해당 기능의 `components/`, 스타일은 `styles/`에 둔다. 기능 공통 계산·API 모듈은 기능 루트에서 시작하고 실제 파일이 늘어나면 역할별 하위 폴더를 추가한다.
+- 라우트는 `App.jsx`에서 화면 모듈을 직접 import한다. 단순 재노출만 하는 화면별 `index` 파일이나 미래 사용을 예상한 빈 폴더는 만들지 않는다.
+
 ## Spring 서버 — Java 기준
+
 
 공식 근거: [Spring Boot 코드 구조](https://docs.spring.io/spring-boot/reference/using/structuring-your-code.html)는 특정 배치를 강제하지 않으며 역도메인 패키지와 최상위 패키지의 애플리케이션 클래스를 권장한다. [Java 패키지 및 파일 규칙](https://docs.oracle.com/javase/specs/jls/se25/html/jls-7.html)을 따른다.
 
