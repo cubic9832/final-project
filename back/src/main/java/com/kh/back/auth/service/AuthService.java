@@ -18,4 +18,10 @@ public interface AuthService {
 
     // 로그아웃. refresh token 을 DB 에서 지운다
     void logout(String refreshToken);
+
+    // 보완 3: 이메일 중복 확인. 형식이 맞고 아직 가입되지 않았으면 true (형식이 틀리면 400)
+    boolean isEmailAvailable(String email);
+
+    // 보완 3: 닉네임 중복 확인. 2~12자이고 아직 쓰는 사람이 없으면 true (길이가 틀리면 400)
+    boolean isNickNameAvailable(String nickName);
 }

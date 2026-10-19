@@ -1,6 +1,7 @@
 package com.kh.back.auth.controller;
 
 import com.kh.back.auth.dto.AuthTokens;
+import com.kh.back.auth.dto.AvailabilityResponse;
 import com.kh.back.auth.dto.LoginRequest;
 import com.kh.back.auth.dto.SignupRequest;
 import com.kh.back.auth.dto.TokenResponse;
@@ -18,9 +19,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -49,6 +52,20 @@ public class AuthApiController {
     @PostMapping("/signup")
     public ResponseEntity<ApiResponse<MemberResponse>> signup(@Valid @RequestBody SignupRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(ApiResponse.ok(authService.signup(request)));
+    }
+
+    // GET /api/v1/auth/check-email?email=… — 이메일 중복 확인 (보완 3). { available }
+    // 호출: SignupPage.jsx 이메일 [중복 확인] 버튼 → authApi.checkEmail
+    @GetMapping("/check-email")
+    public ApiResponse<AvailabilityResponse> checkEmail(@RequestParam String email) {
+        return ApiResponse.ok(new AvailabilityResponse(authService.isEmailAvailable(email)));
+    }
+
+    // GET /api/v1/auth/check-nickname?nickName=… — 닉네임 중복 확인 (보완 3). { available }
+    // 호출: SignupPage.jsx 닉네임 [중복 확인] 버튼 → authApi.checkNickName
+    @GetMapping("/check-nickname")
+    public ApiResponse<AvailabilityResponse> checkNickName(@RequestParam String nickName) {
+        return ApiResponse.ok(new AvailabilityResponse(authService.isNickNameAvailable(nickName)));
     }
 
     // POST /api/v1/auth/login — 로그인. 성공하면 200 + 본문 { accessToken, member } + refresh token 쿠키

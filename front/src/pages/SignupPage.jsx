@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { signup } from '../api/authApi';
+import { checkEmail, checkNickName, signup } from '../api/authApi';
 import { suggestEmail } from '../features/auth/emailTypo';
 import PasswordInput from '../features/auth/PasswordInput';
 import { getPasswordRules, PASSWORD_MAX, validatePassword } from '../features/auth/passwordPolicy';
@@ -73,8 +73,11 @@ export default function SignupPage() {
   const [agreements, setAgreements] = useState({ service: false, privacy: false, updates: false });
   const [errors, setErrors] = useState({});
   const [notice, setNotice] = useState('');
-  // "중복 확인" 결과 안내 문구 { nickname, email }. 서버 연결 후 실제 결과로 바꾼다
+  // "중복 확인" 결과 안내 문구 { nickname, email } (예: "사용할 수 있는 이메일입니다.")
   const [duplicateNotices, setDuplicateNotices] = useState({});
+  // 보완 3: 중복 확인을 통과한 값 { nickname, email }. 입력을 바꾸면 비워져서 다시 확인해야 한다
+  const [checked, setChecked] = useState({ nickname: '', email: '' });
+  const [checking, setChecking] = useState(''); // 지금 확인 중인 항목 ('nickname' | 'email' | '')
   const [viewingTerm, setViewingTerm] = useState(null); // "보기"로 연 약관 (없으면 null)
   const [isCompleteOpen, setIsCompleteOpen] = useState(false); // 회원가입 완료 팝업 열림 여부
   const [submitting, setSubmitting] = useState(false); // 가입 요청 중 (버튼 비활성, 중복 요청 방지)
@@ -96,18 +99,44 @@ export default function SignupPage() {
       ...(name === 'password' ? { passwordConfirm: undefined } : {}),
     }));
     setDuplicateNotices((prev) => ({ ...prev, [name]: undefined }));
+    if (name in checked) setChecked((prev) => ({ ...prev, [name]: '' })); // 값이 바뀌면 중복 확인 다시
     setNotice('');
     setServerError('');
   }
 
-  // 중복 확인: 형식만 검사한다. 중복 여부는 전용 API 없이 가입 요청(409 EMAIL_DUPLICATED)에서 확인한다
-  function handleDuplicateCheck(name) {
+  // 보완 3: 중복 확인 — 형식을 먼저 검사하고, 통과하면 서버에 사용 가능 여부를 묻는다
+  // GET /api/v1/auth/check-email · check-nickname → { available }
+  async function handleDuplicateCheck(name) {
     const message = duplicateValidators[name](form[name]);
-    setErrors((prev) => ({ ...prev, [name]: message || undefined }));
-    setDuplicateNotices((prev) => ({
-      ...prev,
-      [name]: message ? undefined : '형식이 올바릅니다. 중복 여부는 가입할 때 확인됩니다.',
-    }));
+    setDuplicateNotices((prev) => ({ ...prev, [name]: undefined }));
+    if (message) {
+      setErrors((prev) => ({ ...prev, [name]: message }));
+      return;
+    }
+
+    const value = form[name].trim();
+    const label = name === 'email' ? '이메일' : '닉네임';
+    setChecking(name);
+    try {
+      const available = name === 'email' ? await checkEmail(value) : await checkNickName(value);
+      if (available) {
+        setErrors((prev) => ({ ...prev, [name]: undefined }));
+        setDuplicateNotices((prev) => ({ ...prev, [name]: `사용할 수 있는 ${label}입니다.` }));
+        setChecked((prev) => ({ ...prev, [name]: value }));
+      } else {
+        setErrors((prev) => ({
+          ...prev,
+          [name]: name === 'email' ? '이미 가입된 이메일입니다.' : '이미 사용 중인 닉네임입니다.',
+        }));
+      }
+    } catch (error) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: error.response?.data?.error?.message ?? '중복 확인에 실패했습니다. 잠시 후 다시 시도해 주세요.',
+      }));
+    } finally {
+      setChecking('');
+    }
   }
 
   function handleTermChange(event) {
@@ -131,6 +160,13 @@ export default function SignupPage() {
     if (submitting) return; // 요청 중 중복 제출 방지
 
     const nextErrors = validateSignup(form, agreements);
+    // 보완 3: 형식이 맞는데 중복 확인을 안 했으면(또는 확인 후 값을 바꿨으면) 확인하라고 안내
+    if (!nextErrors.nickname && checked.nickname !== form.nickname.trim()) {
+      nextErrors.nickname = '닉네임 [중복 확인]을 눌러 주세요.';
+    }
+    if (!nextErrors.email && checked.email !== form.email.trim()) {
+      nextErrors.email = '이메일 [중복 확인]을 눌러 주세요.';
+    }
     setErrors(nextErrors);
     setNotice('');
     setServerError('');
@@ -149,8 +185,13 @@ export default function SignupPage() {
     } catch (error) {
       // 서버 실패 봉투: { error: { code, message } }. 실패해도 입력값은 그대로 둔다
       const { code, message } = error.response?.data?.error ?? {};
+      // 확인과 가입 사이에 다른 사람이 먼저 가입한 경우 — 해당 칸에 표시하고 다시 확인하게 한다
       if (code === 'EMAIL_DUPLICATED') {
         setErrors((prev) => ({ ...prev, email: message }));
+        setChecked((prev) => ({ ...prev, email: '' }));
+      } else if (code === 'NICKNAME_DUPLICATED') {
+        setErrors((prev) => ({ ...prev, nickname: message }));
+        setChecked((prev) => ({ ...prev, nickname: '' }));
       } else if (code === 'PASSWORD_POLICY') {
         setErrors((prev) => ({ ...prev, password: message })); // 서버 비밀번호 규칙 위반
       } else {
@@ -223,8 +264,9 @@ export default function SignupPage() {
                     className="signup-check-button"
                     type="button"
                     onClick={() => handleDuplicateCheck('nickname')}
+                    disabled={checking === 'nickname'}
                   >
-                    중복 확인
+                    {checking === 'nickname' ? '확인 중…' : '중복 확인'}
                   </button>
                 </div>
                 {renderError('nickname')}
@@ -247,8 +289,9 @@ export default function SignupPage() {
                     className="signup-check-button"
                     type="button"
                     onClick={() => handleDuplicateCheck('email')}
+                    disabled={checking === 'email'}
                   >
-                    중복 확인
+                    {checking === 'email' ? '확인 중…' : '중복 확인'}
                   </button>
                 </div>
                 {renderError('email')}

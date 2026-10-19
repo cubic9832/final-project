@@ -46,21 +46,49 @@ public class AuthServiceImpl implements AuthService {
         if (memberMapper.findByEmail(email) != null) {
             throw emailDuplicated();
         }
+        String nickName = request.getNickName().trim();
+        if (memberMapper.countByNickName(nickName) > 0) {
+            throw nickNameDuplicated(); // 보완 3: 닉네임 중복 금지 (V7 UNIQUE)
+        }
 
         MemberDto member = new MemberDto();
         member.setEmail(email);
         member.setPasswordHash(passwordEncoder.encode(request.getPassword())); // 원래 비밀번호는 저장하지 않는다
-        member.setNickName(request.getNickName().trim());
+        member.setNickName(nickName);
         member.setRole(DEFAULT_ROLE);
 
         try {
             memberMapper.insert(member); // 이후 member.getId() 에 새 번호가 들어 있다
         } catch (DuplicateKeyException e) {
-            // 위의 중복 확인과 저장 사이에 같은 이메일이 먼저 가입된 경우 (users.email UNIQUE)
-            throw emailDuplicated();
+            // 위의 중복 확인과 저장 사이에 같은 이메일 · 닉네임이 먼저 가입된 경우 (UNIQUE 위반)
+            // 어느 쪽이 겹쳤는지는 DB 오류 문구의 키 이름으로 구분한다
+            String reason = String.valueOf(e.getMessage());
+            throw reason.contains("uq_users_nick_name") ? nickNameDuplicated() : emailDuplicated();
         }
 
         return MemberResponse.from(member);
+    }
+
+    // 보완 3: [중복 확인] 버튼 — 형식이 맞고 아직 가입되지 않은 이메일이면 true
+    @Override
+    @Transactional(readOnly = true)
+    public boolean isEmailAvailable(String email) {
+        String normalized = email == null ? "" : normalizeEmail(email);
+        if (normalized.isEmpty() || normalized.length() > 100 || !normalized.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$")) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "BAD_REQUEST", "이메일 형식이 올바르지 않습니다.");
+        }
+        return memberMapper.findByEmail(normalized) == null;
+    }
+
+    // 보완 3: [중복 확인] 버튼 — 2~12자이고 아직 쓰는 사람이 없는 닉네임이면 true
+    @Override
+    @Transactional(readOnly = true)
+    public boolean isNickNameAvailable(String nickName) {
+        String trimmed = nickName == null ? "" : nickName.trim();
+        if (trimmed.length() < 2 || trimmed.length() > 12) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "BAD_REQUEST", "이름 또는 닉네임은 2~12자로 입력해 주세요.");
+        }
+        return memberMapper.countByNickName(trimmed) == 0;
     }
 
     @Override
@@ -136,5 +164,9 @@ public class AuthServiceImpl implements AuthService {
 
     private ApiException emailDuplicated() {
         return new ApiException(HttpStatus.CONFLICT, "EMAIL_DUPLICATED", "이미 가입된 이메일입니다.");
+    }
+
+    private ApiException nickNameDuplicated() {
+        return new ApiException(HttpStatus.CONFLICT, "NICKNAME_DUPLICATED", "이미 사용 중인 닉네임입니다.");
     }
 }

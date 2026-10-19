@@ -8,6 +8,18 @@ export const signup = async ({ email, password, nickName }) => {
   return res.data.data;
 };
 
+// 보완 3: 중복 확인 — 사용할 수 있으면 true, 이미 사용 중이면 false
+// (params 로 넘기면 axios 가 한글 · 특수문자를 주소에 맞게 바꿔 준다)
+export const checkEmail = async (email) => {
+  const res = await client.get('/auth/check-email', { params: { email } });
+  return res.data.data.available;
+};
+
+export const checkNickName = async (nickName) => {
+  const res = await client.get('/auth/check-nickname', { params: { nickName } });
+  return res.data.data.available;
+};
+
 // 로그인 — 응답의 access token · 회원 정보를 스토어에 넣고, 회원 정보를 돌려준다
 // (refresh token 은 서버가 HttpOnly 쿠키로 보내서 브라우저에 이미 저장되어 있다)
 export const login = async ({ email, password }) => {
