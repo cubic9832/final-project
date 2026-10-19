@@ -1,4 +1,4 @@
-import AuthToast from '../features/auth/AuthToast';
+import AuthToast from '../features/auth/components/AuthToast';
 import useToastStore from '../stores/useToastStore';
 
 // 공용 알림 표시 자리 (Layout 에 하나만 둔다)

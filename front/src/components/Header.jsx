@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { logout } from '../api/authApi';
-import LogoutConfirmModal from '../features/auth/LogoutConfirmModal';
+import { logout } from '../features/auth/authApi';
+import LogoutConfirmModal from '../features/auth/components/LogoutConfirmModal';
 import useAuthStore from '../stores/useAuthStore';
 import { showToast } from '../stores/useToastStore';
 

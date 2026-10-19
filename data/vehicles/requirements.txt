@@ -1,0 +1,2 @@
+# 기존 설치 명령 호환용. 데이터 도구 의존성의 원본은 tools/data에 둔다.
+-r ../../tools/data/requirements.txt
