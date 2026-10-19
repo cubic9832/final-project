@@ -1,25 +1,27 @@
 import { Route, Routes } from 'react-router-dom';
 
 import Layout from './components/Layout';
-import CompanyDetailPage from './pages/CompanyDetailPage';
-import CompanyListPage from './pages/CompanyListPage';
-import AboutPage from './pages/AboutPage';
-import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
-import FinancialPage from './pages/FinancialPage';
-import FinancialAssetsPage from './pages/FinancialAssetsPage';
-import FinancialCreditPage from './pages/FinancialCreditPage';
-import FinancialVehiclePage from './pages/FinancialVehiclePage';
-import FinancialReviewPage from './pages/FinancialReviewPage';
-import FinancialResultPage from './pages/FinancialResultPage';
-import NotFound from './pages/NotFound';
-import PredictPage from './pages/PredictPage';
-import VehicleCatalogGate from './features/vehicle/VehicleCatalogGate';
+import CompanyDetailPage from './features/company/pages/detail/CompanyDetailPage';
+import CompanyListPage from './features/company/pages/list/CompanyListPage';
+import AboutPage from './pages/about/AboutPage';
+import HomePage from './pages/home/HomePage';
+import LoginPage from './pages/login/LoginPage';
+import FinancialPage from './features/financial/pages/overview/FinancialPage';
+import FinancialAssetsPage from './features/financial/pages/assets/FinancialAssetsPage';
+import FinancialCreditPage from './features/financial/pages/credit/FinancialCreditPage';
+import FinancialVehiclePage from './features/financial/pages/vehicle/FinancialVehiclePage';
+import FinancialReviewPage from './features/financial/pages/review/FinancialReviewPage';
+import FinancialResultPage from './features/financial/pages/result/FinancialResultPage';
+import FinancialRecommendationsPage from './features/financial/pages/recommendations/FinancialRecommendationsPage';
+import NotFound from './pages/not-found/NotFound';
+import PredictPage from './pages/predict/PredictPage';
+import VehicleCatalogGate from './features/vehicle/components/VehicleCatalogGate';
 import { VehicleProvider } from './features/vehicle/VehicleContext';
-import { VehicleSearchPage, VehicleResultsPage } from './features/vehicle/VehicleSearchPage';
-import VehicleDetailPage from './features/vehicle/VehicleDetailPage';
-import VehicleComparePage from './features/vehicle/VehicleComparePage';
-import VehicleSimulationPage from './features/vehicle/VehicleSimulationPage';
+import { VehicleSearchPage } from './features/vehicle/pages/search/VehicleSearchPage';
+import { VehicleResultsPage } from './features/vehicle/pages/results/VehicleResultsPage';
+import VehicleDetailPage from './features/vehicle/pages/detail/VehicleDetailPage';
+import VehicleComparePage from './features/vehicle/pages/compare/VehicleComparePage';
+import VehicleSimulationPage from './features/vehicle/pages/simulation/VehicleSimulationPage';
 
 function App() {
   return (
@@ -35,6 +37,7 @@ function App() {
         <Route path="/financial/vehicle" element={<FinancialVehiclePage />} />
         <Route path="/financial/review" element={<FinancialReviewPage />} />
         <Route path="/financial/result" element={<FinancialResultPage />} />
+        <Route path="/financial/recommendations" element={<FinancialRecommendationsPage />} />
         <Route path="/companies" element={<CompanyListPage />} />
         <Route path="/companies/:code" element={<CompanyDetailPage />} />
         <Route path="/search" element={<VehicleCatalogGate><VehicleSearchPage /></VehicleCatalogGate>} />

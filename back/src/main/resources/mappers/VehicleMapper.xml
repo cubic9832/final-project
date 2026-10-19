@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kh.back.vehicle.VehicleRepository">
-    <select id="findAll" resultType="com.kh.back.vehicle.VehicleResponse">
+    <select id="findAll" resultType="com.kh.back.vehicle.Vehicle">
         SELECT v.id, b.name AS brand, v.name, v.trim_name, v.powertrain, v.model_year,
                v.condition_code, v.class_code, v.fuel_code, v.seating_capacity, v.displacement_cc,
                v.price, v.price_before_incentive, v.efficiency_value, v.city_efficiency,

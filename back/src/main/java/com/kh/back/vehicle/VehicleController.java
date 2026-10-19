@@ -20,7 +20,7 @@ public class VehicleController {
 
     @GetMapping
     public ApiResponse<List<VehicleResponse>> list() {
-        return ApiResponse.ok(vehicleRepository.findAll());
+        return ApiResponse.ok(vehicleRepository.findAll().stream().map(VehicleResponse::from).toList());
     }
 
     @ExceptionHandler(Exception.class)

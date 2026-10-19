@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "files": {
+    "profiles": {
+      "rows": 10060,
+      "sha256": "4cb0f15f54ae9ba4911eb9594475b2b6371dd55a7ceffed34b5f8a809df8e2ca",
+      "bytes": 1594570
+    },
+    "expenses": {
+      "rows": 10060,
+      "sha256": "5dba9b81eb308d4f221a68a136eeca4f38b59e37c3e58d4a7d10356b34e2d93f",
+      "bytes": 1214737
+    },
+    "loans": {
+      "rows": 8270,
+      "sha256": "bfab27a0435cfab0517ca547f447dd88cfc054f67dfefbc1ff36c11eb9c7e0da",
+      "bytes": 1205633
+    },
+    "vehicle_scenarios": {
+      "rows": 30180,
+      "sha256": "fb93a8b0be5ad1fa4f7f04213d6de0b44d010f545f5345232c988ab2f63611de",
+      "bytes": 14336721
+    },
+    "simulation_results": {
+      "rows": 30180,
+      "sha256": "66fc0e8737bced7cb5f8dceadb2e3e153b0a9d4e4c7370a6bd06559369f8ec55",
+      "bytes": 5915048
+    }
+  }
+}

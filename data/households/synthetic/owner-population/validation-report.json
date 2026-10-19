@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "profiles": 10000,
+  "models": 14,
+  "splits": {
+    "평가": 1500,
+    "학습": 7000,
+    "검증": 1500
+  },
+  "negative_monthly_balance": 1630,
+  "deterministic_regeneration": "passed",
+  "input_sha256": {
+    "owner_population_config.json": "69ab94df9d432fb58cd40e5b005d4424f581275f387f0940208fd57679ac9c00",
+    "vehicle-label-catalog.json": "55abc82016c62569fa113155e3ba2d2da054ee422bc102f7fcfd47ccc23b9124"
+  }
+}

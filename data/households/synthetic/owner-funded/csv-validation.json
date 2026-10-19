@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "all_10000_funding_and_option_rules_checked": true,
+  "csv_roundtrip": {
+    "차량보유자_재무특성_보정학습데이터.csv": {
+      "rows": 10000,
+      "sha256": "ec854d64292ed43ee1f8026bc5d5c0fb537f0908cae1558511f1fa3693357d38"
+    },
+    "보유차량_트림옵션_구매자금내역.csv": {
+      "rows": 10000,
+      "sha256": "5acaef0a40c761b99cd3ee081fa8123015a8fe0a22c2843b058977e4eb8bb902"
+    },
+    "차량별_보유자특성_보정요약.csv": {
+      "rows": 14,
+      "sha256": "891a09ff5afc22868899760b096a241650040fdd6b360aa5b92e918b838cb1f9"
+    }
+  }
+}
