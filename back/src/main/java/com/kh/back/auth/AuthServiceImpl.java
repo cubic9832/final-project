@@ -85,6 +85,10 @@ public class AuthServiceImpl implements AuthService {
         profile.setGender(request.getGender());
         userProfileMapper.insert(profile);
 
+        // 보완 6: 가입 전에 이 이메일로 로그인에 실패한 기록이 있으면 지운다
+        // (없는 이메일로 틀린 기록이 새 계정의 첫 로그인에 이어져 바로 reCAPTCHA 가 뜨지 않게)
+        loginAttemptLimiter.reset(email);
+
         return MemberResponse.from(member, profile);
     }
 
