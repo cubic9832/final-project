@@ -6,6 +6,7 @@ import com.kh.back.member.dto.MemberResponse;
 import com.kh.back.member.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,15 +15,39 @@ import org.springframework.transaction.annotation.Transactional;
 public class MemberServiceImpl implements MemberService {
 
     private final MemberMapper memberMapper;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     @Transactional(readOnly = true)
     public MemberResponse getMember(Long userId) {
+        return MemberResponse.from(findMember(userId));
+    }
+
+    // 회원 탈퇴 (보완 4)
+    // 한 트랜잭션: 중간에 하나라도 실패하면 모두 취소되어 "반만 탈퇴된" 상태가 생기지 않는다
+    @Override
+    @Transactional
+    public void withdraw(Long userId, String password) {
+        MemberDto member = findMember(userId);
+
+        // 되돌릴 수 없는 작업이라 비밀번호를 한 번 더 확인한다 (로그인과 같은 BCrypt 비교)
+        if (!passwordEncoder.matches(password, member.getPasswordHash())) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "PASSWORD_MISMATCH", "비밀번호가 올바르지 않습니다.");
+        }
+
+        // users 를 참조하는 데이터를 먼저 정리한 뒤 회원을 삭제한다 (외래키 때문에 순서가 중요)
+        memberMapper.deleteFavoriteVehicles(userId);
+        memberMapper.deletePurchasePlans(userId);
+        memberMapper.detachInputSnapshots(userId);
+        memberMapper.deleteById(userId); // refresh_token 은 ON DELETE CASCADE(V6)로 함께 삭제 → 다른 브라우저 로그인도 끝남
+    }
+
+    private MemberDto findMember(Long userId) {
         MemberDto member = memberMapper.findById(userId);
         if (member == null) {
             // 토큰은 유효한데 회원이 탈퇴 등으로 사라진 경우
             throw new ApiException(HttpStatus.NOT_FOUND, "MEMBER_NOT_FOUND", "회원 정보를 찾을 수 없습니다.");
         }
-        return MemberResponse.from(member);
+        return member;
     }
 }

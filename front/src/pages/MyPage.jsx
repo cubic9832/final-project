@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import { getMe } from '../api/memberApi';
+import { useNavigate } from 'react-router-dom';
+import { logout } from '../api/authApi';
+import { getMe, withdraw } from '../api/memberApi';
 import AccountManageModal from '../features/auth/AccountManageModal';
 import AuthToast from '../features/auth/AuthToast';
 import EmailNotificationModal from '../features/auth/EmailNotificationModal';
 import { NOTIFICATION_OPTIONS } from '../features/auth/notificationOptions';
 import ProfileEditModal from '../features/auth/ProfileEditModal';
+import { showToast } from '../stores/useToastStore';
 import './MyPage.css';
 
 // 서버의 role 값 → 화면에 보여 줄 이름
@@ -56,12 +59,13 @@ const savedPlan = {
 };
 
 export default function MyPage() {
+  const navigate = useNavigate();
   const [profile, setProfile] = useState(initialProfile);
   const [meStatus, setMeStatus] = useState('loading'); // 내 정보 불러오기: 'loading' | 'done' | 'error'
   const [reloadKey, setReloadKey] = useState(0); // 값이 바뀌면 내 정보를 다시 불러온다 (다시 시도 버튼)
   const [isEditOpen, setIsEditOpen] = useState(false);
   const editButtonRef = useRef(null); // 팝업을 닫으면 이 버튼으로 포커스를 돌려준다
-  // 계정 및 데이터 팝업: 'notification'(이메일 알림 설정) | 'account'(데이터·탈퇴) | null
+  // 계정 및 데이터 팝업: 'notification'(이메일 알림 설정) | 'account'(회원 탈퇴) | null
   const [settingsModal, setSettingsModal] = useState(null);
   const [notification, setNotification] = useState('IMPORTANT'); // 이메일 알림 범위 (예시 값)
   const [toast, setToast] = useState(''); // 저장 결과 알림 문구 (빈 문자열이면 숨김)
@@ -111,10 +115,14 @@ export default function MyPage() {
     setToast('이메일 알림 설정을 저장했어요.');
   }
 
-  // 탈퇴 API 연결 전이라 팝업만 닫고 안내한다
-  function handleWithdraw() {
+  // 회원 탈퇴 (보완 4): 서버 탈퇴 → 메인으로 이동 → 로그아웃 처리 → 공용 알림
+  // 실패하면(비밀번호 틀림 등) 예외가 그대로 팝업으로 전달되어 팝업 안에 오류가 표시된다
+  async function handleWithdraw(password) {
+    await withdraw(password);
     setSettingsModal(null);
-    setToast('회원 탈퇴는 서버 연결 후 처리됩니다.');
+    navigate('/'); // 먼저 이동 — 로그인 정보가 지워지면 마이페이지 보호(RequireAuth)가 로그인 화면으로 보내기 때문
+    await logout(); // 브라우저의 refresh token 쿠키 삭제 + 화면 로그인 정보 지우기 (서버 토큰은 탈퇴 때 이미 삭제됨)
+    showToast('회원 탈퇴가 완료되었습니다. 그동안 이용해 주셔서 감사합니다.');
   }
 
   function closeEdit() {
@@ -314,9 +322,9 @@ export default function MyPage() {
             </button>
           </li>
           <li>
-            <span>내 데이터 다운로드 및 회원 탈퇴</span>
+            <span>회원 탈퇴</span>
             <button className="my-text-button" type="button" onClick={() => setSettingsModal('account')}>
-              관리
+              탈퇴
             </button>
           </li>
         </ul>

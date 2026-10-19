@@ -30,4 +30,22 @@
         VALUES (#{email}, #{passwordHash}, #{nickName}, #{role})
     </insert>
 
+    <!-- 회원 탈퇴 (보완 4). users 를 참조하는 테이블(V1)을 먼저 정리한 뒤 회원을 지운다 -->
+    <delete id="deleteFavoriteVehicles">
+        DELETE FROM favorite_vehicles WHERE user_id = #{userId}
+    </delete>
+
+    <delete id="deletePurchasePlans">
+        DELETE FROM purchase_plans WHERE user_id = #{userId}
+    </delete>
+
+    <!-- 분석 입력 기록은 비회원 입력과 같은 형태(user_id NULL)로 남기고, 누구 것인지만 지운다 -->
+    <update id="detachInputSnapshots">
+        UPDATE input_snapshots SET user_id = NULL WHERE user_id = #{userId}
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM users WHERE id = #{id}
+    </delete>
+
 </mapper>

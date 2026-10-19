@@ -15,4 +15,14 @@ public interface MemberMapper {
 
     // 실행 후 member.id 에 DB 가 만든 번호가 채워진다 (XML 의 useGeneratedKeys)
     void insert(MemberDto member);
+
+    // ── 회원 탈퇴 (보완 4) — MemberServiceImpl.withdraw 에서 한 트랜잭션으로 순서대로 실행 ──
+    // users 를 참조하는 데이터를 먼저 정리해야 회원을 지울 수 있다 (외래키)
+    int deleteFavoriteVehicles(Long userId);   // 관심차량 삭제
+
+    int deletePurchasePlans(Long userId);      // 구매계획 삭제
+
+    int detachInputSnapshots(Long userId);     // 분석 입력 기록은 남기고 회원 연결만 끊음 (user_id = NULL)
+
+    int deleteById(Long id);                   // 회원 삭제 (refresh_token 은 V6 ON DELETE CASCADE 로 함께 삭제)
 }

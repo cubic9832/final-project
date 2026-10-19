@@ -2,10 +2,14 @@ package com.kh.back.member.controller;
 
 import com.kh.back.common.dto.ApiResponse;
 import com.kh.back.member.dto.MemberResponse;
+import com.kh.back.member.dto.WithdrawRequest;
 import com.kh.back.member.service.MemberService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,5 +31,15 @@ public class MemberApiController {
     @GetMapping("/me")
     public ApiResponse<MemberResponse> me(@AuthenticationPrincipal Long userId) {
         return ApiResponse.ok(memberService.getMember(userId));
+    }
+
+    // DELETE /api/v1/members/me — 회원 탈퇴 (보완 4). 본문 { password }
+    // 호출: MyPage.jsx 계정 및 데이터 [관리] → 탈퇴 팝업 [회원 탈퇴] 버튼 → memberApi.withdraw
+    // 내 정보와 마찬가지로 토큰의 회원 번호만 쓴다 → 남의 계정은 탈퇴시킬 수 없다
+    @DeleteMapping("/me")
+    public ApiResponse<Void> withdraw(@AuthenticationPrincipal Long userId,
+                                      @Valid @RequestBody WithdrawRequest request) {
+        memberService.withdraw(userId, request.getPassword());
+        return ApiResponse.ok(null);
     }
 }
