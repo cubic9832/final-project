@@ -1,5 +1,0 @@
-# Windows / Python 3.14에서 통합 검증한 직접 의존성 버전.
-# 전체 전이 의존성을 고정하는 lock 파일은 아니다.
---extra-index-url https://download.pytorch.org/whl/cpu
-numpy==2.5.4
-torch==2.14.1+cpu

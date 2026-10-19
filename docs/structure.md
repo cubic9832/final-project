@@ -12,7 +12,7 @@ back/src/main/java/com/kh/back/
   common/                                    공통 응답과 오류 처리
 tools/data/                                  데이터 수집·생성·정제·CSV 코드
 data/                                        데이터·생성 규칙·출처·검증 기록
-ml/                                          차량 추천 MLP 학습·평가·예측
+ml/                                          향후 모델 학습·평가·예측
 output/                                      공유할 검토 문서 산출물
 examples/legacy/                              기존 독립 Java 예제 보존
 tmp/                                         재생성 가능한 로컬 임시 자료 (Git 제외)
@@ -49,6 +49,7 @@ pages/
   about/{AboutPage.jsx,AboutPage.css}
   login/{LoginPage.jsx,LoginPage.css}
   not-found/NotFound.jsx
+  predict/PredictPage.jsx
   search/SearchPage.jsx
 ```
 
@@ -73,13 +74,7 @@ pages/
 
 - 웹 개발 실행: 루트 `dev.sh`, 프런트 `front/package.json`, 백엔드 Gradle.
 - 데이터 처리: [데이터 도구](../tools/data/README.md)의 모듈 실행 방법 사용.
-- 모델·전처리·실행별 평가 보고서: `ml/outputs/models/{segment}/{시각}/`. 각 실행 폴더에 가중치·전처리·report.json을 함께 저장한다. `ml/reports`는 원본 브랜치의 실험 기록이다.
-- ML 실행 의존성은 `ml/pyproject.toml`에서 관리한다. 설치·학습·평가·추론 방법은 `ml/README.md`를 따른다.
+- 모델·전처리·평가 결과: `ml/outputs/models`, `ml/outputs/reports`. 현재 ML은 미구현 상태다.
+- 모델 의존성 버전 고정은 실제 설치·호환성 검증과 함께 진행한다. 현재 requirements는 설치 후보이며 실행 환경이 검증된 lock 파일은 아니다.
 - 설치 의존성·Python 캐시·가상환경·임시 파일은 루트 `.gitignore`에서 제외한다. 원본·재현에 필요한 설정과 공유할 결과는 의도적으로 관리한다.
 - `examples/legacy`는 웹 빌드 대상이 아니며 예전 IDE 프로젝트를 보존한다.
-
-## ML 통합
-
-`feat/data`의 실제 추천 패키지를 `ml/recommender`에 통합했다. `ml/vehicle`은 기존 진입점의 호환 래퍼다. 기본 학습 입력은 원본 브랜치에서 가져온 `data/seed/{domestic-car,imported-car}/{owners,purchases}.csv`다. `ml/config/datasets.json`의 기존 확장 CSV 설정은 참고용이며 모델이 자동으로 읽지 않는다.
-
-재무 진단의 기본 정보는 `features/financial/pages/overview/FinancialProfileFields`에, 결과 추천은 `pages/result/FinancialRecommendations`에 둔다. `buildFinancialRecommendation.js`가 기존 진단값을 모델 입력으로 변환하고 `financialRecommendationApi.js`가 Python API에 요청한다. 별도의 추천 입력 화면·메뉴는 두지 않는다. `ml/recommender/api.py`는 HTTP 계약, `service.py`는 저장 모델 로딩과 재사용을 담당한다. 개발 시 Vite는 추천 경로만 Python 서버로 전달한다. Spring에는 모델 호출을 추가하지 않았다. [실행 및 API 계약](recommendation.md)을 참고한다.

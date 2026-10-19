@@ -5,12 +5,9 @@ import '../../styles/FinancialPages.css';
 import './FinancialAssetsPage.css';
 
 const assetFields = [
-  { name: 'deposit', label: '현금·사용 가능 예금', required: true },
+  { name: 'deposit', label: '사용 가능 예금' },
   { name: 'downPayment', label: '차량 선수금' },
   { name: 'emergency', label: '비상 자금' },
-  { name: 'financialAssets', label: '기타 금융자산', required: true },
-  { name: 'housingDeposit', label: '주거 보증금', required: true },
-  { name: 'realEstate', label: '부동산 자산', required: true },
 ];
 
 const loanFields = [
@@ -46,11 +43,11 @@ export default function FinancialAssetsPage() {
     navigate(state?.reviewReturn ? '/financial/review' : '/financial/credit', { state: { ...state, assets, loans, reviewReturn: false } });
   }
 
-  function renderInput({ name, label, unit = '만 원', step = '0.01', required = false }, loan) {
+  function renderInput({ name, label, unit = '만 원', step = '0.01' }, loan) {
     const id = loan ? `loan-${loan.id}-${name}` : `asset-${name}`;
     return (
       <div className="financial-field" key={name}>
-        <label htmlFor={id}>{label}{(required || (Boolean(loan) && name === 'balance')) && <span className="financial-required" aria-hidden="true"> *</span>}</label>
+        <label htmlFor={id}>{label}</label>
         <div className="financial-input-wrap">
           <input
             id={id}
@@ -60,8 +57,7 @@ export default function FinancialAssetsPage() {
             step={step}
             inputMode={name === 'months' ? 'numeric' : 'decimal'}
             placeholder="0"
-            required={required || (Boolean(loan) && name === 'balance')}
-            value={(loan ? loan[name] : assets[name]) ?? ''}
+            value={loan ? loan[name] : assets[name]}
             aria-label={`${label} (${unit})`}
             onChange={(event) => {
               const value = event.target.value;
@@ -90,13 +86,13 @@ export default function FinancialAssetsPage() {
         <div className="financial-entry-grid">
           <section className="financial-entry-card assets-entry-card" aria-labelledby="assets-title">
             <h2 id="assets-title">2. 자산·부채</h2>
-            <p>모든 금액은 만 원 단위입니다. 현금·예금은 사용 가능한 자금, 기타 금융자산·보증금·부동산은 보유 규모를 입력해 주세요. 보유하지 않은 자산은 0으로 입력합니다.</p>
+            <p>모든 금액은 만 원 단위이며 실제 구매에 사용할 수 있는 범위만 입력합니다.</p>
             <div className="assets-fields">{assetFields.map((field) => renderInput(field))}</div>
 
             <div className="assets-loan-heading">
               <div>
                 <h3>대출 내역</h3>
-                <p>대출을 추가하면 월 부채부담이 자동으로 계산됩니다. 대출이 없으면 내역을 삭제해 주세요. 새 차량의 예정 할부는 포함하지 않습니다.</p>
+                <p>대출을 추가하면 월 부채부담이 자동으로 계산됩니다.</p>
               </div>
               <button
                 type="button"

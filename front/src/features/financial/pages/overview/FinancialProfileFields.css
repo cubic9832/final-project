@@ -1,5 +1,0 @@
-.financial-profile-fields { margin-top: var(--space-24); padding-top: var(--space-24); border-top: 1px solid var(--color-border); }
-.financial-profile-fields h3 { color: var(--color-primary); font-size: var(--font-subtitle); }
-.financial-profile-fields p { margin-top: var(--space-8); color: var(--color-muted); font-size: var(--font-caption); }
-.financial-profile-fields select { width: 100%; height: var(--layout-control-height); padding: 0 var(--space-12); border: 1px solid var(--color-border-input); border-radius: var(--radius-sm); color: var(--color-text); background: var(--color-surface); }
-.financial-profile-fields .financial-input-wrap input { padding-right: 104px; }

@@ -25,11 +25,6 @@ export default function FinancialReviewPage() {
   const totals = calculateFinancialSummary(values);
   const edit = (path) => navigate(path, { state: { ...state, reviewReturn: true } });
   const incomeRows = [
-    ['나이', values.age === undefined ? '입력 안 함' : `${values.age}세`], ['경력', values.career === undefined ? '입력 안 함' : `${values.career}년`],
-    ['가구원 수', values.householdSize === undefined ? '입력 안 함' : `${values.householdSize}명`],
-    ['부양 인원', values.dependents === undefined ? '입력 안 함' : `${values.dependents}명`],
-    ['성별', text(values.gender)], ['직업 유형', text(values.employment)],
-    ['연간 세전소득', money(values.annualGrossIncome)], ['실제 월평균 저축액', money(values.averageSavings)],
     ['월 실수령액', money(values.income)], ['기타 정기 소득', money(values.extraIncome)],
     ['월 주거비', money(values.housing)], ['월 고정 지출', money(values.fixed)], ['월 생활비', money(values.living)],
     ['현재 대출 월 상환액', money(values.loan)], ['교통비', money(values.transport)], ['통신비', money(values.phone)],
@@ -37,8 +32,7 @@ export default function FinancialReviewPage() {
     ['월 가용자금', state?.values ? money(totals.available) : '입력 필요'],
   ];
   const assetRows = [
-    ['현금·사용 가능 예금', money(assets.deposit)], ['선수금', money(assets.downPayment)], ['비상자금', money(assets.emergency)],
-    ['기타 금융자산', money(assets.financialAssets)], ['주거 보증금', money(assets.housingDeposit)], ['부동산 자산', money(assets.realEstate)],
+    ['사용 가능 예금', money(assets.deposit)], ['선수금', money(assets.downPayment)], ['비상자금', money(assets.emergency)],
     ['월 부채상환', loans ? money(loans.reduce((sum, loan) => sum + Number(loan.payment || 0), 0)) : '입력 필요'],
   ];
   const creditRows = [
@@ -47,7 +41,6 @@ export default function FinancialReviewPage() {
     ['신용거래 시작', month(credit.firstCredit)], ['NICE 점수', text(credit.nice)], ['KCB 점수', text(credit.kcb)],
   ];
   const vehicleRows = [
-    ['추천 차량 범위', vehicle.segment === 'imported-car' ? '수입차' : '국내차'],
     ['목적', text(vehicle.purpose)], ['구매 구분', text(vehicle.purchase)], ['차종', text(vehicle.body)], ['연료', text(vehicle.fuel)],
     ['탑승 인원', text(vehicle.passengers)], ['연간 주행', text(vehicle.annualDistance)], ['도로 환경', text(vehicle.road)],
     ['충전 가능 여부', text(vehicle.charging)], ['할부 기간', text(vehicle.installment)],

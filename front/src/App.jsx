@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import Layout from './components/Layout';
 import CompanyDetailPage from './features/company/pages/detail/CompanyDetailPage';
@@ -13,6 +13,7 @@ import FinancialVehiclePage from './features/financial/pages/vehicle/FinancialVe
 import FinancialReviewPage from './features/financial/pages/review/FinancialReviewPage';
 import FinancialResultPage from './features/financial/pages/result/FinancialResultPage';
 import NotFound from './pages/not-found/NotFound';
+import PredictPage from './pages/predict/PredictPage';
 import VehicleCatalogGate from './features/vehicle/components/VehicleCatalogGate';
 import { VehicleProvider } from './features/vehicle/VehicleContext';
 import { VehicleSearchPage } from './features/vehicle/pages/search/VehicleSearchPage';
@@ -42,7 +43,7 @@ function App() {
         <Route path="/vehicles/compare" element={<VehicleCatalogGate><VehicleComparePage /></VehicleCatalogGate>} />
         <Route path="/vehicles/:id" element={<VehicleCatalogGate><VehicleDetailPage /></VehicleCatalogGate>} />
         <Route path="/vehicles/:id/simulation" element={<VehicleCatalogGate><VehicleSimulationPage /></VehicleCatalogGate>} />
-        <Route path="/predict" element={<Navigate to="/financial" replace />} />
+        <Route path="/predict" element={<PredictPage />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
