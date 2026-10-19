@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../../features/auth/authApi';
-import { getMe, withdraw } from '../../features/auth/memberApi';
+import { getMe, updateNickName, withdraw } from '../../features/auth/memberApi';
+import useAuthStore from '../../stores/useAuthStore';
 import AccountManageModal from './AccountManageModal';
 import AuthToast from '../../features/auth/components/AuthToast';
 import EmailNotificationModal from './EmailNotificationModal';
@@ -102,9 +103,12 @@ export default function MyPage() {
   const planPercent = Math.round((savedPlan.saved / savedPlan.goal) * 100);
   const notificationLabel = NOTIFICATION_OPTIONS.find((option) => option.value === notification).label;
 
-  // 팝업에서 저장한 닉네임을 화면에 반영한다 (서버 저장은 아직 없다 → 다시 들어오면 서버 값으로 돌아간다)
-  function handleSaveProfile(nickname) {
-    setProfile((prev) => ({ ...prev, nickname }));
+  // 보완 3 추가: 팝업에서 저장한 닉네임을 서버에 저장하고, 프로필 카드와 헤더에 반영한다
+  // 실패하면(닉네임 중복 등) 예외가 팝업으로 전달되어 팝업 안에 오류가 표시된다
+  async function handleSaveProfile(nickname) {
+    const me = await updateNickName(nickname);
+    setProfile((prev) => ({ ...prev, nickname: me.nickName }));
+    useAuthStore.getState().updateMember({ nickName: me.nickName });
     closeEdit();
     setToast('프로필을 저장했어요.');
   }

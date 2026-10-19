@@ -1,6 +1,7 @@
 package com.kh.back.member;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface MemberMapper {
@@ -14,6 +15,9 @@ public interface MemberMapper {
 
     // 실행 후 member.id 에 DB 가 만든 번호가 채워진다 (XML 의 useGeneratedKeys)
     void insert(MemberDto member);
+
+    // 닉네임 변경 (보완 3 추가). UNIQUE(V7) 에 걸리면 DuplicateKeyException
+    int updateNickName(@Param("id") Long id, @Param("nickName") String nickName);
 
     // ── 회원 탈퇴 (보완 4) — MemberServiceImpl.withdraw 에서 한 트랜잭션으로 순서대로 실행 ──
     // users 를 참조하는 데이터를 먼저 정리해야 회원을 지울 수 있다 (외래키)

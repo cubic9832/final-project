@@ -30,6 +30,11 @@
         VALUES (#{email}, #{passwordHash}, #{nickName}, #{role})
     </insert>
 
+    <!-- 닉네임 변경 (보완 3 추가) -->
+    <update id="updateNickName">
+        UPDATE users SET nick_name = #{nickName} WHERE id = #{id}
+    </update>
+
     <!-- 회원 탈퇴 (보완 4). users 를 참조하는 테이블(V1)을 먼저 정리한 뒤 회원을 지운다 -->
     <delete id="deleteFavoriteVehicles">
         DELETE FROM favorite_vehicles WHERE user_id = #{userId}

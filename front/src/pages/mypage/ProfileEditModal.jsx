@@ -1,5 +1,5 @@
 // 내 정보 수정 팝업 (Figma: ACCOUNT 02 · 내 정보 수정 팝업)
-// 지금은 화면 안에서만 저장한다. API 연결 시 handleSubmit 에서 서버 요청으로 바꾼다.
+// 보완 3 추가: [변경사항 저장] 이 서버에 닉네임을 저장한다 (PATCH /members/me). 겹치면 팝업 안에 오류 표시
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import theme from '../../styles/theme';
@@ -30,7 +30,7 @@ export default function ProfileEditModal({ nickname, email, onSave, onClose }) {
     setError('');
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     const trimmed = value.trim();
 
@@ -43,9 +43,20 @@ export default function ProfileEditModal({ nickname, email, onSave, onClose }) {
       return;
     }
 
-    // 저장 중 상태(버튼 비활성)를 보여 주기 위한 임시 지연. API 연결 시 서버 요청으로 바꾼다
+    // 바뀐 게 없으면 서버에 보내지 않고 닫는다
+    if (trimmed === nickname) {
+      onClose();
+      return;
+    }
+
+    // onSave: 서버 저장 (MyPage). 실패하면 예외를 던지고, 이 팝업이 오류 문구를 보여 준다
     setSaving(true);
-    setTimeout(() => onSave(trimmed), 400);
+    try {
+      await onSave(trimmed);
+    } catch (err) {
+      setError(err.response?.data?.error?.message ?? '저장에 실패했습니다. 잠시 후 다시 시도해 주세요.');
+      setSaving(false);
+    }
   }
 
   return (
@@ -58,7 +69,7 @@ export default function ProfileEditModal({ nickname, email, onSave, onClose }) {
     >
       {(requestClose) => (
         <>
-          <p className="auth-modal-example">예시 데이터 · 실제 개인정보를 사용하지 않습니다.</p>
+          <p className="auth-modal-example">표시 이름은 저장됩니다 · 아래 재무·차량 입력정보는 예시 화면입니다.</p>
 
           <form className="profile-edit-form" onSubmit={handleSubmit} noValidate>
             <div className="auth-modal-field">
