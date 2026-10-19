@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- refresh token (refresh_token 테이블). 테이블은 Flyway V6__create_refresh_token.sql 이 만든다 -->
+<mapper namespace="com.kh.back.auth.RefreshTokenMapper">
+
+    <insert id="insert">
+        INSERT INTO refresh_token (user_id, token, expires_at)
+        VALUES (#{userId}, #{token}, #{expiresAt})
+    </insert>
+
+    <select id="findByToken" resultType="com.kh.back.auth.RefreshTokenDto">
+        SELECT id, user_id, token, expires_at
+        FROM refresh_token
+        WHERE token = #{token}
+    </select>
+
+    <delete id="deleteByToken">
+        DELETE FROM refresh_token WHERE token = #{token}
+    </delete>
+
+</mapper>

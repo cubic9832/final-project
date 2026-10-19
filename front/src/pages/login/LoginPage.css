@@ -19,7 +19,8 @@
 
 .login-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* 로그인 폼을 넓게, 간편 체험 카드는 좁게 (3:2) */
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
   gap: var(--space-24);
   align-items: stretch;
 }
@@ -48,13 +49,17 @@
   letter-spacing: -0.5px;
 }
 
+/* 시안 기준: 라벨은 왼쪽, 입력칸은 오른쪽에 한 줄로 배치 */
 .login-field {
-  margin-top: var(--space-24);
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-12);
+  margin-top: var(--space-16);
 }
 
 .login-field label {
-  display: block;
-  margin-bottom: var(--space-8);
+  padding-top: var(--space-12);
   font-size: var(--font-caption);
   font-weight: 700;
   color: var(--color-text-sub);
@@ -62,7 +67,6 @@
 
 .login-field input {
   width: 100%;
-  max-width: 320px;
   height: var(--layout-control-height);
   padding: 0 var(--space-12);
   border: 1px solid var(--color-border-input);
@@ -73,6 +77,16 @@
 
 .login-field input::placeholder {
   color: var(--color-placeholder);
+}
+
+.login-field input.has-error {
+  border-color: var(--color-danger);
+}
+
+.login-error {
+  margin-top: var(--space-4);
+  color: var(--color-danger);
+  font-size: var(--font-caption);
 }
 
 .login-checkbox {
@@ -137,17 +151,19 @@
   color: var(--color-surface);
 }
 
-.login-submit:hover {
+.login-submit:hover:not(:disabled) {
   background: var(--color-primary-hover);
 }
 
-.login-notice {
-  color: var(--color-text-sub);
-  font-size: var(--font-caption);
+/* 로그인 요청 중에는 버튼을 비활성으로 표시 */
+.login-submit:disabled {
+  opacity: 0.6;
+  cursor: default;
 }
 
-.login-notice:not(:empty) {
-  margin-bottom: var(--space-16);
+/* 서버 로그인 실패 문구 (예: 이메일 또는 비밀번호가 올바르지 않습니다) — 버튼 바로 위 */
+.login-failed {
+  margin: 0 0 var(--space-16);
 }
 
 .login-card-footer {
@@ -274,4 +290,19 @@
   .login-demo-card {
     min-height: auto;
   }
+}
+
+/* 보완 6: 로그인 여러 번 실패 후 나타나는 reCAPTCHA */
+.login-recaptcha {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #fff7e3;
+}
+
+.login-recaptcha > p {
+  margin-bottom: 10px;
+  color: #8b6100;
+  font-size: 12px;
+  font-weight: 700;
 }

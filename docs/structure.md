@@ -2,14 +2,15 @@
 
 ```text
 front/src/
-  features/{vehicle,financial,company,preset}/  기능별 코드
-  shared/api/                                공통 HTTP 클라이언트
-  pages/{home,about,login,...}/               독립 화면별 JSX·CSS
-  components/                                공통 레이아웃
+  features/{vehicle,financial,company,preset,auth}/  기능별 코드
+  shared/api/                                공통 HTTP 클라이언트·토큰 재발급
+  pages/{home,about,login,signup,mypage,admin,...}/  독립 화면별 JSX·CSS
+  components/                                공통 레이아웃·헤더·로그인 필요 화면 보호
+  stores/                                    전역 상태 (로그인 정보, 공용 알림)
   styles/                                    전역 스타일과 테마
 back/src/main/java/com/kh/back/
-  {vehicle,company}/                          기능별 Java 코드
-  common/                                    공통 응답과 오류 처리
+  {vehicle,company,auth,member}/              기능별 Java 코드
+  common/                                    공통 응답과 오류 처리, JWT·Spring Security
 tools/data/                                  데이터 수집·생성·정제·CSV 코드
 data/                                        데이터·생성 규칙·출처·검증 기록
 ml/                                          기존 진단 입력에 맞춘 모델·추론 API
@@ -44,10 +45,19 @@ features/vehicle/
 features/company/
   pages/{list,detail}/
   companyApi.js
+features/auth/
+  components/{AuthModal,AuthToast,PasswordInput,LogoutConfirmModal}  여러 화면·헤더가 함께 쓰는 팝업·입력칸
+  authApi.js
+  memberApi.js
 pages/
   home/{HomePage.jsx,HomePage.css}
   about/{AboutPage.jsx,AboutPage.css}
-  login/{LoginPage.jsx,LoginPage.css}
+  login/{LoginPage.jsx,LoginPage.css,PasswordResetModal,RecaptchaBox}
+  signup/{SignupPage.jsx,SignupPage.css,TermsModal,SignupCompleteModal,
+          passwordPolicy.js,emailTypo.js,profileRules.js}
+  mypage/{MyPage.jsx,MyPage.css,ProfileEditModal,EmailNotificationModal,
+          AccountManageModal,notificationOptions.js}
+  admin/{AdminPage.jsx,AdminPage.css,ModelMetricChart,adminExampleData.js}
   not-found/NotFound.jsx
   predict/PredictPage.jsx
   search/SearchPage.jsx
@@ -68,7 +78,7 @@ pages/
 
 원본 파일·합성 데이터의 일괄 이동이나 재생성은 구조 변경에 포함하지 않는다. 데이터 묶음을 추가할 때 소스 코드를 복제하지 않고 패키지의 생성 모듈과 별도 설정을 사용한다.
 
-백엔드의 company·vehicle 코드는 각 기능 패키지 안에 배치한다. MyBatis XML은 클래스 전체 이름을 참조한다. 차량 조회는 영속성 모델 `Vehicle`을 반환하고 Controller에서 `VehicleResponse`로 변환해 HTTP 응답과 DB 매핑을 분리한다. 단순 조회를 감싸기 위한 Service는 추가하지 않는다.
+백엔드의 company·vehicle·auth·member 코드는 각 기능 패키지 안에 배치한다. MyBatis XML은 클래스 전체 이름을 참조한다. 차량 조회는 영속성 모델 `Vehicle`을 반환하고 Controller에서 `VehicleResponse`로 변환해 HTTP 응답과 DB 매핑을 분리한다. 단순 조회를 감싸기 위한 Service는 추가하지 않는다.
 
 ## 실행과 저장
 

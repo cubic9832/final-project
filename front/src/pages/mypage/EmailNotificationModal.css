@@ -1,0 +1,55 @@
+/* 이메일 알림 설정 팝업 — 공통 부분은 AuthModal.css */
+
+.notification-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  border: 0;
+}
+
+.notification-legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.notification-option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-12);
+  padding: var(--space-12) var(--space-16);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.notification-option.is-selected {
+  border-color: var(--color-primary);
+  background: var(--color-blue-tint);
+}
+
+.notification-option input {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: var(--color-primary);
+}
+
+.notification-option span {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.notification-option strong {
+  font-size: var(--font-body);
+}
+
+.notification-option small {
+  color: var(--color-muted);
+  font-size: var(--font-caption);
+}
