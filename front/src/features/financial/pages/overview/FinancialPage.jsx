@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { calculateFinancialSummary } from '../../calculateFinancialSummary';
+import FinancialProfileFields from './FinancialProfileFields';
 import '../../styles/FinancialPages.css';
 
 const fields = [
@@ -100,6 +101,7 @@ export default function FinancialPage() {
             <p id="financial-unit">월 소득과 정기 지출을 입력해 주세요. 모든 금액은 만 원 단위입니다.</p>
             <p className="financial-required-note">* 표시는 필수 입력 항목입니다. 지출이 없으면 0을 입력해 주세요.</p>
             <div className="financial-fields">{fields.map(renderField)}</div>
+            <FinancialProfileFields values={values} onChange={(name, value) => setValues((previous) => ({ ...previous, [name]: value }))} />
 
             <div className="financial-extra">
               <div className="financial-extra-heading">

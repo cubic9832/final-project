@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { calculateVehicleBudget } from '../../calculateVehicleBudget';
+import FinancialRecommendations from './FinancialRecommendations';
 import '../../styles/FinancialPages.css';
 import './FinancialResultPage.css';
 
@@ -7,7 +8,7 @@ const amount = (value) => Number(value).toLocaleString('ko-KR', { maximumFractio
 const money = (value) => `${amount(value)}만 원`;
 
 export default function FinancialResultPage() {
-  const { state } = useLocation();
+  const { state, key: diagnosisKey } = useLocation();
   const navigate = useNavigate();
   const { values = {}, credit = {}, vehicle = {} } = state ?? {};
   const result = calculateVehicleBudget(state ?? {});
@@ -63,7 +64,8 @@ export default function FinancialResultPage() {
       <div className="result-table-wrap"><table><caption className="result-sr-only">구매 전후 월 재무 상태</caption><thead><tr><th scope="col">항목</th><th scope="col">구매 전</th><th scope="col">구매 후</th></tr></thead><tbody>{beforeAfter.map((item) => <tr key={item.label}><th scope="row">{item.label}</th><td>{state?.values ? money(item.before) : '—'}</td><td>{result.valid ? money(item.after) : '—'}</td></tr>)}</tbody></table></div>
       <p className="result-assumptions">계산 가정: 연 금리 6%, 월 유지비 20만 원, 가용자금의 25%를 여유자금으로 유지합니다. 선수금은 예금에서 비상자금을 제외한 범위로 제한합니다. 예산 하한은 할부 가능액의 80% 기준이며, 취득세·이전비는 포함하지 않습니다.</p>
     </section>
+    <FinancialRecommendations key={diagnosisKey} diagnosis={state} />
     <aside className="result-warning"><h2>결과·사용 전 확인</h2><p>위 예산은 화면용 추정치이며 실제 대출 가능액이나 금융기관 심사 결과가 아닙니다. 실제 금리와 보험료·유지비에 따라 달라집니다.</p></aside>
-    <div className="financial-next-row result-navigation"><button type="button" className="result-previous" onClick={() => navigate('/financial', { state: { ...state, reviewReturn: false } })}>조건 다시 입력하기</button><button type="button" className="financial-next-button" onClick={() => navigate('/predict')}>추천 차량 확인하기</button></div>
+    <div className="financial-next-row result-navigation"><button type="button" className="result-previous" onClick={() => navigate('/financial', { state: { ...state, reviewReturn: false } })}>조건 다시 입력하기</button></div>
   </div>;
 }

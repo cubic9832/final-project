@@ -2,7 +2,7 @@
 
 폴더별 역할과 데이터 관리 경계는 [프로젝트 구조](docs/structure.md), 데이터 생성·변환 방법은 [데이터 도구](tools/data/README.md), 머신 러닝 실행 방법은 [ML 안내](ml/README.md)를 참고하세요.
 
-React에서 실제 모델로 추천받는 실행 방법은 [차량 추천 화면](docs/recommendation.md)을 참고하세요. 추천 API와 프런트를 함께 실행한 뒤 `/predict`로 접속합니다.
+재무 진단을 마치면 같은 결과 화면에서 실제 모델의 차량 추천을 확인할 수 있습니다. [실행 방법](docs/recommendation.md)에 따라 추천 API와 프런트를 함께 실행한 뒤 `/financial`로 접속합니다.
 
 ## 실행
 

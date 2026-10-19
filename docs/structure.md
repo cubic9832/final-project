@@ -2,7 +2,7 @@
 
 ```text
 front/src/
-  features/{vehicle,financial,company,preset,recommendation}/  기능별 코드
+  features/{vehicle,financial,company,preset}/  기능별 코드
   shared/api/                                공통 HTTP 클라이언트
   pages/{home,about,login,...}/               독립 화면별 JSX·CSS
   components/                                공통 레이아웃
@@ -82,4 +82,4 @@ pages/
 
 `feat/data`의 실제 추천 패키지를 `ml/recommender`에 통합했다. `ml/vehicle`은 기존 진입점의 호환 래퍼다. 기본 학습 입력은 원본 브랜치에서 가져온 `data/seed/{domestic-car,imported-car}/{owners,purchases}.csv`다. `ml/config/datasets.json`의 기존 확장 CSV 설정은 참고용이며 모델이 자동으로 읽지 않는다.
 
-`features/recommendation/pages/predict/`는 추천 폼·입력 변환·결과·스타일을 함께 관리한다. 기능의 `recommendationApi.js`가 공통 HTTP 클라이언트로 Python API에 요청한다. `ml/recommender/api.py`는 HTTP 계약, `service.py`는 저장 모델 로딩과 재사용을 담당한다. 개발 시 Vite는 추천 경로만 Python 서버로 전달한다. Spring에는 모델 호출을 추가하지 않았다. [실행 및 API 계약](recommendation.md)을 참고한다.
+재무 진단의 기본 정보는 `features/financial/pages/overview/FinancialProfileFields`에, 결과 추천은 `pages/result/FinancialRecommendations`에 둔다. `buildFinancialRecommendation.js`가 기존 진단값을 모델 입력으로 변환하고 `financialRecommendationApi.js`가 Python API에 요청한다. 별도의 추천 입력 화면·메뉴는 두지 않는다. `ml/recommender/api.py`는 HTTP 계약, `service.py`는 저장 모델 로딩과 재사용을 담당한다. 개발 시 Vite는 추천 경로만 Python 서버로 전달한다. Spring에는 모델 호출을 추가하지 않았다. [실행 및 API 계약](recommendation.md)을 참고한다.

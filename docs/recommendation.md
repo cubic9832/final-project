@@ -1,70 +1,64 @@
-# React 차량 추천
+# 재무 진단과 차량 추천
+
+## 사용자 흐름
+
+독립적인 차량 추천 메뉴·입력 화면을 두지 않는다. 재무 진단의 기존 5단계를 마친 뒤 종합 분석 결과 안에서 추천을 자동으로 도출한다.
+
+```text
+소득·지출과 기본 정보 → 자산·부채 → 신용정보 → 차량 조건 → 입력정보 확인
+                                                               ↓
+                                          예산 분석 + 진단 조건에 따른 차량 추천
+```
+
+진입점은 `/financial`이며, 기존 `/predict` 주소는 진단 첫 단계로 이동한다. 결과 화면에서 다시 입력하면 기존 진단값을 유지한다.
 
 ## 실행
 
-저장소 루트의 첫 번째 PowerShell에서 서버 의존성을 설치하고 추천 API를 실행한다.
+저장소 루트의 첫 번째 PowerShell:
 
 ```powershell
 & ./ml/.venv/Scripts/python.exe -m pip install -e "./ml[serve,test]"
 ./ml/serve.ps1
 ```
 
-두 번째 터미널에서 프런트를 실행하고 `http://localhost:5173/predict`로 접속한다.
+두 번째 터미널:
 
 ```powershell
 npm --prefix front run dev
 ```
 
-국내차·수입차를 선택해 조건을 입력하거나 `예시 조건 채우기`를 사용한다. 실제 모델 결과를 표시하며, 오류를 샘플 추천으로 대체하지 않는다. 추천 화면만 실행할 때에는 Spring·MySQL이 필요하지 않다. 기존 카탈로그·재무 기능은 루트 README의 실행 방법을 따른다.
+`http://localhost:5173/financial`에서 진단을 진행한다. 재무 진단·추천 자체에는 Spring·MySQL이 필요하지 않다. 기존 차량 카탈로그 등 다른 기능은 루트 README의 실행 방법을 따른다.
 
-## 모델 선택
+## 입력 연결
 
-모델 학습은 [ML 안내](../ml/README.md)를 따른다. API는 시작할 때 `ml/outputs/models/{segment}`의 최신 시각별 폴더를 읽는다. 시각별 폴더가 없으면 다른 폴더를 이름 역순으로 선택한다. 모델 변경 후에는 API를 재시작한다. 로딩 실패 시 다른 모델로 조용히 대체하지 않고 해당 구분의 사용 불가를 표시한다.
+- 소득·지출 단계에서 기존 월 실수령액·월 지출·목표 저축액을 유지하고, 모델에 필요한 나이·경력·가구원·부양인원·성별·직업·연간 세전소득·실제 월평균 저축액을 함께 받는다.
+- 연간 세전소득은 월 실수령액으로 추정하지 않는다. 모델의 실제 저축액과 예산 계산의 목표 저축액을 구분한다.
+- 자산 단계의 현금·사용 가능 예금을 현금성 자산으로 연결하고, 기타 금융자산·주거 보증금·부동산을 보완한다. 보유하지 않으면 0을 명시한다. 보증금·부동산은 구매 예산에 더하지 않는다.
+- 현재 대출 내역의 잔액을 합산한다. 새 차량 예정 할부는 포함하지 않는다. 대출이 없으면 내역을 삭제해 무대출을 명시한다.
+- 월 기타 생활소비는 고정 지출+생활비+별도 입력한 교통비+통신비다. 주거비·대출 상환·저축은 제외한다. 선택 지출을 중복 입력하지 않는 기존 안내를 따른다.
+- 차량 조건의 국내차·수입차, 연간 주행거리, 이용목적을 재사용한다. 주말 여가는 모델의 여가, 가족 이동은 가족이동으로 연결한다.
+- 입력 금액은 만 원, 모델 요청은 원 단위다. 변환은 `buildFinancialRecommendation.js` 한 곳에서 수행한다.
 
-특정 모델을 고정할 때는 서버 시작 전에 절대 경로를 지정한다.
+확인 단계에서 새 항목도 검토·수정할 수 있다. 이전 버전의 진단값에 필요한 정보가 없으면 임의 값을 채우거나 요청하지 않고, 결과 화면에서 해당 진단 단계로 돌아가 보완하도록 안내한다.
 
-```powershell
-$env:ML_DOMESTIC_RUN = 'C:\workspace\final-project\ml\outputs\models\domestic-car\20261019T102520'
-$env:ML_IMPORTED_RUN = 'C:\workspace\final-project\ml\outputs\models\imported-car\20261019T102526'
-./ml/serve.ps1
-```
+## 결과와 오류
 
-모델 폴더에는 `model.pt`, `model.json`, `preprocessor.json`이 필요하다. 매 요청마다 다시 학습하거나 모델 파일을 읽지 않는다.
+결과 화면 진입 시 저장된 진단값으로 Python API를 요청한다. 로딩·성공·빈 결과·연결 실패를 구분하고, 실패 시에도 예산 분석과 진단값은 유지한다. 다시 시도는 같은 진단 입력으로 수행한다. 별도 추천 입력 화면이나 추가 제출 버튼은 없다.
 
-## 입력과 결과
+추천은 모델이 선정한 차종 후보와 예측 확률이다. 예산 분석과 함께 보여주지만 차종·트림 DB 매칭과 가격 기반 후보 필터링은 아직 포함하지 않는다. 신용점수·연료·도로환경·우선순위 등 모델 입력에 없는 항목을 모델이 반영했다고 표시하지 않는다. 확률을 구매 적합도나 구매 가능 확률로 해석하지 않는다.
 
-- 금액은 만 원으로 입력하며 React가 원 단위로 변환한다. 소득은 연간 세전소득, 지출·저축은 월 기준이다.
-- 재무 진단의 월 실수령액을 세전 연봉으로 자동 변환하지 않는다. 추천 전용 폼에서 필요한 값을 직접 입력한다.
-- 성별·직업·목적은 선택한 모델의 학습 범주를 선택지로 제공한다.
-- 요청 중 폼을 비활성화하고 중복 전송을 막는다. 오류 시 입력을 유지하며 다시 요청할 수 있다. 입력 변경 시 이전 조건의 추천 결과를 지운다.
-- 결과는 차종 후보와 모델 예측 확률이다. 가격·트림·월 부담·DB 차량 상세 매칭이나 구매 가능 판단은 포함하지 않는다. 확률은 적합도나 구매 가능 확률이 아니다.
-- 입력은 브라우저 메모리와 추론 요청에서만 사용한다. 이 기능은 파일·DB·localStorage에 프로필을 저장하지 않고 서버 로그에도 요청 본문을 기록하지 않는다.
+입력은 기존 Router state와 추론 요청에서만 사용하며, 이 기능은 파일·DB·localStorage에 프로필을 저장하거나 서버 로그에 요청 본문을 기록하지 않는다.
 
-## API 계약
+## 모델과 API
 
-개발 시 Vite는 아래 두 경로를 `127.0.0.1:8001`로 전달한다. 나머지 `/api`는 기존 Spring 서버로 전달한다.
+모델 학습은 [ML 안내](../ml/README.md)를 따른다. 서버는 시작할 때 `ml/outputs/models/{segment}`의 최신 시각별 폴더를 읽어 재사용한다. 특정 모델 고정은 서버 실행 전에 `ML_DOMESTIC_RUN`, `ML_IMPORTED_RUN` 환경변수에 절대 경로를 지정한다. 모델 교체 후에는 서버를 재시작한다.
 
-| 메서드와 경로 | 용도 |
-| --- | --- |
-| GET `/api/v1/recommendation-options` | 구분별 모델 사용 가능 여부와 범주 선택지 |
-| POST `/api/v1/recommendations` | `{segment, profile, k: 3}`로 추천 요청 |
+Vite는 `/api/v1/recommendations`, `/api/v1/recommendation-options`를 `127.0.0.1:8001`로 전달한다. 나머지 `/api`는 기존 Spring 서버로 전달한다. 운영에서는 별도 웹 서버나 게이트웨이에 같은 경로를 구성해야 한다.
 
-`segment`는 `domestic-car` 또는 `imported-car`다. `profile`의 키와 원 단위 예시는 `ml/examples/profile.json`을 따른다.
+POST `/api/v1/recommendations`의 본문은 `{segment, profile, k: 3}`이다. `segment`는 domestic-car 또는 imported-car, `profile`은 `ml/examples/profile.json`의 원 단위 키를 따른다. 성공은 200과 `{success: true, data: ...}`이며 데이터는 segment, modelVersion, recommendations를 포함한다. 차량 항목은 labelCode, model, body, grade, probability다.
 
-성공은 `200`과 `{success: true, data: ...}`다. 추천 데이터는 `segment`, `modelVersion`, `recommendations`를 포함한다. 각 차량은 `labelCode`, `model`, `body`, `grade`, `probability`를 제공한다.
-
-실패는 `application/problem+json`이다. 입력 오류 `400`, 모델 사용 불가 `503`, 내부 처리 실패 `500`을 구분한다. 필드 오류 확장은 `errors: [{field, message}]`다. 서버가 꺼져 있으면 프런트에서 연결 실패와 재시도를 안내한다.
-
-API는 로컬 개발용으로 `127.0.0.1`에 바인딩한다. 운영 배포에서는 웹 서버나 Spring 게이트웨이가 같은 두 경로를 Python 서비스로 전달하도록 구성해야 한다. Vite 개발 프록시는 운영 빌드에 포함되지 않는다.
+오류는 application/problem+json이다. 입력 오류400, 모델 사용 불가503, 내부 실패500을 구분한다. 필드 오류 확장은 `errors: [{field, message}]`다.
 
 ## 검증
 
-```powershell
-npm --prefix front test
-npm --prefix front run lint
-npm --prefix front run build
-Set-Location ml
-./.venv/Scripts/python.exe -m unittest discover -s tests
-```
-
-실제 브라우저에서 국내·수입 Top 3 표시, 필수값 오류, 서버 종료 시 연결 실패·입력 보존·서버 복구 후 재요청을 확인했다.
+프런트 빌드·린트·테스트와 브라우저 5단계 입력 → 확인 → 예산·실제 추천 동시 표시를 확인했다. 테스트는 기존 재무 입력 재사용, 세전 연봉·실수령액 구분, 실제·목표 저축액 구분, 지출 합계, 대출 합계, 무대출과 미입력 구분을 검증한다.

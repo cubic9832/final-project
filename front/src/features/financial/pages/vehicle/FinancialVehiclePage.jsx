@@ -7,6 +7,7 @@ import './FinancialVehiclePage.css';
 
 const purposes = ['출퇴근', '주말 여가', '가족 이동', '업무'];
 const vehicleFields = [
+  { name: 'segment', label: '추천 차량 범위', options: ['domestic-car', 'imported-car'] },
   { name: 'purchase', label: '구매 구분', options: ['신차 우선 · 중고차 포함', '신차만', '중고차만'] },
   { name: 'body', label: '차종', options: ['경차 · 소형 · 준중형', '중형 · 대형', 'SUV', '승합차'] },
   { name: 'fuel', label: '연료', options: ['가솔린 · 하이브리드', '가솔린', '디젤', '하이브리드', '전기', 'LPG', '상관없음'] },
@@ -68,7 +69,7 @@ export default function FinancialVehiclePage() {
               {vehicleFields.map(({ name, label, options }) => <div className="financial-field" key={name}>
                 <label htmlFor={`vehicle-${name}`}>{label}</label>
                 <select id={`vehicle-${name}`} name={name} value={vehicle[name]} onChange={(event) => { setVehicle((previous) => ({ ...previous, [name]: event.target.value })); setNotice(''); }}>
-                  {options.map((option) => <option key={option}>{option}</option>)}
+                  {options.map((option) => <option key={option} value={option}>{name === 'segment' ? (option === 'domestic-car' ? '국내차' : '수입차') : option}</option>)}
                 </select>
               </div>)}
             </div>
