@@ -68,7 +68,7 @@ public class AuthApiController {
     @PostMapping("/login")
     public ResponseEntity<ApiResponse<TokenResponse>> login(@Valid @RequestBody LoginRequest request,
                                                            HttpServletRequest httpRequest) {
-        // 보완 6: 접속 IP 는 실패 횟수 세기에 쓴다 (X-Forwarded-For 는 위조할 수 있어 쓰지 않는다)
+        // 보완 6: 접속 IP 는 구글 reCAPTCHA 확인에 참고값으로 보낸다 (X-Forwarded-For 는 위조할 수 있어 쓰지 않는다)
         return withTokens(authService.login(request, httpRequest.getRemoteAddr()));
     }
 

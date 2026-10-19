@@ -88,6 +88,15 @@ public class AuthServiceImpl implements AuthService {
         return MemberResponse.from(member, profile);
     }
 
+    // 보완 6: 잠겨 있으면 429 LOGIN_LOCKED (남은 시간을 분 단위로 안내)
+    private void throwIfLocked(String email) {
+        long minutes = loginAttemptLimiter.lockedMinutesLeft(email);
+        if (minutes > 0) {
+            throw new ApiException(HttpStatus.TOO_MANY_REQUESTS, "LOGIN_LOCKED",
+                    "로그인에 5번 실패해 잠시 잠겼습니다. " + minutes + "분 뒤에 다시 시도해 주세요.");
+        }
+    }
+
     // 보완 3: [중복 확인] 버튼 — 형식이 맞고 아직 가입되지 않은 이메일이면 true
     @Override
     @Transactional(readOnly = true)
@@ -115,8 +124,11 @@ public class AuthServiceImpl implements AuthService {
     public AuthTokens login(LoginRequest request, String clientIp) {
         String email = normalizeEmail(request.getEmail());
 
-        // 보완 6: 이미 여러 번 틀렸으면 비밀번호를 보기 전에 reCAPTCHA 부터 확인한다 (자동 대입 공격 차단)
-        if (loginAttemptLimiter.isCaptchaRequired(email, clientIp)) {
+        // 보완 6: 5번 틀려 잠긴 이메일은 비밀번호를 보지 않고 거절한다 (잠금 10분)
+        throwIfLocked(email);
+
+        // 보완 6: 3번 이상 틀렸으면 비밀번호를 보기 전에 reCAPTCHA 부터 확인한다 (자동 대입 공격 차단)
+        if (loginAttemptLimiter.isCaptchaRequired(email)) {
             String token = request.getRecaptchaToken();
             if (token == null || token.isBlank()) {
                 throw new ApiException(HttpStatus.BAD_REQUEST, "CAPTCHA_REQUIRED", "로봇이 아님을 확인해 주세요.");
@@ -130,11 +142,16 @@ public class AuthServiceImpl implements AuthService {
 
         // 이메일이 없을 때와 비밀번호가 틀렸을 때 같은 메시지를 쓴다 → 어떤 이메일이 가입되어 있는지 알려 주지 않기 위해
         if (member == null || !passwordEncoder.matches(request.getPassword(), member.getPasswordHash())) {
-            loginAttemptLimiter.recordFailure(email, clientIp);
+            loginAttemptLimiter.recordFailure(email);
+            throwIfLocked(email); // 이번이 5번째 실패면 잠금 안내
             // 이번 실패로 기준(3번)을 넘었으면 화면에 reCAPTCHA 를 띄우라고 알린다
-            if (loginAttemptLimiter.isCaptchaRequired(email, clientIp)) {
+            if (loginAttemptLimiter.isCaptchaRequired(email)) {
+                // 4번째 실패면 잠금 전 마지막 기회라고 알린다
+                String warning = loginAttemptLimiter.failureCount(email) == LoginAttemptLimiter.LOCK_LIMIT - 1
+                        ? " 한 번 더 틀리면 10분 동안 로그인할 수 없습니다."
+                        : " 로봇이 아님을 확인해 주세요.";
                 throw new ApiException(HttpStatus.UNAUTHORIZED, "CAPTCHA_REQUIRED",
-                        "이메일 또는 비밀번호가 올바르지 않습니다. 로봇이 아님을 확인해 주세요.");
+                        "이메일 또는 비밀번호가 올바르지 않습니다." + warning);
             }
             throw new ApiException(HttpStatus.UNAUTHORIZED, "LOGIN_FAILED", "이메일 또는 비밀번호가 올바르지 않습니다.");
         }

@@ -8,7 +8,7 @@ public interface AuthService {
     MemberResponse signup(SignupRequest request);
 
     // 로그인. 이메일 · 비밀번호가 맞으면 access token 과 refresh token 을 발급한다
-    AuthTokens login(LoginRequest request, String clientIp); // 보완 6: 실패 횟수를 IP 별로도 센다
+    AuthTokens login(LoginRequest request, String clientIp); // 보완 6: clientIp 는 reCAPTCHA 확인 요청에 함께 보낸다
 
     // 재발급. refresh token 이 유효하면 새 access token 과 새 refresh token 으로 바꿔 준다 (이전 refresh token 은 폐기)
     AuthTokens refresh(String refreshToken);
