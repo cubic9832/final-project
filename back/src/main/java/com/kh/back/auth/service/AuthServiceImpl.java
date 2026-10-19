@@ -5,6 +5,7 @@ import com.kh.back.auth.dto.LoginRequest;
 import com.kh.back.auth.dto.RefreshTokenDto;
 import com.kh.back.auth.dto.SignupRequest;
 import com.kh.back.auth.mapper.RefreshTokenMapper;
+import com.kh.back.auth.validation.PasswordPolicy;
 import com.kh.back.common.exception.ApiException;
 import com.kh.back.common.jwt.JwtProvider;
 import com.kh.back.member.dto.MemberDto;
@@ -35,6 +36,12 @@ public class AuthServiceImpl implements AuthService {
     @Transactional
     public MemberResponse signup(SignupRequest request) {
         String email = normalizeEmail(request.getEmail());
+
+        // 보완 2: 반복 · 연속 문자, 이메일 아이디 포함, 흔한 비밀번호 금지 (길이 · 문자 종류는 SignupRequest 가 먼저 검사)
+        String passwordViolation = PasswordPolicy.check(request.getPassword(), email);
+        if (passwordViolation != null) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "PASSWORD_POLICY", passwordViolation);
+        }
 
         if (memberMapper.findByEmail(email) != null) {
             throw emailDuplicated();

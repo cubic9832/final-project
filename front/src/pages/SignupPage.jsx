@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { signup } from '../api/authApi';
+import { suggestEmail } from '../features/auth/emailTypo';
+import PasswordInput from '../features/auth/PasswordInput';
+import { getPasswordRules, PASSWORD_MAX, validatePassword } from '../features/auth/passwordPolicy';
 import SignupCompleteModal from '../features/auth/SignupCompleteModal';
 import TermsModal from '../features/auth/TermsModal';
 import './SignupPage.css';
@@ -14,24 +17,18 @@ const terms = [
 ];
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const NICKNAME_MAX_LENGTH = 50; // users.nick_name VARCHAR(50)
-
-// 비밀번호 조건. 화면 안내와 제출 검사에서 같은 규칙을 쓴다
-function getPasswordRequirements(password) {
-  return [
-    { label: '8자 이상', met: password.length >= 8 },
-    { label: '영문 포함', met: /[a-z]/i.test(password) },
-    { label: '숫자 포함', met: /\d/.test(password) },
-  ];
-}
+// 글자 수 제한 (보완 2 · 보완 목록 ⑤). 서버 SignupRequest 와 같은 값
+const EMAIL_MAX_LENGTH = 100;
+const NICKNAME_MIN_LENGTH = 2;
+const NICKNAME_MAX_LENGTH = 12;
 
 // 항목 하나의 형식을 검사해 오류 메시지를 돌려준다. 문제가 없으면 빈 문자열
 // (제출할 때와 "중복 확인"을 누를 때 같은 규칙을 쓴다)
 function validateNickname(value) {
   const nickname = value.trim();
   if (!nickname) return '이름 또는 닉네임을 입력해 주세요.';
-  if (nickname.length > NICKNAME_MAX_LENGTH) {
-    return `이름 또는 닉네임은 ${NICKNAME_MAX_LENGTH}자 이하로 입력해 주세요.`;
+  if (nickname.length < NICKNAME_MIN_LENGTH || nickname.length > NICKNAME_MAX_LENGTH) {
+    return `이름 또는 닉네임은 ${NICKNAME_MIN_LENGTH}~${NICKNAME_MAX_LENGTH}자로 입력해 주세요.`;
   }
   return '';
 }
@@ -39,6 +36,7 @@ function validateNickname(value) {
 function validateEmail(value) {
   const email = value.trim();
   if (!email) return '이메일을 입력해 주세요.';
+  if (email.length > EMAIL_MAX_LENGTH) return `이메일은 ${EMAIL_MAX_LENGTH}자 이하로 입력해 주세요.`;
   if (!EMAIL_PATTERN.test(email)) return '이메일 형식이 올바르지 않습니다.';
   return '';
 }
@@ -53,10 +51,13 @@ function validateSignup(form, agreements) {
   const emailError = validateEmail(form.email);
   if (emailError) errors.email = emailError;
 
-  if (!form.password) errors.password = '비밀번호를 입력해 주세요.';
-  else if (getPasswordRequirements(form.password).some((requirement) => !requirement.met)) {
-    errors.password = '영문과 숫자를 포함해 8자 이상 입력해 주세요.';
-  }
+  // 비밀번호 규칙 (보완 2 · 보완 목록 ⑥) — 서버 PasswordPolicy 와 같은 규칙
+  const passwordError = validatePassword(form.password, form.email);
+  if (passwordError) errors.password = passwordError;
+
+  // 비밀번호 확인 (보완 2 · 보완 목록 ④)
+  if (!form.passwordConfirm) errors.passwordConfirm = '비밀번호를 한 번 더 입력해 주세요.';
+  else if (form.passwordConfirm !== form.password) errors.passwordConfirm = '비밀번호가 일치하지 않습니다.';
 
   if (terms.some((term) => term.required && !agreements[term.id])) {
     errors.terms = '필수 약관에 모두 동의해 주세요.';
@@ -68,10 +69,9 @@ function validateSignup(form, agreements) {
 const duplicateValidators = { nickname: validateNickname, email: validateEmail };
 
 export default function SignupPage() {
-  const [form, setForm] = useState({ nickname: '', email: '', password: '' });
+  const [form, setForm] = useState({ nickname: '', email: '', password: '', passwordConfirm: '' });
   const [agreements, setAgreements] = useState({ service: false, privacy: false, updates: false });
   const [errors, setErrors] = useState({});
-  const [showPassword, setShowPassword] = useState(false);
   const [notice, setNotice] = useState('');
   // "중복 확인" 결과 안내 문구 { nickname, email }. 서버 연결 후 실제 결과로 바꾼다
   const [duplicateNotices, setDuplicateNotices] = useState({});
@@ -81,14 +81,20 @@ export default function SignupPage() {
   const [serverError, setServerError] = useState(''); // 특정 칸에 붙일 수 없는 서버 오류 문구
   const [joinedEmail, setJoinedEmail] = useState(''); // 가입된 이메일 (서버가 정리한 값, 완료 팝업에 표시)
 
-  const passwordRequirements = getPasswordRequirements(form.password);
+  const passwordRules = getPasswordRules(form.password, form.email);
+  const emailSuggestion = suggestEmail(form.email); // 오타로 보이면 고친 이메일 (보완 목록 ⑨)
   const allAgreed = terms.every((term) => agreements[term.id]);
 
   // 입력할 때마다 값을 저장하고, 그 칸에 표시 중이던 오류와 안내는 지운다
+  // (비밀번호를 바꾸면 비밀번호 확인 오류도 다시 판단해야 하므로 함께 지운다)
   function handleChange(event) {
     const { name, value } = event.target;
     setForm((prev) => ({ ...prev, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: undefined }));
+    setErrors((prev) => ({
+      ...prev,
+      [name]: undefined,
+      ...(name === 'password' ? { passwordConfirm: undefined } : {}),
+    }));
     setDuplicateNotices((prev) => ({ ...prev, [name]: undefined }));
     setNotice('');
     setServerError('');
@@ -145,6 +151,8 @@ export default function SignupPage() {
       const { code, message } = error.response?.data?.error ?? {};
       if (code === 'EMAIL_DUPLICATED') {
         setErrors((prev) => ({ ...prev, email: message }));
+      } else if (code === 'PASSWORD_POLICY') {
+        setErrors((prev) => ({ ...prev, password: message })); // 서버 비밀번호 규칙 위반
       } else {
         setServerError(message ?? '회원가입에 실패했습니다. 잠시 후 다시 시도해 주세요.');
       }
@@ -206,8 +214,9 @@ export default function SignupPage() {
                   <input
                     id="signup-nickname"
                     type="text"
-                    placeholder="첫차준비생"
+                    placeholder={`${NICKNAME_MIN_LENGTH}~${NICKNAME_MAX_LENGTH}자 (예: 첫차준비생)`}
                     autoComplete="nickname"
+                    maxLength={NICKNAME_MAX_LENGTH}
                     {...fieldProps('nickname')}
                   />
                   <button
@@ -231,6 +240,7 @@ export default function SignupPage() {
                     type="email"
                     placeholder="user@example.com"
                     autoComplete="email"
+                    maxLength={EMAIL_MAX_LENGTH}
                     {...fieldProps('email')}
                   />
                   <button
@@ -242,41 +252,58 @@ export default function SignupPage() {
                   </button>
                 </div>
                 {renderError('email')}
+                {/* 도메인 오타 안내 — 가입을 막지는 않고, [바꾸기]로 한 번에 고친다 */}
+                {!errors.email && emailSuggestion && (
+                  <p className="signup-email-hint" role="status">
+                    <strong>{emailSuggestion.split('@')[1]}</strong> 을(를) 입력하려던 건가요?
+                    <button
+                      type="button"
+                      onClick={() => handleChange({ target: { name: 'email', value: emailSuggestion } })}
+                    >
+                      바꾸기
+                    </button>
+                  </p>
+                )}
               </div>
             </div>
 
             <div className="signup-field">
               <label htmlFor="signup-password">비밀번호</label>
               <div className="signup-input-wrap">
-                <input
+                <PasswordInput
                   id="signup-password"
-                  type={showPassword ? 'text' : 'password'}
-                  placeholder="영문·숫자 포함 8자 이상"
+                  placeholder="영문·숫자·특수문자 포함 8~20자"
                   autoComplete="new-password"
+                  maxLength={PASSWORD_MAX}
                   {...fieldProps('password')}
                 />
                 <ul className="signup-password-requirements" aria-label="비밀번호 조건">
-                  {passwordRequirements.map((requirement) => (
-                    <li className={requirement.met ? 'is-met' : ''} key={requirement.label}>
-                      <span aria-hidden="true">{requirement.met ? '✓' : '○'}</span>
-                      {requirement.label}
+                  {passwordRules.map((rule) => (
+                    <li className={rule.met ? 'is-met' : ''} key={rule.label}>
+                      <span aria-hidden="true">{rule.met ? '✓' : '○'}</span>
+                      {rule.label}
                     </li>
                   ))}
                 </ul>
                 {renderError('password')}
               </div>
             </div>
-          </div>
 
-          <label className="signup-password-toggle" htmlFor="signup-show-password">
-            <input
-              id="signup-show-password"
-              type="checkbox"
-              checked={showPassword}
-              onChange={(event) => setShowPassword(event.target.checked)}
-            />
-            비밀번호 표시
-          </label>
+            {/* 비밀번호 확인 (보완 2 · 보완 목록 ④) — 서버로는 보내지 않고 화면에서만 비교 */}
+            <div className="signup-field">
+              <label htmlFor="signup-password-confirm">비밀번호 확인</label>
+              <div className="signup-input-wrap">
+                <PasswordInput
+                  id="signup-password-confirm"
+                  placeholder="비밀번호를 한 번 더 입력"
+                  autoComplete="new-password"
+                  maxLength={PASSWORD_MAX}
+                  {...fieldProps('passwordConfirm')}
+                />
+                {renderError('passwordConfirm')}
+              </div>
+            </div>
+          </div>
 
           <fieldset
             className={errors.terms ? 'signup-terms has-error' : 'signup-terms'}

@@ -115,17 +115,27 @@
   outline-offset: 3px;
 }
 
-.signup-password-toggle {
-  display: inline-flex;
+/* 이메일 도메인 오타 안내 (보완 2) */
+.signup-email-hint {
+  display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 14px;
-  color: #687b94;
-  font-size: 12px;
+  margin-top: 6px;
+  color: #8b6100;
+  font-size: 11px;
+}
+
+.signup-email-hint button {
+  padding: 2px 8px;
+  border: 1px solid #e3c675;
+  border-radius: 6px;
+  background: #fff7e3;
+  color: #8b6100;
+  font-size: 11px;
+  font-weight: 700;
   cursor: pointer;
 }
 
-.signup-password-toggle input,
 .signup-term input {
   width: 16px;
   height: 16px;

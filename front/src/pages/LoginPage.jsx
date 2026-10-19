@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Car } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { login } from '../api/authApi';
+import PasswordInput from '../features/auth/PasswordInput';
 import PasswordResetModal from '../features/auth/PasswordResetModal';
 import theme from '../styles/theme';
 import './LoginPage.css';
@@ -47,7 +48,6 @@ export default function LoginPage() {
   // 저장해 둔 이메일이 있으면 처음부터 채워 둔다
   const [form, setForm] = useState(() => ({ email: readSavedEmail(), password: '' }));
   const [errors, setErrors] = useState({});
-  const [showPassword, setShowPassword] = useState(false);
   const [rememberEmail, setRememberEmail] = useState(true);
   const [loginError, setLoginError] = useState(''); // 서버가 돌려준 실패 문구 (예: LOGIN_FAILED)
   const [submitting, setSubmitting] = useState(false); // 로그인 요청 중 (버튼 비활성, 중복 요청 방지)
@@ -137,9 +137,9 @@ export default function LoginPage() {
             <div className="login-field">
               <label htmlFor="login-password">비밀번호</label>
               <div className="login-input-wrap">
-                <input
+                {/* 보완 2: "비밀번호 표시" 체크박스 대신 입력칸 안 눈 아이콘 (회원가입과 같은 PasswordInput) */}
+                <PasswordInput
                   id="login-password"
-                  type={showPassword ? 'text' : 'password'}
                   placeholder="8자 이상 입력해 주세요"
                   autoComplete="current-password"
                   {...fieldProps('password')}
@@ -147,16 +147,6 @@ export default function LoginPage() {
                 {renderError('password')}
               </div>
             </div>
-
-            <label className="login-checkbox" htmlFor="show-password">
-              <input
-                id="show-password"
-                type="checkbox"
-                checked={showPassword}
-                onChange={(event) => setShowPassword(event.target.checked)}
-              />
-              비밀번호 표시
-            </label>
 
             <div className="login-options">
               <label className="login-checkbox" htmlFor="remember-email">

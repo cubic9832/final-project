@@ -6,7 +6,9 @@ import theme from '../../styles/theme';
 import AuthModal from './AuthModal';
 import './ProfileEditModal.css';
 
-const NICKNAME_MAX_LENGTH = 50; // users.nick_name VARCHAR(50)
+// 보완 2: 회원가입과 같은 2~12자 (DB 컬럼 users.nick_name 은 50 그대로)
+const NICKNAME_MIN_LENGTH = 2;
+const NICKNAME_MAX_LENGTH = 12;
 
 // 예: firstcar@example.com → fi***@example.com
 function maskEmail(email) {
@@ -36,8 +38,8 @@ export default function ProfileEditModal({ nickname, email, onSave, onClose }) {
       setError('표시 이름을 입력해 주세요.');
       return;
     }
-    if (trimmed.length > NICKNAME_MAX_LENGTH) {
-      setError(`표시 이름은 ${NICKNAME_MAX_LENGTH}자 이하로 입력해 주세요.`);
+    if (trimmed.length < NICKNAME_MIN_LENGTH || trimmed.length > NICKNAME_MAX_LENGTH) {
+      setError(`표시 이름은 ${NICKNAME_MIN_LENGTH}~${NICKNAME_MAX_LENGTH}자로 입력해 주세요.`);
       return;
     }
 
