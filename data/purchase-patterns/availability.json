@@ -1,0 +1,9 @@
+{
+  "checked_on": "2026-10-14",
+  "actual_datasets_received": 0,
+  "sources": [
+    {"source": "컨슈머인사이트 무료 데이터버스", "status": "download_attempt_failed", "raw_data_received": false, "codebook_received": false, "terms_approved_by_user": true, "response": "HTML 상세 페이지 반환; 브라우저에서도 파일 수신 확인 실패", "advertised_cases": 2385, "advertised_cases_verified_in_file": false, "model_field_verified": false},
+    {"source": "CarCharts", "status": "paid_login_required", "raw_data_received": false, "documents_received": ["carcharts-introduction.pdf", "carcharts-manual.pdf"], "financial_features_verified": false},
+    {"source": "컨슈머인사이트 맞춤 자료", "status": "provider_agreement_required", "raw_data_received": false, "documents_received": ["consumerinsight-custom-data.pdf"], "document_focus": "구매 의향; 실제 구매 결과 자료와 구분 필요", "actual_purchase_model_field_verified": false}
+  ]
+}

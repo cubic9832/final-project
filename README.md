@@ -1,5 +1,7 @@
 # Final_Project
 
+폴더별 역할과 데이터 관리 경계는 [프로젝트 구조](docs/structure.md), 데이터 생성·변환 방법은 [데이터 도구](tools/data/README.md), 머신 러닝 준비 상태는 [ML 안내](ml/README.md)를 참고하세요.
+
 ## 실행
 
 ### 한 번에 실행 (Docker DB)

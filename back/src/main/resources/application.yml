@@ -20,8 +20,6 @@ server:
 mybatis:
   # Mapper XML 위치
   mapper-locations: classpath:mappers/**/*.xml
-  # XML 에서 패키지 없이 클래스명만 쓸 수 있게 해 주는 기준 패키지
-  type-aliases-package: com.kh.back.**.dto
   configuration:
     # 컬럼명이 sector_name 처럼 snake_case 여도 자바 필드 sectorName 에 자동 매핑
     map-underscore-to-camel-case: true

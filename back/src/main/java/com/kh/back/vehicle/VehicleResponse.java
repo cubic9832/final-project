@@ -25,4 +25,25 @@ public class VehicleResponse {
     private String sourceName;
     private String sourceUrl;
     private Boolean isExample;
+
+    public static VehicleResponse from(Vehicle vehicle) {
+        VehicleResponse response = new VehicleResponse();
+        response.setId(vehicle.getId());
+        response.setBrand(vehicle.getBrand());
+        response.setName(vehicle.getName());
+        response.setTrimName(vehicle.getTrimName());
+        response.setModelYear(vehicle.getModelYear());
+        response.setConditionCode(vehicle.getConditionCode());
+        response.setClassCode(vehicle.getClassCode());
+        response.setFuelCode(vehicle.getFuelCode());
+        response.setSeatingCapacity(vehicle.getSeatingCapacity());
+        response.setPrice(vehicle.getPrice());
+        response.setEfficiencyValue(vehicle.getEfficiencyValue());
+        response.setEfficiencyUnit(vehicle.getEfficiencyUnit());
+        response.setImageUrl(vehicle.getImageUrl());
+        response.setSourceName(vehicle.getSourceName());
+        response.setSourceUrl(vehicle.getSourceUrl());
+        response.setIsExample(vehicle.getIsExample());
+        return response;
+    }
 }

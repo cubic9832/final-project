@@ -23,7 +23,7 @@ class VehicleControllerTests {
 
     @Test
     void returnsVehiclePriceInWonAndSource() throws Exception {
-        VehicleResponse vehicle = new VehicleResponse();
+        Vehicle vehicle = new Vehicle();
         vehicle.setId(42L);
         vehicle.setPrice(new BigDecimal("25550000.00"));
         vehicle.setSourceUrl("https://www.hyundai.com/price.pdf");

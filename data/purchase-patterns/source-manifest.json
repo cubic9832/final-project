@@ -1,0 +1,32 @@
+[
+  {
+    "filename": "carcharts-introduction.pdf",
+    "source_url": "https://carcharts.carisyou.net/manual/CarChartsIntroduce(20241007).pdf",
+    "final_url": "https://carcharts.carisyou.net/manual/CarChartsIntroduce(20241007).pdf",
+    "bytes": 6264510,
+    "sha256": "00a7af2f63474bbee71cbe04caff5a882620ec19ee6d22eef46fd208c19894d7",
+    "content_type": "application/pdf",
+    "category": "service_document_not_dataset",
+    "checked_on": "2026-10-14"
+  },
+  {
+    "filename": "carcharts-manual.pdf",
+    "source_url": "https://carcharts.carisyou.net/manual/CarChartsManual(20241007_v2.8).pdf",
+    "final_url": "https://carcharts.carisyou.net/manual/CarChartsManual(20241007_v2.8).pdf",
+    "bytes": 8873438,
+    "sha256": "8616844644756cfe304e30f533057cbbe6bbc5417deadede4e29095882835c68",
+    "content_type": "application/pdf",
+    "category": "service_document_not_dataset",
+    "checked_on": "2026-10-14"
+  },
+  {
+    "filename": "consumerinsight-custom-data.pdf",
+    "source_url": "https://www.consumerinsight.co.kr/up_files/2024_데이터바우처_홍보자료_신차초기반응.pdf",
+    "final_url": "https://www.consumerinsight.co.kr/up_files/2024_%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B0%94%EC%9A%B0%EC%B2%98_%ED%99%8D%EB%B3%B4%EC%9E%90%EB%A3%8C_%EC%8B%A0%EC%B0%A8%EC%B4%88%EA%B8%B0%EB%B0%98%EC%9D%91.pdf",
+    "bytes": 2636964,
+    "sha256": "0a7273d9a74740f881833df968f67cc875b5d13d91174394b29b9594b47de599",
+    "content_type": "application/pdf",
+    "category": "service_document_not_dataset",
+    "checked_on": "2026-10-14"
+  }
+]

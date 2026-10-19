@@ -1,0 +1,5 @@
+# 초기 표 데이터 학습용 의존성. 버전 고정은 설치·호환성 확인 후 진행합니다.
+pandas
+numpy
+scikit-learn
+catboost

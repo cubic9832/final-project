@@ -1,0 +1,17 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+catboost_info/
+.env
+.env.*
+!.env.example
+outputs/*
+!outputs/models/
+!outputs/reports/
+outputs/models/*
+!outputs/models/.gitkeep
+outputs/reports/*
+!outputs/reports/.gitkeep

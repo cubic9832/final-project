@@ -1,0 +1,35 @@
+[
+  {
+    "file": "bmw-pricelist.pdf",
+    "url": "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/PRICELIST_JUNE2026.pdf.asset.1781249167044.pdf",
+    "status": "not_downloaded",
+    "error": "The read operation timed out"
+  },
+  {
+    "file": "mercedes-e200.html",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/brand/news-events/news-story/2026/news-20260424.html",
+    "status": "not_downloaded",
+    "error": "The read operation timed out"
+  },
+  {
+    "file": "lexus-es.html",
+    "url": "https://www.lexus.co.kr/build-your-car/?model=es350h",
+    "status": "not_downloaded",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)>"
+  },
+  {
+    "file": "volvo-xc60.html",
+    "url": "https://www.volvocars.com/kr/news/culture/20250804-New-XC60-Officially-Launched/",
+    "status": "not_downloaded",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "file": "tesla-secondary-carnoon.html",
+    "url": "https://www.carnoon.co.kr/newcar/vehicle/11738",
+    "final_url": "https://www.carnoon.co.kr/newcar/vehicle/11738",
+    "bytes": 115776,
+    "sha256": "d7f906b0978429aaa3e34ade8893fe19f7211782b09a5416776e1d57a09d7532",
+    "status": "downloaded",
+    "source_level": "secondary"
+  }
+]
