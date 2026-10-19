@@ -149,32 +149,6 @@
   font-size: 13px;
 }
 
-/* 보완 5: 개인 정보 (전화번호 · 생년월일 · 성별) */
-.my-profile-info {
-  display: grid;
-  gap: 6px;
-  margin: 2px 0;
-  padding: 12px 14px;
-  border-radius: 10px;
-  background: #f6f8fc;
-  font-size: 12px;
-}
-
-.my-profile-info div {
-  display: flex;
-  gap: 12px;
-}
-
-.my-profile-info dt {
-  width: 56px;
-  color: #77859a;
-}
-
-.my-profile-info dd {
-  color: #1e2d46;
-  font-weight: 700;
-}
-
 .my-profile-badges {
   display: flex;
   gap: 8px;
