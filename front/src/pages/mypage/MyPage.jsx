@@ -20,7 +20,14 @@ const initialProfile = {
   email: '',
   role: '',
   tag: '취업 2년 차',
+  // 보완 5: 개인 정보 (서버가 전화번호를 010-****-5678 처럼 가려서 준다). 보완 5 이전 가입 회원은 null
+  phoneMasked: null,
+  birthDate: null,
+  gender: null,
 };
+
+// 보완 5: 서버 성별 코드 → 화면 글자
+const GENDER_LABELS = { MALE: '남성', FEMALE: '여성', NONE: '선택 안 함' };
 
 // ── 예시 데이터 (Figma 2조 류상민 ACCOUNT 01 기준) ──
 // 아래 활동 · 관심차량 · 분석 · 구매계획은 백엔드 연결 전이라 화면 확인용 값만 둔다. 실제 회원·금액 정보가 아니다.
@@ -81,6 +88,9 @@ export default function MyPage() {
           nickname: me.nickName,
           email: me.email,
           role: ROLE_LABELS[me.role] ?? me.role,
+          phoneMasked: me.phoneMasked,
+          birthDate: me.birthDate,
+          gender: me.gender,
         }));
         setMeStatus('done');
       })
@@ -171,6 +181,21 @@ export default function MyPage() {
                   <p>{profile.email}</p>
                 </div>
               </div>
+              {/* 보완 5: 회원가입 때 입력한 개인 정보 (지금은 보기만, 수정은 다음에) */}
+              <dl className="my-profile-info">
+                <div>
+                  <dt>전화번호</dt>
+                  <dd>{profile.phoneMasked ?? '미입력'}</dd>
+                </div>
+                <div>
+                  <dt>생년월일</dt>
+                  <dd>{profile.birthDate ?? '미입력'}</dd>
+                </div>
+                <div>
+                  <dt>성별</dt>
+                  <dd>{GENDER_LABELS[profile.gender] ?? '미입력'}</dd>
+                </div>
+              </dl>
               <div className="my-profile-badges">
                 <span className="my-role-badge my-badge-small">{profile.role}</span>
                 <span className="my-tag-badge">{profile.tag}</span>

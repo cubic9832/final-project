@@ -54,7 +54,7 @@ pages/
   about/{AboutPage.jsx,AboutPage.css}
   login/{LoginPage.jsx,LoginPage.css,PasswordResetModal}
   signup/{SignupPage.jsx,SignupPage.css,TermsModal,SignupCompleteModal,
-          passwordPolicy.js,emailTypo.js}
+          passwordPolicy.js,emailTypo.js,profileRules.js}
   mypage/{MyPage.jsx,MyPage.css,ProfileEditModal,EmailNotificationModal,
           AccountManageModal,notificationOptions.js}
   admin/{AdminPage.jsx,AdminPage.css,ModelMetricChart,adminExampleData.js}

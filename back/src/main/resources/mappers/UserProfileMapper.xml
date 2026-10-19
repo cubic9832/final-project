@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원 개인 정보(user_profiles 테이블, 보완 5). 테이블은 Flyway V8__create_user_profiles.sql 이 만든다 -->
+<mapper namespace="com.kh.back.member.UserProfileMapper">
+
+    <select id="findByUserId" resultType="com.kh.back.member.UserProfileDto">
+        SELECT user_id, phone, birth_date, gender
+        FROM user_profiles
+        WHERE user_id = #{userId}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO user_profiles (user_id, phone, birth_date, gender)
+        VALUES (#{userId}, #{phone}, #{birthDate}, #{gender})
+    </insert>
+
+</mapper>

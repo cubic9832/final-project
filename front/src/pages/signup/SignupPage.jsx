@@ -4,6 +4,15 @@ import { checkEmail, checkNickName, signup } from '../../features/auth/authApi';
 import { suggestEmail } from './emailTypo';
 import PasswordInput from '../../features/auth/components/PasswordInput';
 import { getPasswordRules, PASSWORD_MAX, validatePassword } from './passwordPolicy';
+import {
+  formatPhone,
+  GENDER_OPTIONS,
+  MIN_SIGNUP_AGE,
+  todayString,
+  validateBirthDate,
+  validateGender,
+  validatePhone,
+} from './profileRules';
 import SignupCompleteModal from './SignupCompleteModal';
 import TermsModal from './TermsModal';
 import './SignupPage.css';
@@ -59,6 +68,14 @@ function validateSignup(form, agreements) {
   if (!form.passwordConfirm) errors.passwordConfirm = '비밀번호를 한 번 더 입력해 주세요.';
   else if (form.passwordConfirm !== form.password) errors.passwordConfirm = '비밀번호가 일치하지 않습니다.';
 
+  // 개인 정보 (보완 5) — 생년월일은 만 18세 이상인지도 확인한다
+  const phoneError = validatePhone(form.phone);
+  if (phoneError) errors.phone = phoneError;
+  const birthDateError = validateBirthDate(form.birthDate);
+  if (birthDateError) errors.birthDate = birthDateError;
+  const genderError = validateGender(form.gender);
+  if (genderError) errors.gender = genderError;
+
   if (terms.some((term) => term.required && !agreements[term.id])) {
     errors.terms = '필수 약관에 모두 동의해 주세요.';
   }
@@ -69,7 +86,15 @@ function validateSignup(form, agreements) {
 const duplicateValidators = { nickname: validateNickname, email: validateEmail };
 
 export default function SignupPage() {
-  const [form, setForm] = useState({ nickname: '', email: '', password: '', passwordConfirm: '' });
+  const [form, setForm] = useState({
+    nickname: '',
+    email: '',
+    password: '',
+    passwordConfirm: '',
+    phone: '', // 보완 5: 010-1234-5678 모양으로 저장 (입력할 때 하이픈 자동)
+    birthDate: '', // 보완 5: 'YYYY-MM-DD'
+    gender: '', // 보완 5: MALE · FEMALE · NONE
+  });
   const [agreements, setAgreements] = useState({ service: false, privacy: false, updates: false });
   const [errors, setErrors] = useState({});
   const [notice, setNotice] = useState('');
@@ -91,7 +116,9 @@ export default function SignupPage() {
   // 입력할 때마다 값을 저장하고, 그 칸에 표시 중이던 오류와 안내는 지운다
   // (비밀번호를 바꾸면 비밀번호 확인 오류도 다시 판단해야 하므로 함께 지운다)
   function handleChange(event) {
-    const { name, value } = event.target;
+    const { name } = event.target;
+    // 전화번호는 숫자만 받아 하이픈을 자동으로 넣는다 (보완 5)
+    const value = name === 'phone' ? formatPhone(event.target.value) : event.target.value;
     setForm((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({
       ...prev,
@@ -179,6 +206,9 @@ export default function SignupPage() {
         email: form.email.trim(),
         password: form.password,
         nickName: form.nickname.trim(),
+        phone: form.phone,
+        birthDate: form.birthDate,
+        gender: form.gender,
       });
       setJoinedEmail(member.email);
       setIsCompleteOpen(true);
@@ -192,6 +222,8 @@ export default function SignupPage() {
       } else if (code === 'NICKNAME_DUPLICATED') {
         setErrors((prev) => ({ ...prev, nickname: message }));
         setChecked((prev) => ({ ...prev, nickname: '' }));
+      } else if (code === 'AGE_RESTRICTED') {
+        setErrors((prev) => ({ ...prev, birthDate: message })); // 보완 5: 만 18세 미만
       } else if (code === 'PASSWORD_POLICY') {
         setErrors((prev) => ({ ...prev, password: message })); // 서버 비밀번호 규칙 위반
       } else {
@@ -230,7 +262,9 @@ export default function SignupPage() {
       );
     }
     return duplicateNotices[name] ? (
-      <p className="signup-field-notice" role="status">{duplicateNotices[name]}</p>
+      <p className="signup-field-notice" role="status">
+        {duplicateNotices[name]}
+      </p>
     ) : null;
   }
 
@@ -246,105 +280,179 @@ export default function SignupPage() {
         <p className="signup-subtitle">서비스 이용에 필요한 최소한의 정보만 받습니다.</p>
 
         <form onSubmit={handleSubmit} noValidate>
-          {/* 시안 기준: 라벨은 왼쪽, 입력칸(+중복 확인 버튼)은 오른쪽 */}
-          <div className="signup-fields">
-            <div className="signup-field">
-              <label htmlFor="signup-nickname">이름 또는 닉네임</label>
-              <div className="signup-input-wrap">
-                <div className="signup-input-row">
-                  <input
-                    id="signup-nickname"
-                    type="text"
-                    placeholder={`${NICKNAME_MIN_LENGTH}~${NICKNAME_MAX_LENGTH}자 (예: 첫차준비생)`}
-                    autoComplete="nickname"
-                    maxLength={NICKNAME_MAX_LENGTH}
-                    {...fieldProps('nickname')}
-                  />
-                  <button
-                    className="signup-check-button"
-                    type="button"
-                    onClick={() => handleDuplicateCheck('nickname')}
-                    disabled={checking === 'nickname'}
-                  >
-                    {checking === 'nickname' ? '확인 중…' : '중복 확인'}
-                  </button>
-                </div>
-                {renderError('nickname')}
-              </div>
-            </div>
-
-            <div className="signup-field">
-              <label htmlFor="signup-email">이메일</label>
-              <div className="signup-input-wrap">
-                <div className="signup-input-row">
-                  <input
-                    id="signup-email"
-                    type="email"
-                    placeholder="user@example.com"
-                    autoComplete="email"
-                    maxLength={EMAIL_MAX_LENGTH}
-                    {...fieldProps('email')}
-                  />
-                  <button
-                    className="signup-check-button"
-                    type="button"
-                    onClick={() => handleDuplicateCheck('email')}
-                    disabled={checking === 'email'}
-                  >
-                    {checking === 'email' ? '확인 중…' : '중복 확인'}
-                  </button>
-                </div>
-                {renderError('email')}
-                {/* 도메인 오타 안내 — 가입을 막지는 않고, [바꾸기]로 한 번에 고친다 */}
-                {!errors.email && emailSuggestion && (
-                  <p className="signup-email-hint" role="status">
-                    <strong>{emailSuggestion.split('@')[1]}</strong> 을(를) 입력하려던 건가요?
+          {/* 보완 5: 좌우 2칸 — 왼쪽 계정 정보, 오른쪽 개인 정보 (좁은 화면에서는 위아래로 쌓인다) */}
+          <div className="signup-columns">
+            {/* 시안 기준: 라벨은 왼쪽, 입력칸(+중복 확인 버튼)은 오른쪽 */}
+            <div className="signup-fields">
+              <h3 className="signup-column-title">계정 정보</h3>
+              <div className="signup-field">
+                <label htmlFor="signup-nickname">이름 또는 닉네임</label>
+                <div className="signup-input-wrap">
+                  <div className="signup-input-row">
+                    <input
+                      id="signup-nickname"
+                      type="text"
+                      placeholder={`${NICKNAME_MIN_LENGTH}~${NICKNAME_MAX_LENGTH}자 (예: 첫차준비생)`}
+                      autoComplete="nickname"
+                      maxLength={NICKNAME_MAX_LENGTH}
+                      {...fieldProps('nickname')}
+                    />
                     <button
+                      className="signup-check-button"
                       type="button"
-                      onClick={() => handleChange({ target: { name: 'email', value: emailSuggestion } })}
+                      onClick={() => handleDuplicateCheck('nickname')}
+                      disabled={checking === 'nickname'}
                     >
-                      바꾸기
+                      {checking === 'nickname' ? '확인 중…' : '중복 확인'}
                     </button>
-                  </p>
-                )}
+                  </div>
+                  {renderError('nickname')}
+                </div>
+              </div>
+
+              <div className="signup-field">
+                <label htmlFor="signup-email">이메일</label>
+                <div className="signup-input-wrap">
+                  <div className="signup-input-row">
+                    <input
+                      id="signup-email"
+                      type="email"
+                      placeholder="user@example.com"
+                      autoComplete="email"
+                      maxLength={EMAIL_MAX_LENGTH}
+                      {...fieldProps('email')}
+                    />
+                    <button
+                      className="signup-check-button"
+                      type="button"
+                      onClick={() => handleDuplicateCheck('email')}
+                      disabled={checking === 'email'}
+                    >
+                      {checking === 'email' ? '확인 중…' : '중복 확인'}
+                    </button>
+                  </div>
+                  {renderError('email')}
+                  {/* 도메인 오타 안내 — 가입을 막지는 않고, [바꾸기]로 한 번에 고친다 */}
+                  {!errors.email && emailSuggestion && (
+                    <p className="signup-email-hint" role="status">
+                      <strong>{emailSuggestion.split('@')[1]}</strong> 을(를) 입력하려던 건가요?
+                      <button
+                        type="button"
+                        onClick={() => handleChange({ target: { name: 'email', value: emailSuggestion } })}
+                      >
+                        바꾸기
+                      </button>
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className="signup-field">
+                <label htmlFor="signup-password">비밀번호</label>
+                <div className="signup-input-wrap">
+                  <PasswordInput
+                    id="signup-password"
+                    placeholder="영문·숫자·특수문자 포함 8~20자"
+                    autoComplete="new-password"
+                    maxLength={PASSWORD_MAX}
+                    {...fieldProps('password')}
+                  />
+                  <ul className="signup-password-requirements" aria-label="비밀번호 조건">
+                    {passwordRules.map((rule) => (
+                      <li className={rule.met ? 'is-met' : ''} key={rule.label}>
+                        <span aria-hidden="true">{rule.met ? '✓' : '○'}</span>
+                        {rule.label}
+                      </li>
+                    ))}
+                  </ul>
+                  {renderError('password')}
+                </div>
+              </div>
+
+              {/* 비밀번호 확인 (보완 2 · 보완 목록 ④) — 서버로는 보내지 않고 화면에서만 비교 */}
+              <div className="signup-field">
+                <label htmlFor="signup-password-confirm">비밀번호 확인</label>
+                <div className="signup-input-wrap">
+                  <PasswordInput
+                    id="signup-password-confirm"
+                    placeholder="비밀번호를 한 번 더 입력"
+                    autoComplete="new-password"
+                    maxLength={PASSWORD_MAX}
+                    {...fieldProps('passwordConfirm')}
+                  />
+                  {renderError('passwordConfirm')}
+                </div>
               </div>
             </div>
 
-            <div className="signup-field">
-              <label htmlFor="signup-password">비밀번호</label>
-              <div className="signup-input-wrap">
-                <PasswordInput
-                  id="signup-password"
-                  placeholder="영문·숫자·특수문자 포함 8~20자"
-                  autoComplete="new-password"
-                  maxLength={PASSWORD_MAX}
-                  {...fieldProps('password')}
-                />
-                <ul className="signup-password-requirements" aria-label="비밀번호 조건">
-                  {passwordRules.map((rule) => (
-                    <li className={rule.met ? 'is-met' : ''} key={rule.label}>
-                      <span aria-hidden="true">{rule.met ? '✓' : '○'}</span>
-                      {rule.label}
-                    </li>
-                  ))}
-                </ul>
-                {renderError('password')}
+            {/* 보완 5: 개인 정보 — 저장은 user_profiles(V8). 전화번호는 인증하지 않고 형식만 확인 */}
+            <div className="signup-fields">
+              <h3 className="signup-column-title">개인 정보</h3>
+              <div className="signup-field">
+                <label htmlFor="signup-phone">전화번호</label>
+                <div className="signup-input-wrap">
+                  <input
+                    id="signup-phone"
+                    type="tel"
+                    inputMode="numeric"
+                    placeholder="010-1234-5678"
+                    autoComplete="tel-national"
+                    maxLength={13}
+                    {...fieldProps('phone')}
+                  />
+                  {renderError('phone')}
+                </div>
               </div>
-            </div>
 
-            {/* 비밀번호 확인 (보완 2 · 보완 목록 ④) — 서버로는 보내지 않고 화면에서만 비교 */}
-            <div className="signup-field">
-              <label htmlFor="signup-password-confirm">비밀번호 확인</label>
-              <div className="signup-input-wrap">
-                <PasswordInput
-                  id="signup-password-confirm"
-                  placeholder="비밀번호를 한 번 더 입력"
-                  autoComplete="new-password"
-                  maxLength={PASSWORD_MAX}
-                  {...fieldProps('passwordConfirm')}
-                />
-                {renderError('passwordConfirm')}
+              <div className="signup-field">
+                <label htmlFor="signup-birth-date">생년월일</label>
+                <div className="signup-input-wrap">
+                  <input
+                    id="signup-birth-date"
+                    type="date"
+                    min="1900-01-01"
+                    max={todayString()}
+                    autoComplete="bday"
+                    {...fieldProps('birthDate')}
+                  />
+                  {renderError('birthDate')}
+                </div>
               </div>
+
+              <div className="signup-field">
+                <span className="signup-field-label" id="signup-gender-label">
+                  성별
+                </span>
+                <div className="signup-input-wrap">
+                  <div
+                    className={errors.gender ? 'signup-gender has-error' : 'signup-gender'}
+                    role="radiogroup"
+                    aria-labelledby="signup-gender-label"
+                    aria-describedby={errors.gender ? 'signup-gender-error' : undefined}
+                  >
+                    {GENDER_OPTIONS.map((option) => (
+                      <label key={option.value}>
+                        <input
+                          type="radio"
+                          name="gender"
+                          value={option.value}
+                          checked={form.gender === option.value}
+                          onChange={handleChange}
+                        />
+                        <span>{option.label}</span>
+                      </label>
+                    ))}
+                  </div>
+                  {renderError('gender')}
+                </div>
+              </div>
+
+              <p className="signup-privacy-note">
+                생년월일 · 성별은 연령대별 차량 추천과 통계에 사용합니다. 전화번호는 연락용이며 인증에는 쓰지 않습니다.
+                <br />
+                차량 추천 서비스라 운전면허를 딸 수 있는 <strong>만 {MIN_SIGNUP_AGE}세 이상</strong>부터 가입할 수
+                있습니다.
+              </p>
             </div>
           </div>
 
@@ -356,7 +464,7 @@ export default function SignupPage() {
             <div className="signup-term signup-term-all">
               <label htmlFor="signup-term-all">
                 <input id="signup-term-all" type="checkbox" checked={allAgreed} onChange={handleAllAgree} />
-                <span>만 14세 이상이며 모든 약관에 동의합니다.</span>
+                <span>만 {MIN_SIGNUP_AGE}세 이상이며 모든 약관에 동의합니다.</span>
               </label>
             </div>
             {terms.map((term) => (
@@ -419,9 +527,7 @@ export default function SignupPage() {
           onClose={() => setViewingTerm(null)}
         />
       )}
-      {isCompleteOpen && (
-        <SignupCompleteModal email={joinedEmail} onClose={() => setIsCompleteOpen(false)} />
-      )}
+      {isCompleteOpen && <SignupCompleteModal email={joinedEmail} onClose={() => setIsCompleteOpen(false)} />}
     </div>
   );
 }

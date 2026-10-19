@@ -2,8 +2,11 @@ package com.kh.back.auth;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import java.time.LocalDate;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -34,6 +37,21 @@ public class SignupRequest {
     @NotBlank(message = "이름 또는 닉네임을 입력해 주세요.")
     @Size(min = 2, max = 12, message = "이름 또는 닉네임은 2~12자로 입력해 주세요.") // 보완 2: 50 → 2~12 (DB 컬럼은 50 그대로)
     private String nickName;
+
+    // 보완 5: 개인 정보. 저장은 user_profiles(V8)
+    // 전화번호는 연락용이며 인증하지 않는다 (형식만 확인). 010-1234-5678 · 01012345678 둘 다 받는다
+    @NotBlank(message = "전화번호를 입력해 주세요.")
+    @Pattern(regexp = "^010-?\\d{4}-?\\d{4}$", message = "전화번호는 010-1234-5678 형식으로 입력해 주세요.")
+    private String phone;
+
+    // 만 18세 이상인지는 오늘 날짜와 비교해야 해서 AuthServiceImpl 에서 검사한다
+    @NotNull(message = "생년월일을 입력해 주세요.")
+    @Past(message = "생년월일이 올바르지 않습니다.")
+    private LocalDate birthDate;
+
+    @NotBlank(message = "성별을 선택해 주세요.")
+    @Pattern(regexp = "^(MALE|FEMALE|NONE)$", message = "성별을 선택해 주세요.")
+    private String gender;
 
     // 앞뒤 공백을 먼저 지운 뒤 검사한다 ("user@example.com " 을 형식 오류로 보지 않게)
     public void setEmail(String email) {

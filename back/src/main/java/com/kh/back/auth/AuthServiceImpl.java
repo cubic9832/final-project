@@ -1,17 +1,15 @@
 package com.kh.back.auth;
 
-import com.kh.back.auth.AuthTokens;
-import com.kh.back.auth.LoginRequest;
-import com.kh.back.auth.RefreshTokenDto;
-import com.kh.back.auth.SignupRequest;
-import com.kh.back.auth.RefreshTokenMapper;
-import com.kh.back.auth.PasswordPolicy;
 import com.kh.back.common.exception.ApiException;
 import com.kh.back.common.jwt.JwtProvider;
 import com.kh.back.member.MemberDto;
 import com.kh.back.member.MemberResponse;
 import com.kh.back.member.MemberMapper;
+import com.kh.back.member.UserProfileDto;
+import com.kh.back.member.UserProfileMapper;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DuplicateKeyException;
@@ -27,7 +25,12 @@ public class AuthServiceImpl implements AuthService {
     // 일반 회원가입으로 만들어지는 역할. 관리자(ADMIN)는 회원가입으로 만들 수 없다
     private static final String DEFAULT_ROLE = "USER";
 
+    // 보완 5: 가입 가능 나이. 차량 추천 서비스라 운전면허를 딸 수 있는 나이(만 18세, 1·2종 보통 기준)부터 받는다
+    // (도로교통법 기준 — 법 조항은 확인 필요. 프론트 profileRules.js 의 MIN_SIGNUP_AGE 와 같은 값)
+    private static final int MIN_SIGNUP_AGE = 18;
+
     private final MemberMapper memberMapper;
+    private final UserProfileMapper userProfileMapper;
     private final RefreshTokenMapper refreshTokenMapper;
     private final PasswordEncoder passwordEncoder;
     private final JwtProvider jwtProvider;
@@ -41,6 +44,12 @@ public class AuthServiceImpl implements AuthService {
         String passwordViolation = PasswordPolicy.check(request.getPassword(), email);
         if (passwordViolation != null) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "PASSWORD_POLICY", passwordViolation);
+        }
+
+        // 보완 5: 만 나이 = 생일이 지났는지까지 따진 나이 (Period 가 계산). 오늘 날짜는 서버 기준
+        if (Period.between(request.getBirthDate(), LocalDate.now()).getYears() < MIN_SIGNUP_AGE) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "AGE_RESTRICTED",
+                    "만 " + MIN_SIGNUP_AGE + "세 이상만 가입할 수 있습니다. (운전면허 취득 가능 나이 기준)");
         }
 
         if (memberMapper.findByEmail(email) != null) {
@@ -66,7 +75,15 @@ public class AuthServiceImpl implements AuthService {
             throw reason.contains("uq_users_nick_name") ? nickNameDuplicated() : emailDuplicated();
         }
 
-        return MemberResponse.from(member);
+        // 보완 5: 개인 정보는 user_profiles 에 따로 저장한다. 같은 트랜잭션이라 여기서 실패하면 회원 저장도 취소된다
+        UserProfileDto profile = new UserProfileDto();
+        profile.setUserId(member.getId());
+        profile.setPhone(request.getPhone().replace("-", "")); // 숫자만 저장
+        profile.setBirthDate(request.getBirthDate());
+        profile.setGender(request.getGender());
+        userProfileMapper.insert(profile);
+
+        return MemberResponse.from(member, profile);
     }
 
     // 보완 3: [중복 확인] 버튼 — 형식이 맞고 아직 가입되지 않은 이메일이면 true

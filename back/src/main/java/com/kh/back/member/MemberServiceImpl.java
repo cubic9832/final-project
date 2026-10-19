@@ -1,9 +1,6 @@
 package com.kh.back.member;
 
 import com.kh.back.common.exception.ApiException;
-import com.kh.back.member.MemberDto;
-import com.kh.back.member.MemberResponse;
-import com.kh.back.member.MemberMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,12 +12,14 @@ import org.springframework.transaction.annotation.Transactional;
 public class MemberServiceImpl implements MemberService {
 
     private final MemberMapper memberMapper;
+    private final UserProfileMapper userProfileMapper;
     private final PasswordEncoder passwordEncoder;
 
     @Override
     @Transactional(readOnly = true)
     public MemberResponse getMember(Long userId) {
-        return MemberResponse.from(findMember(userId));
+        // 보완 5: 개인 정보(user_profiles)를 함께 돌려준다. 보완 5 이전 가입 회원은 null
+        return MemberResponse.from(findMember(userId), userProfileMapper.findByUserId(userId));
     }
 
     // 회원 탈퇴 (보완 4)
@@ -39,7 +38,7 @@ public class MemberServiceImpl implements MemberService {
         memberMapper.deleteFavoriteVehicles(userId);
         memberMapper.deletePurchasePlans(userId);
         memberMapper.detachInputSnapshots(userId);
-        memberMapper.deleteById(userId); // refresh_token 은 ON DELETE CASCADE(V6)로 함께 삭제 → 다른 브라우저 로그인도 끝남
+        memberMapper.deleteById(userId); // refresh_token(V6) · user_profiles(V8, 보완 5)는 ON DELETE CASCADE 로 함께 삭제 → 다른 브라우저 로그인도 끝남
     }
 
     private MemberDto findMember(Long userId) {
