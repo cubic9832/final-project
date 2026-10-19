@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { refreshAccessToken } from './shared/api/tokenRefresh';
+import GuestOnly from './components/GuestOnly';
 import Layout from './components/Layout';
 import RequireAuth from './components/RequireAuth';
 import CompanyDetailPage from './features/company/pages/detail/CompanyDetailPage';
@@ -44,13 +45,16 @@ function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        {/* 보완 1 추가: 로그인 · 회원가입은 로그인 전에만 — 이미 로그인했으면 GuestOnly 가 메인으로 보낸다 */}
+        <Route element={<GuestOnly />}>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+        </Route>
         {/* 로그인이 필요한 화면 — 로그인 전이면 RequireAuth 가 /login 으로 보낸다 */}
         <Route element={<RequireAuth />}>
           <Route path="/mypage" element={<MyPage />} />
         </Route>
         <Route path="/admin" element={<AdminPage />} />
-        <Route path="/signup" element={<SignupPage />} />
         <Route path="/financial" element={<FinancialPage />} />
         <Route path="/financial/assets" element={<FinancialAssetsPage />} />
         <Route path="/financial/credit" element={<FinancialCreditPage />} />
