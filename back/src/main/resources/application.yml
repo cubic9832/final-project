@@ -8,6 +8,20 @@ spring:
     password: server
     driver-class-name: com.mysql.cj.jdbc.Driver
   # 서버 시작 시 classpath:db/migration 의 SQL 을 버전 순서대로 적용
+  # 보완 7: 인증 메일 발송 (Gmail SMTP)
+  # 계정 · 앱 비밀번호는 코드 · git 에 넣지 않고 환경변수 MAIL_USERNAME · MAIL_PASSWORD 로만 넣는다.
+  # 둘 다 없으면 메일을 보내지 않고 서버 로그에 인증 코드를 찍는다 (개발 모드)
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.connectiontimeout: 5000
+      mail.smtp.timeout: 5000
+      mail.smtp.writetimeout: 5000
   flyway:
     # 테이블이 이미 있는 DB 에서도 V1 부터 적용
     baseline-on-migrate: true

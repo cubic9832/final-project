@@ -63,6 +63,22 @@ public class AuthApiController {
         return ApiResponse.ok(new AvailabilityResponse(authService.isNickNameAvailable(nickName)));
     }
 
+    // POST /api/v1/auth/email-verification — 보완 7: 인증 코드 받기. 본문 { email }
+    // 호출: SignupPage.jsx 이메일 [인증 코드 받기] → authApi.sendEmailCode
+    // 이미 가입된 이메일 409, 60초 안 재요청 · 10분 5번 초과 429
+    @PostMapping("/email-verification")
+    public ApiResponse<EmailVerificationResponse> sendEmailVerification(@Valid @RequestBody EmailVerificationRequest request) {
+        return ApiResponse.ok(authService.sendEmailVerification(request.getEmail()));
+    }
+
+    // POST /api/v1/auth/email-verification/confirm — 보완 7: 코드 확인. 본문 { email, code }
+    // 호출: SignupPage.jsx 인증 코드 [확인] → authApi.confirmEmailCode
+    @PostMapping("/email-verification/confirm")
+    public ApiResponse<Void> confirmEmailVerification(@Valid @RequestBody EmailVerificationRequest request) {
+        authService.confirmEmailVerification(request.getEmail(), request.getCode());
+        return ApiResponse.ok(null);
+    }
+
     // POST /api/v1/auth/login — 로그인. 성공하면 200 + 본문 { accessToken, member } + refresh token 쿠키
     // 호출: LoginPage.jsx [로그인] 버튼(handleSubmit) → authApi.login
     @PostMapping("/login")

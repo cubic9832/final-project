@@ -31,6 +31,7 @@ public class AuthServiceImpl implements AuthService {
 
     private final MemberMapper memberMapper;
     private final LoginAttemptLimiter loginAttemptLimiter;
+    private final EmailVerificationService emailVerificationService;
     private final RecaptchaVerifier recaptchaVerifier;
     private final UserProfileMapper userProfileMapper;
     private final RefreshTokenMapper refreshTokenMapper;
@@ -56,6 +57,10 @@ public class AuthServiceImpl implements AuthService {
 
         if (memberMapper.findByEmail(email) != null) {
             throw emailDuplicated();
+        }
+        // 보완 7: 이메일 인증을 마쳐야 가입할 수 있다 (인증 후 30분 안)
+        if (!emailVerificationService.isVerified(email)) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "EMAIL_NOT_VERIFIED", "이메일 인증을 완료해 주세요.");
         }
         String nickName = request.getNickName().trim();
         if (memberMapper.countByNickName(nickName) > 0) {
@@ -88,6 +93,7 @@ public class AuthServiceImpl implements AuthService {
         // 보완 6: 가입 전에 이 이메일로 로그인에 실패한 기록이 있으면 지운다
         // (없는 이메일로 틀린 기록이 새 계정의 첫 로그인에 이어져 바로 reCAPTCHA 가 뜨지 않게)
         loginAttemptLimiter.reset(email);
+        emailVerificationService.consume(email); // 보완 7: 쓴 인증 기록은 지운다
 
         return MemberResponse.from(member, profile);
     }
@@ -99,6 +105,22 @@ public class AuthServiceImpl implements AuthService {
             throw new ApiException(HttpStatus.TOO_MANY_REQUESTS, "LOGIN_LOCKED",
                     "로그인에 5번 실패해 잠시 잠겼습니다. " + minutes + "분 뒤에 다시 시도해 주세요.");
         }
+    }
+
+    // 보완 7: [인증 코드 받기] — 형식 확인 → 이미 가입된 이메일이면 409 → 코드 발송 (기존 [중복 확인] 을 대신한다)
+    @Override
+    public EmailVerificationResponse sendEmailVerification(String email) {
+        if (!isEmailAvailable(email)) {
+            throw emailDuplicated();
+        }
+        emailVerificationService.sendCode(normalizeEmail(email));
+        return new EmailVerificationResponse(EmailVerificationService.CODE_VALIDITY.getSeconds(),
+                EmailVerificationService.RESEND_COOLDOWN.getSeconds(), emailVerificationService.isMailEnabled());
+    }
+
+    @Override
+    public void confirmEmailVerification(String email, String code) {
+        emailVerificationService.confirmCode(normalizeEmail(email), code);
     }
 
     // 보완 3: [중복 확인] 버튼 — 형식이 맞고 아직 가입되지 않은 이메일이면 true

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 이메일 인증 코드 (email_verifications 테이블, 보완 7). 테이블은 Flyway V9 가 만든다 -->
+<mapper namespace="com.kh.back.auth.EmailVerificationMapper">
+
+    <select id="findByEmail" resultType="com.kh.back.auth.EmailVerificationDto">
+        SELECT email, code_hash, expires_at, failed_attempts, last_sent_at,
+               send_window_started_at, send_count, verified_at
+        FROM email_verifications
+        WHERE email = #{email}
+    </select>
+
+    <!-- 같은 이메일이 있으면(PRIMARY KEY) 새 코드로 덮어쓴다 -->
+    <insert id="save">
+        INSERT INTO email_verifications
+            (email, code_hash, expires_at, failed_attempts, last_sent_at, send_window_started_at, send_count, verified_at)
+        VALUES
+            (#{email}, #{codeHash}, #{expiresAt}, 0, #{lastSentAt}, #{sendWindowStartedAt}, #{sendCount}, NULL)
+        ON DUPLICATE KEY UPDATE
+            code_hash = VALUES(code_hash),
+            expires_at = VALUES(expires_at),
+            failed_attempts = 0,
+            last_sent_at = VALUES(last_sent_at),
+            send_window_started_at = VALUES(send_window_started_at),
+            send_count = VALUES(send_count),
+            verified_at = NULL
+    </insert>
+
+    <update id="increaseFailedAttempts">
+        UPDATE email_verifications SET failed_attempts = failed_attempts + 1 WHERE email = #{email}
+    </update>
+
+    <update id="markVerified">
+        UPDATE email_verifications SET verified_at = NOW() WHERE email = #{email}
+    </update>
+
+    <delete id="deleteByEmail">
+        DELETE FROM email_verifications WHERE email = #{email}
+    </delete>
+
+</mapper>

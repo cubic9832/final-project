@@ -8,6 +8,11 @@ public interface AuthService {
     MemberResponse signup(SignupRequest request);
 
     // 로그인. 이메일 · 비밀번호가 맞으면 access token 과 refresh token 을 발급한다
+    // 보완 7: 이메일 인증 코드 받기 (형식 · 중복 확인 후 발송) · 확인
+    EmailVerificationResponse sendEmailVerification(String email);
+
+    void confirmEmailVerification(String email, String code);
+
     AuthTokens login(LoginRequest request, String clientIp); // 보완 6: clientIp 는 reCAPTCHA 확인 요청에 함께 보낸다
 
     // 재발급. refresh token 이 유효하면 새 access token 과 새 refresh token 으로 바꿔 준다 (이전 refresh token 은 폐기)

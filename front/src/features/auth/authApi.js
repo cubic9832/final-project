@@ -21,6 +21,18 @@ export const checkNickName = async (nickName) => {
   return res.data.data.available;
 };
 
+// 보완 7: 이메일 인증 코드 받기 — 이미 가입된 이메일이면 409, 너무 자주 요청하면 429
+// 성공하면 { expiresInSeconds, resendAfterSeconds, mailEnabled } (mailEnabled false = 개발 모드, 코드는 서버 로그)
+export const sendEmailCode = async (email) => {
+  const res = await client.post('/auth/email-verification', { email });
+  return res.data.data;
+};
+
+// 보완 7: 인증 코드 확인 — 틀리면 400 (남은 횟수 안내), 만료 · 5번 틀림도 400
+export const confirmEmailCode = async (email, code) => {
+  await client.post('/auth/email-verification/confirm', { email, code });
+};
+
 // 로그인 — 응답의 access token · 회원 정보를 스토어에 넣고, 회원 정보를 돌려준다
 // (refresh token 은 서버가 HttpOnly 쿠키로 보내서 브라우저에 이미 저장되어 있다)
 // 보완 6: 여러 번 실패한 뒤에는 recaptchaToken("로봇이 아닙니다" 체크 결과)도 함께 보낸다
