@@ -1,6 +1,5 @@
 package com.kh.back.auth;
 
-import com.kh.back.auth.RefreshTokenDto;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

@@ -1,11 +1,5 @@
 package com.kh.back.auth;
 
-import com.kh.back.auth.AuthTokens;
-import com.kh.back.auth.AvailabilityResponse;
-import com.kh.back.auth.LoginRequest;
-import com.kh.back.auth.SignupRequest;
-import com.kh.back.auth.TokenResponse;
-import com.kh.back.auth.AuthService;
 import com.kh.back.common.dto.ApiResponse;
 import com.kh.back.common.exception.ApiException;
 import com.kh.back.common.jwt.JwtProvider;

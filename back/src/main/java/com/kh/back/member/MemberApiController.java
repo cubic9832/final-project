@@ -1,9 +1,6 @@
 package com.kh.back.member;
 
 import com.kh.back.common.dto.ApiResponse;
-import com.kh.back.member.MemberResponse;
-import com.kh.back.member.WithdrawRequest;
-import com.kh.back.member.MemberService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

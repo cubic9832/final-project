@@ -1,6 +1,5 @@
 package com.kh.back.member;
 
-import com.kh.back.member.MemberDto;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

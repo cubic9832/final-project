@@ -1,8 +1,5 @@
 package com.kh.back.auth;
 
-import com.kh.back.auth.AuthTokens;
-import com.kh.back.auth.LoginRequest;
-import com.kh.back.auth.SignupRequest;
 import com.kh.back.member.MemberResponse;
 
 public interface AuthService {
