@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { calculateVehicleBudget } from '../../calculateVehicleBudget';
+import { buildFinancialRecommendation } from '../../buildFinancialRecommendation';
+import { getFinancialRecommendations } from '../../financialRecommendationApi';
+import FinancialRecommendationResults from './FinancialRecommendationResults';
 import '../../styles/FinancialPages.css';
 import './FinancialResultPage.css';
 
@@ -11,6 +14,39 @@ export default function FinancialResultPage() {
   const { state } = useLocation();
   const navigate = useNavigate();
   const [notice, setNotice] = useState('');
+  const [recommendations, setRecommendations] = useState(null);
+  const [recommending, setRecommending] = useState(false);
+  const pendingRequest = useRef(null);
+  const resultsRegion = useRef(null);
+  useEffect(() => () => pendingRequest.current?.abort(), []);
+  useEffect(() => {
+    if (recommendations) resultsRegion.current?.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start',
+    });
+  }, [recommendations]);
+
+  async function showRecommendations() {
+    if (pendingRequest.current) return;
+    setRecommendations(null);
+    const { request, errors } = buildFinancialRecommendation(state ?? {});
+    if (!request) {
+      setNotice(`추천에 필요한 진단 정보를 확인해 주세요: ${[...new Set(errors)].join(', ')}`);
+      return;
+    }
+    const controller = new AbortController();
+    pendingRequest.current = controller;
+    setRecommending(true);
+    setNotice('입력한 진단 정보로 추천 차량을 분석하고 있습니다.');
+    try {
+      const response = await getFinancialRecommendations(request, controller.signal);
+      if (!controller.signal.aborted) { setRecommendations(response); setNotice('추천 차량을 확인했습니다.'); }
+    } catch (error) {
+      if (!controller.signal.aborted) setNotice(error.response?.data?.detail ?? '추천 서버에 연결하지 못했습니다. 진단 결과는 유지됩니다. 추천 차량 확인하기를 눌러 다시 시도해 주세요.');
+    } finally {
+      pendingRequest.current = null;
+      if (!controller.signal.aborted) setRecommending(false);
+    }
+  }
   const { values = {}, credit = {}, vehicle = {} } = state ?? {};
   const result = calculateVehicleBudget(state ?? {});
   const expenses = result.expenses - Number(values.loan || 0);
@@ -66,7 +102,8 @@ export default function FinancialResultPage() {
       <p className="result-assumptions">계산 가정: 연 금리 6%, 월 유지비 20만 원, 가용자금의 25%를 여유자금으로 유지합니다. 선수금은 예금에서 비상자금을 제외한 범위로 제한합니다. 예산 하한은 할부 가능액의 80% 기준이며, 취득세·이전비는 포함하지 않습니다.</p>
     </section>
     <aside className="result-warning"><h2>결과·사용 전 확인</h2><p>위 예산은 화면용 추정치이며 실제 대출 가능액이나 금융기관 심사 결과가 아닙니다. 실제 금리와 보험료·유지비에 따라 달라집니다.</p></aside>
-    <div className="financial-next-row result-navigation"><button type="button" className="result-previous" onClick={() => navigate('/financial', { state: { ...state, reviewReturn: false } })}>조건 다시 입력하기</button><button type="button" className="financial-next-button" onClick={() => setNotice('추천 차량 기능은 준비 중입니다. 입력한 조건과 분석 결과는 유지됩니다.')}>추천 차량 확인하기</button></div>
+    <div className="financial-next-row result-navigation"><button type="button" className="result-previous" onClick={() => navigate('/financial', { state: { ...state, reviewReturn: false } })}>조건 다시 입력하기</button><button type="button" className="financial-next-button" onClick={showRecommendations} disabled={recommending} aria-busy={recommending}>추천 차량 확인하기</button></div>
     <p className="result-status" role="status">{notice}</p>
+    <div ref={resultsRegion} className="financial-recommendation-anchor" aria-live="polite">{recommendations && <FinancialRecommendationResults result={recommendations} />}</div>
   </div>;
 }
