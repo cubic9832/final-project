@@ -1,4 +1,4 @@
-import client from '../../api/client.js';
+import client from '../../shared/api/client.js';
 
 const classLabels = { MINI: '경차', COMPACT_SEDAN: '준중형 세단', MIDSIZE_SEDAN: '중형 세단' };
 

@@ -1,0 +1,2582 @@
+{
+  "checkedOn": "2026-10-14",
+  "scope": "국내 6개 브랜드 승용 신차; 파워트레인·특별 모델 표기는 별도 항목",
+  "excluded": [
+    "중고차",
+    "상용 트럭",
+    "버스",
+    "택시 전용",
+    "어린이 통학 전용"
+  ],
+  "completeness": "공식 목록 기반. 자료 추출과 트림별 정규화·검증 완료 여부는 별개.",
+  "models": [
+    {
+      "brand": "현대",
+      "model": "쏘나타 디 엣지",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/sonata-the-edge",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/sonata-2027-price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/c4b09958d5f8033d.json",
+          "sha256": "f7cff872ac05ded5100ac50477e8f9d6556204d1f3f543465cf66c840a1936f8",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/sonata-2027-price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/sonata-the-edge_catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/26e393b9297f5267.json",
+          "sha256": "5ac4420dd4d88b6ebc8e55e3d1ee30bd4649ad7b4ff4c1a2ead12f166bfedad3",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/sonata-the-edge_catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "쏘나타 디 엣지 Hybrid",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/sonata-the-edge-hybrid",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/sonata-hybrid-2027-price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/9bac08f50471666d.json",
+          "sha256": "60bbcd3c97a391727bb74cacb2289d74c3e001b2f399f4499069dfdb334ab7ac",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/sonata-hybrid-2027-price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/sonata-the-edge-hybrid-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/e3c26b16d66aad8a.json",
+          "sha256": "4b525174febf4c72464b7e3768ffaa6333f11d240ad6c6cd16963852dafd48c6",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/sonata-the-edge-hybrid-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "디 올 뉴 아반떼",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/the-all-new-avante",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-all-new-avante_price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/6cfc0c961491152f.json",
+          "sha256": "14ab243cf35d22b4b6d734416a912d9885ef4400e4044dedb9622ccd16df50cd",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-all-new-avante_price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-all-new-avante-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/b17ba7f47fa50aa5.json",
+          "sha256": "bde78c8e65667e073c0fd66f7cca7d00d72215745754fa6492fbbd488ef71d05",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-all-new-avante-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "디 올 뉴 아반떼 Hybrid",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/the-all-new-avante-hybrid",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-all-new-avante-hybrid_price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/e7f2d20344598a8a.json",
+          "sha256": "f2ed05b9f9ce24bf453f5fb9cf77ce52775c31fb82fa00a2efa3a714b5d53eef",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-all-new-avante-hybrid_price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-all-new-avante-hybrid-catalog.pdf",
+          "status": "failed",
+          "error": "HTTP Error 404: Not Found"
+        }
+      ],
+      "status": "incomplete",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 그랜저",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/the-new-grandeur",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-grandeur-price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/0ee7247d0cc54f1f.json",
+          "sha256": "995848183590d05e4d3b63d95fde2e12d68f9018c19a5ccb799d4da542c8aa93",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-grandeur-price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-grandeur-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/acc002df37fc7e51.json",
+          "sha256": "cfd1907e5dd4a16ccaae561bca5a0e87015968d27d4eb07cecc4786680377c88",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-grandeur-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 그랜저 Hybrid",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/the-new-grandeur-hybrid",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-grandeur-hybrid-price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/aecc8478337a4b80.json",
+          "sha256": "0ead63784fa4cd14d89c3813d7a7d6569355a382dbf9d3b5e167652dabe6ed7c",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-grandeur-hybrid-price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-grandeur-hybrid-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/75f7d5756211729f.json",
+          "sha256": "cfd1907e5dd4a16ccaae561bca5a0e87015968d27d4eb07cecc4786680377c88",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-grandeur-hybrid-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "팰리세이드",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/palisade",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-2027-price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/2d459718a3a2beb5.json",
+          "sha256": "43ce8edaa5e677d8ed25788d32ccc221e6f8cac5d613bb27ee7c005b7ae3d986",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/palisade-2027-price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/e6d8da72b402bdb2.json",
+          "sha256": "01614b45bd10aff3280277f0ebd581dd4df6662d7851a14486ccf8105ac125bb",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/palisade-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "팰리세이드 Hybrid",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/palisade-hybrid",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-hev-2027-price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/58c611a08722d103.json",
+          "sha256": "6ccc9bbff6fdd9fdf4f14357d0f860c700b59290868212144eb2d33e84a7e051",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/palisade-hev-2027-price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-hybrid-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/967b226d5bed3362.json",
+          "sha256": "01614b45bd10aff3280277f0ebd581dd4df6662d7851a14486ccf8105ac125bb",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/palisade-hybrid-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "베뉴",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/venue",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/venue-2027-price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/3a034e6965f0e296.json",
+          "sha256": "8b150e0a9875bc28485dc5ae53949b18fcc29ca4d2b77686a473c3a67d02bce5",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/venue-2027-price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/venue-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/c3cd168e5d3456c6.json",
+          "sha256": "c4c3ae42e1f38fd08ecc7646acffcc9700f99049ae35a1a1dfc6f1fc11982618",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/venue-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "코나",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/kona",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/kona-2027-price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/5538f83b0d789843.json",
+          "sha256": "db0713e1e42cfd6b71f5b2b342cd8d6f56a62887768c5ecdab0205dd59376ed6",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/kona-2027-price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/kona-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/96547fcd9fcd2ab9.json",
+          "sha256": "7ce6b4fadfca38a98e9e5a919b102e221024b6f3b195429fd2ed00c511df5258",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/kona-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "코나 Hybrid",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/kona-hybrid",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/kona-hybrid-2027-price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/857712ecf10c3638.json",
+          "sha256": "a6332537d287da55246a36a0e79b6e15026fe9b07ebfebf836b9df3a8e723b1e",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/kona-hybrid-2027-price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/kona-hybrid-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/6862416537d39d02.json",
+          "sha256": "7ce6b4fadfca38a98e9e5a919b102e221024b6f3b195429fd2ed00c511df5258",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/kona-hybrid-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "싼타페",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/santafe",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/santafe-2026-price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/309053b4ad1806fb.json",
+          "sha256": "5e6f86e67df1029bd428cbd7d7ad55271c70fc9cbee7e93d1c91dd353aff8ac7",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/santafe-2026-price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/santafe-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/c82929d09e9a0151.json",
+          "sha256": "4cd9535be0fc3068f7d85595926b0119fa68c338856b691478d4b26e7bb40a24",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/santafe-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "디 올 뉴 투싼",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/the-all-new-tucson",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "model-page",
+          "url": "https://www.hyundai.com/kr/ko/e/vehicles/the-all-new-tucson",
+          "status": "failed",
+          "error": "HTTP Error 500: Internal Server Error"
+        }
+      ],
+      "status": "incomplete",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "싼타페 Hybrid",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/santafe-hybrid",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/santafe-hev-2026-price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/504a1a918778c70b.json",
+          "sha256": "69be6521aee53ca8213f87da31c88f40840cea136ca484625beefaeafc9c82e0",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/santafe-hev-2026-price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/santafe-hybrid-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/4fc1ea439558e33b.json",
+          "sha256": "4cd9535be0fc3068f7d85595926b0119fa68c338856b691478d4b26e7bb40a24",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/santafe-hybrid-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "투싼",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/tucson",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/tucson-2026-price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/1f5f70256d8d20cf.json",
+          "sha256": "2cde03ffd04294acc0a56d0a922fc3640a80beb4b1aad9d747a467767a1f0c28",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/tucson-2026-price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/tucson-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/7abe4193b861635b.json",
+          "sha256": "2788c2f87c43b01553cf99a34dfc31dd1b891545d4e8cc32701232e6847295cf",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/tucson-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "투싼 Hybrid",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/tucson-hybrid",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/tucson-hybrid-2026-price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/18e02bec4da1f824.json",
+          "sha256": "931ecda00219f5c4c1e662792ae429af0117cf3bb99fef6a1c40c06af79986fc",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/tucson-hybrid-2026-price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/tucson-hybrid-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/5e263ea51e78eb60.json",
+          "sha256": "2788c2f87c43b01553cf99a34dfc31dd1b891545d4e8cc32701232e6847295cf",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/tucson-hybrid-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "2027 캐스퍼",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/casper",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "model-page",
+          "url": "https://casper.hyundai.com/vehicles/highlight",
+          "status": "extracted",
+          "extractedPath": "extracted/f04cd83153bfe287.json",
+          "sha256": "9a82dd3b024f1ee8c5fced62f1243fddf1afb68cc817aca791a77d0395cba88d",
+          "finalUrl": "https://casper.hyundai.com/vehicles/highlight"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 리무진 Hybrid",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/the-new-staria-limousine-hybrid",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-hybrid_price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/4b4ead561a3643ff.json",
+          "sha256": "562eb70ae96d73560d3a1a50e0523b8eefafcfe51a20bd52241c44637bdd2aaa",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-hybrid_price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-hybrid_catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/8c642821a7337eef.json",
+          "sha256": "ee386b6cdaf939220823b05ea7cc0be12dd9edf019df53701e58d6cd79be0fad",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-hybrid_catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/the-new-staria-lounge",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge_price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/31e141097c26efa8.json",
+          "sha256": "6c9d4c2acac5108d50f50e9e1e432f6bae3008ae18e3d275f0cab10afdcb027a",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge_price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/9e66f43dc0f55b4e.json",
+          "sha256": "ee386b6cdaf939220823b05ea7cc0be12dd9edf019df53701e58d6cd79be0fad",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지 Hybrid",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/the-new-staria-lounge-hybrid",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-hybrid_price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/251dc518a46c5047.json",
+          "sha256": "f1b41bcf7935f10edc37bed0bd81d11283e3bb907e9a63f0d5aa8f7090772738",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-hybrid_price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-hybrid-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/41383f92e775d0cf.json",
+          "sha256": "ee386b6cdaf939220823b05ea7cc0be12dd9edf019df53701e58d6cd79be0fad",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-hybrid-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/the-new-staria",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria_price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/589752284bd038bf.json",
+          "sha256": "dbbd5ce7d0f366c55617f1b561472026171299bce1e3b05d65884f3539a10805",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria_price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria_catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/782d39acd3480ff0.json",
+          "sha256": "ed50a4069e628f6bb05890a3be6047d91cdb4f2467dd72aae376bd3e6e617968",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria_catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 Hybrid",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/the-new-staria-hybrid",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-hybrid_price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/93b54b18fb75f01a.json",
+          "sha256": "932266b9f5ab0b1e13f746372573abc7c783629a6df47a81c0b05bd524bf4269",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-hybrid_price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-hybrid_catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/bfac7ba4b3db10fe.json",
+          "sha256": "ed50a4069e628f6bb05890a3be6047d91cdb4f2467dd72aae376bd3e6e617968",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-hybrid_catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "넥쏘",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/nexo",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/nexo-2027_price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/5e0bd00f37bc0886.json",
+          "sha256": "841144af5d76316a3ca34f53ffa59af581c757aff1b9ade39e807a15e1b4ae42",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/nexo-2027_price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/nexo-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/0c61d9e348b6a6e5.json",
+          "sha256": "28dbbb5a8f35ff63df814cdcf108ee448f24d100dfb7d44b74ec06dcca8e59d1",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/nexo-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "코나 Electric",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/kona-electric",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/kona-electric-2025-price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/fc0f24b56bfbcb9b.json",
+          "sha256": "9111c4a43ee53712c019d31db15091e38dd23125c1ee087a5d064e664ea29184",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/kona-electric-2025-price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/kona-electric-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/0a60beeb23a0291d.json",
+          "sha256": "8141c354e55070eb041c8fc5998190178b6ef1c4b7250bb7c713c542fa37fefa",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/kona-electric-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "아이오닉 5",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/ioniq5",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/ioniq-5-2027-price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/0b3e72dd57ba56bc.json",
+          "sha256": "6c294ea01d3b16e10b83e4e4d74e210f39310b3e84e49f64f0cea6b89c5de26b",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/ioniq-5-2027-price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/ioniq5-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/8c5a0eef43aa0b70.json",
+          "sha256": "52a0036f5d3eb57a4505c501ab39975aedff7fbb9f9b7993e3fbcf13f27b2ef7",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/ioniq5-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 Electric",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/the-new-staria-electric",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-electric_price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/8144b3f159be7296.json",
+          "sha256": "5751ebb5a518dc794cb3fdb7fc3ae3dab69ebd18b1e5dff6f0d59e9349df1faf",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-electric_price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-eletric-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/1a4b656146bf1b54.json",
+          "sha256": "ed50a4069e628f6bb05890a3be6047d91cdb4f2467dd72aae376bd3e6e617968",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-eletric-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지 Electric",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/the-new-staria-lounge-electric",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-electric_price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/52fd52a8c5b7a4fe.json",
+          "sha256": "a4b40b65b32cc8a970a12058c4adf407eb9df10563467e535b61aac0e5a5ab9a",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-electric_price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-electric-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/e227298bb4642bd1.json",
+          "sha256": "ee386b6cdaf939220823b05ea7cc0be12dd9edf019df53701e58d6cd79be0fad",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-electric-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 리무진 Electric",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/the-new-staria-limousine-electric",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-electric_price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/f45820bdf6ff45a3.json",
+          "sha256": "17b7b0710fc64cd48b1baef3e7ecb634c3ac7d761d0d15763f9a2e625bb7e30c",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-electric_price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-electric-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/a1d59ea0780e60b3.json",
+          "sha256": "ee386b6cdaf939220823b05ea7cc0be12dd9edf019df53701e58d6cd79be0fad",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-electric-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "아이오닉 9",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/ioniq9",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/ioniq9-2027-price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/ff6b67cdb01ecfd1.json",
+          "sha256": "8f5bdbb6da6d87d5e834ec49a43b6253e8a0c2b57a848e89c1893474493fd125",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/ioniq9-2027-price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/ioniq9-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/8943c39c4551e7d9.json",
+          "sha256": "ace0ec3c6e28bf485faf5d787338d6e271f8e2eb615f267dd32e0f408345ff8a",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/ioniq9-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 아이오닉 6",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/the-new-ioniq6",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/ioniq6-pe_price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/32eb99e004756e87.json",
+          "sha256": "a2b034be08ecd1819e816162e175d827f289ca646e5ab822350074435b9ce251",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/ioniq6-pe_price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-ioniq6-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/ae945c522cccae5a.json",
+          "sha256": "ffbda57c8954f68e33bf6ed6b75a11fc4330a3a4f6ea32aeba93f88791117bc2",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/the-new-ioniq6-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "2027 캐스퍼 일렉트릭",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/casper",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "model-page",
+          "url": "https://casper.hyundai.com/vehicles/electric/highlight",
+          "status": "extracted",
+          "extractedPath": "extracted/ce96a0fa53853873.json",
+          "sha256": "4f810cfb746d696efd2fc32f44303ba3429c975db19dd02b17fe0862368f4d47",
+          "finalUrl": "https://casper.hyundai.com/vehicles/electric/highlight"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "아이오닉 6 N",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/ioniq6-n",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/ioniq6-n_price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/3e4ab36ec9ea7eb9.json",
+          "sha256": "51fe6dd20ce6e547a279fd0fbc560861e195d80ae9f3da9984da8d723fa81f3f",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/ioniq6-n_price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/ioniq6-n_catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/c44c4b7379d5d7a1.json",
+          "sha256": "298b168faaa764c3f8e499f5b4ac29e62b7c6623988d2359bea331bb841768e6",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/ioniq6-n_catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "아이오닉 5 N",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/ioniq5-n",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/ioniq5n-2026-price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/62fe10833e1cc608.json",
+          "sha256": "92329d12177960aab2c5b94d8a84da16fd4c065e524b37eff1c64c9bf57be89f",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/ioniq5n-2026-price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/ioniq5-n_catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/26ba7b3a6f11603d.json",
+          "sha256": "f470d676124e388d4102f4ea763c3fa051f14873d24411e96ea3b8fdde75f93a",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/ioniq5-n_catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "현대",
+      "model": "아반떼 N",
+      "modelUrl": "https://www.hyundai.com/kr/ko/e/vehicles/avante-n",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/avante-n-2026-price.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/21007b5a2c1bbd99.json",
+          "sha256": "c6d8e4e644423d050cc2cf9778aafad42edcece2203c85c561bc5c8a7c113c3f",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/avante-n-2026-price.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.hyundai.com/contents/repn-car/catalog/avante-n-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/106fbf9eadaf8ec0.json",
+          "sha256": "6b69a3d8000283b0341ef6edd27992e236361aa4b1768f7b4c79a3c2fef943fa",
+          "finalUrl": "https://www.hyundai.com/contents/repn-car/catalog/avante-n-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "모닝",
+      "modelUrl": "https://www.kia.com/kr/vehicles/morning",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_morning.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/b1b27a6029199b92.json",
+          "sha256": "afd5cdcc3575e1f65cb7faafe0af7e3c92eaaa3571ce7fad14362613ac48d26e",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_morning.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_morning.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/5436dd930e51a510.json",
+          "sha256": "adb0464a410780776c8d296bf451a942dfab9bcf59666a6abf68fd1bbf2a4c04",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_morning.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "레이",
+      "modelUrl": "https://www.kia.com/kr/vehicles/ray",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ray.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/c75bceaa9e284d98.json",
+          "sha256": "d8863f038675f17d9dd8d8a94465da70e983c80b06ce7e2e23690998aebe2dd4",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ray.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ray.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/89cee6077f583fcb.json",
+          "sha256": "0539b3a308c75209ca72f4aa467249af1c1d984ef79ea04cfc2ccd5fea0cd7f8",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ray.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ray.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/d2905bbc1640b0f7.json",
+          "sha256": "4492d90c555220e3b4c46424a4809d12b6341227915d1c45b4cbe4c45213f2ef",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ray.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "K5",
+      "modelUrl": "https://www.kia.com/kr/vehicles/k5",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_k5.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/196bbd5d35012fba.json",
+          "sha256": "5dcfe84d9ffd46bcee8eb84073febbd95b1b53a4c828e8627338411a65cabe9a",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_k5.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_k5.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/eaccce15c9e9a2ca.json",
+          "sha256": "279afce3aa82d39675022b21a96ddffe9c55ce0df54fec351d048915c4c874eb",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_k5.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "K8",
+      "modelUrl": "https://www.kia.com/kr/vehicles/k8",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_k8.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/9dd0e8ecb487929f.json",
+          "sha256": "8bb9d7c82375fc3aa44ddd5b3964fc74cec2649aad7bf9d0730001d32689e34a",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_k8.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_k8.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/095a07d9d087b69e.json",
+          "sha256": "98996506e2e9cc1fd538f756df803d81c027d814ae41bc7f180d110ca5a53c0f",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_k8.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_k8.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/7351c16f66bb6954.json",
+          "sha256": "64aa4d4ba28e6a82ee90c3f9f81031a48812a7fc8520194cc84ae307647603cf",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_k8.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "K9",
+      "modelUrl": "https://www.kia.com/kr/vehicles/k9",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_k9.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/7b759aa943a1b006.json",
+          "sha256": "b7f1fff6c521a388ea4160d6a3039d2c10ba1a4e7d48499e211eadd94dabe02d",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_k9.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_k9.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/161df8522307bee9.json",
+          "sha256": "88dbbe0b12a8b6bfd23d9ade49ce5602399597bb60de7d1763bf607211775229",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_k9.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "셀토스",
+      "modelUrl": "https://www.kia.com/kr/vehicles/seltos",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_seltos.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/c60cc7ded5108234.json",
+          "sha256": "e2204209649544c51bffe23f2e1c1202654490d9666dfb346d33f3812e3bafef",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_seltos.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_seltos.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/2e1aef401ab05ab6.json",
+          "sha256": "218ee9338f3f7ccf222d1d86f678ac9380a9eddb3d1bd5133d18e3e4ec69f281",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_seltos.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_seltos.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/3bd48aca5b3d27ce.json",
+          "sha256": "27d63010f0d53fdc3a80354953df9edab85994522c2111270036612fa471e5e6",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_seltos.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "니로",
+      "modelUrl": "https://www.kia.com/kr/vehicles/niro",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_niro.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/7760ccc285326f4c.json",
+          "sha256": "40b16ef7504f380960058533444787782001e63bf0444b1930a5f18cb2ef4670",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_niro.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_niro.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/0ae80e5d692f4c8e.json",
+          "sha256": "32097ff9f5819bdcff81c3052a29373573e65179dfab99741e95c15a54ecdada",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_niro.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_niro.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/b5bd558682582e35.json",
+          "sha256": "81a50705663cddaaf59492469fc651648472419fa24768d90bba27b18d72039b",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_niro.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "스포티지",
+      "modelUrl": "https://www.kia.com/kr/vehicles/sportage",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_sportage.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/efc4f9e3f50a5ce5.json",
+          "sha256": "83e15fc5591eed4ad1f4343e96212ffd8a2f981e91fc3455b2b45551e31925e2",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_sportage.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_sportage.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/9641cbacff688007.json",
+          "sha256": "b7d09bbff7a3c8776ccc75318e0de17414a9c62c6ad86a40f18bc31954ed5cf6",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_sportage.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_sportage.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/9ccca7b831b2767c.json",
+          "sha256": "84a4a9701f4fafa626ec1f8797801580036f562e93e07f8b3b1d2ed33069fe7e",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_sportage.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "쏘렌토",
+      "modelUrl": "https://www.kia.com/kr/vehicles/sorento",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_sorento.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/80aadcb155009416.json",
+          "sha256": "b7acb84201b0e31083cb043d689f6f786a1ae69d6cbb3c92f95579e246790929",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_sorento.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_sorento.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/2c07ee35ab08d8db.json",
+          "sha256": "2c469e52c00b6f3c59ede57cc8d9507968f3a60e64761da9a380e615c57a44a4",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_sorento.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_sorento.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/9163935773c90e8d.json",
+          "sha256": "a1b5a662710e5c64e73155f179f28031388b9d310ba2a011b85c109b4fb2ebb9",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_sorento.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "카니발",
+      "modelUrl": "https://www.kia.com/kr/vehicles/carnival",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_carnival.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/771554a26f4e5597.json",
+          "sha256": "0b8a9cd0f0ed342e88144d28558e4ab76e96066cde048894681d4932d0ba2090",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_carnival.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_carnival.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/ae37e29517872a93.json",
+          "sha256": "c20317509cde00d59aeca87a334a7912abcf480848935d0d119c717f5c0448ad",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_carnival.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_carnival.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/a57c2dd794d93cda.json",
+          "sha256": "af9c0bebefa5261ca5eb609d4f11d541ecbc36ea5d6ceef8a36f2d03c502cf5a",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_carnival.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "카니발 하이리무진",
+      "modelUrl": "https://www.kia.com/kr/vehicles/carnival-hi-limousine",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_carnival-hi-limousine.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/2e61b4421131f660.json",
+          "sha256": "41184bdc06600b9c3abe037249b0f8c3b1b3fd264b9ba695ded841c420c87766",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_carnival-hi-limousine.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_carnival-hi-limousine.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/d2837bf68264269e.json",
+          "sha256": "3a0e5ee4aef314d7b653e62367e82983f7eef1c5dbf442c30a58f8dfb12b7ecf",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_carnival-hi-limousine.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "레이 EV",
+      "modelUrl": "https://www.kia.com/kr/vehicles/ray-ev",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ray-ev.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/f245066623add9c5.json",
+          "sha256": "4584e38618ec4dcf68bc8c38ecf99ee1f4c29897eaa114bc4ff9214f19624e8a",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ray-ev.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ray-ev.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/055ab2c51147ffca.json",
+          "sha256": "3b56773f5ea8a444958a4c14ecf037b9f7881ef8d54b23a0cd3e4d12b6f14c47",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ray-ev.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ray-ev.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/103f42c5f620191e.json",
+          "sha256": "ca35e0cd0641a12a5f2979f8a2f23b9bf9977a464eaf1f21cb5b3515acff7f6e",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ray-ev.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "EV3",
+      "modelUrl": "https://www.kia.com/kr/vehicles/ev3",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev3.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/a75c561edee5547a.json",
+          "sha256": "53575ff00371722d55c7256320ead85e5c245be11321a08b9e45e89b2e702bb7",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev3.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev3.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/90bdd18a8d1cd2e2.json",
+          "sha256": "5da56f86e0499b9b0c0b9d57591f80a77a0cc86ce15f46413f54b124974be90c",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev3.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev3.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/1252dc7651661d1b.json",
+          "sha256": "a2b9f19fbddd2d117d0c0c87c8ed1ddfd2056cd886048ae70c5ac1f69670284d",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev3.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "EV3 GT",
+      "modelUrl": "https://www.kia.com/kr/vehicles/ev3-gt",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev3-gt.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/e8e6dcc0e3f6fdcb.json",
+          "sha256": "405fa674b0fb3d052aaafac17829b9fa31c0f151178a69b7c9477b91af030092",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev3-gt.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev3-gt.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/b3b8467569dac375.json",
+          "sha256": "010008cd2a9e52a6e20737c827ea56d196abba159ac2b369d5723c75f24c20d3",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev3-gt.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev3-gt.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/cca20b31fab0a0b1.json",
+          "sha256": "b8f96841b84efef1b85008619cab0c7d36565241da854c720d4b432d0883397e",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev3-gt.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "EV4",
+      "modelUrl": "https://www.kia.com/kr/vehicles/ev4",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev4.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/b0c15f80bd447769.json",
+          "sha256": "6a029bcd802adeeec9f7fe17da5357d2f97ec44219e12eba509b96c331aa4cf8",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev4.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev4.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/0bf9e8efa911367f.json",
+          "sha256": "10e0c85ea2897e288bde0ca1f203f7d83d4a23f351bee20f6bd1a46c4fb3fe94",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev4.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev4.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/d68c5e368e98721d.json",
+          "sha256": "77e9de302e9cd37f5356e68fdfa9f72adbc9266821b5503597317b01e2e551c1",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev4.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "EV4 GT",
+      "modelUrl": "https://www.kia.com/kr/vehicles/ev4-gt",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev4-gt.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/e935f4213bedfb5a.json",
+          "sha256": "c9de90628fa9872bcdac875850dccb604d3e974bffe426401f4bac87e393a3fc",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev4-gt.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev4-gt.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/59e4fc2c2feeafd2.json",
+          "sha256": "72ad17520654fd3b0fdaa00cedfe85f980d29735ca4f1d9d20f8957acc499f24",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev4-gt.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev4-gt.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/21213c383b2bcb56.json",
+          "sha256": "2a2c9b6deb580fe7249720640802612e3f14f2591d040d0029cdc6c656f7c8fb",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev4-gt.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "EV5",
+      "modelUrl": "https://www.kia.com/kr/vehicles/ev5",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev5.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/07bc6d56ca509b22.json",
+          "sha256": "cac5a800a44dbbd647c5f834fe6e09400684857d69a59644d285ef51d9544b48",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev5.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev5.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/cccab53ab1a04f54.json",
+          "sha256": "a9eff76211cfd07a58dc01e3b8c35bad60babcc075ce4fed01ada02b10fa83f9",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev5.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev5.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/c3b7f45b1bf2b022.json",
+          "sha256": "35d031d41e483b757210477de02f5c068798da24b8a078edf4ea6e10a05a4edc",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev5.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "EV5 GT",
+      "modelUrl": "https://www.kia.com/kr/vehicles/ev5-gt",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev5-gt.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/aed34a195a2f3393.json",
+          "sha256": "b21edf7e4e0ce9fd6da7420b7d69675b0f936f713982a3574c411ffab7ee5de3",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev5-gt.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev5-gt.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/76cd362897a4c443.json",
+          "sha256": "3094cbd09edcef7b91775e4ad0e0e4cde607ddd7c19473dabd36687cf6f89a8a",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev5-gt.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev5-gt.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/ebb00117411ca88e.json",
+          "sha256": "ae7b19583aac36d475cd684396424f401d8fe843e7c45d3c2a10143a722f47b9",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev5-gt.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "EV6",
+      "modelUrl": "https://www.kia.com/kr/vehicles/ev6",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev6.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/c6bffedca8d62c0e.json",
+          "sha256": "363b86e9310fc200e77e86f70a130d84b0e39ac578f451ba5b0942eb7eabae4b",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev6.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev6.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/6dc73d1652e5c0c2.json",
+          "sha256": "fdf1eebe07fefcddc35fc836ed502bff317fb2aa9d07c124cc81b699d898c774",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev6.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev6.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/e62caf173cad0727.json",
+          "sha256": "143ac2af87e188d2480791a225b2f4358acb5221b92db1e959cbb159e15e3eb9",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev6.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "EV6 GT",
+      "modelUrl": "https://www.kia.com/kr/vehicles/ev6-gt",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev6-gt.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/9e0a0fe47d1ebc08.json",
+          "sha256": "1f0e278f329901f58a6e724fa40a4bb0ebba52ead79db4b013615c96ca1b82dc",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev6-gt.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev6-gt.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/5329de91d5c499dc.json",
+          "sha256": "e34306d4374726db2a31458add00569099b7cacb6ca8e20e1da6892daa3526bc",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev6-gt.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev6-gt.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/9ada65fadc8c7ab7.json",
+          "sha256": "8e7d692669b6f4b3f82993a49ff385f5f6532d4087154c20c223e14ed040a43a",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev6-gt.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "EV9",
+      "modelUrl": "https://www.kia.com/kr/vehicles/ev9",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev9.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/63c67292a4c2323e.json",
+          "sha256": "e3a6b88add2ab8f6e634c48171fe55913245d36c7a61c7c53de4fd78be6c5163",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev9.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev9.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/6d8b43babd44e412.json",
+          "sha256": "7fc36721596d8b7ae7d82a22b9360a98023986e5809f281c013ac8a521f029b0",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev9.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "EV9 GT",
+      "modelUrl": "https://www.kia.com/kr/vehicles/ev9-gt",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev9-gt.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/3f7d4de601ebfcdf.json",
+          "sha256": "307c24b8d8f680e3b023a028935f2e6fa92ca89ddabd2bcf22ecd0c2250dfc37",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev9-gt.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev9-gt.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/0927ef9ca734b6c7.json",
+          "sha256": "f6398c01aea9cfe42460dcf53548d90d0a11621213b977b2ec40735a6049bbf3",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev9-gt.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev9-gt.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/818d301355c9b9b0.json",
+          "sha256": "4076b8369acfe21bc76c9127244fac3f30b46b4884487731ee9842aef51c7efb",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev9-gt.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "기아",
+      "model": "PV5 패신저",
+      "modelUrl": "https://www.kia.com/kr/vehicles/pv5-passenger",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_pv5-passenger.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/8bc834f1a13b1498.json",
+          "sha256": "72535b99db841343eb9c84cc1baa116489dec77da1ef63e6dc39299fe0eff8cd",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_pv5-passenger.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_pv5-passenger.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/8c4290b6bc83dc88.json",
+          "sha256": "a63fe28aa80b24edb0c08489249126c2d82489d028a06ecd64e5db8d712e1e08",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_pv5-passenger.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_pv5-passenger.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/2e4cdb9b8a65638a.json",
+          "sha256": "b7c024659c6be5252f64c1b9a96a44e965df62c9ead884bcb8e78a31f06e87c4",
+          "finalUrl": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_pv5-passenger.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "제네시스",
+      "model": "Electrified G80",
+      "modelUrl": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "1187ADA2F86C95CA48",
+          "filename": "genesis-g80-ev-catalog-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/23db7e12a78769a4.json",
+          "sha256": "564e12d94b48b3d0a0a84a5d4759f5f0783d8c61ff8c2ebf135b6f2ba1d4b552",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "1187ADA2F86C9652E4",
+          "filename": "genesis-g80-ev-pricelist-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/1f3b74ab840a6a42.json",
+          "sha256": "9be51cae27449c4ff8b3cdd61766f8959fa88447f89d0f75a0bf68de4c8748c3",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV60",
+      "modelUrl": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "1187BE66779654341C",
+          "filename": "genesis-gv60-catalog-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/08e4c462c7f76059.json",
+          "sha256": "117f0e689adf16d09f28b67b31b9477346a39e42f01619cd36a794b550c39396",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "1187BE6677965542F3",
+          "filename": "genesis-gv60-pricelist-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/dbf736e83254f6bf.json",
+          "sha256": "4e00f6f2e0270ef98a8b6d22f25dedb7fe3f42767487e7fb4e5972bb3e0ca5b8",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV80",
+      "modelUrl": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "1185760DEDEB5D3DE0",
+          "filename": "genesis-gv80-catalog-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/a7ff81054ce8541c.json",
+          "sha256": "ebe699fb5d4659689878efe4049a5974c3c8a8750631b514e57d0125780b0160",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "118C2FD65FAB0B6FF4",
+          "filename": "genesis-gv80-pricelist-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/e11be71ded044515.json",
+          "sha256": "2aa8201c032ba318a243be5ae66759bc6f0a29026b71e3ae273c06944cb53a9d",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "제네시스",
+      "model": "G80",
+      "modelUrl": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "1185760DEF092F8F5E",
+          "filename": "genesis-g80-catalog-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/72f3676bb8cc6566.json",
+          "sha256": "e2b3cdfa55861c51b8736c61e398d0996949a2a275cf2f14a63799f5800ceec9",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "1185760DEF092FC162",
+          "filename": "genesis-g80-pricelist-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/ff9708f3f9aa9150.json",
+          "sha256": "1d3d7f4f4edabe3106a78597af6368f49fde398eb5daffa3c261d8a1f0c2b42b",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "제네시스",
+      "model": "G70 Shooting Brake",
+      "modelUrl": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "1189E193527061BD76",
+          "filename": "genesis-g70-sb-catalog-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/a05420e170289b71.json",
+          "sha256": "b22c08f4368ed0c3ac9cfa52ea11efffc772a23bde166c19263b88022af9ccda",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "1189E1935270683756",
+          "filename": "genesis-g70-sb-pricelist-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/0617c36502f9cd68.json",
+          "sha256": "faa01ee2c9f9f6e762713d2ad12d3fa92e71ee77ed2e6b5678a7d8eb7e1b31fa",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "제네시스",
+      "model": "Electrified GV70",
+      "modelUrl": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "1189CFE583F51B35EA",
+          "filename": "genesis-gv70-ev-catalog-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/c9cfa39aca65582c.json",
+          "sha256": "e5c326cd37de63858b7496db82cc15f2b8acf02e01ad146284efd656a951670b",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "1189CFE583F51B93FD",
+          "filename": "genesis-gv70-ev-pricelist-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/c0e8c30b917f96e2.json",
+          "sha256": "7d0e33f5d5c5b3c6bd2cbf9d08f0eb5711431bfc9f2ad35c8e6fee567410d76c",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90",
+      "modelUrl": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "1187CA750AB5DBB8FD",
+          "filename": "genesis-g90-catalog-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/2ee239b15dee2b12.json",
+          "sha256": "c46a030adc3f81b34d77174894c26023d44ec9101d20a5d4916560be80804f8f",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "1187CA750AB5DCF580",
+          "filename": "genesis-g90-pricelist-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/f4cb6e94607ec204.json",
+          "sha256": "6efc030cb1cd7a3bdbe589abead2cbec634327e3f8bbdd532cdb040bda466277",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV70",
+      "modelUrl": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "118591BBD31A9E782E",
+          "filename": "genesis-gv70-catalog-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/8f93158fdce2e251.json",
+          "sha256": "72c91c61de5bcc77dddaf1e235c1a114092ede95010520be7bfc4dda63051617",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "118591BBD31A9EA72C",
+          "filename": "genesis-gv70-pricelist-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/8ae07de3ad10d8a2.json",
+          "sha256": "ba51ae43aacc31fd18903cbc37854f087a2e1758881f81d7c76cbf5efaa22ca2",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "제네시스",
+      "model": "G70",
+      "modelUrl": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "1185760DEE9FE715AE",
+          "filename": "genesis-g70-catalog-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/1dd7f9e2967aef02.json",
+          "sha256": "b22c08f4368ed0c3ac9cfa52ea11efffc772a23bde166c19263b88022af9ccda",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "1185760DEE9FE748C8",
+          "filename": "genesis-g70-pricelist-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/527de21ee0e52188.json",
+          "sha256": "c930f47a599fd92345b16a8515fa6bf2e5d6bf199699dfe3532b0410a2956433",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV60 Magma",
+      "modelUrl": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "1192A6183E7454BD29",
+          "filename": "genesis-gv60-magma-catalog-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/bf7c63ad601fc3ba.json",
+          "sha256": "117f0e689adf16d09f28b67b31b9477346a39e42f01619cd36a794b550c39396",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "1192A6183E7454FD15",
+          "filename": "genesis-gv60-magma-pricelist-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/7b35b8b4d716ea4b.json",
+          "sha256": "4e00f6f2e0270ef98a8b6d22f25dedb7fe3f42767487e7fb4e5972bb3e0ca5b8",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90 Long Wheel Base",
+      "modelUrl": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "118E3B4F09C70A1E4C",
+          "filename": "genesis-g90-long-wheel-base-catalog-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/ac00f383ce56825f.json",
+          "sha256": "c46a030adc3f81b34d77174894c26023d44ec9101d20a5d4916560be80804f8f",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "118E3B4F09C70B5E3C",
+          "filename": "genesis-g90-long-wheel-base-pricelist-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/1a04d3b259585197.json",
+          "sha256": "6efc030cb1cd7a3bdbe589abead2cbec634327e3f8bbdd532cdb040bda466277",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "제네시스",
+      "model": "G80 Black",
+      "modelUrl": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "11906D53354AC487AD",
+          "filename": "genesis-g80-black-catalog-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/96fecabe58503ce7.json",
+          "sha256": "e2b3cdfa55861c51b8736c61e398d0996949a2a275cf2f14a63799f5800ceec9",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "11906D53354AC4CA68",
+          "filename": "genesis-g80-black-pricelist-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/3f91d8ebb5757680.json",
+          "sha256": "1d3d7f4f4edabe3106a78597af6368f49fde398eb5daffa3c261d8a1f0c2b42b",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV80 Coupe Black",
+      "modelUrl": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "118E6819DEB80BE3D7",
+          "filename": "genesis-gv80-coupe-black-catalog-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/4f3f6a6f0fbb7962.json",
+          "sha256": "ebe699fb5d4659689878efe4049a5974c3c8a8750631b514e57d0125780b0160",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "118E6819DEB80C35D4",
+          "filename": "genesis-gv80-coupe-black-pricelist-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/f5fb4f97ff0d7f81.json",
+          "sha256": "8636d839381b9d4f85c741288afa6fc712f8ad18aeacc5b20457f7222d112461",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV80 Black",
+      "modelUrl": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "118E6819DE6946FB17",
+          "filename": "genesis-gv80-black-catalog-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/da261d205ecd0c9d.json",
+          "sha256": "ebe699fb5d4659689878efe4049a5974c3c8a8750631b514e57d0125780b0160",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "118E6819DE69473923",
+          "filename": "genesis-gv80-black-pricelist-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/38ee2e32563e28ff.json",
+          "sha256": "2aa8201c032ba318a243be5ae66759bc6f0a29026b71e3ae273c06944cb53a9d",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV80 Coupe",
+      "modelUrl": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "118C2B0FE7C3D5A5F3",
+          "filename": "genesis-gv80-coupe-catalog-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/6782e6e1ff8cbf02.json",
+          "sha256": "ebe699fb5d4659689878efe4049a5974c3c8a8750631b514e57d0125780b0160",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "118C2FD65F4FD7C9EF",
+          "filename": "genesis-gv80-coupe-pricelist-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/5f1461a7f88bea9c.json",
+          "sha256": "8636d839381b9d4f85c741288afa6fc712f8ad18aeacc5b20457f7222d112461",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90 Black",
+      "modelUrl": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "118E40FFA477FAF91C",
+          "filename": "genesis-g90-black-catalog-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/dcc20e91f4eecf18.json",
+          "sha256": "c46a030adc3f81b34d77174894c26023d44ec9101d20a5d4916560be80804f8f",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "118E40FFA477FB8B03",
+          "filename": "genesis-g90-black-pricelist-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/909c7bba6627b50c.json",
+          "sha256": "6efc030cb1cd7a3bdbe589abead2cbec634327e3f8bbdd532cdb040bda466277",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90 Long Wheel Base Black",
+      "modelUrl": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "catalog",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "11907892E7CE9B7595",
+          "filename": "genesis-g90-long-wheel-base-black-catalog-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/13ce6e729b4ae00e.json",
+          "sha256": "c46a030adc3f81b34d77174894c26023d44ec9101d20a5d4916560be80804f8f",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+          "postFileKey": "11907892E7CE9D6F7C",
+          "filename": "genesis-g90-long-wheel-base-black-pricelist-kor-202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/ecd6166e5d32a0f3.json",
+          "sha256": "6efc030cb1cd7a3bdbe589abead2cbec634327e3f8bbdd532cdb040bda466277",
+          "finalUrl": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "액티언 하이브리드",
+      "modelUrl": "https://www.kg-mobility.com/pr/model/show-room/200000100010018",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "shared-price",
+          "url": "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/40cdc7916937085e.json",
+          "sha256": "cd34233a1f041212ebe68a2ab848b7d5c6d73ec4a773c9e910719eb4ada4ef3e",
+          "finalUrl": "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증.",
+      "advertisedStartingPriceWon": 38950000,
+      "startingPriceBasis": "공식 모델 목록 표시값; 트림 가격과 구분"
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "토레스 하이브리드",
+      "modelUrl": "https://www.kg-mobility.com/pr/model/show-room/200000100010017",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "shared-price",
+          "url": "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/40cdc7916937085e.json",
+          "sha256": "cd34233a1f041212ebe68a2ab848b7d5c6d73ec4a773c9e910719eb4ada4ef3e",
+          "finalUrl": "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증.",
+      "advertisedStartingPriceWon": 33020000,
+      "startingPriceBasis": "공식 모델 목록 표시값; 트림 가격과 구분"
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "토레스",
+      "modelUrl": "https://www.kg-mobility.com/pr/model/show-room/200000100010001",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "shared-price",
+          "url": "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/40cdc7916937085e.json",
+          "sha256": "cd34233a1f041212ebe68a2ab848b7d5c6d73ec4a773c9e910719eb4ada4ef3e",
+          "finalUrl": "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증.",
+      "advertisedStartingPriceWon": 29960000,
+      "startingPriceBasis": "공식 모델 목록 표시값; 트림 가격과 구분"
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "토레스 EVX",
+      "modelUrl": "https://www.kg-mobility.com/pr/model/show-room/200000100010009",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "shared-price",
+          "url": "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/40cdc7916937085e.json",
+          "sha256": "cd34233a1f041212ebe68a2ab848b7d5c6d73ec4a773c9e910719eb4ada4ef3e",
+          "finalUrl": "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증.",
+      "advertisedStartingPriceWon": 46020000,
+      "startingPriceBasis": "공식 모델 목록 표시값; 트림 가격과 구분"
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "액티언",
+      "modelUrl": "https://www.kg-mobility.com/pr/model/show-room/200000100010016",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "shared-price",
+          "url": "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/40cdc7916937085e.json",
+          "sha256": "cd34233a1f041212ebe68a2ab848b7d5c6d73ec4a773c9e910719eb4ada4ef3e",
+          "finalUrl": "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증.",
+      "advertisedStartingPriceWon": 36170000,
+      "startingPriceBasis": "공식 모델 목록 표시값; 트림 가격과 구분"
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "렉스턴 뉴 아레나",
+      "modelUrl": "https://www.kg-mobility.com/pr/model/show-room/200000100010012",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "shared-price",
+          "url": "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/40cdc7916937085e.json",
+          "sha256": "cd34233a1f041212ebe68a2ab848b7d5c6d73ec4a773c9e910719eb4ada4ef3e",
+          "finalUrl": "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증.",
+      "advertisedStartingPriceWon": 41060000,
+      "startingPriceBasis": "공식 모델 목록 표시값; 트림 가격과 구분"
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "티볼리",
+      "modelUrl": "https://www.kg-mobility.com/pr/model/show-room/200000100010007",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "shared-price",
+          "url": "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/40cdc7916937085e.json",
+          "sha256": "cd34233a1f041212ebe68a2ab848b7d5c6d73ec4a773c9e910719eb4ada4ef3e",
+          "finalUrl": "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증.",
+      "advertisedStartingPriceWon": 20970000,
+      "startingPriceBasis": "공식 모델 목록 표시값; 트림 가격과 구분"
+    },
+    {
+      "brand": "르노코리아",
+      "model": "그랑 콜레오스",
+      "modelUrl": "https://www.renault.co.kr/ko/model/koleos_overview.jsp",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.renault.co.kr/upload/asset/price/price_koleos_202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/47e332c5787a2c57.json",
+          "sha256": "b1c33354eb4e24c6d1578307a45a1c749961ff97656c7e622ffb5c2cedecb675",
+          "finalUrl": "https://www.renault.co.kr/upload/asset/price/price_koleos_202610.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.renault.co.kr/upload/asset/ebrochure/eBrochure_koleos_202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/fd0fa07b20dd29b2.json",
+          "sha256": "8029f6c02f99039a3449789f9a4061998bca7cf582d6d25667a0cc26190128d3",
+          "finalUrl": "https://www.renault.co.kr/upload/asset/ebrochure/eBrochure_koleos_202610.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "르노코리아",
+      "model": "필랑트",
+      "modelUrl": "https://www.renault.co.kr/ko/model/filante_overview.jsp",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.renault.co.kr/upload/asset/price/price_filante_202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/d62042295b342a5f.json",
+          "sha256": "68fece3542435cc7e23a653948d9156a132d3f4698e7cdfc55268b69e1190636",
+          "finalUrl": "https://www.renault.co.kr/upload/asset/price/price_filante_202610.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.renault.co.kr/upload/asset/ebrochure/eBrochure_filante_202610.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/b050683a84746e6d.json",
+          "sha256": "ad4c9fe1506fc8d1c29332a8ec82ce07386e67e134e6eeac984af4a75af2086f",
+          "finalUrl": "https://www.renault.co.kr/upload/asset/ebrochure/eBrochure_filante_202610.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "르노코리아",
+      "model": "아르카나",
+      "modelUrl": "https://www.renault.co.kr/ko/model/arkana_overview.jsp",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price",
+          "url": "https://www.renault.co.kr/upload/asset/price/price_Arkana_202610.pdf",
+          "status": "extracted",
+          "error": "HTTP Error 404: ",
+          "extractedPath": "extracted/4db7d650c66621c8.json",
+          "sha256": "36d00c035a903c795679692c16e06e8e17cea27711318307ad0f3683b0825dbe",
+          "finalUrl": "https://www.renault.co.kr/upload/asset/price/price_Arkana_202610.pdf"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.renault.co.kr/upload/asset/ebrochure/eBrochure_Arkana_202610.pdf",
+          "status": "extracted",
+          "error": "HTTP Error 404: ",
+          "extractedPath": "extracted/581400f7eeb7c6e3.json",
+          "sha256": "d6ee36e8fa158a486780fb9c9589c0fd8c1033d3668f0eeefb06cdbca3b9c434",
+          "finalUrl": "https://www.renault.co.kr/upload/asset/ebrochure/eBrochure_Arkana_202610.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "쉐보레",
+      "model": "트레일블레이저",
+      "modelUrl": "https://www.chevrolet.co.kr/suvs/trailblazer",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price-page",
+          "url": "https://www.chevrolet.co.kr/finance/type-price",
+          "status": "extracted",
+          "extractedPath": "extracted/fa130f57f6709a58.json",
+          "sha256": "71466455ad567d636886cb15b8c1e3ad463ad169c2155f640c24d17a65249b48",
+          "finalUrl": "https://www.chevrolet.co.kr/finance/type-price"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.chevrolet.co.kr/content/dam/chevrolet/as/kr/ko/index/e-catalogue-price-list/2026/oct/the-new-trailblazer-catalog-202610-e-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/9d123b6f5b16c398.json",
+          "sha256": "9236650db2f7ca35ef084882b0abed6278902330d19e393127de909fbabbf3a5",
+          "finalUrl": "https://www.chevrolet.co.kr/content/dam/chevrolet/as/kr/ko/index/e-catalogue-price-list/2026/oct/the-new-trailblazer-catalog-202610-e-catalog.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.chevrolet.co.kr/content/dam/chevrolet/as/kr/ko/index/e-catalogue-price-list/2026/jul/all-line-up-pricelist-202607-the-new-trailblazer-e-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/05ca5ac931287ba3.json",
+          "sha256": "a43f834f9e6a1dfab9fad1d7139c3f09016f2537443400dfaa006e4ba131da2e",
+          "finalUrl": "https://www.chevrolet.co.kr/content/dam/chevrolet/as/kr/ko/index/e-catalogue-price-list/2026/jul/all-line-up-pricelist-202607-the-new-trailblazer-e-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    },
+    {
+      "brand": "쉐보레",
+      "model": "트랙스 크로스오버",
+      "modelUrl": "https://www.chevrolet.co.kr/cuvs/trax-crossover",
+      "checkedOn": "2026-10-14",
+      "condition": "NEW",
+      "documents": [
+        {
+          "kind": "price-page",
+          "url": "https://www.chevrolet.co.kr/finance/type-price",
+          "status": "extracted",
+          "extractedPath": "extracted/fa130f57f6709a58.json",
+          "sha256": "71466455ad567d636886cb15b8c1e3ad463ad169c2155f640c24d17a65249b48",
+          "finalUrl": "https://www.chevrolet.co.kr/finance/type-price"
+        },
+        {
+          "kind": "catalog",
+          "url": "https://www.chevrolet.co.kr/content/dam/chevrolet/as/kr/ko/index/e-catalogue-price-list/2026/oct/trax-crossover-catalog-202610-e-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/a754e0f9eecc51bd.json",
+          "sha256": "0c741eb4837e7dd057ea60f974baae9cb608557d03c8533bae34270f1ea1c0f5",
+          "finalUrl": "https://www.chevrolet.co.kr/content/dam/chevrolet/as/kr/ko/index/e-catalogue-price-list/2026/oct/trax-crossover-catalog-202610-e-catalog.pdf"
+        },
+        {
+          "kind": "price",
+          "url": "https://www.chevrolet.co.kr/content/dam/chevrolet/as/kr/ko/index/e-catalogue-price-list/2026/jul/trax-crossover-v3/all-line-up-pricelist-202607-trax-crossover-e-catalog.pdf",
+          "status": "extracted",
+          "extractedPath": "extracted/c189200d3cc5a9e6.json",
+          "sha256": "875cd000cbbe901e23a2dcaf2e3db269d94ac68367db138d8d19aa1fd71c500a",
+          "finalUrl": "https://www.chevrolet.co.kr/content/dam/chevrolet/as/kr/ko/index/e-catalogue-price-list/2026/jul/trax-crossover-v3/all-line-up-pricelist-202607-trax-crossover-e-catalog.pdf"
+        }
+      ],
+      "status": "sources-extracted",
+      "normalizedSpecifications": [],
+      "notes": "공식 목록에 노출된 모델. 계약 가능 여부와 모든 사양 조합은 별도 검증."
+    }
+  ]
+}

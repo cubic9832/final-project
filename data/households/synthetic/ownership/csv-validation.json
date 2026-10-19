@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "rows": 7245,
+  "ids_sequential": true,
+  "non_id_values_unchanged": true,
+  "audit_and_mapping_consistent": true,
+  "csv_sha256": "5b0a0981ba81a127459a0a7f0e78bf1ee188fecc972d8da189b79bcab7d11e07"
+}

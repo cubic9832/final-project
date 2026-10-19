@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import client from '../../api/client.js';
+import client from '../../shared/api/client.js';
 import { getVehicles, selectPresetVehicles } from './vehicleApi.js';
 
 const row = { id: 42, brand: '현대', name: '아반떼 하이브리드', trimName: '스마트', modelYear: 2026, conditionCode: 'NEW', classCode: 'COMPACT_SEDAN', fuelCode: 'HYBRID', price: 25550000, efficiencyValue: 21.1, efficiencyUnit: 'km/L', sourceUrl: 'https://www.hyundai.com/price.pdf' };

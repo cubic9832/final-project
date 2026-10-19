@@ -1,5 +1,9 @@
 # Final_Project
 
+폴더별 역할과 데이터 관리 경계는 [프로젝트 구조](docs/structure.md), 데이터 생성·변환 방법은 [데이터 도구](tools/data/README.md), 머신 러닝 실행 방법은 [ML 안내](ml/README.md)를 참고하세요.
+
+재무 진단 UI는 유지하며, 마지막 페이지의 **추천 차량 확인하기** 버튼을 눌렀을 때만 ML 추천을 표시합니다. [실행 방법](docs/recommendation.md)을 참고하세요.
+
 ## 실행
 
 ### 한 번에 실행 (Docker DB)
