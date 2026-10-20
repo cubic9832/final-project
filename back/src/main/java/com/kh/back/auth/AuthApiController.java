@@ -117,8 +117,10 @@ public class AuthApiController {
         try {
             return withTokens(authService.refresh(refreshToken));
         } catch (ApiException e) {
+            // 실패해도 쿠키를 지우지 않는다 (보완 1 추가 · 10-20)
+            // 탭 두 개가 동시에 재발급하면 늦은 탭은 "이미 바뀐 토큰" 으로 실패하는데, 이때 쿠키를 지우면
+            // 먼저 성공한 탭이 막 받은 새 쿠키까지 지워져 로그인이 풀린다. 쓸모없는 쿠키는 다음 로그인 · 로그아웃 때 바뀐다
             return ResponseEntity.status(e.getStatus())
-                    .header(HttpHeaders.SET_COOKIE, deleteCookie().toString())
                     .body(ApiResponse.fail(e.getCode(), e.getMessage()));
         }
     }
