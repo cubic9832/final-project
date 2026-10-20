@@ -4,6 +4,9 @@
 import { useEffect, useRef, useState } from 'react';
 
 const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID ?? '';
+// 보완 8 추가(10-20): Google Console 에는 http://localhost:5173 을 등록한다 → 127.0.0.1 로 열면 구글 버튼이 오류를 낸다
+const WRONG_HOST = window.location.hostname === '127.0.0.1';
+const HOST_HINT = 'localhost 주소(http://localhost:5173)로 접속해야 구글 로그인을 쓸 수 있습니다.';
 
 let scriptPromise = null; // 구글 스크립트는 한 번만 불러온다
 
@@ -63,12 +66,14 @@ export default function GoogleLoginButton({ onCredential }) {
           <span aria-hidden="true">G</span> Google 로 계속하기
         </button>
         <p className="login-google-hint">구글 로그인 설정이 필요합니다. (VITE_GOOGLE_CLIENT_ID)</p>
+        {WRONG_HOST && <p className="login-google-hint">{HOST_HINT}</p>}
       </div>
     );
   }
   return (
     <div className="login-google">
       <div ref={boxRef} />
+      {WRONG_HOST && <p className="login-google-hint">{HOST_HINT}</p>}
       {loadError && <p className="login-error">구글 로그인을 불러오지 못했습니다. 인터넷 연결을 확인해 주세요.</p>}
     </div>
   );
