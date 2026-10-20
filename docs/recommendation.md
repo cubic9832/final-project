@@ -16,7 +16,11 @@
 
 ## 차량 이미지
 
-추천 카드에 일정한 비율의 이미지 영역을 확보했다. 이미지가 없거나 로드에 실패하면 준비 중 표시를 사용한다. 이미지 파일은 `front/public/images/recommendations/`에 추가하고 `front/src/features/financial/pages/recommendations/recommendationImages.js`에서 라벨 코드별 `src`와 `alt`를 등록한다. 예: `OWN006: { src: '/images/recommendations/seltos.webp', alt: '셀토스 예시 이미지' }`. 추후 API가 `imageUrl`을 반환하면 해당 주소를 우선 사용한다.
+추천 카드의 `labelCode`(OWN001–OWN020)에 맞춰 전면 사선 예시 이미지 20종을 연결했다. 공식 사진을 imagegen으로 편집해 배경과 바닥 그림자를 제거했으며, 투명 PNG 1536×1024 규격으로 통일했다. 차량의 비율을 유지하면서 최대 표시 영역을 1306×666으로 맞추고 하단 기준선을 820px에 정렬했다. 편집본은 `front/public/images/recommendations/cutouts/`, 라벨별 `src`·`alt` 매핑은 `front/src/features/financial/pages/recommendations/recommendationImages.js`에 둔다. 정적 파일은 프런트 빌드에 포함되며 제조사 사이트에 이미지 요청을 보내지 않는다.
+
+카드는 이미지 전체가 잘리지 않도록 `object-fit: contain`으로 표시한다. 이미지가 없거나 로드에 실패하면 기존 준비 중 표시를 사용한다. 라벨별 로컬 배경 제거 이미지를 우선 사용하고, 등록되지 않은 라벨만 API의 `imageUrl`을 사용한다. 화면 하단에서 실제 연식·트림·색상과 다를 수 있는 예시임을 안내한다.
+
+선정 원본과 출처·해상도·해시는 [이미지 수집 기록](../data/vehicles/official-image-review/front-three-quarter/README.md)과 같은 폴더의 `manifest.json`에 보관했다. 원본은 유지하며 카드에는 배경 제거 편집본을 사용한다. ES 이미지는 현재 ES 350h다. 이미지 재사용 허락은 별도로 확인하지 않은 상태다.
 
 ## 실행
 
@@ -31,6 +35,8 @@
 이미 financial-ui-v1 모델을 학습했다면 학습 명령은 생략한다. 별도 터미널에서 `npm --prefix front run dev`를 실행한다. `/financial`에서 진단을 마친 뒤 마지막 페이지의 추천 차량 확인하기를 누른다.
 
 ## 기존 진단과 모델의 연결
+
+추천 카드는 브랜드·차명·차체·차급, 추천 사유와 모델 예측 확률을 표시한다. `buildRecommendationDetails.js`가 진단 이용목적·연간 주행거리·추천 순위를 바탕으로 조건 요약과 차체별 참고 설명을 구성한다. 차량 특징 설명은 화면의 규칙 기반 안내이며 모델의 개별 특성 기여도 설명은 아니다. 가격·연료·연비는 추천 API에 없어 임의로 표시하지 않는다.
 
 모델은 현재 UI 항목에 맞춰 재학습했다. 나이·성별·직업·가구원·세전 연봉·추가 자산·실제 저축액을 새로 요구하지 않는다.
 
