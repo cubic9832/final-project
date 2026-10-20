@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { checkNickName, googleSignup } from '../../features/auth/authApi';
+import { checkNickNameWords } from '../../features/auth/nickNamePolicy';
 import { showToast } from '../../stores/useToastStore';
 import {
   formatPhone,
@@ -29,7 +30,7 @@ function validateNickname(value) {
   if (nickname.length < NICKNAME_MIN_LENGTH || nickname.length > NICKNAME_MAX_LENGTH) {
     return `이름 또는 닉네임은 ${NICKNAME_MIN_LENGTH}~${NICKNAME_MAX_LENGTH}자로 입력해 주세요.`;
   }
-  return '';
+  return checkNickNameWords(nickname); // 보완 3 추가: 금지어 (서버와 같은 목록)
 }
 
 export default function GoogleSignupPage() {

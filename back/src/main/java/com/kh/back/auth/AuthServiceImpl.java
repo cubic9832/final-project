@@ -68,6 +68,7 @@ public class AuthServiceImpl implements AuthService {
             throw new ApiException(HttpStatus.BAD_REQUEST, "EMAIL_NOT_VERIFIED", "이메일 인증을 완료해 주세요.");
         }
         String nickName = request.getNickName().trim();
+        checkNickNameWords(nickName); // 보완 3 추가: 금지어
         if (memberMapper.countByNickName(nickName) > 0) {
             throw nickNameDuplicated(); // 보완 3: 닉네임 중복 금지 (V7 UNIQUE)
         }
@@ -141,6 +142,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     // 보완 3: [중복 확인] 버튼 — 2~12자이고 아직 쓰는 사람이 없는 닉네임이면 true
+    // 보완 3 추가: 금지어가 들어 있으면 400 NICKNAME_FORBIDDEN (중복 여부보다 먼저 알려 준다)
     @Override
     @Transactional(readOnly = true)
     public boolean isNickNameAvailable(String nickName) {
@@ -148,6 +150,7 @@ public class AuthServiceImpl implements AuthService {
         if (trimmed.length() < 2 || trimmed.length() > 12) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "BAD_REQUEST", "이름 또는 닉네임은 2~12자로 입력해 주세요.");
         }
+        checkNickNameWords(trimmed);
         return memberMapper.countByNickName(trimmed) == 0;
     }
 
@@ -283,6 +286,7 @@ public class AuthServiceImpl implements AuthService {
             return issueTokens(existing);
         }
         String nickName = request.getNickName().trim();
+        checkNickNameWords(nickName); // 보완 3 추가: 금지어
         if (memberMapper.countByNickName(nickName) > 0) {
             throw nickNameDuplicated();
         }
@@ -412,6 +416,14 @@ public class AuthServiceImpl implements AuthService {
 
     private ApiException emailDuplicated() {
         return new ApiException(HttpStatus.CONFLICT, "EMAIL_DUPLICATED", "이미 가입된 이메일입니다.");
+    }
+
+    // 보완 3 추가: 닉네임 금지어(운영자 사칭 · 욕설)면 400 NICKNAME_FORBIDDEN
+    private void checkNickNameWords(String nickName) {
+        String message = NickNamePolicy.check(nickName);
+        if (message != null) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "NICKNAME_FORBIDDEN", message);
+        }
     }
 
     private ApiException nickNameDuplicated() {

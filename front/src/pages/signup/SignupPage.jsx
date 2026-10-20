@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { checkNickName, confirmEmailCode, sendEmailCode, signup } from '../../features/auth/authApi';
+import { checkNickNameWords } from '../../features/auth/nickNamePolicy';
 import { suggestEmail } from './emailTypo';
 import PasswordInput from '../../features/auth/components/PasswordInput';
 import { getPasswordRules, PASSWORD_MAX, validatePassword } from '../../features/auth/passwordPolicy';
@@ -39,7 +40,7 @@ function validateNickname(value) {
   if (nickname.length < NICKNAME_MIN_LENGTH || nickname.length > NICKNAME_MAX_LENGTH) {
     return `이름 또는 닉네임은 ${NICKNAME_MIN_LENGTH}~${NICKNAME_MAX_LENGTH}자로 입력해 주세요.`;
   }
-  return '';
+  return checkNickNameWords(nickname); // 보완 3 추가: 금지어 (서버와 같은 목록)
 }
 
 function validateEmail(value) {

@@ -1,5 +1,6 @@
 package com.kh.back.member;
 
+import com.kh.back.auth.NickNamePolicy;
 import com.kh.back.common.exception.ApiException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DuplicateKeyException;
@@ -25,11 +26,16 @@ public class MemberServiceImpl implements MemberService {
 
     // 닉네임 변경 (보완 3 추가) — 마이페이지 [프로필 수정] 팝업
     // 회원가입과 같은 중복 금지: 먼저 세어 보고, 그사이 다른 사람이 먼저 바꿨으면 UNIQUE(V7) 오류로 한 번 더 막는다
+    // 보완 3 추가: 회원가입과 같은 금지어 검사 (바꿀 때만. 지금 닉네임 그대로 저장하면 검사하지 않는다)
     @Override
     @Transactional
     public MemberResponse updateNickName(Long userId, String nickName) {
         MemberDto member = findMember(userId);
         if (!nickName.equals(member.getNickName())) {
+            String forbidden = NickNamePolicy.check(nickName);
+            if (forbidden != null) {
+                throw new ApiException(HttpStatus.BAD_REQUEST, "NICKNAME_FORBIDDEN", forbidden);
+            }
             if (memberMapper.countByNickName(nickName) > 0) {
                 throw nickNameDuplicated();
             }
