@@ -49,6 +49,13 @@ export const resetPassword = async (email, newPassword) => {
   await client.post('/auth/password-reset', { email, newPassword });
 };
 
+// 보완 2 추가: 마이페이지 비밀번호 변경 — 성공하면 이 기기의 새 토큰을 저장한다 (다른 기기 로그인은 서버가 끊는다)
+// 현재 비밀번호 틀림 400 PASSWORD_MISMATCH, 같은 비밀번호 400 SAME_PASSWORD, 규칙 위반 400 PASSWORD_POLICY
+export const changePassword = async ({ currentPassword, newPassword }) => {
+  const res = await client.post('/auth/password', { currentPassword, newPassword });
+  useAuthStore.getState().setAuth(res.data.data);
+};
+
 // 보완 8: 구글 로그인 — 연결된 회원이면 로그인 처리 후 { member }, 처음 온 사람이면 { signup: { signupToken, email, name } }
 export const googleLogin = async (idToken) => {
   const res = await client.post('/auth/google', { idToken });

@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { logout } from '../../features/auth/authApi';
+import { changePassword, logout } from '../../features/auth/authApi';
 import { getMe, updateNickName, withdraw } from '../../features/auth/memberApi';
 import useAuthStore from '../../stores/useAuthStore';
 import AccountManageModal from './AccountManageModal';
+import PasswordChangeModal from './PasswordChangeModal';
 import AuthToast from '../../features/auth/components/AuthToast';
 import EmailNotificationModal from './EmailNotificationModal';
 import { NOTIFICATION_OPTIONS } from './notificationOptions';
@@ -66,7 +67,7 @@ export default function MyPage() {
   const [reloadKey, setReloadKey] = useState(0); // 값이 바뀌면 내 정보를 다시 불러온다 (다시 시도 버튼)
   const [isEditOpen, setIsEditOpen] = useState(false);
   const editButtonRef = useRef(null); // 팝업을 닫으면 이 버튼으로 포커스를 돌려준다
-  // 계정 및 데이터 팝업: 'notification'(이메일 알림 설정) | 'account'(회원 탈퇴) | null
+  // 계정 및 데이터 팝업: 'notification'(이메일 알림 설정) | 'password'(비밀번호 변경, 보완 2 추가) | 'account'(회원 탈퇴) | null
   const [settingsModal, setSettingsModal] = useState(null);
   const [notification, setNotification] = useState('IMPORTANT'); // 이메일 알림 범위 (예시 값)
   const [toast, setToast] = useState(''); // 저장 결과 알림 문구 (빈 문자열이면 숨김)
@@ -118,6 +119,13 @@ export default function MyPage() {
     setNotification(value);
     setSettingsModal(null);
     setToast('이메일 알림 설정을 저장했어요.');
+  }
+
+  // 보완 2 추가: 비밀번호 변경 — 실패하면 예외가 팝업으로 전달되어 팝업 안에 오류가 표시된다
+  async function handleChangePassword(passwords) {
+    await changePassword(passwords);
+    setSettingsModal(null);
+    setToast('비밀번호를 변경했어요. 다른 기기의 로그인은 끊었어요.');
   }
 
   // 회원 탈퇴 (보완 4): 서버 탈퇴 → 메인으로 이동 → 로그아웃 처리 → 공용 알림
@@ -326,6 +334,15 @@ export default function MyPage() {
               설정
             </button>
           </li>
+          {/* 보완 2 추가: 구글로만 가입한 계정은 비밀번호가 없어 숨긴다 */}
+          {!profile.socialOnly && (
+            <li>
+              <span>비밀번호 변경</span>
+              <button className="my-text-button" type="button" onClick={() => setSettingsModal('password')}>
+                변경
+              </button>
+            </li>
+          )}
           <li>
             <span>회원 탈퇴</span>
             <button className="my-text-button" type="button" onClick={() => setSettingsModal('account')}>
@@ -350,6 +367,9 @@ export default function MyPage() {
           onSave={handleSaveNotification}
           onClose={() => setSettingsModal(null)}
         />
+      )}
+      {settingsModal === 'password' && (
+        <PasswordChangeModal email={profile.email} onChange={handleChangePassword} onClose={() => setSettingsModal(null)} />
       )}
       {settingsModal === 'account' && (
         <AccountManageModal socialOnly={profile.socialOnly} onWithdraw={handleWithdraw} onClose={() => setSettingsModal(null)} />

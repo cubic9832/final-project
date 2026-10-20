@@ -188,6 +188,36 @@ public class AuthServiceImpl implements AuthService {
         emailVerificationService.consume(email);
     }
 
+    // 보완 2 추가: 마이페이지 비밀번호 변경 — 현재 비밀번호 확인 → 회원가입과 같은 규칙 → 저장
+    // 모든 refresh token 을 지워 다른 기기 로그인을 끊고, 지금 기기에는 로그인처럼 새 토큰을 발급한다 (로그인 유지)
+    @Override
+    @Transactional
+    public AuthTokens changePassword(Long userId, PasswordChangeRequest request) {
+        if (userId == null) {
+            throw new ApiException(HttpStatus.UNAUTHORIZED, "AUTH_REQUIRED", "로그인이 필요합니다.");
+        }
+        MemberDto member = memberMapper.findById(userId);
+        if (member == null) {
+            throw new ApiException(HttpStatus.NOT_FOUND, "MEMBER_NOT_FOUND", "회원 정보를 찾을 수 없습니다.");
+        }
+        if (member.isSocialOnly()) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "SOCIAL_ACCOUNT", "구글로 가입한 계정은 비밀번호가 없습니다.");
+        }
+        if (!passwordEncoder.matches(request.getCurrentPassword(), member.getPasswordHash())) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "PASSWORD_MISMATCH", "현재 비밀번호가 올바르지 않습니다.");
+        }
+        if (request.getCurrentPassword().equals(request.getNewPassword())) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "SAME_PASSWORD", "현재와 다른 비밀번호를 입력해 주세요.");
+        }
+        String violation = PasswordPolicy.check(request.getNewPassword(), member.getEmail());
+        if (violation != null) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "PASSWORD_POLICY", violation);
+        }
+        memberMapper.updatePasswordHash(member.getId(), passwordEncoder.encode(request.getNewPassword()));
+        refreshTokenMapper.deleteByUserId(member.getId());
+        return issueTokens(member);
+    }
+
     // 비밀번호 찾기 대상 회원: 형식 오류 400, 가입 안 한 이메일 400 EMAIL_NOT_FOUND, 구글로만 가입 400 SOCIAL_ACCOUNT
     // (회원가입 [인증 코드 받기]에서 이미 가입 여부가 드러나므로 여기서 숨겨도 의미가 없다)
     private MemberDto resetTarget(String email) {

@@ -20,6 +20,9 @@ public interface AuthService {
 
     void resetPassword(PasswordResetRequest request);
 
+    // 보완 2 추가: 로그인한 회원의 비밀번호 변경 — 다른 기기 로그인은 끊고, 지금 기기에는 새 토큰을 준다
+    AuthTokens changePassword(Long userId, PasswordChangeRequest request);
+
     // 보완 8: 구글 로그인 — 연결된 회원이면 로그인, 처음이면 추가 정보 입력 필요
     GoogleLoginResult googleLogin(String idToken);
 

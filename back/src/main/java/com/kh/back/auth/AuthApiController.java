@@ -13,6 +13,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -99,6 +100,16 @@ public class AuthApiController {
     public ApiResponse<Void> resetPassword(@Valid @RequestBody PasswordResetRequest request) {
         authService.resetPassword(request);
         return ApiResponse.ok(null);
+    }
+
+    // POST /api/v1/auth/password — 보완 2 추가: 마이페이지 비밀번호 변경. 본문 { currentPassword, newPassword }
+    // 호출: MyPage.jsx 계정 및 데이터 [변경] → PasswordChangeModal → authApi.changePassword
+    // 로그인 필요(토큰의 회원 번호만 사용). 성공하면 다른 기기는 로그아웃, 지금 기기는 새 토큰 + 새 refresh 쿠키
+    // (/auth 아래에 둔 이유: refresh 쿠키 경로(/api/v1/auth)와 같아 새 쿠키를 함께 내려줄 수 있다)
+    @PostMapping("/password")
+    public ResponseEntity<ApiResponse<TokenResponse>> changePassword(@AuthenticationPrincipal Long userId,
+                                                                     @Valid @RequestBody PasswordChangeRequest request) {
+        return withTokens(authService.changePassword(userId, request));
     }
 
     // POST /api/v1/auth/google — 보완 8: 구글 로그인. 본문 { idToken } (화면이 구글에서 받은 ID 토큰)

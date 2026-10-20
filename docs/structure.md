@@ -56,7 +56,7 @@ pages/
   login/{LoginPage.jsx,LoginPage.css,PasswordResetModal,RecaptchaBox,GoogleLoginButton}
   signup/{SignupPage.jsx,SignupPage.css,TermsModal,SignupCompleteModal,
           emailTypo.js,profileRules.js,GoogleSignupPage}
-  mypage/{MyPage.jsx,MyPage.css,ProfileEditModal,EmailNotificationModal,
+  mypage/{MyPage.jsx,MyPage.css,ProfileEditModal,EmailNotificationModal,PasswordChangeModal,
           AccountManageModal,notificationOptions.js}
   admin/{AdminPage.jsx,AdminPage.css,ModelMetricChart,adminExampleData.js}
   not-found/NotFound.jsx
