@@ -122,8 +122,18 @@ export default function MyPage() {
   }
 
   // 보완 2 추가: 비밀번호 변경 — 실패하면 예외가 팝업으로 전달되어 팝업 안에 오류가 표시된다
+  // 현재 비밀번호를 5번 틀리면 서버가 모든 기기 로그인을 끊는다(PASSWORD_CHANGE_LOGOUT) → 이 화면도 로그아웃
   async function handleChangePassword(passwords) {
-    await changePassword(passwords);
+    try {
+      await changePassword(passwords);
+    } catch (error) {
+      const failure = error.response?.data?.error;
+      if (failure?.code !== 'PASSWORD_CHANGE_LOGOUT') throw error;
+      setSettingsModal(null);
+      await logout(); // 로그인 정보가 지워지면 마이페이지 보호(RequireAuth)가 로그인 화면으로 보낸다
+      showToast(failure.message);
+      return;
+    }
     setSettingsModal(null);
     setToast('비밀번호를 변경했어요. 다른 기기의 로그인은 끊었어요.');
   }

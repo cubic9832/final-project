@@ -20,6 +20,11 @@
         DELETE FROM refresh_token WHERE user_id = #{userId}
     </delete>
 
+    <!-- 10-20: 만료된 refresh token 정리 (매일 새벽, RefreshTokenCleanup) -->
+    <delete id="deleteExpired">
+        DELETE FROM refresh_token WHERE expires_at &lt; #{now}
+    </delete>
+
     <delete id="deleteByToken">
         DELETE FROM refresh_token WHERE token = #{token}
     </delete>

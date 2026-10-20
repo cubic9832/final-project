@@ -33,6 +33,7 @@ public class AuthServiceImpl implements AuthService {
 
     private final MemberMapper memberMapper;
     private final LoginAttemptLimiter loginAttemptLimiter;
+    private final PasswordChangeLimiter passwordChangeLimiter; // 보완 2 추가: 비밀번호 변경에서 현재 비밀번호 틀린 횟수
     private final EmailVerificationService emailVerificationService;
     private final GoogleTokenVerifier googleTokenVerifier;
     private final GoogleSignupStore googleSignupStore;
@@ -193,8 +194,9 @@ public class AuthServiceImpl implements AuthService {
 
     // 보완 2 추가: 마이페이지 비밀번호 변경 — 현재 비밀번호 확인 → 회원가입과 같은 규칙 → 저장
     // 모든 refresh token 을 지워 다른 기기 로그인을 끊고, 지금 기기에는 로그인처럼 새 토큰을 발급한다 (로그인 유지)
+    // 오류(ApiException)로 끝나도 되돌리지 않는다 — 5번 틀려 로그아웃시킬 때 지운 refresh token 이 되살아나지 않게 (오류는 저장 전에만 난다)
     @Override
-    @Transactional
+    @Transactional(noRollbackFor = ApiException.class)
     public AuthTokens changePassword(Long userId, PasswordChangeRequest request) {
         if (userId == null) {
             throw new ApiException(HttpStatus.UNAUTHORIZED, "AUTH_REQUIRED", "로그인이 필요합니다.");
@@ -207,8 +209,19 @@ public class AuthServiceImpl implements AuthService {
             throw new ApiException(HttpStatus.BAD_REQUEST, "SOCIAL_ACCOUNT", "구글로 가입한 계정은 비밀번호가 없습니다.");
         }
         if (!passwordEncoder.matches(request.getCurrentPassword(), member.getPasswordHash())) {
-            throw new ApiException(HttpStatus.BAD_REQUEST, "PASSWORD_MISMATCH", "현재 비밀번호가 올바르지 않습니다.");
+            // 보완 2 추가: 5번 틀리면 모든 기기 로그아웃 (자리를 비운 사이 남이 비밀번호를 맞춰 보는 것 방지)
+            int failures = passwordChangeLimiter.recordFailure(userId);
+            if (failures >= PasswordChangeLimiter.LOGOUT_LIMIT) {
+                passwordChangeLimiter.reset(userId);
+                refreshTokenMapper.deleteByUserId(userId);
+                throw new ApiException(HttpStatus.UNAUTHORIZED, "PASSWORD_CHANGE_LOGOUT",
+                        "현재 비밀번호를 " + PasswordChangeLimiter.LOGOUT_LIMIT + "번 틀려 로그아웃되었습니다. 다시 로그인해 주세요.");
+            }
+            int left = PasswordChangeLimiter.LOGOUT_LIMIT - failures;
+            String warning = failures >= 3 ? " (" + left + "번 더 틀리면 로그아웃됩니다)" : "";
+            throw new ApiException(HttpStatus.BAD_REQUEST, "PASSWORD_MISMATCH", "현재 비밀번호가 올바르지 않습니다." + warning);
         }
+        passwordChangeLimiter.reset(userId);
         if (request.getCurrentPassword().equals(request.getNewPassword())) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "SAME_PASSWORD", "현재와 다른 비밀번호를 입력해 주세요.");
         }
