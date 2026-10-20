@@ -11,22 +11,20 @@ const assetFields = [
 ];
 
 const loanFields = [
-  { name: 'balance', label: '잔액', unit: '만 원', step: '0.01' },
-  { name: 'rate', label: '금리', unit: '%', step: '0.01' },
+  { name: 'balance', label: '잔액 (선택 · 현황 확인용)', unit: '만 원', step: '0.01' },
   { name: 'payment', label: '월 상환액', unit: '만 원', step: '0.01' },
-  { name: 'months', label: '남은 기간', unit: '개월', step: '1' },
 ];
 
-const loanTypes = ['신용대출', '주택담보대출', '전세자금대출', '학자금대출', '자동차대출', '카드론', '기타 대출'];
-const createLoan = () => ({ id: crypto.randomUUID(), type: '신용대출', balance: '', rate: '', payment: '', months: '' });
+const createLoan = () => ({ id: crypto.randomUUID(), balance: '', payment: '' });
 const format = (value) => value.toLocaleString('ko-KR', { maximumFractionDigits: 2 });
 
 export default function FinancialAssetsPage() {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const [assets, setAssets] = useState(state?.assets ?? { deposit: '', downPayment: '', emergency: '' });
-  const [loans, setLoans] = useState(() => state?.loans ?? [createLoan()]);
-  const income = Number(state?.values?.income || 0);
+  const [fieldErrors, setFieldErrors] = useState({});
+  const [assets, setAssets] = useState(state?.assets ?? { deposit: '', downPayment: '0', emergency: '0' });
+  const [loans, setLoans] = useState(() => (state?.loans ?? []).filter((loan) => loan.balance !== '' || loan.payment !== '').map((loan) => ({ ...loan, id: loan.id ?? crypto.randomUUID() })));
+  const income = Number(state?.values?.income || 0) + Number(state?.values?.extraIncome || 0);
   const balance = loans.reduce((sum, loan) => sum + Number(loan.balance || 0), 0);
   const payment = loans.reduce((sum, loan) => sum + Number(loan.payment || 0), 0);
   const ratio = income > 0 ? payment / income * 100 : null;
@@ -40,7 +38,7 @@ export default function FinancialAssetsPage() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    navigate(state?.reviewReturn ? '/financial/review' : '/financial/credit', { state: { ...state, assets, loans, reviewReturn: false } });
+    navigate(state?.reviewReturn ? '/financial/review' : '/financial/vehicle', { state: { ...state, assets, loans, reviewReturn: false } });
   }
 
   function renderInput({ name, label, unit = '만 원', step = '0.01' }, loan) {
@@ -53,20 +51,27 @@ export default function FinancialAssetsPage() {
             id={id}
             name={id}
             type="number"
+            required={!loan || name === 'payment'}
+            max={!loan && name === 'emergency' ? Number(assets.deposit || 0) : !loan && name === 'downPayment' ? available : undefined}
             min="0"
             step={step}
             inputMode={name === 'months' ? 'numeric' : 'decimal'}
             placeholder="0"
             value={loan ? loan[name] : assets[name]}
             aria-label={`${label} (${unit})`}
+            aria-invalid={Boolean(fieldErrors[id])}
+            aria-describedby={fieldErrors[id] ? `${id}-error` : undefined}
+            onInvalid={(event) => { event.preventDefault(); const message = event.currentTarget.validationMessage; setFieldErrors((previous) => ({ ...previous, [id]: message })); }}
             onChange={(event) => {
               const value = event.target.value;
+              setFieldErrors((previous) => ({ ...previous, [id]: '' }));
               if (loan) updateLoan(loan.id, name, value);
               else setAssets((previous) => ({ ...previous, [name]: value }));
             }}
           />
           <span aria-hidden="true">{unit}</span>
         </div>
+        {fieldErrors[id] && <p className="financial-field-error" id={`${id}-error`} role="alert">{fieldErrors[id]}</p>}
       </div>
     );
   }
@@ -75,10 +80,10 @@ export default function FinancialAssetsPage() {
     <div className="financial-page assets-page">
       <div className="financial-page-heading">
         <div>
-          <h1>재무·신용정보 입력</h1>
+          <h1>재무정보 입력</h1>
           <p>구매에 활용할 자금과 현재 갚고 있는 부채를 입력해 주세요.</p>
         </div>
-        <span className="financial-stage-badge">2 / 5 · 자산·부채</span>
+        <span className="financial-stage-badge">2 / 4 · 자산·부채</span>
       </div>
       <FinancialProgress current={2} />
 
@@ -86,20 +91,20 @@ export default function FinancialAssetsPage() {
         <div className="financial-entry-grid">
           <section className="financial-entry-card assets-entry-card" aria-labelledby="assets-title">
             <h2 id="assets-title">2. 자산·부채</h2>
-            <p>모든 금액은 만 원 단위이며 실제 구매에 사용할 수 있는 범위만 입력합니다.</p>
+            <p>모든 금액은 만 원 단위입니다. 예금·선수금·비상 자금으로 차량별 구매 여력을 확인합니다. 없는 금액은 0을 입력해 주세요.</p>
             <div className="assets-fields">{assetFields.map((field) => renderInput(field))}</div>
 
             <div className="assets-loan-heading">
               <div>
                 <h3>대출 내역</h3>
-                <p>대출을 추가하면 월 부채부담이 자동으로 계산됩니다.</p>
+                <p>월 상환액 합계를 추천 비용 계산에 사용합니다. 잔액은 부채 현황 확인용 선택 항목입니다. 대출이 없으면 추가하지 않아도 됩니다.</p>
               </div>
               <button
                 type="button"
                 className="assets-add-button"
                 onClick={() => setLoans((previous) => [...previous, createLoan()])}
               >
-                + 대출 추가
+                대출 추가
               </button>
             </div>
 
@@ -107,27 +112,17 @@ export default function FinancialAssetsPage() {
               {loans.map((loan, index) => (
                 <section className="assets-loan-card" key={loan.id} aria-labelledby={`loan-title-${loan.id}`}>
                   <div className="assets-loan-card-heading">
-                    <h4 id={`loan-title-${loan.id}`}>{loan.type}</h4>
+                    <h4 id={`loan-title-${loan.id}`}>대출 {index + 1}</h4>
                     <button
                       type="button"
                       className="assets-delete-button"
-                      aria-label={`${index + 1}번째 ${loan.type} 삭제`}
+                      aria-label={`${index + 1}번째 대출 삭제`}
                       onClick={() => setLoans((previous) => previous.filter((item) => item.id !== loan.id))}
                     >
                       삭제
                     </button>
                   </div>
                   <div className="assets-loan-fields">
-                    <div className="financial-field assets-loan-type">
-                      <label htmlFor={`loan-${loan.id}-type`}>종류</label>
-                      <select
-                        id={`loan-${loan.id}-type`}
-                        value={loan.type}
-                        onChange={(event) => updateLoan(loan.id, 'type', event.target.value)}
-                      >
-                        {loanTypes.map((type) => <option key={type} value={type}>{type}</option>)}
-                      </select>
-                    </div>
                     {loanFields.map((field) => renderInput(field, loan))}
                   </div>
                 </section>

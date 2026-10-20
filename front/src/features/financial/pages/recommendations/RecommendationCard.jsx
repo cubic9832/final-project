@@ -1,40 +1,27 @@
 import { useState } from 'react';
 import { Car } from 'lucide-react';
 import theme from '../../../../styles/theme.js';
-import { recommendationImages } from './recommendationImages.js';
-import { buildRecommendationDetails } from './buildRecommendationDetails.js';
+import { candidateImage, candidateMoney, fuelLabels } from './candidatePresentation.js';
 
-export default function RecommendationCard({ vehicle, rank, diagnosis }) {
-  const [failedUrl, setFailedUrl] = useState(null);
-  const image = recommendationImages[vehicle.labelCode];
-  const source = image?.src || vehicle.imageUrl;
-  const showImage = source && failedUrl !== source;
-  const details = buildRecommendationDetails(vehicle, diagnosis, rank);
-
+export default function RecommendationCard({ candidate, rank }) {
+  const [failed, setFailed] = useState(false);
+  const { vehicle, cost, reasons } = candidate;
+  const image = candidateImage(vehicle);
   return <li className="financial-recommendation-card">
-    <div className="financial-recommendation-media">
-      <span className="financial-recommendation-rank">추천 {rank}</span>
-      {showImage ? <img src={source} alt={image?.alt || `${vehicle.model} 예시 이미지`}
-        loading="lazy" decoding="async" onError={() => setFailedUrl(source)} />
-        : <div className="financial-recommendation-image-placeholder">
-          <Car size={theme.iconSize.lg} aria-hidden="true" /><span>차량 이미지 준비 중</span>
-        </div>}
+    <div className="financial-recommendation-media"><span className="financial-recommendation-rank">추천 {rank}</span>
+      {image && !failed ? <img src={image.src} alt={image.alt} loading="lazy" onError={() => setFailed(true)} /> : <div className="financial-recommendation-image-placeholder"><Car size={theme.iconSize.lg} aria-hidden="true" /><span>차량 이미지 준비 중</span></div>}
     </div>
     <div className="financial-recommendation-card-body">
-      <p className="financial-recommendation-category">{details.brand}</p>
-      <h2>{vehicle.model}</h2>
-      <dl className="financial-recommendation-specs" aria-label={`${vehicle.model} 주요 정보`}>
-        <div><dt>차체</dt><dd>{vehicle.body || '확인 필요'}</dd></div>
-        <div><dt>차급</dt><dd>{vehicle.grade || '확인 필요'}</dd></div>
+      <p className="financial-recommendation-category">{vehicle.brand} · {fuelLabels[vehicle.fuel] || vehicle.fuel}</p>
+      <h2>{vehicle.model}</h2><p>{vehicle.year && `${vehicle.year}년형 · `}{vehicle.trim}</p>
+      <dl className="financial-recommendation-specs" aria-label={`${vehicle.model} 비용 정보`}>
+        {[['차량 가격', vehicle.price], ['취득부대비 포함 가정', cost.total_purchase_cost], ['월 할부금', cost.monthly_payment], ['월 운행·고정 유지비', cost.monthly_running_cost], ['월 차량 비용 합계', cost.monthly_total], ['비용 상승 시 월 비용', cost.stress_monthly_total], ['비용 상승 후 잔여 자금', cost.stress_remaining_monthly]].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{candidateMoney(value)}</dd></div>)}
       </dl>
-      <section className="financial-recommendation-reasons" aria-label={`${vehicle.model} 추천 사유`}>
-        <h3>추천 사유</h3>
-        <ul>{details.reasons.map(reason => <li key={reason.title}>
-          <strong>{reason.title}</strong><p>{reason.description}</p>
-        </li>)}</ul>
-        <p className="financial-recommendation-reason-note">차량 특징은 차체·이용목적 기준 참고 설명입니다. 모델의 개별 판단 근거를 뜻하지 않습니다.</p>
+      <section className="financial-recommendation-reasons" aria-label={`${vehicle.model} 추천 사유`}><h3>추천 사유</h3><ul>{reasons.map(reason => <li key={reason}><p>{reason}</p></li>)}</ul>
+        {cost.efficiency_estimated && <p className="financial-recommendation-reason-note">연비 미확인: 연료별 가정 범위로 비용을 계산했습니다.</p>}
+        {candidate.outsideTrainingRange && <p className="financial-recommendation-reason-note">일부 조건이 학습 범위 밖입니다. 비용과 차량 사양을 추가 확인하세요.</p>}
       </section>
-      <dl className="financial-recommendation-probability"><div><dt>모델 예측 확률</dt><dd>{(vehicle.probability * 100).toFixed(1)}<span>%</span></dd></div></dl>
+      <p className="financial-recommendation-reason-note">가격 확인일 {vehicle.checked_on} · 자동 추출 자료 · <a href={vehicle.source_url} target="_blank" rel="noreferrer">가격 출처 확인</a></p>
     </div>
   </li>;
 }

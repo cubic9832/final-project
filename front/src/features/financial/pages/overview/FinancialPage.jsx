@@ -8,8 +8,7 @@ const fields = [
   { name: 'housing', label: '월 주거비', required: true },
   { name: 'fixed', label: '월 고정 지출', required: true },
   { name: 'living', label: '월 생활비', required: true },
-  { name: 'loan', label: '현재 대출 월 상환액', required: false },
-  { name: 'savings', label: '월 목표 저축액', required: false },
+  { name: 'savings', label: '월 목표 저축액 · 예산 계산용', required: false },
 ];
 
 const extraFields = [
@@ -18,7 +17,7 @@ const extraFields = [
   { name: 'phone', label: '통신비', required: false },
 ];
 
-const steps = ['소득·지출', '자산·부채', '신용정보', '차량 조건', '확인'];
+const steps = ['소득·지출', '자산·부채', '차량 이용', '확인'];
 
 export function FinancialProgress({ current = 1 }) {
   return (
@@ -31,7 +30,7 @@ export function FinancialProgress({ current = 1 }) {
         ))}
       </ol>
       <div className="financial-progress-track" aria-hidden="true">
-        <span style={{ width: `${current * 20}%` }} />
+        <span style={{ width: `${current / steps.length * 100}%` }} />
       </div>
     </div>
   );
@@ -39,13 +38,14 @@ export function FinancialProgress({ current = 1 }) {
 
 export default function FinancialPage() {
   const navigate = useNavigate();
+  const [fieldErrors, setFieldErrors] = useState({});
   const location = useLocation();
   const [values, setValues] = useState(location.state?.values ?? {});
   const [expanded, setExpanded] = useState(
     extraFields.some(({ name }) => location.state?.values?.[name] !== undefined)
   );
 
-  const { income, expenses, savings, available } = calculateFinancialSummary(values);
+  const { income, expenses, savings, available } = calculateFinancialSummary(values, location.state?.loans ?? []);
   const format = (value) => value.toLocaleString('ko-KR', { maximumFractionDigits: 2 });
   const started = Object.values(values).some((value) => value !== '');
 
@@ -73,11 +73,14 @@ export default function FinancialPage() {
             placeholder="0"
             required={required}
             value={values[name] ?? ''}
-            onChange={(event) => setValues((previous) => ({ ...previous, [name]: event.target.value }))}
-            aria-describedby="financial-unit"
+            onChange={(event) => { setValues((previous) => ({ ...previous, [name]: event.target.value })); setFieldErrors((previous) => ({ ...previous, [name]: '' })); }}
+            aria-invalid={Boolean(fieldErrors[name])}
+            onInvalid={(event) => { event.preventDefault(); const message = event.currentTarget.validationMessage; setFieldErrors((previous) => ({ ...previous, [name]: message })); }}
+            aria-describedby={fieldErrors[name] ? `financial-${name}-error` : 'financial-unit'}
           />
           <span aria-hidden="true">만 원</span>
         </div>
+        {fieldErrors[name] && <p className="financial-field-error" id={`financial-${name}-error`} role="alert">{fieldErrors[name]}</p>}
       </div>
     );
   }
@@ -86,10 +89,10 @@ export default function FinancialPage() {
     <div className="financial-page">
       <div className="financial-page-heading">
         <div>
-          <h1>재무·신용정보 입력</h1>
+          <h1>재무정보 입력</h1>
           <p>월 소득과 지출을 입력하고, 내 재무에 맞는 구매 여력을 확인하세요.</p>
         </div>
-        <span className="financial-stage-badge">1 / 5 · 소득·지출</span>
+        <span className="financial-stage-badge">1 / 4 · 소득·지출</span>
       </div>
       <FinancialProgress />
 
@@ -146,7 +149,7 @@ export default function FinancialPage() {
               <h3>계산 기준</h3>
               <p>총 소득 − 주거비 − 고정 지출 − 생활비 − 대출 상환 − 교통비 − 통신비 − 목표 저축</p>
             </div>
-            <p className="financial-live-hint">선택 항목을 비워두면 0원으로 계산합니다.</p>
+            <p className="financial-live-hint">대출 상환액은 다음 자산·부채 단계에서 한 번만 입력합니다. 입력 후 이 계산에도 반영됩니다. 선택 항목은 미입력 시 0원입니다.</p>
           </aside>
         </div>
         <div className="financial-next-row">

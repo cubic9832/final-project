@@ -68,26 +68,8 @@
 
 .assets-loan-fields {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-16);
-}
-
-.assets-loan-fields > .financial-field {
-  grid-column: span 2;
-}
-
-.assets-loan-fields > .financial-field:nth-last-child(-n + 2) {
-  grid-column: span 3;
-}
-
-.assets-loan-type select {
-  width: 100%;
-  height: var(--layout-control-height);
-  padding: 0 var(--space-8);
-  border: 1px solid var(--color-border-input);
-  border-radius: var(--radius-sm);
-  background: var(--color-surface);
-  color: var(--color-text);
 }
 
 .assets-input-tip {

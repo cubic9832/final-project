@@ -38,7 +38,7 @@
 
 .financial-progress ol {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--space-4);
 }
 
@@ -401,4 +401,10 @@
   .financial-extra-slide {
     transition: none;
   }
+}
+
+.financial-field-error {
+  color: var(--color-danger);
+  font-size: var(--font-caption);
+  margin-top: var(--space-4);
 }
