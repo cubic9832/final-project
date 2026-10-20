@@ -14,7 +14,11 @@ import {
   validateGender,
   validatePhone,
 } from './profileRules';
+import TermsModal from './TermsModal';
 import './SignupPage.css';
+
+// 보완 5 추가(10-20): 개인정보 수집·이용 [보기] — 회원가입과 같은 내용
+const PRIVACY_TERM = { id: 'privacy', title: '개인정보 수집·이용 동의', required: true };
 
 const NICKNAME_MIN_LENGTH = 2;
 const NICKNAME_MAX_LENGTH = 12;
@@ -45,6 +49,7 @@ export default function GoogleSignupPage() {
   const [checking, setChecking] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [serverError, setServerError] = useState('');
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false); // 개인정보 [보기] 팝업
 
   if (!pending?.signupToken) {
     return (
@@ -272,6 +277,14 @@ export default function GoogleSignupPage() {
                 />
                 <span>만 {MIN_SIGNUP_AGE}세 이상이며 서비스 이용약관 · 개인정보 수집·이용에 동의합니다. (필수)</span>
               </label>
+              <button
+                className="signup-term-detail"
+                type="button"
+                aria-label="개인정보 수집·이용 동의 보기"
+                onClick={() => setIsPrivacyOpen(true)}
+              >
+                보기
+              </button>
             </div>
           </fieldset>
           {renderError('terms')}
@@ -286,6 +299,19 @@ export default function GoogleSignupPage() {
           </button>
         </form>
       </section>
+
+      {isPrivacyOpen && (
+        <TermsModal
+          term={PRIVACY_TERM}
+          agreed={agreed}
+          onAgree={() => {
+            setAgreed(true);
+            setErrors((prev) => ({ ...prev, terms: undefined }));
+            setIsPrivacyOpen(false);
+          }}
+          onClose={() => setIsPrivacyOpen(false)}
+        />
+      )}
     </div>
   );
 }
