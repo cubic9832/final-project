@@ -118,9 +118,10 @@ public class AuthServiceImpl implements AuthService {
         if (!isEmailAvailable(email)) {
             throw emailDuplicated();
         }
-        emailVerificationService.sendCode(normalizeEmail(email));
+        boolean alreadyVerified = emailVerificationService.sendCode(normalizeEmail(email));
         return new EmailVerificationResponse(EmailVerificationService.CODE_VALIDITY.getSeconds(),
-                EmailVerificationService.RESEND_COOLDOWN.getSeconds(), emailVerificationService.isMailEnabled());
+                EmailVerificationService.RESEND_COOLDOWN.getSeconds(), emailVerificationService.isMailEnabled(),
+                alreadyVerified);
     }
 
     @Override

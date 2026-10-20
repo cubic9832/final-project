@@ -3,8 +3,10 @@ package com.kh.back.auth;
 import com.kh.back.common.exception.ApiException;
 import java.security.SecureRandom;
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -29,16 +31,27 @@ public class EmailVerificationService {
     static final int MAX_FAILED_ATTEMPTS = 5;
     static final Duration SIGNUP_DEADLINE = Duration.ofMinutes(30);
 
+    // 보완 7 추가(10-20): 서버 전체 하루 발송 상한 — 여러 이메일로 계속 요청해 Gmail 발송 한도를 다 쓰는 것을 막는다
+    // (개인 Gmail 의 정확한 하루 한도는 확인 필요 → 넉넉히 낮게, 환경변수 VERIFICATION_DAILY_LIMIT 로 바꿀 수 있다)
+    @Value("${verification.daily-limit:300}")
+    private int dailyLimit;
+    private LocalDate countDate = LocalDate.now();
+    private int todayCount = 0;
+
     private final SecureRandom random = new SecureRandom();
     private final EmailVerificationMapper verificationMapper;
     private final VerificationMailSender mailSender;
     private final PasswordEncoder passwordEncoder;
 
     // 코드를 만들어 보낸다. email 은 형식 · 중복 검사를 마친 소문자 이메일
+    // 돌려주는 값: 이미 인증을 마친(30분 안) 이메일이면 true — 메일을 다시 보내지 않는다 (보완 7 추가: 새로고침해도 다시 인증 X)
     @Transactional
-    public void sendCode(String email) {
+    public boolean sendCode(String email) {
         LocalDateTime now = LocalDateTime.now();
         EmailVerificationDto saved = verificationMapper.findByEmail(email);
+        if (isVerified(saved, now)) {
+            return true;
+        }
 
         int sendCount = 1;
         LocalDateTime windowStartedAt = now;
@@ -60,6 +73,8 @@ public class EmailVerificationService {
             }
         }
 
+        countTodaySend();
+
         String code = String.format("%06d", random.nextInt(1_000_000)); // 000000 ~ 999999
 
         EmailVerificationDto verification = new EmailVerificationDto();
@@ -73,6 +88,21 @@ public class EmailVerificationService {
 
         // 메일 발송이 실패하면 예외 → 트랜잭션이 취소되어 저장도 되돌아간다 (보내지 못한 코드가 남지 않게)
         mailSender.send(email, code);
+        return false;
+    }
+
+    // 하루 발송 수 세기 (서버 메모리 · 날짜가 바뀌면 0). 여러 요청이 동시에 와도 숫자가 빠지지 않게 synchronized
+    private synchronized void countTodaySend() {
+        LocalDate today = LocalDate.now();
+        if (!today.equals(countDate)) {
+            countDate = today;
+            todayCount = 0;
+        }
+        if (todayCount >= dailyLimit) {
+            throw new ApiException(HttpStatus.TOO_MANY_REQUESTS, "VERIFICATION_DAILY_LIMIT",
+                    "오늘은 인증 메일 요청이 많아 보낼 수 없습니다. 잠시 후 다시 시도해 주세요.");
+        }
+        todayCount++;
     }
 
     // 코드 확인. 맞으면 인증 완료 표시
@@ -102,9 +132,12 @@ public class EmailVerificationService {
 
     // 회원가입 직전: 인증을 마쳤고 30분이 지나지 않았는지
     public boolean isVerified(String email) {
-        EmailVerificationDto saved = verificationMapper.findByEmail(email);
+        return isVerified(verificationMapper.findByEmail(email), LocalDateTime.now());
+    }
+
+    private boolean isVerified(EmailVerificationDto saved, LocalDateTime now) {
         return saved != null && saved.getVerifiedAt() != null
-                && saved.getVerifiedAt().plus(SIGNUP_DEADLINE).isAfter(LocalDateTime.now());
+                && saved.getVerifiedAt().plus(SIGNUP_DEADLINE).isAfter(now);
     }
 
     // 회원가입이 끝나면 인증 기록을 지운다 (같은 트랜잭션)

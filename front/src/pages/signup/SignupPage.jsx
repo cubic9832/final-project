@@ -166,6 +166,14 @@ export default function SignupPage() {
     setChecking('email');
     try {
       const result = await sendEmailCode(email);
+      // 보완 7 추가(10-20): 30분 안에 이미 인증한 이메일(예: 인증 후 새로고침) → 다시 보내지 않고 바로 인증 완료
+      if (result.alreadyVerified) {
+        setChecked((prev) => ({ ...prev, email }));
+        setVerification(null);
+        setErrors((prev) => ({ ...prev, email: undefined, emailCode: undefined }));
+        setDuplicateNotices((prev) => ({ ...prev, email: '이미 인증된 이메일입니다.' }));
+        return;
+      }
       const sentAt = Date.now();
       setVerification({
         email,
@@ -179,7 +187,7 @@ export default function SignupPage() {
       setDuplicateNotices((prev) => ({
         ...prev,
         email: result.mailEnabled
-          ? '인증 코드를 보냈습니다. 메일을 확인해 주세요.'
+          ? '인증 코드를 보냈습니다. 메일이 보이지 않으면 스팸함도 확인해 주세요.' // 보완 7 추가: 스팸함 안내
           : '개발 모드: 메일 대신 서버 로그에 인증 코드가 표시됩니다.',
       }));
     } catch (error) {
