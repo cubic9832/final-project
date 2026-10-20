@@ -13,6 +13,13 @@ public interface AuthService {
 
     void confirmEmailVerification(String email, String code);
 
+    // 보완 7 추가: 비밀번호 찾기 — 가입한 이메일로 인증 코드 받기 · 확인 · 새 비밀번호로 바꾸기
+    EmailVerificationResponse sendPasswordResetCode(String email);
+
+    void confirmPasswordResetCode(String email, String code);
+
+    void resetPassword(PasswordResetRequest request);
+
     // 보완 8: 구글 로그인 — 연결된 회원이면 로그인, 처음이면 추가 정보 입력 필요
     GoogleLoginResult googleLogin(String idToken);
 

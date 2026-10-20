@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { checkNickName, confirmEmailCode, sendEmailCode, signup } from '../../features/auth/authApi';
 import { suggestEmail } from './emailTypo';
 import PasswordInput from '../../features/auth/components/PasswordInput';
-import { getPasswordRules, PASSWORD_MAX, validatePassword } from './passwordPolicy';
+import { getPasswordRules, PASSWORD_MAX, validatePassword } from '../../features/auth/passwordPolicy';
 import {
   formatPhone,
   GENDER_OPTIONS,

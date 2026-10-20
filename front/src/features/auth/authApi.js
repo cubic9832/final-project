@@ -33,6 +33,22 @@ export const confirmEmailCode = async (email, code) => {
   await client.post('/auth/email-verification/confirm', { email, code });
 };
 
+// 보완 7 추가: 비밀번호 찾기 — 가입한 이메일로 코드 받기({ expiresInSeconds, resendAfterSeconds, mailEnabled, alreadyVerified }) · 확인 · 새 비밀번호
+// 가입 안 한 이메일 400 EMAIL_NOT_FOUND, 구글로만 가입한 계정 400 SOCIAL_ACCOUNT
+export const sendPasswordResetCode = async (email) => {
+  const res = await client.post('/auth/password-reset/code', { email });
+  return res.data.data;
+};
+
+export const confirmPasswordResetCode = async (email, code) => {
+  await client.post('/auth/password-reset/confirm', { email, code });
+};
+
+// 성공하면 모든 기기 로그인이 끊긴다 → 새 비밀번호로 다시 로그인
+export const resetPassword = async (email, newPassword) => {
+  await client.post('/auth/password-reset', { email, newPassword });
+};
+
 // 보완 8: 구글 로그인 — 연결된 회원이면 로그인 처리 후 { member }, 처음 온 사람이면 { signup: { signupToken, email, name } }
 export const googleLogin = async (idToken) => {
   const res = await client.post('/auth/google', { idToken });

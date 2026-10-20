@@ -151,6 +151,60 @@ public class AuthServiceImpl implements AuthService {
         return memberMapper.countByNickName(trimmed) == 0;
     }
 
+    // 보완 7 추가: 비밀번호 찾기 ① 인증 코드 받기 — 가입한 이메일만, 구글로만 가입한 계정은 비밀번호가 없어 안내
+    // (가입 인증과 같은 표 · 규칙을 쓴다. 가입 인증은 "가입 안 한 이메일", 여기는 "가입한 이메일" 이라 겹치지 않는다)
+    @Override
+    public EmailVerificationResponse sendPasswordResetCode(String email) {
+        String normalized = resetTarget(email).getEmail();
+        boolean alreadyVerified = emailVerificationService.sendCode(normalized);
+        return new EmailVerificationResponse(EmailVerificationService.CODE_VALIDITY.getSeconds(),
+                EmailVerificationService.RESEND_COOLDOWN.getSeconds(), emailVerificationService.isMailEnabled(),
+                alreadyVerified);
+    }
+
+    // ② 코드 확인
+    @Override
+    public void confirmPasswordResetCode(String email, String code) {
+        emailVerificationService.confirmCode(resetTarget(email).getEmail(), code);
+    }
+
+    // ③ 새 비밀번호로 바꾸기 — 인증 후 30분 안, 회원가입과 같은 비밀번호 규칙
+    // 바꾸면 모든 기기 로그인을 끊고(refresh token 삭제), 로그인 실패 잠금도 푼다 (본인 확인을 마쳤으니)
+    @Override
+    @Transactional
+    public void resetPassword(PasswordResetRequest request) {
+        MemberDto member = resetTarget(request.getEmail());
+        String email = member.getEmail();
+        if (!emailVerificationService.isVerified(email)) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "EMAIL_NOT_VERIFIED", "이메일 인증을 먼저 완료해 주세요.");
+        }
+        String violation = PasswordPolicy.check(request.getNewPassword(), email);
+        if (violation != null) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "PASSWORD_POLICY", violation);
+        }
+        memberMapper.updatePasswordHash(member.getId(), passwordEncoder.encode(request.getNewPassword()));
+        refreshTokenMapper.deleteByUserId(member.getId());
+        loginAttemptLimiter.reset(email);
+        emailVerificationService.consume(email);
+    }
+
+    // 비밀번호 찾기 대상 회원: 형식 오류 400, 가입 안 한 이메일 400 EMAIL_NOT_FOUND, 구글로만 가입 400 SOCIAL_ACCOUNT
+    // (회원가입 [인증 코드 받기]에서 이미 가입 여부가 드러나므로 여기서 숨겨도 의미가 없다)
+    private MemberDto resetTarget(String email) {
+        String normalized = email == null ? "" : normalizeEmail(email);
+        if (normalized.isEmpty() || normalized.length() > 100 || !normalized.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$")) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "BAD_REQUEST", "이메일 형식이 올바르지 않습니다.");
+        }
+        MemberDto member = memberMapper.findByEmail(normalized);
+        if (member == null) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "EMAIL_NOT_FOUND", "가입되지 않은 이메일입니다.");
+        }
+        if (member.isSocialOnly()) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "SOCIAL_ACCOUNT", "구글로 가입한 계정입니다. 구글로 로그인해 주세요.");
+        }
+        return member;
+    }
+
     // 보완 8: 구글 로그인
     // ① 이미 연결된 구글 계정 → 그 회원으로 로그인
     // ② 연결은 없지만 같은 이메일로 가입한 회원 → 자동 연결 후 로그인 (구글이 확인한 이메일이라 같은 사람으로 본다)

@@ -79,6 +79,28 @@ public class AuthApiController {
         return ApiResponse.ok(null);
     }
 
+    // POST /api/v1/auth/password-reset/code — 보완 7 추가: 비밀번호 찾기 인증 코드 받기. 본문 { email }
+    // 호출: PasswordResetModal.jsx [인증 코드 받기] → authApi.sendPasswordResetCode
+    @PostMapping("/password-reset/code")
+    public ApiResponse<EmailVerificationResponse> sendPasswordResetCode(@Valid @RequestBody EmailVerificationRequest request) {
+        return ApiResponse.ok(authService.sendPasswordResetCode(request.getEmail()));
+    }
+
+    // POST /api/v1/auth/password-reset/confirm — 코드 확인. 본문 { email, code }
+    @PostMapping("/password-reset/confirm")
+    public ApiResponse<Void> confirmPasswordResetCode(@Valid @RequestBody EmailVerificationRequest request) {
+        authService.confirmPasswordResetCode(request.getEmail(), request.getCode());
+        return ApiResponse.ok(null);
+    }
+
+    // POST /api/v1/auth/password-reset — 새 비밀번호로 바꾸기. 본문 { email, newPassword }
+    // 성공하면 모든 기기 로그인이 끊긴다 → 새 비밀번호로 다시 로그인
+    @PostMapping("/password-reset")
+    public ApiResponse<Void> resetPassword(@Valid @RequestBody PasswordResetRequest request) {
+        authService.resetPassword(request);
+        return ApiResponse.ok(null);
+    }
+
     // POST /api/v1/auth/google — 보완 8: 구글 로그인. 본문 { idToken } (화면이 구글에서 받은 ID 토큰)
     // 호출: LoginPage.jsx [Google 로 계속하기] → authApi.googleLogin
     // 연결된(또는 같은 이메일) 회원이면 로그인과 같은 응답 { accessToken, member } + refresh 쿠키
