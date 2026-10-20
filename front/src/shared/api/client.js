@@ -49,6 +49,10 @@ client.interceptors.response.use(
     if (error.response?.status === 401 && TOKEN_ERROR_CODES.includes(code)) {
       useAuthStore.getState().clearAuth();
     }
+    // 보완 4 추가(10-20): 다른 기기에서 탈퇴한 계정 — 토큰은 아직 살아 있어도 회원이 없다 → 로그아웃 상태로
+    if (code === 'MEMBER_NOT_FOUND') {
+      useAuthStore.getState().clearAuth();
+    }
     return Promise.reject(error); // 화면 코드도 실패를 알 수 있게 그대로 넘긴다
   },
 );
