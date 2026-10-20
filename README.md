@@ -65,6 +65,27 @@ cd back && ./gradlew bootRun
 cd front && npm install && npm run dev
 ```
 
+## 회원 인증 키 (환경변수)
+
+로그인 · 회원가입의 외부 서비스 키는 **코드 · DB · git 에 넣지 않고 환경변수로만** 줍니다. 키가 없어도 아래처럼 개발 모드로 동작하므로, 조원은 키 없이 그대로 실행하면 됩니다.
+
+| 환경변수 | 쓰는 곳 | 없을 때 (개발 모드) |
+|---|---|---|
+| `MAIL_USERNAME` · `MAIL_PASSWORD` | 이메일 인증 메일 발송 (Gmail 계정 · 앱 비밀번호) | 메일을 보내지 않고 **서버 로그에 인증 코드** 출력: `[DEV-MAIL] email verification code=123456 to=…` |
+| `RECAPTCHA_SECRET_KEY` (백) · `VITE_RECAPTCHA_SITE_KEY` (프론트) | 로그인 3번 실패 후 reCAPTCHA | 구글 공식 테스트 키 (체크만 하면 통과) |
+| `GOOGLE_CLIENT_ID` (백) · `VITE_GOOGLE_CLIENT_ID` (프론트) | 구글 로그인 | 구글 버튼이 "설정 필요" 로 비활성 |
+| `JWT_SECRET` · `JWT_COOKIE_SECURE` | 토큰 서명 키 · HTTPS 쿠키 | 로컬용 값 · `false` (배포 때 꼭 바꾸기) |
+
+- 개발 모드 회원가입: 이메일 [인증 코드 받기] → 백엔드 콘솔(또는 `tmp/dev/…` 로그)에서 `DEV-MAIL` 줄의 6자리 코드를 찾아 입력합니다.
+- 프론트 키(`VITE_…`)는 `front/.env.local` 에 적습니다. `.env.*` 는 git 에서 제외됩니다.
+- 백엔드 키는 서버를 켜는 터미널에서 넣습니다. 비밀번호가 명령 기록에 남지 않게 `read -s` 로 입력합니다.
+
+```bash
+export MAIL_USERNAME=보내는계정@gmail.com
+read -s -p "Gmail 앱 비밀번호: " MAIL_PASSWORD; echo; export MAIL_PASSWORD
+DB_PORT=3307 ./dev.sh
+```
+
 ## DB 스키마
 
 테이블은 서버 시작 시 Flyway 가 `back/src/main/resources/db/migration` 의 SQL 로 자동 생성합니다. 변경 방법은 [back/SCHEMA.md](back/SCHEMA.md) 를 참고하세요.
