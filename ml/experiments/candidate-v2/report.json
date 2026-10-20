@@ -1,0 +1,638 @@
+{
+  "schema": "candidate-v2",
+  "seed": 42,
+  "catalog": {
+    "source": "data\\vehicles\\csv\\domestic-vehicle-details.csv",
+    "source_sha256": "b0dc7ebf1e614b42d439516522968d2df25e4a93e0e8c868a691e0650222a96f",
+    "accepted": 231,
+    "model_names": 69,
+    "source_rows": 328,
+    "excluded_rows": 97,
+    "unknown_efficiency": 156,
+    "ambiguous_identities_removed": 30,
+    "rejected": [
+      {
+        "row": 20,
+        "reason": "could not convert string to float: ''"
+      },
+      {
+        "row": 24,
+        "reason": "could not convert string to float: ''"
+      },
+      {
+        "row": 25,
+        "reason": "could not convert string to float: ''"
+      },
+      {
+        "row": 26,
+        "reason": "could not convert string to float: ''"
+      },
+      {
+        "row": 35,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 36,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 39,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 40,
+        "reason": "could not convert string to float: ''"
+      },
+      {
+        "row": 89,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 90,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 91,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 92,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 95,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 98,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 99,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 100,
+        "reason": "Unsupported fuel or invalid vehicle price"
+      },
+      {
+        "row": 101,
+        "reason": "Unsupported fuel or invalid vehicle price"
+      },
+      {
+        "row": 102,
+        "reason": "Unsupported fuel or invalid vehicle price"
+      },
+      {
+        "row": 114,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 119,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 120,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 125,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 126,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 127,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 128,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 129,
+        "reason": "Unsupported fuel or invalid vehicle price"
+      },
+      {
+        "row": 130,
+        "reason": "Unsupported fuel or invalid vehicle price"
+      },
+      {
+        "row": 131,
+        "reason": "Unsupported fuel or invalid vehicle price"
+      },
+      {
+        "row": 132,
+        "reason": "Unsupported fuel or invalid vehicle price"
+      },
+      {
+        "row": 155,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 173,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 174,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 214,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 216,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 217,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 218,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 219,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 222,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 223,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 226,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 227,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 228,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 229,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 233,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 235,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 240,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 242,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 247,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 249,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 254,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 255,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 256,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 257,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 262,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 263,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 264,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 266,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 267,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 268,
+        "reason": "Ambiguous duplicate configuration identity; all matching rows excluded"
+      },
+      {
+        "row": 271,
+        "reason": "Unsupported fuel or invalid vehicle price"
+      },
+      {
+        "row": 272,
+        "reason": "Unsupported fuel or invalid vehicle price"
+      },
+      {
+        "row": 275,
+        "reason": "Unsupported fuel or invalid vehicle price"
+      },
+      {
+        "row": 283,
+        "reason": "Unsupported fuel or invalid vehicle price"
+      },
+      {
+        "row": 289,
+        "reason": "Unsupported fuel or invalid vehicle price"
+      },
+      {
+        "row": 320,
+        "reason": "could not convert string to float: ''"
+      },
+      {
+        "row": 324,
+        "reason": "Unsupported fuel or invalid vehicle price"
+      },
+      {
+        "row": 325,
+        "reason": "Unsupported fuel or invalid vehicle price"
+      }
+    ]
+  },
+  "source_code_sha256": "cb9ecbe09b5f2716b07448ce856227ef77940acd4d1ce78ae29eeb296a8e93a8",
+  "data": {
+    "kind": "independent-synthetic-profiles",
+    "training_profiles": 600,
+    "validation_profiles": 150,
+    "test_profiles": 200,
+    "training_pair_rows": 8070,
+    "training_preferences": 6568,
+    "profile_seeds": [
+      42,
+      1042,
+      2042
+    ],
+    "held_out_models": [
+      [
+        "KG모빌리티",
+        "렉스턴 뉴 아레나"
+      ],
+      [
+        "KG모빌리티",
+        "토레스 하이브리드"
+      ],
+      [
+        "기아",
+        "EV4 GT"
+      ],
+      [
+        "기아",
+        "EV9"
+      ],
+      [
+        "기아",
+        "니로"
+      ],
+      [
+        "기아",
+        "쏘렌토"
+      ],
+      [
+        "르노코리아",
+        "필랑트"
+      ],
+      [
+        "제네시스",
+        "G70 Shooting Brake"
+      ],
+      [
+        "제네시스",
+        "G90 Long Wheel Base Black"
+      ],
+      [
+        "제네시스",
+        "GV80 Hybrid"
+      ],
+      [
+        "현대",
+        "더 뉴 스타리아 라운지"
+      ],
+      [
+        "현대",
+        "더 뉴 아이오닉 6"
+      ],
+      [
+        "현대",
+        "쏘나타 디 엣지"
+      ],
+      [
+        "현대",
+        "코나 Hybrid"
+      ]
+    ]
+  },
+  "objective": {
+    "teacher": "vehicle_matching.features.utility",
+    "preference_weight": 0.25,
+    "meaning": "Cost buffer / running expense / fuel-preference utility under explicit assumptions",
+    "not_claimed": "Observed satisfaction, real purchase probability, or loan eligibility"
+  },
+  "selection": {
+    "selected_epochs": 30,
+    "validation_candidates": [
+      {
+        "epochs": 30,
+        "profiles": 150,
+        "profiles_with_eligible_candidates": 88,
+        "profiles_without_candidates": 62,
+        "teacher_ndcg_at_3": 0.9972970122958607,
+        "teacher_rule_baseline_ndcg_at_3": 1.0,
+        "cost_only_baseline_ndcg_at_3": 0.8458821643370029,
+        "mean_teacher_utility_regret_at_3": 0.0013998879910167505,
+        "recommended_model_names": 20,
+        "available_model_names": 55,
+        "meaning": "Agreement with a declared synthetic utility; not real-world relevance or satisfaction."
+      },
+      {
+        "epochs": 60,
+        "profiles": 150,
+        "profiles_with_eligible_candidates": 88,
+        "profiles_without_candidates": 62,
+        "teacher_ndcg_at_3": 0.9927844767099226,
+        "teacher_rule_baseline_ndcg_at_3": 1.0,
+        "cost_only_baseline_ndcg_at_3": 0.8458821643370029,
+        "mean_teacher_utility_regret_at_3": 0.0031175932567871645,
+        "recommended_model_names": 18,
+        "available_model_names": 55,
+        "meaning": "Agreement with a declared synthetic utility; not real-world relevance or satisfaction."
+      }
+    ]
+  },
+  "validation": {
+    "profiles": 150,
+    "profiles_with_eligible_candidates": 88,
+    "profiles_without_candidates": 62,
+    "teacher_ndcg_at_3": 0.9972970122958607,
+    "teacher_rule_baseline_ndcg_at_3": 1.0,
+    "cost_only_baseline_ndcg_at_3": 0.8458821643370029,
+    "mean_teacher_utility_regret_at_3": 0.0013998879910167505,
+    "recommended_model_names": 20,
+    "available_model_names": 55,
+    "meaning": "Agreement with a declared synthetic utility; not real-world relevance or satisfaction."
+  },
+  "test_seen_models": {
+    "profiles": 200,
+    "profiles_with_eligible_candidates": 121,
+    "profiles_without_candidates": 79,
+    "teacher_ndcg_at_3": 0.9959810972131903,
+    "teacher_rule_baseline_ndcg_at_3": 1.0,
+    "cost_only_baseline_ndcg_at_3": 0.8004018275339895,
+    "mean_teacher_utility_regret_at_3": 0.0016354521776156931,
+    "recommended_model_names": 21,
+    "available_model_names": 55,
+    "meaning": "Agreement with a declared synthetic utility; not real-world relevance or satisfaction."
+  },
+  "test_unseen_models": {
+    "profiles": 200,
+    "profiles_with_eligible_candidates": 113,
+    "profiles_without_candidates": 87,
+    "teacher_ndcg_at_3": 0.9917756397761202,
+    "teacher_rule_baseline_ndcg_at_3": 1.0,
+    "cost_only_baseline_ndcg_at_3": 0.7834500524808363,
+    "mean_teacher_utility_regret_at_3": 0.004168897259169923,
+    "recommended_model_names": 13,
+    "available_model_names": 14,
+    "meaning": "Agreement with a declared synthetic utility; not real-world relevance or satisfaction."
+  },
+  "test_all_models": {
+    "profiles": 200,
+    "profiles_with_eligible_candidates": 121,
+    "profiles_without_candidates": 79,
+    "teacher_ndcg_at_3": 0.9951066941177752,
+    "teacher_rule_baseline_ndcg_at_3": 1.0,
+    "cost_only_baseline_ndcg_at_3": 0.7728854849406467,
+    "mean_teacher_utility_regret_at_3": 0.0014425954232974115,
+    "recommended_model_names": 27,
+    "available_model_names": 69,
+    "meaning": "Agreement with a declared synthetic utility; not real-world relevance or satisfaction."
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 0.5538576657955463
+    },
+    {
+      "epoch": 2,
+      "loss": 0.2726399078965187
+    },
+    {
+      "epoch": 3,
+      "loss": 0.17654891254810187
+    },
+    {
+      "epoch": 4,
+      "loss": 0.15074053349403235
+    },
+    {
+      "epoch": 5,
+      "loss": 0.13754801222911248
+    },
+    {
+      "epoch": 6,
+      "loss": 0.1299254301075752
+    },
+    {
+      "epoch": 7,
+      "loss": 0.1255103240792568
+    },
+    {
+      "epoch": 8,
+      "loss": 0.12202378792258409
+    },
+    {
+      "epoch": 9,
+      "loss": 0.11982574657751964
+    },
+    {
+      "epoch": 10,
+      "loss": 0.11792553474123661
+    },
+    {
+      "epoch": 11,
+      "loss": 0.11600257972112069
+    },
+    {
+      "epoch": 12,
+      "loss": 0.11494159440581615
+    },
+    {
+      "epoch": 13,
+      "loss": 0.11334272416738364
+    },
+    {
+      "epoch": 14,
+      "loss": 0.11277577768151577
+    },
+    {
+      "epoch": 15,
+      "loss": 0.11152607317154224
+    },
+    {
+      "epoch": 16,
+      "loss": 0.11096023281033222
+    },
+    {
+      "epoch": 17,
+      "loss": 0.1102080442584478
+    },
+    {
+      "epoch": 18,
+      "loss": 0.10913855553819583
+    },
+    {
+      "epoch": 19,
+      "loss": 0.10856855087555371
+    },
+    {
+      "epoch": 20,
+      "loss": 0.1071628349331709
+    },
+    {
+      "epoch": 21,
+      "loss": 0.10698629772433868
+    },
+    {
+      "epoch": 22,
+      "loss": 0.10586031956168321
+    },
+    {
+      "epoch": 23,
+      "loss": 0.10502628265665127
+    },
+    {
+      "epoch": 24,
+      "loss": 0.10415311043079083
+    },
+    {
+      "epoch": 25,
+      "loss": 0.10360635931675251
+    },
+    {
+      "epoch": 26,
+      "loss": 0.10291036247060849
+    },
+    {
+      "epoch": 27,
+      "loss": 0.10245647080815755
+    },
+    {
+      "epoch": 28,
+      "loss": 0.10164814012554976
+    },
+    {
+      "epoch": 29,
+      "loss": 0.10127669343581566
+    },
+    {
+      "epoch": 30,
+      "loss": 0.1008834268611211
+    }
+  ],
+  "sensitivity": {
+    "teacher_preference_weight_0.1": {
+      "profiles": 200,
+      "profiles_with_eligible_candidates": 121,
+      "profiles_without_candidates": 79,
+      "teacher_ndcg_at_3": 0.9984765310672831,
+      "teacher_rule_baseline_ndcg_at_3": 1.0,
+      "cost_only_baseline_ndcg_at_3": 0.9045391809519443,
+      "mean_teacher_utility_regret_at_3": 0.0005316287039475011,
+      "recommended_model_names": 27,
+      "available_model_names": 69,
+      "meaning": "Agreement with a declared synthetic utility; not real-world relevance or satisfaction."
+    },
+    "teacher_preference_weight_0.5": {
+      "profiles": 200,
+      "profiles_with_eligible_candidates": 121,
+      "profiles_without_candidates": 79,
+      "teacher_ndcg_at_3": 0.9897336944930785,
+      "teacher_rule_baseline_ndcg_at_3": 1.0,
+      "cost_only_baseline_ndcg_at_3": 0.6238153534080196,
+      "mean_teacher_utility_regret_at_3": 0.0037165512188373903,
+      "recommended_model_names": 27,
+      "available_model_names": 69,
+      "meaning": "Agreement with a declared synthetic utility; not real-world relevance or satisfaction."
+    },
+    "higher_energy_insurance_interest": {
+      "profiles": 200,
+      "profiles_with_eligible_candidates": 118,
+      "profiles_without_candidates": 82,
+      "teacher_ndcg_at_3": 0.9983883912496964,
+      "teacher_rule_baseline_ndcg_at_3": 1.0,
+      "cost_only_baseline_ndcg_at_3": 0.7759474392916301,
+      "mean_teacher_utility_regret_at_3": 0.0003258782006606837,
+      "recommended_model_names": 21,
+      "available_model_names": 69,
+      "meaning": "Agreement with a declared synthetic utility; not real-world relevance or satisfaction."
+    },
+    "income_below_3m": {
+      "profiles": 27,
+      "profiles_with_eligible_candidates": 7,
+      "profiles_without_candidates": 20,
+      "teacher_ndcg_at_3": 0.9677865964000326,
+      "teacher_rule_baseline_ndcg_at_3": 1.0,
+      "cost_only_baseline_ndcg_at_3": 0.8733367337883556,
+      "mean_teacher_utility_regret_at_3": 0.010508566859454933,
+      "recommended_model_names": 6,
+      "available_model_names": 69,
+      "meaning": "Agreement with a declared synthetic utility; not real-world relevance or satisfaction."
+    },
+    "income_3m_to_6m": {
+      "profiles": 55,
+      "profiles_with_eligible_candidates": 32,
+      "profiles_without_candidates": 23,
+      "teacher_ndcg_at_3": 0.996201505540449,
+      "teacher_rule_baseline_ndcg_at_3": 1.0,
+      "cost_only_baseline_ndcg_at_3": 0.835932921848595,
+      "mean_teacher_utility_regret_at_3": 0.002374306065013935,
+      "recommended_model_names": 19,
+      "available_model_names": 69,
+      "meaning": "Agreement with a declared synthetic utility; not real-world relevance or satisfaction."
+    },
+    "income_above_6m": {
+      "profiles": 118,
+      "profiles_with_eligible_candidates": 82,
+      "profiles_without_candidates": 36,
+      "teacher_ndcg_at_3": 0.9970116540994661,
+      "teacher_rule_baseline_ndcg_at_3": 1.0,
+      "cost_only_baseline_ndcg_at_3": 0.7397065005139599,
+      "mean_teacher_utility_regret_at_3": 0.00030507663563849203,
+      "recommended_model_names": 25,
+      "available_model_names": 69,
+      "meaning": "Agreement with a declared synthetic utility; not real-world relevance or satisfaction."
+    }
+  },
+  "catalog_sha256": "12a935ca4e88ca4a8c00ae122f5d1cfc69c8cc123d70eb72b904052feeef8443"
+}
