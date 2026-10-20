@@ -6,7 +6,41 @@
 
 ## 실행
 
-### 한 번에 실행 (Docker DB)
+### Windows PowerShell에서 전체 실행
+
+프로젝트 루트에서 실행합니다. Node.js, Java, ML 가상환경·패키지·학습 모델([초기 준비](ml/README.md))이 필요합니다.
+
+```powershell
+.\dev.ps1
+```
+
+React(5173)·Spring(8080)·Python 추천 서버(8001)를 함께 실행합니다. 이미 사용 중인 포트는 기존 프로세스를 재사용하므로 해당 포트가 이 프로젝트 서버인지 확인하세요. MySQL(3306)이 실행 중이면 그대로 사용하고, 없으면 Docker Desktop을 통해 프로젝트 DB를 시작합니다. DB 계정·스키마는 아래 직접 실행 설정과 같습니다.
+
+터미널을 열어 둔 채 사용하며, Ctrl+C를 누르면 이번 실행으로 새로 켠 앱 서버와 하위 프로세스만 종료합니다. 기존 서버와 DB는 유지합니다. 로그는 `tmp/dev/<실행시각>/`에 저장됩니다. 처음 실행할 때만 프런트 의존성이 없으면 `npm ci`를 수행하며, ML 설치·모델 학습은 자동으로 하지 않습니다.
+
+```powershell
+.\dev.ps1 -Check                  # 서버를 켜지 않고 실행 준비 확인
+.\dev.ps1 -DatabasePort 3307      # 다른 MySQL 포트 사용
+```
+
+명령 프롬프트에서는 기존 `dev.cmd`도 동일한 스크립트를 호출합니다.
+
+```bat
+dev.cmd                 # MySQL + Spring + React + Python 추천 서버
+dev.cmd down            # 프로젝트 DB 컨테이너 중지 (데이터 유지)
+dev.cmd reset           # 프로젝트 DB 컨테이너와 데이터 삭제
+set DB_PORT=3307 && dev.cmd
+```
+
+PowerShell에서는 `.\dev.ps1 down`, `.\dev.ps1 reset`도 사용할 수 있습니다. `-DatabasePort`를 생략하면 `DB_PORT` 환경변수를 사용하며, 둘 다 없으면 3306입니다. `reset`은 DB 데이터를 삭제하므로 재초기화할 때만 사용하세요. Spring을 새로 켜는 경우 Java 소스의 연속 컴파일도 실행해 저장 시 DevTools 자동 재시작을 유지합니다.
+
+스크립트 실행 정책으로 차단되는 경우 이 실행에만 적용합니다.
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\dev.ps1
+```
+
+### Git Bash에서 실행 (Docker DB·Spring·React)
 
 Docker, JDK(17 이 없으면 Gradle 이 자동으로 받음), Node.js 가 필요합니다.
 
@@ -19,17 +53,8 @@ Docker, JDK(17 이 없으면 Gradle 이 자동으로 받음), Node.js 가 필요
 - 프론트: http://localhost:5173 / 백엔드: http://localhost:8080
 - Java 파일을 저장하면 서버가 자동 재시작되고, 프론트는 HMR 로 바로 반영됩니다.
 - 3306 포트를 이미 쓰고 있으면 `DB_PORT=3307 ./dev.sh` 로 실행합니다.
-
-Windows 는 Git Bash 없이 `dev.cmd` 를 사용합니다. Docker Desktop 을 켠 뒤, 저장소 폴더에서 명령 프롬프트 또는 PowerShell 을 엽니다.
-
-```bat
-dev.cmd                 # MySQL(Docker) + Spring Boot + Vite 실행, Ctrl+C 로 종료
-dev.cmd down            # DB 컨테이너 중지 (데이터 유지)
-dev.cmd reset           # DB 컨테이너와 데이터 삭제
-set DB_PORT=3307 && dev.cmd   # 3306 포트를 이미 쓰고 있을 때
-```
-
-PowerShell 에서 포트를 바꿀 때는 `$env:DB_PORT = "3307"; .\dev.cmd` 입니다.
+- Windows 는 Git Bash 에서 실행합니다.
+- 이 Bash 스크립트에는 추천 서버가 포함되지 않습니다. 추천까지 함께 켜려면 위의 `dev.ps1`을 사용하세요.
 
 ### 직접 실행
 

@@ -33,7 +33,7 @@ export default function FinancialRecommendationsPage() {
     <section aria-label="추천 차량 목록">
       <div className="financial-recommendations-list-heading"><h2>추천 차량</h2><span>총 {result.recommendations.length}대</span></div>
       {result.recommendations.length ? <ol className="financial-recommendations-grid">{result.recommendations.map((vehicle, index) =>
-        <RecommendationCard key={vehicle.labelCode} vehicle={vehicle} rank={index + 1} />)}
+        <RecommendationCard key={vehicle.labelCode} vehicle={vehicle} rank={index + 1} diagnosis={diagnosis} />)}
       </ol> : <div className="financial-recommendations-empty"><h2>추천 가능한 차량이 없습니다.</h2><p>진단 조건을 확인하고 다시 추천받아 보세요.</p></div>}
     </section>
     <aside className="financial-recommendations-note"><h2>추천 결과를 확인할 때</h2>
