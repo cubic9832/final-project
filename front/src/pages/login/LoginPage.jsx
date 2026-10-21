@@ -157,7 +157,7 @@ export default function LoginPage() {
       <div className="login-grid">
         <section className="login-form-card" aria-labelledby="login-title">
           <h2 id="login-title">다시 만나서 반가워요</h2>
-          <p className="login-subtitle">CreditComPass Auto 계정으로 로그인해 주세요.</p>
+          <p className="login-subtitle">CreditCompass 계정으로 로그인해 주세요.</p>
 
           <form onSubmit={handleSubmit} noValidate>
             <div className="login-field">
@@ -263,7 +263,7 @@ export default function LoginPage() {
       </aside>
 
       <footer className="login-footer">
-        <strong>CreditComPass Auto</strong>
+        <strong>CreditCompass</strong>
         <p>첫차 구매 전, 감당 가능한 비용부터 확인하세요.</p>
         <small>본 서비스는 교육·시연용이며 실제 NICE·KCB 신용점수나 금융기관 심사 결과를 의미하지 않습니다.</small>
       </footer>

@@ -4,9 +4,12 @@ import com.kh.back.common.exception.ApiException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
+import java.io.UnsupportedEncodingException;
 import org.springframework.mail.MailException;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
 /**
@@ -18,7 +21,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class VerificationMailSender {
 
-    private static final String SENDER_NAME = "CreditComPass Auto";
+    private static final String SENDER_NAME = "CreditCompass";
 
     private final JavaMailSender mailSender;
     private final String username;
@@ -44,18 +47,25 @@ public class VerificationMailSender {
             log.info("[DEV-MAIL] email verification code={} to={} (MAIL_USERNAME/MAIL_PASSWORD not set)", code, email);
             return;
         }
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(SENDER_NAME + " <" + username + ">");
-        message.setTo(email);
-        message.setSubject("[CreditComPass Auto] 이메일 인증 코드");
-        message.setText("""
-                CreditComPass Auto 회원가입 이메일 인증 코드입니다.
+        // 보낸 사람 이름을 따로(UTF-8) 넣는다 — "이름 <주소>" 문자열로만 넣으면 메일 앱이 계정 이름(아이디)을 보여 줄 수 있다
+        MimeMessage message = mailSender.createMimeMessage();
+        try {
+            MimeMessageHelper helper = new MimeMessageHelper(message, false, "UTF-8");
+            helper.setFrom(username, SENDER_NAME);
+            helper.setTo(email);
+            helper.setSubject("[" + SENDER_NAME + "] 이메일 인증 코드");
+            helper.setText("""
+                    %s 이메일 인증 코드입니다.
 
-                인증 코드: %s
+                    인증 코드: %s
 
-                회원가입 화면에 5분 안에 입력해 주세요.
-                본인이 요청하지 않았다면 이 메일은 무시해 주세요.
-                """.formatted(code));
+                    화면에 5분 안에 입력해 주세요.
+                    본인이 요청하지 않았다면 이 메일은 무시해 주세요.
+                    """.formatted(SENDER_NAME, code));
+        } catch (MessagingException | UnsupportedEncodingException e) {
+            throw new ApiException(HttpStatus.SERVICE_UNAVAILABLE, "MAIL_SEND_FAILED",
+                    "인증 메일을 보내지 못했습니다. 잠시 후 다시 시도해 주세요.");
+        }
         try {
             mailSender.send(message);
         } catch (MailException e) {
