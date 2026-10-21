@@ -46,7 +46,7 @@ public class MemberApiController {
     @DeleteMapping("/me")
     public ApiResponse<Void> withdraw(@AuthenticationPrincipal Long userId,
                                       @Valid @RequestBody WithdrawRequest request) {
-        memberService.withdraw(userId, request.getPassword());
+        memberService.withdraw(userId, request.getPassword(), request.getConfirmText());
         return ApiResponse.ok(null);
     }
 }

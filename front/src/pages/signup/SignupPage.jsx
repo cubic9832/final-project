@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { checkEmail, checkNickName, signup } from '../../features/auth/authApi';
+import { checkNickName, confirmEmailCode, sendEmailCode, signup } from '../../features/auth/authApi';
+import { checkNickNameWords } from '../../features/auth/nickNamePolicy';
 import { suggestEmail } from './emailTypo';
 import PasswordInput from '../../features/auth/components/PasswordInput';
-import { getPasswordRules, PASSWORD_MAX, validatePassword } from './passwordPolicy';
+import { getPasswordRules, PASSWORD_MAX, validatePassword } from '../../features/auth/passwordPolicy';
 import {
   formatPhone,
   GENDER_OPTIONS,
@@ -39,7 +40,7 @@ function validateNickname(value) {
   if (nickname.length < NICKNAME_MIN_LENGTH || nickname.length > NICKNAME_MAX_LENGTH) {
     return `이름 또는 닉네임은 ${NICKNAME_MIN_LENGTH}~${NICKNAME_MAX_LENGTH}자로 입력해 주세요.`;
   }
-  return '';
+  return checkNickNameWords(nickname); // 보완 3 추가: 금지어 (서버와 같은 목록)
 }
 
 function validateEmail(value) {
@@ -83,7 +84,6 @@ function validateSignup(form, agreements) {
   return errors;
 }
 
-const duplicateValidators = { nickname: validateNickname, email: validateEmail };
 
 export default function SignupPage() {
   const [form, setForm] = useState({
@@ -101,13 +101,23 @@ export default function SignupPage() {
   // "중복 확인" 결과 안내 문구 { nickname, email } (예: "사용할 수 있는 이메일입니다.")
   const [duplicateNotices, setDuplicateNotices] = useState({});
   // 보완 3: 중복 확인을 통과한 값 { nickname, email }. 입력을 바꾸면 비워져서 다시 확인해야 한다
+  // 보완 7: email 은 "인증 코드 확인까지 마친 이메일" (중복 확인은 [인증 코드 받기] 에 포함)
   const [checked, setChecked] = useState({ nickname: '', email: '' });
-  const [checking, setChecking] = useState(''); // 지금 확인 중인 항목 ('nickname' | 'email' | '')
+  const [checking, setChecking] = useState(''); // 지금 요청 중인 항목 ('nickname' | 'email' | 'emailCode' | '')
+  // 보완 7: 코드를 보낸 상태 { email, expiresAt, resendAt, mailEnabled } (시각은 ms). 안 보냈으면 null
+  const [verification, setVerification] = useState(null);
+  const [emailCode, setEmailCode] = useState(''); // 입력한 인증 코드 (숫자 6자리)
+  const [now, setNow] = useState(() => Date.now()); // 남은 시간 표시용 현재 시각 (1초마다 갱신)
   const [viewingTerm, setViewingTerm] = useState(null); // "보기"로 연 약관 (없으면 null)
   const [isCompleteOpen, setIsCompleteOpen] = useState(false); // 회원가입 완료 팝업 열림 여부
   const [submitting, setSubmitting] = useState(false); // 가입 요청 중 (버튼 비활성, 중복 요청 방지)
   const [serverError, setServerError] = useState(''); // 특정 칸에 붙일 수 없는 서버 오류 문구
   const [joinedEmail, setJoinedEmail] = useState(''); // 가입된 이메일 (서버가 정리한 값, 완료 팝업에 표시)
+
+  // 보완 7: 지금 입력한 이메일로 인증을 마쳤는지, 코드 남은 시간 · 다시 받기까지 남은 시간(초)
+  const emailVerified = checked.email !== '' && checked.email === form.email.trim();
+  const codeLeft = verification ? Math.max(0, Math.ceil((verification.expiresAt - now) / 1000)) : 0;
+  const resendWait = verification ? Math.max(0, Math.ceil((verification.resendAt - now) / 1000)) : 0;
 
   const passwordRules = getPasswordRules(form.password, form.email);
   const emailSuggestion = suggestEmail(form.email); // 오타로 보이면 고친 이메일 (보완 목록 ⑨)
@@ -127,14 +137,104 @@ export default function SignupPage() {
     }));
     setDuplicateNotices((prev) => ({ ...prev, [name]: undefined }));
     if (name in checked) setChecked((prev) => ({ ...prev, [name]: '' })); // 값이 바뀌면 중복 확인 다시
+    if (name === 'email') {
+      // 보완 7: 이메일을 바꾸면 보낸 코드 · 인증 결과는 무효 → 다시 받아야 한다
+      setVerification(null);
+      setEmailCode('');
+      setErrors((prev) => ({ ...prev, emailCode: undefined }));
+    }
     setNotice('');
     setServerError('');
   }
 
-  // 보완 3: 중복 확인 — 형식을 먼저 검사하고, 통과하면 서버에 사용 가능 여부를 묻는다
-  // GET /api/v1/auth/check-email · check-nickname → { available }
+  // 보완 7: 코드를 보낸 동안 1초마다 현재 시각을 바꿔 남은 시간 · 다시 받기 대기 시간을 다시 그린다
+  useEffect(() => {
+    if (!verification) return undefined;
+    const timer = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(timer);
+  }, [verification]);
+
+  // 보완 7: [인증 코드 받기] — 형식 확인 → 서버가 중복 확인 후 메일 발송
+  // POST /api/v1/auth/email-verification → { expiresInSeconds, resendAfterSeconds, mailEnabled }
+  async function handleSendCode() {
+    const message = validateEmail(form.email);
+    setDuplicateNotices((prev) => ({ ...prev, email: undefined }));
+    if (message) {
+      setErrors((prev) => ({ ...prev, email: message }));
+      return;
+    }
+    const email = form.email.trim();
+    setChecking('email');
+    try {
+      const result = await sendEmailCode(email);
+      // 보완 7 추가(10-20): 30분 안에 이미 인증한 이메일(예: 인증 후 새로고침) → 다시 보내지 않고 바로 인증 완료
+      if (result.alreadyVerified) {
+        setChecked((prev) => ({ ...prev, email }));
+        setVerification(null);
+        setErrors((prev) => ({ ...prev, email: undefined, emailCode: undefined }));
+        setDuplicateNotices((prev) => ({ ...prev, email: '이미 인증된 이메일입니다.' }));
+        return;
+      }
+      const sentAt = Date.now();
+      setVerification({
+        email,
+        expiresAt: sentAt + result.expiresInSeconds * 1000,
+        resendAt: sentAt + result.resendAfterSeconds * 1000,
+        mailEnabled: result.mailEnabled,
+      });
+      setNow(sentAt);
+      setEmailCode('');
+      setErrors((prev) => ({ ...prev, email: undefined, emailCode: undefined }));
+      setDuplicateNotices((prev) => ({
+        ...prev,
+        email: result.mailEnabled
+          ? '인증 코드를 보냈습니다. 메일이 보이지 않으면 스팸함도 확인해 주세요.' // 보완 7 추가: 스팸함 안내
+          : '개발 모드: 메일 대신 서버 로그에 인증 코드가 표시됩니다.',
+      }));
+    } catch (error) {
+      // 이미 가입된 이메일(409), 너무 자주 요청(429), 메일 발송 실패(503) 등
+      setErrors((prev) => ({
+        ...prev,
+        email: error.response?.data?.error?.message ?? '인증 코드를 보내지 못했습니다. 잠시 후 다시 시도해 주세요.',
+      }));
+    } finally {
+      setChecking('');
+    }
+  }
+
+  // 보완 7: 인증 코드 [확인] — POST /api/v1/auth/email-verification/confirm
+  async function handleConfirmCode() {
+    if (!/^\d{6}$/.test(emailCode)) {
+      setErrors((prev) => ({ ...prev, emailCode: '인증 코드 6자리를 입력해 주세요.' }));
+      return;
+    }
+    setChecking('emailCode');
+    try {
+      await confirmEmailCode(verification.email, emailCode);
+      setChecked((prev) => ({ ...prev, email: verification.email }));
+      setVerification(null);
+      setErrors((prev) => ({ ...prev, email: undefined, emailCode: undefined }));
+      setDuplicateNotices((prev) => ({ ...prev, email: '이메일 인증이 완료되었습니다.' }));
+    } catch (error) {
+      // 틀림(남은 횟수 안내) · 만료 · 5번 틀림
+      setErrors((prev) => ({
+        ...prev,
+        emailCode: error.response?.data?.error?.message ?? '인증에 실패했습니다. 잠시 후 다시 시도해 주세요.',
+      }));
+    } finally {
+      setChecking('');
+    }
+  }
+
+  // 남은 초 → "4:59"
+  function formatSeconds(seconds) {
+    return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
+  }
+
+  // 보완 3: 닉네임 중복 확인 — 형식을 먼저 검사하고, 통과하면 서버에 사용 가능 여부를 묻는다
+  // GET /api/v1/auth/check-nickname → { available }  (이메일은 보완 7 부터 [인증 코드 받기] 가 대신한다)
   async function handleDuplicateCheck(name) {
-    const message = duplicateValidators[name](form[name]);
+    const message = validateNickname(form[name]);
     setDuplicateNotices((prev) => ({ ...prev, [name]: undefined }));
     if (message) {
       setErrors((prev) => ({ ...prev, [name]: message }));
@@ -142,18 +242,17 @@ export default function SignupPage() {
     }
 
     const value = form[name].trim();
-    const label = name === 'email' ? '이메일' : '닉네임';
     setChecking(name);
     try {
-      const available = name === 'email' ? await checkEmail(value) : await checkNickName(value);
+      const available = await checkNickName(value);
       if (available) {
         setErrors((prev) => ({ ...prev, [name]: undefined }));
-        setDuplicateNotices((prev) => ({ ...prev, [name]: `사용할 수 있는 ${label}입니다.` }));
+        setDuplicateNotices((prev) => ({ ...prev, [name]: '사용할 수 있는 닉네임입니다.' }));
         setChecked((prev) => ({ ...prev, [name]: value }));
       } else {
         setErrors((prev) => ({
           ...prev,
-          [name]: name === 'email' ? '이미 가입된 이메일입니다.' : '이미 사용 중인 닉네임입니다.',
+          [name]: '이미 사용 중인 닉네임입니다.',
         }));
       }
     } catch (error) {
@@ -192,7 +291,7 @@ export default function SignupPage() {
       nextErrors.nickname = '닉네임 [중복 확인]을 눌러 주세요.';
     }
     if (!nextErrors.email && checked.email !== form.email.trim()) {
-      nextErrors.email = '이메일 [중복 확인]을 눌러 주세요.';
+      nextErrors.email = '이메일 인증을 완료해 주세요.'; // 보완 7
     }
     setErrors(nextErrors);
     setNotice('');
@@ -216,7 +315,7 @@ export default function SignupPage() {
       // 서버 실패 봉투: { error: { code, message } }. 실패해도 입력값은 그대로 둔다
       const { code, message } = error.response?.data?.error ?? {};
       // 확인과 가입 사이에 다른 사람이 먼저 가입한 경우 — 해당 칸에 표시하고 다시 확인하게 한다
-      if (code === 'EMAIL_DUPLICATED') {
+      if (code === 'EMAIL_DUPLICATED' || code === 'EMAIL_NOT_VERIFIED') {
         setErrors((prev) => ({ ...prev, email: message }));
         setChecked((prev) => ({ ...prev, email: '' }));
       } else if (code === 'NICKNAME_DUPLICATED') {
@@ -322,16 +421,61 @@ export default function SignupPage() {
                       maxLength={EMAIL_MAX_LENGTH}
                       {...fieldProps('email')}
                     />
+                    {/* 보완 7: [중복 확인] 대신 [인증 코드 받기] (중복 확인 + 메일 발송). 60초 동안은 다시 받기 대기 */}
                     <button
                       className="signup-check-button"
                       type="button"
-                      onClick={() => handleDuplicateCheck('email')}
-                      disabled={checking === 'email'}
+                      onClick={handleSendCode}
+                      disabled={checking === 'email' || emailVerified || resendWait > 0}
                     >
-                      {checking === 'email' ? '확인 중…' : '중복 확인'}
+                      {checking === 'email'
+                        ? '보내는 중…'
+                        : emailVerified
+                          ? '인증 완료'
+                          : verification
+                            ? resendWait > 0
+                              ? `다시 받기 (${resendWait}초)`
+                              : '다시 받기'
+                            : '인증 코드 받기'}
                     </button>
                   </div>
                   {renderError('email')}
+                  {/* 보완 7: 코드를 보냈으면 코드 입력칸 + [확인] + 남은 시간 */}
+                  {verification && !emailVerified && (
+                    <div className="signup-code-row">
+                      <div className="signup-input-row">
+                        <input
+                          id="signup-email-code"
+                          type="text"
+                          inputMode="numeric"
+                          placeholder="인증 코드 6자리"
+                          autoComplete="one-time-code"
+                          maxLength={6}
+                          value={emailCode}
+                          onChange={(event) => {
+                            setEmailCode(event.target.value.replace(/D/g, ''));
+                            setErrors((prev) => ({ ...prev, emailCode: undefined }));
+                          }}
+                          className={errors.emailCode ? 'has-error' : undefined}
+                          aria-label="이메일 인증 코드"
+                          aria-invalid={Boolean(errors.emailCode)}
+                          aria-describedby={errors.emailCode ? 'signup-emailCode-error' : undefined}
+                        />
+                        <span className={codeLeft > 0 ? 'signup-code-timer' : 'signup-code-timer is-expired'}>
+                          {codeLeft > 0 ? formatSeconds(codeLeft) : '만료됨'}
+                        </span>
+                        <button
+                          className="signup-check-button"
+                          type="button"
+                          onClick={handleConfirmCode}
+                          disabled={checking === 'emailCode' || codeLeft <= 0}
+                        >
+                          {checking === 'emailCode' ? '확인 중…' : '확인'}
+                        </button>
+                      </div>
+                      {renderError('emailCode')}
+                    </div>
+                  )}
                   {/* 도메인 오타 안내 — 가입을 막지는 않고, [바꾸기]로 한 번에 고친다 */}
                   {!errors.email && emailSuggestion && (
                     <p className="signup-email-hint" role="status">
@@ -513,7 +657,7 @@ export default function SignupPage() {
       </section>
 
       <footer className="signup-footer">
-        <strong>CreditComPass Auto</strong>
+        <strong>CreditCompass</strong>
         <p>첫차 구매 전, 감당 가능한 비용부터 확인하세요.</p>
         <small>본 서비스는 교육·시연용이며 실제 NICE·KCB 신용점수나 금융기관 심사 결과를 의미하지 않습니다.</small>
       </footer>

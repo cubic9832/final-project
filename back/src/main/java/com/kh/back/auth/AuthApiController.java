@@ -13,6 +13,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -63,6 +64,74 @@ public class AuthApiController {
         return ApiResponse.ok(new AvailabilityResponse(authService.isNickNameAvailable(nickName)));
     }
 
+    // POST /api/v1/auth/email-verification — 보완 7: 인증 코드 받기. 본문 { email }
+    // 호출: SignupPage.jsx 이메일 [인증 코드 받기] → authApi.sendEmailCode
+    // 이미 가입된 이메일 409, 60초 안 재요청 · 10분 5번 초과 429
+    @PostMapping("/email-verification")
+    public ApiResponse<EmailVerificationResponse> sendEmailVerification(@Valid @RequestBody EmailVerificationRequest request) {
+        return ApiResponse.ok(authService.sendEmailVerification(request.getEmail()));
+    }
+
+    // POST /api/v1/auth/email-verification/confirm — 보완 7: 코드 확인. 본문 { email, code }
+    // 호출: SignupPage.jsx 인증 코드 [확인] → authApi.confirmEmailCode
+    @PostMapping("/email-verification/confirm")
+    public ApiResponse<Void> confirmEmailVerification(@Valid @RequestBody EmailVerificationRequest request) {
+        authService.confirmEmailVerification(request.getEmail(), request.getCode());
+        return ApiResponse.ok(null);
+    }
+
+    // POST /api/v1/auth/password-reset/code — 보완 7 추가: 비밀번호 찾기 인증 코드 받기. 본문 { email }
+    // 호출: PasswordResetModal.jsx [인증 코드 받기] → authApi.sendPasswordResetCode
+    @PostMapping("/password-reset/code")
+    public ApiResponse<EmailVerificationResponse> sendPasswordResetCode(@Valid @RequestBody EmailVerificationRequest request) {
+        return ApiResponse.ok(authService.sendPasswordResetCode(request.getEmail()));
+    }
+
+    // POST /api/v1/auth/password-reset/confirm — 코드 확인. 본문 { email, code }
+    @PostMapping("/password-reset/confirm")
+    public ApiResponse<Void> confirmPasswordResetCode(@Valid @RequestBody EmailVerificationRequest request) {
+        authService.confirmPasswordResetCode(request.getEmail(), request.getCode());
+        return ApiResponse.ok(null);
+    }
+
+    // POST /api/v1/auth/password-reset — 새 비밀번호로 바꾸기. 본문 { email, newPassword }
+    // 성공하면 모든 기기 로그인이 끊긴다 → 새 비밀번호로 다시 로그인
+    @PostMapping("/password-reset")
+    public ApiResponse<Void> resetPassword(@Valid @RequestBody PasswordResetRequest request) {
+        authService.resetPassword(request);
+        return ApiResponse.ok(null);
+    }
+
+    // POST /api/v1/auth/password — 보완 2 추가: 마이페이지 비밀번호 변경. 본문 { currentPassword, newPassword }
+    // 호출: MyPage.jsx 계정 및 데이터 [변경] → PasswordChangeModal → authApi.changePassword
+    // 로그인 필요(토큰의 회원 번호만 사용). 성공하면 다른 기기는 로그아웃, 지금 기기는 새 토큰 + 새 refresh 쿠키
+    // (/auth 아래에 둔 이유: refresh 쿠키 경로(/api/v1/auth)와 같아 새 쿠키를 함께 내려줄 수 있다)
+    @PostMapping("/password")
+    public ResponseEntity<ApiResponse<TokenResponse>> changePassword(@AuthenticationPrincipal Long userId,
+                                                                     @Valid @RequestBody PasswordChangeRequest request) {
+        return withTokens(authService.changePassword(userId, request));
+    }
+
+    // POST /api/v1/auth/google — 보완 8: 구글 로그인. 본문 { idToken } (화면이 구글에서 받은 ID 토큰)
+    // 호출: LoginPage.jsx [Google 로 계속하기] → authApi.googleLogin
+    // 연결된(또는 같은 이메일) 회원이면 로그인과 같은 응답 { accessToken, member } + refresh 쿠키
+    // 처음 온 사람이면 { signupToken, email, name } → 화면이 추가 정보 입력으로 이동
+    @PostMapping("/google")
+    public ResponseEntity<?> googleLogin(@Valid @RequestBody GoogleLoginRequest request) {
+        GoogleLoginResult result = authService.googleLogin(request.getIdToken());
+        if (result.tokens() != null) {
+            return withTokens(result.tokens());
+        }
+        return ResponseEntity.ok(ApiResponse.ok(result.signup()));
+    }
+
+    // POST /api/v1/auth/google/signup — 보완 8: 구글 첫 로그인 후 추가 정보로 가입 (+ 바로 로그인)
+    // 호출: GoogleSignupPage.jsx [가입 완료] → authApi.googleSignup
+    @PostMapping("/google/signup")
+    public ResponseEntity<ApiResponse<TokenResponse>> googleSignup(@Valid @RequestBody GoogleSignupRequest request) {
+        return withTokens(authService.googleSignup(request));
+    }
+
     // POST /api/v1/auth/login — 로그인. 성공하면 200 + 본문 { accessToken, member } + refresh token 쿠키
     // 호출: LoginPage.jsx [로그인] 버튼(handleSubmit) → authApi.login
     @PostMapping("/login")
@@ -81,8 +150,10 @@ public class AuthApiController {
         try {
             return withTokens(authService.refresh(refreshToken));
         } catch (ApiException e) {
+            // 실패해도 쿠키를 지우지 않는다 (보완 1 추가 · 10-20)
+            // 탭 두 개가 동시에 재발급하면 늦은 탭은 "이미 바뀐 토큰" 으로 실패하는데, 이때 쿠키를 지우면
+            // 먼저 성공한 탭이 막 받은 새 쿠키까지 지워져 로그인이 풀린다. 쓸모없는 쿠키는 다음 로그인 · 로그아웃 때 바뀐다
             return ResponseEntity.status(e.getStatus())
-                    .header(HttpHeaders.SET_COOKIE, deleteCookie().toString())
                     .body(ApiResponse.fail(e.getCode(), e.getMessage()));
         }
     }

@@ -48,14 +48,15 @@ features/company/
 features/auth/
   components/{AuthModal,AuthToast,PasswordInput,LogoutConfirmModal}  여러 화면·헤더가 함께 쓰는 팝업·입력칸
   authApi.js
+  passwordPolicy.js   회원가입 · 비밀번호 찾기가 함께 쓰는 비밀번호 규칙
   memberApi.js
 pages/
   home/{HomePage.jsx,HomePage.css}
   about/{AboutPage.jsx,AboutPage.css}
-  login/{LoginPage.jsx,LoginPage.css,PasswordResetModal,RecaptchaBox}
+  login/{LoginPage.jsx,LoginPage.css,PasswordResetModal,RecaptchaBox,GoogleLoginButton}
   signup/{SignupPage.jsx,SignupPage.css,TermsModal,SignupCompleteModal,
-          passwordPolicy.js,emailTypo.js,profileRules.js}
-  mypage/{MyPage.jsx,MyPage.css,ProfileEditModal,EmailNotificationModal,
+          emailTypo.js,profileRules.js,GoogleSignupPage}
+  mypage/{MyPage.jsx,MyPage.css,ProfileEditModal,EmailNotificationModal,PasswordChangeModal,
           AccountManageModal,notificationOptions.js}
   admin/{AdminPage.jsx,AdminPage.css,ModelMetricChart,adminExampleData.js}
   not-found/NotFound.jsx

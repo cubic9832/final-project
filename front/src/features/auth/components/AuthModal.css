@@ -85,7 +85,8 @@
 }
 
 .auth-modal-field input[type='text'],
-.auth-modal-field input[type='email'] {
+.auth-modal-field input[type='email'],
+.auth-modal-field input[type='password'] { /* 보완 7 추가: 비밀번호 찾기 새 비밀번호 칸 (PasswordInput) */
   width: 100%;
   height: var(--layout-control-height);
   padding: 0 var(--space-12);

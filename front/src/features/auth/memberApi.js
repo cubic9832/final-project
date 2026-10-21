@@ -14,7 +14,8 @@ export const updateNickName = async (nickName) => {
 };
 
 // 회원 탈퇴 (보완 4) — 비밀번호를 한 번 더 보내 확인. 틀리면 400 PASSWORD_MISMATCH
+// 보완 8: 구글로만 가입한 회원은 비밀번호 대신 confirmText("탈퇴")
 // DELETE 요청에 본문을 실을 때 axios 는 data 옵션을 쓴다
-export const withdraw = async (password) => {
-  await client.delete('/members/me', { data: { password } });
+export const withdraw = async ({ password, confirmText }) => {
+  await client.delete('/members/me', { data: { password, confirmText } });
 };

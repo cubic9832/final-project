@@ -30,6 +30,11 @@
         VALUES (#{email}, #{passwordHash}, #{nickName}, #{role})
     </insert>
 
+    <!-- 비밀번호 재설정 (보완 7 추가: 비밀번호 찾기) -->
+    <update id="updatePasswordHash">
+        UPDATE users SET password_hash = #{passwordHash} WHERE id = #{id}
+    </update>
+
     <!-- 닉네임 변경 (보완 3 추가) -->
     <update id="updateNickName">
         UPDATE users SET nick_name = #{nickName} WHERE id = #{id}

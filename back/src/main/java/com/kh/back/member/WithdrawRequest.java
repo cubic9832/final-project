@@ -1,6 +1,5 @@
 package com.kh.back.member;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +12,9 @@ import lombok.Setter;
 @NoArgsConstructor
 public class WithdrawRequest {
 
-    @NotBlank(message = "비밀번호를 입력해 주세요.")
+    // 비밀번호로 가입한 회원: 비밀번호 확인 (없으면 MemberServiceImpl 이 400)
     private String password;
+
+    // 보완 8: 구글로만 가입한 회원은 비밀번호가 없어 "탈퇴" 를 직접 입력해 확인한다
+    private String confirmText;
 }

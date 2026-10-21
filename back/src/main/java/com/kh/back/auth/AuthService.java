@@ -8,6 +8,27 @@ public interface AuthService {
     MemberResponse signup(SignupRequest request);
 
     // 로그인. 이메일 · 비밀번호가 맞으면 access token 과 refresh token 을 발급한다
+    // 보완 7: 이메일 인증 코드 받기 (형식 · 중복 확인 후 발송) · 확인
+    EmailVerificationResponse sendEmailVerification(String email);
+
+    void confirmEmailVerification(String email, String code);
+
+    // 보완 7 추가: 비밀번호 찾기 — 가입한 이메일로 인증 코드 받기 · 확인 · 새 비밀번호로 바꾸기
+    EmailVerificationResponse sendPasswordResetCode(String email);
+
+    void confirmPasswordResetCode(String email, String code);
+
+    void resetPassword(PasswordResetRequest request);
+
+    // 보완 2 추가: 로그인한 회원의 비밀번호 변경 — 다른 기기 로그인은 끊고, 지금 기기에는 새 토큰을 준다
+    AuthTokens changePassword(Long userId, PasswordChangeRequest request);
+
+    // 보완 8: 구글 로그인 — 연결된 회원이면 로그인, 처음이면 추가 정보 입력 필요
+    GoogleLoginResult googleLogin(String idToken);
+
+    // 보완 8: 구글 첫 로그인 후 추가 정보로 가입 + 로그인
+    AuthTokens googleSignup(GoogleSignupRequest request);
+
     AuthTokens login(LoginRequest request, String clientIp); // 보완 6: clientIp 는 reCAPTCHA 확인 요청에 함께 보낸다
 
     // 재발급. refresh token 이 유효하면 새 access token 과 새 refresh token 으로 바꿔 준다 (이전 refresh token 은 폐기)

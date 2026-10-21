@@ -22,6 +22,7 @@ import MyPage from './pages/mypage/MyPage';
 import NotFound from './pages/not-found/NotFound';
 import PredictPage from './pages/predict/PredictPage';
 import SignupPage from './pages/signup/SignupPage';
+import GoogleSignupPage from './pages/signup/GoogleSignupPage';
 import VehicleCatalogGate from './features/vehicle/components/VehicleCatalogGate';
 import { VehicleProvider } from './features/vehicle/VehicleContext';
 import { VehicleSearchPage } from './features/vehicle/pages/search/VehicleSearchPage';
@@ -49,6 +50,8 @@ function App() {
         <Route element={<GuestOnly />}>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
+          {/* 보완 8: 구글 첫 로그인 후 추가 정보 입력 */}
+          <Route path="/signup/google" element={<GoogleSignupPage />} />
         </Route>
         {/* 로그인이 필요한 화면 — 로그인 전이면 RequireAuth 가 /login 으로 보낸다 */}
         <Route element={<RequireAuth />}>

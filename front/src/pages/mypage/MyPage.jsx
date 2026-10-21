@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { logout } from '../../features/auth/authApi';
+import { changePassword, logout } from '../../features/auth/authApi';
 import { getMe, updateNickName, withdraw } from '../../features/auth/memberApi';
 import useAuthStore from '../../stores/useAuthStore';
 import AccountManageModal from './AccountManageModal';
+import PasswordChangeModal from './PasswordChangeModal';
 import AuthToast from '../../features/auth/components/AuthToast';
 import EmailNotificationModal from './EmailNotificationModal';
 import { NOTIFICATION_OPTIONS } from './notificationOptions';
@@ -66,7 +67,7 @@ export default function MyPage() {
   const [reloadKey, setReloadKey] = useState(0); // 값이 바뀌면 내 정보를 다시 불러온다 (다시 시도 버튼)
   const [isEditOpen, setIsEditOpen] = useState(false);
   const editButtonRef = useRef(null); // 팝업을 닫으면 이 버튼으로 포커스를 돌려준다
-  // 계정 및 데이터 팝업: 'notification'(이메일 알림 설정) | 'account'(회원 탈퇴) | null
+  // 계정 및 데이터 팝업: 'notification'(이메일 알림 설정) | 'password'(비밀번호 변경, 보완 2 추가) | 'account'(회원 탈퇴) | null
   const [settingsModal, setSettingsModal] = useState(null);
   const [notification, setNotification] = useState('IMPORTANT'); // 이메일 알림 범위 (예시 값)
   const [toast, setToast] = useState(''); // 저장 결과 알림 문구 (빈 문자열이면 숨김)
@@ -82,6 +83,7 @@ export default function MyPage() {
           nickname: me.nickName,
           email: me.email,
           role: ROLE_LABELS[me.role] ?? me.role,
+          socialOnly: me.socialOnly, // 보완 8: 구글로만 가입 → 탈퇴 확인 방법이 다르다
         }));
         setMeStatus('done');
       })
@@ -119,10 +121,37 @@ export default function MyPage() {
     setToast('이메일 알림 설정을 저장했어요.');
   }
 
+  // 현재 비밀번호를 (변경 · 탈퇴 합쳐) 5번 틀리면 서버가 모든 기기 로그인을 끊는다(PASSWORD_CONFIRM_LOGOUT)
+  // → 팝업을 닫고 이 화면도 로그아웃, 알림으로 이유를 알려 준다. 그 밖의 실패는 그대로 팝업에 전달(팝업 안 오류 문구)
+  async function logoutIfTooManyFailures(error) {
+    const failure = error.response?.data?.error;
+    if (failure?.code !== 'PASSWORD_CONFIRM_LOGOUT') throw error;
+    setSettingsModal(null);
+    await logout(); // 로그인 정보가 지워지면 마이페이지 보호(RequireAuth)가 로그인 화면으로 보낸다
+    showToast(failure.message);
+  }
+
+  // 보완 2 추가: 비밀번호 변경
+  async function handleChangePassword(passwords) {
+    try {
+      await changePassword(passwords);
+    } catch (error) {
+      await logoutIfTooManyFailures(error);
+      return;
+    }
+    setSettingsModal(null);
+    setToast('비밀번호를 변경했어요. 다른 기기의 로그인은 끊었어요.');
+  }
+
   // 회원 탈퇴 (보완 4): 서버 탈퇴 → 메인으로 이동 → 로그아웃 처리 → 공용 알림
-  // 실패하면(비밀번호 틀림 등) 예외가 그대로 팝업으로 전달되어 팝업 안에 오류가 표시된다
-  async function handleWithdraw(password) {
-    await withdraw(password);
+  // 보완 4 추가: 비밀번호를 5번 틀리면 탈퇴 대신 로그아웃
+  async function handleWithdraw(confirmation) {
+    try {
+      await withdraw(confirmation); // { password } 또는 구글 가입자는 { confirmText: '탈퇴' } (보완 8)
+    } catch (error) {
+      await logoutIfTooManyFailures(error);
+      return;
+    }
     setSettingsModal(null);
     navigate('/'); // 먼저 이동 — 로그인 정보가 지워지면 마이페이지 보호(RequireAuth)가 로그인 화면으로 보내기 때문
     await logout(); // 브라우저의 refresh token 쿠키 삭제 + 화면 로그인 정보 지우기 (서버 토큰은 탈퇴 때 이미 삭제됨)
@@ -325,6 +354,15 @@ export default function MyPage() {
               설정
             </button>
           </li>
+          {/* 보완 2 추가: 구글로만 가입한 계정은 비밀번호가 없어 숨긴다 */}
+          {!profile.socialOnly && (
+            <li>
+              <span>비밀번호 변경</span>
+              <button className="my-text-button" type="button" onClick={() => setSettingsModal('password')}>
+                변경
+              </button>
+            </li>
+          )}
           <li>
             <span>회원 탈퇴</span>
             <button className="my-text-button" type="button" onClick={() => setSettingsModal('account')}>
@@ -350,8 +388,11 @@ export default function MyPage() {
           onClose={() => setSettingsModal(null)}
         />
       )}
+      {settingsModal === 'password' && (
+        <PasswordChangeModal email={profile.email} onChange={handleChangePassword} onClose={() => setSettingsModal(null)} />
+      )}
       {settingsModal === 'account' && (
-        <AccountManageModal onWithdraw={handleWithdraw} onClose={() => setSettingsModal(null)} />
+        <AccountManageModal socialOnly={profile.socialOnly} onWithdraw={handleWithdraw} onClose={() => setSettingsModal(null)} />
       )}
       {toast && <AuthToast message={toast} onClose={() => setToast('')} />}
     </div>

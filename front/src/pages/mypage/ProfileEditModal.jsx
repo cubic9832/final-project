@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import theme from '../../styles/theme';
 import AuthModal from '../../features/auth/components/AuthModal';
+import { checkNickNameWords } from '../../features/auth/nickNamePolicy';
 import './ProfileEditModal.css';
 
 // 보완 2: 회원가입과 같은 2~12자 (DB 컬럼 users.nick_name 은 50 그대로)
@@ -40,6 +41,13 @@ export default function ProfileEditModal({ nickname, email, onSave, onClose }) {
     }
     if (trimmed.length < NICKNAME_MIN_LENGTH || trimmed.length > NICKNAME_MAX_LENGTH) {
       setError(`표시 이름은 ${NICKNAME_MIN_LENGTH}~${NICKNAME_MAX_LENGTH}자로 입력해 주세요.`);
+      return;
+    }
+
+    // 보완 3 추가: 금지어 (회원가입과 같은 목록). 지금 닉네임 그대로면 아래에서 그냥 닫는다
+    const forbidden = trimmed === nickname ? '' : checkNickNameWords(trimmed);
+    if (forbidden) {
+      setError(forbidden);
       return;
     }
 

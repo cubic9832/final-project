@@ -16,6 +16,9 @@ public interface MemberMapper {
     // 실행 후 member.id 에 DB 가 만든 번호가 채워진다 (XML 의 useGeneratedKeys)
     void insert(MemberDto member);
 
+    // 보완 7 추가: 비밀번호 재설정
+    int updatePasswordHash(@Param("id") Long id, @Param("passwordHash") String passwordHash);
+
     // 닉네임 변경 (보완 3 추가). UNIQUE(V7) 에 걸리면 DuplicateKeyException
     int updateNickName(@Param("id") Long id, @Param("nickName") String nickName);
 

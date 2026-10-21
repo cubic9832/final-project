@@ -1,10 +1,11 @@
 import { useCallback, useState } from 'react';
 import { Car } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { login } from '../../features/auth/authApi';
+import { googleLogin, login } from '../../features/auth/authApi';
 import PasswordInput from '../../features/auth/components/PasswordInput';
 import PasswordResetModal from './PasswordResetModal';
 import RecaptchaBox from './RecaptchaBox';
+import GoogleLoginButton from './GoogleLoginButton';
 import theme from '../../styles/theme';
 import './LoginPage.css';
 
@@ -66,6 +67,24 @@ export default function LoginPage() {
       setLoginError(''); // 체크했으니 "로봇이 아님을 확인해 주세요" 같은 이전 실패 문구도 지운다
     }
   }, []);
+
+  // 보완 8: 구글 계정을 고르면 서버에 확인 → 연결된 회원이면 로그인, 처음이면 추가 정보 입력 화면으로
+  const handleGoogleCredential = useCallback(
+    async (idToken) => {
+      setLoginError('');
+      try {
+        const result = await googleLogin(idToken);
+        if (result.signup) {
+          navigate('/signup/google', { state: result.signup }); // { signupToken, email, name }
+        } else {
+          navigate(location.state?.from ?? '/', { replace: true });
+        }
+      } catch (error) {
+        setLoginError(error.response?.data?.error?.message ?? '구글 로그인에 실패했습니다. 잠시 후 다시 시도해 주세요.');
+      }
+    },
+    [navigate, location.state],
+  );
 
   // 입력할 때마다 값을 저장하고, 그 칸의 오류와 실패 문구는 지운다
   function handleChange(event) {
@@ -138,7 +157,7 @@ export default function LoginPage() {
       <div className="login-grid">
         <section className="login-form-card" aria-labelledby="login-title">
           <h2 id="login-title">다시 만나서 반가워요</h2>
-          <p className="login-subtitle">CreditComPass Auto 계정으로 로그인해 주세요.</p>
+          <p className="login-subtitle">CreditCompass 계정으로 로그인해 주세요.</p>
 
           <form onSubmit={handleSubmit} noValidate>
             <div className="login-field">
@@ -200,6 +219,12 @@ export default function LoginPage() {
             </button>
           </form>
 
+          {/* 보완 8: 구글 로그인 */}
+          <div className="login-divider">
+            <span>또는</span>
+          </div>
+          <GoogleLoginButton onCredential={handleGoogleCredential} />
+
           <p className="login-signup login-card-footer">
             처음이신가요?{' '}
             <Link className="login-text-button" to="/signup">
@@ -238,7 +263,7 @@ export default function LoginPage() {
       </aside>
 
       <footer className="login-footer">
-        <strong>CreditComPass Auto</strong>
+        <strong>CreditCompass</strong>
         <p>첫차 구매 전, 감당 가능한 비용부터 확인하세요.</p>
         <small>본 서비스는 교육·시연용이며 실제 NICE·KCB 신용점수나 금융기관 심사 결과를 의미하지 않습니다.</small>
       </footer>
