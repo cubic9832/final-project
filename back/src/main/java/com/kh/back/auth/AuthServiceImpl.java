@@ -218,6 +218,7 @@ public class AuthServiceImpl implements AuthService {
         if (member.isSocialOnly()) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "SOCIAL_ACCOUNT", "구글로 가입한 계정은 비밀번호가 없습니다.");
         }
+        passwordChangeLimiter.checkLocked(userId); // 10-22: 5번 틀렸으면 10분 동안 시도 자체를 막는다 (토큰을 복사해 둬도)
         if (!passwordEncoder.matches(request.getCurrentPassword(), member.getPasswordHash())) {
             // 보완 2 추가: 5번 틀리면 모든 기기 로그아웃 (자리를 비운 사이 남이 비밀번호를 맞춰 보는 것 방지)
             ApiException failure = passwordChangeLimiter.mismatch(userId, "현재 비밀번호가 올바르지 않습니다.");
@@ -275,6 +276,9 @@ public class AuthServiceImpl implements AuthService {
 
         MemberDto sameEmail = memberMapper.findByEmail(google.email());
         if (sameEmail != null) {
+            if (!canAutoLink(google.email())) {
+                throw googleLinkNotAllowed(); // 10-22: gmail 이 아니면 자동 연결하지 않는다
+            }
             socialAccountMapper.insert(sameEmail.getId(), GOOGLE, google.sub(), google.email());
             loginAttemptLimiter.reset(google.email()); // 구글로 본인 확인이 됐으니 비밀번호 실패 기록은 지운다
             return new GoogleLoginResult(issueTokens(sameEmail), null);
@@ -289,7 +293,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     @Transactional
     public AuthTokens googleSignup(GoogleSignupRequest request) {
-        GoogleSignupStore.Pending pending = googleSignupStore.take(request.getSignupToken());
+        GoogleSignupStore.Pending pending = googleSignupStore.peek(request.getSignupToken()); // 10-22: 성공한 뒤에 지운다
         if (pending == null) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "GOOGLE_SIGNUP_EXPIRED", "시간이 지났습니다. 구글 로그인을 다시 시도해 주세요.");
         }
@@ -297,11 +301,16 @@ public class AuthServiceImpl implements AuthService {
             throw new ApiException(HttpStatus.BAD_REQUEST, "AGE_RESTRICTED",
                     "만 " + MIN_SIGNUP_AGE + "세 이상만 가입할 수 있습니다. (운전면허 취득 가능 나이 기준)");
         }
-        // 추가 정보를 입력하는 사이 같은 이메일로 가입했으면 그 회원에 연결한다
+        // 추가 정보를 입력하는 사이 같은 이메일로 가입했으면 그 회원에 연결한다 (gmail 일 때만 — 아래 canAutoLink)
         MemberDto existing = memberMapper.findByEmail(pending.email());
         if (existing != null) {
+            if (!canAutoLink(pending.email())) {
+                throw googleLinkNotAllowed();
+            }
             socialAccountMapper.insert(existing.getId(), GOOGLE, pending.sub(), pending.email());
-            return issueTokens(existing);
+            AuthTokens tokens = issueTokens(existing);
+            googleSignupStore.remove(request.getSignupToken());
+            return tokens;
         }
         String nickName = request.getNickName().trim();
         checkNickNameWords(nickName); // 보완 3 추가: 금지어
@@ -329,7 +338,21 @@ public class AuthServiceImpl implements AuthService {
         userProfileMapper.insert(profile);
 
         socialAccountMapper.insert(member.getId(), GOOGLE, pending.sub(), pending.email());
-        return issueTokens(member);
+        AuthTokens tokens = issueTokens(member);
+        googleSignupStore.remove(request.getSignupToken()); // 가입이 끝났으니 1회용 번호를 지운다
+        return tokens;
+    }
+
+    // 10-22: 같은 이메일 자동 연결은 @gmail.com 일 때만
+    // 구글이 이메일 주인을 지금도 보장하는 건 gmail 주소뿐이다. 다른 메일(예: 네이버 주소로 만든 구글 계정)은
+    // 계정을 만들 때 한 번 확인한 것이라, 기존 회원에 바로 연결하지 않고 이메일 · 비밀번호로 로그인하게 한다
+    private boolean canAutoLink(String email) {
+        return email != null && email.endsWith("@gmail.com");
+    }
+
+    private ApiException googleLinkNotAllowed() {
+        return new ApiException(HttpStatus.CONFLICT, "GOOGLE_LINK_NOT_ALLOWED",
+                "이 이메일로 가입한 계정이 있습니다. 이메일 · 비밀번호로 로그인해 주세요.");
     }
 
     @Override

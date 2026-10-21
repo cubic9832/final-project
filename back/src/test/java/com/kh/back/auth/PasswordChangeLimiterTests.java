@@ -35,4 +35,14 @@ class PasswordChangeLimiterTests {
         assertThat(limiter.mismatch(3L, "틀림").getCode()).isEqualTo(PasswordChangeLimiter.LOGOUT_CODE);
         assertThat(limiter.recordFailure(3L)).isEqualTo(1); // 로그아웃 후 다시 1부터
     }
+
+    @Test
+    void 다섯번째_뒤에는_10분_동안_잠긴다() {
+        for (int i = 0; i < PasswordChangeLimiter.LOGOUT_LIMIT; i++) {
+            limiter.mismatch(4L, "틀림");
+        }
+        org.assertj.core.api.Assertions.assertThatThrownBy(() -> limiter.checkLocked(4L))
+                .isInstanceOf(com.kh.back.common.exception.ApiException.class).hasMessageContaining("분 뒤에 다시");
+        limiter.checkLocked(5L); // 다른 회원은 영향 없음
+    }
 }

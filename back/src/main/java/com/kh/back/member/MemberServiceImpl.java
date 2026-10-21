@@ -72,7 +72,7 @@ public class MemberServiceImpl implements MemberService {
             }
         } else if (password == null || password.isBlank()) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "BAD_REQUEST", "비밀번호를 입력해 주세요.");
-        } else if (!passwordEncoder.matches(password, member.getPasswordHash())) {
+        } else if (lockedOrMismatch(userId, password, member)) {
             // 되돌릴 수 없는 작업이라 비밀번호를 한 번 더 확인한다 (로그인과 같은 BCrypt 비교)
             // 보완 4 추가: 비밀번호 변경과 합쳐 5번 틀리면 모든 기기 로그아웃 (맞히는 순간 계정이 지워지므로)
             ApiException failure = passwordChangeLimiter.mismatch(userId, "비밀번호가 올바르지 않습니다.");
@@ -88,6 +88,12 @@ public class MemberServiceImpl implements MemberService {
         memberMapper.deletePurchasePlans(userId);
         memberMapper.detachInputSnapshots(userId);
         memberMapper.deleteById(userId); // refresh_token(V6) · user_profiles(V8, 보완 5)는 ON DELETE CASCADE 로 함께 삭제 → 다른 브라우저 로그인도 끝남
+    }
+
+    // 10-22: 5번 틀려 잠겼으면 비밀번호를 보지 않고 거절(429), 아니면 비밀번호가 틀렸는지
+    private boolean lockedOrMismatch(Long userId, String password, MemberDto member) {
+        passwordChangeLimiter.checkLocked(userId);
+        return !passwordEncoder.matches(password, member.getPasswordHash());
     }
 
     private MemberDto findMember(Long userId) {

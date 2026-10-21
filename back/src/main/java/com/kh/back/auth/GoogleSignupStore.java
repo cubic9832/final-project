@@ -29,9 +29,17 @@ public class GoogleSignupStore {
         return token;
     }
 
-    // 한 번만 꺼낼 수 있다. 없거나 10분이 지났으면 null
-    public Pending take(String token) {
-        Pending pending = token == null ? null : pendings.remove(token);
+    // 확인만 한다 (지우지 않음). 없거나 10분이 지났으면 null
+    // 10-22: 닉네임 중복 · 나이 오류 등으로 거절돼도 고쳐서 다시 낼 수 있게, 지우기는 가입이 성공한 뒤 remove 로
+    public Pending peek(String token) {
+        Pending pending = token == null ? null : pendings.get(token);
         return pending == null || pending.expiresAt().isBefore(Instant.now()) ? null : pending;
+    }
+
+    // 가입이 끝났으면 지운다 → 같은 번호로 다시 가입할 수 없다 (1회용)
+    public void remove(String token) {
+        if (token != null) {
+            pendings.remove(token);
+        }
     }
 }
