@@ -1,6 +1,8 @@
 package com.kh.back.member;
 
 import com.kh.back.auth.NickNamePolicy;
+import com.kh.back.auth.PasswordChangeLimiter;
+import com.kh.back.auth.RefreshTokenMapper;
 import com.kh.back.common.exception.ApiException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DuplicateKeyException;
@@ -16,6 +18,8 @@ public class MemberServiceImpl implements MemberService {
     private final MemberMapper memberMapper;
     private final UserProfileMapper userProfileMapper;
     private final PasswordEncoder passwordEncoder;
+    private final PasswordChangeLimiter passwordChangeLimiter; // 보완 4 추가: 비밀번호 변경과 같은 "현재 비밀번호 틀린 횟수"
+    private final RefreshTokenMapper refreshTokenMapper;
 
     @Override
     @Transactional(readOnly = true)
@@ -55,8 +59,9 @@ public class MemberServiceImpl implements MemberService {
 
     // 회원 탈퇴 (보완 4)
     // 한 트랜잭션: 중간에 하나라도 실패하면 모두 취소되어 "반만 탈퇴된" 상태가 생기지 않는다
+    // noRollbackFor: 오류는 삭제 전에만 난다. 5번 틀려 로그아웃시킬 때 지운 refresh token 이 롤백으로 되살아나지 않게 (보완 4 추가)
     @Override
-    @Transactional
+    @Transactional(noRollbackFor = ApiException.class)
     public void withdraw(Long userId, String password, String confirmText) {
         MemberDto member = findMember(userId);
 
@@ -69,8 +74,14 @@ public class MemberServiceImpl implements MemberService {
             throw new ApiException(HttpStatus.BAD_REQUEST, "BAD_REQUEST", "비밀번호를 입력해 주세요.");
         } else if (!passwordEncoder.matches(password, member.getPasswordHash())) {
             // 되돌릴 수 없는 작업이라 비밀번호를 한 번 더 확인한다 (로그인과 같은 BCrypt 비교)
-            throw new ApiException(HttpStatus.BAD_REQUEST, "PASSWORD_MISMATCH", "비밀번호가 올바르지 않습니다.");
+            // 보완 4 추가: 비밀번호 변경과 합쳐 5번 틀리면 모든 기기 로그아웃 (맞히는 순간 계정이 지워지므로)
+            ApiException failure = passwordChangeLimiter.mismatch(userId, "비밀번호가 올바르지 않습니다.");
+            if (PasswordChangeLimiter.LOGOUT_CODE.equals(failure.getCode())) {
+                refreshTokenMapper.deleteByUserId(userId);
+            }
+            throw failure;
         }
+        passwordChangeLimiter.reset(userId);
 
         // users 를 참조하는 데이터를 먼저 정리한 뒤 회원을 삭제한다 (외래키 때문에 순서가 중요)
         memberMapper.deleteFavoriteVehicles(userId);

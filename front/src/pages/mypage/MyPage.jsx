@@ -121,17 +121,22 @@ export default function MyPage() {
     setToast('이메일 알림 설정을 저장했어요.');
   }
 
-  // 보완 2 추가: 비밀번호 변경 — 실패하면 예외가 팝업으로 전달되어 팝업 안에 오류가 표시된다
-  // 현재 비밀번호를 5번 틀리면 서버가 모든 기기 로그인을 끊는다(PASSWORD_CHANGE_LOGOUT) → 이 화면도 로그아웃
+  // 현재 비밀번호를 (변경 · 탈퇴 합쳐) 5번 틀리면 서버가 모든 기기 로그인을 끊는다(PASSWORD_CONFIRM_LOGOUT)
+  // → 팝업을 닫고 이 화면도 로그아웃, 알림으로 이유를 알려 준다. 그 밖의 실패는 그대로 팝업에 전달(팝업 안 오류 문구)
+  async function logoutIfTooManyFailures(error) {
+    const failure = error.response?.data?.error;
+    if (failure?.code !== 'PASSWORD_CONFIRM_LOGOUT') throw error;
+    setSettingsModal(null);
+    await logout(); // 로그인 정보가 지워지면 마이페이지 보호(RequireAuth)가 로그인 화면으로 보낸다
+    showToast(failure.message);
+  }
+
+  // 보완 2 추가: 비밀번호 변경
   async function handleChangePassword(passwords) {
     try {
       await changePassword(passwords);
     } catch (error) {
-      const failure = error.response?.data?.error;
-      if (failure?.code !== 'PASSWORD_CHANGE_LOGOUT') throw error;
-      setSettingsModal(null);
-      await logout(); // 로그인 정보가 지워지면 마이페이지 보호(RequireAuth)가 로그인 화면으로 보낸다
-      showToast(failure.message);
+      await logoutIfTooManyFailures(error);
       return;
     }
     setSettingsModal(null);
@@ -139,9 +144,14 @@ export default function MyPage() {
   }
 
   // 회원 탈퇴 (보완 4): 서버 탈퇴 → 메인으로 이동 → 로그아웃 처리 → 공용 알림
-  // 실패하면(비밀번호 틀림 등) 예외가 그대로 팝업으로 전달되어 팝업 안에 오류가 표시된다
+  // 보완 4 추가: 비밀번호를 5번 틀리면 탈퇴 대신 로그아웃
   async function handleWithdraw(confirmation) {
-    await withdraw(confirmation); // { password } 또는 구글 가입자는 { confirmText: '탈퇴' } (보완 8)
+    try {
+      await withdraw(confirmation); // { password } 또는 구글 가입자는 { confirmText: '탈퇴' } (보완 8)
+    } catch (error) {
+      await logoutIfTooManyFailures(error);
+      return;
+    }
     setSettingsModal(null);
     navigate('/'); // 먼저 이동 — 로그인 정보가 지워지면 마이페이지 보호(RequireAuth)가 로그인 화면으로 보내기 때문
     await logout(); // 브라우저의 refresh token 쿠키 삭제 + 화면 로그인 정보 지우기 (서버 토큰은 탈퇴 때 이미 삭제됨)

@@ -210,16 +210,11 @@ public class AuthServiceImpl implements AuthService {
         }
         if (!passwordEncoder.matches(request.getCurrentPassword(), member.getPasswordHash())) {
             // 보완 2 추가: 5번 틀리면 모든 기기 로그아웃 (자리를 비운 사이 남이 비밀번호를 맞춰 보는 것 방지)
-            int failures = passwordChangeLimiter.recordFailure(userId);
-            if (failures >= PasswordChangeLimiter.LOGOUT_LIMIT) {
-                passwordChangeLimiter.reset(userId);
+            ApiException failure = passwordChangeLimiter.mismatch(userId, "현재 비밀번호가 올바르지 않습니다.");
+            if (PasswordChangeLimiter.LOGOUT_CODE.equals(failure.getCode())) {
                 refreshTokenMapper.deleteByUserId(userId);
-                throw new ApiException(HttpStatus.UNAUTHORIZED, "PASSWORD_CHANGE_LOGOUT",
-                        "현재 비밀번호를 " + PasswordChangeLimiter.LOGOUT_LIMIT + "번 틀려 로그아웃되었습니다. 다시 로그인해 주세요.");
             }
-            int left = PasswordChangeLimiter.LOGOUT_LIMIT - failures;
-            String warning = failures >= 3 ? " (" + left + "번 더 틀리면 로그아웃됩니다)" : "";
-            throw new ApiException(HttpStatus.BAD_REQUEST, "PASSWORD_MISMATCH", "현재 비밀번호가 올바르지 않습니다." + warning);
+            throw failure;
         }
         passwordChangeLimiter.reset(userId);
         if (request.getCurrentPassword().equals(request.getNewPassword())) {
