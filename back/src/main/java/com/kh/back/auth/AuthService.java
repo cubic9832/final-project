@@ -11,12 +11,12 @@ public interface AuthService {
     // 보완 7: 이메일 인증 코드 받기 (형식 · 중복 확인 후 발송) · 확인
     EmailVerificationResponse sendEmailVerification(String email);
 
-    void confirmEmailVerification(String email, String code);
+    String confirmEmailVerification(String email, String code); // 보완 7 추가: 일회용 증명 번호
 
     // 보완 7 추가: 비밀번호 찾기 — 가입한 이메일로 인증 코드 받기 · 확인 · 새 비밀번호로 바꾸기
     EmailVerificationResponse sendPasswordResetCode(String email);
 
-    void confirmPasswordResetCode(String email, String code);
+    String confirmPasswordResetCode(String email, String code); // 보완 7 추가: 일회용 증명 번호
 
     void resetPassword(PasswordResetRequest request);
 

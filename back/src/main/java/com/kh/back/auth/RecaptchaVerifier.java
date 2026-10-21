@@ -7,6 +7,8 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import java.time.Duration;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestClientException;
 
@@ -22,7 +24,15 @@ public class RecaptchaVerifier {
     private static final String VERIFY_URL = "https://www.google.com/recaptcha/api/siteverify";
 
     private final String secretKey;
-    private final RestClient restClient = RestClient.create();
+    // 10-22: 구글이 응답하지 않을 때 로그인 요청이 끝없이 기다리지 않도록 시간 제한 (연결 3초 · 응답 5초)
+    private final RestClient restClient = RestClient.builder().requestFactory(timeoutFactory()).build();
+
+    private static SimpleClientHttpRequestFactory timeoutFactory() {
+        SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
+        factory.setConnectTimeout(Duration.ofSeconds(3));
+        factory.setReadTimeout(Duration.ofSeconds(5));
+        return factory;
+    }
 
     public RecaptchaVerifier(@Value("${recaptcha.secret-key}") String secretKey) {
         this.secretKey = secretKey;

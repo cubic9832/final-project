@@ -7,6 +7,7 @@ import AuthModal from '../../features/auth/components/AuthModal';
 import PasswordInput from '../../features/auth/components/PasswordInput';
 import { confirmPasswordResetCode, resetPassword, sendPasswordResetCode } from '../../features/auth/authApi';
 import { getPasswordRules, PASSWORD_MAX, validatePassword } from '../../features/auth/passwordPolicy';
+import { clearProof, getProof, saveProof } from '../../features/auth/verificationProof';
 import './PasswordResetModal.css';
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -44,16 +45,17 @@ export default function PasswordResetModal({ initialEmail = '', onClose }) {
     if (!trimmed) return setError('이메일을 입력해 주세요.');
     if (!EMAIL_PATTERN.test(trimmed)) return setError('이메일 형식이 올바르지 않습니다.');
 
+    // 이 탭에서 30분 안에 인증을 마쳤으면(일회용 증명 번호 보관) 바로 새 비밀번호 단계로 (보완 7 추가 · 10-22)
+    if (getProof(trimmed)) {
+      setError('');
+      setStep('password');
+      setNotice('');
+      return;
+    }
     setBusy(true);
     setError('');
     try {
       const result = await sendPasswordResetCode(trimmed);
-      if (result.alreadyVerified) {
-        // 30분 안에 이미 인증을 마쳤으면 바로 새 비밀번호 단계로
-        setStep('password');
-        setNotice('');
-        return;
-      }
       const sentAt = Date.now();
       setTimer({ expiresAt: sentAt + result.expiresInSeconds * 1000, resendAt: sentAt + result.resendAfterSeconds * 1000 });
       setNow(sentAt);
@@ -79,7 +81,8 @@ export default function PasswordResetModal({ initialEmail = '', onClose }) {
     setBusy(true);
     setError('');
     try {
-      await confirmPasswordResetCode(email.trim(), code);
+      const token = await confirmPasswordResetCode(email.trim(), code);
+      saveProof(email.trim(), token); // 새 비밀번호 요청에 같이 보낼 일회용 증명 번호
       setStep('password');
       setNotice('');
     } catch (err) {
@@ -98,9 +101,15 @@ export default function PasswordResetModal({ initialEmail = '', onClose }) {
     setBusy(true);
     setError('');
     try {
-      await resetPassword(email.trim(), password);
+      await resetPassword(email.trim(), password, getProof(email.trim()));
+      clearProof(email.trim()); // 한 번 쓰면 끝
       setStep('done');
     } catch (err) {
+      // 서버가 증명 번호를 거절(서버 재시작 · 30분 지남 등) → 보관한 번호를 버리고 처음부터 다시 인증
+      if (err.response?.data?.error?.code === 'EMAIL_NOT_VERIFIED') {
+        clearProof(email.trim());
+        setStep('email');
+      }
       setError(messageOf(err, '비밀번호를 바꾸지 못했습니다. 잠시 후 다시 시도해 주세요.'));
     } finally {
       setBusy(false);

@@ -75,9 +75,10 @@ public class AuthApiController {
     // POST /api/v1/auth/email-verification/confirm — 보완 7: 코드 확인. 본문 { email, code }
     // 호출: SignupPage.jsx 인증 코드 [확인] → authApi.confirmEmailCode
     @PostMapping("/email-verification/confirm")
-    public ApiResponse<Void> confirmEmailVerification(@Valid @RequestBody EmailVerificationRequest request) {
-        authService.confirmEmailVerification(request.getEmail(), request.getCode());
-        return ApiResponse.ok(null);
+    // 보완 7 추가(10-22): 성공하면 { verificationToken } — 회원가입 요청에 같이 보낸다
+    public ApiResponse<EmailVerificationProof> confirmEmailVerification(@Valid @RequestBody EmailVerificationRequest request) {
+        return ApiResponse.ok(new EmailVerificationProof(
+                authService.confirmEmailVerification(request.getEmail(), request.getCode())));
     }
 
     // POST /api/v1/auth/password-reset/code — 보완 7 추가: 비밀번호 찾기 인증 코드 받기. 본문 { email }
@@ -89,9 +90,10 @@ public class AuthApiController {
 
     // POST /api/v1/auth/password-reset/confirm — 코드 확인. 본문 { email, code }
     @PostMapping("/password-reset/confirm")
-    public ApiResponse<Void> confirmPasswordResetCode(@Valid @RequestBody EmailVerificationRequest request) {
-        authService.confirmPasswordResetCode(request.getEmail(), request.getCode());
-        return ApiResponse.ok(null);
+    // 보완 7 추가(10-22): 성공하면 { verificationToken } — 새 비밀번호 요청에 같이 보낸다
+    public ApiResponse<EmailVerificationProof> confirmPasswordResetCode(@Valid @RequestBody EmailVerificationRequest request) {
+        return ApiResponse.ok(new EmailVerificationProof(
+                authService.confirmPasswordResetCode(request.getEmail(), request.getCode())));
     }
 
     // POST /api/v1/auth/password-reset — 새 비밀번호로 바꾸기. 본문 { email, newPassword }

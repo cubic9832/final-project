@@ -58,6 +58,9 @@ public class SignupRequest {
         this.email = email == null ? null : email.trim();
     }
 
+    // 보완 7 추가(10-22): 코드 확인 때 받은 일회용 증명 번호 (없으면 이메일 인증을 안 한 것으로 본다)
+    private String verificationToken;
+
     public void setNickName(String nickName) {
         this.nickName = nickName == null ? null : nickName.trim();
     }

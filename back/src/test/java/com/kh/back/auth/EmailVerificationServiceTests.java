@@ -17,7 +17,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.util.ReflectionTestUtils;
 
-// 보완 7 추가(10-20): 하루 발송 상한 · 이미 인증된 이메일은 다시 보내지 않음
+// 보완 7 추가: 하루 발송 상한(10-20) · 이미 인증한 이메일도 새 코드를 보냄(10-22, 증명 번호는 인증한 사람만 가짐)
 @ExtendWith(MockitoExtension.class)
 class EmailVerificationServiceTests {
 
@@ -39,13 +39,17 @@ class EmailVerificationServiceTests {
     }
 
     @Test
-    void 인증한지_30분이_안된_이메일은_다시_보내지_않는다() {
+    void 이미_인증한_이메일도_다시_받으면_새_코드를_보낸다() {
+        ReflectionTestUtils.setField(service, "dailyLimit", 10);
         EmailVerificationDto saved = new EmailVerificationDto();
         saved.setEmail("a@example.com");
         saved.setVerifiedAt(LocalDateTime.now().minusMinutes(10));
+        saved.setLastSentAt(LocalDateTime.now().minusMinutes(10));
+        saved.setSendWindowStartedAt(LocalDateTime.now().minusMinutes(10));
+        saved.setSendCount(1);
         when(verificationMapper.findByEmail("a@example.com")).thenReturn(saved);
 
-        assertThat(service.sendCode("a@example.com")).isTrue();
-        verify(mailSender, never()).send(any(), any());
+        service.sendCode("a@example.com");
+        verify(mailSender).send(org.mockito.ArgumentMatchers.eq("a@example.com"), any());
     }
 }

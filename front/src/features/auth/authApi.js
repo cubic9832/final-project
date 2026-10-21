@@ -4,8 +4,9 @@ import client from '../../shared/api/client';
 // 회원가입 — 성공하면 가입한 회원 정보 { id, email, nickName, role, phoneMasked, birthDate, gender } 를 돌려준다.
 // 보완 5: phone(010-1234-5678) · birthDate(YYYY-MM-DD) · gender(MALE · FEMALE · NONE) 추가
 // 가입만 하고 로그인 상태로 만들지는 않는다 (로그인은 로그인 화면에서 따로 한다)
-export const signup = async ({ email, password, nickName, phone, birthDate, gender }) => {
-  const res = await client.post('/auth/signup', { email, password, nickName, phone, birthDate, gender });
+// 보완 7 추가(10-22): verificationToken = 인증 코드 확인 때 받은 일회용 증명 번호
+export const signup = async ({ email, password, nickName, phone, birthDate, gender, verificationToken }) => {
+  const res = await client.post('/auth/signup', { email, password, nickName, phone, birthDate, gender, verificationToken });
   return res.data.data;
 };
 
@@ -29,11 +30,13 @@ export const sendEmailCode = async (email) => {
 };
 
 // 보완 7: 인증 코드 확인 — 틀리면 400 (남은 횟수 안내), 만료 · 5번 틀림도 400
+// 보완 7 추가(10-22): 맞으면 일회용 증명 번호를 돌려준다 → 가입 요청에 같이 보낸다
 export const confirmEmailCode = async (email, code) => {
-  await client.post('/auth/email-verification/confirm', { email, code });
+  const res = await client.post('/auth/email-verification/confirm', { email, code });
+  return res.data.data.verificationToken;
 };
 
-// 보완 7 추가: 비밀번호 찾기 — 가입한 이메일로 코드 받기({ expiresInSeconds, resendAfterSeconds, mailEnabled, alreadyVerified }) · 확인 · 새 비밀번호
+// 보완 7 추가: 비밀번호 찾기 — 가입한 이메일로 코드 받기({ expiresInSeconds, resendAfterSeconds, mailEnabled }) · 확인 · 새 비밀번호
 // 가입 안 한 이메일 400 EMAIL_NOT_FOUND, 구글로만 가입한 계정 400 SOCIAL_ACCOUNT
 export const sendPasswordResetCode = async (email) => {
   const res = await client.post('/auth/password-reset/code', { email });
@@ -41,12 +44,13 @@ export const sendPasswordResetCode = async (email) => {
 };
 
 export const confirmPasswordResetCode = async (email, code) => {
-  await client.post('/auth/password-reset/confirm', { email, code });
+  const res = await client.post('/auth/password-reset/confirm', { email, code });
+  return res.data.data.verificationToken; // 일회용 증명 번호 (보완 7 추가 · 10-22)
 };
 
 // 성공하면 모든 기기 로그인이 끊긴다 → 새 비밀번호로 다시 로그인
-export const resetPassword = async (email, newPassword) => {
-  await client.post('/auth/password-reset', { email, newPassword });
+export const resetPassword = async (email, newPassword, verificationToken) => {
+  await client.post('/auth/password-reset', { email, newPassword, verificationToken });
 };
 
 // 보완 2 추가: 마이페이지 비밀번호 변경 — 성공하면 이 기기의 새 토큰을 저장한다 (다른 기기 로그인은 서버가 끊는다)

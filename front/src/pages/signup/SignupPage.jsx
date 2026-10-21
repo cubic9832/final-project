@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { checkNickName, confirmEmailCode, sendEmailCode, signup } from '../../features/auth/authApi';
 import { checkNickNameWords } from '../../features/auth/nickNamePolicy';
+import { clearProof, getProof, saveProof } from '../../features/auth/verificationProof';
 import { suggestEmail } from './emailTypo';
 import PasswordInput from '../../features/auth/components/PasswordInput';
 import { getPasswordRules, PASSWORD_MAX, validatePassword } from '../../features/auth/passwordPolicy';
@@ -164,17 +165,18 @@ export default function SignupPage() {
       return;
     }
     const email = form.email.trim();
+    // 보완 7 추가: 이 탭에서 30분 안에 인증한 이메일(예: 인증 후 새로고침) → 다시 보내지 않고 바로 인증 완료
+    // (10-22: 서버가 "이미 인증됨"을 알려 주지 않고, 인증한 사람 탭에 보관한 일회용 증명 번호로 판단)
+    if (getProof(email)) {
+      setChecked((prev) => ({ ...prev, email }));
+      setVerification(null);
+      setErrors((prev) => ({ ...prev, email: undefined, emailCode: undefined }));
+      setDuplicateNotices((prev) => ({ ...prev, email: '이미 인증된 이메일입니다.' }));
+      return;
+    }
     setChecking('email');
     try {
       const result = await sendEmailCode(email);
-      // 보완 7 추가(10-20): 30분 안에 이미 인증한 이메일(예: 인증 후 새로고침) → 다시 보내지 않고 바로 인증 완료
-      if (result.alreadyVerified) {
-        setChecked((prev) => ({ ...prev, email }));
-        setVerification(null);
-        setErrors((prev) => ({ ...prev, email: undefined, emailCode: undefined }));
-        setDuplicateNotices((prev) => ({ ...prev, email: '이미 인증된 이메일입니다.' }));
-        return;
-      }
       const sentAt = Date.now();
       setVerification({
         email,
@@ -210,7 +212,8 @@ export default function SignupPage() {
     }
     setChecking('emailCode');
     try {
-      await confirmEmailCode(verification.email, emailCode);
+      const token = await confirmEmailCode(verification.email, emailCode);
+      saveProof(verification.email, token); // 가입할 때 같이 보낼 일회용 증명 번호
       setChecked((prev) => ({ ...prev, email: verification.email }));
       setVerification(null);
       setErrors((prev) => ({ ...prev, email: undefined, emailCode: undefined }));
@@ -308,7 +311,9 @@ export default function SignupPage() {
         phone: form.phone,
         birthDate: form.birthDate,
         gender: form.gender,
+        verificationToken: getProof(form.email.trim()), // 보완 7 추가: 인증한 사람만 가진 번호
       });
+      clearProof(member.email); // 한 번 쓰면 끝 (서버에서도 지움)
       setJoinedEmail(member.email);
       setIsCompleteOpen(true);
     } catch (error) {
@@ -316,6 +321,7 @@ export default function SignupPage() {
       const { code, message } = error.response?.data?.error ?? {};
       // 확인과 가입 사이에 다른 사람이 먼저 가입한 경우 — 해당 칸에 표시하고 다시 확인하게 한다
       if (code === 'EMAIL_DUPLICATED' || code === 'EMAIL_NOT_VERIFIED') {
+        clearProof(form.email.trim()); // 서버가 거절한 번호는 버리고 다시 인증
         setErrors((prev) => ({ ...prev, email: message }));
         setChecked((prev) => ({ ...prev, email: '' }));
       } else if (code === 'NICKNAME_DUPLICATED') {

@@ -25,6 +25,9 @@ public class PasswordResetRequest {
             message = "비밀번호는 영문 · 숫자 · 특수문자를 모두 포함하고 공백이 없어야 합니다.")
     private String newPassword;
 
+    // 보완 7 추가(10-22): 코드 확인 때 받은 일회용 증명 번호 (없으면 이메일 인증을 안 한 것으로 본다)
+    private String verificationToken;
+
     public void setEmail(String email) {
         this.email = email == null ? null : email.trim();
     }

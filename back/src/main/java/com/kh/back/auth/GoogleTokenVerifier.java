@@ -6,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+import java.time.Duration;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestClientException;
 
@@ -22,7 +24,15 @@ public class GoogleTokenVerifier {
     private static final String TOKEN_INFO_URL = "https://oauth2.googleapis.com/tokeninfo?id_token={token}";
 
     private final String clientId;
-    private final RestClient restClient = RestClient.create();
+    // 10-22: 구글이 응답하지 않을 때 로그인 요청이 끝없이 기다리지 않도록 시간 제한 (연결 3초 · 응답 5초)
+    private final RestClient restClient = RestClient.builder().requestFactory(timeoutFactory()).build();
+
+    private static SimpleClientHttpRequestFactory timeoutFactory() {
+        SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
+        factory.setConnectTimeout(Duration.ofSeconds(3));
+        factory.setReadTimeout(Duration.ofSeconds(5));
+        return factory;
+    }
 
     public GoogleTokenVerifier(@Value("${google.client-id:}") String clientId) {
         this.clientId = clientId;

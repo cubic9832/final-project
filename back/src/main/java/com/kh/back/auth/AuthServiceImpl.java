@@ -35,6 +35,7 @@ public class AuthServiceImpl implements AuthService {
     private final LoginAttemptLimiter loginAttemptLimiter;
     private final PasswordChangeLimiter passwordChangeLimiter; // 보완 2 추가: 비밀번호 변경에서 현재 비밀번호 틀린 횟수
     private final EmailVerificationService emailVerificationService;
+    private final EmailVerificationProofStore verificationProofStore; // 보완 7 추가: 인증한 사람에게만 주는 일회용 증명
     private final GoogleTokenVerifier googleTokenVerifier;
     private final GoogleSignupStore googleSignupStore;
     private final SocialAccountMapper socialAccountMapper;
@@ -65,7 +66,9 @@ public class AuthServiceImpl implements AuthService {
             throw emailDuplicated();
         }
         // 보완 7: 이메일 인증을 마쳐야 가입할 수 있다 (인증 후 30분 안)
-        if (!emailVerificationService.isVerified(email)) {
+        // 보완 7 추가(10-22): 인증한 그 사람이 받은 일회용 증명 번호도 있어야 한다 (같은 이메일로 다른 사람이 끼어들지 못하게)
+        if (!emailVerificationService.isVerified(email)
+                || !verificationProofStore.isValid(request.getVerificationToken(), email)) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "EMAIL_NOT_VERIFIED", "이메일 인증을 완료해 주세요.");
         }
         String nickName = request.getNickName().trim();
@@ -101,6 +104,7 @@ public class AuthServiceImpl implements AuthService {
         // (없는 이메일로 틀린 기록이 새 계정의 첫 로그인에 이어져 바로 reCAPTCHA 가 뜨지 않게)
         loginAttemptLimiter.reset(email);
         emailVerificationService.consume(email); // 보완 7: 쓴 인증 기록은 지운다
+        verificationProofStore.remove(request.getVerificationToken()); // 증명 번호도 한 번 쓰면 끝
 
         return MemberResponse.from(member, profile);
     }
@@ -120,15 +124,17 @@ public class AuthServiceImpl implements AuthService {
         if (!isEmailAvailable(email)) {
             throw emailDuplicated();
         }
-        boolean alreadyVerified = emailVerificationService.sendCode(normalizeEmail(email));
+        emailVerificationService.sendCode(normalizeEmail(email));
         return new EmailVerificationResponse(EmailVerificationService.CODE_VALIDITY.getSeconds(),
-                EmailVerificationService.RESEND_COOLDOWN.getSeconds(), emailVerificationService.isMailEnabled(),
-                alreadyVerified);
+                EmailVerificationService.RESEND_COOLDOWN.getSeconds(), emailVerificationService.isMailEnabled());
     }
 
+    // 코드가 맞으면 일회용 증명 번호를 준다 (보완 7 추가 · 10-22)
     @Override
-    public void confirmEmailVerification(String email, String code) {
-        emailVerificationService.confirmCode(normalizeEmail(email), code);
+    public String confirmEmailVerification(String email, String code) {
+        String normalized = normalizeEmail(email);
+        emailVerificationService.confirmCode(normalized, code);
+        return verificationProofStore.issue(normalized);
     }
 
     // 보완 3: [중복 확인] 버튼 — 형식이 맞고 아직 가입되지 않은 이메일이면 true
@@ -160,16 +166,17 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public EmailVerificationResponse sendPasswordResetCode(String email) {
         String normalized = resetTarget(email).getEmail();
-        boolean alreadyVerified = emailVerificationService.sendCode(normalized);
+        emailVerificationService.sendCode(normalized);
         return new EmailVerificationResponse(EmailVerificationService.CODE_VALIDITY.getSeconds(),
-                EmailVerificationService.RESEND_COOLDOWN.getSeconds(), emailVerificationService.isMailEnabled(),
-                alreadyVerified);
+                EmailVerificationService.RESEND_COOLDOWN.getSeconds(), emailVerificationService.isMailEnabled());
     }
 
-    // ② 코드 확인
+    // ② 코드 확인 — 맞으면 일회용 증명 번호 (보완 7 추가 · 10-22)
     @Override
-    public void confirmPasswordResetCode(String email, String code) {
-        emailVerificationService.confirmCode(resetTarget(email).getEmail(), code);
+    public String confirmPasswordResetCode(String email, String code) {
+        String normalized = resetTarget(email).getEmail();
+        emailVerificationService.confirmCode(normalized, code);
+        return verificationProofStore.issue(normalized);
     }
 
     // ③ 새 비밀번호로 바꾸기 — 인증 후 30분 안, 회원가입과 같은 비밀번호 규칙
@@ -179,7 +186,9 @@ public class AuthServiceImpl implements AuthService {
     public void resetPassword(PasswordResetRequest request) {
         MemberDto member = resetTarget(request.getEmail());
         String email = member.getEmail();
-        if (!emailVerificationService.isVerified(email)) {
+        // 보완 7 추가(10-22): 이메일 인증 + 인증한 사람이 받은 일회용 증명 번호 (인증 직후 다른 사람이 비밀번호를 바꾸지 못하게)
+        if (!emailVerificationService.isVerified(email)
+                || !verificationProofStore.isValid(request.getVerificationToken(), email)) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "EMAIL_NOT_VERIFIED", "이메일 인증을 먼저 완료해 주세요.");
         }
         String violation = PasswordPolicy.check(request.getNewPassword(), email);
@@ -190,6 +199,7 @@ public class AuthServiceImpl implements AuthService {
         refreshTokenMapper.deleteByUserId(member.getId());
         loginAttemptLimiter.reset(email);
         emailVerificationService.consume(email);
+        verificationProofStore.remove(request.getVerificationToken());
     }
 
     // 보완 2 추가: 마이페이지 비밀번호 변경 — 현재 비밀번호 확인 → 회원가입과 같은 규칙 → 저장
