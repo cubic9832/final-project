@@ -49,3 +49,12 @@
 .result-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 .result-missing { margin-bottom: 16px; padding: 12px 16px; border-radius: 8px; background: #fff7e2; color: #926500; font-size: 12px; }
 @media (max-width: 700px) { .result-metrics, .result-chart-grid, .result-factor-grid { grid-template-columns: 1fr; } }
+.result-condition-note {
+  margin-top: var(--space-16);
+  padding: var(--space-12);
+  border-radius: var(--radius-sm);
+  background: var(--color-warning-tint);
+  color: var(--color-text-sub);
+  font-size: var(--font-caption);
+  line-height: 1.8;
+}
