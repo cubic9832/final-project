@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { importanceLabel, sizeLabel } from '../../vehiclePreferences.js';
 import { calculateFinancialSummary } from '../../calculateFinancialSummary';
 import { buildCandidateRecommendation } from '../../buildCandidateRecommendation';
 import { getFinancialRecommendations } from '../../financialRecommendationApi';
@@ -53,7 +54,7 @@ export default function FinancialResultPage() {
         {[['월 소득', totals.income], ['주거·생활·고정 지출', totals.expenses - totals.loanPayment], ['기존 대출 월 상환', totals.loanPayment], ['목표 저축', totals.savings], ['월 가용자금', totals.available]].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{money(value)}</dd></div>)}
       </dl></section>
       <section className="result-card"><h2>추천에 적용할 조건</h2><dl className="result-distribution">
-        {[['이용 목적', vehicle.purpose], ['연간 주행거리', vehicle.annualDistance], ['할부 기간', vehicle.installment], ['선호 연료', vehicle.fuel], ['충전 조건', vehicle.charging]].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+        {[['이용 목적', vehicle.purpose], ['연간 주행거리', vehicle.annualDistance], ['할부 기간', vehicle.installment], ['선호 연료', vehicle.fuel], ['충전 조건', vehicle.charging], ['가성비 중요도', importanceLabel(vehicle.costImportance)], ['공간 중요도', importanceLabel(vehicle.spaceImportance)], ['선호 크기', sizeLabel(vehicle.preferredSize)]].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
       </dl></section>
     </div>
     <aside className="result-warning"><h2>차량별 비용을 확인하세요</h2><p>기본 금리 연 6%, 비용 상승 시 금리 +3%p와 유지비 증가를 적용합니다. 적격 후보 중 비용·연료 선호를 기준으로 순위를 정하며 조건을 만족하는 차량이 없을 수도 있습니다. 가격은 수집 시점 자료이고, 세금·보험·정비·에너지 단가는 실험 가정입니다. 금융 심사나 실제 만족도를 보장하지 않습니다.</p></aside>

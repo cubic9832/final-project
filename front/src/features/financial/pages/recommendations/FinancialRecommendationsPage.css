@@ -50,3 +50,8 @@
 @media (max-width: 1024px) { .financial-recommendations-grid { gap: var(--space-16); } .financial-recommendations-summary dl { grid-template-columns: 1fr 1fr; } .financial-recommendations-summary dl > div:last-child { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--color-border); padding: var(--space-16) 0 0; } }
 @media (max-width: 768px) { .financial-recommendations-grid { grid-template-columns: 1fr; } .financial-recommendations-actions button { flex: 1; } }
 @media (max-width: 480px) { .financial-recommendations-summary dl { grid-template-columns: 1fr; } .financial-recommendations-summary dl > div + div { border-left: 0; border-top: 1px solid var(--color-border); padding: var(--space-16) 0 0; } .financial-recommendations-actions { flex-direction: column; } }
+
+.candidate-score { padding: var(--space-16); background: var(--color-blue-tint); border-radius: var(--radius-md); margin-bottom: var(--space-16); }
+.candidate-score h3 { font-size: var(--font-card-title); }
+.candidate-score p { font-size: var(--font-caption); margin-top: var(--space-8); color: var(--color-muted); }
+.candidate-score dl > div { display: flex; justify-content: space-between; gap: var(--space-8); font-size: var(--font-caption); margin-top: var(--space-8); }

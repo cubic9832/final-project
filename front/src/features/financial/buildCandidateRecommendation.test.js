@@ -36,6 +36,19 @@ test('no fuel preference, no debt and outright payment remain explicit values', 
   assert.equal(request.profile.existing_monthly_payment, 0);
 });
 
+test('importance and spatial requirements reach v2 without changing financial amounts', () => {
+  const state = diagnosis();
+  Object.assign(state.vehicle, { costImportance: '5', spaceImportance: '1', minimumSeats: '4', preferredSize: 'small' });
+  const { request } = buildCandidateRecommendation(state);
+  assert.equal(request.profile.cost_importance, 5);
+  assert.equal(request.profile.space_importance, 1);
+  assert.equal(request.profile.minimum_seats, 4);
+  assert.equal(request.profile.preferred_size, 'small');
+  assert.equal(request.profile.existing_monthly_payment, 200000);
+  state.vehicle.spaceImportance = '1.5';
+  assert.equal(buildCandidateRecommendation(state).request, null);
+});
+
 test('missing required values and impossible cash plans do not reach inference', () => {
   assert.equal(buildCandidateRecommendation({}).request, null);
   for (const change of [state => { state.values.income = ''; }, state => { state.assets.downPayment = '3000'; },

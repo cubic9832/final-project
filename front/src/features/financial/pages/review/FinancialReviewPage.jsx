@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { calculateFinancialSummary } from '../../calculateFinancialSummary';
+import { importanceLabel, sizeLabel } from '../../vehiclePreferences.js';
 import { FinancialProgress } from '../overview/FinancialPage';
 import '../../styles/FinancialPages.css';
 import './FinancialReviewPage.css';
@@ -32,7 +33,7 @@ export default function FinancialReviewPage() {
     ['사용 가능 예금', money(assets.deposit)], ['선수금', money(assets.downPayment)], ['비상자금', money(assets.emergency)],
     ['월 부채상환', loans ? money(loans.reduce((sum, loan) => sum + Number(loan.payment || 0), 0)) : '입력 필요'],
   ];
-  const vehicleRows = [['추천용 이용 목적', text(vehicle.purpose)], ['추천용 연간 주행', text(vehicle.annualDistance)], ['할부 기간', text(vehicle.installment)], ['선호 연료', text(vehicle.fuel)], ['충전 조건', text(vehicle.charging)], ['최소 월 여유자금', money(vehicle.minimumBuffer)]];
+  const vehicleRows = [['추천용 이용 목적', text(vehicle.purpose)], ['추천용 연간 주행', text(vehicle.annualDistance)], ['할부 기간', text(vehicle.installment)], ['선호 연료', text(vehicle.fuel)], ['충전 조건', text(vehicle.charging)], ['최소 월 여유자금', money(vehicle.minimumBuffer)], ['가성비 중요도', importanceLabel(vehicle.costImportance)], ['공간 중요도', importanceLabel(vehicle.spaceImportance)], ['선호 크기', sizeLabel(vehicle.preferredSize)], ['최소 탑승 인원', Number(vehicle.minimumSeats) > 0 ? `${vehicle.minimumSeats}명` : '미지정']];
   function handleAnalysis() {
     navigate('/financial/result', { state });
   }

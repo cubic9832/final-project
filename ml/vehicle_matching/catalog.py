@@ -24,6 +24,9 @@ class Vehicle:
     checked_on: str
     # A price snapshot is not proof of present availability or manual verification.
     quality: str = 'automatically-extracted-snapshot'
+    length_mm: int | None = None
+    seats: int | None = None
+    space_source_url: str | None = None
 
     def __post_init__(self):
         import math
@@ -33,6 +36,10 @@ class Vehicle:
             raise ValueError('Unsupported fuel or invalid vehicle price')
         if self.efficiency is not None and (not math.isfinite(self.efficiency) or self.efficiency <= 0):
             raise ValueError('Efficiency must be positive or unknown')
+        if self.length_mm is not None and (type(self.length_mm) is not int or not 2500 <= self.length_mm <= 6000):
+            raise ValueError('Invalid vehicle length')
+        if self.seats is not None and (type(self.seats) is not int or not 1 <= self.seats <= 15):
+            raise ValueError('Invalid seating capacity')
 
 
 def load_csv(path=DEFAULT_CSV):

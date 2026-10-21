@@ -4,6 +4,7 @@ import logging
 import os
 from contextlib import asynccontextmanager
 from pathlib import Path
+from dataclasses import replace
 from typing import Literal
 
 from fastapi import FastAPI, Request
@@ -36,6 +37,10 @@ class ProfileRequest(BaseModel):
     purpose: Literal['commute', 'leisure', 'family', 'business'] = 'commute'
     preferred_fuel: Literal['GASOLINE', 'HYBRID', 'DIESEL', 'LPG', 'ELECTRIC'] | None = None
     charging_available: bool = Field(default=False, strict=True)
+    cost_importance: int = Field(default=3, ge=1, le=5, strict=True)
+    space_importance: int = Field(default=3, ge=1, le=5, strict=True)
+    minimum_seats: int = Field(default=0, ge=0, le=9, strict=True)
+    preferred_size: Literal['any', 'small', 'medium', 'large'] = 'any'
 
 
 class RecommendationRequest(BaseModel):
@@ -55,6 +60,11 @@ def load_service(directory):
         vehicles = load_csv(Path(override))[0] if Path(override).suffix.lower() == '.csv' else read_catalog(override)
     else:
         vehicles = read_catalog(path / 'catalog.json')
+        evidence = json.loads((ROOT / 'data/vehicles/candidate-space-evidence.json').read_text(encoding='utf-8'))['vehicles']
+        lookup = {(row['brand'], row['model']): row for row in evidence}
+        vehicles = [replace(v, length_mm=lookup[(v.brand, v.model)]['length_mm'],
+                            space_source_url=lookup[(v.brand, v.model)]['source_url'])
+                    if (v.brand, v.model) in lookup else v for v in vehicles]
     return CandidateService(PairRanker.load(path), vehicles)
 
 
@@ -85,6 +95,8 @@ def create_app(service=None):
         current = request.app.state.candidates
         return {'success': True, 'data': {'modelVersion': 'candidate-v2', 'catalogCount': len(current.vehicles),
                 'modelNames': len({(v.brand, v.model) for v in current.vehicles}),
+                'verifiedLengthCount': sum(v.length_mm is not None for v in current.vehicles),
+                'verifiedSeatsCount': sum(v.seats is not None for v in current.vehicles),
                 'requiredFields': [name for name, field in ProfileRequest.model_fields.items() if field.is_required()],
                 'assumptions': current.ranker.assumptions.to_dict()}}
 

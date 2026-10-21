@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Car } from 'lucide-react';
 import theme from '../../../../styles/theme.js';
+import { importanceLevels, sizeOptions, importanceLabel, sizeLabel } from '../../vehiclePreferences.js';
 import { FinancialProgress } from '../overview/FinancialPage';
 import '../../styles/FinancialPages.css';
 import './FinancialVehiclePage.css';
@@ -16,6 +17,7 @@ const vehicleFields = [
 const initialVehicle = {
   purpose: '출퇴근', ...Object.fromEntries(vehicleFields.map(({ name, options }) => [name, options[0]])),
   annualDistance: '15,000km', installment: '48개월', minimumBuffer: '0',
+  costImportance: '3', spaceImportance: '3', minimumSeats: '0', preferredSize: 'any',
 };
 export default function FinancialVehiclePage() {
   const { state } = useLocation();
@@ -41,7 +43,21 @@ export default function FinancialVehiclePage() {
         <div className="financial-entry-grid">
           <section className="financial-entry-card vehicle-entry-card" aria-labelledby="vehicle-title">
             <h2 id="vehicle-title">3. 차량 이용</h2>
-            <p>주행거리·할부 기간·충전 조건을 반영합니다. 선호 연료는 순위에 반영하며 공간·안전은 아직 평가하지 않습니다.</p>
+            <p>재무 조건을 통과한 후보에 가성비·크기 중요도를 반영합니다. 크기는 실내 공간이 아닌 전장 기준입니다.</p>
+            <fieldset className="vehicle-preferences">
+              <legend>중요하게 생각하는 요소</legend>
+              <p>중요도는 1~5 가중치로 반영합니다. 중요하지 않아도 비싼 차나 큰 차를 선호한다는 뜻은 아닙니다.</p>
+              <div className="vehicle-fields">
+                {[['costImportance', '가성비 중요도 · 구매비 + 유지비'], ['spaceImportance', '공간 중요도 · 선호 크기 일치']].map(([name, label]) => <div className="financial-field" key={name}>
+                  <label htmlFor={`vehicle-${name}`}>{label}</label><select id={`vehicle-${name}`} value={vehicle[name]} onChange={event => setVehicle(previous => ({ ...previous, [name]: event.target.value }))}>
+                    {importanceLevels.map(item => <option value={item.value} key={item.value}>{item.label}</option>)}
+                  </select>
+                </div>)}
+                <div className="financial-field"><label htmlFor="vehicle-preferredSize">선호 크기</label><select id="vehicle-preferredSize" value={vehicle.preferredSize} onChange={event => setVehicle(previous => ({ ...previous, preferredSize: event.target.value }))}>{sizeOptions.map(item => <option key={item.value} value={item.value}>{item.label}</option>)}</select></div>
+                <div className="financial-field"><label htmlFor="vehicle-minimumSeats">최소 탑승 인원 · 필수 조건</label><select id="vehicle-minimumSeats" value={vehicle.minimumSeats} onChange={event => setVehicle(previous => ({ ...previous, minimumSeats: event.target.value }))}><option value="0">미지정</option>{[2, 3, 4, 5, 6, 7, 8, 9].map(value => <option key={value} value={value}>{value}명 이상</option>)}</select></div>
+              </div>
+              <p>최소 인원을 지정하면 좌석 수 미확인 차량은 제외합니다. 현재 좌석 자료가 부족해 결과가 없을 수 있습니다. 크기 미지정 시 공간 중요도는 점수에 반영하지 않습니다.</p>
+            </fieldset>
             <fieldset className="vehicle-purpose">
               <legend>주 이용 목적</legend>
               <div className="vehicle-purpose-options">
@@ -77,6 +93,9 @@ export default function FinancialVehiclePage() {
                 <div><dt>월 환산 주행</dt><dd>{Math.round(Number(vehicle.annualDistance.replace(/[^0-9]/g, '')) / 12).toLocaleString('ko-KR')}km</dd></div>
                 <div><dt>선호 할부</dt><dd>{vehicle.installment}</dd></div>
                 <div><dt>선호 연료</dt><dd>{vehicle.fuel}</dd></div><div><dt>최소 월 여유자금</dt><dd>{vehicle.minimumBuffer || 0}만 원</dd></div>
+                <div><dt>가성비 중요도</dt><dd>{importanceLabel(vehicle.costImportance)}</dd></div>
+                <div><dt>공간 중요도</dt><dd>{importanceLabel(vehicle.spaceImportance)}</dd></div>
+                <div><dt>선호 크기</dt><dd>{sizeLabel(vehicle.preferredSize)}</dd></div>
               </dl>
             </div>
           </aside>

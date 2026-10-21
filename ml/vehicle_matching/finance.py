@@ -23,6 +23,10 @@ class Profile:
     purpose: str = 'commute'
     preferred_fuel: str | None = None
     charging_available: bool = False
+    cost_importance: int = 3
+    space_importance: int = 3
+    minimum_seats: int = 0
+    preferred_size: str = 'any'
 
     def __post_init__(self):
         for name in ('monthly_income', 'monthly_expenses', 'existing_monthly_payment', 'liquid_assets',
@@ -41,6 +45,13 @@ class Profile:
             raise ValueError('charging_available must be boolean')
         if self.down_payment + self.emergency_reserve > self.liquid_assets:
             raise ValueError('down_payment + emergency_reserve exceeds liquid_assets')
+        for weight in (self.cost_importance, self.space_importance):
+            if type(weight) is not int or not 1 <= weight <= 5:
+                raise ValueError('Importance must be an integer from 1 to 5')
+        if type(self.minimum_seats) is not int or not 0 <= self.minimum_seats <= 9:
+            raise ValueError('Invalid minimum seating capacity')
+        if self.preferred_size not in ('any', 'small', 'medium', 'large'):
+            raise ValueError('Unknown preferred size')
 
 
 @dataclass(frozen=True)

@@ -26,6 +26,10 @@ export function buildCandidateRecommendation({ values = {}, assets = {}, loans, 
     purpose: purposes[vehicle.purpose],
     preferred_fuel: fuels[vehicle.fuel],
     charging_available: ['집에서 충전 가능', '직장에서 충전 가능', '집 · 직장 충전 가능'].includes(vehicle.charging),
+    cost_importance: Number(vehicle.costImportance ?? 3),
+    space_importance: Number(vehicle.spaceImportance ?? 3),
+    minimum_seats: Number(vehicle.minimumSeats ?? 0),
+    preferred_size: vehicle.preferredSize ?? 'any',
   };
   if (!Array.isArray(loans)) errors.push('대출 내역');
   else for (const loan of loans) {
@@ -40,6 +44,9 @@ export function buildCandidateRecommendation({ values = {}, assets = {}, loans, 
   if (!Number.isFinite(distance) || distance > 200000) errors.push('연간 주행거리');
   if (!Number.isFinite(months)) errors.push('할부 기간');
   if (!profile.purpose) errors.push('이용 목적');
+  if (![profile.cost_importance, profile.space_importance].every(value => Number.isInteger(value) && value >= 1 && value <= 5)) errors.push('요소 중요도');
+  if (!Number.isInteger(profile.minimum_seats) || profile.minimum_seats < 0 || profile.minimum_seats > 9) errors.push('최소 탑승 인원');
+  if (!['any', 'small', 'medium', 'large'].includes(profile.preferred_size)) errors.push('선호 크기');
   if (!(vehicle.fuel in fuels)) errors.push('선호 연료');
   if (!['충전 불가', '집에서 충전 가능', '직장에서 충전 가능', '집 · 직장 충전 가능'].includes(vehicle.charging)) errors.push('충전 가능 여부');
   if (profile.down_payment + profile.emergency_reserve > profile.liquid_assets) errors.push('선수금과 비상 자금 합계는 예금 이내여야 합니다');
