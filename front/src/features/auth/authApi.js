@@ -60,13 +60,13 @@ export const changePassword = async ({ currentPassword, newPassword }) => {
   useAuthStore.getState().setAuth(res.data.data);
 };
 
-// 보완 8: 구글 로그인 — 연결된 회원 · 동의한 처음 온 사람이면 로그인 처리 후 회원 정보를 돌려준다
+// 보완 8: 구글 로그인 — 연결된 회원 · 동의한 처음 온 사람이면 로그인 처리 후 { member, newMember } 를 돌려준다
 // consent: 로그인 화면의 동의 체크(만 18세 이상 · 약관 · 개인정보)를 모두 했는지. 처음 온 사람인데 false 면 400 SIGNUP_CONSENT_REQUIRED
 // (10-22: 추가 정보 화면을 없애고 한 번에 가입 — 닉네임은 구글 이름, 생년월일 · 성별은 마이페이지에서)
 export const googleLogin = async (idToken, consent) => {
   const res = await client.post('/auth/google', { idToken, consent });
   useAuthStore.getState().setAuth(res.data.data);
-  return res.data.data.member;
+  return { member: res.data.data.member, newMember: res.data.data.newMember }; // newMember: 방금 새로 가입했는지
 };
 
 // 로그인 — 응답의 access token · 회원 정보를 스토어에 넣고, 회원 정보를 돌려준다

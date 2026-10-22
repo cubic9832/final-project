@@ -165,7 +165,8 @@ public class AuthApiController {
         ResponseCookie cookie = refreshCookie(tokens.getRefreshToken(), jwtProvider.getRefreshTokenValidity());
         return ResponseEntity.ok()
                 .header(HttpHeaders.SET_COOKIE, cookie.toString())
-                .body(ApiResponse.ok(new TokenResponse(tokens.getAccessToken(), tokens.getMember())));
+                .body(ApiResponse.ok(new TokenResponse(tokens.getAccessToken(), tokens.getMember())
+                        .markNewMember(tokens.isNewMember()))); // 구글 새 가입만 true
     }
 
     private ResponseCookie refreshCookie(String value, Duration maxAge) {

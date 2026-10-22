@@ -1,7 +1,7 @@
 package com.kh.back.auth;
 
 import com.kh.back.member.MemberResponse;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Getter;
 
 /**
@@ -10,9 +10,17 @@ import lombok.Getter;
  * (refresh token 은 재발급 단계에서 쿠키로 따로 보낸다)
  */
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class TokenResponse {
 
     private final String accessToken;
     private final MemberResponse member;
+
+    // 10-22: 구글로 방금 새로 가입했으면 true → 화면이 "닉네임은 ○○로 정해졌어요" 알림을 띄운다
+    private boolean newMember;
+
+    public TokenResponse markNewMember(boolean newMember) {
+        this.newMember = newMember;
+        return this;
+    }
 }

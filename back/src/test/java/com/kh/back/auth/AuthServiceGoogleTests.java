@@ -71,6 +71,7 @@ class AuthServiceGoogleTests {
         when(memberMapper.findById(7L)).thenReturn(member(7, "g.user@gmail.com", "SOCIAL_ONLY"));
 
         AuthTokens tokens = authService.googleLogin("id-token", false); // 기존 회원은 동의 체크와 상관없다
+        assertThat(tokens.isNewMember()).isFalse();
 
         assertThat(tokens.getMember().getId()).isEqualTo(7L);
         assertThat(tokens.getMember().isSocialOnly()).isTrue();
@@ -105,6 +106,7 @@ class AuthServiceGoogleTests {
         assertThat(tokens.getMember().isSocialOnly()).isTrue();
         assertThat(tokens.getMember().getEmail()).isEqualTo("g.user@gmail.com");
         assertThat(tokens.getMember().getNickName()).isEqualTo("구글사용자");
+        assertThat(tokens.isNewMember()).isTrue(); // 화면이 자동 닉네임 알림을 띄운다
         verify(socialAccountMapper).insert(eq(11L), eq("GOOGLE"), eq("google-sub-1"), eq("g.user@gmail.com"));
         verify(userProfileMapper, never()).insert(any()); // 생년월일 · 성별은 마이페이지에서
     }

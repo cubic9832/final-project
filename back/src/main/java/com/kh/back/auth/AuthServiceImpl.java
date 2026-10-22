@@ -302,7 +302,7 @@ public class AuthServiceImpl implements AuthService {
             throw reason.contains("uq_users_nick_name") ? nickNameDuplicated() : emailDuplicated(); // 동시에 같은 값이 들어온 드문 경우
         }
         socialAccountMapper.insert(member.getId(), GOOGLE, google.sub(), google.email());
-        return issueTokens(member);
+        return issueTokens(member).markNewMember(true); // 화면이 자동으로 정한 닉네임을 알려 준다
     }
 
     // 구글 이름으로 닉네임 자동 생성: 공백을 빼고 12자까지. 2자 미만 · 금지어 · 이미 사용 중이면 "회원" + 숫자 4자리

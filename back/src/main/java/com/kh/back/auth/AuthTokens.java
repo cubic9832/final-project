@@ -1,7 +1,7 @@
 package com.kh.back.auth;
 
 import com.kh.back.member.MemberResponse;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Getter;
 
 /**
@@ -10,10 +10,18 @@ import lombok.Getter;
  * (refresh token 을 본문에 넣으면 JavaScript 가 읽을 수 있게 되므로 본문에는 넣지 않는다)
  */
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class AuthTokens {
 
     private final String accessToken;
     private final String refreshToken;
     private final MemberResponse member;
+
+    // 10-22: 구글로 방금 새로 가입했으면 true → 화면이 "닉네임은 ○○로 정해졌어요" 알림을 띄운다
+    private boolean newMember;
+
+    public AuthTokens markNewMember(boolean newMember) {
+        this.newMember = newMember;
+        return this;
+    }
 }

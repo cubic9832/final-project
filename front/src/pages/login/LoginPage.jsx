@@ -7,6 +7,7 @@ import PasswordResetModal from './PasswordResetModal';
 import RecaptchaBox from './RecaptchaBox';
 import GoogleLoginButton from './GoogleLoginButton';
 import TermsModal from '../signup/TermsModal';
+import { showToast } from '../../stores/useToastStore';
 import theme from '../../styles/theme';
 import './LoginPage.css';
 
@@ -87,8 +88,12 @@ export default function LoginPage() {
       setLoginError('');
       const agreed = consentRef.current.terms && consentRef.current.privacy;
       try {
-        await googleLogin(idToken, agreed);
+        const { member, newMember } = await googleLogin(idToken, agreed);
         navigate(location.state?.from ?? '/', { replace: true });
+        // 10-22: 새로 가입했으면 자동으로 정한 닉네임을 알려 준다 (토스트 — 누를 것 없이 잠깐 떴다 사라짐)
+        if (newMember) {
+          showToast(`가입되었습니다. 닉네임은 '${member.nickName}'(으)로 정해졌어요. 생년월일·성별은 마이페이지에서 입력할 수 있습니다.`);
+        }
       } catch (error) {
         const { code, message } = error.response?.data?.error ?? {};
         if (code === 'SIGNUP_CONSENT_REQUIRED') setConsentError(true); // 처음 온 사람 → 동의 칸을 빨갛게
