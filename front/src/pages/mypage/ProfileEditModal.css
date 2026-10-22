@@ -53,3 +53,26 @@
   color: var(--color-blue-strong);
   font-size: var(--font-caption);
 }
+
+/* 10-22: 표시 이름 + [중복 확인] 한 줄 */
+.profile-nickname-row {
+  display: flex;
+  gap: var(--space-8);
+}
+
+.profile-nickname-row input {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-nickname-row .auth-modal-button {
+  flex: none;
+  width: 104px;
+  height: var(--layout-control-height);
+}
+
+.profile-nickname-ok {
+  margin-top: var(--space-4);
+  color: var(--color-mint-strong);
+  font-size: var(--font-caption);
+}
