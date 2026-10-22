@@ -535,25 +535,9 @@ export default function SignupPage() {
               </div>
             </div>
 
-            {/* 보완 5: 개인 정보 — 저장은 user_profiles(V8). 전화번호는 인증하지 않고 형식만 확인 */}
+            {/* 보완 5: 개인 정보 — 저장은 user_profiles(V8). 전화번호는 선택 항목(10-22)이라 맨 아래, 인증하지 않고 형식만 확인 */}
             <div className="signup-fields">
               <h3 className="signup-column-title">개인 정보</h3>
-              <div className="signup-field">
-                <label htmlFor="signup-phone">전화번호</label>
-                <div className="signup-input-wrap">
-                  <input
-                    id="signup-phone"
-                    type="tel"
-                    inputMode="numeric"
-                    placeholder="010-1234-5678"
-                    autoComplete="tel-national"
-                    maxLength={13}
-                    {...fieldProps('phone')}
-                  />
-                  {renderError('phone')}
-                </div>
-              </div>
-
               <div className="signup-field">
                 <label htmlFor="signup-birth-date">생년월일</label>
                 <div className="signup-input-wrap">
@@ -590,8 +574,26 @@ export default function SignupPage() {
                 </div>
               </div>
 
+              <div className="signup-field">
+                <label htmlFor="signup-phone">
+                  전화번호 <span className="signup-optional">(선택)</span>
+                </label>
+                <div className="signup-input-wrap">
+                  <input
+                    id="signup-phone"
+                    type="tel"
+                    inputMode="numeric"
+                    placeholder="010-1234-5678"
+                    autoComplete="tel-national"
+                    maxLength={13}
+                    {...fieldProps('phone')}
+                  />
+                  {renderError('phone')}
+                </div>
+              </div>
+
               <p className="signup-privacy-note">
-                생년월일 · 성별은 연령대별 차량 추천과 통계에 사용합니다. 전화번호는 연락용이며 인증에는 쓰지 않습니다.
+                생년월일 · 성별은 연령대별 차량 추천과 통계에 사용합니다. 전화번호는 선택이며, 입력하면 서비스 관련 연락에만 사용합니다.
                 <br />
                 차량 추천 서비스라 운전면허를 딸 수 있는 <strong>만 {MIN_SIGNUP_AGE}세 이상</strong>부터 가입할 수
                 있습니다.

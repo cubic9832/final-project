@@ -139,6 +139,12 @@
   outline-offset: 1px;
 }
 
+/* 선택 항목 표시: (선택) */
+.signup-optional {
+  color: #8d9bb0;
+  font-weight: 400;
+}
+
 .signup-field input::placeholder {
   color: #8d9bb0;
 }

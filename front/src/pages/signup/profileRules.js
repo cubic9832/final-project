@@ -20,8 +20,9 @@ export function formatPhone(value) {
   return `${digits.slice(0, 3)}-${digits.slice(3, 7)}-${digits.slice(7)}`;
 }
 
+// 전화번호는 선택 항목 (10-22: 문자 인증은 비용이 들어 하지 않으므로 필수에서 뺌) — 비워 두면 통과
 export function validatePhone(value) {
-  if (!value) return '전화번호를 입력해 주세요.';
+  if (!value) return '';
   if (!PHONE_PATTERN.test(value)) return '전화번호는 010-1234-5678 형식으로 입력해 주세요.';
   return '';
 }

@@ -1,6 +1,6 @@
 // 보완 8: 구글 첫 로그인 후 추가 정보 입력 (/signup/google)
 // 로그인 화면이 넘겨준 { signupToken, email, name } 으로 시작한다. 이메일 · 비밀번호는 받지 않는다 (구글이 확인)
-// 회원가입과 같은 규칙: 닉네임 2~12자 + 중복 확인, 전화번호 · 생년월일(만 18세 이상) · 성별 필수 (보완 5)
+// 회원가입과 같은 규칙: 닉네임 2~12자 + 중복 확인, 생년월일(만 18세 이상) · 성별 필수, 전화번호 선택 (보완 5 · 10-22)
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { checkNickName, googleSignup } from '../../features/auth/authApi';
@@ -194,24 +194,6 @@ export default function GoogleSignupPage() {
             </div>
 
             <div className="signup-field">
-              <label htmlFor="google-phone">전화번호</label>
-              <div className="signup-input-wrap">
-                <input
-                  id="google-phone"
-                  name="phone"
-                  type="tel"
-                  inputMode="numeric"
-                  placeholder="010-1234-5678"
-                  maxLength={13}
-                  value={form.phone}
-                  onChange={handleChange}
-                  className={errors.phone ? 'has-error' : undefined}
-                />
-                {renderError('phone')}
-              </div>
-            </div>
-
-            <div className="signup-field">
               <label htmlFor="google-birth-date">생년월일</label>
               <div className="signup-input-wrap">
                 <BirthDateInput
@@ -252,8 +234,28 @@ export default function GoogleSignupPage() {
               </div>
             </div>
 
+            <div className="signup-field">
+              <label htmlFor="google-phone">
+                전화번호 <span className="signup-optional">(선택)</span>
+              </label>
+              <div className="signup-input-wrap">
+                <input
+                  id="google-phone"
+                  name="phone"
+                  type="tel"
+                  inputMode="numeric"
+                  placeholder="010-1234-5678"
+                  maxLength={13}
+                  value={form.phone}
+                  onChange={handleChange}
+                  className={errors.phone ? 'has-error' : undefined}
+                />
+                {renderError('phone')}
+              </div>
+            </div>
+
             <p className="signup-privacy-note">
-              생년월일 · 성별은 연령대별 차량 추천과 통계에 사용합니다. 전화번호는 연락용이며 인증에는 쓰지 않습니다.
+              생년월일 · 성별은 연령대별 차량 추천과 통계에 사용합니다. 전화번호는 선택이며, 입력하면 서비스 관련 연락에만 사용합니다.
               <br />
               차량 추천 서비스라 운전면허를 딸 수 있는 <strong>만 {MIN_SIGNUP_AGE}세 이상</strong>부터 가입할 수
               있습니다.

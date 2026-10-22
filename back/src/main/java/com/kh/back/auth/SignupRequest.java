@@ -39,9 +39,9 @@ public class SignupRequest {
     private String nickName;
 
     // 보완 5: 개인 정보. 저장은 user_profiles(V8)
-    // 전화번호는 연락용이며 인증하지 않는다 (형식만 확인). 010-1234-5678 · 01012345678 둘 다 받는다
-    @NotBlank(message = "전화번호를 입력해 주세요.")
-    @Pattern(regexp = "^010-?\\d{4}-?\\d{4}$", message = "전화번호는 010-1234-5678 형식으로 입력해 주세요.")
+    // 전화번호는 선택 항목 (10-22: 문자 인증은 비용이 들어 하지 않으므로 필수에서 뺌). 형식만 확인
+    // 비워 두거나(저장 안 함) 010-1234-5678 · 01012345678
+    @Pattern(regexp = "^$|^010-?\\d{4}-?\\d{4}$", message = "전화번호는 010-1234-5678 형식으로 입력해 주세요.")
     private String phone;
 
     // 만 18세 이상인지는 오늘 날짜와 비교해야 해서 AuthServiceImpl 에서 검사한다

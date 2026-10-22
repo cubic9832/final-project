@@ -95,7 +95,7 @@ public class AuthServiceImpl implements AuthService {
         // 보완 5: 개인 정보는 user_profiles 에 따로 저장한다. 같은 트랜잭션이라 여기서 실패하면 회원 저장도 취소된다
         UserProfileDto profile = new UserProfileDto();
         profile.setUserId(member.getId());
-        profile.setPhone(request.getPhone().replace("-", "")); // 숫자만 저장
+        profile.setPhone(phoneDigits(request.getPhone())); // 숫자만 저장 (선택 항목, 비우면 null)
         profile.setBirthDate(request.getBirthDate());
         profile.setGender(request.getGender());
         userProfileMapper.insert(profile);
@@ -332,7 +332,7 @@ public class AuthServiceImpl implements AuthService {
 
         UserProfileDto profile = new UserProfileDto();
         profile.setUserId(member.getId());
-        profile.setPhone(request.getPhone().replace("-", ""));
+        profile.setPhone(phoneDigits(request.getPhone()));
         profile.setBirthDate(request.getBirthDate());
         profile.setGender(request.getGender());
         userProfileMapper.insert(profile);
@@ -453,6 +453,11 @@ public class AuthServiceImpl implements AuthService {
     // 회원가입과 로그인이 같은 규칙을 써야 대소문자를 다르게 입력해도 로그인된다
     private String normalizeEmail(String email) {
         return email.trim().toLowerCase();
+    }
+
+    // 전화번호는 숫자만 저장한다. 선택 항목이라 비어 있으면 null (저장 안 함)
+    private String phoneDigits(String phone) {
+        return phone == null || phone.isBlank() ? null : phone.replace("-", "");
     }
 
     private ApiException emailDuplicated() {

@@ -25,8 +25,8 @@ public class GoogleSignupRequest {
     @Size(min = 2, max = 12, message = "이름 또는 닉네임은 2~12자로 입력해 주세요.")
     private String nickName;
 
-    @NotBlank(message = "전화번호를 입력해 주세요.")
-    @Pattern(regexp = "^010-?\\d{4}-?\\d{4}$", message = "전화번호는 010-1234-5678 형식으로 입력해 주세요.")
+    // 전화번호는 선택 항목 (10-22) — 비워 두면 저장하지 않는다
+    @Pattern(regexp = "^$|^010-?\\d{4}-?\\d{4}$", message = "전화번호는 010-1234-5678 형식으로 입력해 주세요.")
     private String phone;
 
     @NotNull(message = "생년월일을 입력해 주세요.")
