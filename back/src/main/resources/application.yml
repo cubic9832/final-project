@@ -33,6 +33,10 @@ jwt:
   secret: ${JWT_SECRET:creditcompass-local-dev-secret-key-change-me-0123456789}
   # access token 유효 시간 (30m = 30분, 10s = 10초)
   access-token-validity: 30m
+  # refresh token 유효 시간 (14d = 14일). 이 기간 동안 브라우저를 껐다 켜도 로그인이 유지된다
+  refresh-token-validity: 14d
+  # refresh token 쿠키의 Secure 속성 (true 면 https 에서만 전송). 로컬 http 개발은 false, 배포할 때 환경변수로 true
+  cookie-secure: ${JWT_COOKIE_SECURE:false}
 
 # 실행되는 SQL 을 콘솔에서 보기 위한 로그 레벨
 logging:

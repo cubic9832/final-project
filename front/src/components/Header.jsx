@@ -96,9 +96,11 @@ const LogoutButton = styled(LoginLink).attrs({ as: 'button', type: 'button' })`
 export default function Header() {
   const navigate = useNavigate();
   const member = useAuthStore((state) => state.member); // 로그인 상태가 바뀌면 헤더가 다시 그려진다
+  const initialized = useAuthStore((state) => state.initialized); // 새로고침 직후 로그인 복원이 끝났는지
 
-  function handleLogout() {
-    logout();
+  // 서버 로그아웃(refresh token 삭제)이 끝난 뒤 메인으로 이동한다
+  async function handleLogout() {
+    await logout();
     navigate('/');
   }
 
@@ -120,7 +122,8 @@ export default function Header() {
             <ExploreMenu />
           </ul>
         </Navigation>
-        {member ? (
+        {/* 로그인 복원 중에는 비워 둔다 → 로그인한 사람에게 "로그인" 버튼이 잠깐 보였다 바뀌는 깜빡임 방지 */}
+        {!initialized ? null : member ? (
           <AccountArea>
             <NavLink to="/mypage">{member.nickName}님</NavLink>
             <LogoutButton onClick={handleLogout}>로그아웃</LogoutButton>

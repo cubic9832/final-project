@@ -9,13 +9,21 @@ export const signup = async ({ email, password, nickName }) => {
 };
 
 // 로그인 — 응답의 access token · 회원 정보를 스토어에 넣고, 회원 정보를 돌려준다
+// (refresh token 은 서버가 HttpOnly 쿠키로 보내서 브라우저에 이미 저장되어 있다)
 export const login = async ({ email, password }) => {
   const res = await client.post('/auth/login', { email, password });
   useAuthStore.getState().setAuth(res.data.data);
   return res.data.data.member;
 };
 
-// 로그아웃 — 지금은 화면의 로그인 정보만 지운다 (서버 로그아웃은 refresh token 단계에서 추가)
-export const logout = () => {
-  useAuthStore.getState().clearAuth();
+// 로그아웃 — 서버가 refresh token 을 DB · 쿠키에서 지운다.
+// 서버 요청이 실패해도(서버 꺼짐 등) 화면은 로그아웃 상태로 만든다
+export const logout = async () => {
+  try {
+    await client.post('/auth/logout');
+  } catch {
+    // 화면 로그아웃은 아래 finally 에서 진행한다
+  } finally {
+    useAuthStore.getState().clearAuth();
+  }
 };

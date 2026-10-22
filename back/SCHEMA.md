@@ -10,6 +10,7 @@
 - 이미 적용된 파일은 수정하지 않습니다. 내용이 바뀌면 체크섬 불일치로 서버가 시작되지 않습니다.
 - `V2__create_company_sample.sql`은 기존 종목 API 예제용 `company` 테이블과 샘플 데이터입니다.
 - `V3__seed_vehicles.sql`은 현대·기아 제조사와 공식 가격표 기반 차량 14건을 추가합니다.
+- `V5__add_vehicle_specs_and_seed_domestic.sql`은 차량 제원 컬럼을 추가하고 국내 제조사 트림 244건을 넣습니다.
 - 로컬 Docker DB를 처음 상태로 되돌리려면 저장소 루트에서 `./dev.sh reset`을 실행합니다.
 
 ## ERD 반영
@@ -55,3 +56,35 @@ V3은 아반떼 하이브리드 5개, 모닝 4개, 레이 4개, K5 1개 트림�
 `V4__add_vehicle_image_urls.sql`은 기존 시드의 비어 있는 `image_url`에 공식 제조사 이미지 주소를 추가합니다. 이미지는 다운로드하거나 저장소에 추가하지 않고 브라우저에서 URL로 표시합니다. 목록·상세·비교 화면이 API의 `imageUrl`을 사용하며 로딩 실패 시 일러스트로 대체합니다. 같은 모델의 트림은 대표 이미지를 공유하므로 실제 트림·연식·색상과 차이가 있을 수 있습니다.
 
 주소 확인 페이지: [모닝](https://www.kia.com/kr/vehicles/morning/features), [레이](https://www.kia.com/kr/vehicles/ray/features), [K5](https://www.kia.com/kr/vehicles/k5/features), [아반떼 하이브리드](https://org1.hyundai.com/kr/ko/brand/brandstory/heritage/2023-the-new-avante-hybrid).
+
+## 국내 차종 확장
+
+`V5__add_vehicle_specs_and_seed_domestic.sql`은 `vehicles`에 아래 컬럼을 추가합니다. 기존 14건은 이 값을 NULL로 둡니다.
+
+| 컬럼 | 의미 |
+| --- | --- |
+| `powertrain` | 엔진·파워트레인. 같은 트림의 배기량·엔진을 구분하며 중복 판정에 포함합니다. |
+| `displacement_cc` | 배기량(cc). 연비 사양이 연결된 행만 채웁니다. |
+| `city_efficiency`, `highway_efficiency` | 도심·고속도로 연비 또는 전비. 단위는 `efficiency_unit`을 공유합니다. |
+| `wheel_size_inch` | 연비와 가격이 기준한 기본 휠 크기(인치) |
+| `price_before_incentive` | 세제혜택 전 가격(원). 판매가와 다를 때만 저장합니다. |
+
+시드 기준은 2026-10-14에 확인한 국내 제조사 가격표와 연비표를 트림 단위로 맞춘 자료입니다. 그 원본 CSV는 V5에 반영한 뒤 저장소에서 제거했습니다. 판매가격과 연료 코드가 있는 트림 244건을 넣습니다. 같은 제조사·모델·트림·연식·연료·파워트레인에서 가격만 다른 행은 연비가 연결된 행을 우선하고, 그래도 같으면 더 낮은 기본가 한 건만 남깁니다. 판매가가 없거나 연료가 비어 있는 행은 제외합니다.
+
+기존 V3과 겹치는 표기는 다시 넣지 않습니다. 모닝은 CSV 가격이 공식 시드와 달라 모델 전체를 제외합니다. 레이는 기존과 같은 가격 4트림을 제외합니다. K5는 프레스티지 1.6 터보 29,730,000원만 제외하고 나머지 트림을 추가합니다. 아반떼 하이브리드는 CSV에 판매가가 없어 기존 5트림만 유지합니다. 제조사는 제네시스, 르노코리아, KG모빌리티, 쉐보레를 없으면 추가합니다. `condition_code=NEW`, `is_example=TRUE`이며 이미지 주소는 만들지 않습니다. 동일 제조사·차명·트림·파워트레인·연식·신차·연료가 있으면 건너뜁니다.
+
+`price`는 표시 판매가입니다. 가격 기준이 세제혜택 후인 행은 혜택이 반영된 금액입니다. 차급은 CSV에 없어 모델 기준으로 부여하며 DB CHECK로 강제하지 않습니다.
+
+| 차급 코드 | 모델 |
+| --- | --- |
+| `MINI` | 레이 EV |
+| `SUBCOMPACT_SUV` | 베뉴, 코나 계열, 셀토스, 니로, 티볼리, 트랙스 크로스오버, 트레일블레이저, 아르카나, EV3, GV60 |
+| `COMPACT_SEDAN` | 디 올 뉴 아반떼, 디 올 뉴 아반떼 Hybrid |
+| `COMPACT_SUV` | 투싼 계열, 스포티지, 토레스 계열, 액티언 계열, EV4, 넥쏘, GV70, Electrified GV70 |
+| `MIDSIZE_SEDAN` | K5, 쏘나타 디 엣지 계열, G70, 더 뉴 아이오닉 6 |
+| `MIDSIZE_SUV` | 싼타페 계열, 쏘렌토, 그랑 콜레오스, 아이오닉 5, EV5, EV6, GV80 계열, 렉스턴 뉴 아레나 |
+| `LARGE_SUV` | 팰리세이드 계열, EV9, 아이오닉 9 |
+| `FULLSIZE_SEDAN` | 그랜저 계열, K8, K9, G80, G90, Electrified G80 |
+| `MPV` | 카니발 계열, 스타리아 계열, 필랑트 |
+
+목록 API는 새 컬럼을 `powertrain`, `displacementCc`, `priceBeforeIncentive`, `cityEfficiency`, `highwayEfficiency`, `wheelSizeInch`로 함께 반환합니다. 화면은 가솔린·하이브리드이면서 양수 가격과 `km/L` 복합연비가 있는 차만 보여 주므로, 전기·LPG·수소·디젤과 연비가 없는 트림은 DB에만 있습니다. 카드 트림 문구에는 파워트레인을 붙이고, 상세에는 값이 있을 때만 혜택 전 가격, 배기량, 도심·고속도로 연비를 표시합니다.
