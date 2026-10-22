@@ -113,13 +113,13 @@
 /* 생년월일: 직접 입력 + 년 · 월 · 일 목록 (입력칸과 같은 모양) */
 .signup-birth-selects {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr;
-  gap: 6px;
-  margin-top: 6px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 8px;
 }
 
 .signup-birth-selects select {
-  height: 38px;
+  height: 42px;
   padding: 0 8px;
   border: 1px solid #cbd9ec;
   border-radius: 8px;
