@@ -525,7 +525,7 @@ export default function SignupPage() {
                 <div className="signup-input-wrap">
                   <PasswordInput
                     id="signup-password-confirm"
-                    placeholder="비밀번호를 한 번 더 입력"
+                    placeholder="영문·숫자·특수문자 포함 8~20자"
                     autoComplete="new-password"
                     maxLength={PASSWORD_MAX}
                     {...fieldProps('passwordConfirm')}
