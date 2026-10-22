@@ -86,7 +86,7 @@ export default function PasswordChangeModal({ email, onChange, onClose }) {
             <PasswordInput
               id="change-password-confirm"
               name="confirm"
-              placeholder="새 비밀번호를 한 번 더 입력"
+              placeholder="영문·숫자·특수문자 포함 8~20자"
               autoComplete="new-password"
               maxLength={PASSWORD_MAX}
               value={form.confirm}

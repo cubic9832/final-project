@@ -257,7 +257,7 @@ export default function PasswordResetModal({ initialEmail = '', onClose }) {
             <label htmlFor="reset-password-confirm">새 비밀번호 확인</label>
             <PasswordInput
               id="reset-password-confirm"
-              placeholder="새 비밀번호를 한 번 더 입력"
+              placeholder="영문·숫자·특수문자 포함 8~20자"
               autoComplete="new-password"
               maxLength={PASSWORD_MAX}
               value={passwordConfirm}
