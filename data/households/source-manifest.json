@@ -1,0 +1,26 @@
+[
+  {
+    "filename": "household-finance-welfare-2025.xlsx",
+    "sourceUrl": "https://www.bok.or.kr/fileSrc/portal/92be7c646ebe453cac13917e9d778650/5/c7a5bd52d16e4d399fd367ce4201abc1.xlsx",
+    "finalUrl": "https://file-cdn.bok.or.kr/portal/92be7c646ebe453cac13917e9d778650/5/c7a5bd52d16e4d399fd367ce4201abc1.xlsx?token=st=1791954948~exp=1791958548~acl=/portal/92be7c646ebe453cac13917e9d778650/5/c7a5bd52d16e4d399fd367ce4201abc1.xlsx*~hmac=81c1ba5e6fd5bb0f1ba55ea81996a67781f229a85c5d040b274dcec7f545d47d",
+    "landingPageUrl": "https://www.bok.or.kr/portal/bbs/B0000501/view.do?nttId=10094917&menuNo=201264",
+    "checkedOn": "2026-10-14",
+    "sha256": "fe3cf0fe60d3e0b94530e3a5b75e8a51241b36e7837d7fe6c6a1a2fcc858f7e6",
+    "sizeBytes": 143652,
+    "contentType": "application/octet-stream",
+    "dataLevel": "가구 집계 통계표",
+    "microdata": false
+  },
+  {
+    "filename": "household-income-expenditure-2025-q4.pdf",
+    "sourceUrl": "https://sri.kostat.go.kr/boardDownload.es?bid=214&list_no=443727&seq=1",
+    "finalUrl": "https://mods.go.kr/boardDownload.es?bid=214&list_no=443727&seq=1",
+    "landingPageUrl": "https://sri.kostat.go.kr/boardDownload.es?bid=214&list_no=443727&seq=1",
+    "checkedOn": "2026-10-14",
+    "sha256": "bc30936c77043d117f9667315fe77d8d7658262058fdf462e58cd897fa80fc1d",
+    "sizeBytes": 3955298,
+    "contentType": "application/pdf; charset=UTF-8",
+    "dataLevel": "가구 집계 통계표",
+    "microdata": false
+  }
+]

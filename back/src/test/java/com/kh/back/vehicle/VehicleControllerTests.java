@@ -23,9 +23,15 @@ class VehicleControllerTests {
 
     @Test
     void returnsVehiclePriceInWonAndSource() throws Exception {
-        VehicleResponse vehicle = new VehicleResponse();
+        Vehicle vehicle = new Vehicle();
         vehicle.setId(42L);
         vehicle.setPrice(new BigDecimal("25550000.00"));
+        vehicle.setPowertrain("1.6 하이브리드");
+        vehicle.setDisplacementCc(1580);
+        vehicle.setPriceBeforeIncentive(new BigDecimal("27000000.00"));
+        vehicle.setCityEfficiency(new BigDecimal("21.0"));
+        vehicle.setHighwayEfficiency(new BigDecimal("19.0"));
+        vehicle.setWheelSizeInch(16);
         vehicle.setSourceUrl("https://www.hyundai.com/price.pdf");
         when(repository.findAll()).thenReturn(List.of(vehicle));
         mvc.perform(get("/api/v1/vehicles"))
@@ -33,6 +39,12 @@ class VehicleControllerTests {
                 .andExpect(jsonPath("$.success").value(true))
                 .andExpect(jsonPath("$.data[0].id").value(42))
                 .andExpect(jsonPath("$.data[0].price").value(25550000))
+                .andExpect(jsonPath("$.data[0].powertrain").value("1.6 하이브리드"))
+                .andExpect(jsonPath("$.data[0].displacementCc").value(1580))
+                .andExpect(jsonPath("$.data[0].priceBeforeIncentive").value(27000000))
+                .andExpect(jsonPath("$.data[0].cityEfficiency").value(21.0))
+                .andExpect(jsonPath("$.data[0].highwayEfficiency").value(19.0))
+                .andExpect(jsonPath("$.data[0].wheelSizeInch").value(16))
                 .andExpect(jsonPath("$.data[0].sourceUrl").value(vehicle.getSourceUrl()));
     }
 

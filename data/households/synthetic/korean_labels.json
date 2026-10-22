@@ -1,0 +1,26 @@
+{
+  "files": {"profiles":"개인_가구_재무정보", "expenses":"월별_지출", "loans":"기존_대출", "vehicle_scenarios":"차량_구매_시나리오", "simulation_results":"구매후_예산_계산결과"},
+  "columns": {
+    "profile_id":"프로필_식별자", "budget_scope":"예산_범위", "case_type":"사례_유형", "age_years":"나이_세", "employment":"취업_형태", "household_size":"가구원수_명", "dependents":"부양인원_명", "housing":"주거_형태",
+    "monthly_net_income_won":"월_실수령소득_원", "monthly_extra_income_won":"월_기타소득_원", "income_volatility_assumed":"소득변동성_가정_비율", "liquid_cash_won":"인출가능_현금_원", "locked_housing_deposit_won":"묶인_주거보증금_원", "emergency_target_won":"목표_비상금_원",
+    "is_synthetic":"합성데이터_여부", "generator_version":"생성규칙_버전", "seed":"난수_시드", "split":"데이터_구분",
+    "housing_won":"월_주거비_원", "living_won":"월_생활비_원", "phone_won":"월_통신비_원", "transport_won":"월_교통비_원", "fixed_won":"월_기타고정비_원", "discretionary_won":"월_선택소비_원", "target_savings_won":"월_목표저축_원",
+    "loan_sequence":"대출_순번", "loan_type":"대출_종류", "balance_won":"대출잔액_원", "annual_rate_assumed":"가정_연금리_비율", "remaining_months":"남은상환기간_개월", "repayment_method":"상환방식", "monthly_principal_won":"다음달_상환원금_원", "monthly_interest_won":"다음달_상환이자_원", "maturity_lump_sum_won":"만기_일시상환원금_원", "loan_id":"대출_식별자",
+    "vehicle_id":"차량_식별자", "brand":"브랜드", "model":"모델", "trim":"트림", "powertrain":"엔진_파워트레인", "fuel":"연료", "vehicle_price_won":"차량가격_원", "combined_efficiency":"복합연비_전비", "efficiency_unit":"연비_전비_단위", "price_source_url":"가격_출처_URL", "price_source_page":"가격_출처_페이지", "efficiency_source_url":"연비_출처_URL", "efficiency_source_page":"연비_출처_페이지",
+    "down_payment_won":"선수금_원", "installment_months":"할부기간_개월", "annual_distance_km":"연간_주행거리_km", "energy_price_assumed":"가정_에너지단가_원_L또는kWh", "monthly_energy_cost_won":"월_연료충전비_원", "insurance_annual_assumed_won":"가정_연간보험료_원", "maintenance_annual_assumed_won":"가정_연간정비비_원", "registration_cost_assumed_won":"가정_초기등록비_원", "monthly_operating_cost_won":"월_차량유지비_원", "monthly_replaced_transport_won":"월_대체되는기존교통비_원", "vehicle_data_origin":"차량데이터_출처구분", "cost_origin":"비용데이터_출처구분", "scenario_id":"시나리오_식별자",
+    "monthly_before_purchase_won":"구매전_월잔여액_원", "monthly_vehicle_payment_won":"월_차량할부상환액_원", "monthly_after_purchase_won":"구매후_월잔여액_원", "income_stress_remaining_won":"소득20퍼센트감소시_월잔여액_원", "rate_stress_remaining_won":"금리2퍼센트포인트상승시_월잔여액_원", "cash_after_purchase_won":"구매후_현금잔액_원", "cash_runway_months":"현금으로_지출유지가능기간_개월", "upfront_funding_gap_won":"초기자금_부족액_원", "emergency_shortfall_won":"비상금_부족액_원", "budget_exceeded_rule":"예산초과_규칙판정", "label_origin":"결과값_생성근거"
+  },
+  "values": {
+    "budget_scope":{"individual":"개인", "household":"가구"},
+    "case_type":{"general":"일반", "high_income_high_debt":"고소득_고부채", "low_income_high_assets":"저소득_고자산", "unstable_income":"소득불안정", "no_debt":"무대출", "deficit":"적자", "emergency_shortfall":"비상금부족"},
+    "employment":{"employee":"상용근로자", "self_employed":"자영업자", "temporary":"임시근로자", "inactive":"비취업"},
+    "housing":{"owner":"자가", "deposit_rental":"보증금중심_임대", "monthly_rental":"월세"},
+    "split":{"train":"학습", "validation":"검증", "test":"평가", "edge_test":"경계사례_평가"},
+    "loan_type":{"secured":"담보대출", "unsecured":"신용대출", "card":"카드대출"},
+    "repayment_method":{"annuity":"원리금균등", "equal_principal":"원금균등", "bullet":"만기일시상환"},
+    "fuel":{"GASOLINE":"가솔린", "DIESEL":"디젤", "LPG":"LPG", "ELECTRIC":"전기"},
+    "vehicle_data_origin":{"official_extract_automatic_join":"공식자료추출_자동연결"},
+    "cost_origin":{"assumed_simulation":"가정기반_시뮬레이션"},
+    "label_origin":{"simulation_rule_not_observed_outcome":"시뮬레이션규칙_실제관측결과아님"}
+  }
+}

@@ -1,4 +1,4 @@
-import AuthModal from '../auth/AuthModal';
+import AuthModal from '../auth/components/AuthModal';
 import { tasteTypes } from './tasteQuestions';
 
 export default function TasteSaveModal({ previous, next, onClose, onSave, error }) {

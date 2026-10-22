@@ -11,6 +11,9 @@ const useAuthStore = create((set) => ({
   // 로그인 · 재발급 성공: 서버 응답 { accessToken, member } 를 그대로 저장
   setAuth: ({ accessToken, member }) => set({ accessToken, member }),
 
+  // 회원 정보 일부 바꾸기 (보완 3 추가: 닉네임 변경 → 헤더의 "닉네임님"도 바로 바뀐다)
+  updateMember: (changes) => set((state) => ({ member: state.member ? { ...state.member, ...changes } : null })),
+
   // 로그아웃: 저장한 로그인 정보를 지운다
   clearAuth: () => set({ accessToken: null, member: null }),
 

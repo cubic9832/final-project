@@ -1,0 +1,416 @@
+.signup-page {
+  padding: 12px 0 48px;
+  color: #1e2d46;
+}
+
+.signup-heading {
+  margin-bottom: 24px;
+}
+
+.signup-heading h1 {
+  font-size: 28px;
+  letter-spacing: -0.8px;
+}
+
+.signup-heading p,
+.signup-subtitle {
+  margin-top: 6px;
+  color: #77859a;
+  font-size: 13px;
+}
+
+/* 기본 정보 카드가 화면 폭 전체를 쓴다 (계정 권한 안내 패널 제거) */
+.signup-form-card {
+  padding: 32px;
+  border: 1px solid #dfe7f1;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 5px 16px #193b6406;
+}
+
+.signup-form-card h2 {
+  font-size: 21px;
+  letter-spacing: -0.5px;
+}
+
+/* 보완 5: 좌우 2칸 (왼쪽 계정 정보 · 오른쪽 개인 정보) */
+.signup-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.signup-column-title {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #15365f;
+  font-size: 14px;
+}
+
+.signup-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+/* 라벨 왼쪽, 입력칸 오른쪽 한 줄 배치 */
+.signup-field {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+}
+
+.signup-field > label,
+.signup-field-label {
+  padding-top: 12px;
+  color: #536780;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.signup-input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.signup-check-button {
+  flex-shrink: 0;
+  min-width: 120px; /* 보완 7: 중복 확인 · 인증 코드 받기 · 확인 버튼 너비를 맞춘다 (글자가 바뀌어도 흔들리지 않게) */
+  height: 42px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #15365f;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.signup-check-button:hover {
+  background: #244a75;
+}
+
+.signup-field-notice {
+  margin-top: 6px;
+  color: #078579;
+  font-size: 11px;
+}
+
+.signup-field input {
+  width: 100%;
+  height: 42px;
+  padding: 11px 13px;
+  border: 1px solid #cbd9ec;
+  border-radius: 8px;
+  background: #fff;
+  color: #1e2d46;
+  font: inherit;
+  font-size: 13px;
+}
+
+.signup-field input::placeholder {
+  color: #8d9bb0;
+}
+
+.signup-field input.has-error {
+  border-color: #d14343;
+}
+
+.signup-error {
+  margin-top: 6px;
+  color: #d14343;
+  font-size: 11px;
+}
+
+.signup-field input:focus-visible,
+.signup-page button:focus-visible,
+.signup-page a:focus-visible {
+  outline: 2px solid #09988f;
+  outline-offset: 3px;
+}
+
+/* 성별 선택 (보완 5) — 라디오 버튼을 3칸 버튼처럼 보이게 */
+.signup-gender {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.signup-gender label {
+  position: relative;
+  cursor: pointer;
+}
+
+.signup-gender input {
+  position: absolute;
+  opacity: 0;
+}
+
+.signup-gender span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  border: 1px solid #cbd9ec;
+  border-radius: 8px;
+  color: #536780;
+  font-size: 13px;
+}
+
+.signup-gender input:checked + span {
+  border-color: #15365f;
+  background: #15365f;
+  color: #fff;
+  font-weight: 700;
+}
+
+.signup-gender input:focus-visible + span {
+  outline: 2px solid #09988f;
+  outline-offset: 3px;
+}
+
+.signup-gender.has-error span {
+  border-color: #d14343;
+}
+
+/* 개인 정보 사용 목적 · 가입 나이 안내 (보완 5) */
+.signup-privacy-note {
+  padding: 12px 14px;
+  border-radius: 9px;
+  background: #f6f8fc;
+  color: #61738a;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.signup-privacy-note strong {
+  color: #15365f;
+}
+
+/* 보완 7: 이메일 인증 코드 입력 줄 + 남은 시간 */
+.signup-code-row {
+  margin-top: 8px;
+}
+
+.signup-code-row .signup-input-row {
+  align-items: center;
+}
+
+.signup-code-timer {
+  flex-shrink: 0;
+  min-width: 40px;
+  color: #d14343;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.signup-code-timer.is-expired {
+  color: #8d9bb0;
+}
+
+/* 이메일 도메인 오타 안내 (보완 2) */
+.signup-email-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  color: #8b6100;
+  font-size: 11px;
+}
+
+.signup-email-hint button {
+  padding: 2px 8px;
+  border: 1px solid #e3c675;
+  border-radius: 6px;
+  background: #fff7e3;
+  color: #8b6100;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.signup-term input {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  accent-color: #15365f;
+}
+
+.signup-password-requirements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 8px;
+  color: #9aa7b8;
+  font-size: 11px;
+}
+
+.signup-password-requirements li {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.signup-password-requirements li.is-met {
+  color: #078579;
+  font-weight: 700;
+}
+
+.signup-terms {
+  margin-top: 14px;
+  padding: 12px;
+  border: 0;
+  border-radius: 9px;
+  background: #f6f8fc;
+}
+
+.signup-terms.has-error {
+  box-shadow: inset 0 0 0 1px #d14343;
+}
+
+.signup-term-all {
+  border-bottom: 1px solid #e2e8f0;
+  color: #44556b;
+  font-weight: 700;
+}
+
+.signup-terms legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.signup-term {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 34px;
+  color: #61738a;
+  font-size: 11px;
+}
+
+.signup-term label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+}
+
+.signup-term-detail {
+  flex: 0 0 auto;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #356ca3;
+  font-size: inherit;
+}
+
+.signup-term-detail:hover {
+  text-decoration: underline;
+}
+
+.signup-notice:not(:empty) {
+  margin-top: 16px;
+  color: #078579;
+  font-size: 12px;
+}
+
+.signup-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  margin-top: 20px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 8px;
+  background: #15365f;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.signup-submit:hover:not(:disabled) {
+  background: #244a75;
+}
+
+/* 가입 요청 중에는 버튼을 비활성으로 표시 */
+.signup-submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.signup-login-link {
+  margin-top: 18px;
+  color: #77859a;
+  font-size: 12px;
+  text-align: center;
+}
+
+.signup-login-link a {
+  color: #356ca3;
+}
+
+.signup-login-link a:hover {
+  text-decoration: underline;
+}
+
+.signup-footer {
+  margin-top: 24px;
+  padding: 28px;
+  background: #15365f;
+  color: #fff;
+}
+
+.signup-footer strong {
+  font-size: 16px;
+}
+
+.signup-footer p {
+  margin-top: 8px;
+  color: #c5d7ea;
+  font-size: 12px;
+}
+
+.signup-footer small {
+  display: block;
+  margin-top: 10px;
+  color: #a9bed6;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+/* 보완 5: 화면이 좁으면 2칸을 위아래로 쌓는다 */
+@media (max-width: 960px) {
+  .signup-columns {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 560px) {
+  .signup-form-card {
+    padding: 24px;
+  }
+
+  .signup-field {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .signup-field > label,
+  .signup-field-label {
+    padding-top: 0;
+  }
+
+  .signup-term {
+    align-items: flex-start;
+  }
+}

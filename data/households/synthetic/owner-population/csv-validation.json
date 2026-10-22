@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "all_profiles_own_vehicle": true,
+  "sequential_ids": true,
+  "all_models_in_every_split": true,
+  "files": {
+    "차량보유자_특성_학습데이터.csv": {
+      "sha256": "0a0c038bfc8b9971d2ce25832de8305dd008e861a6c6ef01748550bb22edcd9b",
+      "bytes": 3764233
+    },
+    "차량별_보유자특성_요약.csv": {
+      "sha256": "e2d90b5f9f93be63c010eafe208fe7a1e97591b8b6c819669219ede764c16715",
+      "bytes": 2246
+    }
+  }
+}
