@@ -24,10 +24,8 @@ public interface AuthService {
     AuthTokens changePassword(Long userId, PasswordChangeRequest request);
 
     // 보완 8: 구글 로그인 — 연결된 회원이면 로그인, 처음이면 추가 정보 입력 필요
-    GoogleLoginResult googleLogin(String idToken);
+    AuthTokens googleLogin(String idToken, boolean consent); // 10-22: 처음 온 사람은 consent 가 있으면 바로 가입
 
-    // 보완 8: 구글 첫 로그인 후 추가 정보로 가입 + 로그인
-    AuthTokens googleSignup(GoogleSignupRequest request);
 
     AuthTokens login(LoginRequest request, String clientIp); // 보완 6: clientIp 는 reCAPTCHA 확인 요청에 함께 보낸다
 

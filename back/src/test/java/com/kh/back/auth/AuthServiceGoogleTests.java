@@ -16,13 +16,11 @@ import com.kh.back.member.MemberDto;
 import com.kh.back.member.MemberMapper;
 import com.kh.back.member.UserProfileMapper;
 import java.time.Duration;
-import java.time.LocalDate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -40,7 +38,6 @@ class AuthServiceGoogleTests {
     @Mock EmailVerificationService emailVerificationService;
     @Mock GoogleTokenVerifier googleTokenVerifier;
     @Mock SocialAccountMapper socialAccountMapper;
-    @Spy GoogleSignupStore googleSignupStore = new GoogleSignupStore();
     @InjectMocks AuthServiceImpl authService;
 
     private final GoogleTokenVerifier.GoogleUser google =
@@ -73,11 +70,10 @@ class AuthServiceGoogleTests {
         when(socialAccountMapper.findUserId("GOOGLE", "google-sub-1")).thenReturn(7L);
         when(memberMapper.findById(7L)).thenReturn(member(7, "g.user@gmail.com", "SOCIAL_ONLY"));
 
-        GoogleLoginResult result = authService.googleLogin("id-token");
+        AuthTokens tokens = authService.googleLogin("id-token", false); // 기존 회원은 동의 체크와 상관없다
 
-        assertThat(result.tokens()).isNotNull();
-        assertThat(result.tokens().getMember().isSocialOnly()).isTrue();
-        assertThat(result.signup()).isNull();
+        assertThat(tokens.getMember().getId()).isEqualTo(7L);
+        assertThat(tokens.getMember().isSocialOnly()).isTrue();
     }
 
     @Test
@@ -85,55 +81,43 @@ class AuthServiceGoogleTests {
         tokensWork();
         when(memberMapper.findByEmail("g.user@gmail.com")).thenReturn(member(3, "g.user@gmail.com", "$2a$bcrypt"));
 
-        GoogleLoginResult result = authService.googleLogin("id-token");
+        AuthTokens tokens = authService.googleLogin("id-token", false);
 
-        assertThat(result.tokens().getMember().getId()).isEqualTo(3L);
-        assertThat(result.tokens().getMember().isSocialOnly()).isFalse(); // 비밀번호도 그대로 쓸 수 있다
+        assertThat(tokens.getMember().getId()).isEqualTo(3L);
+        assertThat(tokens.getMember().isSocialOnly()).isFalse(); // 비밀번호도 그대로 쓸 수 있다
         verify(socialAccountMapper).insert(3L, "GOOGLE", "google-sub-1", "g.user@gmail.com");
     }
 
     @Test
-    void 처음_온_사람은_추가정보_입력으로() {
-        GoogleLoginResult result = authService.googleLogin("id-token");
-
-        assertThat(result.tokens()).isNull();
-        assertThat(result.signup().email()).isEqualTo("g.user@gmail.com");
-        assertThat(result.signup().signupToken()).isNotBlank();
+    void 처음_온_사람이_동의하지_않으면_가입하지_않는다() {
+        assertThatThrownBy(() -> authService.googleLogin("id-token", false))
+                .isInstanceOf(ApiException.class).hasMessageContaining("동의");
         verify(memberMapper, never()).insert(any());
     }
 
     @Test
-    void 추가정보로_가입하면_비밀번호없는_회원과_연결이_만들어진다() {
+    void 처음_온_사람이_동의하면_바로_가입하고_닉네임은_구글이름() {
         tokensWork();
-        String token = authService.googleLogin("id-token").signup().signupToken();
         doAnswer(inv -> { ((MemberDto) inv.getArgument(0)).setId(11L); return null; }).when(memberMapper).insert(any());
 
-        AuthTokens tokens = authService.googleSignup(request(token, LocalDate.of(1999, 7, 21)));
+        AuthTokens tokens = authService.googleLogin("id-token", true);
 
         assertThat(tokens.getMember().isSocialOnly()).isTrue();
         assertThat(tokens.getMember().getEmail()).isEqualTo("g.user@gmail.com");
+        assertThat(tokens.getMember().getNickName()).isEqualTo("구글사용자");
         verify(socialAccountMapper).insert(eq(11L), eq("GOOGLE"), eq("google-sub-1"), eq("g.user@gmail.com"));
-        verify(userProfileMapper).insert(any());
+        verify(userProfileMapper, never()).insert(any()); // 생년월일 · 성별은 마이페이지에서
     }
 
     @Test
-    void 가입대기번호는_한번만_쓸수있다() {
+    void 구글이름이_이미_쓰이면_회원_숫자_닉네임() {
         tokensWork();
-        String token = authService.googleLogin("id-token").signup().signupToken();
+        when(memberMapper.countByNickName("구글사용자")).thenReturn(1);
         doAnswer(inv -> { ((MemberDto) inv.getArgument(0)).setId(12L); return null; }).when(memberMapper).insert(any());
-        authService.googleSignup(request(token, LocalDate.of(1999, 7, 21)));
 
-        assertThatThrownBy(() -> authService.googleSignup(request(token, LocalDate.of(1999, 7, 21))))
-                .isInstanceOf(ApiException.class).hasMessageContaining("다시 시도");
-    }
+        AuthTokens tokens = authService.googleLogin("id-token", true);
 
-    @Test
-    void 만18세_미만은_가입불가() {
-        String token = authService.googleLogin("id-token").signup().signupToken();
-
-        assertThatThrownBy(() -> authService.googleSignup(request(token, LocalDate.now().minusYears(17))))
-                .isInstanceOf(ApiException.class).hasMessageContaining("만 18세");
-        verify(memberMapper, never()).insert(any());
+        assertThat(tokens.getMember().getNickName()).matches("회원\\d{4}");
     }
 
     @Test
@@ -142,30 +126,8 @@ class AuthServiceGoogleTests {
                 .thenReturn(new GoogleTokenVerifier.GoogleUser("google-sub-2", "someone@naver.com", "외부"));
         when(memberMapper.findByEmail("someone@naver.com")).thenReturn(member(4, "someone@naver.com", "$2a$bcrypt"));
 
-        assertThatThrownBy(() -> authService.googleLogin("other-token"))
+        assertThatThrownBy(() -> authService.googleLogin("other-token", true))
                 .isInstanceOf(ApiException.class).hasMessageContaining("이메일 · 비밀번호로 로그인");
         verify(socialAccountMapper, never()).insert(anyLong(), any(), any(), any());
-    }
-
-    @Test
-    void 나이_오류로_거절돼도_같은_번호로_다시_가입할_수_있다() {
-        tokensWork();
-        String token = authService.googleLogin("id-token").signup().signupToken();
-        assertThatThrownBy(() -> authService.googleSignup(request(token, LocalDate.now().minusYears(17))))
-                .isInstanceOf(ApiException.class).hasMessageContaining("만 18세");
-        doAnswer(inv -> { ((MemberDto) inv.getArgument(0)).setId(13L); return null; }).when(memberMapper).insert(any());
-
-        AuthTokens tokens = authService.googleSignup(request(token, LocalDate.of(1999, 7, 21)));
-        assertThat(tokens.getMember().getId()).isEqualTo(13L);
-    }
-
-    private GoogleSignupRequest request(String token, LocalDate birthDate) {
-        GoogleSignupRequest r = new GoogleSignupRequest();
-        r.setSignupToken(token);
-        r.setNickName("구글닉네임");
-        r.setPhone("010-1234-5678");
-        r.setBirthDate(birthDate);
-        r.setGender("NONE");
-        return r;
     }
 }

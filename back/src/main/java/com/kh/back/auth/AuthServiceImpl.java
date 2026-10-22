@@ -35,9 +35,9 @@ public class AuthServiceImpl implements AuthService {
     private final LoginAttemptLimiter loginAttemptLimiter;
     private final PasswordChangeLimiter passwordChangeLimiter; // 보완 2 추가: 비밀번호 변경에서 현재 비밀번호 틀린 횟수
     private final EmailVerificationService emailVerificationService;
-    private final EmailVerificationProofStore verificationProofStore; // 보완 7 추가: 인증한 사람에게만 주는 일회용 증명
+    private final EmailVerificationProofStore verificationProofStore;
+    private static final java.security.SecureRandom NICKNAME_RANDOM = new java.security.SecureRandom(); // 구글 가입 자동 닉네임 숫자 // 보완 7 추가: 인증한 사람에게만 주는 일회용 증명
     private final GoogleTokenVerifier googleTokenVerifier;
-    private final GoogleSignupStore googleSignupStore;
     private final SocialAccountMapper socialAccountMapper;
     private final RecaptchaVerifier recaptchaVerifier;
     private final UserProfileMapper userProfileMapper;
@@ -259,18 +259,19 @@ public class AuthServiceImpl implements AuthService {
 
     // 보완 8: 구글 로그인
     // ① 이미 연결된 구글 계정 → 그 회원으로 로그인
-    // ② 연결은 없지만 같은 이메일로 가입한 회원 → 자동 연결 후 로그인 (구글이 확인한 이메일이라 같은 사람으로 본다)
-    // ③ 처음 온 사람 → 가입 대기 번호를 주고 추가 정보 입력 화면으로 (보완 5 필수 항목 · 만 18세 확인)
+    // ② 연결은 없지만 같은 이메일로 가입한 회원 → 자동 연결 후 로그인 (gmail 일 때만 — 아래 canAutoLink)
+    // ③ 처음 온 사람 → 로그인 화면에서 동의(만 18세 이상 · 약관 · 개인정보)를 체크했으면 바로 가입 + 로그인
+    //    10-22: 추가 정보 화면을 없앴다. 닉네임은 구글 이름으로 자동, 생년월일 · 성별 · 전화번호는 마이페이지에서 입력
     @Override
     @Transactional
-    public GoogleLoginResult googleLogin(String idToken) {
+    public AuthTokens googleLogin(String idToken, boolean consent) {
         GoogleTokenVerifier.GoogleUser google = googleTokenVerifier.verify(idToken);
 
         Long linkedUserId = socialAccountMapper.findUserId(GOOGLE, google.sub());
         if (linkedUserId != null) {
             MemberDto member = memberMapper.findById(linkedUserId);
             if (member != null) {
-                return new GoogleLoginResult(issueTokens(member), null);
+                return issueTokens(member);
             }
         }
 
@@ -281,66 +282,45 @@ public class AuthServiceImpl implements AuthService {
             }
             socialAccountMapper.insert(sameEmail.getId(), GOOGLE, google.sub(), google.email());
             loginAttemptLimiter.reset(google.email()); // 구글로 본인 확인이 됐으니 비밀번호 실패 기록은 지운다
-            return new GoogleLoginResult(issueTokens(sameEmail), null);
+            return issueTokens(sameEmail);
         }
 
-        String signupToken = googleSignupStore.save(google);
-        return new GoogleLoginResult(null,
-                new GoogleLoginResult.SignupRequired(signupToken, google.email(), google.name()));
-    }
-
-    // 보완 8: 추가 정보로 가입 — 회원가입과 같은 검사(만 18세 · 닉네임 중복), 비밀번호 · 이메일 인증은 없다 (구글이 확인)
-    @Override
-    @Transactional
-    public AuthTokens googleSignup(GoogleSignupRequest request) {
-        GoogleSignupStore.Pending pending = googleSignupStore.peek(request.getSignupToken()); // 10-22: 성공한 뒤에 지운다
-        if (pending == null) {
-            throw new ApiException(HttpStatus.BAD_REQUEST, "GOOGLE_SIGNUP_EXPIRED", "시간이 지났습니다. 구글 로그인을 다시 시도해 주세요.");
+        // ③ 처음 온 사람: 동의가 없으면 가입하지 않는다 → 화면이 동의 체크칸을 빨갛게 표시
+        if (!consent) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "SIGNUP_CONSENT_REQUIRED",
+                    "처음 가입하는 경우 아래 동의 항목을 체크한 뒤 다시 눌러 주세요.");
         }
-        if (Period.between(request.getBirthDate(), LocalDate.now()).getYears() < MIN_SIGNUP_AGE) {
-            throw new ApiException(HttpStatus.BAD_REQUEST, "AGE_RESTRICTED",
-                    "만 " + MIN_SIGNUP_AGE + "세 이상만 가입할 수 있습니다. (운전면허 취득 가능 나이 기준)");
-        }
-        // 추가 정보를 입력하는 사이 같은 이메일로 가입했으면 그 회원에 연결한다 (gmail 일 때만 — 아래 canAutoLink)
-        MemberDto existing = memberMapper.findByEmail(pending.email());
-        if (existing != null) {
-            if (!canAutoLink(pending.email())) {
-                throw googleLinkNotAllowed();
-            }
-            socialAccountMapper.insert(existing.getId(), GOOGLE, pending.sub(), pending.email());
-            AuthTokens tokens = issueTokens(existing);
-            googleSignupStore.remove(request.getSignupToken());
-            return tokens;
-        }
-        String nickName = request.getNickName().trim();
-        checkNickNameWords(nickName); // 보완 3 추가: 금지어
-        if (memberMapper.countByNickName(nickName) > 0) {
-            throw nickNameDuplicated();
-        }
-
         MemberDto member = new MemberDto();
-        member.setEmail(pending.email());
+        member.setEmail(google.email());
         member.setPasswordHash(MemberDto.SOCIAL_ONLY_PASSWORD); // 비밀번호 없음 → 이메일 · 비밀번호 로그인은 항상 실패
-        member.setNickName(nickName);
+        member.setNickName(autoNickName(google.name()));
         member.setRole(DEFAULT_ROLE);
         try {
             memberMapper.insert(member);
         } catch (DuplicateKeyException e) {
             String reason = String.valueOf(e.getMessage());
-            throw reason.contains("uq_users_nick_name") ? nickNameDuplicated() : emailDuplicated();
+            throw reason.contains("uq_users_nick_name") ? nickNameDuplicated() : emailDuplicated(); // 동시에 같은 값이 들어온 드문 경우
         }
+        socialAccountMapper.insert(member.getId(), GOOGLE, google.sub(), google.email());
+        return issueTokens(member);
+    }
 
-        UserProfileDto profile = new UserProfileDto();
-        profile.setUserId(member.getId());
-        profile.setPhone(phoneDigits(request.getPhone()));
-        profile.setBirthDate(request.getBirthDate());
-        profile.setGender(request.getGender());
-        userProfileMapper.insert(profile);
-
-        socialAccountMapper.insert(member.getId(), GOOGLE, pending.sub(), pending.email());
-        AuthTokens tokens = issueTokens(member);
-        googleSignupStore.remove(request.getSignupToken()); // 가입이 끝났으니 1회용 번호를 지운다
-        return tokens;
+    // 구글 이름으로 닉네임 자동 생성: 공백을 빼고 12자까지. 2자 미만 · 금지어 · 이미 사용 중이면 "회원" + 숫자 4자리
+    private String autoNickName(String googleName) {
+        String base = googleName == null ? "" : googleName.replaceAll("\\s+", "");
+        if (base.length() > 12) {
+            base = base.substring(0, 12);
+        }
+        if (base.length() >= 2 && NickNamePolicy.check(base) == null && memberMapper.countByNickName(base) == 0) {
+            return base;
+        }
+        for (int i = 0; i < 20; i++) {
+            String candidate = "회원" + (1000 + NICKNAME_RANDOM.nextInt(9000));
+            if (memberMapper.countByNickName(candidate) == 0) {
+                return candidate;
+            }
+        }
+        return "회원" + (System.currentTimeMillis() % 100_000_000); // 20번 모두 겹치는 경우 (거의 없음)
     }
 
     // 10-22: 같은 이메일 자동 연결은 @gmail.com 일 때만

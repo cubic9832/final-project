@@ -114,24 +114,13 @@ public class AuthApiController {
         return withTokens(authService.changePassword(userId, request));
     }
 
-    // POST /api/v1/auth/google — 보완 8: 구글 로그인. 본문 { idToken } (화면이 구글에서 받은 ID 토큰)
-    // 호출: LoginPage.jsx [Google 로 계속하기] → authApi.googleLogin
-    // 연결된(또는 같은 이메일) 회원이면 로그인과 같은 응답 { accessToken, member } + refresh 쿠키
-    // 처음 온 사람이면 { signupToken, email, name } → 화면이 추가 정보 입력으로 이동
+    // POST /api/v1/auth/google — 보완 8: 구글 로그인. 본문 { idToken, consent }
+    // 호출: LoginPage.jsx [Google 계정으로 계속하기] → authApi.googleLogin
+    // 연결된(또는 같은 이메일) 회원 · 동의한 처음 온 사람 → 로그인과 같은 응답 { accessToken, member } + refresh 쿠키
+    // 처음 온 사람인데 동의가 없으면 400 SIGNUP_CONSENT_REQUIRED (10-22: 추가 정보 화면 · /google/signup 삭제)
     @PostMapping("/google")
-    public ResponseEntity<?> googleLogin(@Valid @RequestBody GoogleLoginRequest request) {
-        GoogleLoginResult result = authService.googleLogin(request.getIdToken());
-        if (result.tokens() != null) {
-            return withTokens(result.tokens());
-        }
-        return ResponseEntity.ok(ApiResponse.ok(result.signup()));
-    }
-
-    // POST /api/v1/auth/google/signup — 보완 8: 구글 첫 로그인 후 추가 정보로 가입 (+ 바로 로그인)
-    // 호출: GoogleSignupPage.jsx [가입 완료] → authApi.googleSignup
-    @PostMapping("/google/signup")
-    public ResponseEntity<ApiResponse<TokenResponse>> googleSignup(@Valid @RequestBody GoogleSignupRequest request) {
-        return withTokens(authService.googleSignup(request));
+    public ResponseEntity<ApiResponse<TokenResponse>> googleLogin(@Valid @RequestBody GoogleLoginRequest request) {
+        return withTokens(authService.googleLogin(request.getIdToken(), request.isConsent()));
     }
 
     // POST /api/v1/auth/login — 로그인. 성공하면 200 + 본문 { accessToken, member } + refresh token 쿠키
