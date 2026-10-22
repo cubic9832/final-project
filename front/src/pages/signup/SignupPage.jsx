@@ -10,11 +10,11 @@ import {
   formatPhone,
   GENDER_OPTIONS,
   MIN_SIGNUP_AGE,
-  todayString,
   validateBirthDate,
   validateGender,
   validatePhone,
 } from './profileRules';
+import BirthDateInput from './BirthDateInput';
 import SignupCompleteModal from './SignupCompleteModal';
 import TermsModal from './TermsModal';
 import './SignupPage.css';
@@ -557,14 +557,7 @@ export default function SignupPage() {
               <div className="signup-field">
                 <label htmlFor="signup-birth-date">생년월일</label>
                 <div className="signup-input-wrap">
-                  <input
-                    id="signup-birth-date"
-                    type="date"
-                    min="1900-01-01"
-                    max={todayString()}
-                    autoComplete="bday"
-                    {...fieldProps('birthDate')}
-                  />
+                  <BirthDateInput id="signup-birth-date" {...fieldProps('birthDate')} />
                   {renderError('birthDate')}
                 </div>
               </div>
@@ -614,7 +607,7 @@ export default function SignupPage() {
             <div className="signup-term signup-term-all">
               <label htmlFor="signup-term-all">
                 <input id="signup-term-all" type="checkbox" checked={allAgreed} onChange={handleAllAgree} />
-                <span>만 {MIN_SIGNUP_AGE}세 이상이며 모든 약관에 동의합니다.</span>
+                <span>모든 약관에 동의합니다.</span>
               </label>
             </div>
             {terms.map((term) => (

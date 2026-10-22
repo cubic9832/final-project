@@ -10,11 +10,11 @@ import {
   formatPhone,
   GENDER_OPTIONS,
   MIN_SIGNUP_AGE,
-  todayString,
   validateBirthDate,
   validateGender,
   validatePhone,
 } from './profileRules';
+import BirthDateInput from './BirthDateInput';
 import TermsModal from './TermsModal';
 import './SignupPage.css';
 
@@ -214,12 +214,9 @@ export default function GoogleSignupPage() {
             <div className="signup-field">
               <label htmlFor="google-birth-date">생년월일</label>
               <div className="signup-input-wrap">
-                <input
+                <BirthDateInput
                   id="google-birth-date"
                   name="birthDate"
-                  type="date"
-                  min="1900-01-01"
-                  max={todayString()}
                   value={form.birthDate}
                   onChange={handleChange}
                   className={errors.birthDate ? 'has-error' : undefined}
@@ -276,7 +273,7 @@ export default function GoogleSignupPage() {
                     setErrors((prev) => ({ ...prev, terms: undefined }));
                   }}
                 />
-                <span>만 {MIN_SIGNUP_AGE}세 이상이며 서비스 이용약관 · 개인정보 수집·이용에 동의합니다. (필수)</span>
+                <span>서비스 이용약관 · 개인정보 수집·이용에 동의합니다. (필수)</span>
               </label>
               <button
                 className="signup-term-detail"
