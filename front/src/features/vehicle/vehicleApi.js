@@ -1,6 +1,16 @@
-import client from '../../api/client.js';
+import client from '../../shared/api/client.js';
 
-const classLabels = { MINI: '경차', COMPACT_SEDAN: '준중형 세단', MIDSIZE_SEDAN: '중형 세단' };
+const classLabels = {
+  MINI: '경차',
+  SUBCOMPACT_SUV: '소형 SUV',
+  COMPACT_SEDAN: '준중형 세단',
+  COMPACT_SUV: '준중형 SUV',
+  MIDSIZE_SEDAN: '중형 세단',
+  MIDSIZE_SUV: '중형 SUV',
+  LARGE_SUV: '대형 SUV',
+  FULLSIZE_SEDAN: '대형 세단',
+  MPV: '승합',
+};
 
 // DB 금액은 원, 화면의 비용 계산은 만 원 단위로 통일한다.
 export function toVehicle(row) {
@@ -12,9 +22,13 @@ export function toVehicle(row) {
     brand: row.brand,
     type: classLabels[row.classCode] ?? row.classCode ?? '기타',
     condition: row.conditionCode === 'NEW' ? '신차' : row.conditionCode === 'USED' ? '중고차' : '미확인',
-    trim: [row.trimName, row.modelYear && `${row.modelYear}년형`].filter(Boolean).join(' · '),
+    trim: [row.trimName, row.powertrain, row.modelYear && `${row.modelYear}년형`].filter(Boolean).join(' · '),
     price: Number(row.price) / 10000,
+    priceBeforeIncentive: row.priceBeforeIncentive == null ? null : Number(row.priceBeforeIncentive) / 10000,
     efficiency: Number(row.efficiencyValue),
+    cityEfficiency: row.cityEfficiency == null ? null : Number(row.cityEfficiency),
+    highwayEfficiency: row.highwayEfficiency == null ? null : Number(row.highwayEfficiency),
+    displacementCc: row.displacementCc == null ? null : Number(row.displacementCc),
     color: row.brand === '현대' ? '#7199b5' : '#7eafa0',
     imageUrl: row.imageUrl,
     sourceName: row.sourceName,

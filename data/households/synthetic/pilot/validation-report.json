@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "row_counts": {
+    "profiles": 1060,
+    "expenses": 1060,
+    "loans": 895,
+    "vehicle_scenarios": 3180,
+    "simulation_results": 3180
+  },
+  "profile_splits": {
+    "train": 700,
+    "test": 150,
+    "validation": 150,
+    "edge_test": 60
+  },
+  "negative_before_purchase": 1587,
+  "budget_exceeded_scenarios": 2481,
+  "generated_correlations": {
+    "income_consumption": 0.7558,
+    "income_liquid_cash": 0.325,
+    "income_debt_balance": 0.3035
+  },
+  "income_quantiles_won": {
+    "0.1": 1427000,
+    "0.5": 3582000,
+    "0.9": 7256000
+  },
+  "general_no_debt_profiles": 430,
+  "general_negative_before_purchase_profiles": 489,
+  "deterministic_regeneration": "passed",
+  "eligible_vehicle_rows": 52,
+  "vehicle_source_sha256": "dd534dc50cc5d24f89e7c3d2c781f98c8f66e343b08a88b5b52583193aceac16",
+  "config_sha256": "7f7e479ba118fef60066e4f26607adefa1e8f79092f92b44acec37ade9a11a0e",
+  "general_means_won": {
+    "monthly_net_income_won": 4102675,
+    "liquid_cash_won": 36428905
+  },
+  "scale_reference_only": {
+    "official_household_annual_gross_income_divided_by_12_won": 6189430.058666666,
+    "note": "Gross household aggregate and synthetic net incomes with mixed budget scopes are not directly comparable; no distribution calibration claimed."
+  }
+}

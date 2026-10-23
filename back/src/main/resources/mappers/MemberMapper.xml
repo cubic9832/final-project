@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원(users 테이블). 테이블은 Flyway V1__create_schema.sql 이 만든다 -->
+<mapper namespace="com.kh.back.member.MemberMapper">
+
+    <!-- 컬럼은 snake_case, 필드는 camelCase. map-underscore-to-camel-case 설정이 자동으로 맞춰 준다 -->
+    <select id="findById" resultType="com.kh.back.member.MemberDto">
+        SELECT id, email, password_hash, nick_name, role, created_at
+        FROM users
+        WHERE id = #{id}
+    </select>
+
+    <select id="findByEmail" resultType="com.kh.back.member.MemberDto">
+        SELECT id, email, password_hash, nick_name, role, created_at
+        FROM users
+        WHERE email = #{email}
+    </select>
+
+    <!-- 보완 3: 닉네임 중복 확인. 비교는 DB 정렬 규칙(utf8mb4_unicode_ci)을 따르므로 UNIQUE(V7)와 같은 기준 -->
+    <select id="countByNickName" resultType="int">
+        SELECT COUNT(*)
+        FROM users
+        WHERE nick_name = #{nickName}
+    </select>
+
+    <!-- useGeneratedKeys: AUTO_INCREMENT 로 만들어진 번호를 id 필드에 넣어 준다 -->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        INSERT INTO users (email, password_hash, nick_name, role)
+        VALUES (#{email}, #{passwordHash}, #{nickName}, #{role})
+    </insert>
+
+    <!-- 비밀번호 재설정 (보완 7 추가: 비밀번호 찾기) -->
+    <update id="updatePasswordHash">
+        UPDATE users SET password_hash = #{passwordHash} WHERE id = #{id}
+    </update>
+
+    <!-- 닉네임 변경 (보완 3 추가) -->
+    <update id="updateNickName">
+        UPDATE users SET nick_name = #{nickName} WHERE id = #{id}
+    </update>
+
+    <!-- 회원 탈퇴 (보완 4). users 를 참조하는 테이블(V1)을 먼저 정리한 뒤 회원을 지운다 -->
+    <delete id="deleteFavoriteVehicles">
+        DELETE FROM favorite_vehicles WHERE user_id = #{userId}
+    </delete>
+
+    <delete id="deletePurchasePlans">
+        DELETE FROM purchase_plans WHERE user_id = #{userId}
+    </delete>
+
+    <!-- 분석 입력 기록은 비회원 입력과 같은 형태(user_id NULL)로 남기고, 누구 것인지만 지운다 -->
+    <update id="detachInputSnapshots">
+        UPDATE input_snapshots SET user_id = NULL WHERE user_id = #{userId}
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM users WHERE id = #{id}
+    </delete>
+
+</mapper>

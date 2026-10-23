@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import GlobalToast from './GlobalToast';
 import Header from './Header';
 
 const Main = styled.main`
@@ -29,6 +30,8 @@ export default function Layout() {
           <Outlet />
         </Main>
       )}
+      {/* 공용 알림 표시 자리 — 어느 화면에서든 showToast('…') 로 띄운다 */}
+      <GlobalToast />
     </>
   );
 }
