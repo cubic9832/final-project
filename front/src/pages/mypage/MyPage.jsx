@@ -169,6 +169,7 @@ export default function MyPage() {
         <div>
           <div className="my-title-row">
             <h1>마이페이지</h1>
+            <button type="button" className="my-taste-link" onClick={() => navigate('/taste-test')}>내 첫 차 취향 알아보기</button>
             <span className="my-example-badge">일부 예시 데이터</span>
           </div>
           <p>저장한 분석 결과와 관심차량, 구매계획을 한곳에서 관리하세요.</p>

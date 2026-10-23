@@ -129,7 +129,7 @@ export default function GoogleSignupPage() {
         birthDate: form.birthDate,
         gender: form.gender,
       });
-      navigate('/', { replace: true });
+      navigate('/taste-test', { replace: true });
       showToast('구글 계정으로 가입되었습니다.');
     } catch (error) {
       const { code, message } = error.response?.data?.error ?? {};
