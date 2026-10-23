@@ -1,0 +1,89 @@
+{
+  "version": "preference-consistent-choice-v1",
+  "seed": 20261022,
+  "source_hashes": {
+    "C:\\workspace\\final-project\\data\\households\\synthetic\\preference-extended-v1\\combined_training.csv": "47f95d03791cf2c469cac2c2ba3620ea753724b26962e64d554e7523ac2e28b4",
+    "C:\\workspace\\final-project\\data\\households\\synthetic\\preference-extended-v1\\existing\\domestic-car\\owners.csv": "422734a714ccc95a0be2172c0320993bae54f222063802d5e9f1079727853b79",
+    "C:\\workspace\\final-project\\data\\households\\synthetic\\preference-extended-v1\\existing\\domestic-car\\purchases.csv": "5acaef0a40c761b99cd3ee081fa8123015a8fe0a22c2843b058977e4eb8bb902",
+    "C:\\workspace\\final-project\\data\\households\\synthetic\\preference-extended-v1\\existing\\domestic-extra-90000\\owners.csv": "bb1d5d0357de55ce0658c715ca78a30824b41b5b25569489f6679c7b6d5d986c",
+    "C:\\workspace\\final-project\\data\\households\\synthetic\\preference-extended-v1\\existing\\domestic-extra-90000\\purchases.csv": "29a0613e5a702c67a03e47b830045e7afaa477f4be0eb4420f9fd77e825d879a",
+    "C:\\workspace\\final-project\\data\\households\\synthetic\\preference-extended-v1\\existing\\imported-car\\owners.csv": "2595024e6d9980c31d9458233585944786242477a9a97e9929296b76c39c8dcc",
+    "C:\\workspace\\final-project\\data\\households\\synthetic\\preference-extended-v1\\existing\\imported-car\\purchases.csv": "50cba0ea118c3fd1003f0e2ebc966cd9ba751e4a10cb8e277eba138fbce416ce",
+    "C:\\workspace\\final-project\\data\\households\\synthetic\\preference-extended-v1\\existing\\imported-extra-90000\\owners.csv": "40385de236456a6fc5e1167c43c0bb11887ac100365d91a658b67fa6b239bfcb",
+    "C:\\workspace\\final-project\\data\\households\\synthetic\\preference-extended-v1\\existing\\imported-extra-90000\\purchases.csv": "aa5f88d0be2552f56afb7fe05f8b58f8a212813960443da1ca77207d8280658d"
+  },
+  "assumptions": {
+    "version": "cost-utility-v2.3-base-cost-only",
+    "acquisition_ratio": 0,
+    "monthly_insurance": 100000,
+    "monthly_maintenance": 60000,
+    "monthly_tax": 25000,
+    "efficiency_ranges": [
+      [
+        8,
+        14
+      ],
+      [
+        14,
+        22
+      ],
+      [
+        10,
+        16
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        3,
+        6
+      ]
+    ],
+    "energy_prices": [
+      1800,
+      1800,
+      1700,
+      1100,
+      350
+    ]
+  },
+  "months": 60,
+  "annual_rate_percent": 6,
+  "score": "(costImportance*economy + 3*sizeMatch + 3*fuelMatch + purposeMatch)/(costImportance+7)",
+  "near_best_regret": 0.025,
+  "model_sampling_temperature": 0.015,
+  "legacy_finance": "Keep original savings; reserve min(cash,3*living expenses); remaining cash available for down payment; no extra monthly buffer or price ceiling",
+  "new_finance": "Preserve original synthetic savings, reserve, purchase funds, buffer and price ceiling",
+  "model_input_columns": [
+    "개인_평균월실수령소득_원",
+    "개인_현금성자산_원",
+    "개인_평균월주거비_원",
+    "개인_평균월기타생활소비_원",
+    "기존대출잔액_보정전_원",
+    "기존월상환액_보정전_원",
+    "연간_주행거리_km",
+    "차량_이용목적",
+    "가성비중요도_1부터5",
+    "선호크기",
+    "선호연료",
+    "최소탑승인원_명",
+    "월저축액_원",
+    "비상자금_원",
+    "구매투입가능자금_원",
+    "최소월여유자금_원",
+    "구매가격상한_원_0이면미지정"
+  ],
+  "exclude_from_inputs": [
+    "원래선택차량_라벨코드",
+    "원래선택차량_모델",
+    "결과변경여부",
+    "선택차량정보",
+    "선택후비용",
+    "점수",
+    "선택설명"
+  ],
+  "seating": "Known base capacity, otherwise minimum of known seat options. Unknown capacity excluded.",
+  "charging": "Not used",
+  "size": "Exterior length; unknown length gets zero match score but is not excluded"
+}

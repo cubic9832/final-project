@@ -19,9 +19,9 @@ def profiles(count, seed):
         reserve = cash * rng.uniform(0.05, 0.5)
         result.append(Profile(monthly_income=income, monthly_expenses=income * rng.uniform(0.2, 0.8),
                               existing_monthly_payment=income * rng.uniform(0, 0.25), liquid_assets=cash,
-                              down_payment=(cash - reserve) * rng.uniform(0.1, 1), emergency_reserve=reserve,
+                              down_payment=0, emergency_reserve=reserve,
                               monthly_savings=income * rng.uniform(0, 0.25), annual_distance=rng.uniform(3000, 40000),
-                              months=rng.choice((0, 24, 36, 48, 60, 72)), annual_rate=rng.uniform(0.03, 0.12),
+                              months=0, annual_rate=0, financing_mode='recommendation',
                               minimum_buffer=income * rng.uniform(0, 0.1), purpose=rng.choice(PURPOSES),
                               preferred_fuel=rng.choice((*FUELS, None)), charging_available=rng.choice((True, False))))
     return result

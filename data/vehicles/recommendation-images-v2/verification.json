@@ -1,0 +1,12 @@
+{
+  "catalog_rows": 281,
+  "mapped_models": 84,
+  "unique_images": 79,
+  "new_images": 59,
+  "served_and_hash_verified": 79,
+  "missing": 0,
+  "existing_images_modified": 0,
+  "frontend_tests_passed": 21,
+  "build": "passed",
+  "lint": "passed"
+}

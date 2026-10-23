@@ -2,6 +2,7 @@ export const importanceLevels = [
   { value: '5', label: '매우 중요함' }, { value: '4', label: '중요함' }, { value: '3', label: '중간' },
   { value: '2', label: '중요하지 않음' }, { value: '1', label: '매우 중요하지 않음' },
 ];
+export const fuelOptions = ['상관없음', '가솔린', '하이브리드', '디젤', '전기', 'LPG'];
 export const sizeOptions = [
   { value: 'any', label: '상관없음 · 크기 평가 제외' },
   { value: 'small', label: '작은 크기 · 전장 4.2m 이하' },

@@ -1,3 +1,4 @@
+import { normalizeCharging } from '../../chargingPreferences.js';
 import { useEffect, useRef, useState } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { importanceLabel, sizeLabel } from '../../vehiclePreferences.js';
@@ -30,7 +31,7 @@ export default function FinancialResultPage() {
     const controller = new AbortController();
     pendingRequest.current = controller;
     setRecommending(true);
-    setNotice('차량별 가격·할부금·유지비를 계산하고 있습니다.');
+    setNotice('차량별 가격·유지비를 계산하고 있습니다.');
     try {
       const response = await getFinancialRecommendations(request, controller.signal);
       if (!controller.signal.aborted) navigate('/financial/recommendations', { state: { diagnosis: state, result: response } });
@@ -43,37 +44,36 @@ export default function FinancialResultPage() {
   }
 
   return <div className="financial-page result-page">
-    <div className="financial-page-heading"><div><h1>재무 진단 요약</h1><p>차량 비용을 제외하기 전의 월 가용자금입니다. 다음 단계에서 후보별 실제 가격으로 검증합니다.</p></div><span className="financial-stage-badge">새 추천 모델 · 실험</span></div>
+    <div className="financial-page-heading"><div><span className="financial-eyebrow">추천을 위한 예산 확인</span><h1>내 차량 예산을 확인해 보세요</h1><p>구매할 때 쓸 돈과 매달 유지할 여력을 함께 살펴봤어요.</p></div></div>
     <div className="result-metrics">
-      <section className="result-card"><h2>월 가용자금</h2><strong>{money(totals.available)}</strong><p>생활비·대출 상환·목표 저축 차감 후</p></section>
-      <section className="result-card"><h2>차량 선수금</h2><strong>{money(assets.downPayment)}</strong><p>비상 자금 {money(assets.emergency)} 별도 유지</p></section>
-      <section className="result-card"><h2>최소 월 여유자금</h2><strong>{money(vehicle.minimumBuffer)}</strong><p>차량 비용을 낸 뒤에도 유지할 금액</p></section>
+      <section className="result-card"><h2>월 유지비에 쓸 수 있는 금액</h2><strong>{money(totals.available)}</strong><p>생활비·상환·저축 차감 후</p></section>
+      <section className="result-card"><h2>차량 구매 가능 자금</h2><strong>{money(Number(assets.deposit || 0))}</strong><p>입력한 사용 가능 예금</p></section>
     </div>
+    <details className="financial-disclosure result-detail-panel"><summary>내역과 추천 조건 자세히 보기</summary>
     <div className="result-chart-grid">
       <section className="result-card"><h2>월 재무 내역</h2><dl className="result-distribution">
         {[['월 소득', totals.income], ['주거·생활·고정 지출', totals.expenses - totals.loanPayment], ['기존 대출 월 상환', totals.loanPayment], ['목표 저축', totals.savings], ['월 가용자금', totals.available]].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{money(value)}</dd></div>)}
       </dl></section>
       <section className="result-card"><h2>자산·구매 자금</h2><dl className="result-distribution">
-        {[['사용 가능 예금', assets.deposit], ['비상 자금', assets.emergency], ['차량 선수금', assets.downPayment], ['비상 자금·선수금 제외 예금', Number(assets.deposit || 0) - Number(assets.emergency || 0) - Number(assets.downPayment || 0)]].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{money(value)}</dd></div>)}
+        {[['사용 가능 예금', assets.deposit], ['구매 활용 가능 예금', Number(assets.deposit || 0)]].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{money(value)}</dd></div>)}
       </dl></section>
       <section className="result-card"><h2>추천에 적용할 이용 조건</h2><dl className="result-distribution">
-        {[['이용 목적', vehicle.purpose], ['연간 주행거리', vehicle.annualDistance], ['할부 기간', vehicle.installment], ['선호 연료', vehicle.fuel], ['충전 조건', vehicle.charging], ['최소 탑승 인원 · 필수', Number(vehicle.minimumSeats) > 0 ? `${vehicle.minimumSeats}명 이상` : '미지정']].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value ?? '미입력'}</dd></div>)}
+        {[['이용 목적', vehicle.purpose], ['선호 연료', vehicle.fuel], ...(vehicle.fuel === '전기' ? [['충전 환경', normalizeCharging(vehicle.charging)]] : []), ['희망 탑승 인원 · 선호', Number(vehicle.minimumSeats) > 0 ? `${vehicle.minimumSeats}명 이상` : '미지정']].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value ?? '미입력'}</dd></div>)}
       </dl>
-        {Number(vehicle.minimumSeats) > 0 && <p className="result-condition-note">최소 인원 조건이 적용됩니다. 현재 좌석 수가 미확인인 차량도 제외되므로 추천 결과가 없을 수 있습니다.</p>}
+        {Number(vehicle.minimumSeats) > 0 && <p className="result-condition-note">운전자를 포함한 승차 정원으로 비교합니다. 등록된 기본 정원으로 비교합니다. 기본 정원보다 많은 인원에 좌석 옵션이 필요한 차량은 별도 확인 후보로 안내합니다.</p>}
       </section>
       <section className="result-card"><h2>중요도·점수 산정 조건</h2><dl className="result-distribution">
         {[
           ['가성비 중요도', `${importanceLabel(vehicle.costImportance)} · 가중치 ${vehicle.costImportance ?? 3}`],
           ['공간 중요도', !vehicle.preferredSize || vehicle.preferredSize === 'any' ? `${importanceLabel(vehicle.spaceImportance)} · 크기 미지정으로 평가 제외` : `${importanceLabel(vehicle.spaceImportance)} · 가중치 ${vehicle.spaceImportance ?? 3}`],
           ['선호 크기', sizeLabel(vehicle.preferredSize)],
-          ['구매 후 최소 월 여유자금', money(vehicle.minimumBuffer)],
-          ['가성비 비용 비교 기간', '5년 · 구매비 + 유지비 + 기간 내 할부 이자'],
-          ['기본 할부 금리', '연 6% · 비용 상승 시 연 9% 가정'],
+          ['가성비 비용 비교 기간', '5년 · 차량 가격 + 유지비'],
           ['기존 ML 참고 점수', '가중치 1'],
         ].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
       </dl></section>
     </div>
-    <aside className="result-warning"><h2>차량별 비용을 확인하세요</h2><p>기본 금리 연 6%, 비용 상승 시 금리 +3%p와 유지비 증가를 적용합니다. 적격 후보 중 비용·연료 선호를 기준으로 순위를 정하며 조건을 만족하는 차량이 없을 수도 있습니다. 가격은 수집 시점 자료이고, 세금·보험·정비·에너지 단가는 실험 가정입니다. 금융 심사나 실제 만족도를 보장하지 않습니다.</p></aside>
+    </details>
+    <aside className="result-warning"><h2>차량별 비용을 확인하세요</h2><p>추천 단계에서는 차량 가격과 예상 월 유지비를 비교합니다. 적격 후보 중 비용·연료 선호를 기준으로 순위를 정하며 조건을 만족하는 차량이 없을 수도 있습니다. 가격과 유지비는 비교를 위한 예상 금액입니다.</p></aside>
     <div className="financial-next-row result-navigation"><button type="button" className="result-previous" onClick={() => navigate('/financial', { state: { ...state, reviewReturn: false } })}>조건 다시 입력하기</button><button type="button" className="financial-next-button" onClick={showRecommendations} disabled={recommending} aria-busy={recommending}>{recommending ? '차량 분석 중…' : '추천 차량 확인하기'}</button></div>
     <p className="result-status" role="status">{notice}</p>
   </div>;

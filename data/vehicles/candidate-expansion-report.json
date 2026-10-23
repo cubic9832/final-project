@@ -1,0 +1,19 @@
+{
+  "sources": [
+    {
+      "source": "data\\households\\synthetic\\owner-funded\\configuration-catalog.json",
+      "added": 16,
+      "sha256": "598d94393ab4242ef6f5b0a320302bbdbc5a5f3316039060a6d655209af038d0"
+    },
+    {
+      "source": "data\\households\\synthetic\\imported-owners\\configuration-catalog.json",
+      "added": 18,
+      "sha256": "f7bd875d6e1f62fd63859acee5ddcf3b422237c1a9291ce8b57f2ad711d943d0"
+    }
+  ],
+  "total": 265,
+  "models": 76,
+  "policy": "Preserve all baseline configurations, then extend; identical configurations share candidates.",
+  "training_bundle": "ml/experiments/candidate-v2",
+  "weights_retrained": false
+}

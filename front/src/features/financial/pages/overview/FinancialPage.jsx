@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { calculateFinancialSummary } from '../../calculateFinancialSummary';
+import FinancialAssetsFields from '../../components/FinancialAssetsFields.jsx';
+import FinancialBudgetSummary from '../../components/FinancialBudgetSummary.jsx';
 import '../../styles/FinancialPages.css';
 
 const fields = [
@@ -17,7 +18,7 @@ const extraFields = [
   { name: 'phone', label: '통신비', required: false },
 ];
 
-const steps = ['소득·지출', '자산·부채', '차량 이용', '확인'];
+const steps = ['재무 정보', '차량 이용', '확인'];
 
 export function FinancialProgress({ current = 1 }) {
   return (
@@ -41,18 +42,17 @@ export default function FinancialPage() {
   const [fieldErrors, setFieldErrors] = useState({});
   const location = useLocation();
   const [values, setValues] = useState(location.state?.values ?? {});
+  const [assets, setAssets] = useState({ deposit: location.state?.assets?.deposit ?? '' });
+  const [loans, setLoans] = useState(() => (location.state?.loans ?? []).filter(loan => loan.balance !== '' || loan.payment !== '').map(loan => ({ ...loan, id: loan.id ?? crypto.randomUUID() })));
   const [expanded, setExpanded] = useState(
     extraFields.some(({ name }) => location.state?.values?.[name] !== undefined)
   );
 
-  const { income, expenses, savings, available } = calculateFinancialSummary(values, location.state?.loans ?? []);
-  const format = (value) => value.toLocaleString('ko-KR', { maximumFractionDigits: 2 });
-  const started = Object.values(values).some((value) => value !== '');
 
   function handleSubmit(event) {
     event.preventDefault();
     if (!event.currentTarget.reportValidity()) return;
-    navigate(location.state?.reviewReturn ? '/financial/review' : '/financial/assets', { state: { ...location.state, values, reviewReturn: false } });
+    navigate(location.state?.reviewReturn ? '/financial/review' : '/financial/vehicle', { state: { ...location.state, values, assets, loans, reviewReturn: false } });
   }
 
   function renderField({ name, label, required }) {
@@ -75,7 +75,7 @@ export default function FinancialPage() {
             value={values[name] ?? ''}
             onChange={(event) => { setValues((previous) => ({ ...previous, [name]: event.target.value })); setFieldErrors((previous) => ({ ...previous, [name]: '' })); }}
             aria-invalid={Boolean(fieldErrors[name])}
-            onInvalid={(event) => { event.preventDefault(); const message = event.currentTarget.validationMessage; setFieldErrors((previous) => ({ ...previous, [name]: message })); }}
+            onInvalid={(event) => { event.preventDefault(); if (extraFields.some(field => field.name === name)) setExpanded(true); const message = event.currentTarget.validationMessage; setFieldErrors((previous) => ({ ...previous, [name]: message })); }}
             aria-describedby={fieldErrors[name] ? `financial-${name}-error` : 'financial-unit'}
           />
           <span aria-hidden="true">만 원</span>
@@ -89,27 +89,27 @@ export default function FinancialPage() {
     <div className="financial-page">
       <div className="financial-page-heading">
         <div>
-          <h1>재무정보 입력</h1>
-          <p>월 소득과 지출을 입력하고, 내 재무에 맞는 구매 여력을 확인하세요.</p>
+          <span className="financial-eyebrow">나에게 맞는 첫차 찾기</span><h1>재무 정보를 알려주세요</h1>
+          <p>소득·지출과 예금·대출 내역을 한 번에 입력해 주세요.</p>
         </div>
-        <span className="financial-stage-badge">1 / 4 · 소득·지출</span>
+        <span className="financial-stage-badge">1 / 3 · 재무 정보</span>
       </div>
       <FinancialProgress />
 
       <form onSubmit={handleSubmit}>
         <div className="financial-entry-grid">
           <section className="financial-entry-card" aria-labelledby="income-title">
-            <h2 id="income-title">1. 소득·지출</h2>
-            <p id="financial-unit">월 소득과 정기 지출을 입력해 주세요. 모든 금액은 만 원 단위입니다.</p>
+            <h2 id="income-title">월 소득과 생활비</h2>
+            <p id="financial-unit">모든 금액은 만 원 단위로 입력해 주세요.</p>
             <p className="financial-required-note">* 표시는 필수 입력 항목입니다. 지출이 없으면 0을 입력해 주세요.</p>
             <div className="financial-fields">{fields.map(renderField)}</div>
 
             <div className="financial-extra">
               <div className="financial-extra-heading">
                 <div>
-                  <h3>기타 정기 소득·교통비·통신비 (선택)</h3>
-                  <p>선택 항목은 더 정확한 월 가용자금 계산에 활용됩니다.</p>
-                  <p>이미 월 고정 지출이나 생활비에 포함했다면 중복 입력하지 마세요.</p>
+                  <h3>추가 소득과 지출 (선택)</h3>
+                  <p>기타 소득·교통비·통신비가 있다면 추가해 주세요.</p>
+                  <p>생활비에 포함한 항목은 다시 입력하지 않아도 됩니다.</p>
                 </div>
                 <button
                   type="button"
@@ -132,25 +132,10 @@ export default function FinancialPage() {
                 </div>
               </div>
             </div>
+            <FinancialAssetsFields assets={assets} setAssets={setAssets} loans={loans} setLoans={setLoans} />
           </section>
 
-          <aside className="financial-live-card" aria-labelledby="live-title">
-            <h2 id="live-title">실시간 계산</h2>
-            <p>현재 예상 월 가용자금</p>
-            <strong className="financial-available" aria-live="polite">
-              {started ? `${format(available)}만 원` : '—'}
-            </strong>
-            <dl>
-              <div><dt>월 실수령액 + 기타 소득</dt><dd>{format(income)}만 원</dd></div>
-              <div><dt>총 지출·상환</dt><dd>{format(expenses)}만 원</dd></div>
-              <div><dt>목표 저축액</dt><dd>{format(savings)}만 원</dd></div>
-            </dl>
-            <div className="financial-calculation-note">
-              <h3>계산 기준</h3>
-              <p>총 소득 − 주거비 − 고정 지출 − 생활비 − 대출 상환 − 교통비 − 통신비 − 목표 저축</p>
-            </div>
-            <p className="financial-live-hint">대출 상환액은 다음 자산·부채 단계에서 한 번만 입력합니다. 입력 후 이 계산에도 반영됩니다. 선택 항목은 미입력 시 0원입니다.</p>
-          </aside>
+          <FinancialBudgetSummary values={values} assets={assets} loans={loans} />
         </div>
         <div className="financial-next-row">
           <button className="financial-next-button" type="submit">{location.state?.reviewReturn ? '수정 완료' : '다음 단계'}</button>

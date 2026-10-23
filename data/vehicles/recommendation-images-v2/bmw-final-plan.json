@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "bmw-x5",
+    "brand": "BMW",
+    "model": "X5",
+    "source_page": "https://www.bmw.co.kr",
+    "image_url": "https://bmw.scene7.com/is/image/BMW/g05_stage%3A16to7?fit=constrain%2C1&fmt=webp-alpha&wid=2560"
+  },
+  {
+    "slug": "bmw-3-series",
+    "brand": "BMW",
+    "model": "3시리즈",
+    "source_page": "https://www.bmw.co.kr",
+    "image_url": "https://bmw.scene7.com/is/image/BMW/g20_ice_stage-50-years%3A16to7?fit=constrain%2C1&fmt=webp-alpha&wid=2560"
+  },
+  {
+    "slug": "bmw-x1",
+    "brand": "BMW",
+    "model": "X1",
+    "source_page": "https://www.bmw.co.kr",
+    "image_url": "https://bmw.scene7.com/is/image/BMW/u11-ice_stage%3A16to7?fit=constrain%2C1&fmt=webp-alpha&wid=2560"
+  },
+  {
+    "slug": "bmw-3-series-touring",
+    "brand": "BMW",
+    "model": "3시리즈 투어링",
+    "source_page": "https://www.bmw.co.kr",
+    "image_url": "https://bmw.scene7.com/is/image/BMW/g21_ice_stage-50-years%3A16to7?fit=constrain%2C1&fmt=webp-alpha&wid=2560"
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "actyon",
+    "generated_file": "exec-26a260c0-0c04-495d-b140-f7f837c669cd.png",
+    "file": "front/public/images/recommendations/cutouts/actyon.png"
+  },
+  {
+    "slug": "actyon-hybrid",
+    "generated_file": "exec-8daec9fe-5c46-465f-8dde-df392bd16fe4.png",
+    "file": "front/public/images/recommendations/cutouts/actyon-hybrid.png"
+  },
+  {
+    "slug": "torres",
+    "generated_file": "exec-9099d76e-bf95-489a-b6cb-dea810aaea0f.png",
+    "file": "front/public/images/recommendations/cutouts/torres.png"
+  },
+  {
+    "slug": "tivoli",
+    "generated_file": "exec-1be729f5-1d8a-4b02-8a8d-d0c33898a350.png",
+    "file": "front/public/images/recommendations/cutouts/tivoli.png"
+  },
+  {
+    "slug": "rexton",
+    "generated_file": "exec-eb7e925a-0a23-4c82-a46a-c4287b58690c.png",
+    "file": "front/public/images/recommendations/cutouts/rexton.png"
+  },
+  {
+    "slug": "torres-hybrid",
+    "generated_file": "exec-9769d3f5-f764-4476-b01f-6cb82f8e5a97.png",
+    "file": "front/public/images/recommendations/cutouts/torres-hybrid.png"
+  },
+  {
+    "slug": "torres-evx",
+    "generated_file": "exec-e6fd12cb-fd6a-4628-b7cf-61a57cbeba45.png",
+    "file": "front/public/images/recommendations/cutouts/torres-evx.png"
+  },
+  {
+    "slug": "gv80-coupe-front",
+    "generated_file": "exec-2f41a84b-8320-4d71-a2d9-690e38a88d36.png",
+    "file": "front/public/images/recommendations/cutouts/gv80-coupe-front.png"
+  },
+  {
+    "slug": "gv80-front",
+    "generated_file": "exec-746cd5dc-5821-4366-907f-34c5a6b35a45.png",
+    "file": "front/public/images/recommendations/cutouts/gv80-front.png"
+  },
+  {
+    "slug": "g80-black-front",
+    "generated_file": "exec-b5aaa5b4-166e-44fb-92c6-574e83f2458b.png",
+    "file": "front/public/images/recommendations/cutouts/g80-black-front.png"
+  },
+  {
+    "slug": "gv80-black-front",
+    "generated_file": "exec-51035abf-9600-46fb-8a16-fb9203746c18.png",
+    "file": "front/public/images/recommendations/cutouts/gv80-black-front.png"
+  },
+  {
+    "slug": "g90-long-wheel-base-front",
+    "generated_file": "exec-e93b8d9b-b851-4851-9b94-4ce7d0425d23.png",
+    "file": "front/public/images/recommendations/cutouts/g90-long-wheel-base-front.png"
+  },
+  {
+    "slug": "g90-long-wheel-base-black-front",
+    "generated_file": "exec-7aa4d55f-2ac4-4e8b-bc98-4e7c3e2b843e.png",
+    "file": "front/public/images/recommendations/cutouts/g90-long-wheel-base-black-front.png"
+  },
+  {
+    "slug": "bmw-3-series",
+    "generated_file": "exec-3120d722-c16f-42b3-a8de-d72a3f89d559.png",
+    "file": "front/public/images/recommendations/cutouts/bmw-3-series.png"
+  },
+  {
+    "slug": "bmw-3-series-touring",
+    "generated_file": "exec-c98b1f54-49c6-4659-a04e-c4055f380bf6.png",
+    "file": "front/public/images/recommendations/cutouts/bmw-3-series-touring.png"
+  },
+  {
+    "slug": "bmw-x1",
+    "generated_file": "exec-8ef7c134-ebc4-4d0e-8a36-1be3df172886.png",
+    "file": "front/public/images/recommendations/cutouts/bmw-x1.png"
+  },
+  {
+    "slug": "bmw-x4",
+    "generated_file": "exec-8bcc21a7-ca31-4527-8666-ea893652ef6d.png",
+    "file": "front/public/images/recommendations/cutouts/bmw-x4.png"
+  },
+  {
+    "slug": "bmw-x5",
+    "generated_file": "exec-88cc6bbe-e677-48d7-aa8b-89e9ddc46ea4.png",
+    "file": "front/public/images/recommendations/cutouts/bmw-x5.png"
+  }
+]

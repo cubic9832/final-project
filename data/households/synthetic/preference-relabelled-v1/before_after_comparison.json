@@ -1,0 +1,17 @@
+{
+  "legacy_paired_comparison": {
+    "fuel_same_rows": 82398,
+    "fuel_before_mismatch": 65781,
+    "fuel_after_mismatch": 24209,
+    "size_same_rows": 32426,
+    "size_before_mismatch": 21719,
+    "size_after_mismatch": 11506
+  },
+  "remaining_preference_tradeoffs": {
+    "크기는비용연료와절충": 33181,
+    "선호연료적격후보없음": 13345,
+    "선호크기적격후보없음": 8781,
+    "연료는비용크기와절충": 17656
+  },
+  "new_same_input_groups_with_multiple_models": 865
+}

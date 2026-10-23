@@ -1,0 +1,47 @@
+{
+  "checked_on": "2026-10-22",
+  "changes": [
+    {
+      "id": "supp-89cd283873134273",
+      "before": {
+        "efficiency": null,
+        "length_mm": null,
+        "space_source_url": null
+      },
+      "after": {
+        "efficiency": 5.1,
+        "length_mm": 3595,
+        "space_source_url": "https://www.kia.com/kr/vehicles/ray-ev/specification"
+      },
+      "source_url": "https://www.kia.com/kr/vehicles/ray-ev/specification"
+    },
+    {
+      "id": "supp-9f6be1db30c9df4c",
+      "before": {
+        "efficiency": null,
+        "length_mm": null,
+        "space_source_url": null
+      },
+      "after": {
+        "efficiency": 5.1,
+        "length_mm": 3595,
+        "space_source_url": "https://www.kia.com/kr/vehicles/ray-ev/specification"
+      },
+      "source_url": "https://www.kia.com/kr/vehicles/ray-ev/specification"
+    },
+    {
+      "id": "supp-d078eb022e6e0a57",
+      "before": {
+        "seats": null,
+        "seat_options": null
+      },
+      "after": {
+        "seats": 7,
+        "seat_options": [
+          7
+        ]
+      },
+      "source_url": "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/PRICELIST_JUNE2026.pdf.asset.1781249167044.pdf"
+    }
+  ]
+}

@@ -16,7 +16,7 @@ from vehicle_matching.finance import Assumptions, Profile, assess, installment
 
 def person(**changes):
     base = Profile(monthly_income=6000000, monthly_expenses=1500000, existing_monthly_payment=200000,
-                   liquid_assets=30000000, down_payment=20000000, emergency_reserve=5000000,
+                   liquid_assets=60000000, down_payment=20000000, emergency_reserve=5000000,
                    monthly_savings=1000000, annual_distance=15000, months=48,
                    preferred_fuel='HYBRID', charging_available=True)
     return replace(base, **changes)
@@ -46,26 +46,28 @@ class FinanceTests(unittest.TestCase):
         self.assertAlmostEqual(base['remaining_monthly'] - changed['remaining_monthly'], 400000)
         unknown = assess(person(), vehicle(efficiency=None))
         self.assertTrue(unknown['efficiency_estimated'])
-        self.assertGreater(unknown['stress_monthly_total'], unknown['monthly_total'])
+        self.assertEqual(unknown['stress_monthly_total'], unknown['monthly_total'])
 
     def test_invalid_money_and_impossible_cash_are_rejected(self):
         for value in (-1, math.nan, math.inf, True):
             with self.subTest(value=value), self.assertRaises(ValueError):
                 person(monthly_income=value)
         with self.assertRaises(ValueError):
-            person(down_payment=29000000)
+            person(down_payment=60000000)
         with self.assertRaises(ValueError):
             person(months=True)
 
-    def test_ev_needs_explicit_charging_and_stress_can_reject_base_affordability(self):
+    def test_charging_does_not_exclude_and_monthly_budget_is_mandatory(self):
         electric = vehicle(fuel='ELECTRIC', efficiency=5)
-        self.assertIn('charging-unavailable', assess(person(charging_available=False), electric)['exclusions'])
+        self.assertNotIn('charging-unavailable', assess(person(charging_available=False), electric)['exclusions'])
         cost = assess(person(), vehicle())
-        available = (cost['monthly_total'] + cost['stress_monthly_total']) / 2
+        available = cost['monthly_total'] + 10000
         constrained = person(monthly_expenses=6000000 - 200000 - 1000000 - available)
         result = assess(constrained, vehicle())
         self.assertGreater(result['remaining_monthly'], 0)
-        self.assertFalse(result['eligible'])
+        self.assertTrue(result['eligible'])
+        tight = replace(constrained, minimum_buffer=20000)
+        self.assertIn('insufficient-monthly-buffer', assess(tight, vehicle())['exclusions'])
 
 
 class TrainedCandidateTests(unittest.TestCase):
@@ -105,7 +107,7 @@ class TrainedCandidateTests(unittest.TestCase):
             for row in result['recommendations']:
                 keys.append((row['vehicle']['brand'], row['vehicle']['model']))
                 self.assertTrue(row['cost']['eligible'])
-                self.assertGreaterEqual(row['cost']['stress_remaining_monthly'], profile.minimum_buffer)
+                self.assertGreaterEqual(row['cost']['remaining_monthly'], profile.minimum_buffer)
                 self.assertTrue(0 <= row['rankingScore'] <= 1)
             self.assertEqual(len(keys), len(set(keys)))
 
@@ -154,7 +156,9 @@ class CandidateApiTests(unittest.TestCase):
             self.assertEqual(invalid.json()['errors'][0]['field'], 'profile.monthly_income')
             payload['profile'] = asdict(person())
             payload['profile']['down_payment'] = 30000000
-            self.assertEqual(client.post('/api/v2/recommendations', json=payload).status_code, 400)
+            legacy = client.post('/api/v2/recommendations', json=payload)
+            self.assertEqual(legacy.status_code, 200)
+            self.assertEqual(legacy.json()['data'], data)
             payload['profile'] = asdict(person())
             payload['profile']['months'] = False
             self.assertEqual(client.post('/api/v2/recommendations', json=payload).status_code, 400)

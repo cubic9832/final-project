@@ -1,0 +1,16 @@
+{
+  "rows": 206429,
+  "added_rows": 273,
+  "unique_new_inputs": 273,
+  "existing_rows_unchanged": 206156,
+  "validation_and_evaluation_unchanged": true,
+  "training_label_count": 46,
+  "minimum_training_rows_per_label": 100,
+  "unseen_validation_labels": [],
+  "unseen_evaluation_labels": [],
+  "splits": {
+    "학습": 138300,
+    "검증": 24194,
+    "평가": 43935
+  }
+}

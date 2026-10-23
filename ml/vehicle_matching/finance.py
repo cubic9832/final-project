@@ -1,6 +1,6 @@
 """Versioned experimental assumptions, not lending eligibility decisions."""
 import math
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 
 from vehicle_matching.catalog import FUELS, Vehicle
 
@@ -27,11 +27,18 @@ class Profile:
     space_importance: int = 3
     minimum_seats: int = 0
     preferred_size: str = 'any'
+    financing_mode: str = 'fixed'
+    fuel_importance: int = 3
+    seating_importance: int = 3
+    purpose_importance: int = 1
+    purchase_price_ceiling: float = 0
 
     def __post_init__(self):
+        if self.financing_mode not in ('fixed', 'automatic', 'recommendation'):
+            raise ValueError('Invalid financing mode')
         for name in ('monthly_income', 'monthly_expenses', 'existing_monthly_payment', 'liquid_assets',
                      'down_payment', 'emergency_reserve', 'monthly_savings', 'annual_distance',
-                     'annual_rate', 'minimum_buffer'):
+                     'annual_rate', 'minimum_buffer', 'purchase_price_ceiling'):
             value = getattr(self, name)
             if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value < 0:
                 raise ValueError(f'{name}: finite nonnegative amount required')
@@ -43,9 +50,10 @@ class Profile:
             raise ValueError('Unknown preferred fuel')
         if type(self.charging_available) is not bool:
             raise ValueError('charging_available must be boolean')
-        if self.down_payment + self.emergency_reserve > self.liquid_assets:
+        if self.emergency_reserve > self.liquid_assets or self.down_payment > self.liquid_assets - self.emergency_reserve:
             raise ValueError('down_payment + emergency_reserve exceeds liquid_assets')
-        for weight in (self.cost_importance, self.space_importance):
+        for weight in (self.cost_importance, self.space_importance, self.fuel_importance,
+                       self.seating_importance, self.purpose_importance):
             if type(weight) is not int or not 1 <= weight <= 5:
                 raise ValueError('Importance must be an integer from 1 to 5')
         if type(self.minimum_seats) is not int or not 0 <= self.minimum_seats <= 9:
@@ -56,13 +64,14 @@ class Profile:
 
 @dataclass(frozen=True)
 class Assumptions:
-    version: str = 'cost-utility-v2.1'
-    acquisition_ratio: float = 0.07
+    version: str = 'cost-utility-v2.3-base-cost-only'
+    acquisition_ratio: float = 0
     monthly_insurance: float = 100000
     monthly_maintenance: float = 60000
     monthly_tax: float = 25000
-    stress_rate_addition: float = 0.03
-    stress_running_multiplier: float = 1.25
+    # Accepted only for historical bundle loading; no longer used in calculations.
+    stress_rate_addition: float = 0
+    stress_running_multiplier: float = 1
     # Unknown efficiency is an interval assumption, never a vehicle specification.
     efficiency_ranges: tuple = ((8, 14), (14, 22), (10, 16), (6, 10), (3, 6))
     energy_prices: tuple = (1800, 1800, 1700, 1100, 350)
@@ -78,7 +87,7 @@ class Assumptions:
             raise ValueError('Invalid efficiency intervals')
 
     def to_dict(self):
-        return asdict(self)
+        return {key: value for key, value in asdict(self).items() if not key.startswith('stress_')}
 
 
 def installment(principal, rate, months):
@@ -93,33 +102,40 @@ def installment(principal, rate, months):
 
 
 def assess(profile: Profile, vehicle: Vehicle, assumptions=Assumptions()):
+    recommendation = profile.financing_mode == 'recommendation'
+    if profile.financing_mode == 'recommendation':
+        # Recommendation never creates a loan. Only currently spendable cash
+        # may pay the purchase price; income is checked against running costs.
+        profile = replace(profile, down_payment=min(vehicle.price, profile.liquid_assets-profile.emergency_reserve),
+                          months=0, annual_rate=0, financing_mode='automatic')
     fuel_index = FUELS.index(vehicle.fuel)
     low, high = assumptions.efficiency_ranges[fuel_index]
     efficiency = vehicle.efficiency or (low + high) / 2
-    worst_efficiency = vehicle.efficiency or low
     energy = assumptions.energy_prices[fuel_index]
     running = profile.annual_distance / 12 / efficiency * energy
-    worst_running = profile.annual_distance / 12 / worst_efficiency * energy
     fixed = assumptions.monthly_insurance + assumptions.monthly_maintenance + assumptions.monthly_tax
-    total_price = round(vehicle.price * (1 + assumptions.acquisition_ratio), 2)
+    total_price = round(vehicle.price, 2)
     principal = max(0, round(total_price - profile.down_payment, 2))
-    payment = installment(principal, profile.annual_rate, profile.months)
-    stress_payment = installment(principal, profile.annual_rate + assumptions.stress_rate_addition, profile.months)
+    payment = 0.0 if recommendation else installment(principal, profile.annual_rate, profile.months)
+    if recommendation:
+        payment = math.ceil(round(payment,2))
+        running = math.ceil(round(running+fixed,2))-fixed
     monthly_cost = payment + running + fixed
-    stress_cost = stress_payment + (worst_running + fixed) * assumptions.stress_running_multiplier
     available = profile.monthly_income - profile.monthly_expenses - profile.existing_monthly_payment - profile.monthly_savings
     reasons = []
-    if vehicle.fuel == 'ELECTRIC' and not profile.charging_available:
-        reasons.append('charging-unavailable')
+    if profile.purchase_price_ceiling and total_price>profile.purchase_price_ceiling:
+        reasons.append('purchase-price-ceiling')
     if profile.months == 0 and principal > 0:
         reasons.append('insufficient-cash-for-outright-purchase')
-    if available - stress_cost < profile.minimum_buffer:
-        reasons.append('insufficient-monthly-buffer-under-stress')
+    if available - monthly_cost < profile.minimum_buffer:
+        reasons.append('insufficient-monthly-buffer')
     # JSON does not support Infinity. Infeasible cash purchases have no installment estimate.
     def finite(value):
         return round(value, 2) if math.isfinite(value) else None
     return {'eligible': not reasons, 'exclusions': reasons, 'total_purchase_cost': round(total_price, 2),
+            'financing_months': profile.months, 'financing_annual_rate': profile.annual_rate,
             'principal': round(principal, 2), 'monthly_payment': finite(payment), 'monthly_running_cost': round(running + fixed, 2),
-            'monthly_total': finite(monthly_cost), 'stress_monthly_total': finite(stress_cost),
-            'remaining_monthly': finite(available - monthly_cost), 'stress_remaining_monthly': finite(available - stress_cost),
-            'efficiency_estimated': vehicle.efficiency is None}
+            # Historical feature slots reuse the base values, without a second scenario.
+            'monthly_total': finite(monthly_cost), 'stress_monthly_total': finite(monthly_cost),
+            'remaining_monthly': finite(available - monthly_cost), 'stress_remaining_monthly': finite(available - monthly_cost),
+            'efficiency_estimated': vehicle.efficiency is None or vehicle.efficiency_reference_only}

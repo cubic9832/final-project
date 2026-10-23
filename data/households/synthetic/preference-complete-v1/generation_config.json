@@ -1,0 +1,26 @@
+{
+  "version": "complete-preference-choice-v1",
+  "seed": 20261022,
+  "source_path": "C:\\workspace\\final-project\\data\\households\\synthetic\\preference-relabelled-v1",
+  "source_sha256": "a9a2661acca42695c95cf607d98f32d119dbb57eaf8de08348a1e59b2ec63542",
+  "source_main_ref": "5043c6da92a0f004c3921eb70678247e8db9d831",
+  "financial_repair_authorization": "User explicitly selected minimal financial repairs with original values preserved",
+  "income_policy": "Minimum additional monthly income plus one won numeric boundary guard; maximum delta shared by entire original financial group",
+  "ceiling_policy": "Only relax when no feasible candidate; use lowest required price consistent with seats or affordability",
+  "preferences": "Keep all four preferences and minimum seats; do not derive preferences from the selected vehicle",
+  "selection_policy": "preference-consistent-choice-v1; 60 months and annual 6 percent, near-best sampling",
+  "future_data_requirement": "Run feasibility repair planning before choosing any label; fail instead of writing missing labels",
+  "exclude_from_training_inputs": [
+    "보정전_월실수령소득_원",
+    "월소득보정액_원",
+    "보정전_구매가격상한_원",
+    "보정전_선택차량_라벨코드",
+    "보정전_선택차량_모델",
+    "보정내용",
+    "원래선택차량정보",
+    "선택후차량비용",
+    "점수",
+    "결과변경여부"
+  ],
+  "limitations": "Synthetic repairs do not recover real income; large corrections must be inspected. All-selected set excludes real-world no-recommendation behavior."
+}

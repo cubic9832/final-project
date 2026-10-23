@@ -1,3 +1,5 @@
+import { canChargeRegularly } from './chargingPreferences.js';
+
 const purposes = { 출퇴근: 'commute', '주말 여가': 'leisure', '가족 이동': 'family', 업무: 'business' };
 const fuels = { 가솔린: 'GASOLINE', 하이브리드: 'HYBRID', 디젤: 'DIESEL', LPG: 'LPG', 전기: 'ELECTRIC', 상관없음: null };
 
@@ -18,16 +20,18 @@ export function buildCandidateRecommendation({ values = {}, assets = {}, loans, 
       + amount(values.transport, '교통비', true) + amount(values.phone, '통신비', true),
     existing_monthly_payment: 0,
     liquid_assets: amount(assets.deposit, '사용 가능 예금'),
-    down_payment: amount(assets.downPayment, '선수금'),
-    emergency_reserve: amount(assets.emergency, '비상 자금'),
+    // Removed UI fields are zeroed for API compatibility, including old saved inputs.
+    emergency_reserve: 0,
     monthly_savings: amount(values.savings, '목표 저축', true),
-    annual_rate: 0.06,
-    minimum_buffer: amount(vehicle.minimumBuffer, '구매 후 최소 월 여유자금', true),
+    minimum_buffer: 0,
     purpose: purposes[vehicle.purpose],
     preferred_fuel: fuels[vehicle.fuel],
-    charging_available: ['집에서 충전 가능', '직장에서 충전 가능', '집 · 직장 충전 가능'].includes(vehicle.charging),
+    charging_available: vehicle.fuel === '전기' && canChargeRegularly(vehicle.charging),
     cost_importance: Number(vehicle.costImportance ?? 3),
     space_importance: Number(vehicle.spaceImportance ?? 3),
+    fuel_importance: Number(vehicle.fuelImportance ?? 3),
+    seating_importance: Number(vehicle.seatingImportance ?? 3),
+    purpose_importance: Number(vehicle.purposeImportance ?? 1),
     minimum_seats: Number(vehicle.minimumSeats ?? 0),
     preferred_size: vehicle.preferredSize ?? 'any',
   };
@@ -37,18 +41,12 @@ export function buildCandidateRecommendation({ values = {}, assets = {}, loans, 
     amount(loan.balance, '대출 잔액', true);
     profile.existing_monthly_payment += amount(loan.payment, '대출 월 상환액');
   }
-  const distance = /^\d[\d,]*km$/.test(vehicle.annualDistance ?? '') ? Number(vehicle.annualDistance.replace(/[^0-9]/g, '')) : NaN;
-  profile.annual_distance = distance;
-  const months = vehicle.installment === '일시불' ? 0 : /^(24|36|48|60)개월$/.test(vehicle.installment ?? '') ? Number.parseInt(vehicle.installment, 10) : NaN;
-  profile.months = months;
-  if (!Number.isFinite(distance) || distance > 200000) errors.push('연간 주행거리');
-  if (!Number.isFinite(months)) errors.push('할부 기간');
+  // 사용자 입력이 아닌 유지비 비교 기준. 차량 이용 화면에 같은 기준을 안내한다.
+  profile.annual_distance = 15000;
   if (!profile.purpose) errors.push('이용 목적');
-  if (![profile.cost_importance, profile.space_importance].every(value => Number.isInteger(value) && value >= 1 && value <= 5)) errors.push('요소 중요도');
+  if (![profile.cost_importance, profile.space_importance, profile.fuel_importance, profile.seating_importance, profile.purpose_importance].every(value => Number.isInteger(value) && value >= 1 && value <= 5)) errors.push('요소 중요도');
   if (!Number.isInteger(profile.minimum_seats) || profile.minimum_seats < 0 || profile.minimum_seats > 9) errors.push('최소 탑승 인원');
   if (!['any', 'small', 'medium', 'large'].includes(profile.preferred_size)) errors.push('선호 크기');
   if (!(vehicle.fuel in fuels)) errors.push('선호 연료');
-  if (!['충전 불가', '집에서 충전 가능', '직장에서 충전 가능', '집 · 직장 충전 가능'].includes(vehicle.charging)) errors.push('충전 가능 여부');
-  if (profile.down_payment + profile.emergency_reserve > profile.liquid_assets) errors.push('선수금과 비상 자금 합계는 예금 이내여야 합니다');
   return { errors, request: errors.length ? null : { profile, k: 3 } };
 }

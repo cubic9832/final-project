@@ -6,7 +6,7 @@ import { candidateMoney } from './candidatePresentation.js';
 import RecommendationCard from './RecommendationCard.jsx';
 import './FinancialRecommendationsPage.css';
 
-const exclusionLabels = { 'seats-unverified': '좌석 정보 미확인', 'insufficient-seats': '최소 인원 미달', 'length-unverified': '전장 정보 미확인', 'charging-unavailable': '충전 조건 미충족', 'insufficient-cash-for-outright-purchase': '일시불 자금 부족', 'insufficient-monthly-buffer-under-stress': '비용 상승 시 월 여유자금 부족' };
+const exclusionLabels = { 'purchase-price-ceiling': '구매가격 상한 초과', 'insufficient-cash-for-outright-purchase': '일시불 자금 부족', 'insufficient-monthly-buffer': '월 여유자금 부족' };
 
 export default function FinancialRecommendationsPage() {
   const { state } = useLocation();
@@ -22,28 +22,36 @@ export default function FinancialRecommendationsPage() {
       <ArrowLeft size={theme.iconSize.sm} aria-hidden="true" />분석 결과로 돌아가기
     </button>
     <header className="financial-recommendations-heading">
-      <span>재무 진단 기반 추천</span><h1>내 조건으로 찾은 차량 후보</h1>
-      <p>목표 저축과 비상 자금을 유지하고 비용 상승 조건에서도 월 여유자금이 남는 차량 후보입니다. 사용자 중요도에 따른 가성비·크기 점수와 기존 ML 참고 점수를 통합했습니다.</p>
+      <span>재무 진단 기반 추천</span><h1>내 예산에 맞는 추천 차량</h1>
+      <p>구매 자금과 월 유지비를 확인하고, 입력한 취향에 맞춰 골랐어요.</p>
     </header>
     <section className="financial-recommendations-summary" aria-label="진단 결과 요약">
       <dl>
-        <div><dt>주 이용목적</dt><dd>{diagnosis.vehicle?.purpose || '미입력'}</dd></div>
-        <div><dt>월 가용자금</dt><dd>{candidateMoney(totals.available * 10000)}</dd></div>
-        <div><dt>검토한 가격 사양</dt><dd>{result.catalogCount}개 중 {result.eligibleCount}개 적격</dd></div>
+        <div><dt>차량 구매 가능 자금</dt><dd>{candidateMoney(result.budgetPolicy?.financialUpper ?? Math.max(0, Number(diagnosis.assets?.deposit || 0) * 10000))}</dd></div>
+        <div><dt>월 유지비 가용액</dt><dd>{candidateMoney(totals.available * 10000)}</dd></div>
+        <div><dt>내 차량 취향</dt><dd>{diagnosis.vehicle?.fuel || '상관없음'} · {diagnosis.vehicle?.purpose || '미입력'}</dd></div>
       </dl>
     </section>
+
     <section aria-label="추천 차량 목록">
       <div className="financial-recommendations-list-heading"><h2>추천 차량</h2><span>총 {result.recommendations.length}대</span></div>
       {result.recommendations.length ? <ol className="financial-recommendations-grid">{result.recommendations.map((vehicle, index) =>
-        <RecommendationCard key={vehicle.vehicle.id} candidate={vehicle} rank={index + 1} />)}
-      </ol> : <div className="financial-recommendations-empty"><h2>추천 가능한 차량이 없습니다.</h2><p>입력한 자금과 비용 상승 조건을 만족하는 후보가 없습니다. 선수금·저축·할부 기간·충전 조건을 확인하고 다시 추천받아 보세요.</p></div>}
+        <RecommendationCard key={vehicle.vehicle.id} candidate={vehicle} rank={index + 1} preferences={diagnosis.vehicle} />)}
+      </ol> : <div className="financial-recommendations-empty"><h2>추천 가능한 차량이 없습니다.</h2><p>현재 예금으로 구매할 수 있고 월 유지비를 감당할 수 있는 차량이 없습니다. 구매자금과 월 유지비 여력을 확인해 주세요.</p></div>}
     </section>
-    <aside className="financial-recommendations-note"><h2>추천 결과를 확인할 때</h2>
-      <p>합성 효용으로 학습한 실험 추천이며 실제 만족도·구매 확률을 뜻하지 않습니다. 자동 추출한 가격 스냅샷이므로 최신 가격·판매 여부·안전 사양을 별도로 확인하세요. 최소 인원 지정 시 좌석 미확인 후보는 제외하며, 크기 비교는 전장만 사용합니다.</p>
-      {assumptions && <p>기본 금리 연 6%, 취득부대비 {Number((assumptions.acquisition_ratio * 100).toFixed(2))}% 가정. 월 보험 {candidateMoney(assumptions.monthly_insurance)}, 정비 {candidateMoney(assumptions.monthly_maintenance)}, 세금 {candidateMoney(assumptions.monthly_tax)}에 주행거리 기반 에너지비를 더합니다. 비용 상승 시 금리 +{assumptions.stress_rate_addition * 100}%p, 유지비 {assumptions.stress_running_multiplier}배를 적용합니다. 실제 세금·보험 견적이 아닙니다.</p>}
+    {result.conditionalRecommendations?.length > 0 && <section aria-label="사양 확인 필요 후보">
+      <div className="financial-recommendations-list-heading"><h2>사양 확인 필요 후보</h2><span>총 {result.conditionalRecommendations.length}대</span></div>
+      <p>재무 조건을 충족한 차량입니다. 승차 정원·전장이 미확인이거나 좌석 사양 선택이 필요해 적격 차량 수에는 포함하지 않았습니다.</p>
+      <ol className="financial-recommendations-grid">{result.conditionalRecommendations.map((candidate, index) => <RecommendationCard key={candidate.vehicle.id} candidate={candidate} rank={index + 1} preferences={diagnosis.vehicle} />)}</ol>
+    </section>}
+    <details className="financial-recommendations-note"><summary>추천 기준과 비용 계산 안내</summary><div>
+      <p>총 {result.catalogCount}개 사양 중 {result.eligibleCount}개가 재무 조건을 충족했습니다.</p>
+      {result.budgetPolicy && <p>우선 추천 가격대는 {candidateMoney(result.budgetPolicy.lower)} ~ {candidateMoney(result.budgetPolicy.upper)}입니다. 구간에 후보가 부족하면 낮은 가격대로 확대합니다. 구매 자금에 대출·할부는 포함하지 않습니다.</p>}
+      <p>재무 조건을 충족한 서로 다른 모델을 최대 3개 제시합니다. 선호 인원이 부족하거나 제원이 미확인인 후보는 카드에 표시합니다. 크기 비교는 전장 기준이며 실제 정원과 판매 사양은 확인이 필요합니다.</p>
+      {assumptions && <p>월 보험 {candidateMoney(assumptions.monthly_insurance)}, 정비 {candidateMoney(assumptions.monthly_maintenance)}, 세금 {candidateMoney(assumptions.monthly_tax)}에 주행거리 기반 에너지비를 더합니다. 실제 세금·보험 견적이 아닙니다.</p>}
       <p>차량 이미지는 예시이며 실제 연식·트림·색상과 다를 수 있습니다.</p>
       {Object.keys(result.excludedReasons ?? {}).length > 0 && <p>후보 제외 사유: {Object.entries(result.excludedReasons).map(([key, count]) => `${exclusionLabels[key] || key} ${count}건`).join(' · ')}. 한 사양에 여러 사유가 있을 수 있습니다.</p>}
-    </aside>
+    </div></details>
     <div className="financial-recommendations-actions">
       <button type="button" className="financial-recommendations-secondary" onClick={() => navigate('/financial/result', { state: diagnosis })}>재무 분석 다시 보기</button>
       <button type="button" className="financial-recommendations-primary" onClick={() => navigate('/financial', { state: { ...diagnosis, reviewReturn: false } })}>진단 조건 수정하기</button>

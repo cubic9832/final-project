@@ -1,0 +1,107 @@
+{
+  "independent_checks": {
+    "rows": 206156,
+    "buffer_margin_at_most_one_won": 74120,
+    "buffer_margin_at_most_10000_won": 77739,
+    "income_repair_over_50_percent": 6051,
+    "income_repair_over_100_percent": 1739,
+    "imported_selected_rows": 0,
+    "missing_or_unknown_vehicle": 0,
+    "missing_cells_rows": 0,
+    "duplicate_ids": 0,
+    "unexpected_input_changes": 0,
+    "vehicle_identity_mismatch": 0,
+    "price_mismatch": 0,
+    "seat_violation": 0,
+    "decimal_financial_violation": 0,
+    "price_ceiling_violation": 0,
+    "purchase_funds_exceed_cash_after_reserve": 0,
+    "cost_discrepancy_over_one_won": 0,
+    "score_regret_over_2_5_points": 0,
+    "group_finance_or_split_mismatch": 0,
+    "decimal_vs_float_cost_discrepancy": 0
+  },
+  "preference_alignment": {
+    "explicit_fuel_rows": 171571,
+    "fuel_mismatch": 80823,
+    "known_size_rows": 205063,
+    "size_mismatch": 85141,
+    "both_mismatch": 38018,
+    "size_gap_at_least_1000_mm": 17261,
+    "both_match_available": 88390,
+    "both_match_available_but_not_selected": 10529
+  },
+  "segments": {
+    "소득유지": {
+      "rows": 131308,
+      "fuel_mismatch": 31029,
+      "size_mismatch": 41928,
+      "both_mismatch": 9264,
+      "margin_at_most_one_won": 0
+    },
+    "소득보정": {
+      "rows": 74848,
+      "fuel_mismatch": 49794,
+      "size_mismatch": 43213,
+      "both_mismatch": 28754,
+      "margin_at_most_one_won": 74120
+    }
+  },
+  "top_10_models": [
+    [
+      "모닝",
+      58404
+    ],
+    [
+      "코나 Electric",
+      17593
+    ],
+    [
+      "디 올 뉴 아반떼",
+      16384
+    ],
+    [
+      "스포티지",
+      15200
+    ],
+    [
+      "베뉴",
+      13063
+    ],
+    [
+      "더 뉴 아이오닉 6",
+      11438
+    ],
+    [
+      "니로",
+      10682
+    ],
+    [
+      "쏘나타 디 엣지",
+      10524
+    ],
+    [
+      "EV5",
+      10478
+    ],
+    [
+      "코나 Hybrid",
+      9262
+    ]
+  ],
+  "selected_model_count": 40,
+  "top_model_share_percent": 28.33,
+  "catalog_models": 76,
+  "imported_catalog_candidates": 18,
+  "imported_catalog_candidates_with_known_length": 0,
+  "same_input_groups_with_multiple_models": 992,
+  "income_increase_median_won": 339016,
+  "buffer_excess_median_won": 151463,
+  "data_unchanged": true,
+  "limits": [
+    "Hard compliance is under saved catalog and cost assumptions, not observed purchase outcomes.",
+    "Ranking-regret validation uses the declared scoring policy; decimal finance is independently recomputed.",
+    "A preference mismatch is a tradeoff, not automatically a hard-condition violation.",
+    "Large income repairs, narrow affordability margins and unknown imported sizes remain quality limitations."
+  ]
+}

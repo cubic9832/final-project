@@ -1,0 +1,592 @@
+[
+  {
+    "brand": "BMW",
+    "model": "3시리즈",
+    "slug": "bmw-3-series-press-0",
+    "file": "data/vehicles/recommendation-images-v2/sources/bmw-3-series-press-0.jpg",
+    "source_page": "https://www.press.bmwgroup.com",
+    "image_url": "https://mediapool.bmwgroup.com/cache/P9/202411/P90577988/P90577988-bmw-korea-launched-new-3-series-11-2024-2283px.jpg",
+    "sha256": "e4582ed82a3b1a3a666acbc4f7ef7c54c5af3aaaf7f907a19aa8b136bea49d7e",
+    "status": "downloaded"
+  },
+  {
+    "brand": "BMW",
+    "model": "3시리즈 투어링",
+    "slug": "bmw-3-touring-hq",
+    "file": "data/vehicles/recommendation-images-v2/sources/bmw-3-touring-hq.jpg",
+    "source_page": "https://www.press.bmwgroup.com/korea/photo/detail/P90577991/",
+    "image_url": "https://mediapool.bmwgroup.com/cache/P9/202411/P90577991/P90577991-bmw-korea-launched-new-3-series-11-2024-2250px.jpg",
+    "sha256": "babf8440084d74762e98acc510da2568d0e5bbfae7b124f122bcd587217ac290",
+    "status": "downloaded"
+  },
+  {
+    "brand": "BMW",
+    "model": "X1",
+    "slug": "bmw-x1",
+    "file": "data/vehicles/recommendation-images-v2/sources/bmw-x1.webp",
+    "source_page": "https://www.bmw.co.kr",
+    "image_url": "https://bmw.scene7.com/is/image/BMW/u11-ice_stage%3A16to7?fit=constrain%2C1&fmt=webp-alpha&wid=2560",
+    "sha256": "1be8257cba5d852be81ccc5f05408d11609fd0a6fbf3d3e44aca653ea20c2053",
+    "status": "downloaded"
+  },
+  {
+    "brand": "BMW",
+    "model": "X4",
+    "slug": "bmw-x4-hq",
+    "file": "data/vehicles/recommendation-images-v2/sources/bmw-x4-hq.jpg",
+    "source_page": "https://www.press.bmwgroup.com/korea/article/detail/T0354632KO/",
+    "image_url": "https://mediapool.bmwgroup.com/cache/P9/202106/P90424727/P90424727-the-new-bmw-x4-m40i-brooklyn-grey-metallic-rim-21-styling-718m-06-2021-2247px.jpg",
+    "sha256": "eeb45e70bce61053cbc134c0d89d10bc239ef770cc65d2c2f4be46b1c78b2cb2",
+    "status": "downloaded"
+  },
+  {
+    "brand": "BMW",
+    "model": "X5",
+    "slug": "bmw-x5-press-0",
+    "file": "data/vehicles/recommendation-images-v2/sources/bmw-x5-press-0.jpg",
+    "source_page": "https://www.press.bmwgroup.com",
+    "image_url": "https://mediapool.bmwgroup.com/cache/P9/202211/P90489763/P90489763-the-new-bmw-x5-xdrive50e-04-23-2250px.jpg",
+    "sha256": "a3526b21f1f3fdff60596419a832c8d776c8112e94129d014d0627c7e30fe574",
+    "status": "downloaded"
+  },
+  {
+    "brand": "KG모빌리티",
+    "model": "렉스턴 뉴 아레나",
+    "slug": "rexton",
+    "file": "data/vehicles/recommendation-images-v2/sources/rexton.png",
+    "source_page": "https://www.kg-mobility.com",
+    "image_url": "https://www.kg-mobility.com/attached/contents/display/image/200000100010012/20241216061058544_LJSzRf.png",
+    "sha256": "59a5be8e657d5a75f89f970eb6f04a15a7db5ba87086616ac21bf79f9622d57d",
+    "status": "downloaded"
+  },
+  {
+    "brand": "KG모빌리티",
+    "model": "액티언",
+    "slug": "actyon",
+    "file": "data/vehicles/recommendation-images-v2/sources/actyon.png",
+    "source_page": "https://www.kg-mobility.com",
+    "image_url": "https://www.kg-mobility.com/attached/contents/display/image/200000100010016/20241216060147436_InU6jC.png",
+    "sha256": "b697bf59917e1b9807cbb05a739dce3eb1da945b75b57b2cc998b3c216e47668",
+    "status": "downloaded"
+  },
+  {
+    "brand": "KG모빌리티",
+    "model": "액티언 하이브리드",
+    "slug": "actyon-hybrid",
+    "file": "data/vehicles/recommendation-images-v2/sources/actyon-hybrid.png",
+    "source_page": "https://www.kg-mobility.com",
+    "image_url": "https://www.kg-mobility.com/attached/contents/display/image/200000100010018/20250708080259162_akcv06.png",
+    "sha256": "9788e91c5f09b18495bde524e143ed17c533a73b683317319c82e75a41e6ccb6",
+    "status": "downloaded"
+  },
+  {
+    "brand": "KG모빌리티",
+    "model": "토레스",
+    "slug": "torres",
+    "file": "data/vehicles/recommendation-images-v2/sources/torres.png",
+    "source_page": "https://www.kg-mobility.com",
+    "image_url": "https://www.kg-mobility.com/attached/contents/display/image/200000100010001/20241212062925448_pq0xqJ.png",
+    "sha256": "1a31bd8703cae7ec2d2f60546c04a4cf9733ca41b2347db5e7457e46948ca0fd",
+    "status": "downloaded"
+  },
+  {
+    "brand": "KG모빌리티",
+    "model": "토레스 EVX",
+    "slug": "torres-evx",
+    "file": "data/vehicles/recommendation-images-v2/sources/torres-evx.png",
+    "source_page": "https://www.kg-mobility.com",
+    "image_url": "https://www.kg-mobility.com/attached/contents/display/image/200000100010009/20250401090338029_pilzCE.png",
+    "sha256": "6b8572bf56c302b42d9708b560a2fd8b8152fa23af1025b8ca8d41ad044ce8b2",
+    "status": "downloaded"
+  },
+  {
+    "brand": "KG모빌리티",
+    "model": "토레스 하이브리드",
+    "slug": "torres-hybrid",
+    "file": "data/vehicles/recommendation-images-v2/sources/torres-hybrid.png",
+    "source_page": "https://www.kg-mobility.com",
+    "image_url": "https://www.kg-mobility.com/images/pr/vehicle/torres-hybrid_grand_white.png",
+    "sha256": "4aa34b03648cfc7b208f0d936258f6a1ce9daa52d7c8b227aa3a5ee2e18de7c2",
+    "status": "downloaded"
+  },
+  {
+    "brand": "KG모빌리티",
+    "model": "티볼리",
+    "slug": "tivoli",
+    "file": "data/vehicles/recommendation-images-v2/sources/tivoli.png",
+    "source_page": "https://www.kg-mobility.com",
+    "image_url": "https://www.kg-mobility.com/attached/contents/display/image/200000100010007/20241219095511165_PswkoW.png",
+    "sha256": "74322b190ca29c9ce98e3b5334dc90285a1963beac8193751bb73016737344f3",
+    "status": "downloaded"
+  },
+  {
+    "brand": "기아",
+    "model": "EV3",
+    "slug": "ev3",
+    "file": "data/vehicles/recommendation-images-v2/sources/ev3.png",
+    "source_page": "https://www.kia.com/kr/vehicles/ev3/features",
+    "image_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/represent/krsv292/ev3_q_ag3.png",
+    "sha256": "f6c8f00bfe7a100eb3a8ae17ecce4bbb8cbb3f831b8d01632036d3d1e171fdca",
+    "status": "downloaded"
+  },
+  {
+    "brand": "기아",
+    "model": "EV3 GT",
+    "slug": "ev3-gt",
+    "file": "data/vehicles/recommendation-images-v2/sources/ev3-gt.png",
+    "source_page": "https://www.kia.com/kr/vehicles/ev3-gt/features",
+    "image_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/represent/krsv293/ev3-gt_q_ebd.png",
+    "sha256": "e9b64494a1e512bee303af6b59bd0bccf5ddac3ca8922ecb2dde4843091682e5",
+    "status": "downloaded"
+  },
+  {
+    "brand": "기아",
+    "model": "EV4",
+    "slug": "ev4",
+    "file": "data/vehicles/recommendation-images-v2/sources/ev4.png",
+    "source_page": "https://www.kia.com/kr/vehicles/ev4/features",
+    "image_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/represent/krct294/ev4_q_acw.png",
+    "sha256": "6bca35fff56a5f9ff0169286922c4fee212afbf7a00170da756590c2b611f99b",
+    "status": "downloaded"
+  },
+  {
+    "brand": "기아",
+    "model": "EV4 GT",
+    "slug": "ev4-gt",
+    "file": "data/vehicles/recommendation-images-v2/sources/ev4-gt.png",
+    "source_page": "https://www.kia.com/kr/vehicles/ev4-gt/features",
+    "image_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/represent/krct295/ev4-gt_q_ebd.png",
+    "sha256": "897f44fe56c175d14512a0df1f4040678c6269b0799449d7e1a892cef5075cba",
+    "status": "downloaded"
+  },
+  {
+    "brand": "기아",
+    "model": "EV5",
+    "slug": "ev5",
+    "file": "data/vehicles/recommendation-images-v2/sources/ev5.png",
+    "source_page": "https://www.kia.com/kr/vehicles/ev5/features",
+    "image_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/represent/krov262/ev5_q_isg.png",
+    "sha256": "df1e51fce071e26206e3c4ea8f808d977868cc68fc70a99124e2345ce8828ffa",
+    "status": "downloaded"
+  },
+  {
+    "brand": "기아",
+    "model": "EV5 GT",
+    "slug": "ev5-gt",
+    "file": "data/vehicles/recommendation-images-v2/sources/ev5-gt.png",
+    "source_page": "https://www.kia.com/kr/vehicles/ev5-gt/features",
+    "image_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/represent/krov291/ev5-gt_q_mrm.png",
+    "sha256": "74d9390d6983f0bf2f89b5a5fc13dcb20ddc0798b67c20828a7cce9fa0a98622",
+    "status": "downloaded"
+  },
+  {
+    "brand": "기아",
+    "model": "EV6",
+    "slug": "ev6",
+    "file": "data/vehicles/recommendation-images-v2/sources/ev6.png",
+    "source_page": "https://www.kia.com/kr/vehicles/ev6/features",
+    "image_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/represent/krcv324/ev6_q_ism.png",
+    "sha256": "2cabf602798597a31ceb1c2d2c9839a23821277e011f308ef0798a60f9425171",
+    "status": "downloaded"
+  },
+  {
+    "brand": "기아",
+    "model": "EV6 GT",
+    "slug": "ev6-gt",
+    "file": "data/vehicles/recommendation-images-v2/sources/ev6-gt.png",
+    "source_page": "https://www.kia.com/kr/vehicles/ev6-gt/features",
+    "image_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/represent/krcv325/ev6-gt_q_c7s.png",
+    "sha256": "03ca5e68d3d8e21ace08791b2b1fc60feecbaae0ac4a975bf884881ccc1394c4",
+    "status": "downloaded"
+  },
+  {
+    "brand": "기아",
+    "model": "EV9",
+    "slug": "ev9",
+    "file": "data/vehicles/recommendation-images-v2/sources/ev9.png",
+    "source_page": "https://www.kia.com/kr/vehicles/ev9/features",
+    "image_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/represent/krmv297/ev9_q_ism.png",
+    "sha256": "7d6c361761818888d2a7968792cd8c92e992913a115ce74197c21be3f3ccf083",
+    "status": "downloaded"
+  },
+  {
+    "brand": "기아",
+    "model": "EV9 GT",
+    "slug": "ev9-gt",
+    "file": "data/vehicles/recommendation-images-v2/sources/ev9-gt.png",
+    "source_page": "https://www.kia.com/kr/vehicles/ev9-gt/features",
+    "image_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/represent/krmv298/ev9-gt_q_dfg.png",
+    "sha256": "77494415477ef121ecffb6c56d88c811b4fa278b838a69689574a9d87b9f86c5",
+    "status": "downloaded"
+  },
+  {
+    "brand": "기아",
+    "model": "K9",
+    "slug": "k9",
+    "file": "data/vehicles/recommendation-images-v2/sources/k9.png",
+    "source_page": "https://www.kia.com/kr/vehicles/k9/features",
+    "image_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/represent/krjr296/K9_q_d9b.png",
+    "sha256": "d4f3a8971a54c71cfe75e56bb736b2491c93c4e2921823f27c9aaf2883f9b43c",
+    "status": "downloaded"
+  },
+  {
+    "brand": "기아",
+    "model": "레이 EV",
+    "slug": "ray-ev",
+    "file": "data/vehicles/recommendation-images-v2/sources/ray-ev.png",
+    "source_page": "https://www.kia.com/kr/vehicles/ray-ev/features",
+    "image_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/represent/krtm312/ray-ev_q_ud.png",
+    "sha256": "d6bf357456d2c07d1416b0ec62c8525a269296b6899bb985a052c7af8c9db059",
+    "status": "downloaded"
+  },
+  {
+    "brand": "기아",
+    "model": "쏘렌토",
+    "slug": "sorento",
+    "file": "data/vehicles/recommendation-images-v2/sources/sorento.png",
+    "source_page": "https://www.kia.com/kr/vehicles/sorento/features",
+    "image_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/represent/krmq326/sorento_q_bn4.png",
+    "sha256": "ab4c62eaa0d4ed4d2075534a1d8758548da909bf2ec15569340b5406c3d9ba0f",
+    "status": "downloaded"
+  },
+  {
+    "brand": "기아",
+    "model": "카니발",
+    "slug": "carnival",
+    "file": "data/vehicles/recommendation-images-v2/sources/carnival.png",
+    "source_page": "https://www.kia.com/kr/vehicles/carnival/features",
+    "image_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/represent/krkp328/carnival_q_isg.png",
+    "sha256": "8f14fb764e5aa867d0bba58317806ae47af2881c1b9d3da9f01d0d90ccc17e1b",
+    "status": "downloaded"
+  },
+  {
+    "brand": "기아",
+    "model": "카니발 하이리무진",
+    "slug": "carnival-hi-limousine",
+    "file": "data/vehicles/recommendation-images-v2/sources/carnival-hi-limousine.png",
+    "source_page": "https://www.kia.com/kr/vehicles/carnival-hi-limousine/features",
+    "image_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/represent/krkp263/carnival-hi-limousine_q_abp.png",
+    "sha256": "dd8dd386af8460503dadff261099fcf954e4e10aaae6aaf7a2ccfaf0113b7428",
+    "status": "downloaded"
+  },
+  {
+    "brand": "르노코리아",
+    "model": "그랑 콜레오스",
+    "slug": "grand-koleos",
+    "file": "data/vehicles/recommendation-images-v2/sources/grand-koleos.webp",
+    "source_page": "https://www.renault.co.kr/ko/vehicles/",
+    "image_url": "https://cdn.renault.co.kr/upload/asset/koleos/main_off.webp",
+    "sha256": "af607830fb6bc7a81c1148074db6bb18cf272f96a0bfc0732b090da71a6f6628",
+    "status": "downloaded"
+  },
+  {
+    "brand": "르노코리아",
+    "model": "필랑트",
+    "slug": "filante",
+    "file": "data/vehicles/recommendation-images-v2/sources/filante.webp",
+    "source_page": "https://www.renault.co.kr/ko/vehicles/",
+    "image_url": "https://cdn.renault.co.kr/upload/asset/filante/main_off.webp",
+    "sha256": "852c9232644739b366bb998008b2bd117c6486272d126145e6d889d30a750cea",
+    "status": "downloaded"
+  },
+  {
+    "brand": "쉐보레",
+    "model": "트랙스 크로스오버",
+    "slug": "trax-option-260",
+    "file": "data/vehicles/recommendation-images-v2/sources/trax-option-260.png",
+    "source_page": "https://www.chevrolet.co.kr/cuvs/trax-crossover",
+    "image_url": "https://www.chevrolet.co.kr/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/trim/trax-trim-04.png?imwidth=1200",
+    "sha256": "026f057877cb0dc33802cf7610af93e1bef7ea6105ff8df779698bdb277b5e83",
+    "status": "downloaded"
+  },
+  {
+    "brand": "제네시스",
+    "model": "Electrified G80",
+    "slug": "electrified-g80-front",
+    "file": "data/vehicles/recommendation-images-v2/sources/electrified-g80-front.png",
+    "source_page": "https://www.genesis.com/kr/ko/models/electrified-g80",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1440,height=720,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303133353439/models/electrified-g80/2027/exterior-color/genesis-electrified-g80-uyuni-white-uyh-large.png",
+    "sha256": "c5a7b5e9ae731713f1d74d2c5de72c44fed0dcdf97fa6b900c773d206baa53b3",
+    "status": "downloaded"
+  },
+  {
+    "brand": "제네시스",
+    "model": "Electrified GV70",
+    "slug": "electrified-gv70-front",
+    "file": "data/vehicles/recommendation-images-v2/sources/electrified-gv70-front.png",
+    "source_page": "https://www.genesis.com/kr/ko/models/electrified-gv70",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1240,height=674,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303133373236/models/electrified-gv70/2027/exterior-color/genesis-electrified-gv70-uyuni-white-uyh-large.png",
+    "sha256": "46562136630e43071565bd58b079c56361b49ca2c337a80ab05024edb9e857b0",
+    "status": "downloaded"
+  },
+  {
+    "brand": "제네시스",
+    "model": "G70",
+    "slug": "g70-front",
+    "file": "data/vehicles/recommendation-images-v2/sources/g70-front.png",
+    "source_page": "https://www.genesis.com/kr/ko/models/g70",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1440,height=720,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303133353230/models/g70/2026/exterior-color/standard/genesis-g70-standard-tasman-blue-ura-large.png",
+    "sha256": "5919f6372e908b44c6768d0497f8dfdfaf5d54c86c684c9ad5d424bf04a67016",
+    "status": "downloaded"
+  },
+  {
+    "brand": "제네시스",
+    "model": "G70 Shooting Brake",
+    "slug": "g70-shooting-brake-front",
+    "file": "data/vehicles/recommendation-images-v2/sources/g70-shooting-brake-front.png",
+    "source_page": "https://www.genesis.com/kr/ko/models/g70-shooting-brake",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1440,height=720,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303133363138/models/g70-shooting-brake/2026/exterior-color/standard/genesis-g70-shooting-brake-standard-uyuni-white-uyh-large.png",
+    "sha256": "0177a87358a2a4b05ef34596a706cc923b432832669926865d09fc0d5f741aa7",
+    "status": "downloaded"
+  },
+  {
+    "brand": "제네시스",
+    "model": "G80",
+    "slug": "g80-front",
+    "file": "data/vehicles/recommendation-images-v2/sources/g80-front.png",
+    "source_page": "https://www.genesis.com/kr/ko/models/g80",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1440,height=720,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303133343536/models/g80/2027/exterior-color/standard/genesis-g80-standard-uyuni-white-uyh-large.png",
+    "sha256": "f6b3df3b97d318ca1378fdac5a7d943100a99901349565845494498ac7c6fac5",
+    "status": "downloaded"
+  },
+  {
+    "brand": "제네시스",
+    "model": "G80 Black",
+    "slug": "g80-black-front",
+    "file": "data/vehicles/recommendation-images-v2/sources/g80-black-front.png",
+    "source_page": "https://www.genesis.com/kr/ko/models/g80",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1440,height=720,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303039313334/genesis-g80-2027-black-exterior-detail-front-large.png",
+    "sha256": "064994c98db826fcb9afbbe035f809862b59144bbdc2d4129bb1d9cc54a28897",
+    "status": "downloaded"
+  },
+  {
+    "brand": "제네시스",
+    "model": "G90",
+    "slug": "g90-front",
+    "file": "data/vehicles/recommendation-images-v2/sources/g90-front.png",
+    "source_page": "https://www.genesis.com/kr/ko/models/g90",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1440,height=720,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303133353635/models/g90/2027/exterior-color/standard/genesis-g90-uyuni-white-uyh-large.png",
+    "sha256": "c27906c60b9603bb0d7f4f6915de07f9234572fd9e44f1e8f6605b36852b93ab",
+    "status": "downloaded"
+  },
+  {
+    "brand": "제네시스",
+    "model": "G90 Long Wheel Base",
+    "slug": "g90-long-wheel-base-front",
+    "file": "data/vehicles/recommendation-images-v2/sources/g90-long-wheel-base-front.png",
+    "source_page": "https://www.genesis.com/kr/ko/models/g90-long-wheel-base",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1920,height=1080,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303131353636/genesis-g90lwb-2027-intelligence-main-large.png",
+    "sha256": "b90bc2e29bb116bde878af7ed2c3f818b88d87eaf1018e2d5706f3f6b9fcb1f5",
+    "status": "downloaded"
+  },
+  {
+    "brand": "제네시스",
+    "model": "G90 Long Wheel Base Black",
+    "slug": "g90-long-wheel-base-black-front",
+    "file": "data/vehicles/recommendation-images-v2/sources/g90-long-wheel-base-black-front.png",
+    "source_page": "https://www.genesis.com/kr/ko/models/g90-long-wheel-base",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1440,height=720,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303131343737/genesis-g90lwb-2027-black-exterior-detail-side-large.png",
+    "sha256": "d97d152aeccf15c90cc2d291b7ecd7b0ae9bd1f49e524bfd6ea513a45cd673c7",
+    "status": "downloaded"
+  },
+  {
+    "brand": "제네시스",
+    "model": "GV70",
+    "slug": "gv70-front",
+    "file": "data/vehicles/recommendation-images-v2/sources/gv70-front.png",
+    "source_page": "https://www.genesis.com/kr/ko/models/gv70",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1440,height=720,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303133373032/models/gv70/2027/exterior-color/standard/genesis-gv70-standard-ceres-blue-asa-large.png",
+    "sha256": "047691aaedc2d93eb51317397743f4da736ffb4bbc1a7e41d29640753c642b4f",
+    "status": "downloaded"
+  },
+  {
+    "brand": "제네시스",
+    "model": "GV80 Hybrid",
+    "slug": "gv80-front",
+    "file": "data/vehicles/recommendation-images-v2/sources/gv80-front.png",
+    "source_page": "https://www.genesis.com/kr/ko/models/gv80",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1440,height=720,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303137383837/models/gv80/27MY+HEV/exterior-color/genesis-gv80-27my-uyuni-white-uyh-large.png",
+    "sha256": "25a4650f60e8e9f08829fc8e1900f1ea04aca095bb3f92679fed1d64b8b671b4",
+    "status": "downloaded"
+  },
+  {
+    "brand": "제네시스",
+    "model": "GV80 Black Hybrid",
+    "slug": "gv80-black-front",
+    "file": "data/vehicles/recommendation-images-v2/sources/gv80-black-front.png",
+    "source_page": "https://www.genesis.com/kr/ko/models/gv80",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1920,height=1080,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303139313631/membership/banner/benefit(1)/genesis-gv80-27my-black-exterior-large-test-9.png",
+    "sha256": "406b88572e45e1565505d4b4603f42b1bd75d6542976d55438dd4905bcc1758c",
+    "status": "downloaded"
+  },
+  {
+    "brand": "제네시스",
+    "model": "GV80 Coupe",
+    "slug": "gv80-coupe-front",
+    "file": "data/vehicles/recommendation-images-v2/sources/gv80-coupe-front.png",
+    "source_page": "https://www.genesis.com/kr/ko/models/gv80-coupe",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1440,height=720,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303138363333/models/gv80-coupe/27MY/exterior-color/genesis-gv80-coupe-27my-bering-blue-gbe-large.png",
+    "sha256": "06dc3837ae2aecd6982f05337903f14fb173674ec0a32d54782c7a3cd5f1ad40",
+    "status": "downloaded"
+  },
+  {
+    "brand": "현대",
+    "model": "더 뉴 스타리아 Electric",
+    "slug": "staria-electric",
+    "file": "data/vehicles/recommendation-images-v2/sources/staria-electric.png",
+    "source_page": "https://www.hyundai.com/kr/ko/e/vehicles/staria-electric",
+    "image_url": "https://www.hyundai.com/contents/repn-car/side-45/the-new-staria-electric-27pe-45side.png",
+    "sha256": "8ee0c550d66946c0586ed1767b23ff72b00811a9a8ba5773f372cd39892765b1",
+    "status": "downloaded"
+  },
+  {
+    "brand": "현대",
+    "model": "더 뉴 스타리아 Hybrid",
+    "slug": "staria-hybrid",
+    "file": "data/vehicles/recommendation-images-v2/sources/staria-hybrid.png",
+    "source_page": "https://www.hyundai.com/kr/ko/e/vehicles/staria-hybrid",
+    "image_url": "https://www.hyundai.com/contents/repn-car/side-45/staria-hybrid-26pe-45side.png",
+    "sha256": "777d21b9ccd008687a2b303612429ed61f44aefa7a43fa92160adc2cc732fef8",
+    "status": "downloaded"
+  },
+  {
+    "brand": "현대",
+    "model": "더 뉴 스타리아 라운지 Electric",
+    "slug": "staria-lounge-electric",
+    "file": "data/vehicles/recommendation-images-v2/sources/staria-lounge-electric.png",
+    "source_page": "https://www.hyundai.com/kr/ko/e/vehicles/staria-lounge-electric",
+    "image_url": "https://www.hyundai.com/contents/repn-car/side-45/the-new-staria-lounge-electric-27pe-45side.png",
+    "sha256": "37f865c9a5b4220b131cfa6b55b308f2bd63c795a5b2483262030e65b24b47f3",
+    "status": "downloaded"
+  },
+  {
+    "brand": "현대",
+    "model": "더 뉴 스타리아 라운지 Hybrid",
+    "slug": "staria-lounge-hybrid",
+    "file": "data/vehicles/recommendation-images-v2/sources/staria-lounge-hybrid.png",
+    "source_page": "https://www.hyundai.com/kr/ko/e/vehicles/staria-lounge-hybrid",
+    "image_url": "https://www.hyundai.com/contents/repn-car/side-45/staria-lounge-hybrid-26pe-45side.png",
+    "sha256": "15fabd47b036f0f870172c144305c624d1646a7f8ec22dea68627fe6ea36016a",
+    "status": "downloaded"
+  },
+  {
+    "brand": "현대",
+    "model": "더 뉴 스타리아 리무진 Electric",
+    "slug": "staria-limousine-electric",
+    "file": "data/vehicles/recommendation-images-v2/sources/staria-limousine-electric.png",
+    "source_page": "https://www.hyundai.com/kr/ko/e/vehicles/staria-limousine-electric",
+    "image_url": "https://www.hyundai.com/contents/repn-car/side-45/the-new-staria-limousine-electric-27pe-45side.png",
+    "sha256": "ec9374e28b3f91c89eb35d9fd825888dca8adf9bb686c5edaf21f63ed47d2f37",
+    "status": "downloaded"
+  },
+  {
+    "brand": "현대",
+    "model": "더 뉴 스타리아 리무진 Hybrid",
+    "slug": "staria-limousine-hybrid",
+    "file": "data/vehicles/recommendation-images-v2/sources/staria-limousine-hybrid.png",
+    "source_page": "https://www.hyundai.com/kr/ko/e/vehicles/staria-limousine-hybrid",
+    "image_url": "https://www.hyundai.com/contents/repn-car/side-45/staria-limousine-hybrid-27pe-45side.png",
+    "sha256": "005d2b179b02f23a6c1b150bcb067eba57fd71cc7218626ecda92f85bdbe0097",
+    "status": "downloaded"
+  },
+  {
+    "brand": "현대",
+    "model": "더 뉴 아이오닉 6",
+    "slug": "ioniq6",
+    "file": "data/vehicles/recommendation-images-v2/sources/ioniq6.png",
+    "source_page": "https://www.hyundai.com/kr/ko/e/vehicles/ioniq6",
+    "image_url": "https://www.hyundai.com/contents/repn-car/side-45/ioniq6-25fl-45side.png",
+    "sha256": "a058616f46b46baa7907bf0c217b6e4eacdaee79300daa9c47e369fa4c42f49c",
+    "status": "downloaded"
+  },
+  {
+    "brand": "현대",
+    "model": "베뉴",
+    "slug": "venue",
+    "file": "data/vehicles/recommendation-images-v2/sources/venue.png",
+    "source_page": "https://www.hyundai.com/kr/ko/e/vehicles/venue",
+    "image_url": "https://www.hyundai.com/contents/repn-car/side-45/venue-27my-45side.png",
+    "sha256": "4c10f2f6c5d1758253693460bbefde2e80384cff195f6da458baf0549a4fccb3",
+    "status": "downloaded"
+  },
+  {
+    "brand": "현대",
+    "model": "싼타페",
+    "slug": "santafe",
+    "file": "data/vehicles/recommendation-images-v2/sources/santafe.png",
+    "source_page": "https://www.hyundai.com/kr/ko/e/vehicles/santafe",
+    "image_url": "https://www.hyundai.com/contents/repn-car/side-45/santafe-26my-45side.png",
+    "sha256": "9f3e9f6f13a03d5d53724c52ed1143dd27595e539475db07641592e6e04e175b",
+    "status": "downloaded"
+  },
+  {
+    "brand": "현대",
+    "model": "싼타페 Hybrid",
+    "slug": "santafe-hybrid",
+    "file": "data/vehicles/recommendation-images-v2/sources/santafe-hybrid.png",
+    "source_page": "https://www.hyundai.com/kr/ko/e/vehicles/santafe-hybrid",
+    "image_url": "https://www.hyundai.com/contents/repn-car/side-45/santafe-hybrid-26my-45side.png",
+    "sha256": "8af3e0e1be44f3f3a0b274227524bb3bf27d02e390b73fbcb33ac05bd4e64dc1",
+    "status": "downloaded"
+  },
+  {
+    "brand": "현대",
+    "model": "아이오닉 5",
+    "slug": "ioniq5",
+    "file": "data/vehicles/recommendation-images-v2/sources/ioniq5.png",
+    "source_page": "https://www.hyundai.com/kr/ko/e/vehicles/ioniq5",
+    "image_url": "https://www.hyundai.com/contents/repn-car/side-45/ioniq5-27my-45side.png",
+    "sha256": "8436872075339c97853a5db4b14759cbfa8ea1779c8e718c30429a8c75049dcc",
+    "status": "downloaded"
+  },
+  {
+    "brand": "현대",
+    "model": "캐스퍼",
+    "slug": "casper",
+    "file": "data/vehicles/recommendation-images-v2/sources/casper.png",
+    "source_page": "https://casper.hyundai.com",
+    "image_url": "https://www.hyundai.com/contents/repn-car/side-45/casper-26my-45side.png",
+    "sha256": "49373a82a5f0ed5e35e21aea331e81ef8c6aa42b5bdc16b3683bc783067ac8d3",
+    "status": "downloaded"
+  },
+  {
+    "brand": "현대",
+    "model": "캐스퍼 일렉트릭",
+    "slug": "casper-electric",
+    "file": "data/vehicles/recommendation-images-v2/sources/casper-electric.png",
+    "source_page": "https://casper.hyundai.com",
+    "image_url": "https://www.hyundai.com/contents/repn-car/side-45/casper_ev_26my_45side.png",
+    "sha256": "47c7a7f8b35276175245f3684c133cc948ba92c3daff31bbbb0ce35f1aac074f",
+    "status": "downloaded"
+  },
+  {
+    "brand": "현대",
+    "model": "코나 Electric",
+    "slug": "kona-electric",
+    "file": "data/vehicles/recommendation-images-v2/sources/kona-electric.png",
+    "source_page": "https://www.hyundai.com/kr/ko/e/vehicles/kona-electric",
+    "image_url": "https://www.hyundai.com/contents/repn-car/side-45/kona-electric-25my-45side.png",
+    "sha256": "2c4697a554e1f8a1e6a35754c39b182a11163429ce6a1398dc8e1470a7d7852a",
+    "status": "downloaded"
+  },
+  {
+    "brand": "현대",
+    "model": "투싼",
+    "slug": "tucson",
+    "file": "data/vehicles/recommendation-images-v2/sources/tucson.png",
+    "source_page": "https://www.hyundai.com/kr/ko/e/vehicles/tucson",
+    "image_url": "https://www.hyundai.com/contents/repn-car/side-45/tucson-26my-45side.png",
+    "sha256": "9a263cebd02b2f384e39c44b38ac522b864e6b773746ba4aaf83b6d13ac39088",
+    "status": "downloaded"
+  },
+  {
+    "brand": "현대",
+    "model": "투싼 Hybrid",
+    "slug": "tucson-hybrid",
+    "file": "data/vehicles/recommendation-images-v2/sources/tucson-hybrid.png",
+    "source_page": "https://www.hyundai.com/kr/ko/e/vehicles/tucson-hybrid",
+    "image_url": "https://www.hyundai.com/contents/repn-car/side-45/tucson-hybrid-26my-45side.png",
+    "sha256": "6e85c1035170dbcd6a6d7f25a611367569e3691c66825a1bc44b5262f6d1c52a",
+    "status": "downloaded"
+  }
+]

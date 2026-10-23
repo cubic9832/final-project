@@ -27,6 +27,15 @@ class Vehicle:
     length_mm: int | None = None
     seats: int | None = None
     space_source_url: str | None = None
+    seat_options: tuple[int, ...] = ()
+    seats_source_url: str | None = None
+    original_fuel: str | None = None
+    source_note: str | None = None
+    seats_status: str | None = None
+    seats_label: str | None = None
+    seats_note: str | None = None
+    default_configuration: str | None = None
+    efficiency_reference_only: bool = False
 
     def __post_init__(self):
         import math
@@ -40,6 +49,8 @@ class Vehicle:
             raise ValueError('Invalid vehicle length')
         if self.seats is not None and (type(self.seats) is not int or not 1 <= self.seats <= 15):
             raise ValueError('Invalid seating capacity')
+        if any(type(value) is not int or not 1 <= value <= 15 for value in self.seat_options):
+            raise ValueError('Invalid seating options')
 
 
 def load_csv(path=DEFAULT_CSV):

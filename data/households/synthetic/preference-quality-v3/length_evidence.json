@@ -1,0 +1,12 @@
+{
+  "checked_on": "2026-10-22",
+  "scope": "Training-only body-length reference. Overseas manufacturer dimensions are body references, not Korean trim-by-trim certification. Existing prices and powertrains are unchanged.",
+  "vehicles": [
+    {"brand":"테슬라","model":"Model Y","length_mm":4797,"source_url":"https://www.tesla.com/en_ca/modely","quote":"Overall Length 4,797 mm","scope":"Refreshed Model Y body; overseas manufacturer reference; excludes Model Y L"},
+    {"brand":"메르세데스-벤츠","model":"E-Class","length_mm":4949,"source_url":"https://www.mercedes-benz.com.sg/passengercars/models/saloon/e-class/overview.html?abtest-new_extint=target","quote":"E 200 Length 4,949 mm","scope":"E 200 saloon body; overseas manufacturer reference; excludes AMG/estate"},
+    {"brand":"BMW","model":"5시리즈","length_mm":5060,"source_url":"https://www.press.bmwgroup.com/asia/article/attachment/T0437083EN/607282","quote":"grown in length by 97 millimetres to 5,060 millimetres","scope":"G60 520i/530i sedan body; overseas manufacturer reference; excludes long-wheelbase G68"},
+    {"brand":"렉서스","model":"ES","length_mm":5140,"source_url":"https://www.lexus.ca/content/lexus/en/build-price.generate.summaries.series-ESE.year-2026.province-MB.pdf","page":7,"quote":"ES 350h AWD Length mm 5140","scope":"2026 ES 350h body; overseas manufacturer reference; excludes previous ES 300h"},
+    {"brand":"BMW","model":"X3","length_mm":4755,"source_url":"https://www.press.bmwgroup.com/korea/article/detail/T0453922KO","quote":"전장/전폭/전고 mm 4,755/1,920/1,660","scope":"G45 X3 body; Korean manufacturer press release, representative 30 xDrive; not a trim equipment verification"},
+    {"brand":"볼보","model":"XC60","length_mm":4708,"source_url":"https://www.volvocars.com/static/support/pdf/kr_ko-KR_xc60_2026_UM_e1d7a702164366477dae26056cf1b844.pdf","page":360,"quote":"D 전장 4708","scope":"2026 Korean owner manual body reference. Some marketing specifications round to 4710 mm; both fall in the same size band."}
+  ]
+}

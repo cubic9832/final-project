@@ -6,6 +6,9 @@ from dataclasses import replace
 from pathlib import Path
 
 from vehicle_matching.catalog import DEFAULT_CSV, catalog_fingerprint, load_csv, save_catalog
+from vehicle_matching.catalog_merge import expand_catalog
+from vehicle_matching.seating import apply_seating_registry
+from vehicle_matching.specifications import apply_base_specifications, apply_specifications
 from vehicle_matching.dataset import pair_data, profiles
 from vehicle_matching.evaluate import evaluate
 from vehicle_matching.finance import Assumptions
@@ -17,6 +20,9 @@ def train(output, csv_path=DEFAULT_CSV, seed=42):
     if (output / 'model.pt').exists():
         raise ValueError('Output already has a model; choose a new directory')
     vehicles, catalog_report = load_csv(csv_path)
+    if Path(csv_path).resolve() == DEFAULT_CSV.resolve():
+        vehicles, catalog_report['legacy_expansion'] = expand_catalog(vehicles)
+        vehicles = apply_specifications(apply_seating_registry(apply_base_specifications(vehicles)))
     # Hold out whole brand/model identities, not merely trims of the same vehicle.
     keys = sorted({(v.brand, v.model) for v in vehicles})
     held_out = {key for i, key in enumerate(keys) if i % 5 == 0}
@@ -48,10 +54,10 @@ def train(output, csv_path=DEFAULT_CSV, seed=42):
               'sensitivity': {}}
     for weight in (0.1, 0.5):
         report['sensitivity'][f'teacher_preference_weight_{weight}'] = evaluate(best, test_people, vehicles, weight)
-    shifted = replace(Assumptions(), monthly_insurance=150000, stress_rate_addition=0.05,
+    shifted = replace(Assumptions(), monthly_insurance=150000,
                       energy_prices=tuple(value * 1.25 for value in Assumptions().energy_prices))
     shifted_model = PairRanker(best.net, best.mean, best.scale, best.minimum, best.maximum, shifted)
-    report['sensitivity']['higher_energy_insurance_interest'] = evaluate(shifted_model, test_people, vehicles)
+    report['sensitivity']['higher_energy_insurance'] = evaluate(shifted_model, test_people, vehicles)
     for label, subset in [('income_below_3m', [p for p in test_people if p.monthly_income < 3000000]),
                           ('income_3m_to_6m', [p for p in test_people if 3000000 <= p.monthly_income < 6000000]),
                           ('income_above_6m', [p for p in test_people if p.monthly_income >= 6000000])]:
