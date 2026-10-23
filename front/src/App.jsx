@@ -30,7 +30,7 @@ import { VehicleResultsPage } from './features/vehicle/pages/results/VehicleResu
 import VehicleDetailPage from './features/vehicle/pages/detail/VehicleDetailPage';
 import VehicleComparePage from './features/vehicle/pages/compare/VehicleComparePage';
 import VehicleSimulationPage from './features/vehicle/pages/simulation/VehicleSimulationPage';
-import TasteTestPage from './features/taste-test/TasteTestPage';
+import TasteTestPage from './features/taste-test/pages/test/TasteTestPage';
 import useAuthStore from './stores/useAuthStore';
 
 function App() {
@@ -47,7 +47,6 @@ function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/taste-test" element={<TasteTestPage />} />
         {/* 보완 1 추가: 로그인 · 회원가입은 로그인 전에만 — 이미 로그인했으면 GuestOnly 가 메인으로 보낸다 */}
         <Route element={<GuestOnly />}>
           <Route path="/login" element={<LoginPage />} />
@@ -57,6 +56,7 @@ function App() {
         </Route>
         {/* 로그인이 필요한 화면 — 로그인 전이면 RequireAuth 가 /login 으로 보낸다 */}
         <Route element={<RequireAuth />}>
+          <Route path="/taste-test" element={<TasteTestPage />} />
           <Route path="/mypage" element={<MyPage />} />
         </Route>
         <Route path="/admin" element={<AdminPage />} />

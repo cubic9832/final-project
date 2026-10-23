@@ -1,4 +1,4 @@
-import avanteImage from '../../assets/vehicles/vehicle-0.webp';
+import avanteImage from '../../../../assets/vehicles/vehicle-0.webp';
 
 // 대표 모델 예시와 제조사 공식 이미지. 매물 추천이나 구매 가능 판정과는 분리한다.
 const kiaImage = (path) => `https://www.kia.com/content/dam/kwp/kr/ko/vehicles/represent/${path}`;

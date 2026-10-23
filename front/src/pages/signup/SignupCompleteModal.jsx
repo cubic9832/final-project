@@ -10,12 +10,12 @@ export default function SignupCompleteModal({ email, onClose }) {
   const navigate = useNavigate();
 
   return (
-    <AuthModal title="회원가입이 완료됐어요" onClose={onClose} size="sm">
+    <AuthModal title="회원가입이 완료됐어요" onClose={() => { onClose(); navigate('/'); }} size="sm">
       <div className="signup-complete-icon" aria-hidden="true">
         <CircleCheck size={theme.iconSize.lg} strokeWidth={1.5} />
       </div>
       <p className="signup-complete-text">
-        가입한 계정으로 로그인하여 차량 구매 부담도 분석을 시작해 보세요.
+        내 첫 차 취향을 알아볼까요? 로그인 후 8가지 질문으로 확인할 수 있어요. 지금 하지 않아도 괜찮아요.
       </p>
       <p className="signup-complete-account">
         <strong>{email}</strong> 계정으로 가입되었습니다.
@@ -23,15 +23,15 @@ export default function SignupCompleteModal({ email, onClose }) {
 
       <div className="auth-modal-actions">
         <button className="auth-modal-button" type="button" onClick={() => navigate('/')}>
-          홈으로
+          나중에 하기
         </button>
         <button
           className="auth-modal-button auth-modal-button-primary"
           type="button"
           data-autofocus
-          onClick={() => navigate('/login')}
+          onClick={() => navigate('/login', { state: { from: '/taste-test' } })}
         >
-          로그인하기
+          로그인하고 취향 테스트
         </button>
       </div>
     </AuthModal>

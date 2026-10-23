@@ -1,10 +1,7 @@
 import { useEffect, useRef } from 'react';
-import { TASTE_QUESTION_COUNT } from './tasteQuestions';
-import { getTasteQuestion } from './tasteFlow';
 
-export default function TasteQuestion({ step, answers, onSelect, onPrevious, onNext }) {
+export default function TasteQuestion({ step, answers, question, questionCount, onSelect, onPrevious, onNext }) {
   const heading = useRef(null);
-  const question = getTasteQuestion(step, answers);
   const selected = answers[step];
   useEffect(() => {
     heading.current?.focus({ preventScroll: true });
@@ -13,8 +10,8 @@ export default function TasteQuestion({ step, answers, onSelect, onPrevious, onN
 
   return (
     <form className="taste-question taste-card" onSubmit={(event) => { event.preventDefault(); if (selected !== null) onNext(); }}>
-      <div className="taste-progress-label"><span>QUESTION {String(step + 1).padStart(2, '0')}</span><span>{step + 1} / {TASTE_QUESTION_COUNT}</span></div>
-      <progress className="taste-progress" value={step + 1} max={TASTE_QUESTION_COUNT} aria-label="첫 차 취향 테스트 진행률" />
+      <div className="taste-progress-label"><span>QUESTION {String(step + 1).padStart(2, '0')}</span><span>{step + 1} / {questionCount}</span></div>
+      <progress className="taste-progress" value={step + 1} max={questionCount} aria-label="첫 차 취향 테스트 진행률" />
       <h1 ref={heading} tabIndex={-1} id="taste-question-title">{question.title}</h1>
       <fieldset className="taste-options" aria-labelledby="taste-question-title">
         <legend className="taste-sr-only">답변 하나 선택</legend>
@@ -25,7 +22,7 @@ export default function TasteQuestion({ step, answers, onSelect, onPrevious, onN
           </label>
         ))}
       </fieldset>
-      <div className="taste-actions"><button className="taste-button taste-button-outline" type="button" onClick={onPrevious}>이전</button><button className="taste-button taste-button-cta" type="submit" disabled={selected === null}>{step === TASTE_QUESTION_COUNT - 1 ? '내 첫 차 취향 확인하기' : '다음'}</button></div>
+      <div className="taste-actions"><button className="taste-button taste-button-outline" type="button" onClick={onPrevious}>이전</button><button className="taste-button taste-button-cta" type="submit" disabled={selected === null}>{step === questionCount - 1 ? '내 첫 차 취향 확인하기' : '다음'}</button></div>
     </form>
   );
 }

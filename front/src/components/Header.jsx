@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { logout } from '../features/auth/authApi';
 import LogoutConfirmModal from '../features/auth/components/LogoutConfirmModal';
 import useAuthStore from '../stores/useAuthStore';
-import ExploreMenu from './ExploreMenu';
 import { showToast } from '../stores/useToastStore';
 
 const HeaderWrapper = styled.header`
@@ -143,7 +142,7 @@ export default function Header() {
             <li>
               <NavLink to="/search">차량 찾기</NavLink>
             </li>
-            <ExploreMenu />
+            <li><NavLink to="/vehicles/compare">차량 비교</NavLink></li>
           </ul>
         </Navigation>
         <Side $end>
