@@ -16,14 +16,14 @@ const sections = [
   { id: 'recommendations', label: '추천 관리', icon: ListChecks, description: '차량 이미지와 주요 정보, 추천 사유를 함께 검수합니다.', panel: AdminRecommendationsPanel },
   { id: 'members', label: '회원 관리', icon: Users, description: '가입 현황과 회원 상태, 운영 권한을 확인합니다.', panel: AdminMembersPanel, data: 'live' },
   { id: 'models', label: '모델 관리', icon: Cpu, description: '모델 버전과 평가 결과, 적용 이력을 비교합니다.', panel: AdminModelsPanel },
-  { id: 'logs', label: '운영 로그', icon: ScrollText, description: '관리자 변경 이력과 서비스 오류를 추적합니다.', panel: AdminLogsPanel },
+  { id: 'logs', label: '운영 로그', icon: ScrollText, description: '관리자 변경 이력과 서비스 오류를 추적합니다.', panel: AdminLogsPanel, data: 'live' },
 ];
 
 // 관리자 대시보드. 7단계: 회원 관리 탭 · 운영 현황의 회원 · 차량 수는 실제 데이터(/api/v1/admin/**, ADMIN 만), 나머지 탭은 아직 예시.
 // data: 'live' = 실제 데이터, 'partial' = 일부만 실제, 없음 = 예시 — 탭 위 안내 문구를 여기에 맞춰 바꾼다
 const DATA_NOTES = {
-  live: '이 화면의 수치와 회원 정보는 실제 DB 데이터입니다.',
-  partial: '회원 · 차량 수는 실제 데이터이고, 나머지 수치와 상태는 예시입니다.',
+  live: '이 화면의 내용은 실제 DB 데이터입니다.',
+  partial: '회원 · 차량 수와 최근 운영 이력은 실제 데이터이고, 나머지 수치와 상태는 예시입니다.',
 };
 export default function AdminPage() {
   const [params] = useSearchParams();
@@ -35,7 +35,7 @@ export default function AdminPage() {
     <div className="admin-workspace">
       <aside className="admin-sidebar"><div className="admin-sidebar-heading"><ShieldCheck size={theme.iconSize.md} aria-hidden="true" /><div><strong>운영 관리</strong><span>CreditComPass Auto</span></div></div>
         <nav className="admin-navigation" aria-label="관리자 메뉴">{sections.map(({ id, label, icon: Icon }) => <Link key={id} to={`/admin?tab=${id}`} aria-current={section.id === id ? 'page' : undefined}><Icon size={theme.iconSize.md} aria-hidden="true" /><span>{label}</span></Link>)}</nav>
-        <div className="admin-sidebar-footer"><span>데이터 연결 중</span><p>회원 관리는 실제 데이터, 나머지 탭은 예시입니다.</p><Link to="/">서비스 홈 보기<ArrowUpRight size={theme.iconSize.sm} aria-hidden="true" /></Link></div>
+        <div className="admin-sidebar-footer"><span>데이터 연결 중</span><p>회원 관리 · 운영 로그는 실제 데이터, 나머지 탭은 예시입니다.</p><Link to="/">서비스 홈 보기<ArrowUpRight size={theme.iconSize.sm} aria-hidden="true" /></Link></div>
       </aside>
       <div className="admin-content"><header className="admin-heading"><div><h2>{section.label}</h2><p>{section.description}</p></div><button className="admin-outline-button" type="button" onClick={() => setUpdatedAt(new Date())}><RefreshCw size={theme.iconSize.sm} aria-hidden="true" />화면 새로고침</button></header><div className="admin-preview-note"><span>{DATA_NOTES[section.data] ?? '현재 화면의 수치와 상태는 예시이며 실제 운영 데이터와 연결되지 않습니다.'}</span><span role="status">표시 시각 {updatedAt.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })}</span></div><Panel key={`${section.id}-${updatedAt.getTime()}`} /></div>
     </div>

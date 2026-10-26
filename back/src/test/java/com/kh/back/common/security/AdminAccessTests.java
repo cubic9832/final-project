@@ -75,4 +75,12 @@ class AdminAccessTests {
                         .header("Authorization", "Bearer " + jwtProvider.createAccessToken(1L, "SUPER_ADMIN")))
                 .andExpect(status().isOk());
     }
+
+    @Test
+    void 관리자는_운영_로그를_볼_수_있다() throws Exception {
+        mvc.perform(get("/api/v1/admin/audit-logs?size=3")
+                        .header("Authorization", "Bearer " + jwtProvider.createAccessToken(1L, "ADMIN")))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.meta.size").value(3));
+    }
 }

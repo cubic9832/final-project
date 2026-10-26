@@ -5,6 +5,7 @@ import com.kh.back.admin.dto.AdminMemberSummary;
 import com.kh.back.admin.dto.AdminMemberSummary.DailyCount;
 import com.kh.back.admin.dto.AdminMemberSummary.GroupCount;
 import com.kh.back.admin.dto.GroupCountRow;
+import com.kh.back.admin.mapper.AdminAuditLogMapper;
 import com.kh.back.admin.mapper.AdminMemberMapper;
 import com.kh.back.auth.mapper.RefreshTokenMapper;
 import com.kh.back.auth.service.LoginAttemptLimiter;
@@ -31,6 +32,7 @@ public class AdminMemberServiceImpl implements AdminMemberService {
     private final AdminMemberMapper adminMemberMapper;
     private final LoginAttemptLimiter loginAttemptLimiter; // 보완 6: 로그인 5번 실패 잠금 (서버 메모리)
     private final RefreshTokenMapper refreshTokenMapper;
+    private final AdminAuditLogMapper adminAuditLogMapper; // V13: 운영 로그
 
     @Override
     @Transactional(readOnly = true)
@@ -92,6 +94,8 @@ public class AdminMemberServiceImpl implements AdminMemberService {
             return; // 이미 그 권한이면 아무것도 하지 않는다
         }
         adminMemberMapper.updateRole(targetId, role);
+        // 운영 로그: 누가 누구를 무엇으로 바꿨는지 (같은 트랜잭션 → 기록이 실패하면 권한 변경도 취소)
+        adminAuditLogMapper.insert(actorId, "ROLE_CHANGE", "MEMBER", targetId, current + " → " + role);
         refreshTokenMapper.deleteByUserId(targetId);
     }
 

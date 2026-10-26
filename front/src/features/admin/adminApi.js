@@ -22,3 +22,9 @@ export const getMemberSummary = async (signal) => {
   const res = await client.get('/admin/members/summary', { signal });
   return res.data.data;
 };
+
+// 운영 로그 (관리자 작업 기록, 최근 순) → { logs: [...], meta }. action: ROLE_CHANGE (비우면 전체)
+export const getAuditLogs = async ({ action, page = 1, size = 20 } = {}, signal) => {
+  const res = await client.get('/admin/audit-logs', { params: { action: action || undefined, page, size }, signal });
+  return { logs: res.data.data, meta: res.data.meta };
+};

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 7단계: 관리자 작업 기록. 테이블은 Flyway V13__create_admin_audit_logs.sql 이 만든다 -->
+<mapper namespace="com.kh.back.admin.mapper.AdminAuditLogMapper">
+
+    <insert id="insert">
+        INSERT INTO admin_audit_logs (actor_id, action, target_type, target_id, detail)
+        VALUES (#{actorId}, #{action}, #{targetType}, #{targetId}, #{detail})
+    </insert>
+
+    <!-- 닉네임은 지금 users 에서 이어 붙인다 (탈퇴했으면 NULL → 화면에서 "탈퇴한 회원") -->
+    <select id="findRecent" resultType="com.kh.back.admin.dto.AdminAuditLogResponse">
+        SELECT l.id, l.actor_id, a.nick_name AS actor_nick_name, l.action, l.target_type, l.target_id,
+               t.nick_name AS target_nick_name, l.detail, l.created_at
+        FROM admin_audit_logs l
+        LEFT JOIN users a ON a.id = l.actor_id
+        LEFT JOIN users t ON l.target_type = 'MEMBER' AND t.id = l.target_id
+        <where>
+            <if test="action != null">l.action = #{action}</if>
+        </where>
+        ORDER BY l.id DESC
+        LIMIT #{size} OFFSET #{offset}
+    </select>
+
+    <select id="count" resultType="int">
+        SELECT COUNT(*) FROM admin_audit_logs
+        <where>
+            <if test="action != null">action = #{action}</if>
+        </where>
+    </select>
+
+</mapper>

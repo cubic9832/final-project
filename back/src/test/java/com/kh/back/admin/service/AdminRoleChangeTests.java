@@ -8,6 +8,7 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.kh.back.admin.mapper.AdminAuditLogMapper;
 import com.kh.back.admin.mapper.AdminMemberMapper;
 import com.kh.back.auth.mapper.RefreshTokenMapper;
 import com.kh.back.auth.service.LoginAttemptLimiter;
@@ -25,6 +26,7 @@ class AdminRoleChangeTests {
     @Mock AdminMemberMapper adminMemberMapper;
     @Mock LoginAttemptLimiter loginAttemptLimiter;
     @Mock RefreshTokenMapper refreshTokenMapper;
+    @Mock AdminAuditLogMapper adminAuditLogMapper;
     @InjectMocks AdminMemberServiceImpl service;
 
     private static final Long SUPER_ADMIN_ID = 1L;
@@ -37,6 +39,7 @@ class AdminRoleChangeTests {
 
         verify(adminMemberMapper).updateRole(7L, "ADMIN");
         verify(refreshTokenMapper).deleteByUserId(7L); // 로그인된 기기 모두 로그아웃 → 다시 로그인하면 새 권한
+        verify(adminAuditLogMapper).insert(SUPER_ADMIN_ID, "ROLE_CHANGE", "MEMBER", 7L, "USER → ADMIN"); // 운영 로그
     }
 
     @Test
@@ -69,5 +72,6 @@ class AdminRoleChangeTests {
 
         verify(adminMemberMapper, never()).updateRole(anyLong(), any());
         verify(refreshTokenMapper, never()).deleteByUserId(anyLong());
+        verify(adminAuditLogMapper, never()).insert(any(), any(), any(), any(), any());
     }
 }
