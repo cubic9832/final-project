@@ -17,4 +17,7 @@ public interface AdminMemberService {
 
     // 총관리자(actorId)가 회원(targetId)의 권한을 USER ↔ ADMIN 으로 바꾼다. 자기 자신 · 총관리자는 바꿀 수 없다
     void changeRole(Long actorId, Long targetId, String role);
+
+    // 관리자가 회원의 로그인 실패 기록 · 잠금(보완 6)을 지운다. 운영 로그에 남긴다
+    void unlockLogin(Long actorId, Long targetId);
 }

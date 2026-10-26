@@ -48,6 +48,11 @@
         SELECT role FROM users WHERE id = #{id}
     </select>
 
+    <!-- 7단계: 로그인 잠금 해제 — 잠금은 이메일로 세므로(보완 6) 이메일을 찾는다 -->
+    <select id="findEmail" resultType="string">
+        SELECT email FROM users WHERE id = #{id}
+    </select>
+
     <update id="updateRole">
         UPDATE users SET role = #{role} WHERE id = #{id}
     </update>

@@ -1,7 +1,7 @@
 // 7단계: 운영 로그 표시 도우미 (운영 로그 탭 · 운영 현황 "최근 운영 이력" 이 같이 쓴다)
 import { ROLE_LABELS } from '../../features/auth/roles';
 
-export const ACTION_LABELS = { ROLE_CHANGE: '권한 변경' };
+export const ACTION_LABELS = { ROLE_CHANGE: '권한 변경', LOGIN_UNLOCK: '잠금 해제' };
 
 // "2026-10-26T17:30:12" → "2026.10.26 17:30"
 export const formatLogTime = (value) => `${value.slice(0, 10).replaceAll('-', '.')} ${value.slice(11, 16)}`;

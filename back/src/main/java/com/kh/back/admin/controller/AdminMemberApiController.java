@@ -13,6 +13,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -57,6 +58,14 @@ public class AdminMemberApiController {
     public ApiResponse<Void> changeRole(@AuthenticationPrincipal Long userId, @PathVariable Long id,
                                         @Valid @RequestBody RoleChangeRequest request) {
         adminMemberService.changeRole(userId, id, request.getRole());
+        return ApiResponse.ok(null);
+    }
+
+    // POST /api/v1/admin/members/{id}/unlock — 로그인 5번 실패 잠금 · 실패 기록 지우기 (관리자 · 총관리자)
+    // 호출: AdminMembersPanel.jsx 회원 상세 [잠금 해제] → adminApi.unlockMemberLogin
+    @PostMapping("/{id}/unlock")
+    public ApiResponse<Void> unlock(@AuthenticationPrincipal Long userId, @PathVariable Long id) {
+        adminMemberService.unlockLogin(userId, id);
         return ApiResponse.ok(null);
     }
 }

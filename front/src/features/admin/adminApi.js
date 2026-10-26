@@ -17,6 +17,11 @@ export const changeMemberRole = async (id, role) => {
   await client.patch(`/admin/members/${id}/role`, { role });
 };
 
+// 관리자 · 총관리자: 회원의 로그인 5번 실패 잠금 풀기 (운영 로그에 남는다)
+export const unlockMemberLogin = async (id) => {
+  await client.post(`/admin/members/${id}/unlock`);
+};
+
 // 회원 현황 → { total, admins, newLast7Days, google, daily: [{ date, count }], ageBands, genders }
 export const getMemberSummary = async (signal) => {
   const res = await client.get('/admin/members/summary', { signal });

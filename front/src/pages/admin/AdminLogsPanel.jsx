@@ -52,7 +52,7 @@ export default function AdminLogsPanel() {
   return (
     <section className="admin-card">
       <div className="admin-card-heading">
-        <div><h3>운영 이력</h3><p>관리자 작업 기록 (최근 순). 지금은 관리자 권한 주기 · 빼기가 기록됩니다.</p></div>
+        <div><h3>운영 이력</h3><p>관리자 작업 기록 (최근 순). 관리자 권한 주기 · 빼기와 로그인 잠금 해제가 기록됩니다.</p></div>
         <button type="button" className="admin-outline-button" disabled={!logs.length} onClick={() => downloadCsv(logs)}>
           <Download size={theme.iconSize.sm} aria-hidden="true" />CSV 내보내기
         </button>
@@ -64,6 +64,7 @@ export default function AdminLogsPanel() {
           <select value={query.action} onChange={(event) => changeQuery({ action: event.target.value, page: 1 })}>
             <option value="">전체</option>
             <option value="ROLE_CHANGE">권한 변경</option>
+            <option value="LOGIN_UNLOCK">잠금 해제</option>
           </select>
         </label>
       </div>

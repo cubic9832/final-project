@@ -99,6 +99,19 @@ public class AdminMemberServiceImpl implements AdminMemberService {
         refreshTokenMapper.deleteByUserId(targetId);
     }
 
+    // 7단계: 로그인 잠금 해제 — 보완 6 의 실패 횟수 · 10분 잠금은 서버 메모리에 이메일별로 있다 → 지우면 바로 로그인 가능
+    // 관리자 · 총관리자 모두 할 수 있다 (본인 확인은 회원이 직접 비밀번호 찾기로 하는 것이 원칙, 이건 문의 대응용)
+    @Override
+    @Transactional
+    public void unlockLogin(Long actorId, Long targetId) {
+        String email = adminMemberMapper.findEmail(targetId);
+        if (email == null) {
+            throw new ApiException(HttpStatus.NOT_FOUND, "MEMBER_NOT_FOUND", "회원을 찾을 수 없습니다.");
+        }
+        loginAttemptLimiter.reset(email);
+        adminAuditLogMapper.insert(actorId, "LOGIN_UNLOCK", "MEMBER", targetId, "로그인 잠금 해제");
+    }
+
     private static Map<String, Integer> toMap(List<GroupCountRow> rows) {
         return rows.stream().collect(Collectors.toMap(GroupCountRow::getLabel, GroupCountRow::getCount));
     }

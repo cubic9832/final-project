@@ -74,4 +74,21 @@ class AdminRoleChangeTests {
         verify(refreshTokenMapper, never()).deleteByUserId(anyLong());
         verify(adminAuditLogMapper, never()).insert(any(), any(), any(), any(), any());
     }
+
+    @Test
+    void 로그인_잠금을_풀면_실패_기록을_지우고_운영_로그에_남긴다() {
+        when(adminMemberMapper.findEmail(7L)).thenReturn("locked@example.com");
+
+        service.unlockLogin(SUPER_ADMIN_ID, 7L);
+
+        verify(loginAttemptLimiter).reset("locked@example.com");
+        verify(adminAuditLogMapper).insert(SUPER_ADMIN_ID, "LOGIN_UNLOCK", "MEMBER", 7L, "로그인 잠금 해제");
+    }
+
+    @Test
+    void 없는_회원의_잠금은_풀_수_없다() {
+        assertThatThrownBy(() -> service.unlockLogin(SUPER_ADMIN_ID, 99L))
+                .isInstanceOfSatisfying(ApiException.class, e -> assertThat(e.getCode()).isEqualTo("MEMBER_NOT_FOUND"));
+        verify(loginAttemptLimiter, never()).reset(any());
+    }
 }

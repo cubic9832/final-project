@@ -5,7 +5,7 @@
 import { Fragment, useEffect, useState } from 'react';
 import { Search, ShieldCheck, X } from 'lucide-react';
 import theme from '../../styles/theme';
-import { changeMemberRole, getAdminMembers, getMemberSummary } from '../../features/admin/adminApi';
+import { changeMemberRole, getAdminMembers, getMemberSummary, unlockMemberLogin } from '../../features/admin/adminApi';
 import { ROLE_LABELS } from '../../features/auth/roles';
 import useAuthStore from '../../stores/useAuthStore';
 import { showToast } from '../../stores/useToastStore';
@@ -294,10 +294,40 @@ function MemberDetail({ member, onClose, onChanged }) {
           <dt>로그인된 기기</dt>
           <dd>{member.activeSessions}대{member.lastUsedAt ? ` · 마지막 사용 ${formatDateTime(member.lastUsedAt)}` : ''}</dd>
         </div>
-        <div><dt>로그인 잠금</dt><dd>{member.lockedMinutes > 0 ? `${member.lockedMinutes}분 남음 (5번 실패)` : '잠금 없음'}</dd></div>
+        <div>
+          <dt>로그인 잠금</dt>
+          <dd>
+            {member.lockedMinutes > 0 ? `${member.lockedMinutes}분 남음 (5번 실패) ` : '잠금 없음'}
+            {member.lockedMinutes > 0 && <UnlockButton member={member} onChanged={onChanged} />}
+          </dd>
+        </div>
       </dl>
       <RoleActions member={member} onChanged={onChanged} />
     </div>
+  );
+}
+
+// 로그인 잠금 해제 (관리자 · 총관리자) — 5번 실패로 잠긴 회원이 문의했을 때. 운영 로그에 남는다
+function UnlockButton({ member, onChanged }) {
+  const [busy, setBusy] = useState(false);
+
+  async function handleUnlock() {
+    setBusy(true);
+    try {
+      await unlockMemberLogin(member.id);
+      showToast(`${member.nickName} 님의 로그인 잠금을 풀었어요.`);
+      onChanged();
+    } catch (err) {
+      showToast(errorMessage(err, '잠금을 풀지 못했습니다.'));
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <button type="button" className="admin-text-button" onClick={handleUnlock} disabled={busy}>
+      {busy ? '푸는 중…' : '잠금 해제'}
+    </button>
   );
 }
 
@@ -317,7 +347,7 @@ function RoleActions({ member, onChanged }) {
     return (
       <div className="admin-inline-note">
         <ShieldCheck size={theme.iconSize.sm} aria-hidden="true" />
-        <span>{reason} 로그인 잠금 해제는 아직 화면에서 할 수 없습니다.</span>
+        <span>{reason}</span>
       </div>
     );
   }

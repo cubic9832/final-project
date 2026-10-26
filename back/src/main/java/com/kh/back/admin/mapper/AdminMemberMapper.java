@@ -21,6 +21,8 @@ public interface AdminMemberMapper {
 
     String findRole(Long id);
 
+    String findEmail(Long id); // 로그인 잠금 해제용 (없으면 null)
+
     int updateRole(@Param("id") Long id, @Param("role") String role);
 
     int countJoinedSince(LocalDateTime since);
