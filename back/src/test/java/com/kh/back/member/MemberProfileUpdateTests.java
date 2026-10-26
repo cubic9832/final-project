@@ -79,4 +79,36 @@ class MemberProfileUpdateTests {
         clear.setPhone("");
         assertThat(memberService.updateProfile(7L, clear).getPhoneMasked()).isNull();
     }
+
+    // 닉네임과 개인정보는 한 요청 · 한 트랜잭션: 닉네임이 거절되면 개인정보도 저장하지 않는다
+    @Test
+    void 닉네임이_중복이면_개인정보도_저장하지_않는다() {
+        when(memberMapper.countByNickName("새닉네임")).thenReturn(1);
+        ProfileUpdateRequest r = request(LocalDate.of(1998, 5, 14));
+        r.setNickName("새닉네임");
+
+        assertThatThrownBy(() -> memberService.updateProfile(7L, r))
+                .isInstanceOfSatisfying(ApiException.class, e -> assertThat(e.getCode()).isEqualTo("NICKNAME_DUPLICATED"));
+        verify(userProfileMapper, never()).upsert(any());
+    }
+
+    // 생년월일 검사가 먼저라, 만 18세 미만이면 닉네임도 바꾸지 않는다
+    @Test
+    void 만18세_미만이면_닉네임도_바꾸지_않는다() {
+        ProfileUpdateRequest r = request(LocalDate.now().minusYears(17));
+        r.setNickName("새닉네임");
+
+        assertThatThrownBy(() -> memberService.updateProfile(7L, r)).isInstanceOf(ApiException.class);
+        verify(memberMapper, never()).updateNickName(any(), any());
+    }
+
+    @Test
+    void 닉네임을_같이_보내면_함께_바뀐다() {
+        ProfileUpdateRequest r = request(LocalDate.of(1998, 5, 14));
+        r.setNickName("  새닉네임 ");
+
+        assertThat(memberService.updateProfile(7L, r).getNickName()).isEqualTo("새닉네임");
+        verify(memberMapper).updateNickName(7L, "새닉네임");
+        verify(userProfileMapper).upsert(any());
+    }
 }

@@ -14,9 +14,10 @@ export const updateNickName = async (nickName) => {
 };
 
 // 개인정보 수정 (6단계) — 바뀐 회원 정보를 돌려준다. 만 18세 미만 생년월일은 400 AGE_RESTRICTED (저장 안 됨)
-// 선택 항목(phone · drivingExperience · purchaseTiming): null = 그대로, '' = 지우기
-export const updateProfile = async ({ birthDate, gender, phone, drivingExperience, purchaseTiming }) => {
-  const res = await client.put('/members/me/profile', { birthDate, gender, phone, drivingExperience, purchaseTiming });
+// 보낸 항목만 바뀐다 (빠진 항목 = 그대로). 선택 항목(phone · drivingExperience · purchaseTiming)은 '' = 지우기
+// 닉네임도 같이 보내면 한 트랜잭션으로 저장된다 → 하나라도 실패하면 아무것도 바뀌지 않는다
+export const updateProfile = async (changes) => {
+  const res = await client.put('/members/me/profile', changes);
   return res.data.data;
 };
 

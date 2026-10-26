@@ -11,7 +11,7 @@ import {
   logoutOtherSessions,
   logoutSession,
 } from '../../features/auth/authApi';
-import { getMe, updateNickName, updateProfile, withdraw } from '../../features/auth/memberApi';
+import { getMe, updateProfile, withdraw } from '../../features/auth/memberApi';
 import { checkNickNameWords } from '../../features/auth/nickNamePolicy';
 import useAuthStore from '../../stores/useAuthStore';
 import { showToast } from '../../stores/useToastStore';
@@ -179,7 +179,9 @@ export default function ProfilePage() {
     return Object.fromEntries(Object.entries(next).filter(([, value]) => value));
   }
 
-  // [개인정보 저장] — 닉네임이 바뀌었으면 PATCH /members/me, 나머지는 PUT /members/me/profile
+  // [개인정보 저장] — 바꾼 항목만 PUT /members/me/profile 한 번으로 보낸다
+  // · 한 요청이라 닉네임만 저장되고 나머지는 실패하는 "반쪽 저장" 이 생기지 않는다
+  // · 바꾸지 않은 항목은 보내지 않아, 다른 탭에서 먼저 저장한 값을 이 화면의 옛 값으로 덮어쓰지 않는다
   async function handleSave(event) {
     event.preventDefault();
     if (saving) return;
@@ -194,18 +196,15 @@ export default function ProfilePage() {
     setSaving(true);
     setSaveError('');
     try {
-      const nickname = form.nickname.trim();
-      if (nickname !== me.nickName) {
-        const updated = await updateNickName(nickname);
-        useAuthStore.getState().updateMember({ nickName: updated.nickName }); // 헤더 닉네임도 바로 바꾼다
-      }
-      const saved = await updateProfile({
-        birthDate: form.birthDate || null,       // 비어 있으면 그대로 (지우지 않음)
-        gender: form.gender || null,
-        phone: clearPhone ? '' : form.phone || null, // 새로 입력했을 때만 바꾼다
-        drivingExperience: form.drivingExperience, // '' 이면 지우기
-        purchaseTiming: form.purchaseTiming,
-      });
+      const changes = {};
+      if (changedNow.includes('nickname')) changes.nickName = form.nickname.trim();
+      if (changedNow.includes('birthDate') && form.birthDate) changes.birthDate = form.birthDate; // 비우면 그대로 (지우지 않음)
+      if (changedNow.includes('gender') && form.gender) changes.gender = form.gender;
+      if (changedNow.includes('phone')) changes.phone = clearPhone ? '' : form.phone; // '' = 지우기
+      if (changedNow.includes('drivingExperience')) changes.drivingExperience = form.drivingExperience; // '' = 지우기
+      if (changedNow.includes('purchaseTiming')) changes.purchaseTiming = form.purchaseTiming;
+      const saved = await updateProfile(changes);
+      if (changes.nickName) useAuthStore.getState().updateMember({ nickName: saved.nickName }); // 헤더 닉네임도 바로 바꾼다
       setMe(saved);
       setForm(toForm(saved));
       setCheckedNickname('');

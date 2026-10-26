@@ -40,6 +40,13 @@ public class MemberServiceImpl implements MemberService {
     @Transactional
     public MemberResponse updateNickName(Long userId, String nickName) {
         MemberDto member = findMember(userId);
+        changeNickName(member, nickName);
+        return MemberResponse.from(member, userProfileMapper.findByUserId(userId));
+    }
+
+    // 닉네임 바꾸기 (PATCH /members/me 와 개인정보 저장이 같이 쓴다). 같은 닉네임이면 아무것도 하지 않는다
+    private void changeNickName(MemberDto member, String nickName) {
+        Long userId = member.getId();
         if (!nickName.equals(member.getNickName())) {
             String forbidden = NickNamePolicy.check(nickName);
             if (forbidden != null) {
@@ -55,7 +62,6 @@ public class MemberServiceImpl implements MemberService {
             }
             member.setNickName(nickName);
         }
-        return MemberResponse.from(member, userProfileMapper.findByUserId(userId));
     }
 
     // 개인정보 수정 (6단계) — 개인정보 · 계정 관리 화면 [개인정보 저장]
@@ -94,6 +100,11 @@ public class MemberServiceImpl implements MemberService {
             profile.setPurchaseTiming(blankToNull(request.getPurchaseTiming()));
         }
 
+        // 닉네임도 같은 트랜잭션에서 바꾼다 → 아래 저장이 실패하면 닉네임 변경도 함께 취소된다
+        // (예전에는 화면이 닉네임 PATCH 후 개인정보 PUT 을 따로 불러, 뒤가 실패하면 닉네임만 바뀌었다)
+        if (request.getNickName() != null) {
+            changeNickName(member, request.getNickName());
+        }
         userProfileMapper.upsert(profile);
         return MemberResponse.from(member, profile);
     }
