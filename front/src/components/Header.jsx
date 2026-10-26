@@ -129,7 +129,7 @@ export default function Header() {
     <HeaderWrapper>
       <HeaderContent>
         <Side>
-          <Brand to="/">CreditComPass Auto</Brand>
+          <Brand to="/">CreditComPass</Brand>
         </Side>
         <Navigation aria-label="주 메뉴">
           <ul>
