@@ -12,54 +12,10 @@ const expenseFields = [
 ];
 const totalExpenses = values => expenseFields.reduce((sum, [key]) => sum + Number(values[key] || 0), 0);
 
-<<<<<<< HEAD
-const extraFields = [
-  { name: 'extraIncome', label: '기타 정기 소득', required: false },
-  { name: 'transport', label: '교통비', required: false },
-  { name: 'phone', label: '통신비', required: false },
-];
-
-const steps = ['소득·지출', '자산·부채', '신용정보', '차량 조건', '확인'];
-
-// 화면 이동 확인용 초기값. 이전 단계에서 전달한 사용자 입력이 있으면 그 값을 우선한다.
-const initialState = {
-  values: { income: 500, housing: 50, fixed: 30, living: 70, loan: 0, savings: 50 },
-  assets: { deposit: 1500, downPayment: 500, emergency: 500 },
-  loans: [],
-  credit: { overdue: '연체 없음', overdueCount: '0', newLoans: '0', cards: '2', firstCredit: '2021-03' },
-  vehicle: { purchase: '신차만', body: '경차 · 소형 · 준중형', fuel: '가솔린 · 하이브리드', installment: '48개월', purpose: '출퇴근' },
-};
-
-export function FinancialProgress({ current = 1 }) {
-  return (
-    <div className="financial-progress">
-      <ol aria-label="재무 진단 진행 단계">
-        {steps.map((step, index) => (
-          <li key={step} className={current === index + 1 ? 'current' : ''} aria-current={current === index + 1 ? 'step' : undefined}>
-            {index + 1} {step}
-          </li>
-        ))}
-      </ol>
-      <div className="financial-progress-track" aria-hidden="true">
-        <span style={{ width: `${current * 20}%` }} />
-      </div>
-    </div>
-  );
-}
-=======
->>>>>>> ml/test
 
 export default function FinancialPage() {
   const { state } = useLocation();
   const navigate = useNavigate();
-<<<<<<< HEAD
-  const location = useLocation();
-  const formState = location.state ?? initialState;
-  const [values, setValues] = useState(formState.values ?? initialState.values);
-  const [expanded, setExpanded] = useState(
-    extraFields.some(({ name }) => location.state?.values?.[name] !== undefined)
-  );
-=======
   const formRef = useRef(null);
   useEffect(() => {
     const form = formRef.current;
@@ -82,7 +38,6 @@ export default function FinancialPage() {
   const [errors, setErrors] = useState({});
   const loans = detailedLoans ? loanDetails : [{ payment: loanPayment || '0' }];
   const totalLoanPayment = loans.reduce((sum, loan) => sum + Number(loan.payment || 0), 0);
->>>>>>> ml/test
 
   function input(name, label, value, onChange, { required = false, help, readOnly = false } = {}) {
     return <div className="financial-field" key={name}>
@@ -102,13 +57,9 @@ export default function FinancialPage() {
 
   function submit(event) {
     event.preventDefault();
-<<<<<<< HEAD
     if (!event.currentTarget.reportValidity()) return;
-    navigate(location.state?.reviewReturn ? '/financial/review' : '/financial/assets', { state: { ...formState, values, reviewReturn: false } });
-=======
     if (detailedLoans && loanDetails.some(loan => loan.payment === '')) { setErrors(previous => ({ ...previous, loanPayment: '등록한 대출의 월 상환액을 계산하거나 직접 입력해 주세요.' })); return; }
     navigate('/financial/vehicle', { state: { values, assets: { deposit }, loans, detailedLoans, vehicle: state?.vehicle, expenseBreakdown: breakdown } });
->>>>>>> ml/test
   }
 
   return <div className="financial-page">
