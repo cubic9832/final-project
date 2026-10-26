@@ -24,6 +24,7 @@ public class SecurityConfig {
     private final JwtProvider jwtProvider;
     private final JwtAuthenticationEntryPoint authenticationEntryPoint;
     private final JwtAccessDeniedHandler accessDeniedHandler;
+    private final CurrentRoleLookup currentRoleLookup; // 7단계: 관리자 API 는 DB 의 지금 권한으로
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -59,7 +60,7 @@ public class SecurityConfig {
                         .accessDeniedHandler(accessDeniedHandler))
 
                 // ⑤ 우리 토큰 필터를 Security 필터 체인에 끼워 넣는다
-                .addFilterBefore(new JwtAuthenticationFilter(jwtProvider), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new JwtAuthenticationFilter(jwtProvider, currentRoleLookup), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

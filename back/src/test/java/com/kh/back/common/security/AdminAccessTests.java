@@ -5,15 +5,20 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import static org.mockito.Mockito.when;
+
 import com.kh.back.common.jwt.JwtProvider;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-// 7단계: /api/v1/admin/** 는 ADMIN 만. 아직 관리 API 가 없어 없는 주소로 확인한다
-// ADMIN 은 보안 검사를 통과해 404(주소 없음), 일반 회원은 403, 비회원은 401
+// 7단계: /api/v1/admin/** 는 관리자 · 총관리자만. 없는 주소로 확인하면 관리자는 보안을 통과해 404, 일반 회원 403, 비회원 401
+// 관리자 API 는 DB 의 지금 권한을 다시 보므로(CurrentRoleLookup), 테스트에서는 회원 번호별 권한을 정해 둔다
+// 1번 = 관리자, 2번 = 일반 회원, 3번 = 총관리자, 4번 = 토큰은 관리자지만 DB 에서는 해제된 회원
 @SpringBootTest
 @AutoConfigureMockMvc
 class AdminAccessTests {
@@ -22,6 +27,15 @@ class AdminAccessTests {
 
     @Autowired MockMvc mvc;
     @Autowired JwtProvider jwtProvider;
+    @MockitoBean CurrentRoleLookup currentRoleLookup;
+
+    @BeforeEach
+    void setUp() {
+        when(currentRoleLookup.currentRole(1L)).thenReturn("ADMIN");
+        when(currentRoleLookup.currentRole(2L)).thenReturn("USER");
+        when(currentRoleLookup.currentRole(3L)).thenReturn("SUPER_ADMIN");
+        when(currentRoleLookup.currentRole(4L)).thenReturn("USER");
+    }
 
     @Test
     void 관리자는_보안_검사를_통과한다() throws Exception {
@@ -64,7 +78,7 @@ class AdminAccessTests {
                         .header("Authorization", "Bearer " + jwtProvider.createAccessToken(1L, "ADMIN")))
                 .andExpect(status().isForbidden());
         mvc.perform(patch("/api/v1/admin/members/999999/role").contentType("application/json").content(body)
-                        .header("Authorization", "Bearer " + jwtProvider.createAccessToken(1L, "SUPER_ADMIN")))
+                        .header("Authorization", "Bearer " + jwtProvider.createAccessToken(3L, "SUPER_ADMIN")))
                 .andExpect(status().isNotFound())
                 .andExpect(jsonPath("$.error.code").value("MEMBER_NOT_FOUND"));
     }
@@ -72,7 +86,7 @@ class AdminAccessTests {
     @Test
     void 총관리자도_관리자_화면_API를_쓴다() throws Exception {
         mvc.perform(get("/api/v1/admin/members/summary")
-                        .header("Authorization", "Bearer " + jwtProvider.createAccessToken(1L, "SUPER_ADMIN")))
+                        .header("Authorization", "Bearer " + jwtProvider.createAccessToken(3L, "SUPER_ADMIN")))
                 .andExpect(status().isOk());
     }
 
@@ -82,5 +96,13 @@ class AdminAccessTests {
                         .header("Authorization", "Bearer " + jwtProvider.createAccessToken(1L, "ADMIN")))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.meta.size").value(3));
+    }
+
+    // 해제된 관리자: 토큰에는 아직 ADMIN 이 남아 있어도(최대 30분) DB 가 USER 면 바로 403
+    @Test
+    void 관리자를_해제하면_토큰이_남아_있어도_바로_403() throws Exception {
+        mvc.perform(get("/api/v1/admin/members/summary")
+                        .header("Authorization", "Bearer " + jwtProvider.createAccessToken(4L, "ADMIN")))
+                .andExpect(status().isForbidden());
     }
 }
