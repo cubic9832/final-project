@@ -1,8 +1,8 @@
 import { calculateFinancialSummary } from './calculateFinancialSummary.js';
 
 // 화면용 시뮬레이션 가정. 실제 대출 금리·유지비·심사 결과가 아니다.
-export function calculateVehicleBudget({ values = {}, assets = {}, vehicle = {} } = {}) {
-  const totals = calculateFinancialSummary(values);
+export function calculateVehicleBudget({ values = {}, assets = {}, loans = [], vehicle = {} } = {}) {
+  const totals = calculateFinancialSummary(values, loans);
   const operatingCost = 20;
   const annualRate = 0.06;
   const months = vehicle.installment === '일시불' ? 0 : Number.parseInt(vehicle.installment, 10);

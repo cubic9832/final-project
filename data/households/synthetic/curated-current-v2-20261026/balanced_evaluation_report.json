@@ -1,0 +1,25 @@
+{
+  "evaluation_profiles": 300,
+  "financial_violations": 0,
+  "audit": {
+    "new_recommendations_checked": 2597,
+    "old_recommendations_checked": 2597
+  },
+  "metrics": {
+    "new": {
+      "standalone_ndcg_at_3": 0.9989235894712741,
+      "final_ndcg_at_3": 0.9999974745021692,
+      "fuel_match_at_3": 0.8228730822873083
+    },
+    "old": {
+      "standalone_ndcg_at_3": 0.9977090494960529,
+      "final_ndcg_at_3": 0.9999606965040355,
+      "fuel_match_at_3": 0.8228730822873083
+    }
+  },
+  "meaning": "Agreement with current synthetic teacher, not consumer satisfaction; test never used for epoch selection",
+  "sample_origin_counts": {
+    "기존306429행": 150,
+    "신규10만행": 150
+  }
+}

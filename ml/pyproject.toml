@@ -17,4 +17,4 @@ test = ["httpx>=0.27,<1"]
 recommender = "recommender.cli:main"
 
 [tool.setuptools]
-packages = ["recommender", "recommender.models", "vehicle"]
+packages = ["recommender", "recommender.models", "vehicle", "vehicle_matching"]

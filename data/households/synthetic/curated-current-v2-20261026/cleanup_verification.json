@@ -1,0 +1,8 @@
+{
+  "interrupted_run": "C:\\workspace\\final-project\\data\\households\\synthetic\\curated-current-v1-20261026",
+  "interrupted_has_no_complete_report": true,
+  "interrupted_profiles_covered_by_final": 89640,
+  "final_profiles": 244396,
+  "final_validation_passed": true,
+  "preserved_rules": true
+}

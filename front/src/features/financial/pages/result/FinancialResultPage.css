@@ -1,5 +1,5 @@
 .result-page { --result-primary: #203960; --result-muted: #75849b; --result-border: #e2e8f0; }
-.result-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 20px; }
+.result-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 20px; }
 .result-card { padding: 24px; border: 1px solid var(--result-border); border-radius: 12px; background: white; box-shadow: 0 4px 12px #20396005; }
 .result-card h2 { font-size: 16px; }
 .result-card > p, .result-estimate-heading p { margin-top: 6px; color: var(--result-muted); font-size: 11px; }
@@ -49,3 +49,25 @@
 .result-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 .result-missing { margin-bottom: 16px; padding: 12px 16px; border-radius: 8px; background: #fff7e2; color: #926500; font-size: 12px; }
 @media (max-width: 700px) { .result-metrics, .result-chart-grid, .result-factor-grid { grid-template-columns: 1fr; } }
+.result-condition-note {
+  margin-top: var(--space-16);
+  padding: var(--space-12);
+  border-radius: var(--radius-sm);
+  background: var(--color-warning-tint);
+  color: var(--color-text-sub);
+  font-size: var(--font-caption);
+  line-height: 1.8;
+}
+
+.result-page { --result-primary: var(--color-primary); --result-muted: var(--color-muted); --result-border: var(--color-border); }
+.result-card { background: var(--color-surface); box-shadow: none; border-radius: var(--radius-lg); }
+.result-card > p, .result-warning p, .result-status { font-size: var(--font-caption); color: var(--color-muted); }
+.result-metrics strong { font-size: var(--font-figure-lg); overflow-wrap: anywhere; }
+.result-detail-panel { padding: var(--space-16) var(--space-24); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); }
+.result-detail-panel .result-chart-grid { margin: var(--space-16) 0 0; }
+.result-detail-panel .result-card { background: var(--color-background); }
+.result-warning { background: var(--color-blue-tint); }
+.result-warning h2 { color: var(--color-primary); font-size: var(--font-subtitle); }
+.result-navigation > .financial-next-button { font-size: var(--font-body); background: var(--color-mint); color: var(--color-primary); }
+.result-navigation > .financial-next-button:hover { background: var(--color-mint-hover); }
+@media (max-width: 768px) { .result-metrics, .result-chart-grid { grid-template-columns: 1fr; } }

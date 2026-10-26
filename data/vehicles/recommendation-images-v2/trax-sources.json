@@ -1,0 +1,54 @@
+[
+  {
+    "brand": "쉐보레",
+    "model": "트랙스 크로스오버",
+    "slug": "trax-option-252",
+    "source_page": "https://www.chevrolet.co.kr/cuvs/trax-crossover",
+    "image_url": "https://www.chevrolet.co.kr/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/gallery/trax-gal-ext-01.jpg?imwidth=650",
+    "file": "data\\vehicles\\recommendation-images-v2\\sources\\trax-option-252.jpg",
+    "width": 653,
+    "height": 327,
+    "transparent": false,
+    "sha256": "9b721d66c3bbf6541cece64632e5ab243d5cbc86503061c366d0320fc57f6c12",
+    "status": "downloaded"
+  },
+  {
+    "brand": "쉐보레",
+    "model": "트랙스 크로스오버",
+    "slug": "trax-option-257",
+    "source_page": "https://www.chevrolet.co.kr/cuvs/trax-crossover",
+    "image_url": "https://www.chevrolet.co.kr/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/trim/trax-trim-01.png?imwidth=1200",
+    "file": "data\\vehicles\\recommendation-images-v2\\sources\\trax-option-257.png",
+    "width": 556,
+    "height": 340,
+    "transparent": true,
+    "sha256": "e8fc6f1ad0cfdd2559da5a11ff6837b42b54f8b93f6c6731e5816f90a8da2d71",
+    "status": "downloaded"
+  },
+  {
+    "brand": "쉐보레",
+    "model": "트랙스 크로스오버",
+    "slug": "trax-option-258",
+    "source_page": "https://www.chevrolet.co.kr/cuvs/trax-crossover",
+    "image_url": "https://www.chevrolet.co.kr/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/trims/trax-trim-02.png?imwidth=1200",
+    "file": "data\\vehicles\\recommendation-images-v2\\sources\\trax-option-258.png",
+    "width": 556,
+    "height": 340,
+    "transparent": true,
+    "sha256": "13d9c81feb969cf1b9e1f522f12c24e5574c8fab6885a0907b6cb7d9e78a1443",
+    "status": "downloaded"
+  },
+  {
+    "brand": "쉐보레",
+    "model": "트랙스 크로스오버",
+    "slug": "trax-option-260",
+    "source_page": "https://www.chevrolet.co.kr/cuvs/trax-crossover",
+    "image_url": "https://www.chevrolet.co.kr/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/trim/trax-trim-04.png?imwidth=1200",
+    "file": "data\\vehicles\\recommendation-images-v2\\sources\\trax-option-260.png",
+    "width": 556,
+    "height": 340,
+    "transparent": true,
+    "sha256": "026f057877cb0dc33802cf7610af93e1bef7ea6105ff8df779698bdb277b5e83",
+    "status": "downloaded"
+  }
+]

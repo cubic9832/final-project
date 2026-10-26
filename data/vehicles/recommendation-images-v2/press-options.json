@@ -1,0 +1,1506 @@
+[
+  {
+    "slug": "chevrolet-trax",
+    "source_page": "https://www.chevrolet.co.kr/cuvs/trax-crossover",
+    "images": [
+      {
+        "alt": "Home",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/01-images/chevrolet-logo.svg",
+        "srcset": null
+      },
+      {
+        "alt": "Home",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/01-images/chevrolet-logo.svg",
+        "srcset": null
+      },
+      {
+        "alt": "suv trailblazer",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/primary-nav/01-images/trailblazer-profile-bottom-left.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "suv trax crossover",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/2025/01-image/trax-crossover-profile-bottom-left.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Online shop sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/shopping-img01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Custom choice",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/primary-nav/01-images/shopping-customchoice.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Finance sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/shopping-img02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Exhibition hall sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/shopping-img03.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Online application sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/shopping-img04.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Accessories & Parts sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/shopping-img05.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Maintenance sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/servicemaintenance-img01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Customer support sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/servicemaintenance-img04.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Recall information image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/servicemaintenance-img05.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Fleet management service sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/servicemaintenance-img03.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Chevrolet complete care sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/servicemaintenance-img02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Offers sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/offers-img01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Event sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/now-img01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "EV life sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/now-img02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Chevrolet Brand Story sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/primary-nav/01-images/now-img01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Chevrolet Intender sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/primary-nav/02-images/now-img03.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Onstar service sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/2025/01-image/onstar-mast-02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/search.svg",
+        "srcset": null
+      },
+      {
+        "alt": "suv trailblazer",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/primary-nav/01-images/trailblazer-profile-bottom-left.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "suv trax crossover",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/2025/01-image/trax-crossover-profile-bottom-left.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Online shop sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/shopping-img01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Custom choice",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/primary-nav/01-images/shopping-customchoice.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Finance sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/shopping-img02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Exhibition hall sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/shopping-img03.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Online application sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/shopping-img04.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Accessories & Parts sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/shopping-img05.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Maintenance sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/servicemaintenance-img01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Customer support sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/servicemaintenance-img04.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Recall information image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/servicemaintenance-img05.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Fleet management service sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/servicemaintenance-img03.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Chevrolet complete care sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/servicemaintenance-img02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Offers sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/offers-img01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Event sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/now-img01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "EV life sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/v3/now-img02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Chevrolet Brand Story sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/primary-nav/01-images/now-img01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Chevrolet Intender sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/primary-nav/02-images/now-img03.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "Onstar service sub image",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/2025/01-image/onstar-mast-02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet ACTIV trim example with black Roof option",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/masthead/v3/trax-mast-l-xl.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove Photography: Exterior Static 3/4 Front",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/masthead/v2/trax-mast-xs-m.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior mocaccino beige",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/color-chips/26CHTX_G42.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior mocaccino beige/ACTIV _F",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/rs-mocaccino/1TD58600_G42_F.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior mocaccino beige/ACTIV _R",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/rs-mocaccino/1TD58600_G42_R.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior mocaccino beige/ACTIV _S",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/rs-mocaccino/1TD58600_G42_S.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Chili pepper red",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/color-chips/26CHTX_GAS.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Chili pepper Red/RS _F",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TD58600_GFM_F.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Chili pepper Red/RS _R",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TD58600_GFM_R.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Chili pepper Red/RS _S",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TD58600_GFM_S.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/24CHTX_GAZ.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl/RS _F",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TD58600_GAZ_F.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl/RS _R",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TD58600_GAZ_R.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl/RS _S",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TD58600_GAZ_S.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/24CHTX_GB0.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black/RS _F",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TD58600_GB0_F.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black/RS _R",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TD58600_GB0_R.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black/RS _S",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TD58600_GB0_S.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling gray",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/24CHTX_GZB.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling Gray/RS _F",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TD58600_GZB_F.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling Gray/RS _R",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TD58600_GZB_R.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling Gray/RS _S",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TD58600_GZB_S.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: Jet Black & Red Point RS Exclusive Interior and RS Artificial Leather Sheet",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/1TD58_H6J_chip.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: Jet Black & Red Point RS Exclusive Interior and RS Artificial Leather Sheet",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/02-images/trax-color-1TD58-H6J-01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: Jet Black & Red Point RS Exclusive Interior and RS Artificial Leather Sheet",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/02-images/trax-color-1TD58-H6J-02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior mocaccino beige",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/color-chips/26CHTX_G42.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Chili pepper red",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/color-chips/26CHTX_GAS.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/24CHTX_GAZ.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/24CHTX_GB0.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling gray",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/24CHTX_GZB.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: Jet Black & Red Point RS Exclusive Interior and RS Artificial Leather Sheet",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/1TD58_H6J_chip.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior mocaccino beige",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/color-chips/26CHTX_G42.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior mocaccino beige/ACTIV _F",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TE58600_G42_F.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior mocaccino beige/ACTIV _R",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TE58600_G42_R.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior mocaccino beige/ACTIV _S",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TE58600_G42_S.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/24CHTX_GAZ.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl/ACTIV _F",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/colorizer/02-images/1TI58400-GAZ-F.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl/ACTIV _R",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TE58600_GAZ_R.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl/ACTIV _S",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TE58600_GAZ_S.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/24CHTX_GB0.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black/ACTIV _F",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TE58600_GB0_F.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black/ACTIV _R",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TE58600_GB0_R.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black/ACTIV _S",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TE58600_GB0_S.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling gray",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/24CHTX_GZB.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling Gray/ACTIV _F",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TE58600_GZB_F.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling Gray/ACTIV _R",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TE58600_GZB_R.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling Gray/ACTIV _S",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TE58600_GZB_S.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior pistachio khaki",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/colorizer/25CHTX_GVR.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior pistachio khaki/ACTIV  _F",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/colorizer/02-images/1TI58400-GVR-F.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior pistachio khaki/ACTIV  _R",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TE58600_GVR_R.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior pistachio khaki/ACTIV  _S",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TE58600_GVR_S.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: JET BLACK & ARTEMIS POINT INTERIOR AND ACTIV ARTIFICIAL LEATHER SHEET",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/1TE58_H5R_chip.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: JET BLACK & ARTEMIS POINT INTERIOR AND ACTIV ARTIFICIAL LEATHER SHEET",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/02-images/trax-color-1TE58-H5R-01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: JET BLACK & ARTEMIS POINT INTERIOR AND ACTIV ARTIFICIAL LEATHER SHEET",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/02-images/trax-color-1TE58-H5R-02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: JET BLACK & YELLOW POINT INTERIOR AND ACTIV",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/1TE58_H6L_chip.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: JET BLACK & YELLOW POINT INTERIOR AND ACTIV",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/02-images/trax-color-1TE58-H6L-01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: JET BLACK & YELLOW POINT INTERIOR AND ACTIV",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/02-images/trax-color-1TE58-H6L-02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior mocaccino beige",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/color-chips/26CHTX_G42.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/24CHTX_GAZ.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/24CHTX_GB0.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling gray",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/24CHTX_GZB.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior pistachio khaki",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/colorizer/25CHTX_GVR.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: JET BLACK & ARTEMIS POINT INTERIOR AND ACTIV ARTIFICIAL LEATHER SHEET",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/1TE58_H5R_chip.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: JET BLACK & YELLOW POINT INTERIOR AND ACTIV",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/1TE58_H6L_chip.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/colorizer/25CHTX_GAZ.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl/Redline _F",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TF58600_GAZ_F.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl/Redline _R",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TF58600_GAZ_R.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl/Redline _S",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TF58600_GAZ_S.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/colorizer/25CHTX_GB0.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black/Redline _F",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TF58600_GB0_F.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black/Redline _R",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TF58600_GB0_R.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black/Redline _S",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TF58600_GB0_S.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling gray",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/colorizer/25CHTX_GZB.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling Gray/Redline _F",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TF58600_GZB_F.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling Gray/Redline _R",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TF58600_GZB_R.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling Gray/Redline _S",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TF58600_GZB_S.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: JET BLACK & RED POINT COOL GRAY ARTIFICIAL LEATHER SHEET",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/1TC58_H6U_chip.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: JET BLACK & RED POINT COOL GRAY ARTIFICIAL LEATHER SHEET",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/02-images/trax-color-1TF58-H6M-01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: JET BLACK & RED POINT COOL GRAY ARTIFICIAL LEATHER SHEET",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/02-images/trax-color-1TF58-H6M-02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/colorizer/25CHTX_GAZ.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/colorizer/25CHTX_GB0.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling gray",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/colorizer/25CHTX_GZB.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: JET BLACK & RED POINT COOL GRAY ARTIFICIAL LEATHER SHEET",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/1TC58_H6U_chip.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/24CHTX_GAZ.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl/LS _F",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TB58600_GAZ_F.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl/LS _R",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TB58600_GAZ_R.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl/LS _S",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TB58600_GAZ_S.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/24CHTX_GB0.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black/LS _F",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TB58600_GB0_F.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black/LS _R",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TB58600_GB0_R.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black/LS _S",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TB58600_GB0_S.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling gray",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/24CHTX_GZB.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling Gray/LS _F",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TB58600_GZB_F.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling Gray/LS _R",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TB58600_GZB_R.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling Gray/LS _S",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/colorizer/interior/1TB58600_GZB_S.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: Black & Gray Textile Sheet",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/1TB58_H5D_chip.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: Black & Gray Textile Sheet",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/02-images/trax-color-1TB58-H5D-01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: Black & Gray Textile Sheet",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/02-images/trax-color-1TB58-H5D-02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "",
+        "src": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=1920",
+        "srcset": "/etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=0 1x, /etc.clientlibs/clientlibs/chevrolet/resources/img/brightcove/placeholder.webp?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Snow White Pearl",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/24CHTX_GAZ.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Modern black",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/24CHTX_GB0.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove 360: Exterior Sterling gray",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/24CHTX_GZB.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: Black & Gray Textile Sheet",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/colorizer/1TB58_H5D_chip.jpg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: ACTIV ext1",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/design/trax-design-ext-01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: ACTIV ext2",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/design/trax-design-ext-02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: ACTIV ext3",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/design/trax-design-ext-03.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: ACTIV ext4",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/design/trax-design-ext-04.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: RS ext1",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/design/trax-design-ext-05.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: RS ext2",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/design/trax-design-ext-07.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: RS ext3",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/design/trax-design-ext-08.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: RS ext4",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/design/trax-design-ext-09.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: Redline ext1",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/trax-design-ext-10.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: Redline ext2",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/design/trax-design-ext-11.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: Redline ext3",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/design/trax-design-ext-12.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: Redline ext4",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/design/trax-design-ext-13.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: ACTIV int1",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/design/trax-design-int-01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: ACTIV int2",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/design/trax-design-int-02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: ACTIV int3",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/design/trax-design-int-03.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: RS int1",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/design/updates/trax-design-int-04.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: RS int2",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/design/trax-design-int-05.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: RS int3",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/design/trax-design-int-06.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: RS int4",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/design/trax-design-int-07.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: RS int5",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/design/trax-design-int-08.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: Redline int1",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/design/trax-design-int-09.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: Redline int2",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/design/trax-design-int-10.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: Redline int3",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/design/trax-design-int-11.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover: Redline int4",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/design/trax-design-int-12.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: rs ignite edition1",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-ignite-edition/v2/trax-ignite-01-l-xl.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: rs ignite edition2",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-ignite-edition/trax-ignite-01.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: rs ignite edition3",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-ignite-edition/trax-ignite-02.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2027 Chevrolet trax crossover Photography: rs ignite edition4",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-ignite-edition/trax-ignite-03.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2027 Chevrolet trax crossover Photography: rs ignite edition5",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-ignite-edition/trax-ignite-04.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2028 Chevrolet trax crossover Photography: rs ignite edition6",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-ignite-edition/trax-ignite-05.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2028 Chevrolet trax crossover Photography: rs ignite edition7",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-ignite-edition/trax-ignite-06.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: rs ignite edition2",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-ignite-edition/trax-ignite-01.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: rs ignite edition3",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-ignite-edition/trax-ignite-02.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2027 Chevrolet trax crossover Photography: rs ignite edition4",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-ignite-edition/trax-ignite-03.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2027 Chevrolet trax crossover Photography: rs ignite edition5",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-ignite-edition/trax-ignite-04.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2028 Chevrolet trax crossover Photography: rs ignite edition6",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-ignite-edition/trax-ignite-05.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2028 Chevrolet trax crossover Photography: rs ignite edition7",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-ignite-edition/trax-ignite-06.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: rs midnight edition1",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-midnight-edition/trax-midnight-01-l-xl.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: rs midnight edition2",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-midnight-edition/trax-midnight-02.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: rs midnight edition3",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-midnight-edition/trax-midnight-03.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: rs midnight edition4",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-midnight-edition/trax-midnight-04.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: rs midnight edition5",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-midnight-edition/trax-midnight-05.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: rs midnight edition2",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-midnight-edition/trax-midnight-02.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: rs midnight edition3",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-midnight-edition/trax-midnight-03.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: rs midnight edition4",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-midnight-edition/trax-midnight-04.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: rs midnight edition5",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/rs-midnight-edition/trax-midnight-05.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trailblazer : Onstar Logo",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trailblazer/07-images/onstar-logo.png?imwidth=1920",
+        "srcset": "/content/dam/chevrolet/as/kr/ko/index/suvs/trailblazer/07-images/onstar-logo.png?imwidth=0 1x, /content/dam/chevrolet/as/kr/ko/index/suvs/trailblazer/07-images/onstar-logo.png?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet trailblazer : Onstar Logo",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trailblazer/06-images/onstar-logo.png?imwidth=1920",
+        "srcset": "/content/dam/chevrolet/as/kr/ko/index/suvs/trailblazer/06-images/onstar-logo.png?imwidth=0 1x, /content/dam/chevrolet/as/kr/ko/index/suvs/trailblazer/06-images/onstar-logo.png?imwidth=800 2x"
+      },
+      {
+        "alt": "2026 Chevrolet Groove Photography: connected by onstar",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/03-images/trax-onstar.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Onstar Icon : remote engine start for vehicle",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/onstar/trax-onstar-icon-01.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Onstar Icon : remote vehicle control",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/onstar/trax-onstar-icon-04.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Onstar Icon : vehicle diagnostic alert",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/onstar/trax-onstar-icon-02.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Onstar Icon : vehicle status information",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/onstar/trax-onstar-icon-05.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Onstar Icon : VIN scan",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/03-images/onstar-icon-06.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Onstar Icon",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/onstar/onstar-icon-07.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "11'' Color touch screen & Wireless Phone Projection (Android Auto&Apple Car Play)",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/wireless/trax-wireless-02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax cross over Photography: wirless system",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/wireless/trax-wireless-03.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: life style1",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/lifestyle/trax-life-01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: life style2",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/lifestyle/trax-life-02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: life style3",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/lifestyle/trax-life-03.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "ALT 텍스트 닫기",
+        "src": "/etc.clientlibs/clientlibs/solar/resources/placeholder_clear.png",
+        "srcset": null
+      },
+      {
+        "alt": "ALT 텍스트 닫기",
+        "src": "/etc.clientlibs/clientlibs/solar/resources/placeholder_clear.png",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: performance1",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/performance/trax-per-01-l-xl.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: performance2",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/performance/trax-per-02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: performance3",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/trax-per-03.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Groove Photography: safety Static 3/4 Front",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/safety/trax-safety-01-l-xl.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Safety Features1",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/safety/trax-safety-icon-01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Safety Features2",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/safety/trax-safety-icon-02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Safety Features3",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/safety/trax-safety-icon-03.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Safety Features4",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/safety/trax-safety-icon-04.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Safety Features5",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/safety/trax-safety-icon-05.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Safety Features6",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/safety/trax-safety-icon-06.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Safety Features7",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/safety/trax-safety-icon-07.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Safety Features8",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/safety/trax-safety-icon-08.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Safety Features9",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trailblazer/01-images/mov/safety-icon-07.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Safety Features1",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/safety/trax-safety-icon-01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Safety Features2",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/safety/trax-safety-icon-02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Safety Features3",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/safety/trax-safety-icon-03.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Safety Features4",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/safety/trax-safety-icon-04.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Safety Features5",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/safety/trax-safety-icon-05.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Safety Features6",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/safety/trax-safety-icon-06.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Safety Features7",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/safety/trax-safety-icon-07.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Safety Features8",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/safety/trax-safety-icon-08.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Safety Features9",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trailblazer/01-images/mov/safety-icon-07.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Convenience Features1",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/convenience/trax-con-01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Convenience Features2",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/convenience/trax-con-02.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Convenience Features3",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/convenience/trax-con-03.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "편의사량 더보",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/shared-assets/hotspot-on.svg",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: Exterior 1",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/gallery/trax-gal-ext-01.jpg?imwidth=650",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: Exterior 5",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/gallery/trax-gal-ext-05.jpg?imwidth=650",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: Exterior 6",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/gallery/trax-gal-ext-06.jpg?imwidth=650",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: Exterior 8",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/gallery/trax-gal-ext-08.jpg?imwidth=650",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Photography: Exterior 9",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/gallery/trax-gal-ext-09.jpg?imwidth=650",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: RS",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/trim/trax-trim-01.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: ACTIV",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/trims/trax-trim-02.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": " 2026 Chevrolet Trax crossover CGI Photography: Redline",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/trim/trax-trim-03.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: LS",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/trim/trax-trim-04.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: RS",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/trim/trax-trim-01.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: ACTIV",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/trims/trax-trim-02.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: Redline",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/cuvs/01-images/trim/trax-trim-03.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet Trax crossover CGI Photography: LS",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trax/01-images/my24/trim/trax-trim-04.png?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax crossover Specification",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/specs/trax-spec-01.jpg?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "white background",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/white-480.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "grey background",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/light-grey-480.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "white background",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/white-480.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "grey background",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/light-grey-480.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "white background",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/white-480.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "grey background",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/light-grey-480.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "white background",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/white-480.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "grey background",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/light-grey-480.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "white background",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/white-480.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "grey background",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/light-grey-480.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "white background",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/white-480.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "grey background",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/light-grey-480.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "white background",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/white-480.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "grey background",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/light-grey-480.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "white background",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/white-480.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "grey background",
+        "src": "/content/dam/chevrolet/as/kr/ko/primary-nav-icons/light-grey-480.jpg?imwidth=960",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet banner: Chevrolet Complete Care",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/trailblazer/07-images/complete-care-logo.png?imwidth=1200",
+        "srcset": null
+      },
+      {
+        "alt": "2026 Chevrolet trax Banner",
+        "src": "/content/dam/chevrolet/as/kr/ko/index/suvs/2026/trax/raq/03-images/trax-banner-01.png?imwidth=1200",
+        "srcset": null
+      }
+    ]
+  },
+  {
+    "slug": "bmw-3-series-press",
+    "source_page": "https://www.press.bmwgroup.com/korea/article/detail/T0446130KO/",
+    "images": [
+      {
+        "alt": "BMW Group Logo",
+        "src": "/press-frontend/resources/img/bmw-group.png?v3.37.1",
+        "srcset": null
+      },
+      {
+        "alt": "BMW, MINI and Rolls Royce",
+        "src": "/press-frontend/resources/img/bmw-mini-rr.png?v3.37.1",
+        "srcset": "/press-frontend/resources/img/bmw-mini-rr.png?v3.37.1 1x, /press-frontend/resources/img/bmw-mini-rr-2.png?v3.37.1 2x"
+      },
+      {
+        "alt": null,
+        "src": "",
+        "srcset": null
+      },
+      {
+        "alt": null,
+        "src": "",
+        "srcset": null
+      }
+    ]
+  },
+  {
+    "slug": "bmw-x4-press",
+    "source_page": "https://www.press.bmwgroup.com/korea/article/detail/T0354632KO/",
+    "images": [
+      {
+        "alt": "BMW Group Logo",
+        "src": "/press-frontend/resources/img/bmw-group.png?v3.37.1",
+        "srcset": null
+      },
+      {
+        "alt": "BMW, MINI and Rolls Royce",
+        "src": "/press-frontend/resources/img/bmw-mini-rr.png?v3.37.1",
+        "srcset": "/press-frontend/resources/img/bmw-mini-rr.png?v3.37.1 1x, /press-frontend/resources/img/bmw-mini-rr-2.png?v3.37.1 2x"
+      },
+      {
+        "alt": null,
+        "src": "",
+        "srcset": null
+      },
+      {
+        "alt": null,
+        "src": "",
+        "srcset": null
+      }
+    ]
+  },
+  {
+    "slug": "bmw-x5-press",
+    "source_page": "https://www.press.bmwgroup.com/korea/article/detail/T0428819KO/",
+    "images": [
+      {
+        "alt": "BMW Group Logo",
+        "src": "/press-frontend/resources/img/bmw-group.png?v3.37.1",
+        "srcset": null
+      },
+      {
+        "alt": "BMW, MINI and Rolls Royce",
+        "src": "/press-frontend/resources/img/bmw-mini-rr.png?v3.37.1",
+        "srcset": "/press-frontend/resources/img/bmw-mini-rr.png?v3.37.1 1x, /press-frontend/resources/img/bmw-mini-rr-2.png?v3.37.1 2x"
+      },
+      {
+        "alt": null,
+        "src": "",
+        "srcset": null
+      },
+      {
+        "alt": null,
+        "src": "",
+        "srcset": null
+      }
+    ]
+  }
+]

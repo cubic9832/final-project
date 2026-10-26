@@ -1,8 +1,11 @@
-export function calculateFinancialSummary(values = {}) {
+export function calculateFinancialSummary(values = {}, loans = []) {
   const amount = (name) => Number(values[name] || 0);
   const income = amount('income') + amount('extraIncome');
-  const expenses = ['housing', 'fixed', 'living', 'loan', 'transport', 'phone']
-    .reduce((sum, name) => sum + amount(name), 0);
-  const savings = amount('savings');
-  return { income, expenses, savings, available: income - expenses - savings };
+  const loanPayment = loans.reduce((sum, loan) => sum + Number(loan.payment || 0), 0);
+  const livingExpenses = values.monthlyExpenses !== undefined
+    ? amount('monthlyExpenses')
+    : ['housing', 'fixed', 'living', 'transport', 'phone'].reduce((sum, name) => sum + amount(name), 0);
+  const expenses = livingExpenses + loanPayment;
+  const savings = 0; // Removed input: old navigation state must not reduce the budget.
+  return { income, expenses, savings, loanPayment, available: income - expenses - savings };
 }

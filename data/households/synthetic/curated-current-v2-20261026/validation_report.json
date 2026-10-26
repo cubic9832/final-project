@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "counts": {
+    "train": 155599,
+    "validation": 28016,
+    "test": 47729,
+    "financial": 13052
+  },
+  "duplicate_case_ids": 0,
+  "duplicate_inputs": 0,
+  "split_leakage": 0,
+  "invalid_comparison_pairs": 0,
+  "selected_financial_violations": 0,
+  "held_model_leakage": 0,
+  "boundary_cases": 2529,
+  "boundary_violations": 0,
+  "financial_service_cases": 55,
+  "financial_service_violations": 0
+}

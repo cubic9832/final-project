@@ -1,5 +1,5 @@
 .financial-page {
-  --financial-panel-height: 800px;
+  --financial-panel-height: auto;
   padding: var(--space-8) 0 calc(var(--space-64) + var(--space-48));
   color: var(--color-text);
 }
@@ -38,7 +38,7 @@
 
 .financial-progress ol {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-4);
 }
 
@@ -77,7 +77,7 @@
   min-height: var(--financial-panel-height);
   grid-template-columns: minmax(0, 2.3fr) minmax(0, 1fr);
   gap: var(--space-24);
-  align-items: stretch;
+  align-items: start;
 }
 
 .financial-entry-card {
@@ -85,7 +85,7 @@
   flex-direction: column;
   height: var(--financial-panel-height);
   min-height: 0;
-  overflow-y: auto;
+  overflow: visible;
   padding: var(--space-24);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -163,7 +163,7 @@
 }
 
 .financial-extra {
-  margin-top: var(--space-64);
+  margin-top: var(--space-32);
   flex-shrink: 0;
   padding: var(--space-16);
   border-radius: var(--radius-md);
@@ -402,3 +402,54 @@
     transition: none;
   }
 }
+
+.financial-field-error {
+  color: var(--color-danger);
+  font-size: var(--font-caption);
+  margin-top: var(--space-4);
+}
+
+
+/* Shared budget overview and compact input flow. */
+.financial-eyebrow { display: block; margin-bottom: var(--space-8); color: var(--color-blue-strong); font-size: var(--font-caption); font-weight: 700; letter-spacing: 0.5px; }
+.financial-budget-summary { position: sticky; top: var(--space-24); padding: var(--space-24); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); }
+.financial-budget-summary h2 { font-size: var(--font-card-title); }
+.financial-budget-summary > p { margin-top: var(--space-8); color: var(--color-muted); font-size: var(--font-caption); line-height: 1.7; }
+.financial-budget-summary dl { margin-top: var(--space-24); }
+.financial-budget-summary dl > div { padding: var(--space-16) 0; border-top: 1px solid var(--color-border); }
+.financial-budget-summary dt { color: var(--color-text-sub); font-size: var(--font-caption); }
+.financial-budget-summary dd { margin-top: var(--space-8); color: var(--color-primary); font-size: var(--font-figure-md); font-weight: 700; overflow-wrap: anywhere; }
+.financial-budget-summary .financial-budget-purchase dd { font-size: var(--font-figure-lg); }
+.financial-budget-summary small { display: block; margin-top: var(--space-8); color: var(--color-muted); font-size: var(--font-caption); }
+.financial-budget-summary .financial-budget-warning { padding: var(--space-12); border-radius: var(--radius-sm); background: var(--color-warning-tint); color: var(--color-text-sub); }
+.financial-budget-summary .financial-budget-footnote { padding-top: var(--space-16); border-top: 1px solid var(--color-border); }
+.financial-disclosure { margin-top: var(--space-24); border-top: 1px solid var(--color-border); padding-top: var(--space-16); }
+.financial-disclosure > summary { cursor: pointer; padding: var(--space-8) 0; color: var(--color-primary); font-size: var(--font-body); font-weight: 700; }
+.financial-disclosure > summary span { margin-left: var(--space-8); color: var(--color-muted); font-size: var(--font-caption); font-weight: 400; }
+.financial-disclosure > summary:hover { color: var(--color-blue-strong); }
+.financial-disclosure > summary:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 4px; border-radius: var(--radius-sm); }
+.financial-input-wrap input:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 2px; }
+.financial-input-wrap input[aria-invalid="true"] { border-color: var(--color-danger); }
+.financial-next-row { position: static; margin-top: var(--space-24); padding: 0; border: 0; background: transparent; box-shadow: none; }
+.financial-next-row > .financial-next-button { width: auto; min-width: 144px; padding-inline: var(--space-24); }
+.financial-next-row > button:not(.financial-next-button) { width: auto; min-width: 96px; }
+.financial-next-button:disabled { opacity: 0.6; cursor: wait; }
+.financial-previous-button { display:inline-flex; justify-content:center; align-items:center; gap:var(--space-8); min-height:var(--layout-control-height); padding:var(--space-8) var(--space-24); border:1px solid var(--color-border-input); border-radius:var(--radius-sm); background:var(--color-surface); color:var(--color-primary); font-size:var(--font-body); font-weight:700; }
+.financial-previous-button:hover { background:var(--color-blue-tint); }
+.financial-previous-button:disabled { opacity:.6; cursor:not-allowed; }
+.financial-next-button { font-size:var(--font-body); }
+.financial-next-button:focus-visible,.financial-previous-button:focus-visible { outline:2px solid var(--color-blue); outline-offset:4px; }
+.financial-progress .completed { background:var(--color-mint-tint); color:var(--color-primary); }
+@media(max-width:480px) { .financial-progress ol { grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-8); } .financial-page-heading { align-items:flex-start; flex-direction:column; gap:var(--space-16); } .financial-next-row { flex-wrap:wrap; gap:var(--space-12); } .financial-next-row>button { flex:1 1 100%; } }
+@media (max-width: 1024px) { .financial-entry-grid { grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr); } .financial-fields { column-gap: var(--space-24); } }
+@media (max-width: 768px) { .financial-entry-grid { grid-template-columns: 1fr; } .financial-budget-summary { position: static; } .financial-extra { margin-top: var(--space-24); } }
+@media (max-width: 480px) { .financial-page-heading h1 { font-size: var(--font-page-title); } .financial-entry-card, .financial-budget-summary { padding: var(--space-24); } .financial-next-row { width: 100%; } .financial-next-row > .financial-next-button { flex: 1; min-width: 0; } }
+
+.financial-input-help { margin-top: var(--space-8); color: var(--color-muted); font-size: var(--font-caption); line-height: 1.7; }
+.financial-subsection-heading { margin-top: var(--space-32); padding-top: var(--space-24); border-top: 1px solid var(--color-border); }
+.financial-expense-mode { display: flex; flex-wrap: wrap; gap: var(--space-16); border: 0; margin-top: var(--space-24); padding: 0; }
+.financial-expense-mode legend { margin-bottom: var(--space-8); font-size: var(--font-caption); color: var(--color-muted); }
+.financial-expense-mode label { display: flex; align-items: center; gap: var(--space-8); min-height: var(--layout-control-height); cursor: pointer; font-size: var(--font-body); }
+.financial-expense-mode input { accent-color: var(--color-primary); }
+.financial-expense-breakdown { padding: var(--space-16); background: var(--color-background); border-radius: var(--radius-md); }
+.financial-input-wrap input[readonly] { background: var(--color-background); color: var(--color-text-sub); }

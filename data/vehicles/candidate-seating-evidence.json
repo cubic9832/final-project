@@ -1,0 +1,999 @@
+{
+  "description": "승차 정원(운전자 포함). 공식 가격표의 모델별 정원 선택지이며 현재 가격의 특정 선택 사양을 확정하지 않는다. 선택지 전부가 최소 인원을 만족할 때만 확정 통과. 미확인은 별도 조건부 후보. 공유 카탈로그에서 다른 차종 숫자를 전용하지 않는다.",
+  "vehicles": [
+    {
+      "brand": "KG모빌리티",
+      "model": "렉스턴 뉴 아레나",
+      "seats": null,
+      "seat_options": [
+        5,
+        7
+      ],
+      "source_url": "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 5,
+          "page": 11,
+          "quote": ",180kg I CO2 배출량 : 177g/km I 4등급\n\t 5인승\t 2WD 자동 8단 : 복합 11.4km/ℓ[도심주행 10.2km/ℓ, 고속도로 13.2"
+        },
+        {
+          "capacity": 7,
+          "page": 11,
+          "quote": "00~2,600rpm\n정부공인 표준연비 및 등급\nISG 적용\t 7인승\t 2WD 자동 8단 : 복합 11.4km/ℓ[도심주행 10.2km/ℓ, 고속도로 13.2"
+        }
+      ],
+      "extracted_path": "extracted/40cdc7916937085e.json"
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "액티언",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "액티언 하이브리드",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "토레스",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "토레스 EVX",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "토레스 하이브리드",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "티볼리",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "기아",
+      "model": "EV3",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "기아",
+      "model": "EV3 GT",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "기아",
+      "model": "EV4",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "기아",
+      "model": "EV4 GT",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "기아",
+      "model": "EV5",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "기아",
+      "model": "EV5 GT",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "기아",
+      "model": "EV6",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "기아",
+      "model": "EV6 GT",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "기아",
+      "model": "EV9",
+      "seats": null,
+      "seat_options": [
+        6,
+        7
+      ],
+      "source_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev9.pdf",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 6,
+          "page": 2,
+          "quote": " 원, 세제혜택 적용 전 가격 기준)\n공통 롱레인지 전용\n구분 6인승 컨비니언스 헤드업\n디스플레이 스타일 메리디안 \n프리미엄 사운드 빌트인 캠 2 모니터링 \n"
+        },
+        {
+          "capacity": 7,
+          "page": 1,
+          "quote": "커버 가니쉬), \n센터콘솔 베젤 인조가죽 감싸기\n•  시트 : 7인승, 프리미엄 바이오 인조가죽시트, 1열 파워시트, 동승석 워크인 디바이스, 1열 열선시트,"
+        }
+      ],
+      "extracted_path": "extracted/6d8b43babd44e412.json"
+    },
+    {
+      "brand": "기아",
+      "model": "EV9 GT",
+      "seats": 6,
+      "seat_options": [
+        6
+      ],
+      "source_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev9-gt.pdf",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 6,
+          "page": 1,
+          "quote": "고급형 카매트(폐어망 재활용), 프론트 트렁크\n•   시트 : 6인승, 1열 파워시트, 1열 릴렉션 컴포트시트, 동승석 워크인 디바이스, 1열 열선시트, 1열"
+        }
+      ],
+      "extracted_path": "extracted/818d301355c9b9b0.json"
+    },
+    {
+      "brand": "기아",
+      "model": "K5",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "기아",
+      "model": "K8",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "기아",
+      "model": "K9",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "기아",
+      "model": "니로",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "기아",
+      "model": "레이",
+      "seats": 5,
+      "seat_options": [
+        5
+      ],
+      "source_url": "https://ownersmanual.kia.com/full_webhelp/TAM/2023/ko_KR/topics/t00712.html",
+      "checked_on": "2026-10-21",
+      "status": "passenger-configuration-reference",
+      "evidence": [
+        {
+          "quote": "차량 제원: 5인승 / 2인승·1인승 구분. 현재 카탈로그는 승용 트렌디·프레스티지·시그니처·X-Line 가격이며 밴 제외. 2023 TAM 설명서 참고; 계약 사양 재확인."
+        }
+      ],
+      "length_mm": 3595
+    },
+    {
+      "brand": "기아",
+      "model": "모닝",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "기아",
+      "model": "셀토스",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "기아",
+      "model": "스포티지",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "기아",
+      "model": "쏘렌토",
+      "seats": null,
+      "seat_options": [
+        5,
+        6,
+        7
+      ],
+      "source_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_sorento.pdf",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 5,
+          "page": 1,
+          "quote": "19\nSorento\n2.5 가솔린 터보(5인승) (단위 : 원)\n트림 판매가격 주  요  기  본  품  목\n프레스티지 3,641만\n•"
+        },
+        {
+          "capacity": 6,
+          "page": 1,
+          "quote": "\n블랙 엠블럼, X-Line 특화 엠블럼\n구분 전자식 \n4WD 6인승 7인승 스타일 컴포트 12.3인치\n클러스터\n12.3인치 클러스터 적용 시 선택 가능\n스마"
+        },
+        {
+          "capacity": 7,
+          "page": 1,
+          "quote": "엠블럼, X-Line 특화 엠블럼\n구분 전자식 \n4WD 6인승 7인승 스타일 컴포트 12.3인치\n클러스터\n12.3인치 클러스터 적용 시 선택 가능\n스마트\n커넥"
+        }
+      ],
+      "extracted_path": "extracted/9163935773c90e8d.json"
+    },
+    {
+      "brand": "기아",
+      "model": "카니발",
+      "seats": null,
+      "seat_options": [
+        7,
+        9
+      ],
+      "source_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_carnival.pdf",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 7,
+          "page": 1,
+          "quote": "선택 품목) (단위 : 원)\n구분 판매가격 세 부 사 양9인승 7인승\n3.5 가솔린 기본 스마트스트림 G3.5 엔진, 8단 자동변속기, 속도감응형 전동식 파워"
+        },
+        {
+          "capacity": 9,
+          "page": 1,
+          "quote": "24\nCarnival\n3.5 가솔린 9인승 (단위 : 원)\n트림 판매가격 주  요  기  본  품  목\n프레스티지 3,686만\n• "
+        }
+      ],
+      "extracted_path": "extracted/a57c2dd794d93cda.json"
+    },
+    {
+      "brand": "기아",
+      "model": "카니발 하이리무진",
+      "seats": null,
+      "seat_options": [
+        4,
+        7,
+        9
+      ],
+      "source_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_carnival-hi-limousine.pdf",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 4,
+          "page": 1,
+          "quote": "단위 : 원)\n구분\n판 매 가 격\n세 부 사 양\n9인승 7인승 4인승\n3.5 가솔린 기본 스마트스트림 G3.5 엔진, 8단 자동변속기, 속도감응형 전동식 파워"
+        },
+        {
+          "capacity": 7,
+          "page": 1,
+          "quote": "목) (단위 : 원)\n구분\n판 매 가 격\n세 부 사 양\n9인승 7인승 4인승\n3.5 가솔린 기본 스마트스트림 G3.5 엔진, 8단 자동변속기, 속도감응형 전동"
+        },
+        {
+          "capacity": 9,
+          "page": 1,
+          "quote": "선택 품목) (단위 : 원)\n구분\n판 매 가 격\n세 부 사 양\n9인승 7인승 4인승\n3.5 가솔린 기본 스마트스트림 G3.5 엔진, 8단 자동변속기, 속도감응"
+        }
+      ],
+      "extracted_path": "extracted/d2837bf68264269e.json"
+    },
+    {
+      "brand": "르노코리아",
+      "model": "그랑 콜레오스",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "르노코리아",
+      "model": "아르카나",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "르노코리아",
+      "model": "필랑트",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "쉐보레",
+      "model": "트랙스 크로스오버",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "제네시스",
+      "model": "Electrified G80",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "제네시스",
+      "model": "Electrified GV70",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "제네시스",
+      "model": "G70",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "제네시스",
+      "model": "G70 Shooting Brake",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "제네시스",
+      "model": "G80",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "제네시스",
+      "model": "G80 Black",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90",
+      "seats": null,
+      "seat_options": [
+        4,
+        5
+      ],
+      "source_url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 4,
+          "page": 2,
+          "quote": "다드 시트 (5인승) [기본사양]\n퍼스트 클래스 VIP 시트 (4인승)  ※ 뒷좌석 컴포트 패키지 Ⅰ 선택 시 선택 가능 [3,400,000]\n구동 타입\n2W"
+        },
+        {
+          "capacity": 5,
+          "page": 2,
+          "quote": "+1,000,000]\n[5,500,000]인승\n스탠다드 시트 (5인승) [기본사양]\n퍼스트 클래스 VIP 시트 (4인승)  ※ 뒷좌석 컴포트 패키지 Ⅰ 선택 "
+        }
+      ],
+      "extracted_path": "extracted/f4cb6e94607ec204.json"
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90 Long Wheel Base",
+      "seats": null,
+      "seat_options": [
+        4,
+        5
+      ],
+      "source_url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 4,
+          "page": 2,
+          "quote": "다드 시트 (5인승) [기본사양]\n퍼스트 클래스 VIP 시트 (4인승)  ※ 뒷좌석 컴포트 패키지 Ⅰ 선택 시 선택 가능 [3,400,000]\n구동 타입\n2W"
+        },
+        {
+          "capacity": 5,
+          "page": 2,
+          "quote": "+1,000,000]\n[5,500,000]인승\n스탠다드 시트 (5인승) [기본사양]\n퍼스트 클래스 VIP 시트 (4인승)  ※ 뒷좌석 컴포트 패키지 Ⅰ 선택 "
+        }
+      ],
+      "extracted_path": "extracted/1a04d3b259585197.json"
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90 Long Wheel Base Black",
+      "seats": null,
+      "seat_options": [
+        4,
+        5
+      ],
+      "source_url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 4,
+          "page": 2,
+          "quote": "다드 시트 (5인승) [기본사양]\n퍼스트 클래스 VIP 시트 (4인승)  ※ 뒷좌석 컴포트 패키지 Ⅰ 선택 시 선택 가능 [3,400,000]\n구동 타입\n2W"
+        },
+        {
+          "capacity": 5,
+          "page": 2,
+          "quote": "+1,000,000]\n[5,500,000]인승\n스탠다드 시트 (5인승) [기본사양]\n퍼스트 클래스 VIP 시트 (4인승)  ※ 뒷좌석 컴포트 패키지 Ⅰ 선택 "
+        }
+      ],
+      "extracted_path": "extracted/ecd6166e5d32a0f3.json"
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV70",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV80",
+      "seats": null,
+      "seat_options": [
+        5,
+        6,
+        7
+      ],
+      "source_url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 5,
+          "page": 2,
+          "quote": "LSD), 오토 터레인 모드 포함) [3,700,000]\n인승\n5인승 [기본사양]\n6인승 ※  2열 독립 시트, 2열 센터 콘솔 및 무선 충전,  \n2열 암 "
+        },
+        {
+          "capacity": 6,
+          "page": 2,
+          "quote": "인 모드 포함) [3,700,000]\n인승\n5인승 [기본사양]\n6인승 ※  2열 독립 시트, 2열 센터 콘솔 및 무선 충전,  \n2열 암 레스트 수납 함, 3"
+        },
+        {
+          "capacity": 7,
+          "page": 2,
+          "quote": " 시트(전동 폴딩),  \n3열 에어 벤트\n[2,500,000]\n7인승 ※ 3열 5 :5 시트(전동 폴딩), 3열 에어 벤트 [1,000,000]\n외장 컬러\n글"
+        }
+      ],
+      "extracted_path": "extracted/e11be71ded044515.json"
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV80 Black Hybrid",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV80 Coupe",
+      "seats": 5,
+      "seat_options": [
+        5
+      ],
+      "source_url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 5,
+          "page": 2,
+          "quote": "\n구동 타입\nAWD(오토 터레인 모드 포함) [기본사양]\n인승\n5인승 [기본사양]\n외장 컬러\n글로시 컬러 (유광, 9 종 중 선택) [기본사양]\n매트 컬러 ("
+        }
+      ],
+      "extracted_path": "extracted/5f1461a7f88bea9c.json"
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV80 Hybrid",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 그랜저",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 그랜저 Hybrid",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 Electric",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 Hybrid",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지",
+      "seats": null,
+      "seat_options": [
+        7,
+        9
+      ],
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge_price.pdf",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 7,
+          "page": 1,
+          "quote": "일\t:\t25년\t12월\t17일\t\t/\t\t(단위\t:\t원)라운지 7 (7인승)\n구분 판매가격\n공급가액 (부가세) 기본 품목 선택 품목\nInspiration\n(인스퍼레"
+        },
+        {
+          "capacity": 9,
+          "page": 3,
+          "quote": "러기지\t파티션\t테이블(파티션\t모드)\t\n러기지 파티션 테이블  [9인승(면세) : 33만원 / 7인승 : 35만원]\n멀티 행거\n[9인승(면세) : 19만원 / "
+        }
+      ],
+      "extracted_path": "extracted/31e141097c26efa8.json"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지 Electric",
+      "seats": null,
+      "seat_options": [
+        7,
+        11
+      ],
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-electric_price.pdf",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 7,
+          "page": 2,
+          "quote": "64,372,727(6,437,273)\n67,310,000\n▶\t7인승\t프레스티지\t기본품목\t및\n•\t 지능형\t안전\t기술\t:\t안전\t하차\t보조\n•\t 시트\t:\t나파가죽"
+        },
+        {
+          "capacity": 11,
+          "page": 1,
+          "quote": "윈도우,\t유광\t필라\t가니쉬,\t전/후륜\t디스크\t브레이크\n\t ※\t 11인승은\t자동차\t안전기준의\t등화장치\t설치\t기준에\t따라\t차량\t앞면\t중앙부\tLED\t포지셔닝\t램프\t미"
+        }
+      ],
+      "extracted_path": "extracted/52fd52a8c5b7a4fe.json"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지 Hybrid",
+      "seats": null,
+      "seat_options": [
+        7,
+        9
+      ],
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-hybrid_price.pdf",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 7,
+          "page": 2,
+          "quote": "00]\n▶\t컴포트Ⅱ\t [520,000]\n라운지 하이브리드 7 (7인승)\n스마트 디지털 키 2,\t터치타입\t아웃사이드\t도어\t핸들,\t스마트폰\t무선충전,\t후석\t뷰,\t"
+        },
+        {
+          "capacity": 9,
+          "page": 1,
+          "quote": "년\t12월\t17일\t\t/\t\t(단위\t:\t원)라운지 하이브리드 9 (9인승)\n구분 판매가격\n공급가액 (부가세) 기본 품목 선택 품목\nPrestige\n(프레스티지)\n"
+        }
+      ],
+      "extracted_path": "extracted/251dc518a46c5047.json"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 리무진 Electric",
+      "seats": 6,
+      "seat_options": [
+        6
+      ],
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-electric_price.pdf",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 6,
+          "page": 1,
+          "quote": "\t4월\t23일\t기준\t\t/\t\t(단위\t:\t원)리무진 일렉트릭 6 (6인승)\n구분 세제혜택 전 판매가격\n공급가액 (부가세) 세제혜택 후 판매가격 기본 품목 선택 품"
+        }
+      ],
+      "extracted_path": "extracted/f45820bdf6ff45a3.json"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 리무진 Hybrid",
+      "seats": null,
+      "seat_options": [
+        6,
+        9
+      ],
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-hybrid_price.pdf",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 6,
+          "page": 2,
+          "quote": "ARIA Limousine Hybrid\n리무진 하이브리드 6 (6인승) 현\t모델\t출시일\t:26년\t4월\t23일\t\t/\t\t(단위\t:\t원)\n구분 판매가격\n공급가액 ("
+        },
+        {
+          "capacity": 9,
+          "page": 1,
+          "quote": "6년\t4월\t23일\t\t/\t\t(단위\t:\t원)리무진 하이브리드 9 (9인승)\n구분 판매가격\n공급가액 (부가세) 기본 품목 선택 품목\nInspiration\n(인스퍼레"
+        }
+      ],
+      "extracted_path": "extracted/4b4ead561a3643ff.json"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 아이오닉 6",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "현대",
+      "model": "디 올 뉴 아반떼",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "현대",
+      "model": "베뉴",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "현대",
+      "model": "싼타페",
+      "seats": null,
+      "seat_options": [
+        5,
+        6,
+        7
+      ],
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/santafe-2026-price.pdf",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 5,
+          "page": 3,
+          "quote": "\t:\t1,915kg_7인승/1,900kg_6인승/1,860kg_5인승\tl\t8단\tDCT(4등급)\n스마트스트림 가솔린 2.5터보 AWD(20\")\t 복합\t\t\t9.7"
+        },
+        {
+          "capacity": 6,
+          "page": 1,
+          "quote": "0]\n▶\tHTRAC,\t험로주행모드\n  [2,230,000]\n▶\t6인승 [1,040,000]\n▶\t7인승 [690,000]\nH Genuine Accessories"
+        },
+        {
+          "capacity": 7,
+          "page": 1,
+          "quote": "\n  [2,230,000]\n▶\t6인승 [1,040,000]\n▶\t7인승 [690,000]\nH Genuine Accessories\t\n▶\t라이프\t스타일\t [490,"
+        }
+      ],
+      "extracted_path": "extracted/309053b4ad1806fb.json"
+    },
+    {
+      "brand": "현대",
+      "model": "싼타페 Hybrid",
+      "seats": null,
+      "seat_options": [
+        5,
+        6,
+        7
+      ],
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/santafe-hev-2026-price.pdf",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 5,
+          "page": 4,
+          "quote": "\t:\t1,915kg_7인승/1,900kg_6인승/1,860kg_5인승\tl\t8단\tDCT(4등급)\n스마트스트림 가솔린 2.5터보 AWD(20\")\t 복합\t\t\t9.7"
+        },
+        {
+          "capacity": 6,
+          "page": 1,
+          "quote": "빌트인\t캠\t2,\t증강현실\t내비게이션\n\t\t [450,000]\n▶\t6인승 [1,040,000]\n▶\t7인승 [690,000]\nH Genuine Accessories"
+        },
+        {
+          "capacity": 7,
+          "page": 1,
+          "quote": "션\n\t\t [450,000]\n▶\t6인승 [1,040,000]\n▶\t7인승 [690,000]\nH Genuine Accessories\t\n▶\t라이프\t스타일\t [490,"
+        }
+      ],
+      "extracted_path": "extracted/504a1a918778c70b.json"
+    },
+    {
+      "brand": "현대",
+      "model": "쏘나타 디 엣지",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "현대",
+      "model": "쏘나타 디 엣지 Hybrid",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "현대",
+      "model": "아이오닉 5",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "현대",
+      "model": "코나",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "현대",
+      "model": "코나 Electric",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "현대",
+      "model": "코나 Hybrid",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "현대",
+      "model": "투싼",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "현대",
+      "model": "투싼 Hybrid",
+      "seats": null,
+      "seat_options": [],
+      "source_url": null,
+      "checked_on": "2026-10-21",
+      "status": "unverified",
+      "evidence": []
+    },
+    {
+      "brand": "현대",
+      "model": "팰리세이드 Hybrid",
+      "seats": null,
+      "seat_options": [
+        7,
+        9
+      ],
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-hev-2027-price.pdf",
+      "checked_on": "2026-10-21",
+      "status": "model-options-verified",
+      "evidence": [
+        {
+          "capacity": 7,
+          "page": 2,
+          "quote": "\t모니터,\t헤드업 디스플레이,\t디지털 키 2\n▶\t컴포트\t플러스(7인승)\t [2,200,000]\n▶\tBOSE\t프리미엄\t사운드\t [700,000]\n\t (14스피커"
+        },
+        {
+          "capacity": 9,
+          "page": 1,
+          "quote": "/\t\t(단위\t:\t원)스마트스트림 가솔린 2.5 터보 하이브리드 9인승\n※\t해당\t세제혜택\t후\t가격은\t『환경친화적\t자동차의\t개발\t및\t보급\t촉진에\t관한\t법률』에\t따"
+        }
+      ],
+      "extracted_path": "extracted/58c611a08722d103.json"
+    }
+  ]
+}

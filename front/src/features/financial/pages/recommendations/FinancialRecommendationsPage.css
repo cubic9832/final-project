@@ -1,4 +1,18 @@
 .financial-recommendations-page { padding: var(--space-8) 0 var(--space-48); }
+.financial-recommendations-page.has-comparison-tray { padding-bottom:200px; }
+.candidate-comparison-tray { position:fixed; z-index:20; bottom:var(--space-16); left:50%; transform:translateX(-50%); width:min(1216px,calc(100% - 64px)); display:flex; align-items:center; justify-content:space-between; gap:var(--space-24); padding:var(--space-16) var(--space-24); border:1px solid var(--color-border-input); border-radius:var(--radius-lg); background:var(--color-surface); box-shadow:0 4px 16px var(--color-border); }
+.candidate-comparison-tray strong { color:var(--color-primary); font-size:var(--font-subtitle); }
+.candidate-comparison-tray p { margin-top:var(--space-4); color:var(--color-muted); font-size:var(--font-caption); }
+.candidate-comparison-tray-content { min-width:0; }.candidate-comparison-chips { display:flex; flex-wrap:wrap; gap:var(--space-8); margin-top:var(--space-8); }
+.candidate-comparison-chips button { padding:var(--space-8); border:1px solid var(--color-border); border-radius:var(--radius-sm); background:var(--color-blue-tint); color:var(--color-primary); font-size:var(--font-caption); }
+.candidate-comparison-chips button:focus-visible { outline:2px solid var(--color-blue); outline-offset:2px; }
+.candidate-comparison-select:has(input:disabled) { opacity:.5; }
+@media(max-width:768px) { .candidate-comparison-tray { width:calc(100% - 32px); bottom:var(--space-8); gap:var(--space-12); padding:var(--space-16); }.candidate-comparison-tray p { display:none; } }
+@media(max-width:480px) { .candidate-comparison-tray { flex-wrap:wrap; }.candidate-comparison-tray>.financial-next-button { width:100%; } .financial-recommendations-page.has-comparison-tray { padding-bottom:280px; } }
+.financial-recommendation-aligned-conditions { min-height: var(--recommendation-conditions-height, 0px); }
+.candidate-cost-section { margin-top: var(--space-24); padding-top: var(--space-24); border-top: 1px solid var(--color-border); }
+@media(max-width:768px) { .financial-recommendation-aligned-conditions { min-height:0; } }
+.candidate-additional-rows { display: grid; gap: var(--space-24); margin-top: var(--space-24); }
 .financial-recommendations-back { display: inline-flex; align-items: center; gap: var(--space-8); min-height: var(--layout-control-height); padding: 0; border: 0; background: transparent; color: var(--color-text-sub); font-weight: 700; }
 .financial-recommendations-back:hover { color: var(--color-blue-strong); }
 .financial-recommendations-heading { margin: var(--space-24) 0; }
@@ -6,16 +20,16 @@
 .financial-recommendations-heading h1 { margin-top: var(--space-8); color: var(--color-primary); font-size: var(--font-page-title); }
 .financial-recommendations-heading p { margin-top: var(--space-12); color: var(--color-text-sub); }
 .financial-recommendations-summary { padding: var(--space-24); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); }
-.financial-recommendations-summary dl { display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: var(--space-24); }
+.financial-recommendations-summary dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-24); }
 .financial-recommendations-summary dl > div + div { border-left: 1px solid var(--color-border); padding-left: var(--space-24); }
 .financial-recommendations-summary dt { color: var(--color-muted); font-size: var(--font-caption); }
 .financial-recommendations-summary dd { margin-top: var(--space-8); color: var(--color-primary); font-size: var(--font-card-title); font-weight: 700; }
 .financial-recommendations-list-heading { display: flex; align-items: center; justify-content: space-between; gap: var(--space-16); margin: var(--space-32) 0 var(--space-16); }
 .financial-recommendations-list-heading h2, .financial-recommendations-empty h2 { font-size: var(--font-section-title); }
 .financial-recommendations-list-heading > span { color: var(--color-muted); }
-.financial-recommendations-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-24); }
+.financial-recommendations-grid { display: grid; align-items: start; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-24); }
 .financial-recommendation-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); min-width: 0; }
-.financial-recommendation-media { position: relative; aspect-ratio: 3 / 2; background: var(--color-surface); border-bottom: 1px solid var(--color-border); }
+.financial-recommendation-media { position: relative; overflow: hidden; aspect-ratio: 3 / 2; background: var(--color-surface); border-bottom: 1px solid var(--color-border); }
 .financial-recommendation-media img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .financial-recommendation-rank { position: absolute; z-index: 1; top: var(--space-16); left: var(--space-16); padding: var(--space-8) var(--space-12); border-radius: var(--radius-sm); color: var(--color-primary); background: var(--color-surface); border: 1px solid var(--color-border); font-size: var(--font-caption); font-weight: 700; }
 .financial-recommendation-image-placeholder { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: var(--space-12); color: var(--color-muted); font-size: var(--font-caption); }
@@ -50,3 +64,83 @@
 @media (max-width: 1024px) { .financial-recommendations-grid { gap: var(--space-16); } .financial-recommendations-summary dl { grid-template-columns: 1fr 1fr; } .financial-recommendations-summary dl > div:last-child { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--color-border); padding: var(--space-16) 0 0; } }
 @media (max-width: 768px) { .financial-recommendations-grid { grid-template-columns: 1fr; } .financial-recommendations-actions button { flex: 1; } }
 @media (max-width: 480px) { .financial-recommendations-summary dl { grid-template-columns: 1fr; } .financial-recommendations-summary dl > div + div { border-left: 0; border-top: 1px solid var(--color-border); padding: var(--space-16) 0 0; } .financial-recommendations-actions { flex-direction: column; } }
+
+.candidate-score { padding: var(--space-16); background: var(--color-blue-tint); border-radius: var(--radius-md); margin-bottom: var(--space-16); }
+.candidate-score h3 { font-size: var(--font-card-title); }
+.candidate-score p { font-size: var(--font-caption); margin-top: var(--space-8); color: var(--color-muted); }
+.candidate-score dl > div { display: flex; justify-content: space-between; gap: var(--space-8); font-size: var(--font-caption); margin-top: var(--space-8); }
+
+.financial-recommendation-specs { grid-template-columns: 1fr; padding: var(--space-16); gap: var(--space-12); }
+.financial-recommendation-specs > div { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-8); }
+.financial-recommendation-specs > div:first-child { padding-bottom: var(--space-12); border-bottom: 1px solid var(--color-border); }
+.financial-recommendation-specs > div:first-child dd { font-size: var(--font-figure-md); }
+.financial-recommendation-specs dd { margin-top: 0; white-space: nowrap; }
+.financial-recommendation-reasons ul { gap: var(--space-12); margin-top: var(--space-12); }
+.financial-recommendation-reasons li p { margin-top: 0; }
+.financial-recommendation-details { margin-top: var(--space-24); padding-top: var(--space-16); border-top: 1px solid var(--color-border); }
+.financial-recommendation-details summary, .financial-recommendations-note > summary { cursor: pointer; color: var(--color-primary); font-size: var(--font-body); font-weight: 700; padding: var(--space-8) 0; }
+.financial-recommendation-details summary:hover { color: var(--color-blue-strong); }
+.financial-recommendation-details-content { margin-top: var(--space-16); font-size: var(--font-caption); line-height: 1.7; color: var(--color-text-sub); }
+.financial-recommendation-details-content h3 { font-size: var(--font-subtitle); }
+.financial-recommendation-details-content .candidate-score { margin-top: var(--space-16); }
+.financial-candidate-alert { margin-top: var(--space-16); padding: var(--space-12); background: var(--color-warning-tint); border-radius: var(--radius-sm); color: var(--color-text-sub); font-size: var(--font-caption); }
+.financial-additional-reasons { margin-top: var(--space-16); padding-left: var(--space-16); list-style: disc; }
+.financial-additional-reasons li + li { margin-top: var(--space-8); }
+.financial-recommendation-details summary:focus-visible, .financial-recommendations-note > summary:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 4px; border-radius: var(--radius-sm); }
+
+/* Animate the content height independently from neighbouring cards. */
+.financial-recommendation-details-toggle { display: flex; align-items: center; justify-content: space-between; gap: var(--space-8); width: 100%; min-height: var(--layout-control-height); padding: var(--space-8) 0; border: 0; background: transparent; color: var(--color-primary); font-size: var(--font-body); font-weight: 700; text-align: left; cursor: pointer; }
+.financial-recommendation-details-toggle:hover { color: var(--color-blue-strong); }
+.financial-recommendation-details-toggle:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 4px; border-radius: var(--radius-sm); }
+.financial-recommendation-details-toggle svg { flex-shrink: 0; transition: transform 320ms ease; }
+.financial-recommendation-details-panel { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows 320ms ease, opacity 240ms ease; }
+.financial-recommendation-details-panel > .financial-recommendation-details-content { min-height: 0; overflow: hidden; margin-top: 0; }
+.financial-recommendation-details-inner { padding-top: var(--space-16); }
+.financial-recommendation-details.is-expanded .financial-recommendation-details-panel { grid-template-rows: 1fr; opacity: 1; }
+.financial-recommendation-details.is-expanded .financial-recommendation-details-toggle svg { transform: rotate(180deg); }
+@media (prefers-reduced-motion: reduce) {
+  .financial-recommendation-details-panel, .financial-recommendation-details-toggle svg { transition: none; }
+}
+
+.financial-recommendation-aligned-summary { min-height: var(--recommendation-summary-height, 0px); }
+.financial-recommendation-aligned-metadata { min-height: var(--recommendation-metadata-height, 0px); }
+.financial-recommendation-aligned-cost { min-height: var(--recommendation-cost-height, 0px); }
+.financial-recommendation-aligned-source { min-height: var(--recommendation-source-height, 0px); }
+.financial-recommendation-aligned-score { min-height: var(--recommendation-score-height, 0px); }
+[data-recommendation-measure] { display: flow-root; }
+@media (max-width: 768px) {
+  .financial-recommendation-aligned-summary, .financial-recommendation-aligned-metadata, .financial-recommendation-aligned-cost { min-height: var(--recommendation-cost-height, 0px); }
+.financial-recommendation-aligned-source { min-height: var(--recommendation-source-height, 0px); }
+.financial-recommendation-aligned-score { min-height: 0; }
+}
+
+.candidate-decision-summary { margin-top: var(--space-24); padding: var(--space-24); border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); }
+.candidate-decision-summary h2 { font-size: var(--font-card-title); }
+.candidate-decision-summary p { margin-top: var(--space-12); color: var(--color-text-sub); font-size: var(--font-body); line-height: 1.7; }
+.candidate-applied-priorities { display: flex; flex-wrap: wrap; gap: var(--space-8); margin-top: var(--space-16); }
+.candidate-applied-priorities span { padding: var(--space-8) var(--space-12); border-radius: var(--radius-pill); background: var(--color-blue-tint); color: var(--color-primary); font-size: var(--font-caption); }
+.candidate-condition-summary { padding: var(--space-16); border-radius: var(--radius-md); background: var(--color-background); }
+.candidate-cost-definition { color: var(--color-muted); font-size: var(--font-caption); }
+.candidate-comparison-select { display: flex; align-items: center; gap: var(--space-8); min-height: var(--layout-control-height); color: var(--color-blue-strong); font-size: var(--font-caption); cursor: pointer; }
+.candidate-comparison-select input { accent-color: var(--color-primary); }
+.candidate-tradeoffs { margin-top: var(--space-24); padding: var(--space-16); background: var(--color-background); border-radius: var(--radius-md); }
+.candidate-tradeoffs h3, .candidate-ranking-reason h3 { font-size: var(--font-subtitle); }
+.candidate-tradeoffs ul { display: grid; gap: var(--space-12); margin-top: var(--space-12); padding-left: var(--space-16); list-style: disc; }
+.candidate-tradeoffs li, .candidate-tradeoffs p, .candidate-condition-note { color: var(--color-text-sub); font-size: var(--font-body); line-height: 1.7; }
+.candidate-ranking-reason { margin-top: var(--space-24); }
+.candidate-ranking-reason p { margin-top: var(--space-12); color: var(--color-text-sub); font-size: var(--font-caption); line-height: 1.8; }
+.candidate-rank-deltas { margin-top: var(--space-16); }
+.candidate-rank-deltas > div { display: flex; justify-content: space-between; gap: var(--space-12); margin-top: var(--space-8); }
+.candidate-comparison-section { margin-top: var(--space-32); }
+.candidate-comparison-section > p { color: var(--color-muted); }
+.candidate-comparison-table-wrap { overflow-x: auto; margin-top: var(--space-24); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); }
+.candidate-comparison-table { width: 100%; min-width: 720px; border-collapse: collapse; table-layout: fixed; font-size: var(--font-body); }
+.candidate-comparison-table caption { padding: var(--space-16); text-align: left; color: var(--color-muted); font-size: var(--font-caption); }
+.candidate-comparison-table th, .candidate-comparison-table td { padding: var(--space-16); text-align: left; vertical-align: top; border-top: 1px solid var(--color-border); border-right: 1px solid var(--color-border); overflow-wrap: anywhere; line-height: 1.7; }
+.candidate-comparison-table th { background: var(--color-background); color: var(--color-primary); }
+.candidate-comparison-table th:first-child { width: 18%; }
+.candidate-comparison-table small { display: block; color: var(--color-muted); font-size: var(--font-caption); font-weight: 400; }
+.candidate-open-comparison { display: inline-flex; align-items: center; justify-content: center; margin-top: var(--space-16); min-height: var(--layout-control-height); padding: var(--space-12) var(--space-24); border: 0; border-radius: var(--radius-sm); background: var(--color-mint); color: var(--color-primary); font-size: var(--font-body); font-weight: 700; text-decoration: none; cursor: pointer; }
+.candidate-open-comparison:hover { background: var(--color-mint-hover); }
+.candidate-open-comparison:disabled { opacity: 0.5; cursor: not-allowed; }
+.candidate-open-comparison:focus-visible, .candidate-comparison-table-wrap:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 3px; }

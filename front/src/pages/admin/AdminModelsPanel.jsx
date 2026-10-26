@@ -1,0 +1,10 @@
+import { useState } from 'react';
+import { Cpu, History } from 'lucide-react';
+import theme from '../../styles/theme';
+import ModelMetricChart from './ModelMetricChart';
+import { deployments, modelInfo, modelMetrics } from './adminExampleData';
+
+export default function AdminModelsPanel() {
+  const [notice, setNotice] = useState('');
+  return <div className="admin-panel-stack"><div className="admin-grid-2"><section className="admin-card"><div className="admin-card-heading"><div><h3>현재 적용 모델</h3><p>버전·적용 상태 표시 예시</p></div><Cpu size={theme.iconSize.md} aria-hidden="true" /></div><div className="admin-model-version"><strong>{modelInfo.production}</strong><span className="admin-status is-ok">적용 중 · 예시</span></div><dl className="admin-detail-list"><div><dt>입력 스키마</dt><dd>{modelInfo.schema}</dd></div><div><dt>추천 대상</dt><dd>전체 차량 · 20개 라벨</dd></div><div><dt>예시 적용일</dt><dd>{modelInfo.deployedAt}</dd></div><div><dt>이전 버전</dt><dd>{modelInfo.previous}</dd></div></dl><button type="button" className="admin-outline-button" onClick={() => setNotice('재학습 작업은 운영 API 연결 후 실행할 수 있습니다. 현재 모델은 변경되지 않았습니다.')}>재학습 작업 준비</button></section><section className="admin-card"><div className="admin-card-heading"><div><h3>모델 성능 비교</h3><p>실제 평가 결과가 아닌 UI 검토용 예시 지표입니다.</p></div></div><ModelMetricChart metrics={modelMetrics} previousLabel={modelInfo.previous} currentLabel={modelInfo.production} /></section></div><section className="admin-card"><div className="admin-card-heading"><div><h3>학습·적용 이력</h3><p>모델 변경 이력 표시 예시</p></div><History size={theme.iconSize.md} aria-hidden="true" /></div><div className="admin-table-wrap"><table className="admin-table"><thead><tr><th scope="col">시각</th><th scope="col">버전</th><th scope="col">작업</th><th scope="col">상태</th><th scope="col">실행자</th></tr></thead><tbody>{deployments.map(row => <tr key={row.id}><td>{row.time}</td><td><strong>{row.version}</strong></td><td>{row.task}</td><td>{row.status}</td><td>{row.actor}</td></tr>)}</tbody></table></div></section><p className="admin-feedback" role="status">{notice}</p></div>;
+}
