@@ -12,8 +12,12 @@ public interface RefreshTokenMapper {
 
     RefreshTokenDto findByToken(String token);
 
-    // 재발급(교체) · 로그아웃 때 사용. 지운 행 수를 돌려준다
+    // 로그아웃 때 사용. 지운 행 수를 돌려준다
     int deleteByToken(String token);
+
+    // 재발급(교체): 같은 행(기기)의 토큰 값 · 기한 · 마지막 사용 시각만 바꾼다. 바꾼 행 수(0 이면 이미 쓴 토큰)를 돌려준다
+    int rotate(@Param("oldToken") String oldToken, @Param("newToken") String newToken,
+               @Param("expiresAt") LocalDateTime expiresAt, @Param("now") LocalDateTime now);
 
     // 보완 7 추가: 비밀번호를 바꾸면 그 회원의 refresh token 을 모두 지운다 (다른 기기 로그인 끊기)
     int deleteByUserId(Long userId);

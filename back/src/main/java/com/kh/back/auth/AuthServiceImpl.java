@@ -389,18 +389,22 @@ public class AuthServiceImpl implements AuthService {
             throw refreshInvalid();
         }
 
-        // 한 번 쓴 refresh token 은 지우고 새로 발급한다 (rotation → 훔친 토큰을 오래 쓰지 못하게)
-        // 같은 토큰으로 동시에 두 번 요청이 와도 지우기에 성공한 한 요청만 통과한다
-        if (refreshTokenMapper.deleteByToken(refreshToken) == 0) {
-            throw refreshInvalid();
-        }
-
         MemberDto member = memberMapper.findById(saved.getUserId());
         if (member == null) {
             throw refreshInvalid();
         }
-        // 6단계: 같은 기기의 로그인이 이어지는 것이라 처음 로그인 시각을 그대로 넘긴다 (V12 이전 행은 없음 → 지금)
-        return issueTokens(member, saved.getLoggedInAt());
+
+        // 한 번 쓴 refresh token 은 새 값으로 바꾼다 (rotation → 훔친 토큰을 오래 쓰지 못하게)
+        // 6단계: 행을 지우고 새로 넣지 않고 같은 행의 토큰 값만 바꾼다
+        //  → 기기 번호(id) · 처음 로그인 시각이 그대로라, 다른 기기에서 미리 열어 둔 목록으로도 이 기기를 로그아웃할 수 있다
+        // 같은 토큰으로 동시에 두 번 요청이 와도 바꾸기에 성공한 한 요청만 통과한다 (WHERE token = 옛 값)
+        LocalDateTime now = LocalDateTime.now();
+        String newToken = UUID.randomUUID().toString();
+        if (refreshTokenMapper.rotate(refreshToken, newToken, now.plus(jwtProvider.getRefreshTokenValidity()), now) == 0) {
+            throw refreshInvalid();
+        }
+        String accessToken = jwtProvider.createAccessToken(member.getId(), member.getRole());
+        return new AuthTokens(accessToken, newToken, MemberResponse.from(member));
     }
 
     @Override
@@ -413,10 +417,6 @@ public class AuthServiceImpl implements AuthService {
 
     // access token(JWT) 과 refresh token(무작위 문자열)을 함께 발급한다
     private AuthTokens issueTokens(MemberDto member) {
-        return issueTokens(member, null); // 새 로그인 = 처음 로그인 시각은 지금
-    }
-
-    private AuthTokens issueTokens(MemberDto member, LocalDateTime loggedInAt) {
         // 회원 번호와 역할을 담은 access token(JWT) 발급 (유효 시간: application.yml 의 jwt.access-token-validity)
         String accessToken = jwtProvider.createAccessToken(member.getId(), member.getRole());
 
@@ -427,7 +427,7 @@ public class AuthServiceImpl implements AuthService {
         refresh.setToken(UUID.randomUUID().toString());
         refresh.setExpiresAt(now.plus(jwtProvider.getRefreshTokenValidity()));
         refresh.setDevice(ClientDevice.current());                       // 6단계: 로그인된 기기 목록에 보여 줄 이름
-        refresh.setLoggedInAt(loggedInAt == null ? now : loggedInAt);    // 6단계: 처음 로그인한 시각
+        refresh.setLoggedInAt(now);                                      // 6단계: 처음 로그인한 시각 (재발급해도 그대로)
         refreshTokenMapper.insert(refresh);
 
         return new AuthTokens(accessToken, refresh.getToken(), MemberResponse.from(member));

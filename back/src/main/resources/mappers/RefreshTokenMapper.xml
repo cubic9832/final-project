@@ -25,6 +25,16 @@
         DELETE FROM refresh_token WHERE expires_at &lt; #{now}
     </delete>
 
+    <!-- 6단계: 재발급할 때 행은 그대로 두고 토큰 값만 바꾼다 → 기기 번호(id) · 기기 이름(로그인할 때 정함)이 바뀌지 않는다.
+         created_at 은 이 토큰을 발급한 시각 = 기기 목록의 "마지막 사용" 으로 쓴다 -->
+    <update id="rotate">
+        UPDATE refresh_token
+        SET token = #{newToken}, expires_at = #{expiresAt},
+            logged_in_at = COALESCE(logged_in_at, created_at), -- V12 이전 행: 바꾸기 전 created_at 을 처음 로그인 시각으로 (왼쪽부터 차례로 적용)
+            created_at = #{now}
+        WHERE token = #{oldToken}
+    </update>
+
     <delete id="deleteByToken">
         DELETE FROM refresh_token WHERE token = #{token}
     </delete>
