@@ -2,7 +2,7 @@
 // 위: 회원 현황 (전체 · 최근 7일 가입 · 구글 · 관리자, 7일 가입 추이, 나이대 · 성별)
 // 아래: 회원 목록 (검색 · 권한 · 페이지) + 상세. 이메일은 서버가 가려서 보낸다.
 // 총관리자(SUPER_ADMIN)만 상세에서 관리자 권한을 주고 뺄 수 있다. 잠금 해제는 아직 없음
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { Search, ShieldCheck, X } from 'lucide-react';
 import theme from '../../styles/theme';
 import { changeMemberRole, getAdminMembers, getMemberSummary } from '../../features/admin/adminApi';
@@ -167,7 +167,6 @@ function MemberList({ version, onChanged }) {
   }
 
   const { members, meta } = state;
-  const selected = members.find((member) => member.id === selectedId);
   const totalPages = meta?.totalPages ?? 1;
 
   return (
@@ -224,8 +223,10 @@ function MemberList({ version, onChanged }) {
                 </tr>
               </thead>
               <tbody>
+                {/* 상세는 누른 회원 바로 아래 줄에 펼친다 (예전: 목록 맨 아래라 화면 밖에 열려 안 눌린 것처럼 보였다) */}
                 {members.map((member) => (
-                  <tr key={member.id}>
+                  <Fragment key={member.id}>
+                  <tr className={selectedId === member.id ? 'is-selected' : undefined}>
                     <td><strong>{member.nickName}</strong><small>{member.emailMasked}</small></td>
                     <td>{formatDate(member.joinedAt)}</td>
                     <td>{LOGIN_METHODS[member.loginMethod]}</td>
@@ -240,12 +241,20 @@ function MemberList({ version, onChanged }) {
                         type="button"
                         className="admin-text-button"
                         aria-expanded={selectedId === member.id}
-                        onClick={() => setSelectedId(member.id)}
+                        onClick={() => setSelectedId(selectedId === member.id ? null : member.id)}
                       >
-                        상세 보기
+                        {selectedId === member.id ? '닫기' : '상세 보기'}
                       </button>
                     </td>
                   </tr>
+                  {selectedId === member.id && (
+                    <tr className="admin-member-detail-row">
+                      <td colSpan={6}>
+                        <MemberDetail member={member} onClose={() => setSelectedId(null)} onChanged={onChanged} />
+                      </td>
+                    </tr>
+                  )}
+                  </Fragment>
                 ))}
               </tbody>
             </table>
@@ -261,30 +270,34 @@ function MemberList({ version, onChanged }) {
         )}
       </section>
 
-      {selected && (
-        <section className="admin-card">
-          <div className="admin-card-heading">
-            <div><h3>{selected.nickName} 회원 상세</h3><p>회원 번호 {selected.id}</p></div>
-            <button type="button" className="admin-icon-button" aria-label="회원 상세 닫기" onClick={() => setSelectedId(null)}>
-              <X size={theme.iconSize.md} aria-hidden="true" />
-            </button>
-          </div>
-          <dl className="admin-detail-list">
-            <div><dt>이메일</dt><dd>{selected.emailMasked}</dd></div>
-            <div><dt>가입일</dt><dd>{formatDate(selected.joinedAt)}</dd></div>
-            <div><dt>로그인 방법</dt><dd>{LOGIN_METHODS[selected.loginMethod]}</dd></div>
-            <div><dt>권한</dt><dd>{ROLE_LABELS[selected.role] ?? selected.role}</dd></div>
-            <div><dt>나이대 · 성별</dt><dd>{selected.ageBand ?? '미입력'} · {GENDER_LABELS[selected.gender] ?? '미입력'}</dd></div>
-            <div>
-              <dt>로그인된 기기</dt>
-              <dd>{selected.activeSessions}대{selected.lastUsedAt ? ` · 마지막 사용 ${formatDateTime(selected.lastUsedAt)}` : ''}</dd>
-            </div>
-            <div><dt>로그인 잠금</dt><dd>{selected.lockedMinutes > 0 ? `${selected.lockedMinutes}분 남음 (5번 실패)` : '잠금 없음'}</dd></div>
-          </dl>
-          <RoleActions member={selected} onChanged={onChanged} />
-        </section>
-      )}
     </>
+  );
+}
+
+// 회원 상세 (목록에서 누른 회원 바로 아래 줄)
+function MemberDetail({ member, onClose, onChanged }) {
+  return (
+    <div className="admin-member-detail">
+      <div className="admin-card-heading">
+        <div><h3>{member.nickName} 회원 상세</h3><p>회원 번호 {member.id}</p></div>
+        <button type="button" className="admin-icon-button" aria-label="회원 상세 닫기" onClick={onClose}>
+          <X size={theme.iconSize.md} aria-hidden="true" />
+        </button>
+      </div>
+      <dl className="admin-detail-list">
+        <div><dt>이메일</dt><dd>{member.emailMasked}</dd></div>
+        <div><dt>가입일</dt><dd>{formatDate(member.joinedAt)}</dd></div>
+        <div><dt>로그인 방법</dt><dd>{LOGIN_METHODS[member.loginMethod]}</dd></div>
+        <div><dt>권한</dt><dd>{ROLE_LABELS[member.role] ?? member.role}</dd></div>
+        <div><dt>나이대 · 성별</dt><dd>{member.ageBand ?? '미입력'} · {GENDER_LABELS[member.gender] ?? '미입력'}</dd></div>
+        <div>
+          <dt>로그인된 기기</dt>
+          <dd>{member.activeSessions}대{member.lastUsedAt ? ` · 마지막 사용 ${formatDateTime(member.lastUsedAt)}` : ''}</dd>
+        </div>
+        <div><dt>로그인 잠금</dt><dd>{member.lockedMinutes > 0 ? `${member.lockedMinutes}분 남음 (5번 실패)` : '잠금 없음'}</dd></div>
+      </dl>
+      <RoleActions member={member} onChanged={onChanged} />
+    </div>
   );
 }
 

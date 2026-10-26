@@ -137,3 +137,24 @@
   margin-top: var(--space-8);
   color: var(--color-danger);
 }
+
+/* 회원 상세: 누른 회원 바로 아래 줄에 펼친다 */
+.admin-table tr.is-selected td {
+  background: var(--color-blue-tint);
+}
+
+.admin-member-detail-row > td {
+  padding: var(--space-16);
+  background: var(--color-background);
+}
+
+.admin-member-detail {
+  padding: var(--space-16);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.admin-member-detail .admin-card-heading {
+  margin-bottom: var(--space-16);
+}
