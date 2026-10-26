@@ -25,7 +25,7 @@ export default function TasteResult({ result, types, onSave, onRestart, saved, b
         <Link className="taste-button taste-button-outline" to="/search">차량 찾기에서 살펴보기</Link>
       </section>
       <div className="taste-result-actions"><button type="button" className="taste-button taste-button-cta" onClick={onSave} disabled={busy || saved} aria-busy={busy}>{busy ? '저장 중…' : saved ? '현재 취향 저장 완료' : '현재 취향으로 저장'}</button><button type="button" className="taste-button taste-button-outline" onClick={onRestart} disabled={busy}>다시 테스트하기</button></div>
-      <p className="taste-notice" role="status">{notice}</p>
+      <p className="taste-notice" role="status">{notice || (saved ? '이미 현재 취향으로 저장된 결과입니다.' : '')}</p>
     </div>
   );
 }

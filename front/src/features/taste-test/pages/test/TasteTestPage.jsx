@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import vehiclePhoto from '../../../../assets/vehicles/vehicle-0.webp';
 import useAuthStore from '../../../../stores/useAuthStore';
 import { getTasteCatalog, getCurrentTaste, putCurrentTaste, tasteErrorMessage } from '../../tasteApi';
-import { resolveTaste, savedTasteAnswers } from '../../serverTasteFlow';
+import { isCurrentTasteSaved, resolveTaste, savedTasteAnswers } from '../../serverTasteFlow';
 import { readMemberTasteDraft, writeMemberTasteDraft } from '../../tasteDraftStorage';
 import TasteQuestion from './TasteQuestion';
 import TasteResult from './TasteResult';
@@ -18,7 +18,6 @@ export default function TasteTestPage() {
   const [confirmation, setConfirmation] = useState(false);
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
-  const [saved, setSaved] = useState(false);
   const [busy, setBusy] = useState(false);
   const [reload, setReload] = useState(0);
   const saving = useRef(false);
@@ -31,7 +30,6 @@ export default function TasteTestPage() {
         if (controller.signal.aborted) return;
         setCatalog(bank);
         setCurrent(stored);
-        setSaved(false);
         setConfirmation(false);
         setDraft(readMemberTasteDraft(memberId, bank)
           ?? { phase: 'intro', step: 0, answers: Array(bank.questionCount).fill(null) });
@@ -51,9 +49,10 @@ export default function TasteTestPage() {
 
   const flow = resolveTaste(catalog, draft.answers);
   const result = draft.phase === 'result' ? flow.result : null;
+  const saved = result !== null && isCurrentTasteSaved(catalog, draft.answers, current);
 
   function restart() {
-    setSaved(false); setNotice(''); setError('');
+    setNotice(''); setError('');
     setDraft({ phase: 'question', step: 0, answers: Array(catalog.questionCount).fill(null) });
   }
   function next() {
@@ -63,26 +62,26 @@ export default function TasteTestPage() {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
   async function persist() {
-    if (saving.current) return;
+    if (saving.current || saved) return;
     saving.current = true; setBusy(true); setError('');
     try {
       const record = await putCurrentTaste({ version: catalog.version, expectedSavedAt: current?.savedAt ?? null,
         answers: flow.path.map((question, step) => ({ questionId: question.id, optionId: question.options[draft.answers[step]].id })) });
-      setCurrent(record); setConfirmation(false); setSaved(true); setNotice('회원님의 현재 취향을 저장했어요.');
+      setCurrent(record); setConfirmation(false); setNotice('회원님의 현재 취향을 저장했어요.');
     } catch (failure) {
       setError(tasteErrorMessage(failure)); setNotice(tasteErrorMessage(failure));
     } finally { saving.current = false; setBusy(false); }
   }
   function requestSave() {
-    if (saving.current) return;
+    if (saving.current || saved) return;
     setError('');
-    if (current && !saved) setConfirmation(true);
+    if (current) setConfirmation(true);
     else persist();
   }
   function showCurrent() {
     const answers = savedTasteAnswers(catalog, current);
     if (!answers) { setNotice('이전 버전의 취향이에요. 새 테스트로 현재 취향을 확인해 주세요.'); return; }
-    setDraft({ phase: 'result', step: catalog.questionCount - 1, answers }); setSaved(true);
+    setDraft({ phase: 'result', step: catalog.questionCount - 1, answers }); setNotice('');
   }
 
   return <div className="taste-page">
@@ -105,7 +104,6 @@ export default function TasteTestPage() {
     {draft.phase === 'question' && <TasteQuestion step={draft.step} answers={draft.answers}
       question={flow.path[draft.step]} questionCount={catalog.questionCount}
       onSelect={(answer) => {
-        setSaved(false);
         setDraft((value) => ({ ...value, answers: value.answers[value.step] === answer ? value.answers
           : value.answers.map((item, index) => index < value.step ? item : index === value.step ? answer : null) }));
       }}

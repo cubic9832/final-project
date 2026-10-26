@@ -27,7 +27,8 @@ export function resolveTaste(catalog, answers) {
 }
 
 export function savedTasteAnswers(catalog, record) {
-  if (!record || record.version !== catalog.version || record.answers.length !== catalog.questionCount) return null;
+  if (!record || record.version !== catalog.version || !Array.isArray(record.answers)
+    || record.answers.length !== catalog.questionCount) return null;
   const answers = Array(catalog.questionCount).fill(null);
   for (let step = 0; step < answers.length; step++) {
     const question = resolveTaste(catalog, answers).path[step];
@@ -37,4 +38,10 @@ export function savedTasteAnswers(catalog, record) {
     answers[step] = index;
   }
   return answers;
+}
+
+export function isCurrentTasteSaved(catalog, answers, record) {
+  const storedAnswers = savedTasteAnswers(catalog, record);
+  return storedAnswers !== null && answers.length === storedAnswers.length
+    && answers.every((answer, index) => answer === storedAnswers[index]);
 }
