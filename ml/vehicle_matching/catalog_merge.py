@@ -6,8 +6,8 @@ from dataclasses import replace
 from vehicle_matching.catalog import ROOT, Vehicle
 
 LEGACY_CATALOGS = (
-    ROOT / 'data/households/synthetic/owner-funded/configuration-catalog.json',
-    ROOT / 'data/households/synthetic/imported-owners/configuration-catalog.json',
+    ROOT / 'data/vehicles/legacy-domestic-configuration-catalog.json',
+    ROOT / 'data/vehicles/legacy-imported-configuration-catalog.json',
 )
 
 

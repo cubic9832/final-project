@@ -1,15 +1,7 @@
-data/households/synthetic/domestic-extra-90000/learning-rows.json filter=lfs diff=lfs merge=lfs -text
-data/households/synthetic/domestic-extra-90000/purchase-audit.json filter=lfs diff=lfs merge=lfs -text
-data/households/synthetic/imported-extra-90000/learning-rows.json filter=lfs diff=lfs merge=lfs -text
-data/households/synthetic/imported-extra-90000/purchase-audit.json filter=lfs diff=lfs merge=lfs -text
-data/households/synthetic/preference-population-100k-20261026-v2/profiles.jsonl filter=lfs diff=lfs merge=lfs -text
-data/households/synthetic/preference-population-100k-20261026-v2/profiles.csv -text whitespace=cr-at-eol
-data/households/synthetic/preference-population-100k-20261026-v2/candidate_pairs.npz -text
-data/households/synthetic/preference-complete-v1/combined_training.csv filter=lfs diff=lfs merge=lfs -text
-data/households/synthetic/preference-financial-v4/combined_training.csv filter=lfs diff=lfs merge=lfs -text
-data/households/synthetic/preference-financial-v4/recommendations_top3.csv filter=lfs diff=lfs merge=lfs -text
-data/households/synthetic/preference-quality-v1/combined_training.csv filter=lfs diff=lfs merge=lfs -text
-data/households/synthetic/preference-quality-v2/combined_training.csv filter=lfs diff=lfs merge=lfs -text
-data/households/synthetic/preference-quality-v3/additional_100000.csv filter=lfs diff=lfs merge=lfs -text
-data/households/synthetic/preference-quality-v3/combined_training.csv filter=lfs diff=lfs merge=lfs -text
-data/households/synthetic/preference-relabelled-v1/combined_training.csv filter=lfs diff=lfs merge=lfs -text
+data/households/synthetic/curated-current-v2-20261026/* -text whitespace=cr-at-eol
+ml/outputs/models/candidate-preferences/** -text whitespace=cr-at-eol
+ml/outputs/reports/** -text whitespace=cr-at-eol
+ml/outputs/reports/*/*.csv filter=lfs diff=lfs merge=lfs -text
+data/households/synthetic/curated-current-v2-20261026/*_profiles.jsonl filter=lfs diff=lfs merge=lfs -text
+data/households/synthetic/curated-current-v2-20261026/*_pairs.npz filter=lfs diff=lfs merge=lfs -text
+data/households/synthetic/curated-current-v2-20261026/*.csv filter=lfs diff=lfs merge=lfs -text

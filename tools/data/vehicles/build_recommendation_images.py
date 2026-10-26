@@ -1,13 +1,12 @@
 """Connect catalog models to reviewed, transparent manufacturer images.
 
-Native transparent files are copied byte-for-byte; layout only changes in CSS.
+Native transparent files are encoded as lossless WebP; layout only changes in CSS.
 Background edits live in cutouts/ and are recorded separately from their sources.
 """
 
 import hashlib
 import json
 import re
-import shutil
 from pathlib import Path
 
 from PIL import Image
@@ -16,7 +15,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[3]
 DATA = ROOT / 'data/vehicles/recommendation-images-v2'
 PUBLIC = ROOT / 'front/public'
-PAGE = ROOT / 'front/src/features/financial/pages/recommendations'
+PAGE = ROOT / 'front/src/features/vehicle'
 
 EXISTING = {
     '기아::K5': 'OWN001', '기아::K8': 'OWN002', '기아::니로': 'OWN003',
@@ -117,8 +116,9 @@ def main():
             destination = ROOT / edited[slug]['file']
             processing = 'imagegen-background-removal'
         else:
-            destination = target / f'{slug}{raw.suffix}'
-            shutil.copyfile(raw, destination)
+            destination = target / f'{slug}.webp'
+            with Image.open(raw) as image:
+                image.save(destination, 'WEBP', lossless=True, exact=True, method=6)
             processing = 'original-transparent-file'
         style, dimensions = image_style(destination)
         src = '/' + destination.relative_to(PUBLIC).as_posix()

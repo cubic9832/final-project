@@ -1,3 +1,14 @@
+# 현재 ml/test 학습 데이터
+
+현재 운영 판단·미해결 서비스 점수 포화·행동 데이터 수집 후속 요건은 [ML 검증 상태](../docs/ml-recommendation-status.md)에 정리했다. 순위 평가 수정과 실제 서비스 점수 변환 수정은 구분한다.
+
+현재 정제 데이터는 `data/households/synthetic/curated-current-v2-20261026`이며 상세 기준은 해당 폴더의 `rules.txt`를 따른다. 학습·검증·평가·재무 검증 파일을 분리했고, 정제본만으로 `python -m vehicle_matching.train_curated_population`을 실행할 수 있다.
+
+통합 데이터 학습 결과는 `ml/outputs/models/candidate-preferences/20261026-refined-v1`에 있다. 초기 ML 단독 지표 하락은 sigmoid 출력 포화로 확인됐으며, 원본 출력 재평가에서는 통합 모델이 소폭 높았다. 실행 모델은 `20261026-100k-v1`로 유지했다. 최종 추천과 재무 경계 검증은 통과했다. 비교 지표는 정제 폴더의 `balanced_evaluation_report.json`을 참고한다.
+
+아래 문서는 과거 v1 실험 기록이며 현재 입력·데이터·정책과 구분한다.
+
+---
 # 재무 진단 UI용 차량 추천 모델
 
 > `ml/test` 독립 실험: [사용자·차량 조합 평가 v2](vehicle_matching/README.md). 고정 라벨 분류 대신 실제 가격 후보별 비용 검증과 pairwise MLP 순위를 사용한다. `./ml/serve-candidates.ps1`(8002)와 `npm --prefix front run dev`(5173)로 실행한다. 이 브랜치의 React는 v2에 연결되며 아래 v1 서버 코드는 보존한다.

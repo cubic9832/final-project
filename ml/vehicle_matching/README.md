@@ -1,3 +1,12 @@
+# 현재 정책 및 정제 데이터
+
+현재 정책은 cash-preference-weighted-v9이며 현금 구매와 구매 후 12개월 유지비 여력을 확인한다. 연료·차체 크기·정원은 가중치 선호이며 가성비를 낮춰도 고가 보너스를 주지 않는다. 이전 80~100% 가격대 우선 정책은 사용하지 않는다.
+
+학습 자료와 생성·분류 규칙은 `data/households/synthetic/curated-current-v2-20261026`의 README.md와 rules.txt를 따른다. 원본 합성 자료는 정제 후 삭제했고 출처 해시와 Git 커밋을 보고서에 기록했다. 실행 모델은 기존 20261026-100k-v1을 유지하며 통합 데이터 모델은 평가용 20261026-refined-v1에 저장했다.
+
+아래는 과거 실험 기록으로 현재 데이터 경로·입력·정책의 기준이 아니다.
+
+---
 # 사용자·차량 조합 평가 실험 — candidate-v2
 
 현재 추천은 `cash-monthly-affordability-v5`다. 구매 상한은 비상자금을 제외한 현재 예금이며 월소득을 대출 가능액으로 바꾸지 않는다. 60개월·연 6% 자동 할부 가정은 제거했다. 월소득은 생활비·저축·기존 상환·차량 유지비와 최소 여유자금을 감당하는지 검사하며, 월 가용자금 대비 유지비 부담률도 점수에 반영한다. 가성비는 구매비 점수와 월 유지비 부담 점수를 절반씩 반영한다. 현금 예산의 80~100% 가격대를 우선하고, 후보가 부족하면 아래 가격대로 확대한다. 아래 과거 기록의 자동 할부 정책과 과거 CSV·모델은 당시 실험 기록으로 보존되며 현금 구매 기준으로 재학습한 결과가 아니다.
@@ -149,4 +158,3 @@ MILD_HYBRID와 PHEV는 원래 연료 표기를 보존하고, 연비·전기 주�
 기본 k=3으로 서로 다른 모델을 최대 3개 반환하며 점수·확률이 낮다는 이유로 제외하지 않는다. 재무 적격 모델이 1~2개면 그 수만, 0개면 빈 `recommendations`와 `status=no-financially-eligible-vehicle`을 반환한다. `conditionalRecommendations`는 호환용 빈 배열로 남긴다. API의 기존 pair ranker 가중치를 이 작업에서 교체하지 않았으며 아래 새 MLP와는 별개다.
 
 새 데이터: `data/households/synthetic/preference-financial-v4` (306,429행). 결정적 가중 상위 3개는 `recommendations_top3.csv`, 학습용 확률 선택은 `combined_training.csv`다. 별도 MLP 재학습과 결과는 `ml/outputs/models/preference-financial-v4/20261022T120014`에 저장했다. 실행 중인 서버 재시작·배포는 수행하지 않았다.
-

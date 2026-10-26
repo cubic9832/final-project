@@ -237,7 +237,7 @@ def compare_models(new,old,records,vehicles,limit=300):
         def dcg(order):return sum((2**targets[i]-1)/math.log2(j+2) for j,i in enumerate(order))
         denominator=dcg(ideal)
         for name,model in (('new',new),('old',old)):
-            scores,_=model.predict(profile,cars)
+            scores=model.ranking_scores(profile,cars) if hasattr(model,'ranking_scores') else model.predict(profile,cars)[0]
             order=distinct_order(scores)
             results[name]['standalone_ndcg_at_3'].append(dcg(order)/denominator if denominator else 1)
             rec=CandidateService(model,vehicles).recommend(profile,k=9)['recommendations']

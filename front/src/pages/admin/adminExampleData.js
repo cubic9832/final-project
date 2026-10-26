@@ -11,10 +11,10 @@ export const services = [
   { id: 'model', name: '추천 서버', detail: '차량 추천 추론', status: '확인 필요' },
 ];
 export const vehicleExamples = [
-  { id: 'vehicle-k5', labelCode: 'OWN001', model: 'K5', brand: '기아', body: '세단', grade: '중형', trim: '2.0 가솔린 프레스티지', price: '2,900만 원', efficiency: '12.6km/L', fuel: '가솔린', status: '검수 대기', updatedAt: '2026.10.20', image: '/images/recommendations/cutouts/k5.png' },
-  { id: 'vehicle-ray', labelCode: 'OWN004', model: '레이', brand: '기아', body: '경차', grade: '경형', trim: '1.0 가솔린 시그니처', price: '1,800만 원', efficiency: '12.7km/L', fuel: '가솔린', status: '공개', updatedAt: '2026.10.20', image: '/images/recommendations/cutouts/ray.png' },
-  { id: 'vehicle-niro', labelCode: 'OWN003', model: '니로', brand: '기아', body: 'SUV', grade: '소형', trim: '하이브리드 프레스티지', price: '3,100만 원', efficiency: '20.8km/L', fuel: '하이브리드', status: '공개', updatedAt: '2026.10.19', image: '/images/recommendations/cutouts/niro.png' },
-  { id: 'vehicle-palisade', labelCode: 'OWN014', model: '팰리세이드', brand: '현대', body: 'SUV', grade: '대형', trim: '가솔린 익스클루시브', price: '4,500만 원', efficiency: '9.7km/L', fuel: '가솔린', status: '비공개', updatedAt: '2026.10.18', image: '/images/recommendations/cutouts/palisade.png' },
+  { id: 'vehicle-k5', labelCode: 'OWN001', model: 'K5', brand: '기아', body: '세단', grade: '중형', trim: '2.0 가솔린 프레스티지', price: '2,900만 원', efficiency: '12.6km/L', fuel: '가솔린', status: '검수 대기', updatedAt: '2026.10.20', image: '/images/recommendations/cutouts/k5.webp' },
+  { id: 'vehicle-ray', labelCode: 'OWN004', model: '레이', brand: '기아', body: '경차', grade: '경형', trim: '1.0 가솔린 시그니처', price: '1,800만 원', efficiency: '12.7km/L', fuel: '가솔린', status: '공개', updatedAt: '2026.10.20', image: '/images/recommendations/cutouts/ray.webp' },
+  { id: 'vehicle-niro', labelCode: 'OWN003', model: '니로', brand: '기아', body: 'SUV', grade: '소형', trim: '하이브리드 프레스티지', price: '3,100만 원', efficiency: '20.8km/L', fuel: '하이브리드', status: '공개', updatedAt: '2026.10.19', image: '/images/recommendations/cutouts/niro.webp' },
+  { id: 'vehicle-palisade', labelCode: 'OWN014', model: '팰리세이드', brand: '현대', body: 'SUV', grade: '대형', trim: '가솔린 익스클루시브', price: '4,500만 원', efficiency: '9.7km/L', fuel: '가솔린', status: '비공개', updatedAt: '2026.10.18', image: '/images/recommendations/cutouts/palisade.webp' },
 ];
 export const recommendationExamples = [
   { ...vehicleExamples[0], purpose: '출퇴근', reason: '매일 주행할 경로에서 승차감과 운전 편의성을 비교해 볼 수 있는 세단 후보입니다.' },

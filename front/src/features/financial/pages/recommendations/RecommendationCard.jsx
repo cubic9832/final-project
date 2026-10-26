@@ -5,7 +5,7 @@ import { candidateImage, candidateMoney, fuelLabels } from './candidatePresentat
 
 
 export default function RecommendationCard({ candidate, rank, view, comparisonSelected, comparisonFull, onToggleComparison }) {
-  const [failed, setFailed] = useState(false);
+  const [failedSrc, setFailedSrc] = useState(null);
   const [expanded, setExpanded] = useState(false);
   const detailsId = useId();
   const { vehicle, cost, reasons } = candidate;
@@ -13,7 +13,7 @@ export default function RecommendationCard({ candidate, rank, view, comparisonSe
 
   return <li className="financial-recommendation-card">
     <div className="financial-recommendation-media"><span className="financial-recommendation-rank">{candidate.seatingVerificationRequired || candidate.lengthVerificationRequired ? '확인 후보' : '추천'} {rank}</span>
-      {image && !failed ? <img src={image.src} alt={image.alt} style={image.style} loading="lazy" onError={() => setFailed(true)} /> : <div className="financial-recommendation-image-placeholder"><Car size={theme.iconSize.lg} aria-hidden="true" /><span>차량 이미지 준비 중</span></div>}
+      {image && failedSrc !== image.src ? <img key={image.src} src={image.src} alt={image.alt} style={image.style} loading="lazy" onError={() => setFailedSrc(image.src)} /> : <div className="financial-recommendation-image-placeholder"><Car size={theme.iconSize.lg} aria-hidden="true" /><span>차량 이미지 준비 중</span></div>}
     </div>
     <div className="financial-recommendation-card-body">
       <div className="financial-recommendation-aligned-summary"><div data-recommendation-measure="summary">

@@ -1,0 +1,12 @@
+{
+  "center": -0.5850109153365608,
+  "temperature": 28.908095875359923,
+  "method": "positive-slope logistic soft-label fit; equal profile weights",
+  "target": "current rule utility excluding ML; not actual purchase probability",
+  "profiles": 300,
+  "candidate_rows": 64515,
+  "partition": "reserved test financial groups, excluded from both evaluation cohorts",
+  "not_used_for_weights_or_epoch_selection": true,
+  "not_real_world_probability": true,
+  "softmax_temperature": "same fixed calibrated sigmoid T; not tuned for softmax"
+}

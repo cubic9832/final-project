@@ -1,9 +1,16 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import client from '../../shared/api/client.js';
-import { getVehicles, selectPresetVehicles } from './vehicleApi.js';
+import { getVehicles, selectPresetVehicles, toVehicle } from './vehicleApi.js';
 
 const row = { id: 42, brand: '현대', name: '아반떼 하이브리드', trimName: '스마트', modelYear: 2026, conditionCode: 'NEW', classCode: 'COMPACT_SEDAN', fuelCode: 'HYBRID', price: 25550000, efficiencyValue: 21.1, efficiencyUnit: 'km/L', sourceUrl: 'https://www.hyundai.com/price.pdf' };
+
+test('catalog images use local WebP for examples and missing photos while preserving user photos', () => {
+  assert.equal(toVehicle(row).imageUrl, '/images/recommendations/cutouts/avante.webp');
+  assert.equal(toVehicle({ ...row, isExample: true, imageUrl: 'https://manufacturer.example/old.jpg' }).imageUrl, '/images/recommendations/cutouts/avante.webp');
+  assert.equal(toVehicle({ ...row, isExample: false, imageUrl: '/uploads/my-car.jpg' }).imageUrl, '/uploads/my-car.jpg');
+  assert.equal(toVehicle({ ...row, brand: '미등록', imageUrl: '/uploads/other.jpg', isExample: true }).imageUrl, '/uploads/other.jpg');
+});
 
 test('API catalog converts won to screen units and excludes incompatible running costs', async () => {
   const adapter = client.defaults.adapter;

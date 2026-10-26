@@ -1,8 +1,0 @@
-{
-  "version":"domestic-extra-90000-1.0.0",
-  "seed":20261021,
-  "count":90000,
-  "profile_id_start":16001,
-  "chunk_size":1000,
-  "notice":"Additional independent synthetic domestic owners using the existing owner population and funded purchase rules; existing domestic and imported data are preserved."
-}

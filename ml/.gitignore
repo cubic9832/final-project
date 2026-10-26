@@ -21,3 +21,7 @@ outputs/models/candidate-preferences/*
 !outputs/models/candidate-preferences/20261026-100k-v1/
 outputs/reports/*
 !outputs/reports/.gitkeep
+!outputs/models/candidate-preferences/20261026-refined-v1/
+!outputs/reports/score-conversion-20261026/
+!outputs/reports/score-transforms-20261026/
+!outputs/reports/preference-reversals-20261026/

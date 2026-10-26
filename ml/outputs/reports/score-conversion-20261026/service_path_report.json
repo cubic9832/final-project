@@ -1,0 +1,16 @@
+{
+  "previous": {
+    "profiles": 300,
+    "all_ml_scores_equal": 5,
+    "at_least_two_scores_equal_one": 270,
+    "top3_changed_without_ml": 5,
+    "mean_candidate_fraction_at_one": 0.3039945062072771
+  },
+  "combined": {
+    "profiles": 300,
+    "all_ml_scores_equal": 16,
+    "at_least_two_scores_equal_one": 282,
+    "top3_changed_without_ml": 3,
+    "mean_candidate_fraction_at_one": 0.5833858450467236
+  }
+}
