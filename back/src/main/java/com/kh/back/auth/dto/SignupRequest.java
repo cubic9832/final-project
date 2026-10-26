@@ -1,5 +1,6 @@
 package com.kh.back.auth.dto;
 
+import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -60,6 +61,16 @@ public class SignupRequest {
 
     // 보완 7 추가(10-22): 코드 확인 때 받은 일회용 증명 번호 (없으면 이메일 인증을 안 한 것으로 본다)
     private String verificationToken;
+
+    // 보완 9: 약관 동의 — 필수 2개는 서버도 확인하고, 동의 시각을 user_agreements 에 남긴다
+    @AssertTrue(message = "서비스 이용약관에 동의해 주세요.")
+    private boolean termsAgreed;
+
+    @AssertTrue(message = "개인정보 수집·이용에 동의해 주세요.")
+    private boolean privacyAgreed;
+
+    // [선택] 차량 추천 업데이트 수신 — 체크하면 이메일 알림 ALL, 안 하면 IMPORTANT
+    private boolean updatesAgreed;
 
     public void setNickName(String nickName) {
         this.nickName = nickName == null ? null : nickName.trim();

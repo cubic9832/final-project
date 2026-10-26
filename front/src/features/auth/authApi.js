@@ -5,8 +5,11 @@ import client from '../../shared/api/client';
 // 보완 5: phone(010-1234-5678) · birthDate(YYYY-MM-DD) · gender(MALE · FEMALE · NONE) 추가
 // 가입만 하고 로그인 상태로 만들지는 않는다 (로그인은 로그인 화면에서 따로 한다)
 // 보완 7 추가(10-22): verificationToken = 인증 코드 확인 때 받은 일회용 증명 번호
-export const signup = async ({ email, password, nickName, phone, birthDate, gender, verificationToken }) => {
-  const res = await client.post('/auth/signup', { email, password, nickName, phone, birthDate, gender, verificationToken });
+// 보완 9: termsAgreed · privacyAgreed(필수, 서버도 확인) · updatesAgreed([선택] 추천 업데이트 수신) 도 보낸다 → 동의 시각을 DB 에 기록
+export const signup = async ({ email, password, nickName, phone, birthDate, gender, verificationToken, termsAgreed, privacyAgreed, updatesAgreed }) => {
+  const res = await client.post('/auth/signup', {
+    email, password, nickName, phone, birthDate, gender, verificationToken, termsAgreed, privacyAgreed, updatesAgreed,
+  });
   return res.data.data;
 };
 
@@ -72,8 +75,8 @@ export const googleLogin = async (idToken) => {
 };
 
 // 보완 8: 구글 가입 화면의 추가 정보로 가입 — 가입과 동시에 로그인된다. 자동으로 정한 닉네임이 담긴 회원 정보를 돌려준다
-export const googleSignup = async ({ signupToken, phone, birthDate, gender, consent }) => {
-  const res = await client.post('/auth/google/signup', { signupToken, phone, birthDate, gender, consent });
+export const googleSignup = async ({ signupToken, phone, birthDate, gender, consent, updatesAgreed }) => {
+  const res = await client.post('/auth/google/signup', { signupToken, phone, birthDate, gender, consent, updatesAgreed });
   useAuthStore.getState().setAuth(res.data.data);
   return res.data.data.member;
 };

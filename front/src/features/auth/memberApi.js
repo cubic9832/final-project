@@ -16,6 +16,19 @@ export const updateNickName = async (nickName) => {
 // 개인정보 수정 (6단계) — 바뀐 회원 정보를 돌려준다. 만 18세 미만 생년월일은 400 AGE_RESTRICTED (저장 안 됨)
 // 보낸 항목만 바뀐다 (빠진 항목 = 그대로). 선택 항목(phone · drivingExperience · purchaseTiming)은 '' = 지우기
 // 닉네임도 같이 보내면 한 트랜잭션으로 저장된다 → 하나라도 실패하면 아무것도 바뀌지 않는다
+// 보완 9: 가입 동의 기록 · 이메일 알림 → { termsAgreedAt, privacyAgreedAt, emailNotification, updatesAgreedAt }
+// (기록 기능 전에 가입한 회원은 동의 시각이 null, 알림은 IMPORTANT)
+export const getAgreement = async () => {
+  const res = await client.get('/members/me/notifications');
+  return res.data.data;
+};
+
+// 보완 9: 이메일 알림 범위 바꾸기 (ALL · IMPORTANT · NONE) → 바뀐 기록을 돌려준다
+export const updateNotification = async (emailNotification) => {
+  const res = await client.put('/members/me/notifications', { emailNotification });
+  return res.data.data;
+};
+
 export const updateProfile = async (changes) => {
   const res = await client.put('/members/me/profile', changes);
   return res.data.data;

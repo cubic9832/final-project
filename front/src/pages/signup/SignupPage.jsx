@@ -306,7 +306,7 @@ export default function SignupPage() {
 
     setSubmitting(true);
     try {
-      // 약관 동의는 users 테이블에 저장할 곳이 없어 화면에서만 검사한다
+      // 보완 9: 약관 동의도 같이 보내 동의 시각을 DB(user_agreements)에 남긴다 (필수 2개는 서버도 확인)
       const member = await signup({
         email: form.email.trim(),
         password: form.password,
@@ -315,6 +315,9 @@ export default function SignupPage() {
         birthDate: form.birthDate,
         gender: form.gender,
         verificationToken: getProof(form.email.trim()), // 보완 7 추가: 인증한 사람만 가진 번호
+        termsAgreed: agreements.service,
+        privacyAgreed: agreements.privacy,
+        updatesAgreed: agreements.updates,
       });
       clearProof(member.email); // 한 번 쓰면 끝 (서버에서도 지움)
       setJoinedEmail(member.email);

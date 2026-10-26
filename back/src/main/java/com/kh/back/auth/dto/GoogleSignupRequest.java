@@ -38,4 +38,7 @@ public class GoogleSignupRequest {
     // 만 18세 이상 · 서비스 이용약관 · 개인정보 수집 · 이용 동의 (체크 1개)
     @AssertTrue(message = "필수 동의 항목에 체크해 주세요.")
     private boolean consent;
+
+    // 보완 9: [선택] 차량 추천 업데이트 수신 — 체크하면 이메일 알림 ALL, 안 하면 IMPORTANT
+    private boolean updatesAgreed;
 }

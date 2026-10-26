@@ -11,7 +11,7 @@ import {
   logoutOtherSessions,
   logoutSession,
 } from '../../features/auth/authApi';
-import { getMe, updateProfile, withdraw } from '../../features/auth/memberApi';
+import { getAgreement, getMe, updateNotification, updateProfile, withdraw } from '../../features/auth/memberApi';
 import { checkNickNameWords } from '../../features/auth/nickNamePolicy';
 import { useVehicle } from '../../features/vehicle/useVehicle';
 import useAuthStore from '../../stores/useAuthStore';
@@ -23,7 +23,7 @@ import { CardError, CardLoading } from './CardStatus';
 import EmailNotificationModal from './EmailNotificationModal';
 import { NOTIFICATION_OPTIONS } from './notificationOptions';
 import PasswordChangeModal from './PasswordChangeModal';
-import { deviceName, DRIVING_OPTIONS, formatDateTime, PURCHASE_OPTIONS } from './profileOptions';
+import { deviceName, DRIVING_OPTIONS, formatDate, formatDateTime, PURCHASE_OPTIONS } from './profileOptions';
 import './MyPage.css';
 import './ProfilePage.css';
 
@@ -88,7 +88,8 @@ export default function ProfilePage() {
 
   // 계정 관리 팝업: 'password' | 'notification' | 'account' | null
   const [modal, setModal] = useState(null);
-  const [notification, setNotification] = useState('IMPORTANT'); // 이메일 알림 (예시 기능, 저장은 보완 9)
+  // 보완 9: 가입 동의 기록 · 이메일 알림 (서버). null = 불러오는 중, false = 불러오지 못함
+  const [agreement, setAgreement] = useState(null);
 
   // 내 정보 불러오기
   useEffect(() => {
@@ -105,6 +106,17 @@ export default function ProfilePage() {
       ignore = true;
     };
   }, [reloadKey]);
+
+  // 보완 9: 가입 동의 기록 · 이메일 알림 불러오기
+  useEffect(() => {
+    let ignore = false;
+    getAgreement()
+      .then((data) => !ignore && setAgreement(data))
+      .catch(() => !ignore && setAgreement(false));
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   // 로그인된 기기 불러오기 (기기 로그아웃 뒤에도 다시 부른다)
   const loadSessions = useCallback(() => {
@@ -289,10 +301,12 @@ export default function ProfilePage() {
     showToast('회원 탈퇴가 완료되었습니다. 그동안 이용해 주셔서 감사합니다.');
   }
 
-  function handleSaveNotification(value) {
-    setNotification(value);
+  // 보완 9: 이메일 알림 저장 (실패하면 팝업이 오류를 보여 준다)
+  async function handleSaveNotification(value) {
+    const saved = await updateNotification(value);
+    setAgreement(saved);
     setModal(null);
-    showToast('이메일 알림 설정을 바꿨어요. (예시 기능 · 저장은 준비 중)');
+    showToast(`이메일 알림을 '${NOTIFICATION_OPTIONS.find((option) => option.value === value)?.label}'(으)로 바꿨어요.`);
   }
 
   if (meStatus === 'loading') {
@@ -309,7 +323,15 @@ export default function ProfilePage() {
   const changed = changedFields(form, me, clearPhone);
   const ageError = errors.birthDate && form.birthDate && getAge(form.birthDate) < MIN_SIGNUP_AGE;
   const otherSessions = sessions.filter((session) => !session.current);
+  const notification = agreement ? agreement.emailNotification : 'IMPORTANT';
   const notificationLabel = NOTIFICATION_OPTIONS.find((option) => option.value === notification)?.label;
+  // 보완 9: 동의 기록 한 줄 (기록 기능 전에 가입한 회원은 기록 없음)
+  const agreementNote = agreement === null ? '불러오는 중…'
+    : agreement === false ? '알림 설정을 불러오지 못했습니다'
+    : [
+      agreement.termsAgreedAt ? `약관 동의 ${formatDate(agreement.termsAgreedAt.slice(0, 10))}` : '약관 동의 기록 없음 (기록 기능 전 가입)',
+      agreement.updatesAgreedAt && `추천 업데이트 수신 동의 ${formatDate(agreement.updatesAgreedAt.slice(0, 10))}`,
+    ].filter(Boolean).join(' · ');
 
   return (
     <div className="profile-page">
@@ -526,9 +548,9 @@ export default function ProfilePage() {
             <strong>이메일 알림</strong>
             <div>
               <span>{notificationLabel}</span>
-              <small>예시 기능 — 저장은 준비 중입니다</small>
+              <small>{agreementNote}</small>
             </div>
-            <button className="my-outline-button" type="button" onClick={() => setModal('notification')}>설정</button>
+            <button className="my-outline-button" type="button" onClick={() => setModal('notification')} disabled={!agreement}>설정</button>
           </li>
         </ul>
         <div className="profile-withdraw" id="profile-withdraw">

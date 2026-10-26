@@ -20,6 +20,7 @@ import com.kh.back.common.exception.ApiException;
 import com.kh.back.common.jwt.JwtProvider;
 import com.kh.back.member.dto.MemberDto;
 import com.kh.back.member.mapper.MemberMapper;
+import com.kh.back.member.mapper.UserAgreementMapper;
 import com.kh.back.member.mapper.UserProfileMapper;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -41,6 +42,7 @@ class AuthServiceGoogleTests {
     @Mock PasswordEncoder passwordEncoder;
     @Mock JwtProvider jwtProvider;
     @Mock UserProfileMapper userProfileMapper;
+    @Mock UserAgreementMapper userAgreementMapper; // 보완 9
     @Mock LoginAttemptLimiter loginAttemptLimiter;
     @Mock RecaptchaVerifier recaptchaVerifier;
     @Mock EmailVerificationService emailVerificationService;
@@ -137,6 +139,7 @@ class AuthServiceGoogleTests {
         assertThat(tokens.getMember().getNickName()).isEqualTo("구글사용자");
         assertThat(tokens.isNewMember()).isTrue(); // 화면이 자동 닉네임 알림을 띄운다
         verify(userProfileMapper).insert(any());
+        verify(userAgreementMapper).insert(any()); // 보완 9: 동의 시각 기록
         verify(socialAccountMapper).insert(eq(11L), eq("GOOGLE"), eq("google-sub-1"), eq("g.user@gmail.com"));
         // 1회용: 같은 번호로 다시 가입할 수 없다
         assertThatThrownBy(() -> authService.googleSignup(signupRequest(token, LocalDate.of(1999, 7, 21))))
