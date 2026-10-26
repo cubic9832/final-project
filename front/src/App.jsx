@@ -19,9 +19,11 @@ import FinancialResultPage from './features/financial/pages/result/FinancialResu
 import FinancialRecommendationsPage from './features/financial/pages/recommendations/FinancialRecommendationsPage';
 import AdminPage from './pages/admin/AdminPage';
 import MyPage from './pages/mypage/MyPage';
+import ProfilePage from './pages/mypage/ProfilePage';
 import NotFound from './pages/not-found/NotFound';
 import PredictPage from './pages/predict/PredictPage';
 import SignupPage from './pages/signup/SignupPage';
+import GoogleSignupPage from './pages/signup/GoogleSignupPage';
 import VehicleCatalogGate from './features/vehicle/components/VehicleCatalogGate';
 import { VehicleProvider } from './features/vehicle/VehicleContext';
 import { VehicleSearchPage } from './features/vehicle/pages/search/VehicleSearchPage';
@@ -50,12 +52,15 @@ function App() {
         <Route element={<GuestOnly />}>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          {/* 보완 8: 구글 첫 로그인 후 추가 정보 입력 */}
+          {/* 보완 8: 구글 첫 로그인 후 가입 마무리 (동의 · 생년월일 · 성별) */}
+          <Route path="/signup/google" element={<GoogleSignupPage />} />
         </Route>
         {/* 로그인이 필요한 화면 — 로그인 전이면 RequireAuth 가 /login 으로 보낸다 */}
         <Route element={<RequireAuth />}>
           <Route path="/taste-test" element={<TasteTestPage />} />
           <Route path="/mypage" element={<MyPage />} />
+          {/* 6단계: 개인정보 · 계정 관리 */}
+          <Route path="/mypage/profile" element={<ProfilePage />} />
         </Route>
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/financial" element={<FinancialPage />} />

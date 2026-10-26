@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- 회원 개인 정보(user_profiles 테이블, 보완 5). 테이블은 Flyway V8__create_user_profiles.sql 이 만든다 -->
+<!-- 회원 개인 정보(user_profiles 테이블, 보완 5). 테이블은 Flyway V8__create_user_profiles.sql 이 만든다 (6단계 칸은 V12) -->
 <mapper namespace="com.kh.back.member.mapper.UserProfileMapper">
 
     <select id="findByUserId" resultType="com.kh.back.member.dto.UserProfileDto">
-        SELECT user_id, phone, birth_date, gender
+        SELECT user_id, phone, birth_date, gender, driving_experience, purchase_timing
         FROM user_profiles
         WHERE user_id = #{userId}
     </select>
@@ -13,6 +13,18 @@
     <insert id="insert">
         INSERT INTO user_profiles (user_id, phone, birth_date, gender)
         VALUES (#{userId}, #{phone}, #{birthDate}, #{gender})
+    </insert>
+
+    <!-- 6단계: user_id 가 기본키라, 이미 있으면 ON DUPLICATE KEY UPDATE 로 바꾼다 -->
+    <insert id="upsert">
+        INSERT INTO user_profiles (user_id, phone, birth_date, gender, driving_experience, purchase_timing)
+        VALUES (#{userId}, #{phone}, #{birthDate}, #{gender}, #{drivingExperience}, #{purchaseTiming})
+        ON DUPLICATE KEY UPDATE
+            phone = VALUES(phone),
+            birth_date = VALUES(birth_date),
+            gender = VALUES(gender),
+            driving_experience = VALUES(driving_experience),
+            purchase_timing = VALUES(purchase_timing)
     </insert>
 
 </mapper>

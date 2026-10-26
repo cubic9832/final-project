@@ -2,6 +2,8 @@ package com.kh.back.auth.service;
 
 import com.kh.back.auth.dto.AuthTokens;
 import com.kh.back.auth.dto.EmailVerificationResponse;
+import com.kh.back.auth.dto.GoogleLoginResult;
+import com.kh.back.auth.dto.GoogleSignupRequest;
 import com.kh.back.auth.dto.LoginRequest;
 import com.kh.back.auth.dto.PasswordChangeRequest;
 import com.kh.back.auth.dto.PasswordResetRequest;
@@ -31,7 +33,9 @@ public interface AuthService {
     AuthTokens changePassword(Long userId, PasswordChangeRequest request);
 
     // 보완 8: 구글 로그인 — 연결된 회원이면 로그인, 처음이면 추가 정보 입력 필요
-    AuthTokens googleLogin(String idToken, boolean consent); // 10-22: 처음 온 사람은 consent 가 있으면 바로 가입
+    GoogleLoginResult googleLogin(String idToken); // 처음 온 사람이면 가입 대기 번호 → 구글 가입 화면
+
+    AuthTokens googleSignup(GoogleSignupRequest request); // 구글 가입 화면의 추가 정보로 가입 + 로그인
 
 
     AuthTokens login(LoginRequest request, String clientIp); // 보완 6: clientIp 는 reCAPTCHA 확인 요청에 함께 보낸다

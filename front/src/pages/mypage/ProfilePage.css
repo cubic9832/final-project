@@ -1,0 +1,752 @@
+/* 6단계: 개인정보 · 계정 관리 (/mypage/profile) — 카드 · 버튼 모양은 MyPage.css 를 함께 쓴다 */
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 12px 0 48px;
+  color: #152238;
+}
+
+.profile-heading h1 {
+  color: #12335b;
+  font-size: var(--font-page-title);
+}
+
+.profile-heading p {
+  margin-top: 8px;
+  color: #6d7988;
+  font-size: 14px;
+}
+
+.profile-notice {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #fff7e3;
+  color: #6b4a00;
+  font-size: 13px;
+}
+
+.profile-notice strong {
+  color: #5a3e00;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.profile-card {
+  padding: 24px;
+}
+
+.profile-card h2,
+.profile-section h2 {
+  color: #12335b;
+  font-size: 18px;
+}
+
+.profile-card-desc,
+.profile-section-head p {
+  margin-top: 4px;
+  color: #6d7988;
+  font-size: 12px;
+}
+
+/* 라벨 왼쪽 · 입력 오른쪽 한 줄 */
+.profile-field {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  margin-top: 14px;
+}
+
+.profile-field > label,
+.profile-label {
+  padding-top: 11px;
+  color: #44556b;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.profile-field small {
+  color: #8d9bb0;
+  font-weight: 400;
+}
+
+.profile-field input[type='text'],
+.profile-field input[type='tel'],
+.profile-field input:not([type]),
+.profile-field select {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #cbd9ec;
+  border-radius: 8px;
+  background: #fff;
+  color: #152238;
+  font: inherit;
+  font-size: 13px;
+}
+
+.profile-field input:disabled {
+  background: #f6f8fb;
+  color: #6d7988;
+}
+
+.profile-field .has-error {
+  border-color: #d14343 !important;
+}
+
+.profile-field input:focus-visible,
+.profile-field select:focus-visible,
+.profile-page button:focus-visible,
+.profile-page a:focus-visible {
+  outline: 2px solid #0c9b8e;
+  outline-offset: 2px;
+}
+
+/* 생년월일 (회원가입 BirthDateInput 그대로) */
+.profile-field .signup-birth-selects {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.profile-input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.profile-input-row input {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-dark-button {
+  flex: none;
+  min-width: 96px;
+  height: 42px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 8px;
+  background: #12335b;
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.profile-dark-button.is-large {
+  height: 44px;
+  padding: 0 24px;
+  font-size: 14px;
+}
+
+.profile-dark-button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.profile-hint,
+.profile-error,
+.profile-ok {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.profile-hint {
+  color: #6d7988;
+}
+
+.profile-error,
+.profile-save-error {
+  color: #d14343;
+}
+
+.profile-ok {
+  color: #0c766d;
+}
+
+.profile-text-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #1d5ea8;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.profile-age-error {
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fdecec;
+  color: #b42318;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.profile-age-error a {
+  color: #b42318;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* 성별 · 운전 경력 · 구매 예정 버튼 묶음 (회원가입 성별 버튼과 같은 모양) */
+.profile-choices {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr)); /* 4개 + 선택 안 함 */
+  gap: 8px;
+}
+
+.profile-choices.is-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.profile-choices label {
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-choices input {
+  position: absolute;
+  opacity: 0;
+}
+
+.profile-choices span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  border: 1px solid #cbd9ec;
+  border-radius: 8px;
+  color: #536780;
+  font-size: 13px;
+}
+
+.profile-choices input:checked + span {
+  border-color: #15365f;
+  background: #15365f;
+  color: #fff;
+  font-weight: 700;
+}
+
+.profile-choices input:focus-visible + span {
+  outline: 2px solid #09988f;
+  outline-offset: 2px;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.profile-save-error {
+  margin-right: auto;
+  font-size: 13px;
+}
+
+/* 로그인된 기기 · 계정 관리 */
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px;
+}
+
+.profile-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.profile-session-list,
+.profile-account-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.profile-session-list li,
+.profile-account-list li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid #dce3ec;
+}
+
+.profile-session-list li > div {
+  flex: 1;
+}
+
+.profile-session-list strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #12335b;
+  font-size: 14px;
+}
+
+.profile-session-list small,
+.profile-account-list small {
+  display: block;
+  margin-top: 2px;
+  color: #6d7988;
+  font-size: 12px;
+}
+
+.profile-current-badge {
+  padding: 2px 8px;
+  border-radius: 24px;
+  background: #eaf7f5;
+  color: #0c766d;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.profile-account-list li > strong {
+  width: 120px;
+  flex: none;
+  color: #12335b;
+  font-size: 13px;
+}
+
+.profile-account-list li > div {
+  flex: 1;
+  font-size: 14px;
+}
+
+.profile-withdraw {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 4px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #f6f8fb;
+  color: #6d7988;
+  font-size: 12px;
+}
+
+.profile-withdraw button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #6d7988;
+  font: inherit;
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.profile-withdraw button:hover {
+  color: #c0392b;
+}
+
+@media (max-width: 960px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 기본 정보 카드 안 "차량 구매 정보" (운전 경력 · 구매 예정) */
+.profile-subtitle {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #edf1f6;
+  color: #12335b;
+  font-size: 15px;
+}
+
+/* 계정 관리 > 로그인 방법 안의 로그인된 기기 */
+.profile-account-list li.profile-login-row {
+  align-items: flex-start;
+}
+
+.profile-session-box {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border: 1px solid #dce3ec;
+  border-radius: 12px;
+  background: #fbfcfe;
+}
+
+.profile-session-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: #12335b;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.profile-session-box .profile-session-list li {
+  padding: 10px 0;
+  border-top: 1px solid #edf1f6;
+}
+
+.profile-session-box .profile-session-list li:first-child {
+  margin-top: 8px;
+}
+
+.profile-small-button {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+/* 두 카드 높이를 맞추고, 저장 버튼은 오른쪽 카드 맨 아래 */
+.profile-grid {
+  align-items: stretch;
+}
+
+.profile-grid .profile-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-card .profile-actions {
+  margin-top: auto;
+  padding-top: 20px;
+  flex-wrap: wrap;
+}
+
+.profile-card .profile-save-error {
+  flex-basis: 100%;
+  margin-right: 0;
+  text-align: right;
+}
+
+/* 로그인된 기기: 한 줄로 촘촘하게 */
+.profile-session-box {
+  padding: 10px 14px;
+}
+
+.profile-session-box .profile-session-list li {
+  gap: 12px;
+  padding: 6px 0;
+}
+
+.profile-session-box .profile-session-list li > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+}
+
+.profile-session-box .profile-session-list strong {
+  font-size: 13px;
+}
+
+.profile-session-box .profile-session-list small {
+  margin-top: 0;
+}
+
+.profile-session-box .profile-small-button {
+  height: 30px;
+  padding: 0 12px;
+  font-size: 12px;
+}
+
+.profile-session-box .profile-hint {
+  margin-top: 4px;
+}
+
+.profile-account-list li.profile-login-row {
+  padding: 12px 0;
+}
+
+/* ===== 개인정보 수정: 한 상자 + 제목 줄 저장 버튼 ===== */
+.profile-edit {
+  padding: 22px 24px 26px;
+}
+
+.profile-edit-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #edf1f6;
+}
+
+.profile-edit-head h2 {
+  color: #12335b;
+  font-size: 20px;
+}
+
+.profile-edit-head p {
+  margin-top: 4px;
+  color: #6d7988;
+  font-size: 13px;
+}
+
+.profile-edit-head p strong {
+  color: #0c766d;
+}
+
+.profile-edit-head .profile-save-error {
+  margin: 4px 0 0;
+  text-align: left;
+}
+
+.profile-edit-buttons {
+  display: flex;
+  flex: none;
+  gap: 8px;
+}
+
+.profile-edit-buttons .profile-small-button {
+  height: 42px;
+}
+
+/* 상자 안 두 칸: 카드 테두리 없이 가운데 선으로 나눈다 */
+.profile-edit .profile-grid {
+  gap: 0;
+  margin-top: 4px;
+}
+
+.profile-column {
+  padding: 18px 28px 0 0;
+}
+
+.profile-column + .profile-column {
+  padding: 18px 0 0 28px;
+  border-left: 1px solid #edf1f6;
+}
+
+.profile-column-title {
+  color: #12335b;
+  font-size: 16px;
+}
+
+.profile-changed-dot {
+  margin-left: 4px;
+  color: #0c766d;
+  font-weight: 900;
+}
+
+/* ===== 계정 관리 > 로그인: 방법 + 로그인된 기기 칩 ===== */
+.profile-account-list li.profile-login-row {
+  align-items: flex-start;
+  padding: 14px 0;
+}
+
+.profile-login-row > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.profile-device-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.profile-device-chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 6px 0 12px;
+  border: 1px solid #dce3ec;
+  border-radius: 999px;
+  background: #f6f8fb;
+  color: #12335b;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.profile-device-chips li.is-current {
+  padding-right: 12px;
+  border-color: #b9e2d8;
+  background: #eaf7f5;
+}
+
+.profile-device-chips em {
+  color: #6d7988;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.profile-device-chips li.is-current em {
+  color: #0c766d;
+  font-weight: 700;
+}
+
+.profile-device-chips button {
+  width: 22px;
+  height: 22px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #6d7988;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.profile-device-chips button:hover:not(:disabled) {
+  background: #fdecec;
+  color: #c0392b;
+}
+
+.profile-device-chips li.profile-chip-more {
+  padding: 0;
+  border-style: dashed;
+  background: #fff;
+}
+
+.profile-device-chips li.profile-chip-more button {
+  width: auto;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: #1d5ea8;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 960px) {
+  .profile-column,
+  .profile-column + .profile-column {
+    padding: 18px 0 0;
+    border-left: 0;
+  }
+
+  .profile-edit-head {
+    flex-direction: column;
+  }
+}
+
+/* 로그인된 기기: 기기마다 한 줄 (이름 · 현재 기기 · 로그인/마지막 사용 시각 · [로그아웃]) */
+.profile-device-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.profile-device-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  padding: 4px 0;
+  font-size: 13px;
+}
+
+.profile-device-list strong {
+  color: #12335b;
+}
+
+.profile-device-list small {
+  color: #6d7988;
+  font-size: 12px;
+}
+
+.profile-device-list .profile-text-button {
+  font-size: 12px;
+}
+
+/* 계정 관리 목록(li · strong) 규칙이 안쪽 기기 목록에 같이 걸리지 않게 되돌린다 */
+.profile-account-list .profile-device-list li {
+  gap: 4px 10px;
+  padding: 3px 0;
+  border-top: 0;
+}
+
+.profile-account-list .profile-device-list li > strong {
+  width: auto;
+  flex: none;
+  font-size: 13px;
+}
+
+/* 로그인된 기기 칩 (최종): 기기 이름 · 시각 · [로그아웃] 글자 버튼, 현재 기기는 초록 테두리 */
+.profile-account-list .profile-device-chips li {
+  gap: 8px;
+  height: auto;
+  min-height: 34px;
+  padding: 6px 8px 6px 14px;
+  border: 1px solid #dce3ec;
+  border-radius: 999px;
+}
+
+.profile-account-list .profile-device-chips li.is-current {
+  padding-right: 14px;
+  border: 1px solid #7cc8b6;
+  background: #eaf7f5;
+}
+
+.profile-account-list .profile-device-chips li > strong {
+  width: auto;
+  flex: none;
+  color: #12335b;
+  font-size: 12px;
+}
+
+.profile-device-chips small {
+  margin-top: 0 !important;
+  color: #6d7988;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.profile-device-chips .profile-chip-current {
+  color: #0c766d;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.profile-device-chips li > button {
+  width: auto;
+  height: 24px;
+  padding: 0 10px;
+  border: 1px solid #dce3ec;
+  border-radius: 999px;
+  background: #fff;
+  color: #44556b;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.profile-device-chips li > button:hover:not(:disabled) {
+  border-color: #e6a29a;
+  background: #fdecec;
+  color: #c0392b;
+}
+
+/* 지금 위치 (취향 테스트 .taste-breadcrumb 과 같은 모양) — 예전 "← 마이페이지로" 링크를 바꿈 */
+.profile-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  color: var(--color-muted);
+  font-size: var(--font-caption);
+}
+
+.profile-breadcrumb a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
