@@ -5,6 +5,7 @@ import { refreshAccessToken } from './shared/api/tokenRefresh';
 import GuestOnly from './components/GuestOnly';
 import Layout from './components/Layout';
 import RequireAuth from './components/RequireAuth';
+import RequireAdmin from './components/RequireAdmin';
 import CompanyDetailPage from './features/company/pages/detail/CompanyDetailPage';
 import CompanyListPage from './features/company/pages/list/CompanyListPage';
 import AboutPage from './pages/about/AboutPage';
@@ -18,6 +19,7 @@ import FinancialReviewPage from './features/financial/pages/review/FinancialRevi
 import FinancialResultPage from './features/financial/pages/result/FinancialResultPage';
 import FinancialRecommendationsPage from './features/financial/pages/recommendations/FinancialRecommendationsPage';
 import AdminPage from './pages/admin/AdminPage';
+import AdminLoginPage from './pages/admin/login/AdminLoginPage';
 import MyPage from './pages/mypage/MyPage';
 import ProfilePage from './pages/mypage/ProfilePage';
 import NotFound from './pages/not-found/NotFound';
@@ -62,7 +64,11 @@ function App() {
           {/* 6단계: 개인정보 · 계정 관리 */}
           <Route path="/mypage/profile" element={<ProfilePage />} />
         </Route>
-        <Route path="/admin" element={<AdminPage />} />
+        {/* 7단계: 관리자 로그인은 누구나 열 수 있고(일반 회원이면 안내), 관리자 화면은 ADMIN 만 — 나머지는 RequireAdmin 이 돌려보낸다 */}
+        <Route path="/admin/login" element={<AdminLoginPage />} />
+        <Route element={<RequireAdmin />}>
+          <Route path="/admin" element={<AdminPage />} />
+        </Route>
         <Route path="/financial" element={<FinancialPage />} />
         <Route path="/financial/assets" element={<FinancialAssetsPage />} />
         <Route path="/financial/credit" element={<FinancialCreditPage />} />
