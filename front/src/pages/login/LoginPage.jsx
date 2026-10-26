@@ -50,7 +50,8 @@ export default function LoginPage() {
   // 저장해 둔 이메일이 있으면 처음부터 채워 둔다
   const [form, setForm] = useState(() => ({ email: readSavedEmail(), password: '' }));
   const [errors, setErrors] = useState({});
-  const [rememberEmail, setRememberEmail] = useState(true);
+  // 10-26: 저장된 이메일이 있을 때만 체크된 채로 시작한다 (예전: 항상 체크 → 풀어도 다음에 다시 체크돼 보였다)
+  const [rememberEmail, setRememberEmail] = useState(() => readSavedEmail() !== '');
   const [loginError, setLoginError] = useState(''); // 서버가 돌려준 실패 문구 (예: LOGIN_FAILED)
   const [submitting, setSubmitting] = useState(false); // 로그인 요청 중 (버튼 비활성, 중복 요청 방지)
   const [isResetOpen, setIsResetOpen] = useState(false); // 비밀번호 찾기 팝업 열림 여부
@@ -93,6 +94,12 @@ export default function LoginPage() {
     setForm((prev) => ({ ...prev, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: undefined }));
     setLoginError('');
+  }
+
+  // "이메일 저장" 체크를 풀면 저장해 둔 이메일도 바로 지운다 (로그인하지 않고 화면을 떠나도 다음에 남지 않게)
+  function handleRememberChange(event) {
+    setRememberEmail(event.target.checked);
+    if (!event.target.checked) writeSavedEmail('');
   }
 
   // 제출: 화면에서 먼저 검사하고, 통과하면 POST /api/v1/auth/login 을 부른다
@@ -194,7 +201,7 @@ export default function LoginPage() {
                   id="remember-email"
                   type="checkbox"
                   checked={rememberEmail}
-                  onChange={(event) => setRememberEmail(event.target.checked)}
+                  onChange={handleRememberChange}
                 />
                 이메일 저장
               </label>
