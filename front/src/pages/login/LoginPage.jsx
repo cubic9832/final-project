@@ -89,7 +89,8 @@ export default function LoginPage() {
       const agreed = consentRef.current.terms && consentRef.current.privacy;
       try {
         const { member, newMember } = await googleLogin(idToken, agreed);
-        navigate(location.state?.from ?? '/', { replace: true });
+        // 새로 가입했으면 첫 차 취향 테스트로 (조원 취향 테스트 흐름 — 예전 구글 추가 정보 화면에 있던 이동을 옮김)
+        navigate(newMember ? '/taste-test' : location.state?.from ?? '/', { replace: true });
         // 10-22: 새로 가입했으면 자동으로 정한 닉네임을 알려 준다 (토스트 — 누를 것 없이 잠깐 떴다 사라짐)
         if (newMember) {
           showToast(`가입되었습니다. 닉네임은 '${member.nickName}'(으)로 정해졌어요. 생년월일·성별은 마이페이지에서 입력할 수 있습니다.`);

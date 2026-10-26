@@ -20,6 +20,15 @@ const extraFields = [
 
 const steps = ['소득·지출', '자산·부채', '신용정보', '차량 조건', '확인'];
 
+// 화면 이동 확인용 초기값. 이전 단계에서 전달한 사용자 입력이 있으면 그 값을 우선한다.
+const initialState = {
+  values: { income: 500, housing: 50, fixed: 30, living: 70, loan: 0, savings: 50 },
+  assets: { deposit: 1500, downPayment: 500, emergency: 500 },
+  loans: [],
+  credit: { overdue: '연체 없음', overdueCount: '0', newLoans: '0', cards: '2', firstCredit: '2021-03' },
+  vehicle: { purchase: '신차만', body: '경차 · 소형 · 준중형', fuel: '가솔린 · 하이브리드', installment: '48개월', purpose: '출퇴근' },
+};
+
 export function FinancialProgress({ current = 1 }) {
   return (
     <div className="financial-progress">
@@ -40,7 +49,8 @@ export function FinancialProgress({ current = 1 }) {
 export default function FinancialPage() {
   const navigate = useNavigate();
   const location = useLocation();
-  const [values, setValues] = useState(location.state?.values ?? {});
+  const formState = location.state ?? initialState;
+  const [values, setValues] = useState(formState.values ?? initialState.values);
   const [expanded, setExpanded] = useState(
     extraFields.some(({ name }) => location.state?.values?.[name] !== undefined)
   );
@@ -52,7 +62,7 @@ export default function FinancialPage() {
   function handleSubmit(event) {
     event.preventDefault();
     if (!event.currentTarget.reportValidity()) return;
-    navigate(location.state?.reviewReturn ? '/financial/review' : '/financial/assets', { state: { ...location.state, values, reviewReturn: false } });
+    navigate(location.state?.reviewReturn ? '/financial/review' : '/financial/assets', { state: { ...formState, values, reviewReturn: false } });
   }
 
   function renderField({ name, label, required }) {
