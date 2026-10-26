@@ -38,7 +38,9 @@ export default function AccountManageModal({ socialOnly = false, onWithdraw, onC
       <section className="account-manage-section account-manage-danger" aria-labelledby="account-withdraw-title">
         <h3 id="account-withdraw-title">탈퇴 전 확인해 주세요</h3>
         <ul>
-          <li>회원 정보와 분석 기록·관심차량·구매계획이 모두 삭제됩니다.</li>
+          {/* 실제 탈퇴 동작(MemberServiceImpl.withdraw)과 맞춘 문구 */}
+          <li>회원 정보 · 개인정보 · 취향 테스트 결과 · 구매계획 · 관심차량(이 브라우저에 저장한 목록 포함)이 삭제됩니다.</li>
+          <li>재무 진단 기록은 회원과의 연결을 끊어, 누구의 기록인지 알 수 없는 상태로 남습니다.</li>
           <li>삭제한 데이터는 다시 복구할 수 없습니다.</li>
         </ul>
         <label className="account-manage-confirm">

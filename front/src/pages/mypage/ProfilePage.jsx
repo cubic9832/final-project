@@ -13,6 +13,7 @@ import {
 } from '../../features/auth/authApi';
 import { getMe, updateProfile, withdraw } from '../../features/auth/memberApi';
 import { checkNickNameWords } from '../../features/auth/nickNamePolicy';
+import { useVehicle } from '../../features/vehicle/useVehicle';
 import useAuthStore from '../../stores/useAuthStore';
 import { showToast } from '../../stores/useToastStore';
 import BirthDateInput from '../signup/BirthDateInput';
@@ -67,6 +68,7 @@ function ChangedDot({ on }) {
 
 export default function ProfilePage() {
   const navigate = useNavigate();
+  const { clearFavorites } = useVehicle();
   const [me, setMe] = useState(null);                   // 서버의 내 정보 (저장하면 새 값으로 바뀜)
   const [meStatus, setMeStatus] = useState('loading');  // 'loading' | 'done' | 'error'
   const [reloadKey, setReloadKey] = useState(0);
@@ -281,6 +283,7 @@ export default function ProfilePage() {
       return;
     }
     setModal(null);
+    clearFavorites(); // 이 브라우저에 저장된 관심차량 목록도 지운다 (탈퇴 안내 문구와 맞춤)
     navigate('/'); // 먼저 이동 — 로그인 정보가 지워지면 RequireAuth 가 로그인 화면으로 보내기 때문
     await logout();
     showToast('회원 탈퇴가 완료되었습니다. 그동안 이용해 주셔서 감사합니다.');

@@ -39,8 +39,13 @@ export function VehicleProvider({ children }) {
     setFavorites(next);
     try { localStorage.setItem('vehicle-favorites', JSON.stringify(next)); setStorageError(''); } catch { setStorageError('브라우저 저장 공간을 사용할 수 없어 이번 방문 중에만 저장됩니다.'); }
   }
+  // 회원 탈퇴 때 이 브라우저의 관심차량 목록도 지운다 (개인정보 · 계정 관리 화면의 탈퇴에서 호출)
+  function clearFavorites() {
+    setFavorites([]);
+    try { localStorage.removeItem('vehicle-favorites'); } catch { /* 저장 공간을 못 쓰면 지울 것도 없다 */ }
+  }
   function toggleComparison(id) {
     setSelection((current) => ({ ...current, comparison: current.comparison.includes(id) ? current.comparison.filter((item) => item !== id) : current.comparison.length < 3 ? [...current.comparison, id] : current.comparison }));
   }
-  return <VehicleContext.Provider value={{ vehicles, catalogStatus: catalog.status, catalogError: catalog.error, retryCatalog: () => { setCatalog({ status: 'loading', vehicles: [], error: '' }); setAttempt((value) => value + 1); }, conditions, setConditions, comparison, toggleComparison, favorites, toggleFavorite, storageError }}>{children}</VehicleContext.Provider>;
+  return <VehicleContext.Provider value={{ vehicles, catalogStatus: catalog.status, catalogError: catalog.error, retryCatalog: () => { setCatalog({ status: 'loading', vehicles: [], error: '' }); setAttempt((value) => value + 1); }, conditions, setConditions, comparison, toggleComparison, favorites, toggleFavorite, clearFavorites, storageError }}>{children}</VehicleContext.Provider>;
 }
