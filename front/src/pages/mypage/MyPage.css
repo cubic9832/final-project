@@ -550,3 +550,292 @@
 }
 .my-taste-link:hover { background: var(--color-background); }
 .my-taste-link:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+
+/* ===== 6단계: 마이페이지 정리 (요약 + 바로가기) ===== */
+/* 링크(Link)로 쓰는 버튼도 버튼처럼 가운데 정렬 */
+.my-outline-button,
+.my-plan-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.my-outline-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.my-inline-button {
+  width: auto;
+  border-color: #12335b;
+}
+
+.my-row-top {
+  display: grid;
+  grid-template-columns: minmax(300px, 380px) 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.my-row-three {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.my-card-fill,
+.my-insight-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+}
+
+.my-card-fill > .my-outline-button,
+.my-card-fill > .my-plan-button,
+.my-insight-actions {
+  margin-top: auto;
+}
+
+.my-insight-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.my-insight-head h2 {
+  color: #12335b;
+  font-size: 20px;
+}
+
+.my-insight-head p {
+  margin-top: 4px;
+  color: #6d7988;
+  font-size: 13px;
+}
+
+.my-finance-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.my-finance-grid div {
+  padding: 14px;
+  border: 1px solid #dce3ec;
+  border-radius: 12px;
+  background: #f6f8fb;
+}
+
+.my-finance-grid span {
+  display: block;
+  color: #6d7988;
+  font-size: 12px;
+}
+
+.my-finance-grid strong {
+  display: block;
+  margin-top: 6px;
+  color: #12335b;
+  font-size: 18px;
+}
+
+.my-finance-grid strong.is-good {
+  color: #0c766d;
+}
+
+.my-mini-history {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #dce3ec;
+}
+
+.my-mini-history li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #edf1f6;
+  font-size: 13px;
+}
+
+.my-mini-history span {
+  color: #6d7988;
+}
+
+.my-insight-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.my-login-badge {
+  padding: 6px 10px;
+  border: 1px solid #dce3ec;
+  border-radius: 999px;
+  background: #f6f8fb;
+  color: #44556b;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.my-profile-meta {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 6px 10px;
+  margin: 0;
+  font-size: 13px;
+}
+
+.my-profile-meta dt {
+  color: #6d7988;
+}
+
+.my-profile-meta dd {
+  margin: 0;
+  color: #152238;
+}
+
+.my-profile-meta dd.is-empty {
+  color: #b07a00;
+}
+
+.my-profile-alert {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #fff7e3;
+  color: #6b4a00;
+  font-size: 12px;
+}
+
+.my-profile-alert strong {
+  color: #5a3e00;
+  font-size: 13px;
+}
+
+.my-fav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.my-fav-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f6f8fb;
+  font-size: 13px;
+}
+
+.my-fav-line strong {
+  color: #12335b;
+}
+
+.my-fav-line span {
+  color: #0c766d;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.my-fav-line:hover {
+  background: #edf3fa;
+}
+
+.my-empty,
+.my-plan-note,
+.my-taste-how {
+  color: #6d7988;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.my-plan-note {
+  margin-top: auto;
+  color: #bfd0e1;
+}
+
+.my-taste-type {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px;
+  border-radius: 12px;
+  background: #12335b;
+  color: #fff;
+}
+
+.my-taste-type span {
+  color: #bfd0e1;
+  font-size: 12px;
+}
+
+.my-taste-type strong {
+  font-size: 20px;
+}
+
+.my-taste-type p {
+  color: #dce3ec;
+  font-size: 13px;
+}
+
+/* 카드별 불러오는 중 · 실패 (CardStatus.jsx) */
+.card-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  color: #6d7988;
+  font-size: 13px;
+}
+
+.card-status-error {
+  color: #d14343;
+}
+
+.card-spinner {
+  width: 32px;
+  height: 32px;
+  border: 4px solid #dce3ec;
+  border-top-color: #12335b;
+  border-radius: 50%;
+  animation: card-spin 0.8s linear infinite;
+}
+
+@keyframes card-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1024px) {
+  .my-row-top,
+  .my-row-three {
+    grid-template-columns: 1fr;
+  }
+
+  .my-finance-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.my-profile-badges {
+  flex-wrap: wrap;
+}
+
+.my-profile-badges span {
+  white-space: nowrap;
+}

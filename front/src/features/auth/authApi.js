@@ -89,3 +89,21 @@ export const logout = async () => {
     useAuthStore.getState().clearAuth();
   }
 };
+
+// 6단계: 로그인된 기기 — refresh 쿠키 경로(/api/v1/auth) 아래라 서버가 "지금 기기" 를 알아본다
+// 목록: [{ id, device, loggedInAt, lastUsedAt, current }]
+export const getSessions = async () => {
+  const res = await client.get('/auth/sessions');
+  return res.data.data;
+};
+
+// 기기 하나 로그아웃 (남의 기기면 403 SESSION_FORBIDDEN, 지금 기기면 400 CURRENT_SESSION)
+export const logoutSession = async (id) => {
+  await client.delete(`/auth/sessions/${id}`);
+};
+
+// 다른 기기 모두 로그아웃 — 로그아웃한 기기 수를 돌려준다
+export const logoutOtherSessions = async () => {
+  const res = await client.post('/auth/sessions/logout-others');
+  return res.data.data;
+};

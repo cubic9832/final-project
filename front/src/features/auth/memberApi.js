@@ -13,6 +13,13 @@ export const updateNickName = async (nickName) => {
   return res.data.data;
 };
 
+// 개인정보 수정 (6단계) — 바뀐 회원 정보를 돌려준다. 만 18세 미만 생년월일은 400 AGE_RESTRICTED (저장 안 됨)
+// 선택 항목(phone · drivingExperience · purchaseTiming): null = 그대로, '' = 지우기
+export const updateProfile = async ({ birthDate, gender, phone, drivingExperience, purchaseTiming }) => {
+  const res = await client.put('/members/me/profile', { birthDate, gender, phone, drivingExperience, purchaseTiming });
+  return res.data.data;
+};
+
 // 회원 탈퇴 (보완 4) — 비밀번호를 한 번 더 보내 확인. 틀리면 400 PASSWORD_MISMATCH
 // 보완 8: 구글로만 가입한 회원은 비밀번호 대신 confirmText("탈퇴")
 // DELETE 요청에 본문을 실을 때 axios 는 data 옵션을 쓴다

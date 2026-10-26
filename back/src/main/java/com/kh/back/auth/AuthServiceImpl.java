@@ -399,7 +399,8 @@ public class AuthServiceImpl implements AuthService {
         if (member == null) {
             throw refreshInvalid();
         }
-        return issueTokens(member);
+        // 6단계: 같은 기기의 로그인이 이어지는 것이라 처음 로그인 시각을 그대로 넘긴다 (V12 이전 행은 없음 → 지금)
+        return issueTokens(member, saved.getLoggedInAt());
     }
 
     @Override
@@ -412,14 +413,21 @@ public class AuthServiceImpl implements AuthService {
 
     // access token(JWT) 과 refresh token(무작위 문자열)을 함께 발급한다
     private AuthTokens issueTokens(MemberDto member) {
+        return issueTokens(member, null); // 새 로그인 = 처음 로그인 시각은 지금
+    }
+
+    private AuthTokens issueTokens(MemberDto member, LocalDateTime loggedInAt) {
         // 회원 번호와 역할을 담은 access token(JWT) 발급 (유효 시간: application.yml 의 jwt.access-token-validity)
         String accessToken = jwtProvider.createAccessToken(member.getId(), member.getRole());
 
         // refresh token 은 JWT 가 아니라 추측할 수 없는 무작위 값(UUID)이고, DB 에 저장해 두고 비교한다
+        LocalDateTime now = LocalDateTime.now();
         RefreshTokenDto refresh = new RefreshTokenDto();
         refresh.setUserId(member.getId());
         refresh.setToken(UUID.randomUUID().toString());
-        refresh.setExpiresAt(LocalDateTime.now().plus(jwtProvider.getRefreshTokenValidity()));
+        refresh.setExpiresAt(now.plus(jwtProvider.getRefreshTokenValidity()));
+        refresh.setDevice(ClientDevice.current());                       // 6단계: 로그인된 기기 목록에 보여 줄 이름
+        refresh.setLoggedInAt(loggedInAt == null ? now : loggedInAt);    // 6단계: 처음 로그인한 시각
         refreshTokenMapper.insert(refresh);
 
         return new AuthTokens(accessToken, refresh.getToken(), MemberResponse.from(member));

@@ -41,6 +41,8 @@ public class SecurityConfig {
                         // 10-22: 비밀번호 변경은 /auth 아래지만 로그인 필요 — 공개로 두면 토큰이 만료됐을 때 "만료" 대신
                         //        "로그인 필요"로 응답해 화면이 자동 재발급 없이 로그아웃했다 (위에서부터 검사하므로 permitAll 보다 먼저)
                         .requestMatchers(HttpMethod.POST, "/api/v1/auth/password").authenticated()
+                        // 6단계: 로그인된 기기 보기 · 로그아웃도 /auth 아래(쿠키 경로)지만 로그인 필요
+                        .requestMatchers("/api/v1/auth/sessions", "/api/v1/auth/sessions/**").authenticated()
                         .requestMatchers("/api/v1/auth/**").permitAll()                    // 회원가입 · 로그인
                         .requestMatchers(HttpMethod.GET, "/api/v1/vehicles/**").permitAll() // 차량 조회는 누구나 (비회원 차량 찾기)
                         .requestMatchers(HttpMethod.GET, "/api/v1/companies/**").permitAll() // 종목 조회 예제

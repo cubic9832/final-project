@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- refresh token (refresh_token 테이블). 테이블은 Flyway V6__create_refresh_token.sql 이 만든다 -->
+<!-- refresh token (refresh_token 테이블). 테이블은 Flyway V6__create_refresh_token.sql 이 만든다 (기기 칸은 V12) -->
 <mapper namespace="com.kh.back.auth.RefreshTokenMapper">
 
     <insert id="insert">
-        INSERT INTO refresh_token (user_id, token, expires_at)
-        VALUES (#{userId}, #{token}, #{expiresAt})
+        INSERT INTO refresh_token (user_id, token, expires_at, device, logged_in_at)
+        VALUES (#{userId}, #{token}, #{expiresAt}, #{device}, #{loggedInAt})
     </insert>
 
     <select id="findByToken" resultType="com.kh.back.auth.RefreshTokenDto">
-        SELECT id, user_id, token, expires_at
+        SELECT id, user_id, token, expires_at, device, logged_in_at, created_at
         FROM refresh_token
         WHERE token = #{token}
     </select>
@@ -27,6 +27,33 @@
 
     <delete id="deleteByToken">
         DELETE FROM refresh_token WHERE token = #{token}
+    </delete>
+
+    <!-- 6단계: 로그인된 기기 목록. V12 이전 행은 logged_in_at 이 없어 created_at 으로 대신한다 -->
+    <select id="findActiveByUserId" resultType="com.kh.back.auth.RefreshTokenDto">
+        SELECT id, user_id, token, expires_at, device,
+               COALESCE(logged_in_at, created_at) AS logged_in_at, created_at
+        FROM refresh_token
+        WHERE user_id = #{userId}
+          AND expires_at &gt; #{now}
+        ORDER BY created_at DESC
+    </select>
+
+    <select id="findById" resultType="com.kh.back.auth.RefreshTokenDto">
+        SELECT id, user_id, token, expires_at, device, logged_in_at, created_at
+        FROM refresh_token
+        WHERE id = #{id}
+    </select>
+
+    <delete id="deleteById">
+        DELETE FROM refresh_token WHERE id = #{id}
+    </delete>
+
+    <!-- 6단계: 다른 기기 모두 로그아웃 (지금 기기 토큰만 남김) -->
+    <delete id="deleteOthers">
+        DELETE FROM refresh_token
+        WHERE user_id = #{userId}
+          AND token &lt;&gt; #{keepToken}
     </delete>
 
 </mapper>

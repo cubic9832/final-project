@@ -4,6 +4,8 @@ import com.kh.back.auth.NickNamePolicy;
 import com.kh.back.auth.PasswordChangeLimiter;
 import com.kh.back.auth.RefreshTokenMapper;
 import com.kh.back.common.exception.ApiException;
+import java.time.LocalDate;
+import java.time.Period;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
@@ -14,6 +16,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService {
+
+    // 가입 · 입력 가능 나이 — 회원가입 AuthServiceImpl.MIN_SIGNUP_AGE · 화면 profileRules.js 와 같은 값 (운전면허 취득 가능 나이)
+    private static final int MIN_AGE = 18;
 
     private final MemberMapper memberMapper;
     private final UserProfileMapper userProfileMapper;
@@ -51,6 +56,50 @@ public class MemberServiceImpl implements MemberService {
             member.setNickName(nickName);
         }
         return MemberResponse.from(member, userProfileMapper.findByUserId(userId));
+    }
+
+    // 개인정보 수정 (6단계) — 개인정보 · 계정 관리 화면 [개인정보 저장]
+    // 구글로 가입한 회원은 user_profiles 행이 없을 수 있어 upsert(없으면 만들고 있으면 바꾸기)로 저장한다
+    @Override
+    @Transactional
+    public MemberResponse updateProfile(Long userId, ProfileUpdateRequest request) {
+        MemberDto member = findMember(userId);
+        UserProfileDto profile = userProfileMapper.findByUserId(userId);
+        if (profile == null) {
+            profile = new UserProfileDto();
+            profile.setUserId(userId);
+        }
+
+        // 생년월일 · 성별: 보내지 않으면 그대로
+        if (request.getBirthDate() != null) {
+            // 회원가입과 같은 만 18세 검사 (구글 가입은 "만 18세 이상" 동의만 받았으므로 여기서 처음 확인된다)
+            if (Period.between(request.getBirthDate(), LocalDate.now()).getYears() < MIN_AGE) {
+                throw new ApiException(HttpStatus.BAD_REQUEST, "AGE_RESTRICTED",
+                        "만 " + MIN_AGE + "세 이상만 입력할 수 있습니다. 생년월일을 다시 확인해 주세요.");
+            }
+            profile.setBirthDate(request.getBirthDate());
+        }
+        if (request.getGender() != null) {
+            profile.setGender(request.getGender());
+        }
+
+        // 선택 항목: null = 그대로, "" = 지우기, 값 = 바꾸기
+        if (request.getPhone() != null) {
+            profile.setPhone(request.getPhone().isBlank() ? null : request.getPhone().replace("-", "")); // 숫자만 저장
+        }
+        if (request.getDrivingExperience() != null) {
+            profile.setDrivingExperience(blankToNull(request.getDrivingExperience()));
+        }
+        if (request.getPurchaseTiming() != null) {
+            profile.setPurchaseTiming(blankToNull(request.getPurchaseTiming()));
+        }
+
+        userProfileMapper.upsert(profile);
+        return MemberResponse.from(member, profile);
+    }
+
+    private static String blankToNull(String value) {
+        return value.isBlank() ? null : value;
     }
 
     private ApiException nickNameDuplicated() {

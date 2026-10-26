@@ -21,6 +21,8 @@ public class MemberResponse {
     private final LocalDate birthDate;
     private final String gender;
     private final boolean socialOnly; // 보완 8: 구글로만 가입 (탈퇴 때 비밀번호 대신 "탈퇴" 입력)
+    private final String drivingExperience; // 6단계: 운전 경력 (선택, 없으면 null)
+    private final String purchaseTiming;    // 6단계: 구매 예정 시기 (선택, 없으면 null)
 
     public static MemberResponse from(MemberDto member) {
         return from(member, null);
@@ -32,7 +34,9 @@ public class MemberResponse {
                 profile == null ? null : maskPhone(profile.getPhone()),
                 profile == null ? null : profile.getBirthDate(),
                 profile == null ? null : profile.getGender(),
-                member.isSocialOnly());
+                member.isSocialOnly(),
+                profile == null ? null : profile.getDrivingExperience(),
+                profile == null ? null : profile.getPurchaseTiming());
     }
 
     // 01012345678 → 010-****-5678 (응답에 전체 번호를 싣지 않는다)
