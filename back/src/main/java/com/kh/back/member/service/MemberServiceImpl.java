@@ -131,6 +131,11 @@ public class MemberServiceImpl implements MemberService {
     @Transactional(noRollbackFor = ApiException.class)
     public void withdraw(Long userId, String password, String confirmText) {
         MemberDto member = findMember(userId);
+        // 7단계: 총관리자가 탈퇴하면 관리자 권한을 줄 사람이 없어진다 → 막는다 (총관리자를 바꾸려면 DB 에서 먼저 다른 회원을 지정)
+        if ("SUPER_ADMIN".equals(member.getRole())) {
+            throw new ApiException(HttpStatus.FORBIDDEN, "SUPER_ADMIN_WITHDRAW",
+                    "총관리자는 탈퇴할 수 없습니다. 다른 총관리자를 먼저 지정해 주세요.");
+        }
 
         if (member.isSocialOnly()) {
             // 보완 8: 구글로만 가입한 회원은 비밀번호가 없다 → "탈퇴" 를 직접 입력했는지로 확인

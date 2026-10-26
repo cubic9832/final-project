@@ -532,8 +532,15 @@ export default function ProfilePage() {
           </li>
         </ul>
         <div className="profile-withdraw" id="profile-withdraw">
-          <span>탈퇴하면 개인 정보 · 취향 결과가 모두 삭제되며 되돌릴 수 없습니다.</span>
-          <button type="button" onClick={() => setModal('account')}>회원 탈퇴</button>
+          {me.role === 'SUPER_ADMIN' ? (
+            // 7단계: 총관리자는 탈퇴할 수 없다 (관리자 권한을 줄 사람이 없어지므로 — 서버도 403 SUPER_ADMIN_WITHDRAW)
+            <span>총관리자는 탈퇴할 수 없습니다. 다른 총관리자를 먼저 지정해 주세요.</span>
+          ) : (
+            <>
+              <span>탈퇴하면 개인 정보 · 취향 결과가 모두 삭제되며 되돌릴 수 없습니다.</span>
+              <button type="button" onClick={() => setModal('account')}>회원 탈퇴</button>
+            </>
+          )}
         </div>
       </section>
 
