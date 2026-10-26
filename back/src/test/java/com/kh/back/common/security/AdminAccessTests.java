@@ -42,4 +42,16 @@ class AdminAccessTests {
         mvc.perform(get(ADMIN_URL))
                 .andExpect(status().isUnauthorized());
     }
+
+    @Test
+    void 관리자는_회원_현황을_볼_수_있다() throws Exception {
+        String token = jwtProvider.createAccessToken(1L, "ADMIN");
+        mvc.perform(get("/api/v1/admin/members/summary").header("Authorization", "Bearer " + token))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.data.daily.length()").value(7))
+                .andExpect(jsonPath("$.data.ageBands[5].label").value("미입력"));
+        mvc.perform(get("/api/v1/admin/members?size=5").header("Authorization", "Bearer " + token))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.meta.size").value(5));
+    }
 }
