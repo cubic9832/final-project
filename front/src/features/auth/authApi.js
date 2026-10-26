@@ -60,13 +60,22 @@ export const changePassword = async ({ currentPassword, newPassword }) => {
   useAuthStore.getState().setAuth(res.data.data);
 };
 
-// 보완 8: 구글 로그인 — 연결된 회원 · 동의한 처음 온 사람이면 로그인 처리 후 { member, newMember } 를 돌려준다
-// consent: 로그인 화면의 동의 체크(만 18세 이상 · 약관 · 개인정보)를 모두 했는지. 처음 온 사람인데 false 면 400 SIGNUP_CONSENT_REQUIRED
-// (10-22: 추가 정보 화면을 없애고 한 번에 가입 — 닉네임은 구글 이름, 생년월일 · 성별은 마이페이지에서)
-export const googleLogin = async (idToken, consent) => {
-  const res = await client.post('/auth/google', { idToken, consent });
+// 보완 8: 구글 로그인 — 연결된 회원이면 로그인 처리 후 { member }, 처음 온 사람이면 { signup: { signupToken, email, name } }
+export const googleLogin = async (idToken) => {
+  const res = await client.post('/auth/google', { idToken });
+  const data = res.data.data;
+  if (data.accessToken) {
+    useAuthStore.getState().setAuth(data);
+    return { member: data.member };
+  }
+  return { signup: data }; // 아직 가입 전 → 구글 가입 화면(/signup/google)으로
+};
+
+// 보완 8: 구글 가입 화면의 추가 정보로 가입 — 가입과 동시에 로그인된다. 자동으로 정한 닉네임이 담긴 회원 정보를 돌려준다
+export const googleSignup = async ({ signupToken, phone, birthDate, gender, consent }) => {
+  const res = await client.post('/auth/google/signup', { signupToken, phone, birthDate, gender, consent });
   useAuthStore.getState().setAuth(res.data.data);
-  return { member: res.data.data.member, newMember: res.data.data.newMember }; // newMember: 방금 새로 가입했는지
+  return res.data.data.member;
 };
 
 // 로그인 — 응답의 access token · 회원 정보를 스토어에 넣고, 회원 정보를 돌려준다

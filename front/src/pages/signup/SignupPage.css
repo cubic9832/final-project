@@ -366,6 +366,13 @@
   text-decoration: underline;
 }
 
+/* 구글 가입: [보기] 두 개를 오른쪽에 붙여 둔다 */
+.signup-term-links {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 12px;
+}
+
 .signup-notice:not(:empty) {
   margin-top: 16px;
   color: #078579;

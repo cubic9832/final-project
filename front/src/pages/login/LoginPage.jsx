@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Car } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { googleLogin, login } from '../../features/auth/authApi';
@@ -6,16 +6,8 @@ import PasswordInput from '../../features/auth/components/PasswordInput';
 import PasswordResetModal from './PasswordResetModal';
 import RecaptchaBox from './RecaptchaBox';
 import GoogleLoginButton from './GoogleLoginButton';
-import TermsModal from '../signup/TermsModal';
-import { showToast } from '../../stores/useToastStore';
 import theme from '../../styles/theme';
 import './LoginPage.css';
-
-// 구글 가입 동의 [보기] 에 쓰는 약관 (회원가입 화면과 같은 내용)
-const GOOGLE_TERMS = {
-  service: { id: 'service', title: '서비스 이용약관', required: true },
-  privacy: { id: 'privacy', title: '개인정보 수집·이용 동의', required: true },
-};
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // "이메일 저장"을 체크하고 로그인하면 이메일만 브라우저에 저장한다 (비밀번호 · 토큰은 저장하지 않는다)
@@ -60,12 +52,6 @@ export default function LoginPage() {
   const [errors, setErrors] = useState({});
   const [rememberEmail, setRememberEmail] = useState(true);
   const [loginError, setLoginError] = useState(''); // 서버가 돌려준 실패 문구 (예: LOGIN_FAILED)
-  // 10-22: 구글로 처음 가입할 때의 동의 (만 18세 이상 · 이용약관 / 개인정보 수집·이용). 둘 다 체크해야 가입된다
-  const [consent, setConsent] = useState({ terms: false, privacy: false });
-  const [consentError, setConsentError] = useState(false);
-  const [openTerm, setOpenTerm] = useState(null); // [보기] 로 연 약관
-  // 구글 버튼은 처음 그릴 때 받은 함수를 계속 쓰므로, 최신 체크 상태는 ref 에도 같이 넣어 둔다 (updateConsent)
-  const consentRef = useRef(consent);
   const [submitting, setSubmitting] = useState(false); // 로그인 요청 중 (버튼 비활성, 중복 요청 방지)
   const [isResetOpen, setIsResetOpen] = useState(false); // 비밀번호 찾기 팝업 열림 여부
   // 보완 6: 서버가 CAPTCHA_REQUIRED 를 돌려주면 reCAPTCHA 체크박스를 보여 준다
@@ -82,39 +68,24 @@ export default function LoginPage() {
     }
   }, []);
 
-  // 보완 8: 구글 계정을 고르면 서버에 확인 → 연결된 회원 · 동의한 처음 온 사람이면 로그인 (10-22: 추가 정보 화면 없음)
+  // 보완 8: 구글 계정을 고르면 서버에 확인 → 연결된 회원이면 로그인, 처음 온 사람이면 구글 가입 화면으로
+  // (동의 · 생년월일 · 성별은 그 화면에서 받는다)
   const handleGoogleCredential = useCallback(
     async (idToken) => {
       setLoginError('');
-      const agreed = consentRef.current.terms && consentRef.current.privacy;
       try {
-        const { member, newMember } = await googleLogin(idToken, agreed);
-        // 새로 가입했으면 첫 차 취향 테스트로 (조원 취향 테스트 흐름 — 예전 구글 추가 정보 화면에 있던 이동을 옮김)
-        navigate(newMember ? '/taste-test' : location.state?.from ?? '/', { replace: true });
-        // 10-22: 새로 가입했으면 자동으로 정한 닉네임을 알려 준다 (토스트 — 누를 것 없이 잠깐 떴다 사라짐)
-        if (newMember) {
-          showToast(`가입되었습니다. 닉네임은 '${member.nickName}'(으)로 정해졌어요. 생년월일·성별은 마이페이지에서 입력할 수 있습니다.`);
+        const { signup } = await googleLogin(idToken);
+        if (signup) {
+          navigate('/signup/google', { state: signup });
+          return;
         }
+        navigate(location.state?.from ?? '/', { replace: true });
       } catch (error) {
-        const { code, message } = error.response?.data?.error ?? {};
-        if (code === 'SIGNUP_CONSENT_REQUIRED') setConsentError(true); // 처음 온 사람 → 동의 칸을 빨갛게
-        setLoginError(message ?? '구글 로그인에 실패했습니다. 잠시 후 다시 시도해 주세요.');
+        setLoginError(error.response?.data?.error?.message ?? '구글 로그인에 실패했습니다. 잠시 후 다시 시도해 주세요.');
       }
     },
     [navigate, location.state],
   );
-
-  // 체크 상태를 화면(state)과 구글 버튼용 ref 에 함께 저장한다
-  function updateConsent(name, checked) {
-    const next = { ...consentRef.current, [name]: checked };
-    consentRef.current = next;
-    setConsent(next);
-    setConsentError(false);
-  }
-
-  function handleConsentChange(event) {
-    updateConsent(event.target.name, event.target.checked);
-  }
 
   // 입력할 때마다 값을 저장하고, 그 칸의 오류와 실패 문구는 지운다
   function handleChange(event) {
@@ -254,21 +225,6 @@ export default function LoginPage() {
             <span>또는</span>
           </div>
           <GoogleLoginButton onCredential={handleGoogleCredential} />
-          {/* 10-22: 구글로 처음 가입할 때만 필요한 동의. 이미 가입한 회원은 체크하지 않아도 로그인된다 */}
-          <fieldset className={consentError ? 'login-google-consent has-error' : 'login-google-consent'}>
-            <legend>구글로 처음 가입하는 경우</legend>
-            <label>
-              <input type="checkbox" name="terms" checked={consent.terms} onChange={handleConsentChange} />
-              <span>[필수] 만 18세 이상이며 서비스 이용약관에 동의합니다.</span>
-              <button type="button" className="login-text-button" onClick={() => setOpenTerm(GOOGLE_TERMS.service)}>보기</button>
-            </label>
-            <label>
-              <input type="checkbox" name="privacy" checked={consent.privacy} onChange={handleConsentChange} />
-              <span>[필수] 개인정보 수집·이용에 동의합니다.</span>
-              <button type="button" className="login-text-button" onClick={() => setOpenTerm(GOOGLE_TERMS.privacy)}>보기</button>
-            </label>
-            <p>닉네임은 구글 이름으로 정해지고, 생년월일 · 성별은 가입 후 마이페이지에서 입력할 수 있습니다.</p>
-          </fieldset>
 
           <p className="login-signup login-card-footer">
             처음이신가요?{' '}
@@ -316,19 +272,6 @@ export default function LoginPage() {
       {/* 비밀번호 찾기 팝업. 로그인 칸에 적은 이메일을 미리 채워 준다 */}
       {isResetOpen && (
         <PasswordResetModal initialEmail={form.email} onClose={() => setIsResetOpen(false)} />
-      )}
-
-      {/* 10-22: 구글 가입 동의 [보기] — [동의하기] 를 누르면 그 항목을 체크한다 */}
-      {openTerm && (
-        <TermsModal
-          term={openTerm}
-          agreed={consent[openTerm.id === 'service' ? 'terms' : 'privacy']}
-          onAgree={() => {
-            updateConsent(openTerm.id === 'service' ? 'terms' : 'privacy', true);
-            setOpenTerm(null);
-          }}
-          onClose={() => setOpenTerm(null)}
-        />
       )}
     </div>
   );
