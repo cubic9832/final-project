@@ -12,6 +12,11 @@ export const getAdminMembers = async ({ keyword, role, page, size = 10 }, signal
   return { members: res.data.data, meta: res.data.meta };
 };
 
+// 총관리자만: 회원 권한 바꾸기 (ADMIN = 관리자로 지정, USER = 관리자 해제). 바뀐 회원은 다시 로그인해야 적용된다
+export const changeMemberRole = async (id, role) => {
+  await client.patch(`/admin/members/${id}/role`, { role });
+};
+
 // 회원 현황 → { total, admins, newLast7Days, google, daily: [{ date, count }], ageBands, genders }
 export const getMemberSummary = async (signal) => {
   const res = await client.get('/admin/members/summary', { signal });

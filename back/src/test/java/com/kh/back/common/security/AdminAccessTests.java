@@ -1,6 +1,7 @@
 package com.kh.back.common.security;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -53,5 +54,25 @@ class AdminAccessTests {
         mvc.perform(get("/api/v1/admin/members?size=5").header("Authorization", "Bearer " + token))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.meta.size").value(5));
+    }
+
+    // 권한 바꾸기는 총관리자만: 일반 관리자 403, 총관리자는 보안을 통과해 서비스까지 간다 (없는 회원이라 404)
+    @Test
+    void 권한_바꾸기는_총관리자만() throws Exception {
+        String body = "{\"role\":\"ADMIN\"}";
+        mvc.perform(patch("/api/v1/admin/members/999999/role").contentType("application/json").content(body)
+                        .header("Authorization", "Bearer " + jwtProvider.createAccessToken(1L, "ADMIN")))
+                .andExpect(status().isForbidden());
+        mvc.perform(patch("/api/v1/admin/members/999999/role").contentType("application/json").content(body)
+                        .header("Authorization", "Bearer " + jwtProvider.createAccessToken(1L, "SUPER_ADMIN")))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.error.code").value("MEMBER_NOT_FOUND"));
+    }
+
+    @Test
+    void 총관리자도_관리자_화면_API를_쓴다() throws Exception {
+        mvc.perform(get("/api/v1/admin/members/summary")
+                        .header("Authorization", "Bearer " + jwtProvider.createAccessToken(1L, "SUPER_ADMIN")))
+                .andExpect(status().isOk());
     }
 }

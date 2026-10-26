@@ -1,10 +1,11 @@
 // 7단계: 관리자 로그인 (/admin/login)
-// 일반 로그인과 같은 POST /api/v1/auth/login 을 쓰고, 로그인한 회원의 role 이 ADMIN 이 아니면
+// 일반 로그인과 같은 POST /api/v1/auth/login 을 쓰고, 로그인한 회원이 관리자 · 총관리자가 아니면
 // 바로 로그아웃시키고 "관리자 계정이 아닙니다" 를 보여 준다. 관리자 계정은 DB 에서 role 을 ADMIN 으로 바꿔 만든다.
 // 화면 모양은 일반 로그인 화면(LoginPage.css)을 그대로 쓰고 카드 하나만 둔다 (회의: 기존 UI 유지)
 import { useCallback, useState } from 'react';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { login, logout } from '../../../features/auth/authApi';
+import { isAdminRole } from '../../../features/auth/roles';
 import PasswordInput from '../../../features/auth/components/PasswordInput';
 import useAuthStore from '../../../stores/useAuthStore';
 import RecaptchaBox from '../../login/RecaptchaBox';
@@ -43,7 +44,7 @@ export default function AdminLoginPage() {
   }, []);
 
   // 이미 관리자로 로그인했으면 바로 관리자 화면으로
-  if (initialized && member?.role === 'ADMIN') {
+  if (initialized && isAdminRole(member?.role)) {
     return <Navigate to={location.state?.from ?? '/admin'} replace />;
   }
 
@@ -71,7 +72,7 @@ export default function AdminLoginPage() {
         password: form.password,
         recaptchaToken: captchaToken || undefined,
       });
-      if (loggedIn.role !== 'ADMIN') {
+      if (!isAdminRole(loggedIn.role)) {
         await logout();
         setLoginError('관리자 계정이 아닙니다. 일반 회원은 일반 로그인 화면을 이용해 주세요.');
         setForm((prev) => ({ ...prev, password: '' }));
@@ -106,7 +107,7 @@ export default function AdminLoginPage() {
 
       <section className="login-form-card" aria-labelledby="admin-login-title">
         <h2 id="admin-login-title">관리자 계정</h2>
-        {member && member.role !== 'ADMIN' ? (
+        {member && !isAdminRole(member.role) ? (
           // 일반 회원으로 로그인된 채 들어온 경우 — 관리자 계정으로 로그인하면 그 계정으로 바뀐다
           <p className="login-subtitle">
             지금 일반 회원({member.nickName})으로 로그인되어 있습니다. 관리자 계정으로 로그인하면 바뀝니다.

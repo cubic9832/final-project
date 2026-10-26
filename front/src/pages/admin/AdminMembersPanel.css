@@ -104,3 +104,36 @@
   opacity: 0.4;
   cursor: default;
 }
+
+/* 총관리자: 관리자 권한 주기 · 빼기 */
+.admin-member-role {
+  margin-top: var(--space-16);
+  padding: var(--space-16);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-background);
+  font-size: var(--font-caption);
+}
+
+.admin-member-role p {
+  margin-bottom: var(--space-12);
+  color: var(--color-text-sub);
+}
+
+.admin-member-role-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-8);
+}
+
+.admin-member-role-buttons > span {
+  flex: 1;
+  color: var(--color-muted);
+}
+
+.admin-member-role-error {
+  margin-top: var(--space-8);
+  color: var(--color-danger);
+}

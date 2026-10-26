@@ -6,13 +6,16 @@ import com.kh.back.admin.dto.AdminMemberSummary.DailyCount;
 import com.kh.back.admin.dto.AdminMemberSummary.GroupCount;
 import com.kh.back.admin.dto.GroupCountRow;
 import com.kh.back.admin.mapper.AdminMemberMapper;
+import com.kh.back.auth.mapper.RefreshTokenMapper;
 import com.kh.back.auth.service.LoginAttemptLimiter;
+import com.kh.back.common.exception.ApiException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,6 +30,7 @@ public class AdminMemberServiceImpl implements AdminMemberService {
 
     private final AdminMemberMapper adminMemberMapper;
     private final LoginAttemptLimiter loginAttemptLimiter; // 보완 6: 로그인 5번 실패 잠금 (서버 메모리)
+    private final RefreshTokenMapper refreshTokenMapper;
 
     @Override
     @Transactional(readOnly = true)
@@ -65,6 +69,30 @@ public class AdminMemberServiceImpl implements AdminMemberService {
                 daily,
                 ordered(AGE_BANDS, toMap(adminMemberMapper.countAgeBands())),
                 ordered(GENDERS, toMap(adminMemberMapper.countGenders())));
+    }
+
+    // 7단계: 관리자 권한 주기 · 빼기 (총관리자만 — SecurityConfig 에서 SUPER_ADMIN 만 이 주소를 통과시킨다)
+    // 규칙: 자기 자신은 못 바꾼다(실수로 총관리자가 사라지지 않게), 총관리자는 못 바꾼다(DB 에서만)
+    // 바꾼 뒤에는 그 회원의 로그인된 기기를 모두 로그아웃시킨다 → 다시 로그인하면 새 권한이 토큰에 들어간다
+    //   (이미 받은 access token 은 최대 30분 그대로 — 5단계와 같은 한계)
+    @Override
+    @Transactional
+    public void changeRole(Long actorId, Long targetId, String role) {
+        if (actorId.equals(targetId)) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "SELF_ROLE_CHANGE", "자기 자신의 권한은 바꿀 수 없습니다.");
+        }
+        String current = adminMemberMapper.findRole(targetId);
+        if (current == null) {
+            throw new ApiException(HttpStatus.NOT_FOUND, "MEMBER_NOT_FOUND", "회원을 찾을 수 없습니다.");
+        }
+        if ("SUPER_ADMIN".equals(current)) {
+            throw new ApiException(HttpStatus.FORBIDDEN, "SUPER_ADMIN_PROTECTED", "총관리자의 권한은 바꿀 수 없습니다.");
+        }
+        if (current.equals(role)) {
+            return; // 이미 그 권한이면 아무것도 하지 않는다
+        }
+        adminMemberMapper.updateRole(targetId, role);
+        refreshTokenMapper.deleteByUserId(targetId);
     }
 
     private static Map<String, Integer> toMap(List<GroupCountRow> rows) {

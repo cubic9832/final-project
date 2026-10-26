@@ -7,7 +7,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-// 7단계: 관리자 회원 관리 · 회원 현황 SQL (읽기만 한다)
+// 7단계: 관리자 회원 관리 · 회원 현황 SQL (권한 바꾸기 updateRole 말고는 읽기만 한다)
 @Mapper
 public interface AdminMemberMapper {
 
@@ -17,7 +17,11 @@ public interface AdminMemberMapper {
 
     int countMembers(@Param("keyword") String keyword, @Param("role") String role);
 
-    int countAdmins();
+    int countAdmins(); // 관리자 + 총관리자
+
+    String findRole(Long id);
+
+    int updateRole(@Param("id") Long id, @Param("role") String role);
 
     int countJoinedSince(LocalDateTime since);
 

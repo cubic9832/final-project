@@ -1,10 +1,14 @@
 // 7단계: 관리자 대시보드 — 회원 관리 탭 (실제 데이터)
 // 위: 회원 현황 (전체 · 최근 7일 가입 · 구글 · 관리자, 7일 가입 추이, 나이대 · 성별)
-// 아래: 회원 목록 (검색 · 권한 · 페이지) + 상세. 이메일은 서버가 가려서 보낸다. 권한 변경 · 잠금 해제는 아직 없음
+// 아래: 회원 목록 (검색 · 권한 · 페이지) + 상세. 이메일은 서버가 가려서 보낸다.
+// 총관리자(SUPER_ADMIN)만 상세에서 관리자 권한을 주고 뺄 수 있다. 잠금 해제는 아직 없음
 import { useEffect, useState } from 'react';
 import { Search, ShieldCheck, X } from 'lucide-react';
 import theme from '../../styles/theme';
-import { getAdminMembers, getMemberSummary } from '../../features/admin/adminApi';
+import { changeMemberRole, getAdminMembers, getMemberSummary } from '../../features/admin/adminApi';
+import { ROLE_LABELS } from '../../features/auth/roles';
+import useAuthStore from '../../stores/useAuthStore';
+import { showToast } from '../../stores/useToastStore';
 import './AdminMembersPanel.css';
 
 const PAGE_SIZE = 10;
@@ -20,16 +24,19 @@ const formatDateTime = (value) => (value ? `${value.slice(5, 10).replace('-', '.
 const errorMessage = (error, fallback) => error.response?.data?.error?.message ?? fallback;
 
 export default function AdminMembersPanel() {
+  // 권한을 바꾸면 현황(관리자 수)과 목록을 함께 다시 불러오도록 version 을 올린다
+  const [version, setVersion] = useState(0);
+  const refresh = () => setVersion((value) => value + 1);
   return (
     <div className="admin-panel-stack">
-      <MemberSummary />
-      <MemberList />
+      <MemberSummary version={version} />
+      <MemberList version={version} onChanged={refresh} />
     </div>
   );
 }
 
 // ① 회원 현황 — 화면이 열릴 때 한 번 불러온다 ([다시 시도] 로 다시)
-function MemberSummary() {
+function MemberSummary({ version }) {
   const [state, setState] = useState({ status: 'loading', data: null, error: '' });
   const [reloadKey, setReloadKey] = useState(0);
 
@@ -43,7 +50,7 @@ function MemberSummary() {
         }
       });
     return () => controller.abort(); // 화면을 떠나면 응답을 버린다
-  }, [reloadKey]);
+  }, [reloadKey, version]);
 
   function retry() {
     setState({ status: 'loading', data: null, error: '' });
@@ -71,7 +78,7 @@ function MemberSummary() {
         <div className="admin-stat"><span>전체 회원</span><strong>{summary.total}명</strong><small>관리자 {summary.admins}명 포함</small></div>
         <div className="admin-stat"><span>최근 7일 가입</span><strong>{summary.newLast7Days}명</strong><small>오늘 포함 7일</small></div>
         <div className="admin-stat"><span>구글 로그인</span><strong>{summary.google}명</strong><small>구글 전용 + 연결</small></div>
-        <div className="admin-stat"><span>관리자</span><strong>{summary.admins}명</strong><small>DB 에서 role 지정</small></div>
+        <div className="admin-stat"><span>관리자</span><strong>{summary.admins}명</strong><small>총관리자 포함 · 총관리자가 지정</small></div>
       </section>
 
       <div className="admin-grid-2">
@@ -123,7 +130,7 @@ function GroupBars({ title, groups, total }) {
 }
 
 // ② 회원 목록 — 검색어는 [검색] 을 눌렀을 때, 권한 · 페이지는 바꾸는 즉시 다시 불러온다
-function MemberList() {
+function MemberList({ version, onChanged }) {
   const [draft, setDraft] = useState(''); // 입력 중인 검색어
   const [query, setQuery] = useState({ keyword: '', role: '', page: 1 }); // 실제로 요청한 조건
   const [state, setState] = useState({ status: 'loading', members: [], meta: null, error: '' });
@@ -140,7 +147,7 @@ function MemberList() {
         }
       });
     return () => controller.abort();
-  }, [query, reloadKey]);
+  }, [query, reloadKey, version]);
 
   // 조건이 바뀌면 불러오는 중으로 바꾸고 상세는 닫는다
   function changeQuery(next) {
@@ -222,7 +229,7 @@ function MemberList() {
                     <td><strong>{member.nickName}</strong><small>{member.emailMasked}</small></td>
                     <td>{formatDate(member.joinedAt)}</td>
                     <td>{LOGIN_METHODS[member.loginMethod]}</td>
-                    <td>{member.role === 'ADMIN' ? '관리자' : '일반 회원'}</td>
+                    <td>{ROLE_LABELS[member.role] ?? member.role}</td>
                     <td>
                       <span className={`admin-status ${member.lockedMinutes > 0 ? 'is-check' : 'is-ok'}`}>
                         {member.lockedMinutes > 0 ? `로그인 잠금 ${member.lockedMinutes}분` : '정상'}
@@ -266,7 +273,7 @@ function MemberList() {
             <div><dt>이메일</dt><dd>{selected.emailMasked}</dd></div>
             <div><dt>가입일</dt><dd>{formatDate(selected.joinedAt)}</dd></div>
             <div><dt>로그인 방법</dt><dd>{LOGIN_METHODS[selected.loginMethod]}</dd></div>
-            <div><dt>권한</dt><dd>{selected.role === 'ADMIN' ? '관리자' : '일반 회원'}</dd></div>
+            <div><dt>권한</dt><dd>{ROLE_LABELS[selected.role] ?? selected.role}</dd></div>
             <div><dt>나이대 · 성별</dt><dd>{selected.ageBand ?? '미입력'} · {GENDER_LABELS[selected.gender] ?? '미입력'}</dd></div>
             <div>
               <dt>로그인된 기기</dt>
@@ -274,12 +281,73 @@ function MemberList() {
             </div>
             <div><dt>로그인 잠금</dt><dd>{selected.lockedMinutes > 0 ? `${selected.lockedMinutes}분 남음 (5번 실패)` : '잠금 없음'}</dd></div>
           </dl>
-          <div className="admin-inline-note">
-            <ShieldCheck size={theme.iconSize.sm} aria-hidden="true" />
-            <span>권한 변경 · 로그인 잠금 해제는 아직 화면에서 할 수 없습니다. 권한은 DB 에서 바꿉니다.</span>
-          </div>
+          <RoleActions member={selected} onChanged={onChanged} />
         </section>
       )}
     </>
+  );
+}
+
+// 상세 아래 권한 영역 — 총관리자에게만 [관리자로 지정] / [관리자 해제] 버튼, 누르면 한 번 더 확인한다
+// 자기 자신 · 총관리자는 바꿀 수 없다 (서버도 같은 규칙으로 막는다)
+function RoleActions({ member, onChanged }) {
+  const me = useAuthStore((state) => state.member);
+  const [confirming, setConfirming] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState('');
+
+  const canChange = me?.role === 'SUPER_ADMIN' && me.id !== member.id && member.role !== 'SUPER_ADMIN';
+  if (!canChange) {
+    const reason = me?.role !== 'SUPER_ADMIN'
+      ? '관리자 권한은 총관리자만 주고 뺄 수 있습니다.'
+      : member.role === 'SUPER_ADMIN' ? '총관리자의 권한은 바꿀 수 없습니다.' : '자기 자신의 권한은 바꿀 수 없습니다.';
+    return (
+      <div className="admin-inline-note">
+        <ShieldCheck size={theme.iconSize.sm} aria-hidden="true" />
+        <span>{reason} 로그인 잠금 해제는 아직 화면에서 할 수 없습니다.</span>
+      </div>
+    );
+  }
+
+  const nextRole = member.role === 'ADMIN' ? 'USER' : 'ADMIN';
+  const actionLabel = nextRole === 'ADMIN' ? '관리자로 지정' : '관리자 해제';
+
+  async function handleConfirm() {
+    setBusy(true);
+    setError('');
+    try {
+      await changeMemberRole(member.id, nextRole);
+      showToast(`${member.nickName} 님을 ${nextRole === 'ADMIN' ? '관리자로 지정했어요' : '관리자에서 해제했어요'}. 다시 로그인하면 적용됩니다.`);
+      setConfirming(false);
+      onChanged(); // 현황 · 목록 다시 불러오기
+    } catch (err) {
+      setError(errorMessage(err, '권한을 바꾸지 못했습니다.'));
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <div className="admin-member-role">
+      {confirming ? (
+        <>
+          <p>
+            <strong>{member.nickName}</strong> 님을 {actionLabel}할까요? 이 회원의 로그인된 기기는 모두 로그아웃되고, 다시 로그인하면 바뀐 권한이 적용됩니다.
+          </p>
+          <div className="admin-member-role-buttons">
+            <button type="button" className="admin-outline-button" onClick={() => setConfirming(false)} disabled={busy}>취소</button>
+            <button type="button" className="admin-primary-button" onClick={handleConfirm} disabled={busy}>
+              {busy ? '바꾸는 중…' : actionLabel}
+            </button>
+          </div>
+        </>
+      ) : (
+        <div className="admin-member-role-buttons">
+          <span>총관리자 권한: 관리자 권한을 주거나 뺄 수 있습니다.</span>
+          <button type="button" className="admin-outline-button" onClick={() => setConfirming(true)}>{actionLabel}</button>
+        </div>
+      )}
+      {error && <p className="admin-member-role-error" role="alert">{error}</p>}
+    </div>
   );
 }

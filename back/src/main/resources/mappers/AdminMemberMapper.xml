@@ -10,7 +10,11 @@
             <if test="keyword != null">
                 (u.nick_name LIKE CONCAT('%', #{keyword}, '%') OR u.email LIKE CONCAT('%', #{keyword}, '%'))
             </if>
-            <if test="role != null">
+            <!-- "관리자" 로 거르면 총관리자도 함께 보인다 -->
+            <if test="role == 'ADMIN'">
+                AND u.role IN ('ADMIN', 'SUPER_ADMIN')
+            </if>
+            <if test="role != null and role != 'ADMIN'">
                 AND u.role = #{role}
             </if>
         </where>
@@ -36,8 +40,17 @@
     </select>
 
     <select id="countAdmins" resultType="int">
-        SELECT COUNT(*) FROM users WHERE role = 'ADMIN'
+        SELECT COUNT(*) FROM users WHERE role IN ('ADMIN', 'SUPER_ADMIN')
     </select>
+
+    <!-- 7단계: 총관리자가 관리자 권한을 주고 뺀다 (USER ↔ ADMIN). 회원이 없으면 null -->
+    <select id="findRole" resultType="string">
+        SELECT role FROM users WHERE id = #{id}
+    </select>
+
+    <update id="updateRole">
+        UPDATE users SET role = #{role} WHERE id = #{id}
+    </update>
 
     <select id="countJoinedSince" resultType="int">
         SELECT COUNT(*) FROM users WHERE created_at &gt;= #{since}
