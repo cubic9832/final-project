@@ -1,0 +1,103 @@
+{
+  "model_hashes": {
+    "model.pt": "b395786d95885971e09ab9ced7b15177faeffab1bf992064aeec2609215b41a1",
+    "metadata.json": "b08bb2a230d1393ac325d29c933f644da5ceab899dbc8e47964df22a1a82a6b6",
+    "catalog.json": "a5a64e13bfbb6fe4f9fb8ccadb1788aad13a2388d393a79924906dc826411408"
+  },
+  "baseline": "same explicit rule score with ML contribution constant at 0.5",
+  "operational_policy_changed": false,
+  "weights_changed": false,
+  "deployed": false,
+  "financial_violations": 0,
+  "score_decomposition_violations": 0,
+  "comparison_unit": "inverted distinct-model pairs within union of before/after top3; pairs may overlap within one case",
+  "high_importance_definition": "weight >= 4; audit category only, not a filter",
+  "review_note": "Economic advantage and lost preference are evidence; no automatic rationality or satisfaction verdict",
+  "cohorts": {
+    "primary": {
+      "profiles": 300,
+      "vehicle_id_top3_changed": 69,
+      "model_order_top3_changed": 67,
+      "model_members_top3_changed": 27,
+      "cases_with_preference_decrease": 6,
+      "cases_with_full_match_lost": 5,
+      "cases_with_high_importance_full_match_lost": 0,
+      "reversal_pairs": 75,
+      "pair_categories": {
+        "선호하락_비용평가이점있음_ML로역전": 7,
+        "명시평가항목상열세_ML로역전": 66,
+        "선호점수유지_비용등의규칙순위역전": 2
+      },
+      "full_match_lost_by_condition": {
+        "space": 3,
+        "seating": 3
+      },
+      "rule_margin_quantiles": [
+        0.000289714423259646,
+        0.019477393998506898,
+        0.10750762922905611,
+        0.22447975080859095
+      ]
+    },
+    "secondary": {
+      "profiles": 300,
+      "vehicle_id_top3_changed": 70,
+      "model_order_top3_changed": 70,
+      "model_members_top3_changed": 29,
+      "cases_with_preference_decrease": 3,
+      "cases_with_full_match_lost": 2,
+      "cases_with_high_importance_full_match_lost": 0,
+      "reversal_pairs": 79,
+      "pair_categories": {
+        "명시평가항목상열세_ML로역전": 73,
+        "선호하락_비용평가이점있음_ML로역전": 2,
+        "선호점수유지_비용등의규칙순위역전": 2,
+        "선호하락_비용평가이점없음_ML로역전": 2
+      },
+      "full_match_lost_by_condition": {
+        "space": 3
+      },
+      "rule_margin_quantiles": [
+        0.0001791950292560074,
+        0.013482393014587757,
+        0.0684881728246623,
+        0.3651776061945462
+      ]
+    },
+    "all": {
+      "profiles": 600,
+      "vehicle_id_top3_changed": 139,
+      "model_order_top3_changed": 137,
+      "model_members_top3_changed": 56,
+      "cases_with_preference_decrease": 9,
+      "cases_with_full_match_lost": 7,
+      "cases_with_high_importance_full_match_lost": 0,
+      "reversal_pairs": 154,
+      "pair_categories": {
+        "선호하락_비용평가이점있음_ML로역전": 9,
+        "명시평가항목상열세_ML로역전": 139,
+        "선호점수유지_비용등의규칙순위역전": 4,
+        "선호하락_비용평가이점없음_ML로역전": 2
+      },
+      "full_match_lost_by_condition": {
+        "space": 6,
+        "seating": 3
+      },
+      "rule_margin_quantiles": [
+        0.0001791950292560074,
+        0.016209239211730342,
+        0.08800610733610993,
+        0.3651776061945462
+      ]
+    }
+  },
+  "margin_definition": "rule_margin_100point is the non-ML contribution margin on the final 100-point scale, retaining the fixed ML weight in the denominator; not the renormalized teacher utility gap",
+  "interpretation": {
+    "all_cases": 600,
+    "sample_limited": true,
+    "production_change": false,
+    "candidate_policy": "Preserve explicit-rule baseline; treat conflicting calibrated-ML ranks as approximation discrepancies until independent evidence exists",
+    "no_automatic_tradeoff_approval": true,
+    "dominance_note": "139 inverted pairs have no gain in the scored non-ML components; this refers only to measured components, not all real vehicle qualities"
+  }
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "bmw-3-series",
+    "error": "The read operation timed out"
+  },
+  {
+    "slug": "bmw-3-series-touring",
+    "error": "The read operation timed out"
+  },
+  {
+    "slug": "bmw-x1",
+    "error": "The read operation timed out"
+  },
+  {
+    "slug": "bmw-x4",
+    "error": "The read operation timed out"
+  },
+  {
+    "slug": "bmw-x5",
+    "error": "The read operation timed out"
+  }
+]

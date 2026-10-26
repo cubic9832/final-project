@@ -1,0 +1,45 @@
+{
+  "test_comparison_pairs": 66870,
+  "test_pair_accuracy": 0.9864064455032349,
+  "unseen_vehicle_models": 17,
+  "unseen_evaluation_profiles": 300,
+  "unseen_profiles_with_candidates": 183,
+  "unseen_standalone_ndcg_at_3": {
+    "new": 0.9617202274854343,
+    "old": 0.9061948994698132
+  },
+  "financial_boundary_cases": [
+    {
+      "income": 0,
+      "expenses": 1000000,
+      "cash": 0,
+      "recommendations": 0
+    },
+    {
+      "income": 0,
+      "expenses": 1000000,
+      "cash": 100000000,
+      "recommendations": 9
+    },
+    {
+      "income": 2000000,
+      "expenses": 2000000,
+      "cash": 100000000,
+      "recommendations": 9
+    },
+    {
+      "income": 2000000,
+      "expenses": 2200000,
+      "cash": 100000000,
+      "recommendations": 9
+    },
+    {
+      "income": 10000000,
+      "expenses": 1000000,
+      "cash": 1000000,
+      "recommendations": 0
+    }
+  ],
+  "financial_violations": 0,
+  "meaning": "Current synthetic teacher agreement, not observed user satisfaction"
+}

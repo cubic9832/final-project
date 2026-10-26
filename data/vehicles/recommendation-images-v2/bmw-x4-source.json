@@ -1,0 +1,13 @@
+{
+  "brand": "BMW",
+  "model": "X4",
+  "slug": "bmw-x4",
+  "source_page": "https://www.press.bmwgroup.com/korea/article/detail/T0354632KO/",
+  "image_url": "https://mediapool.bmwgroup.com/cache/P9/202106/P90424727/P90424727-the-new-bmw-x4-m40i-brooklyn-grey-metallic-rim-21-styling-718m-06-2021-329px.jpg",
+  "file": "data\\vehicles\\recommendation-images-v2\\sources\\bmw-x4.jpg",
+  "width": 329,
+  "height": 220,
+  "transparent": false,
+  "sha256": "1e3d7e275aebd10e58b9aa9b52a082468c32a39afd715a2e6df0d89eebfbb9cc",
+  "status": "downloaded"
+}

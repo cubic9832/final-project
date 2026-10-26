@@ -1,0 +1,84 @@
+{
+  "model_run": "ml\\outputs\\models\\candidate-retrained\\20261022-165001-specifications-v1",
+  "vehicles": 281,
+  "models": 84,
+  "before_missing": {
+    "efficiency": 204,
+    "length_mm": 129,
+    "seating": 13
+  },
+  "after_missing": {
+    "efficiency": 0,
+    "length_mm": 0,
+    "seating": 0
+  },
+  "fuel_counts": {
+    "GASOLINE": 133,
+    "LPG": 19,
+    "HYBRID": 78,
+    "ELECTRIC": 42,
+    "DIESEL": 9
+  },
+  "reference_only": [
+    {
+      "id": "V-fca66ac7dba984a3",
+      "brand": "기아",
+      "model": "K5",
+      "trim": "트렌디",
+      "year": "",
+      "price": 25170000.0,
+      "fuel": "LPG",
+      "efficiency": 9.7,
+      "source_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_k5.pdf",
+      "checked_on": "2026-10-14",
+      "quality": "automatically-extracted-snapshot",
+      "length_mm": 4905,
+      "seats": 5,
+      "space_source_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_k5.pdf",
+      "seat_options": [
+        5
+      ],
+      "seats_source_url": null,
+      "original_fuel": null,
+      "source_note": "기본 사양의 정확한 인증값 미확정: K5 PE 2.0LPI 16인치(빌트인캠) / FF / 5인승 / 205/65R16 인증값을 유지비 비교용 참조값으로 사용. 선택품목 장착·가격 포함을 의미하지 않음.",
+      "seats_status": "user-provided",
+      "seats_label": "5인승",
+      "seats_note": "사용자 제공 목록의 승차 정원. 제조사 사양 검증 완료를 뜻하지 않습니다.",
+      "default_configuration": "K5 PE 2.0LPI 16인치(빌트인캠) / FF / 5인승 / 205/65R16",
+      "efficiency_reference_only": true
+    },
+    {
+      "id": "supp-3b1a87bb6b3f1fa6",
+      "brand": "BMW",
+      "model": "X4",
+      "trim": "xDrive20d M 스포츠",
+      "year": "",
+      "price": 83400000,
+      "fuel": "DIESEL",
+      "efficiency": 12.5,
+      "source_url": "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/PRICELIST_JUNE2026.pdf.asset.1781249167044.pdf",
+      "checked_on": "2026-10-22",
+      "quality": "official-source-checked-supplement",
+      "length_mm": 4750,
+      "seats": 5,
+      "space_source_url": "https://www.press.bmwgroup.com/korea/article/detail/T0354632KO/bmw-코리아-뉴-x3-및-뉴-x4-국내-공식-출시",
+      "seat_options": [
+        5
+      ],
+      "seats_source_url": "https://min24.energy.or.kr/trans_hp/AHP/HP_03/HP_03_01_010.do",
+      "original_fuel": null,
+      "source_note": "기본 사양의 정확한 인증값 미확정: BMW X4 xDrive20d / AWD / 5인승 / 225/60R18 인증값을 유지비 비교용 참조값으로 사용. 선택품목 장착·가격 포함을 의미하지 않음.",
+      "seats_status": "official-reference",
+      "seats_label": null,
+      "seats_note": null,
+      "default_configuration": "BMW X4 xDrive20d / AWD / 5인승 / 225/60R18",
+      "efficiency_reference_only": true
+    }
+  ],
+  "registered_seating_not_independently_reverified": 251,
+  "cases": 865,
+  "recommendations": 2214,
+  "no_candidates": 118,
+  "violations": [],
+  "specification_sha256": "73ec4dcee4b89c0aa137622299219057e111c1a71cb35a9caf50df82089a2696"
+}

@@ -1,0 +1,13 @@
+{
+  "brand": "BMW",
+  "model": "3시리즈 투어링",
+  "slug": "bmw-3-touring-hq",
+  "source_page": "https://www.press.bmwgroup.com/korea/photo/detail/P90577991/",
+  "image_url": "https://mediapool.bmwgroup.com/cache/P9/202411/P90577991/P90577991-bmw-korea-launched-new-3-series-11-2024-2250px.jpg",
+  "file": "data\\vehicles\\recommendation-images-v2\\sources\\bmw-3-touring-hq.jpg",
+  "width": 2250,
+  "height": 1500,
+  "transparent": false,
+  "sha256": "babf8440084d74762e98acc510da2568d0e5bbfae7b124f122bcd587217ac290",
+  "status": "downloaded"
+}

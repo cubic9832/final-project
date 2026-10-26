@@ -1,0 +1,15 @@
+import { useState } from 'react';
+import { Search, ShieldCheck, X } from 'lucide-react';
+import theme from '../../styles/theme';
+import { memberExamples } from './adminExampleData';
+
+export default function AdminMembersPanel() {
+  const [keyword, setKeyword] = useState('');
+  const [role, setRole] = useState('');
+  const [selectedId, setSelectedId] = useState(null);
+  const selected = memberExamples.find(member => member.id === selectedId);
+  const rows = memberExamples.filter(member => `${member.nickname} ${member.email}`.toLowerCase().includes(keyword.trim().toLowerCase()) && (!role || member.role === role));
+  return <div className="admin-panel-stack"><section className="admin-card"><div className="admin-card-heading"><div><h3>회원 목록</h3><p>모든 회원 정보는 UI 검토용 가상 데이터입니다.</p></div><span className="admin-count-badge">예시 {memberExamples.length}명</span></div><div className="admin-filters"><label className="admin-search-field"><Search size={theme.iconSize.sm} aria-hidden="true" /><input type="search" aria-label="닉네임 또는 이메일 검색" placeholder="닉네임 또는 이메일 검색" value={keyword} onChange={event => setKeyword(event.target.value)} /></label><label className="admin-filter-field">권한<select value={role} onChange={event => setRole(event.target.value)}><option value="">전체</option><option value="USER">일반 회원</option><option value="ADMIN">관리자</option></select></label></div><div className="admin-table-wrap"><table className="admin-table"><caption className="admin-sr-only">회원 상태 예시 목록</caption><thead><tr><th scope="col">회원</th><th scope="col">가입일</th><th scope="col">권한</th><th scope="col">상태</th><th scope="col">작업</th></tr></thead><tbody>{rows.map(member => <tr key={member.id}><td><strong>{member.nickname}</strong><small>{member.email}</small></td><td>{member.joinedAt}</td><td>{member.role === 'ADMIN' ? '관리자' : '일반 회원'}</td><td><span className={`admin-status ${member.status === '정상' ? 'is-ok' : 'is-neutral'}`}>{member.status}</span></td><td><button type="button" className="admin-text-button" aria-expanded={selectedId === member.id} onClick={() => setSelectedId(member.id)}>상세 보기</button></td></tr>)}</tbody></table></div>{!rows.length && <p className="admin-empty" role="status">조건에 맞는 회원이 없습니다. 검색어나 권한을 변경해 주세요.</p>}<p className="admin-result-count" aria-live="polite">검색 결과 {rows.length}명</p></section>
+    {selected && <section className="admin-card"><div className="admin-card-heading"><div><h3>{selected.nickname} 회원 상세</h3><p>회원 지원 화면 구성 예시</p></div><button type="button" className="admin-icon-button" aria-label="회원 상세 닫기" onClick={() => setSelectedId(null)}><X size={theme.iconSize.md} aria-hidden="true" /></button></div><dl className="admin-detail-list"><div><dt>이메일</dt><dd>{selected.email}</dd></div><div><dt>가입일</dt><dd>{selected.joinedAt}</dd></div><div><dt>권한</dt><dd>{selected.role}</dd></div><div><dt>로그인 상태</dt><dd>{selected.lock}</dd></div></dl><div className="admin-inline-note"><ShieldCheck size={theme.iconSize.sm} aria-hidden="true" /><span>권한 변경·로그인 잠금 해제는 운영 API 연결 후 제공됩니다.</span></div></section>}
+  </div>;
+}

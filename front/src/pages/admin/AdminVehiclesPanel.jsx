@@ -1,0 +1,15 @@
+import { useState } from 'react';
+import { Search, X } from 'lucide-react';
+import theme from '../../styles/theme';
+import { vehicleExamples } from './adminExampleData';
+
+export default function AdminVehiclesPanel() {
+  const [keyword, setKeyword] = useState('');
+  const [status, setStatus] = useState('');
+  const [selectedId, setSelectedId] = useState(null);
+  const selected = vehicleExamples.find(vehicle => vehicle.id === selectedId);
+  const rows = vehicleExamples.filter(vehicle => `${vehicle.brand} ${vehicle.model}`.toLowerCase().includes(keyword.trim().toLowerCase()) && (!status || vehicle.status === status));
+  return <div className="admin-panel-stack"><section className="admin-card"><div className="admin-card-heading"><div><h3>차량 목록</h3><p>트림·가격·연비 정보는 화면 검토용 예시입니다.</p></div><span className="admin-count-badge">예시 {vehicleExamples.length}대</span></div><div className="admin-filters"><label className="admin-search-field"><Search size={theme.iconSize.sm} aria-hidden="true" /><input type="search" aria-label="차명 또는 브랜드 검색" placeholder="차명 또는 브랜드 검색" value={keyword} onChange={event => setKeyword(event.target.value)} /></label><label className="admin-filter-field">공개 상태<select value={status} onChange={event => setStatus(event.target.value)}><option value="">전체</option>{['공개', '검수 대기', '비공개'].map(value => <option key={value}>{value}</option>)}</select></label></div><div className="admin-table-wrap"><table className="admin-table"><caption className="admin-sr-only">차량 정보 예시 목록</caption><thead><tr><th scope="col">차량</th><th scope="col">트림</th><th scope="col">예시 가격</th><th scope="col">상태</th><th scope="col">작업</th></tr></thead><tbody>{rows.map(vehicle => <tr key={vehicle.id}><td><strong>{vehicle.model}</strong><small>{vehicle.brand} · {vehicle.body}</small></td><td>{vehicle.trim}</td><td>{vehicle.price}</td><td><span className={`admin-status ${vehicle.status === '공개' ? 'is-ok' : 'is-neutral'}`}>{vehicle.status}</span></td><td><button type="button" className="admin-text-button" aria-expanded={selectedId === vehicle.id} onClick={() => setSelectedId(vehicle.id)}>정보 검수</button></td></tr>)}</tbody></table></div>{!rows.length && <p className="admin-empty" role="status">조건에 맞는 차량이 없습니다. 검색어나 공개 상태를 변경해 주세요.</p>}<p className="admin-result-count" aria-live="polite">검색 결과 {rows.length}대</p></section>
+    {selected && <section className="admin-card" aria-label={`${selected.model} 검수 상세`}><div className="admin-card-heading"><div><h3>{selected.model} 정보 검수</h3><p>예시 정보 확인용 화면이며 실제 데이터는 변경되지 않습니다.</p></div><button type="button" className="admin-icon-button" aria-label="차량 상세 닫기" onClick={() => setSelectedId(null)}><X size={theme.iconSize.md} aria-hidden="true" /></button></div><div className="admin-vehicle-detail"><img src={selected.image} alt={`${selected.model} 예시`} /><dl className="admin-detail-list">{[['브랜드', selected.brand], ['트림', selected.trim], ['예시 연료', selected.fuel], ['예시 연비', selected.efficiency], ['검수 상태', selected.status], ['출처 확인', '제조사 원본·연식·트림 비교']].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl></div></section>}
+  </div>;
+}

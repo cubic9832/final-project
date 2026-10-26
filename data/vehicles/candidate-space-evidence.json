@@ -1,0 +1,495 @@
+{
+  "description": "전장 단일값이 확인되고 모델 간 추출파일 공유가 없는 문서만 사용. 좌석은 미확인.",
+  "vehicles": [
+    {
+      "brand": "현대",
+      "model": "쏘나타 디 엣지",
+      "length_mm": 4910,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/sonata-the-edge_catalog.pdf",
+      "page": 26,
+      "quote": "전장(mm) 4,910",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "쏘나타 디 엣지 Hybrid",
+      "length_mm": 4910,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/sonata-the-edge-hybrid-catalog.pdf",
+      "page": 27,
+      "quote": "전장(mm) 4,910",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "디 올 뉴 아반떼",
+      "length_mm": 4765,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-all-new-avante-catalog.pdf",
+      "page": 27,
+      "quote": "전장(mm) 4,765",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 그랜저",
+      "length_mm": 5050,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-grandeur-catalog.pdf",
+      "page": 21,
+      "quote": "전장(mm) 5,050",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 그랜저 Hybrid",
+      "length_mm": 5050,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-grandeur-hybrid-catalog.pdf",
+      "page": 21,
+      "quote": "전장(mm) 5,050",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "팰리세이드",
+      "length_mm": 5060,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-catalog.pdf",
+      "page": 28,
+      "quote": "전장(mm) 5,060",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "팰리세이드 Hybrid",
+      "length_mm": 5060,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-hybrid-catalog.pdf",
+      "page": 28,
+      "quote": "전장(mm) 5,060",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "베뉴",
+      "length_mm": 4040,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/venue-catalog.pdf",
+      "page": 20,
+      "quote": "전장 (mm) 4,040",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "코나",
+      "length_mm": 4350,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/kona-catalog.pdf",
+      "page": 23,
+      "quote": "전장 (mm) 4,350",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "코나 Hybrid",
+      "length_mm": 4350,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/kona-hybrid-catalog.pdf",
+      "page": 23,
+      "quote": "전장 (mm) 4,350",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "싼타페",
+      "length_mm": 4830,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/santafe-catalog.pdf",
+      "page": 25,
+      "quote": "전장 (mm) 4,830",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "싼타페 Hybrid",
+      "length_mm": 4830,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/santafe-hybrid-catalog.pdf",
+      "page": 25,
+      "quote": "전장 (mm) 4,830",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "투싼",
+      "length_mm": 4640,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/tucson-catalog.pdf",
+      "page": 22,
+      "quote": "전장(mm) 4,640",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "투싼 Hybrid",
+      "length_mm": 4640,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/tucson-hybrid-catalog.pdf",
+      "page": 22,
+      "quote": "전장(mm) 4,640",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 리무진 Hybrid",
+      "length_mm": 5255,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-hybrid_catalog.pdf",
+      "page": 38,
+      "quote": "전장 (mm) 5,255",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지",
+      "length_mm": 5255,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-catalog.pdf",
+      "page": 38,
+      "quote": "전장 (mm) 5,255",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지 Hybrid",
+      "length_mm": 5255,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-hybrid-catalog.pdf",
+      "page": 38,
+      "quote": "전장 (mm) 5,255",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아",
+      "length_mm": 5255,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria_catalog.pdf",
+      "page": 40,
+      "quote": "전장 (mm) 5,255",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 Hybrid",
+      "length_mm": 5255,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-hybrid_catalog.pdf",
+      "page": 40,
+      "quote": "전장 (mm) 5,255",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "넥쏘",
+      "length_mm": 4750,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/nexo-catalog.pdf",
+      "page": 25,
+      "quote": "전장(mm) 4,750",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "코나 Electric",
+      "length_mm": 4355,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/kona-electric-catalog.pdf",
+      "page": 23,
+      "quote": "전장 (mm) 4,355",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "아이오닉 5",
+      "length_mm": 4655,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/ioniq5-catalog.pdf",
+      "page": 23,
+      "quote": "전장(mm) 4,655",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 Electric",
+      "length_mm": 5255,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-eletric-catalog.pdf",
+      "page": 40,
+      "quote": "전장 (mm) 5,255",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지 Electric",
+      "length_mm": 5255,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-electric-catalog.pdf",
+      "page": 38,
+      "quote": "전장 (mm) 5,255",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 리무진 Electric",
+      "length_mm": 5255,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-electric-catalog.pdf",
+      "page": 38,
+      "quote": "전장 (mm) 5,255",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "아이오닉 9",
+      "length_mm": 5060,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/ioniq9-catalog.pdf",
+      "page": 25,
+      "quote": "전장 (mm) 5,060",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 아이오닉 6",
+      "length_mm": 4925,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-ioniq6-catalog.pdf",
+      "page": 25,
+      "quote": "전장(mm) 4,925",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "아이오닉 6 N",
+      "length_mm": 4935,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/ioniq6-n_catalog.pdf",
+      "page": 22,
+      "quote": "전장(mm) 4,935",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "아이오닉 5 N",
+      "length_mm": 4715,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/ioniq5-n_catalog.pdf",
+      "page": 25,
+      "quote": "전장(mm) 4,715",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "현대",
+      "model": "아반떼 N",
+      "length_mm": 4710,
+      "seats": null,
+      "source_url": "https://www.hyundai.com/contents/repn-car/catalog/avante-n-catalog.pdf",
+      "page": 22,
+      "quote": "전장(mm) 4,710",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "기아",
+      "model": "모닝",
+      "length_mm": 3595,
+      "seats": null,
+      "source_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_morning.pdf",
+      "page": 13,
+      "quote": "전장 (mm) 3,595",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "기아",
+      "model": "니로",
+      "length_mm": 4430,
+      "seats": null,
+      "source_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_niro.pdf",
+      "page": 10,
+      "quote": "전장 (mm) 4,430",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "기아",
+      "model": "스포티지",
+      "length_mm": 4685,
+      "seats": null,
+      "source_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_sportage.pdf",
+      "page": 35,
+      "quote": "전장 (mm) 4,685",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "기아",
+      "model": "EV5",
+      "length_mm": 4610,
+      "seats": null,
+      "source_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev5.pdf",
+      "page": 13,
+      "quote": "전장  (mm) 4,610",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "기아",
+      "model": "EV5 GT",
+      "length_mm": 4610,
+      "seats": null,
+      "source_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev5-gt.pdf",
+      "page": 9,
+      "quote": "전장 (mm) 4,610",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "제네시스",
+      "model": "Electrified G80",
+      "length_mm": 5135,
+      "seats": null,
+      "source_url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "page": 16,
+      "quote": "전장(mm) 5,135",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV60",
+      "length_mm": 4545,
+      "seats": null,
+      "source_url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "page": 23,
+      "quote": "전장(mm) 4,545",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "제네시스",
+      "model": "G80",
+      "length_mm": 5005,
+      "seats": null,
+      "source_url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "page": 19,
+      "quote": "전장(mm) 5,005",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "제네시스",
+      "model": "Electrified GV70",
+      "length_mm": 4715,
+      "seats": null,
+      "source_url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "page": 16,
+      "quote": "전장(mm) 4,715",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90",
+      "length_mm": 5275,
+      "seats": null,
+      "source_url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "page": 32,
+      "quote": "전장(mm) 5,275",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV70",
+      "length_mm": 4715,
+      "seats": null,
+      "source_url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "page": 18,
+      "quote": "전장(mm) 4,715",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV60 Magma",
+      "length_mm": 4545,
+      "seats": null,
+      "source_url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "page": 23,
+      "quote": "전장(mm) 4,545",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90 Long Wheel Base",
+      "length_mm": 5275,
+      "seats": null,
+      "source_url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "page": 32,
+      "quote": "전장(mm) 5,275",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "제네시스",
+      "model": "G80 Black",
+      "length_mm": 5005,
+      "seats": null,
+      "source_url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "page": 19,
+      "quote": "전장(mm) 5,005",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90 Black",
+      "length_mm": 5275,
+      "seats": null,
+      "source_url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "page": 32,
+      "quote": "전장(mm) 5,275",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90 Long Wheel Base Black",
+      "length_mm": 5275,
+      "seats": null,
+      "source_url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "page": 32,
+      "quote": "전장(mm) 5,275",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "르노코리아",
+      "model": "그랑 콜레오스",
+      "length_mm": 4780,
+      "seats": null,
+      "source_url": "https://www.renault.co.kr/upload/asset/ebrochure/eBrochure_koleos_202610.pdf",
+      "page": 18,
+      "quote": "전장(mm) 4,780",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "쉐보레",
+      "model": "트레일블레이저",
+      "length_mm": 4410,
+      "seats": null,
+      "source_url": "https://www.chevrolet.co.kr/content/dam/chevrolet/as/kr/ko/index/e-catalogue-price-list/2026/oct/the-new-trailblazer-catalog-202610-e-catalog.pdf",
+      "page": 12,
+      "quote": "전장 (mm) 4,410",
+      "checked_on": "2026-10-14"
+    },
+    {
+      "brand": "쉐보레",
+      "model": "트랙스 크로스오버",
+      "length_mm": 4540,
+      "seats": null,
+      "source_url": "https://www.chevrolet.co.kr/content/dam/chevrolet/as/kr/ko/index/e-catalogue-price-list/2026/oct/trax-crossover-catalog-202610-e-catalog.pdf",
+      "page": 16,
+      "quote": "전장 (mm) 4,540",
+      "checked_on": "2026-10-14"
+    }
+  ]
+}

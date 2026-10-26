@@ -1,5 +1,7 @@
 # 재무 진단 결과에서 클릭할 때만 차량 추천
 
+> `ml/test` 브랜치는 [candidate-v2 실험](../ml/vehicle_matching/README.md)에 연결되어 있다. 이 브랜치에서는 재무 진단 4단계, 원 단위 v2 요청, 차량별 비용 검증과 추천 카드를 사용한다. 아래 5단계·20라벨·v1 관련 설명은 기존 hhc 구현 기록이다.
+
 ## 동작
 
 기존 재무 진단 5단계 입력 화면과 헤더·메뉴를 유지한다. 입력 필드나 독립 추천 메뉴·입력 화면을 추가하지 않는다.
@@ -16,7 +18,7 @@
 
 ## 차량 이미지
 
-추천 카드의 `labelCode`(OWN001–OWN020)에 맞춰 전면 사선 예시 이미지 20종을 연결했다. 공식 사진을 imagegen으로 편집해 배경과 바닥 그림자를 제거했으며, 투명 PNG 1536×1024 규격으로 통일했다. 차량의 비율을 유지하면서 최대 표시 영역을 1306×666으로 맞추고 하단 기준선을 820px에 정렬했다. 편집본은 `front/public/images/recommendations/cutouts/`, 라벨별 `src`·`alt` 매핑은 `front/src/features/financial/pages/recommendations/recommendationImages.js`에 둔다. 정적 파일은 프런트 빌드에 포함되며 제조사 사이트에 이미지 요청을 보내지 않는다.
+추천 카드의 `labelCode`(OWN001–OWN020)에 맞춰 전면 사선 예시 이미지 20종을 연결했다. 공식 사진을 imagegen으로 편집해 배경과 바닥 그림자를 제거했으며, 투명 무손실 WebP 1536×1024 규격으로 통일했다. 차량의 비율을 유지하면서 최대 표시 영역을 1306×666으로 맞추고 하단 기준선을 820px에 정렬했다. 편집본은 `front/public/images/recommendations/cutouts/`, 라벨별 `src`·`alt` 매핑은 `front/src/features/vehicle/recommendationImages.js`에 둔다. 정적 파일은 프런트 빌드에 포함되며 제조사 사이트에 이미지 요청을 보내지 않는다.
 
 카드는 이미지 전체가 잘리지 않도록 `object-fit: contain`으로 표시한다. 이미지가 없거나 로드에 실패하면 기존 준비 중 표시를 사용한다. 라벨별 로컬 배경 제거 이미지를 우선 사용하고, 등록되지 않은 라벨만 API의 `imageUrl`을 사용한다. 화면 하단에서 실제 연식·트림·색상과 다를 수 있는 예시임을 안내한다.
 

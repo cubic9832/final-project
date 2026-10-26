@@ -1,0 +1,80 @@
+[
+  {
+    "brand": "제네시스",
+    "model": "gv70-front",
+    "slug": "gv70-front",
+    "source_page": "https://www.genesis.com/kr/ko/models/gv70",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1440,height=720,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303133373032/models/gv70/2027/exterior-color/standard/genesis-gv70-standard-ceres-blue-asa-large.png",
+    "file": "data\\vehicles\\recommendation-images-v2\\sources\\gv70-front.png",
+    "width": 1440,
+    "height": 720,
+    "transparent": true,
+    "sha256": "047691aaedc2d93eb51317397743f4da736ffb4bbc1a7e41d29640753c642b4f",
+    "status": "downloaded"
+  },
+  {
+    "brand": "제네시스",
+    "model": "gv80-front",
+    "slug": "gv80-front",
+    "source_page": "https://www.genesis.com/kr/ko/models/gv80",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1440,height=720,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303137383837/models/gv80/27MY+HEV/exterior-color/genesis-gv80-27my-uyuni-white-uyh-large.png",
+    "file": "data\\vehicles\\recommendation-images-v2\\sources\\gv80-front.png",
+    "width": 1440,
+    "height": 720,
+    "transparent": false,
+    "sha256": "25a4650f60e8e9f08829fc8e1900f1ea04aca095bb3f92679fed1d64b8b671b4",
+    "status": "downloaded"
+  },
+  {
+    "brand": "제네시스",
+    "model": "g80-black-front",
+    "slug": "g80-black-front",
+    "source_page": "https://www.genesis.com/kr/ko/models/g80",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1440,height=720,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303039313334/genesis-g80-2027-black-exterior-detail-front-large.png",
+    "file": "data\\vehicles\\recommendation-images-v2\\sources\\g80-black-front.png",
+    "width": 1440,
+    "height": 720,
+    "transparent": true,
+    "sha256": "064994c98db826fcb9afbbe035f809862b59144bbdc2d4129bb1d9cc54a28897",
+    "status": "downloaded"
+  },
+  {
+    "brand": "제네시스",
+    "model": "gv80-black-front",
+    "slug": "gv80-black-front",
+    "source_page": "https://www.genesis.com/kr/ko/models/gv80",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1920,height=1080,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303139313631/membership/banner/benefit(1)/genesis-gv80-27my-black-exterior-large-test-9.png",
+    "file": "data\\vehicles\\recommendation-images-v2\\sources\\gv80-black-front.png",
+    "width": 1920,
+    "height": 1080,
+    "transparent": false,
+    "sha256": "406b88572e45e1565505d4b4603f42b1bd75d6542976d55438dd4905bcc1758c",
+    "status": "downloaded"
+  },
+  {
+    "brand": "제네시스",
+    "model": "g90-long-wheel-base-front",
+    "slug": "g90-long-wheel-base-front",
+    "source_page": "https://www.genesis.com/kr/ko/models/g90-long-wheel-base",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1920,height=1080,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303131353636/genesis-g90lwb-2027-intelligence-main-large.png",
+    "file": "data\\vehicles\\recommendation-images-v2\\sources\\g90-long-wheel-base-front.png",
+    "width": 1920,
+    "height": 1080,
+    "transparent": false,
+    "sha256": "b90bc2e29bb116bde878af7ed2c3f818b88d87eaf1018e2d5706f3f6b9fcb1f5",
+    "status": "downloaded"
+  },
+  {
+    "brand": "제네시스",
+    "model": "g90-long-wheel-base-black-front",
+    "slug": "g90-long-wheel-base-black-front",
+    "source_page": "https://www.genesis.com/kr/ko/models/g90-long-wheel-base",
+    "image_url": "https://dams.hyundai-autoever.com/cdn-cgi/image/width=1440,height=720,fit=cover,quality=85,format=auto/v1/openapi/hmg-presigned-url/50534b313031303030303030303030303131343737/genesis-g90lwb-2027-black-exterior-detail-side-large.png",
+    "file": "data\\vehicles\\recommendation-images-v2\\sources\\g90-long-wheel-base-black-front.png",
+    "width": 1440,
+    "height": 720,
+    "transparent": true,
+    "sha256": "d97d152aeccf15c90cc2d291b7ecd7b0ae9bd1f49e524bfd6ea513a45cd673c7",
+    "status": "downloaded"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "source": "data/households/synthetic/owner-funded/configuration-catalog.json",
+    "destination": "data\\vehicles\\legacy-domestic-configuration-catalog.json",
+    "sha256": "b10e5e6bb2b6a23c403d9019191b6131e31101192ae1f2b7f0a5a3583949af89",
+    "purpose": "runtime vehicle specifications, not household training data"
+  },
+  {
+    "source": "data/households/synthetic/imported-owners/configuration-catalog.json",
+    "destination": "data\\vehicles\\legacy-imported-configuration-catalog.json",
+    "sha256": "ab1578933156312b4be99a0cbdacec1fbaa4299d4f3d7b258cc6ee5fc17513f7",
+    "purpose": "runtime vehicle specifications, not household training data"
+  }
+]

@@ -1,4 +1,5 @@
 import client from '../../shared/api/client.js';
+import { resolveVehicleImage } from './resolveVehicleImage.js';
 
 const classLabels = {
   MINI: '경차',
@@ -30,7 +31,9 @@ export function toVehicle(row) {
     highwayEfficiency: row.highwayEfficiency == null ? null : Number(row.highwayEfficiency),
     displacementCc: row.displacementCc == null ? null : Number(row.displacementCc),
     color: row.brand === '현대' ? '#7199b5' : '#7eafa0',
-    imageUrl: row.imageUrl,
+    imageUrl: (row.isExample || !row.imageUrl)
+      ? resolveVehicleImage(row)?.src ?? row.imageUrl
+      : row.imageUrl,
     sourceName: row.sourceName,
     sourceUrl: row.sourceUrl,
     isExample: row.isExample,
