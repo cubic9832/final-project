@@ -9,7 +9,12 @@ front/src/
   stores/                                    전역 상태 (로그인 정보, 공용 알림)
   styles/                                    전역 스타일과 테마
 back/src/main/java/com/kh/back/
-  {vehicle,company,auth,member}/              기능별 Java 코드
+  {vehicle,company,auth,member,taste}/        기능별 Java 코드
+    controller/                              HTTP API Controller
+    dto/                                     DB 매핑 객체와 요청·응답 DTO
+    mapper/                                  MyBatis Mapper 인터페이스
+    service/                                 Service 인터페이스·Impl 및 기능 정책
+    repository/                              기존 JdbcTemplate 기반 DB 접근 (taste)
   common/                                    공통 응답과 오류 처리, JWT·Spring Security
 tools/data/                                  데이터 수집·생성·정제·CSV 코드
 data/                                        데이터·생성 규칙·출처·검증 기록
@@ -79,7 +84,9 @@ pages/
 
 원본 파일·합성 데이터의 일괄 이동이나 재생성은 구조 변경에 포함하지 않는다. 데이터 묶음을 추가할 때 소스 코드를 복제하지 않고 패키지의 생성 모듈과 별도 설정을 사용한다.
 
-백엔드의 company·vehicle·auth·member 코드는 각 기능 패키지 안에 배치한다. MyBatis XML은 클래스 전체 이름을 참조한다. 차량 조회는 영속성 모델 `Vehicle`을 반환하고 Controller에서 `VehicleResponse`로 변환해 HTTP 응답과 DB 매핑을 분리한다. 단순 조회를 감싸기 위한 Service는 추가하지 않는다.
+백엔드는 [참고 저장소의 Spring 구조](https://github.com/wonguwon/final_project_sample/tree/step1--login/back/src/main/java/com/kh/back/member)를 따른다. API Controller는 Service 인터페이스를 호출하고, ServiceImpl이 Mapper·Repository와 업무 규칙을 조합한다. MyBatis XML은 이동한 Mapper와 DTO의 전체 클래스명을 참조한다. 차량 DB 매핑은 `vehicle/dto/VehicleDto`, SQL 접근은 `vehicle/mapper/VehicleMapper`, 응답 변환은 `vehicle/service/VehicleServiceImpl`이 담당한다. 인증 정책·검증 도우미는 `auth/service/`, 공통 응답·예외·Security는 `common/`에서 관리한다.
+
+성공·실패 응답은 `ApiResponse.ok`·`ApiResponse.fail`로 통일하며, MVC 예외는 `common/exception/GlobalExceptionHandler`에서 처리한다. 인증·권한 오류는 Security의 진입점·거부 핸들러가 같은 실패 봉투로 반환한다. 기존 API 경로·요청 필드·DB 마이그레이션은 유지한다.
 
 ## 실행과 저장
 

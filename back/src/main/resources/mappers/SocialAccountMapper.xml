@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 소셜(구글) 계정 연결 (social_accounts 테이블, 보완 8). 테이블은 Flyway V9 가 만든다 -->
-<mapper namespace="com.kh.back.auth.SocialAccountMapper">
+<mapper namespace="com.kh.back.auth.mapper.SocialAccountMapper">
 
     <select id="findUserId" resultType="long">
         SELECT user_id FROM social_accounts

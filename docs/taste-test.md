@@ -29,7 +29,7 @@
 | GET | `/api/v1/members/me/current-taste` | 저장값 있으면 200, 없으면 본문 없는 204 |
 | PUT | `/api/v1/members/me/current-taste` | 200: 서버가 검증·저장한 현재 취향 |
 
-PUT 요청은 `version`, 8개의 `{ questionId, optionId }` 답변, `expectedSavedAt`(첫 저장은 null)을 받는다. 결과는 `version`, `answers`, `primary`, `savedAt`이다. 새 API의 입력·분기 오류는 400, 버전·동시 갱신 충돌은 409이며 Problem Details(`application/problem+json`)로 반환한다. 기존 인증 오류 응답 형식은 변경하지 않는다.
+PUT 요청은 `version`, 8개의 `{ questionId, optionId }` 답변, `expectedSavedAt`(첫 저장은 null)을 받는다. 결과는 `version`, `answers`, `primary`, `savedAt`이다. 200 성공 응답은 다른 Spring API와 동일하게 `ApiResponse.ok`의 `data`에 결과를 담으며, 프런트는 `response.data.data`를 읽는다. 저장값이 없는 GET의 204에는 본문이 없다. 입력·분기 오류는 400, 버전·동시 갱신 충돌은 409이며 공통 `ApiResponse.fail`의 `error.code`와 `error.message`로 반환한다(`application/json`). 인증 실패도 같은 실패 봉투를 사용한다.
 
 ## 검증
 
@@ -37,4 +37,4 @@ PUT 요청은 `version`, 8개의 `{ questionId, optionId }` 답변, `expectedSav
 - 실제 DB 카탈로그의 65,536개 경로를 검증하여 모든 경로가 8문항·문항별 4개 선택지로 끝나는지 확인한다.
 - 임시 저장은 회원·버전 격리와 손상된 답변 복원 거부를 검증한다.
 
-검증용 로컬 테스트 파일이 있는 환경에서는 먼저 `TasteIntegrationTests`를 실행한 후 생성된 `back/build/taste-catalog.json`을 사용해 프론트 핵심 로직 테스트를 실행한다. 기존 추천 테스트의 오래된 import 오류가 있으면 해당 파일을 임의로 변경하지 말고 취향 테스트 소스만 별도 선택하여 실행한다.
+백엔드 검증은 `back`에서 `.\gradlew.bat test`로 실행한다. `taste/controller/TasteApiControllerTests`는 공통 응답 봉투·204·입력 오류·충돌을, `taste/service/TasteServiceTests`는 회원별 저장·멱등성과 충돌 방지를 검증한다. 컨텍스트 기동 테스트에는 기존 MySQL 접속이 필요하다. 데이터와 이미 적용된 Flyway SQL은 검증을 위해 초기화하지 않는다.
