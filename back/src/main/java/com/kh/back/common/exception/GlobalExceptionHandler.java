@@ -5,11 +5,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.ErrorResponse;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 /**
@@ -30,6 +34,16 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(NoResourceFoundException.class)
     public ResponseEntity<ApiResponse<Void>> handleNoResource(NoResourceFoundException e) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ApiResponse.fail("NOT_FOUND", "요청한 주소가 없습니다."));
+    }
+
+    // Framework가 정한 HTTP 상태와 Allow 등 응답 헤더를 유지한다.
+    @ExceptionHandler({HttpRequestMethodNotSupportedException.class,
+            HttpMediaTypeNotSupportedException.class, ResponseStatusException.class})
+    public ResponseEntity<ApiResponse<Void>> handleSpring(Exception exception) {
+        ErrorResponse error = (ErrorResponse) exception;
+        HttpStatus status = HttpStatus.valueOf(error.getStatusCode().value());
+        return ResponseEntity.status(error.getStatusCode()).headers(error.getHeaders())
+                .body(ApiResponse.fail(status.name(), status.getReasonPhrase()));
     }
 
     // 파라미터 타입이 맞지 않음 (예: ?page=abc)
