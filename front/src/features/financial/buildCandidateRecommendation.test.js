@@ -44,7 +44,7 @@ test('importance and spatial requirements reach v2 without changing financial am
   assert.equal(request.profile.space_importance, 1);
   assert.equal(request.profile.fuel_importance, 4);
   assert.equal(request.profile.seating_importance, 2);
-  assert.equal(request.profile.purpose_importance, 5);
+  assert.equal(request.profile.purpose_importance, 1);
   assert.equal(request.profile.minimum_seats, 4);
   assert.equal(request.profile.preferred_size, 'small');
   assert.equal(request.profile.existing_monthly_payment, 200000);
@@ -74,16 +74,16 @@ test('recommendation requests exclude financing and ignore old saved purchase pl
   assert.deepEqual(buildCandidateRecommendation(state), first);
 });
 
-test('charging is optional information and does not block electric recommendations', () => {
+test('removed charging input is ignored and does not block electric recommendations', () => {
   const state = diagnosis();
   delete state.vehicle.charging;
   assert.deepEqual(buildCandidateRecommendation(state).errors, []);
   state.vehicle.fuel = '전기';
   assert.equal(buildCandidateRecommendation(state).request.profile.charging_available, false);
   for (const [charging, expected] of [
-    ['집·직장에서 충전 가능', true], ['공용 충전소를 정기적으로 이용 가능', true],
+    ['집·직장에서 충전 가능', false], ['공용 충전소를 정기적으로 이용 가능', false],
     ['충전 환경이 불편하거나 확보되지 않음', false], ['잘 모르겠음', false],
-    ['직장에서 충전 가능', true],
+    ['직장에서 충전 가능', false],
   ]) {
     state.vehicle.charging = charging;
     const result = buildCandidateRecommendation(state);
@@ -120,4 +120,29 @@ test('removed reserve inputs cannot silently reduce the purchase or monthly budg
     state.vehicle.minimumBuffer = obsolete;
     assert.deepEqual(buildCandidateRecommendation(state), first);
   }
+});
+
+
+test('합계 입력은 예전 상세 지출을 중복 합산하지 않고 화면과 같은 금액을 추천에 전달한다', () => {
+  const state = diagnosis();
+  state.values.monthlyExpenses = '200';
+  const { request, errors } = buildCandidateRecommendation(state);
+  assert.deepEqual(errors, []);
+  assert.equal(request.profile.monthly_expenses, 2000000);
+  const totals = calculateFinancialSummary(state.values, state.loans);
+  assert.equal(totals.expenses, 220);
+  assert.equal(totals.available, 380);
+  state.values.savings = '9999999999';
+  assert.equal(calculateFinancialSummary(state.values, state.loans).available, 380);
+  assert.equal(buildCandidateRecommendation(state).request.profile.monthly_savings, 0);
+  assert.equal(totals.available * 10000, request.profile.monthly_income - request.profile.monthly_expenses - request.profile.monthly_savings - request.profile.existing_monthly_payment);
+  state.values.monthlyExpenses = '';
+  assert.equal(buildCandidateRecommendation(state).request, null);
+});
+
+test('삭제한 대출 잔액은 검증이나 추천 결과에 영향을 주지 않는다', () => {
+  const state = diagnosis();
+  const expected = buildCandidateRecommendation(state);
+  state.loans[0].balance = 'invalid';
+  assert.deepEqual(buildCandidateRecommendation(state), expected);
 });

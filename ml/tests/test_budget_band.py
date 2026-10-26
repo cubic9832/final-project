@@ -17,13 +17,13 @@ class BudgetBandTests(unittest.TestCase):
         result=CandidateService(FixedRanker(),cars).recommend(person(cost_importance=5))
         self.assertEqual({r['vehicle']['model'] for r in result['recommendations']},{'Cheap','A','B'})
         self.assertEqual(result['recommendations'][0]['vehicle']['model'], 'Cheap')
-        self.assertEqual(result['budgetPolicy']['lower'],40000000)
+        self.assertEqual(result['budgetPolicy']['lower'],0)
 
     def test_weighted_ranking_includes_lower_distinct_models_and_never_exceeds_cap(self):
         cars=[vehicle(id=str(i),model=str(i),price=price) for i,price in enumerate((10000000,25000000,30000000,50000000,100000000))]
         p=person(purchase_price_ceiling=50000000)
         result=CandidateService(FixedRanker(),cars).recommend(p)
-        self.assertEqual([r['vehicle']['price'] for r in result['recommendations']],[30000000,50000000,25000000])
+        self.assertEqual([r['vehicle']['price'] for r in result['recommendations']],[10000000,25000000,30000000])
         self.assertTrue(all(r['cost']['eligible'] for r in result['recommendations']))
 
     def test_fuel_preference_can_beat_price_band_without_exceeding_cash(self):
@@ -50,7 +50,7 @@ class BudgetBandTests(unittest.TestCase):
                  existing_monthly_payment=200000,liquid_assets=30000000,down_payment=0,emergency_reserve=5000000)
         low=service.recommend(p); high=service.recommend(replace(p,monthly_income=6000000,liquid_assets=60000000))
         self.assertGreater(high['budgetPolicy']['upper'],low['budgetPolicy']['upper'])
-        self.assertGreater(min(r['vehicle']['price'] for r in high['recommendations']),max(r['vehicle']['price'] for r in low['recommendations']))
+        self.assertTrue(all(r['vehicle']['price'] <= high['budgetPolicy']['financialUpper'] for r in high['recommendations']))
 
     def test_income_never_becomes_purchase_cash_or_raises_cash_budget(self):
         cars=[vehicle(id=str(i),model=str(i),price=i*10000000) for i in range(1,16)]

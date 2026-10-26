@@ -127,12 +127,21 @@ def assess(profile: Profile, vehicle: Vehicle, assumptions=Assumptions()):
         reasons.append('purchase-price-ceiling')
     if profile.months == 0 and principal > 0:
         reasons.append('insufficient-cash-for-outright-purchase')
-    if available - monthly_cost < profile.minimum_buffer:
+    cash_after_purchase = max(0, profile.liquid_assets - profile.emergency_reserve - total_price)
+    monthly_drawdown = max(0, monthly_cost - available)
+    required_drawdown = max(0, monthly_cost + profile.minimum_buffer - available)
+    reserve_months = 12
+    asset_supported = recommendation and required_drawdown > 0 and cash_after_purchase >= required_drawdown * reserve_months
+    if available - monthly_cost < profile.minimum_buffer and not asset_supported:
         reasons.append('insufficient-monthly-buffer')
     # JSON does not support Infinity. Infeasible cash purchases have no installment estimate.
     def finite(value):
         return round(value, 2) if math.isfinite(value) else None
     return {'eligible': not reasons, 'exclusions': reasons, 'total_purchase_cost': round(total_price, 2),
+            'funding_source': 'assets' if asset_supported else 'income',
+            'monthly_asset_drawdown': round(monthly_drawdown, 2) if recommendation else None,
+            'asset_runway_months': round(cash_after_purchase / monthly_drawdown, 1) if recommendation and monthly_drawdown > 0 else None,
+            'required_asset_coverage_months': reserve_months if recommendation else None,
             'financing_months': profile.months, 'financing_annual_rate': profile.annual_rate,
             'principal': round(principal, 2), 'monthly_payment': finite(payment), 'monthly_running_cost': round(running + fixed, 2),
             # Historical feature slots reuse the base values, without a second scenario.

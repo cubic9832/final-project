@@ -48,6 +48,9 @@ class PairRanker:
     def load(cls, directory):
         directory = Path(directory)
         meta = json.loads((directory / 'metadata.json').read_text(encoding='utf-8'))
+        if meta['schema'] == 'candidate-preferences-v3':
+            from vehicle_matching.preference_model import PreferenceRanker
+            return PreferenceRanker.load(directory)
         if meta['schema'] != 'candidate-v2' or meta['features'] != list(FEATURE_NAMES):
             raise ValueError('Model/feature schema mismatch')
         if hashlib.sha256((directory / 'model.pt').read_bytes()).hexdigest() != meta['weights_sha256']:

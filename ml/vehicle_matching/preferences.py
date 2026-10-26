@@ -43,6 +43,9 @@ def integrated_score(profile, vehicle, cost, ml_score):
     budget = max(1, available * HORIZON + profile.liquid_assets - profile.emergency_reserve)
     economy = max(0.0, min(1.0, 1 - total / budget))
     monthly_capacity=max(0,available-profile.minimum_buffer)
+    if cost.get('funding_source') == 'assets':
+        remaining_assets=max(0,profile.liquid_assets-profile.emergency_reserve-cost['total_purchase_cost'])
+        monthly_capacity=max(0,available-profile.minimum_buffer+remaining_assets/cost['required_asset_coverage_months'])
     burden=cost['monthly_running_cost']/max(1,monthly_capacity)
     # A continuous scoring penalty, not another eligibility threshold.
     monthly_score=100*(1-min(1,burden)**2)
@@ -50,6 +53,7 @@ def integrated_score(profile, vehicle, cost, ml_score):
     if profile.financing_mode=='recommendation':
         # Cost importance is shared equally by purchase economy and recurring
         # affordability. Future salary never increases the purchase cash limit.
+        # Importance changes the strength of economy, never its direction.
         economy=(purchase_score+monthly_score)/200
     components = [{'key': 'cost', 'score': economy * 100, 'weight': profile.cost_importance},
                   {'key': 'model', 'score': ml_score * 100, 'weight': 1}]
@@ -66,9 +70,6 @@ def integrated_score(profile, vehicle, cost, ml_score):
         capacity = vehicle.seats if vehicle.seats is not None else min(vehicle.seat_options) if vehicle.seat_options else None
         seats = min(1,capacity/profile.minimum_seats) if capacity is not None else .5
         components.append({'key':'seating','score':100*seats,'weight':profile.seating_importance,'verified':capacity is not None})
-    target = {'commute':4100,'family':4750,'leisure':4900,'business':4600}[profile.purpose]
-    purpose = max(0,1-abs(vehicle.length_mm-target)/1500) if vehicle.length_mm is not None else .5
-    components.append({'key':'purpose','score':100*purpose,'weight':profile.purpose_importance})
     weight_sum = sum(item['weight'] for item in components)
     for item in components:
         item['contribution'] = item['score'] * item['weight'] / weight_sum
@@ -78,4 +79,6 @@ def integrated_score(profile, vehicle, cost, ml_score):
                                     'spendableMonthly':round(monthly_capacity,2),'runningCostRatio':round(burden,6),
                                     'score':round(monthly_score,6),'purchaseEconomyScore':round(purchase_score,6),
                                     'costMix':{'purchase':.5,'monthly':.5}},
-            'policy': 'cash-monthly-affordability-v5', 'spaceEvaluated': profile.preferred_size != 'any' and vehicle.length_mm is not None}
+            'purchasePreference': {'costImportance': profile.cost_importance,
+                                   'mode': 'economy'},
+            'policy': 'cash-monthly-affordability-v8', 'spaceEvaluated': profile.preferred_size != 'any' and vehicle.length_mm is not None}

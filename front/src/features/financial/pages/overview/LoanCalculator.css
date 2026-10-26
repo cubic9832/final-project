@@ -1,0 +1,9 @@
+.loan-calculator { margin-top:var(--space-16); }
+.loan-calculator-heading { display:flex; align-items:center; justify-content:space-between; gap:var(--space-16); }
+.loan-calculator h3,.loan-calculator h4 { font-size:var(--font-subtitle); }
+.loan-calculator p { margin-top:var(--space-8); color:var(--color-muted); font-size:var(--font-caption); line-height:1.7; }
+.loan-calculator-card { padding:var(--space-24); margin-top:var(--space-16); border:1px solid var(--color-border); border-radius:var(--radius-md); background:var(--color-background); }
+.loan-calculator-card .financial-fields { margin-block:var(--space-16); }
+.loan-calculator select { height:var(--layout-control-height); width:100%; border:1px solid var(--color-border-input); border-radius:var(--radius-sm); background:var(--color-surface); color:var(--color-primary); padding-inline:var(--space-12); font-size:var(--font-body); }
+.loan-calculator small { color:var(--color-muted); font-size:var(--font-caption); }
+@media(max-width:480px) { .loan-calculator-heading { flex-wrap:wrap; }.loan-calculator-card { padding:var(--space-16); } }

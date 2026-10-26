@@ -1,4 +1,6 @@
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import VehicleCatalogGate from '../../components/VehicleCatalogGate.jsx';
+import FinancialCandidateComparison from '../../../financial/pages/recommendations/FinancialCandidateComparison.jsx';
 import { useVehicle } from '../../useVehicle';
 import { calculateCosts, formatAmount } from '../../vehicleData';
 import VehicleArtwork from '../../components/VehicleArtwork';
@@ -6,6 +8,13 @@ import { findProfilePreset } from '../../../preset/profilePresets';
 import '../../styles/VehiclePages.css';
 
 export default function VehicleComparePage() {
+  const { state } = useLocation();
+  const [params] = useSearchParams();
+  if (params.get('source') === 'financial') return <FinancialCandidateComparison result={state?.recommendationResult} diagnosis={state?.diagnosis} selectedIds={params.getAll('vehicle')} />;
+  return <VehicleCatalogGate><CatalogVehicleComparePage /></VehicleCatalogGate>;
+}
+
+function CatalogVehicleComparePage() {
   const [params] = useSearchParams();
   const presetId = params.get('preset');
   const preset = findProfilePreset(presetId);

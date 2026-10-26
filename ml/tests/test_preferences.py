@@ -54,7 +54,7 @@ class PreferenceTests(unittest.TestCase):
         no_preference = replace(p, preferred_size='any')
         score = integrated_score(no_preference, vehicle(), assess(no_preference, vehicle()), 0.5)
         self.assertFalse(score['spaceEvaluated'])
-        self.assertEqual({c['key'] for c in score['components']}, {'cost', 'model', 'fuel', 'purpose'})
+        self.assertEqual({c['key'] for c in score['components']}, {'cost', 'model', 'fuel'})
 
     def test_unknown_seats_remain_recommendable_without_relaxing_finances(self):
         service = CandidateService(FixedRanker(), [vehicle(length_mm=4000)])

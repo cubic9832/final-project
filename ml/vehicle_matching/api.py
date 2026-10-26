@@ -105,6 +105,7 @@ def create_app(service=None):
     def options(request: Request):
         current = request.app.state.candidates
         return {'success': True, 'data': {'modelVersion': 'candidate-v2', 'catalogCount': len(current.vehicles),
+                'rankerSchema': getattr(current.ranker, 'schema', 'candidate-v2'),
                 'modelNames': len({(v.brand, v.model) for v in current.vehicles}),
                 'verifiedLengthCount': sum(v.length_mm is not None for v in current.vehicles),
                 'verifiedSeatsCount': sum(v.seats is not None and v.seats_status != 'user-provided' for v in current.vehicles),

@@ -11,3 +11,4 @@ __pycache__/
 /tmp/
 *.iml
 out/
+data/households/synthetic/preference-population-100k-20261026/

@@ -2,6 +2,7 @@
 from collections import Counter
 from dataclasses import asdict, replace
 
+from vehicle_matching.explanations import candidate_evidence, evaluation_summary, ranking_comparison
 from vehicle_matching.finance import assess
 from vehicle_matching.preferences import assumes_standard_seating, exclusions, integrated_score
 from vehicle_matching.budget import recommendation_budget, budget_order, apply_budget_preference
@@ -15,7 +16,9 @@ class CandidateService:
     def recommend(self, profile, k=3):
         if not 1 <= k <= 20:
             raise ValueError('k must be between 1 and 20')
-        profile = replace(profile, down_payment=0, months=0, annual_rate=0, financing_mode='recommendation')
+        # The existing trained feature layout requires a purpose value. Use one
+        # fixed baseline for everyone; old user purpose must not affect ranking.
+        profile = replace(profile, down_payment=0, months=0, annual_rate=0, financing_mode='recommendation', purpose='commute', purpose_importance=1)
         eligible, costs, excluded = [], {}, Counter()
         for vehicle in self.vehicles:
             cost = assess(profile, vehicle, self.ranker.assumptions)
@@ -43,9 +46,7 @@ class CandidateService:
                        f"예상 월 유지비 {cost['monthly_running_cost']:,.0f}원 (보험·세금·정비·에너지비 포함)"]
             affordability=combined[vehicle.id]['monthlyAffordability']
             reasons.append(f"최소 여유자금을 남긴 월 가용자금 중 유지비 비중 {affordability['runningCostRatio']*100:.1f}%")
-            in_band=band['lower']<=vehicle.price<=band['upper']
-            reasons.append(f"추천 기준 예산 {band['upper']:,.0f}원의 80~100% 가격대" if in_band else
-                           '예산 기준의 80% 미만이지만 선호·유지비를 함께 평가해 선정한 후보')
+            reasons.append('구매·유지 가능 조건 안에서 비용 부담과 선택한 선호를 함께 평가한 후보')
             if profile.preferred_fuel == vehicle.fuel:
                 reasons.append('선택한 선호 연료와 일치')
             if vehicle.efficiency_reference_only:
@@ -63,13 +64,22 @@ class CandidateService:
             public_cost = {key: value for key, value in cost.items() if not key.startswith('stress_') and key not in ('principal', 'monthly_payment')}
             target.append({'vehicle': vehicle_data, 'rankingScore': round(score, 6), 'cost': public_cost,
                            'integratedScore': combined[vehicle.id],
+                           'decisionEvidence': candidate_evidence(profile, vehicle, cost, combined[vehicle.id]),
                            'seatingVerificationRequired': 'seats-unverified' in gaps,
                            'lengthVerificationRequired': 'length-unverified' in gaps,
                            'preferenceGaps': gaps,
-                           'budgetTier': 'preferred-band' if in_band else 'lower-price-fallback',
+                           'budgetTier': 'within-financial-ceiling',
                            'reasons': reasons, 'outsideTrainingRange': out_of_range})
+        for index, item in enumerate(chosen):
+            if len(chosen) > 1:
+                higher, lower = (item, chosen[index + 1]) if index < len(chosen) - 1 else (chosen[index - 1], item)
+                item['rankingComparison'] = ranking_comparison(higher, lower)
+            else:
+                item['rankingComparison'] = {'status': 'only-candidate'}
         return {'modelVersion': 'candidate-v2', 'objective': 'financial-eligibility-and-weighted-preferences',
-                'scorePolicy': 'cash-weighted-budget-v6',
+                'scorePolicy': 'cash-preference-weighted-v9',
+                'evaluationSummary': evaluation_summary(profile, self.vehicles, eligible, costs, combined),
+                'appliedPreferences': {name: getattr(profile, name) for name in ('preferred_fuel', 'preferred_size', 'minimum_seats', 'cost_importance', 'space_importance', 'fuel_importance', 'seating_importance')},
                 'budgetPolicy': band,
                 'catalogCount': len(self.vehicles), 'eligibleCount': len(eligible),
                 'excludedReasons': dict(excluded), 'recommendations': chosen,
