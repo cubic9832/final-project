@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { logout } from '../features/auth/authApi';
+import { isAdminRole } from '../features/auth/roles';
 import LogoutConfirmModal from '../features/auth/components/LogoutConfirmModal';
 import useAuthStore from '../stores/useAuthStore';
 import { showToast } from '../stores/useToastStore';
@@ -149,6 +150,8 @@ export default function Header() {
           {/* 로그인 복원 중에는 비워 둔다 → 로그인한 사람에게 "로그인" 버튼이 잠깐 보였다 바뀌는 깜빡임 방지 */}
           {!initialized ? null : member ? (
             <AccountArea>
+              {/* 7단계: 관리자 · 총관리자에게만 관리자 화면 바로가기 (일반 회원에게는 보이지 않는다) */}
+              {isAdminRole(member.role) && <NavLink to="/admin">관리자</NavLink>}
               <NavLink to="/mypage">{member.nickName}님</NavLink>
               <LogoutButton onClick={() => setIsLogoutOpen(true)}>로그아웃</LogoutButton>
             </AccountArea>
