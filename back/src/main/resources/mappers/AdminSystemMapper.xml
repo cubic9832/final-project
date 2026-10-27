@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 7단계: 관리자 운영 현황 — 서비스 연결 상태. flyway_schema_history 는 Flyway 가 만드는 기록 테이블 -->
+<mapper namespace="com.kh.back.admin.mapper.AdminSystemMapper">
+
+    <select id="ping" resultType="int">
+        SELECT 1
+    </select>
+
+    <select id="findLatestMigration" resultType="string">
+        SELECT version FROM flyway_schema_history
+        WHERE success = 1 AND version IS NOT NULL
+        ORDER BY installed_rank DESC
+        LIMIT 1
+    </select>
+</mapper>

@@ -23,7 +23,7 @@ const sections = [
 // data: 'live' = 실제 데이터, 'partial' = 일부만 실제, 없음 = 예시 — 탭 위 안내 문구를 여기에 맞춰 바꾼다
 const DATA_NOTES = {
   live: '이 화면의 내용은 실제 DB 데이터입니다.',
-  partial: '회원 · 차량 수와 최근 운영 이력은 실제 데이터이고, 나머지 수치와 상태는 예시입니다.',
+  partial: '회원 · 차량 수, 서비스 연결 상태, 최근 운영 이력은 실제 데이터이고, 추천 라벨 · 적용 모델 수치와 먼저 확인할 작업은 예시입니다.',
 };
 export default function AdminPage() {
   const [params] = useSearchParams();
