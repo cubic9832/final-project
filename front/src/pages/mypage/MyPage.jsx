@@ -5,14 +5,14 @@ import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getSessions } from '../../features/auth/authApi';
 import { getMe, getRecentDiagnoses } from '../../features/auth/memberApi';
+import { ROLE_LABELS } from '../../features/auth/roles';
 import { getCurrentTaste, getTasteCatalog } from '../../features/taste-test/tasteApi';
 import { getVehicles } from '../../features/vehicle/vehicleApi';
 import { CardError, CardLoading } from './CardStatus';
 import { deviceName, drivingTag, formatDate, formatDateTime, genderLabel, purchaseTag } from './profileOptions';
 import './MyPage.css';
 
-// 서버의 role 값 → 화면에 보여 줄 이름
-const ROLE_LABELS = { USER: '사용자', ADMIN: '관리자' };
+// 서버의 role 값 → 화면에 보여 줄 이름 (7단계 공용 이름표: 일반 회원 · 관리자 · 총관리자)
 
 // 차량 화면(조원 VehicleContext)이 관심차량을 저장하는 브라우저 저장소 키 — 회원별 DB 저장은 아직 없음
 const FAVORITES_KEY = 'vehicle-favorites';
