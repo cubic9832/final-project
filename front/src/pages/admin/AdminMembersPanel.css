@@ -158,3 +158,8 @@
 .admin-member-detail .admin-card-heading {
   margin-bottom: var(--space-16);
 }
+
+/* 확인 문구 안의 이름은 문장 안에 그대로 (표 칸의 strong 은 줄을 바꾸는 규칙이 있어 덮어쓴다) */
+.admin-table .admin-member-role p strong {
+  display: inline;
+}
