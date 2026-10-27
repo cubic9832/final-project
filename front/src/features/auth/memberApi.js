@@ -40,3 +40,15 @@ export const updateProfile = async (changes) => {
 export const withdraw = async ({ password, confirmText }) => {
   await client.delete('/members/me', { data: { password, confirmText } });
 };
+
+// 재무 진단 기록 — 결과 화면에서 저장 (금액은 원 단위) → 저장한 기록 { analysisId, completedAt, ... }
+export const saveDiagnosis = async (summary) => {
+  const res = await client.post('/members/me/diagnoses', summary);
+  return res.data.data;
+};
+
+// 최근 재무 진단 (최신 순) → [{ analysisId, completedAt, monthlyIncome, monthlyAvailable, purchaseFunds, priceUpper }]
+export const getRecentDiagnoses = async (size = 3) => {
+  const res = await client.get('/members/me/diagnoses', { params: { size } });
+  return res.data.data;
+};

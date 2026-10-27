@@ -82,14 +82,6 @@
   font-size: 14px;
 }
 
-.my-example-badge {
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: #fff7e3;
-  color: #8b6100;
-  font-size: 11px;
-  font-weight: 700;
-}
 
 .my-role-badge {
   flex-shrink: 0;
@@ -698,6 +690,11 @@
 .my-profile-meta dd {
   margin: 0;
   color: #152238;
+}
+
+/* 선택 항목을 입력하지 않음 (전화번호 등) — 필수 "입력 전" 과 달리 흐린 글자 */
+.my-profile-meta dd.is-none {
+  color: #8a95a3;
 }
 
 .my-profile-meta dd.is-empty {
