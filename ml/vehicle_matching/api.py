@@ -69,6 +69,9 @@ def load_service(directory, *, apply_specification_updates=True):
     if override:
         from vehicle_matching.catalog import load_csv
         vehicles = load_csv(Path(override))[0] if Path(override).suffix.lower() == '.csv' else read_catalog(override)
+    elif meta['training'].get('catalog_mode') == 'verified-runtime-snapshot':
+        # Audited snapshots must not be overwritten by legacy seating registries.
+        vehicles = read_catalog(path / 'catalog.json')
     else:
         vehicles = read_catalog(path / 'catalog.json')
         vehicles, _ = expand_catalog(vehicles)
@@ -88,7 +91,7 @@ def load_service(directory, *, apply_specification_updates=True):
 def create_app(service=None):
     @asynccontextmanager
     async def lifespan(application):
-        application.state.candidates = service or load_service(os.environ.get('ML_CANDIDATE_RUN', str(ROOT / 'ml/outputs/models/candidate-preferences/20261026-body-v1')))
+        application.state.candidates = service or load_service(os.environ.get('ML_CANDIDATE_RUN', str(ROOT / 'ml/outputs/models/candidate-preferences/20261027-seating-verified-v1')))
         from vehicle_matching.managed_catalog import ManagedCatalog
         url=os.environ.get('ML_MANAGED_CATALOG_URL','http://127.0.0.1:8080/api/v1/vehicles/recommendation-catalog')
         application.state.managed_catalog = ManagedCatalog(url) if service is None and url else None

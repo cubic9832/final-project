@@ -1,0 +1,599 @@
+{
+  "model": {
+    "modelVersion": "candidate-v2",
+    "catalogCount": 282,
+    "modelBundle": "20261027-seating-verified-v1",
+    "catalogSource": "frozen-corrected-database-snapshot",
+    "featureCount": 46,
+    "rankerSchema": "candidate-preferences-v3",
+    "modelNames": 84,
+    "verifiedLengthCount": 281,
+    "verifiedSeatsCount": 36,
+    "registeredSeatingCount": 282,
+    "seatingInputConflictCount": 0,
+    "seatingOptionsCount": 282,
+    "requiredFields": [
+      "monthly_income",
+      "monthly_expenses",
+      "existing_monthly_payment",
+      "liquid_assets",
+      "emergency_reserve",
+      "monthly_savings",
+      "annual_distance"
+    ],
+    "assumptions": {
+      "version": "cost-utility-v2.3-base-cost-only",
+      "acquisition_ratio": 0,
+      "monthly_insurance": 100000,
+      "monthly_maintenance": 60000,
+      "monthly_tax": 25000,
+      "efficiency_ranges": [
+        [
+          8,
+          14
+        ],
+        [
+          14,
+          22
+        ],
+        [
+          10,
+          16
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "energy_prices": [
+        1800,
+        1800,
+        1700,
+        1100,
+        350
+      ]
+    }
+  },
+  "catalog_sha256": "b69c30cb426ec51a3345d5c5329e2b2581ec3a4ffe73984be36f9fec8294d957",
+  "design": "240 synthetic deterministic scenarios: cash 12/25/50/150 million KRW x monthly disposable 0.3/0.9/2 million x 5 fuels x 4 body preferences; 5 or 7 seats, rotating small/medium/large lengths, active fuel/body/seating weights 5, size weight 3; k=3. No production data changed. Reference dominance covers explicit measured component scores only.",
+  "metrics": {
+    "cases": 240,
+    "with_results": 160,
+    "returned": 480,
+    "cash_violations": 0,
+    "monthly_policy_violations": 0,
+    "asset_supported_results": 135,
+    "explanation_errors": 0,
+    "outside_training_results": 12,
+    "dominated_top1_cases": 33,
+    "ml_order_overridden_cases": 7
+  },
+  "conditional_preference_matches": {
+    "fuel": {
+      "cases_with_matching_alternative": 96,
+      "top1_match": 92,
+      "top3_contains_match": 94
+    },
+    "body": {
+      "cases_with_matching_alternative": 100,
+      "top1_match": 94,
+      "top3_contains_match": 96
+    },
+    "seating": {
+      "cases_with_matching_alternative": 160,
+      "top1_match": 160,
+      "top3_contains_match": 160
+    },
+    "space": {
+      "cases_with_matching_alternative": 119,
+      "top1_match": 83,
+      "top3_contains_match": 95
+    }
+  },
+  "examples": [
+    {
+      "case": 64,
+      "funds": 25000000,
+      "monthly_available": 300000,
+      "fuel": "GASOLINE",
+      "body": "any",
+      "seats": 5,
+      "size": "small",
+      "eligible": 17,
+      "top3": [
+        {
+          "id": "V-28e35ab7d6ef4cbd",
+          "model": "레이",
+          "price": 15550000.0,
+          "fuel": "GASOLINE",
+          "body": "BOX",
+          "seats": 5,
+          "monthly_cost": 359419,
+          "funding": "assets",
+          "score": 86.9207992553711
+        },
+        {
+          "id": "V-d7301997ec0857a4",
+          "model": "모닝",
+          "price": 13860000.0,
+          "fuel": "GASOLINE",
+          "body": "HATCHBACK",
+          "seats": 5,
+          "monthly_cost": 338062,
+          "funding": "assets",
+          "score": 81.37065887451172
+        },
+        {
+          "id": "V-336d414c0bfa6ca5",
+          "model": "베뉴",
+          "price": 19940000.0,
+          "fuel": "GASOLINE",
+          "body": "SUV",
+          "seats": 5,
+          "monthly_cost": 349234,
+          "funding": "assets",
+          "score": 77.93974304199219
+        }
+      ],
+      "dominating_alternative": {
+        "model": "모닝",
+        "trim": "트렌디",
+        "price": 14210000,
+        "components": {
+          "cost": 67.60622181319067,
+          "space": 100.0,
+          "fuel": 100,
+          "seating": 100
+        },
+        "top1_components": {
+          "cost": 63.43847990229621,
+          "space": 100.0,
+          "fuel": 100,
+          "seating": 100
+        }
+      }
+    },
+    {
+      "case": 83,
+      "funds": 25000000,
+      "monthly_available": 900000,
+      "fuel": null,
+      "body": "MPV",
+      "seats": 5,
+      "size": "small",
+      "eligible": 19,
+      "top3": [
+        {
+          "id": "V-28e35ab7d6ef4cbd",
+          "model": "레이",
+          "price": 15550000.0,
+          "fuel": "GASOLINE",
+          "body": "BOX",
+          "seats": 5,
+          "monthly_cost": 359419,
+          "funding": "income",
+          "score": 15.34308910369873
+        },
+        {
+          "id": "V-d7301997ec0857a4",
+          "model": "모닝",
+          "price": 13860000.0,
+          "fuel": "GASOLINE",
+          "body": "HATCHBACK",
+          "seats": 5,
+          "monthly_cost": 338062,
+          "funding": "income",
+          "score": 11.314349174499512
+        },
+        {
+          "id": "V-336d414c0bfa6ca5",
+          "model": "베뉴",
+          "price": 19940000.0,
+          "fuel": "GASOLINE",
+          "body": "SUV",
+          "seats": 5,
+          "monthly_cost": 349234,
+          "funding": "income",
+          "score": 8.147368431091309
+        }
+      ],
+      "dominating_alternative": {
+        "model": "모닝",
+        "trim": "트렌디",
+        "price": 14210000,
+        "components": {
+          "cost": 64.52531383679012,
+          "space": 100.0,
+          "body": 0,
+          "seating": 100
+        },
+        "top1_components": {
+          "cost": 60.92580138512346,
+          "space": 100.0,
+          "body": 0,
+          "seating": 100
+        }
+      }
+    },
+    {
+      "case": 91,
+      "funds": 25000000,
+      "monthly_available": 900000,
+      "fuel": "HYBRID",
+      "body": "MPV",
+      "seats": 5,
+      "size": "small",
+      "eligible": 19,
+      "top3": [
+        {
+          "id": "V-28e35ab7d6ef4cbd",
+          "model": "레이",
+          "price": 15550000.0,
+          "fuel": "GASOLINE",
+          "body": "BOX",
+          "seats": 5,
+          "monthly_cost": 359419,
+          "funding": "income",
+          "score": 12.755867958068848
+        },
+        {
+          "id": "V-d7301997ec0857a4",
+          "model": "모닝",
+          "price": 13860000.0,
+          "fuel": "GASOLINE",
+          "body": "HATCHBACK",
+          "seats": 5,
+          "monthly_cost": 338062,
+          "funding": "income",
+          "score": 8.999617576599121
+        },
+        {
+          "id": "V-336d414c0bfa6ca5",
+          "model": "베뉴",
+          "price": 19940000.0,
+          "fuel": "GASOLINE",
+          "body": "SUV",
+          "seats": 5,
+          "monthly_cost": 349234,
+          "funding": "income",
+          "score": 6.4161834716796875
+        }
+      ],
+      "dominating_alternative": {
+        "model": "모닝",
+        "trim": "트렌디",
+        "price": 14210000,
+        "components": {
+          "cost": 64.52531383679012,
+          "space": 100.0,
+          "fuel": 0,
+          "body": 0,
+          "seating": 100
+        },
+        "top1_components": {
+          "cost": 60.92580138512346,
+          "space": 100.0,
+          "fuel": 0,
+          "body": 0,
+          "seating": 100
+        }
+      }
+    },
+    {
+      "case": 92,
+      "funds": 25000000,
+      "monthly_available": 900000,
+      "fuel": "ELECTRIC",
+      "body": "any",
+      "seats": 5,
+      "size": "small",
+      "eligible": 19,
+      "top3": [
+        {
+          "id": "V-28e35ab7d6ef4cbd",
+          "model": "레이",
+          "price": 15550000.0,
+          "fuel": "GASOLINE",
+          "body": "BOX",
+          "seats": 5,
+          "monthly_cost": 359419,
+          "funding": "income",
+          "score": 15.510048866271973
+        },
+        {
+          "id": "V-d7301997ec0857a4",
+          "model": "모닝",
+          "price": 13860000.0,
+          "fuel": "GASOLINE",
+          "body": "HATCHBACK",
+          "seats": 5,
+          "monthly_cost": 338062,
+          "funding": "income",
+          "score": 11.12099552154541
+        },
+        {
+          "id": "V-336d414c0bfa6ca5",
+          "model": "베뉴",
+          "price": 19940000.0,
+          "fuel": "GASOLINE",
+          "body": "SUV",
+          "seats": 5,
+          "monthly_cost": 349234,
+          "funding": "income",
+          "score": 8.469828605651855
+        }
+      ],
+      "dominating_alternative": {
+        "model": "모닝",
+        "trim": "트렌디",
+        "price": 14210000,
+        "components": {
+          "cost": 64.52531383679012,
+          "space": 100.0,
+          "fuel": 0,
+          "seating": 100
+        },
+        "top1_components": {
+          "cost": 60.92580138512346,
+          "space": 100.0,
+          "fuel": 0,
+          "seating": 100
+        }
+      }
+    },
+    {
+      "case": 100,
+      "funds": 25000000,
+      "monthly_available": 2000000,
+      "fuel": null,
+      "body": "any",
+      "seats": 5,
+      "size": "small",
+      "eligible": 19,
+      "top3": [
+        {
+          "id": "V-28e35ab7d6ef4cbd",
+          "model": "레이",
+          "price": 15550000.0,
+          "fuel": "GASOLINE",
+          "body": "BOX",
+          "seats": 5,
+          "monthly_cost": 359419,
+          "funding": "income",
+          "score": 17.927494049072266
+        },
+        {
+          "id": "V-d7301997ec0857a4",
+          "model": "모닝",
+          "price": 13860000.0,
+          "fuel": "GASOLINE",
+          "body": "HATCHBACK",
+          "seats": 5,
+          "monthly_cost": 338062,
+          "funding": "income",
+          "score": 13.16096019744873
+        },
+        {
+          "id": "V-336d414c0bfa6ca5",
+          "model": "베뉴",
+          "price": 19940000.0,
+          "fuel": "GASOLINE",
+          "body": "SUV",
+          "seats": 5,
+          "monthly_cost": 349234,
+          "funding": "income",
+          "score": 10.649707794189453
+        }
+      ],
+      "dominating_alternative": {
+        "model": "모닝",
+        "trim": "트렌디",
+        "price": 14210000,
+        "components": {
+          "cost": 70.15142605195,
+          "space": 100.0,
+          "seating": 100
+        },
+        "top1_components": {
+          "cost": 67.28522478048751,
+          "space": 100.0,
+          "seating": 100
+        }
+      }
+    },
+    {
+      "case": 119,
+      "funds": 25000000,
+      "monthly_available": 2000000,
+      "fuel": "DIESEL",
+      "body": "MPV",
+      "seats": 5,
+      "size": "small",
+      "eligible": 19,
+      "top3": [
+        {
+          "id": "V-28e35ab7d6ef4cbd",
+          "model": "레이",
+          "price": 15550000.0,
+          "fuel": "GASOLINE",
+          "body": "BOX",
+          "seats": 5,
+          "monthly_cost": 359419,
+          "funding": "income",
+          "score": 12.807038307189941
+        },
+        {
+          "id": "V-d7301997ec0857a4",
+          "model": "모닝",
+          "price": 13860000.0,
+          "fuel": "GASOLINE",
+          "body": "HATCHBACK",
+          "seats": 5,
+          "monthly_cost": 338062,
+          "funding": "income",
+          "score": 8.65528392791748
+        },
+        {
+          "id": "V-336d414c0bfa6ca5",
+          "model": "베뉴",
+          "price": 19940000.0,
+          "fuel": "GASOLINE",
+          "body": "SUV",
+          "seats": 5,
+          "monthly_cost": 349234,
+          "funding": "income",
+          "score": 6.438774108886719
+        }
+      ],
+      "dominating_alternative": {
+        "model": "모닝",
+        "trim": "트렌디",
+        "price": 14210000,
+        "components": {
+          "cost": 70.15142605195,
+          "space": 100.0,
+          "fuel": 0,
+          "body": 0,
+          "seating": 100
+        },
+        "top1_components": {
+          "cost": 67.28522478048751,
+          "space": 100.0,
+          "fuel": 0,
+          "body": 0,
+          "seating": 100
+        }
+      }
+    },
+    {
+      "case": 121,
+      "funds": 50000000,
+      "monthly_available": 300000,
+      "fuel": null,
+      "body": "SUV",
+      "seats": 5,
+      "size": "medium",
+      "eligible": 202,
+      "top3": [
+        {
+          "id": "V-d9c96399680afe0e",
+          "model": "트랙스 크로스오버",
+          "price": 21990000.0,
+          "fuel": "GASOLINE",
+          "body": "SUV",
+          "seats": 5,
+          "monthly_cost": 362166,
+          "funding": "assets",
+          "score": 41.0933723449707
+        },
+        {
+          "id": "V-feec12c6666425a3",
+          "model": "티볼리",
+          "price": 20970000.0,
+          "fuel": "GASOLINE",
+          "body": "SUV",
+          "seats": 5,
+          "monthly_cost": 378966,
+          "funding": "assets",
+          "score": 40.473236083984375
+        },
+        {
+          "id": "V-e5622256bb513572",
+          "model": "셀토스",
+          "price": 25120000.0,
+          "fuel": "GASOLINE",
+          "body": "SUV",
+          "seats": 5,
+          "monthly_cost": 365000,
+          "funding": "assets",
+          "score": 38.896942138671875
+        }
+      ],
+      "dominating_alternative": {
+        "model": "티볼리",
+        "trim": "V1",
+        "price": 20970000.0,
+        "components": {
+          "cost": 78.05882198082588,
+          "space": 100.0,
+          "body": 100,
+          "seating": 100
+        },
+        "top1_components": {
+          "cost": 77.06485409341887,
+          "space": 100.0,
+          "body": 100,
+          "seating": 100
+        }
+      }
+    },
+    {
+      "case": 125,
+      "funds": 50000000,
+      "monthly_available": 300000,
+      "fuel": "GASOLINE",
+      "body": "SUV",
+      "seats": 5,
+      "size": "large",
+      "eligible": 202,
+      "top3": [
+        {
+          "id": "V-89eca9bf45d07cb9",
+          "model": "싼타페",
+          "price": 36570000.0,
+          "fuel": "GASOLINE",
+          "body": "SUV",
+          "seats": 5,
+          "monthly_cost": 389546,
+          "funding": "assets",
+          "score": 108.04900360107422
+        },
+        {
+          "id": "V-af6e97a51f640796",
+          "model": "쏘렌토",
+          "price": 36410000.0,
+          "fuel": "GASOLINE",
+          "body": "SUV",
+          "seats": 5,
+          "monthly_cost": 393334,
+          "funding": "assets",
+          "score": 107.31890106201172
+        },
+        {
+          "id": "legacy-C0028",
+          "model": "팰리세이드",
+          "price": 44780000,
+          "fuel": "GASOLINE",
+          "body": "SUV",
+          "seats": 9,
+          "monthly_cost": 416959,
+          "funding": "assets",
+          "score": 106.17076873779297
+        }
+      ],
+      "dominating_alternative": {
+        "model": "쏘렌토",
+        "trim": "프레스티지",
+        "price": 36410000.0,
+        "components": {
+          "cost": 59.82032664050998,
+          "space": 100.0,
+          "fuel": 100,
+          "body": 100,
+          "seating": 100
+        },
+        "top1_components": {
+          "cost": 59.662782464866496,
+          "space": 100.0,
+          "fuel": 100,
+          "body": 100,
+          "seating": 100
+        }
+      }
+    }
+  ]
+}

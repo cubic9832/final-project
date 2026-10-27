@@ -1,3 +1,22 @@
+# 정원 검수 후 재학습 — 2026-10-27
+
+현재 실행 모델은 `20261027-seating-verified-v1`이다. 기본 실행 스크립트와 API 기본 경로에 적용했다. 이전 `20261026-body-v1` 체크포인트는 보존했다.
+
+- V17 마이그레이션으로 18개 검증 사양을 수정하고 스타리아 Hybrid Modern을 9인·11인 구성으로 분리했다. 9인 기본 복합 연비는 12.7km/L로 수정했고, 11인은 확인 가능한 빌트인캠 장착 인증 연비를 참조값으로 표시한다.
+- 새 학습 데이터: `data/households/synthetic/seating-verified-v1-20261027`. 기존 재무 그룹과 train/validation/test 분할은 유지하고 특징·정답·비교 쌍을 재생성했다. 정원 필수 조건, 선호 중요도 우선, 동률 시 비용 평가를 합성 교사 정답으로 사용한다.
+- 12 epochs 학습, 선택 epoch 12. 검증 선택은 validation의 고정 비교 쌍 최대 50,000개만 사용하며 test는 선택에 사용하지 않았다.
+- 동일 테스트 비교 쌍 346,799개의 합성 정답 일치율: 기존 91.2301%, 신규 97.9236%. 실제 만족도·구매 확률 지표가 아니다.
+- 상세 비교: `ml/outputs/reports/seating-retraining-20261027/README.md`.
+- 학습 카탈로그는 검수된 런타임 스냅샷이며 legacy registry를 재적용하지 않는다. 전체 차량의 모든 제원을 제조사 검증 완료했다고 뜻하지 않는다.
+
+재학습 명령(프로젝트 루트, 새 출력 경로 필요):
+```powershell
+$env:PYTHONPATH='ml'
+.\ml\.venv\Scripts\python.exe -m vehicle_matching.retrain_verified_catalog --source data/households/synthetic/body-preference-v1-20261026 --data data/households/synthetic/seating-verified-v1-20261027 --output ml/outputs/models/candidate-preferences/20261027-seating-verified-v1 --old-model ml/outputs/models/candidate-preferences/20261026-body-v1 --epochs 12
+```
+
+아래는 이전 실행·학습 기록이다.
+
 ## 차체 형태 확장 재학습 자료 (2026-10-26)
 
 재학습에 사용할 최신 분류 자료는 `data/households/synthetic/body-preference-v1-20261026`입니다. 차량 형태 출처/생성 규칙/검증 보고서를 함께 보존합니다. 기존 체크포인트 파일은 보존했고, 차체를 포함한 46입력 모델을 `ml/outputs/models/candidate-preferences/20261026-body-v1`에 재학습 완료했습니다. 실행 서버 및 기본 실행 스크립트는 `20261026-body-v1`로 교체했습니다. 평가 결과는 해당 모델 폴더의 holdout_report.json을 참조하세요. 서비스는 차체 선호를 명시적 가중치로 반영합니다. 자세한 실행 명령은 vehicle_matching/README.md의 차체 형태 확장 절을 참고하세요.

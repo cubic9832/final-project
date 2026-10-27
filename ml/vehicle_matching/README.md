@@ -1,8 +1,10 @@
+최신 정원 수정·재학습 및 실행 명령은 [ML 안내](../README.md)를 따른다.
+
 # 현재 정책 및 정제 데이터
 
-현재 정책은 cash-preference-weighted-v9이며 현금 구매와 구매 후 12개월 유지비 여력을 확인한다. 연료·차체 크기·정원은 가중치 선호이며 가성비를 낮춰도 고가 보너스를 주지 않는다. 이전 80~100% 가격대 우선 정책은 사용하지 않는다.
+현재 정책은 required-seats-preference-priority-ml-v1이다. 재무 조건과 최소 인원을 먼저 확인하고, 선호 중요도순·동률 시 ML 원본 점수로 정렬한다. 정원 미확인·충돌·선택 사양은 별도 확인 후보로 분리한다.
 
-학습 자료와 생성·분류 규칙은 `data/households/synthetic/curated-current-v2-20261026`의 README.md와 rules.txt를 따른다. 원본 합성 자료는 정제 후 삭제했고 출처 해시와 Git 커밋을 보고서에 기록했다. 실행 모델은 20261026-body-v1이며 통합 데이터 모델은 평가용 20261026-refined-v1에 저장했다.
+학습 자료와 생성·분류 규칙은 `data/households/synthetic/curated-current-v2-20261026`의 README.md와 rules.txt를 따른다. 원본 합성 자료는 정제 후 삭제했고 출처 해시와 Git 커밋을 보고서에 기록했다. 실행 모델은 20261027-seating-verified-v1이며 통합 데이터 모델은 평가용 20261026-refined-v1에 저장했다.
 
 아래는 과거 실험 기록으로 현재 데이터 경로·입력·정책의 기준이 아니다.
 

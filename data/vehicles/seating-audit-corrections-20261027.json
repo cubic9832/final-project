@@ -1,0 +1,613 @@
+{
+  "verified_on": "2026-10-27",
+  "patches": [
+    {
+      "id": "legacy-C0028",
+      "brand": "현대",
+      "model": "팰리세이드",
+      "trim": "Exclusive",
+      "price": 44780000,
+      "before": {
+        "seats": 9,
+        "status": "official-reference-conflict"
+      },
+      "proposed": {
+        "seats": 9,
+        "seat_options": [
+          9
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-2027-price.pdf"
+      },
+      "source": "https://www.hyundai.com/contents/repn-car/catalog/palisade-2027-price.pdf",
+      "page_zero_based": null,
+      "decision": "가격·트림·정원을 공식 가격표에서 대조함. 상태 갱신 또는 미확인 정원 확정 가능. DB에는 미적용.",
+      "patch": {
+        "seats": 9,
+        "seat_options": [
+          9
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-2027-price.pdf",
+        "seats_label": "9인승",
+        "seats_note": "2026-10-27 공식 가격표의 트림·가격·정원 재검증 완료. 이전 입력 충돌을 해소함."
+      }
+    },
+    {
+      "id": "legacy-C0029",
+      "brand": "현대",
+      "model": "팰리세이드",
+      "trim": "H-Pick",
+      "price": 50400000,
+      "before": {
+        "seats": 9,
+        "status": "official-reference-conflict"
+      },
+      "proposed": {
+        "seats": 9,
+        "seat_options": [
+          9
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-2027-price.pdf"
+      },
+      "source": "https://www.hyundai.com/contents/repn-car/catalog/palisade-2027-price.pdf",
+      "page_zero_based": null,
+      "decision": "가격·트림·정원을 공식 가격표에서 대조함. 상태 갱신 또는 미확인 정원 확정 가능. DB에는 미적용.",
+      "patch": {
+        "seats": 9,
+        "seat_options": [
+          9
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-2027-price.pdf",
+        "seats_label": "9인승",
+        "seats_note": "2026-10-27 공식 가격표의 트림·가격·정원 재검증 완료. 이전 입력 충돌을 해소함."
+      }
+    },
+    {
+      "id": "legacy-C0030",
+      "brand": "현대",
+      "model": "팰리세이드",
+      "trim": "Exclusive",
+      "price": 46100000,
+      "before": {
+        "seats": 7,
+        "status": "official-reference-conflict"
+      },
+      "proposed": {
+        "seats": 7,
+        "seat_options": [
+          7
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-2027-price.pdf"
+      },
+      "source": "https://www.hyundai.com/contents/repn-car/catalog/palisade-2027-price.pdf",
+      "page_zero_based": null,
+      "decision": "가격·트림·정원을 공식 가격표에서 대조함. 상태 갱신 또는 미확인 정원 확정 가능. DB에는 미적용.",
+      "patch": {
+        "seats": 7,
+        "seat_options": [
+          7
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-2027-price.pdf",
+        "seats_label": "7인승",
+        "seats_note": "2026-10-27 공식 가격표의 트림·가격·정원 재검증 완료. 이전 입력 충돌을 해소함."
+      }
+    },
+    {
+      "id": "legacy-C0031",
+      "brand": "현대",
+      "model": "팰리세이드",
+      "trim": "H-Pick",
+      "price": 52030000,
+      "before": {
+        "seats": 7,
+        "status": "official-reference-conflict"
+      },
+      "proposed": {
+        "seats": 7,
+        "seat_options": [
+          7
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-2027-price.pdf"
+      },
+      "source": "https://www.hyundai.com/contents/repn-car/catalog/palisade-2027-price.pdf",
+      "page_zero_based": null,
+      "decision": "가격·트림·정원을 공식 가격표에서 대조함. 상태 갱신 또는 미확인 정원 확정 가능. DB에는 미적용.",
+      "patch": {
+        "seats": 7,
+        "seat_options": [
+          7
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-2027-price.pdf",
+        "seats_label": "7인승",
+        "seats_note": "2026-10-27 공식 가격표의 트림·가격·정원 재검증 완료. 이전 입력 충돌을 해소함."
+      }
+    },
+    {
+      "id": "legacy-C0032",
+      "brand": "현대",
+      "model": "팰리세이드 Hybrid",
+      "trim": "Exclusive",
+      "price": 50770000,
+      "before": {
+        "seats": 9,
+        "status": "official-reference-conflict"
+      },
+      "proposed": {
+        "seats": 9,
+        "seat_options": [
+          9
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-hev-2027-price.pdf"
+      },
+      "source": "https://www.hyundai.com/contents/repn-car/catalog/palisade-hev-2027-price.pdf",
+      "page_zero_based": null,
+      "decision": "가격·트림·정원을 공식 가격표에서 대조함. 상태 갱신 또는 미확인 정원 확정 가능. DB에는 미적용.",
+      "patch": {
+        "seats": 9,
+        "seat_options": [
+          9
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-hev-2027-price.pdf",
+        "seats_label": "9인승",
+        "seats_note": "2026-10-27 공식 가격표의 트림·가격·정원 재검증 완료. 이전 입력 충돌을 해소함."
+      }
+    },
+    {
+      "id": "legacy-C0034",
+      "brand": "현대",
+      "model": "팰리세이드 Hybrid",
+      "trim": "Exclusive",
+      "price": 51400000,
+      "before": {
+        "seats": 7,
+        "status": "official-reference-conflict"
+      },
+      "proposed": {
+        "seats": 7,
+        "seat_options": [
+          7
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-hev-2027-price.pdf"
+      },
+      "source": "https://www.hyundai.com/contents/repn-car/catalog/palisade-hev-2027-price.pdf",
+      "page_zero_based": null,
+      "decision": "가격·트림·정원을 공식 가격표에서 대조함. 상태 갱신 또는 미확인 정원 확정 가능. DB에는 미적용.",
+      "patch": {
+        "seats": 7,
+        "seat_options": [
+          7
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-hev-2027-price.pdf",
+        "seats_label": "7인승",
+        "seats_note": "2026-10-27 공식 가격표의 트림·가격·정원 재검증 완료. 이전 입력 충돌을 해소함."
+      }
+    },
+    {
+      "id": "V-00f674d94357e621",
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지 Hybrid",
+      "trim": "Inspiration",
+      "price": 50920000.0,
+      "before": {
+        "seats": null,
+        "status": "user-provided"
+      },
+      "proposed": {
+        "seats": 7,
+        "seat_options": [
+          7
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-hybrid_price.pdf"
+      },
+      "source": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-hybrid_price.pdf",
+      "page_zero_based": 1,
+      "decision": "가격·트림·정원을 공식 가격표에서 대조함. 상태 갱신 또는 미확인 정원 확정 가능. DB에는 미적용.",
+      "patch": {
+        "seats": 7,
+        "seat_options": [
+          7
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-hybrid_price.pdf",
+        "seats_label": "7인승",
+        "seats_note": "2026-10-27 공식 가격표의 트림·가격·정원 재검증 완료. 이전 입력 충돌을 해소함."
+      }
+    },
+    {
+      "id": "V-1e97c367b8b2a7b6",
+      "brand": "현대",
+      "model": "더 뉴 스타리아 리무진 Hybrid",
+      "trim": "Inspiration",
+      "price": 59800000.0,
+      "before": {
+        "seats": 9,
+        "status": "official-reference-conflict"
+      },
+      "proposed": {
+        "seats": 9,
+        "seat_options": [
+          9
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-hybrid_price.pdf"
+      },
+      "source": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-hybrid_price.pdf",
+      "page_zero_based": null,
+      "decision": "가격·트림·정원을 공식 가격표에서 대조함. 상태 갱신 또는 미확인 정원 확정 가능. DB에는 미적용.",
+      "patch": {
+        "seats": 9,
+        "seat_options": [
+          9
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-hybrid_price.pdf",
+        "seats_label": "9인승",
+        "seats_note": "2026-10-27 공식 가격표의 트림·가격·정원 재검증 완료. 이전 입력 충돌을 해소함."
+      }
+    },
+    {
+      "id": "V-20b4be5730d6553a",
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지 Electric",
+      "trim": "Inspiration",
+      "price": 67310000.0,
+      "before": {
+        "seats": 7,
+        "status": "official-reference-conflict"
+      },
+      "proposed": {
+        "seats": 7,
+        "seat_options": [
+          7
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-electric_price.pdf"
+      },
+      "source": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-electric_price.pdf",
+      "page_zero_based": null,
+      "decision": "가격·트림·정원을 공식 가격표에서 대조함. 상태 갱신 또는 미확인 정원 확정 가능. DB에는 미적용.",
+      "patch": {
+        "seats": 7,
+        "seat_options": [
+          7
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-electric_price.pdf",
+        "seats_label": "7인승",
+        "seats_note": "2026-10-27 공식 가격표의 트림·가격·정원 재검증 완료. 이전 입력 충돌을 해소함."
+      }
+    },
+    {
+      "id": "V-2292e2e4efc58cae",
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지",
+      "trim": "Inspiration",
+      "price": 47720000.0,
+      "before": {
+        "seats": null,
+        "status": "user-provided"
+      },
+      "proposed": {
+        "seats": 7,
+        "seat_options": [
+          7
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge_price.pdf"
+      },
+      "source": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge_price.pdf",
+      "page_zero_based": 0,
+      "decision": "가격·트림·정원을 공식 가격표에서 대조함. 상태 갱신 또는 미확인 정원 확정 가능. DB에는 미적용.",
+      "patch": {
+        "seats": 7,
+        "seat_options": [
+          7
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge_price.pdf",
+        "seats_label": "7인승",
+        "seats_note": "2026-10-27 공식 가격표의 트림·가격·정원 재검증 완료. 이전 입력 충돌을 해소함."
+      }
+    },
+    {
+      "id": "V-27887ee7cbab9543",
+      "brand": "기아",
+      "model": "EV9 GT",
+      "trim": "GT",
+      "price": 84740000.0,
+      "before": {
+        "seats": 6,
+        "status": "official-reference-conflict"
+      },
+      "proposed": {
+        "seats": 6,
+        "seat_options": [
+          6
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev9-gt.pdf"
+      },
+      "source": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev9-gt.pdf",
+      "page_zero_based": null,
+      "decision": "가격·트림·정원을 공식 가격표에서 대조함. 상태 갱신 또는 미확인 정원 확정 가능. DB에는 미적용.",
+      "patch": {
+        "seats": 6,
+        "seat_options": [
+          6
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_ev9-gt.pdf",
+        "seats_label": "6인승",
+        "seats_note": "2026-10-27 공식 가격표의 트림·가격·정원 재검증 완료. 이전 입력 충돌을 해소함."
+      }
+    },
+    {
+      "id": "V-321d01c3cfacf874",
+      "brand": "현대",
+      "model": "팰리세이드 Hybrid",
+      "trim": "H-Pick",
+      "price": 56400000.0,
+      "before": {
+        "seats": 9,
+        "status": "official-reference-conflict"
+      },
+      "proposed": {
+        "seats": 9,
+        "seat_options": [
+          9
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-hev-2027-price.pdf"
+      },
+      "source": "https://www.hyundai.com/contents/repn-car/catalog/palisade-hev-2027-price.pdf",
+      "page_zero_based": null,
+      "decision": "가격·트림·정원을 공식 가격표에서 대조함. 상태 갱신 또는 미확인 정원 확정 가능. DB에는 미적용.",
+      "patch": {
+        "seats": 9,
+        "seat_options": [
+          9
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-hev-2027-price.pdf",
+        "seats_label": "9인승",
+        "seats_note": "2026-10-27 공식 가격표의 트림·가격·정원 재검증 완료. 이전 입력 충돌을 해소함."
+      }
+    },
+    {
+      "id": "V-444e0e3b5c436f9a",
+      "brand": "기아",
+      "model": "카니발",
+      "trim": "프레스티지",
+      "price": 36860000.0,
+      "before": {
+        "seats": 9,
+        "status": "official-reference-conflict"
+      },
+      "proposed": {
+        "seats": 9,
+        "seat_options": [
+          9
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_carnival.pdf"
+      },
+      "source": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_carnival.pdf",
+      "page_zero_based": null,
+      "decision": "가격·트림·정원을 공식 가격표에서 대조함. 상태 갱신 또는 미확인 정원 확정 가능. DB에는 미적용.",
+      "patch": {
+        "seats": 9,
+        "seat_options": [
+          9
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_carnival.pdf",
+        "seats_label": "9인승",
+        "seats_note": "2026-10-27 공식 가격표의 트림·가격·정원 재검증 완료. 이전 입력 충돌을 해소함."
+      }
+    },
+    {
+      "id": "V-4992a62f769b2f63",
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지 Hybrid",
+      "trim": "Prestige",
+      "price": 44990000.0,
+      "before": {
+        "seats": null,
+        "status": "user-provided"
+      },
+      "proposed": {
+        "seats": 9,
+        "seat_options": [
+          9
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-hybrid_price.pdf"
+      },
+      "source": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-hybrid_price.pdf",
+      "page_zero_based": 0,
+      "decision": "가격·트림·정원을 공식 가격표에서 대조함. 상태 갱신 또는 미확인 정원 확정 가능. DB에는 미적용.",
+      "patch": {
+        "seats": 9,
+        "seat_options": [
+          9
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-hybrid_price.pdf",
+        "seats_label": "9인승",
+        "seats_note": "2026-10-27 공식 가격표의 트림·가격·정원 재검증 완료. 이전 입력 충돌을 해소함."
+      }
+    },
+    {
+      "id": "V-5d91b536e43062eb",
+      "brand": "현대",
+      "model": "더 뉴 스타리아 리무진 Electric",
+      "trim": "Inspiration",
+      "price": 84820000.0,
+      "before": {
+        "seats": 6,
+        "status": "official-reference-conflict"
+      },
+      "proposed": {
+        "seats": 6,
+        "seat_options": [
+          6
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-electric_price.pdf"
+      },
+      "source": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-electric_price.pdf",
+      "page_zero_based": null,
+      "decision": "가격·트림·정원을 공식 가격표에서 대조함. 상태 갱신 또는 미확인 정원 확정 가능. DB에는 미적용.",
+      "patch": {
+        "seats": 6,
+        "seat_options": [
+          6
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-electric_price.pdf",
+        "seats_label": "6인승",
+        "seats_note": "2026-10-27 공식 가격표의 트림·가격·정원 재검증 완료. 이전 입력 충돌을 해소함."
+      }
+    },
+    {
+      "id": "V-a20d092ac64adade",
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지 Hybrid",
+      "trim": "Inspiration",
+      "price": 48760000.0,
+      "before": {
+        "seats": null,
+        "status": "user-provided"
+      },
+      "proposed": {
+        "seats": 9,
+        "seat_options": [
+          9
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-hybrid_price.pdf"
+      },
+      "source": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-hybrid_price.pdf",
+      "page_zero_based": 0,
+      "decision": "가격·트림·정원을 공식 가격표에서 대조함. 상태 갱신 또는 미확인 정원 확정 가능. DB에는 미적용.",
+      "patch": {
+        "seats": 9,
+        "seat_options": [
+          9
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-hybrid_price.pdf",
+        "seats_label": "9인승",
+        "seats_note": "2026-10-27 공식 가격표의 트림·가격·정원 재검증 완료. 이전 입력 충돌을 해소함."
+      }
+    },
+    {
+      "id": "V-b760b756161dea52",
+      "brand": "현대",
+      "model": "더 뉴 스타리아 Electric",
+      "trim": "Modern",
+      "price": 60290000.0,
+      "before": {
+        "seats": 11,
+        "status": "official-reference-conflict"
+      },
+      "proposed": {
+        "seats": 11,
+        "seat_options": [
+          11
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-electric_price.pdf"
+      },
+      "source": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-electric_price.pdf",
+      "page_zero_based": null,
+      "decision": "가격·트림·정원을 공식 가격표에서 대조함. 상태 갱신 또는 미확인 정원 확정 가능. DB에는 미적용.",
+      "patch": {
+        "seats": 11,
+        "seat_options": [
+          11
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-electric_price.pdf",
+        "seats_label": "11인승",
+        "seats_note": "2026-10-27 공식 가격표의 트림·가격·정원 재검증 완료. 이전 입력 충돌을 해소함."
+      }
+    },
+    {
+      "id": "V-c4b2b81a04f5017f",
+      "brand": "현대",
+      "model": "더 뉴 스타리아 리무진 Hybrid",
+      "trim": "Inspiration",
+      "price": 70060000.0,
+      "before": {
+        "seats": 6,
+        "status": "official-reference-conflict"
+      },
+      "proposed": {
+        "seats": 6,
+        "seat_options": [
+          6
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-hybrid_price.pdf"
+      },
+      "source": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-hybrid_price.pdf",
+      "page_zero_based": null,
+      "decision": "가격·트림·정원을 공식 가격표에서 대조함. 상태 갱신 또는 미확인 정원 확정 가능. DB에는 미적용.",
+      "patch": {
+        "seats": 6,
+        "seat_options": [
+          6
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-hybrid_price.pdf",
+        "seats_label": "6인승",
+        "seats_note": "2026-10-27 공식 가격표의 트림·가격·정원 재검증 완료. 이전 입력 충돌을 해소함."
+      }
+    },
+    {
+      "id": "V-354f355b55d99324",
+      "price": 39990000,
+      "trim": "Modern",
+      "before": {
+        "status": "user-provided"
+      },
+      "patch": {
+        "seats": 9,
+        "seat_options": [
+          9
+        ],
+        "seats_status": "official-source-verified",
+        "seats_source_url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-hybrid_price.pdf",
+        "seats_label": "9인승",
+        "trim": "Modern 9인승",
+        "seats_note": "2026-10-27 공식 가격표의 9인승 Modern 39,990,000원 확인. 11인 구성과 분리.",
+        "efficiency": 12.7,
+        "efficiency_reference_only": false,
+        "default_configuration": "9인승 가솔린 1.6 터보 하이브리드 17인치 기본 사양",
+        "source_note": "공식 가격표 p.4의 9인승 17인치 기본 복합연비 12.7km/L. 기존 11.4 수정."
+      }
+    }
+  ],
+  "split": {
+    "source_id": "V-354f355b55d99324",
+    "new_id": "V-354f355b55d99324-11seat",
+    "seats": 11,
+    "efficiency": 12.7,
+    "efficiency_reference_only": true,
+    "note": "11인승 17인치+빌트인캠 인증 연비 참조. 기본 구성 정확 연비는 추가 확인 필요.",
+    "source": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-hybrid_price.pdf"
+  }
+}
