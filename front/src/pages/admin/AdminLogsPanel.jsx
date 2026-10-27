@@ -8,6 +8,13 @@ import { ACTION_LABELS, describeLog, formatLogTime, personName } from './adminLo
 import './AdminMembersPanel.css';
 
 const PAGE_SIZE = 20;
+// 엑셀이 수식으로 읽는 글자(= + - @, 탭 · 줄바꿈)로 시작하면 앞에 ' 를 붙여 글자로만 보이게 한다
+// (예: 닉네임 "=1+1" 이 엑셀에서 계산되거나, 악의적인 수식이 실행되지 않게 — CSV 수식 주입 방지)
+const safeCell = (value) => {
+  const text = String(value);
+  return /^[=+\-@\t\r]/.test(text) ? `'${text}` : text;
+};
+
 // 지금 화면에 보이는 기록만 CSV 로 내려받는다 (엑셀에서 한글이 깨지지 않게 BOM 을 붙인다)
 function downloadCsv(logs) {
   const values = [
@@ -15,7 +22,7 @@ function downloadCsv(logs) {
     ...logs.map((log) => [formatLogTime(log.createdAt), personName(log.actorNickName, log.actorId),
       ACTION_LABELS[log.action] ?? log.action, personName(log.targetNickName, log.targetId), describeLog(log)]),
   ];
-  const csv = values.map((row) => row.map((value) => `"${String(value).replaceAll('"', '""')}"`).join(',')).join('\n');
+  const csv = values.map((row) => row.map((value) => `"${safeCell(value).replaceAll('"', '""')}"`).join(',')).join('\n');
   const url = URL.createObjectURL(new Blob(['﻿', csv], { type: 'text/csv;charset=utf-8' }));
   const link = document.createElement('a');
   link.href = url;
