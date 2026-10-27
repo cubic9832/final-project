@@ -23,6 +23,7 @@ import { CardError, CardLoading } from './CardStatus';
 import EmailNotificationModal from './EmailNotificationModal';
 import { NOTIFICATION_OPTIONS } from './notificationOptions';
 import PasswordChangeModal from './PasswordChangeModal';
+import PasswordResetModal from '../login/PasswordResetModal'; // 보완 10: mode="setup" = 비밀번호 만들기
 import { deviceName, DRIVING_OPTIONS, formatDate, formatDateTime, PURCHASE_OPTIONS } from './profileOptions';
 import './MyPage.css';
 import './ProfilePage.css';
@@ -286,6 +287,14 @@ export default function ProfilePage() {
     showToast('비밀번호를 변경했어요. 다른 기기는 로그인을 이어 갈 수 없어요.');
   }
 
+  // 보완 10: 구글 전용 회원이 비밀번호를 만듦 → 이제 이메일 로그인도 됨 (이 기기는 새 토큰으로 로그인 유지)
+  function handlePasswordCreated() {
+    setModal(null);
+    setMe((prev) => ({ ...prev, socialOnly: false })); // 비밀번호 줄이 [변경] 으로, 탈퇴도 비밀번호 확인으로
+    loadSessions(); // 다른 기기 로그인이 끊겼으니 목록도 새로
+    showToast('비밀번호를 만들었어요. 이제 이메일 · 비밀번호로도 로그인할 수 있어요.');
+  }
+
   // 회원 탈퇴: 서버 탈퇴 → 메인으로 먼저 이동 → 로그아웃 처리 → 공용 알림
   async function handleWithdraw(confirmation) {
     try {
@@ -534,7 +543,17 @@ export default function ProfilePage() {
               다른 기기 모두 로그아웃
             </button>
           </li>
-          {!me.socialOnly && (
+          {me.socialOnly ? (
+            // 보완 10: 구글로만 가입 → 비밀번호를 만들어 두면 구글 계정을 쓸 수 없을 때도 이메일로 로그인
+            <li>
+              <strong>비밀번호</strong>
+              <div>
+                <span>아직 없음 (구글 계정으로만 로그인)</span>
+                <small>만들어 두면 구글 계정을 쓸 수 없을 때도 이메일 · 비밀번호로 로그인할 수 있어요</small>
+              </div>
+              <button className="my-outline-button" type="button" onClick={() => setModal('password-setup')}>만들기</button>
+            </li>
+          ) : (
             <li>
               <strong>비밀번호</strong>
               <div>
@@ -568,6 +587,9 @@ export default function ProfilePage() {
 
       {/* 팝업은 열 때마다 새로 만들어서 입력값이 남지 않게 한다 */}
       {modal === 'password' && <PasswordChangeModal email={me.email} onChange={handleChangePassword} onClose={() => setModal(null)} />}
+      {modal === 'password-setup' && (
+        <PasswordResetModal mode="setup" initialEmail={me.email} onDone={handlePasswordCreated} onClose={() => setModal(null)} />
+      )}
       {modal === 'notification' && (
         <EmailNotificationModal currentValue={notification} onSave={handleSaveNotification} onClose={() => setModal(null)} />
       )}

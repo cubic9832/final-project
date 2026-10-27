@@ -7,6 +7,7 @@ import com.kh.back.auth.dto.GoogleSignupRequest;
 import com.kh.back.auth.dto.LoginRequest;
 import com.kh.back.auth.dto.PasswordChangeRequest;
 import com.kh.back.auth.dto.PasswordResetRequest;
+import com.kh.back.auth.dto.PasswordSetupRequest;
 import com.kh.back.auth.dto.SignupRequest;
 
 import com.kh.back.member.dto.MemberResponse;
@@ -31,6 +32,13 @@ public interface AuthService {
 
     // 보완 2 추가: 로그인한 회원의 비밀번호 변경 — 다른 기기 로그인은 끊고, 지금 기기에는 새 토큰을 준다
     AuthTokens changePassword(Long userId, PasswordChangeRequest request);
+
+    // 보완 10: 구글로만 가입한 회원의 비밀번호 만들기 — 로그인 + 가입 이메일 인증 코드 → 새 비밀번호 (이메일 로그인도 가능해짐)
+    EmailVerificationResponse sendPasswordSetupCode(Long userId);
+
+    String confirmPasswordSetupCode(Long userId, String code); // 일회용 증명 번호
+
+    AuthTokens setupPassword(Long userId, PasswordSetupRequest request); // 다른 기기는 끊고 지금 기기에는 새 토큰
 
     // 보완 8: 구글 로그인 — 연결된 회원이면 로그인, 처음이면 추가 정보 입력 필요
     GoogleLoginResult googleLogin(String idToken); // 처음 온 사람이면 가입 대기 번호 → 구글 가입 화면

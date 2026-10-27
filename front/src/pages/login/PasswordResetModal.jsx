@@ -2,10 +2,13 @@
 // 보완 7 추가(10-20): 회원가입 이메일 인증과 같은 방식으로 본인 확인 후 새 비밀번호로 바꾼다
 // 단계: 'email'(이메일 → 인증 코드 받기) → 'code'(코드 확인) → 'password'(새 비밀번호) → 'done'(완료)
 // 이전에는 이메일 형식만 보고 "요청 완료" 화면만 보여 줬다 (실제 메일 · 변경 없음)
+// 보완 10: mode="setup" 이면 구글 전용 회원의 "비밀번호 만들기" (로그인 상태, 이메일 고정 → 끝나면 onDone 으로 알림)
 import { useEffect, useState } from 'react';
 import AuthModal from '../../features/auth/components/AuthModal';
 import PasswordInput from '../../features/auth/components/PasswordInput';
-import { confirmPasswordResetCode, resetPassword, sendPasswordResetCode } from '../../features/auth/authApi';
+import {
+  confirmPasswordResetCode, confirmPasswordSetupCode, resetPassword, sendPasswordResetCode, sendPasswordSetupCode, setupPassword,
+} from '../../features/auth/authApi';
 import { getPasswordRules, PASSWORD_MAX, validatePassword } from '../../features/auth/passwordPolicy';
 import { clearProof, getProof, saveProof } from '../../features/auth/verificationProof';
 import './PasswordResetModal.css';
@@ -15,7 +18,28 @@ const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // 서버 실패 봉투 { error: { message } } 에서 문구 꺼내기
 const messageOf = (error, fallback) => error.response?.data?.error?.message ?? fallback;
 
-export default function PasswordResetModal({ initialEmail = '', onClose }) {
+// 보완 10: 같은 3단계를 두 가지 용도로 쓴다 — 서버 주소와 문구만 다르다
+const MODES = {
+  reset: {
+    title: '비밀번호 찾기',
+    intro: '가입할 때 사용한 이메일로 인증 코드를 보내 본인을 확인합니다.',
+    submit: ['비밀번호 변경', '변경 중…'],
+    sendCode: (email) => sendPasswordResetCode(email),
+    confirmCode: (email, code) => confirmPasswordResetCode(email, code),
+    save: (email, password, proof) => resetPassword(email, password, proof),
+  },
+  setup: {
+    title: '비밀번호 만들기',
+    intro: '가입 이메일로 인증 코드를 보내 본인을 확인한 뒤 비밀번호를 만듭니다. 만든 뒤에는 이메일 · 비밀번호로도 로그인할 수 있어요.',
+    submit: ['비밀번호 만들기', '만드는 중…'],
+    sendCode: () => sendPasswordSetupCode(), // 이메일은 서버가 로그인한 회원의 가입 이메일을 쓴다
+    confirmCode: (email, code) => confirmPasswordSetupCode(code),
+    save: (email, password, proof) => setupPassword(password, proof),
+  },
+};
+
+export default function PasswordResetModal({ initialEmail = '', mode = 'reset', onDone, onClose }) {
+  const texts = MODES[mode];
   const [step, setStep] = useState('email');
   const [email, setEmail] = useState(initialEmail);
   const [code, setCode] = useState('');
@@ -57,7 +81,7 @@ export default function PasswordResetModal({ initialEmail = '', onClose }) {
     setBusy(true);
     setError('');
     try {
-      const result = await sendPasswordResetCode(trimmed);
+      const result = await texts.sendCode(trimmed);
       const sentAt = Date.now();
       setTimer({ expiresAt: sentAt + result.expiresInSeconds * 1000, resendAt: sentAt + result.resendAfterSeconds * 1000 });
       setNow(sentAt);
@@ -83,7 +107,7 @@ export default function PasswordResetModal({ initialEmail = '', onClose }) {
     setBusy(true);
     setError('');
     try {
-      const token = await confirmPasswordResetCode(email.trim(), code);
+      const token = await texts.confirmCode(email.trim(), code);
       saveProof(email.trim(), token); // 새 비밀번호 요청에 같이 보낼 일회용 증명 번호
       setStep('password');
       setNotice('');
@@ -103,8 +127,10 @@ export default function PasswordResetModal({ initialEmail = '', onClose }) {
     setBusy(true);
     setError('');
     try {
-      await resetPassword(email.trim(), password, getProof(email.trim()));
+      const saved = await texts.save(email.trim(), password, getProof(email.trim()));
       clearProof(email.trim()); // 한 번 쓰면 끝
+      // 비밀번호 만들기는 로그인 상태 그대로 → 부모(개인정보 화면)가 팝업을 닫고 알림
+      if (mode === 'setup') return onDone?.(saved);
       setStep('done');
     } catch (err) {
       // 서버가 증명 번호를 거절(서버 재시작 · 30분 지남 등) → 보관한 번호를 버리고 처음부터 다시 인증
@@ -142,12 +168,8 @@ export default function PasswordResetModal({ initialEmail = '', onClose }) {
 
   return (
     <AuthModal
-      title="비밀번호 찾기"
-      subtitle={
-        step === 'password'
-          ? '이메일 인증이 끝났어요. 새 비밀번호를 입력해 주세요.'
-          : '가입할 때 사용한 이메일로 인증 코드를 보내 본인을 확인합니다.'
-      }
+      title={texts.title}
+      subtitle={step === 'password' ? '이메일 인증이 끝났어요. 새 비밀번호를 입력해 주세요.' : texts.intro}
       onClose={onClose}
       busy={busy}
       size="sm"
@@ -166,6 +188,7 @@ export default function PasswordResetModal({ initialEmail = '', onClose }) {
                 setEmail(event.target.value);
                 setError('');
               }}
+              readOnly={mode === 'setup'} // 비밀번호 만들기는 가입 이메일로만
               disabled={busy}
               data-autofocus
               className={error ? 'has-error' : undefined}
@@ -276,7 +299,7 @@ export default function PasswordResetModal({ initialEmail = '', onClose }) {
               취소
             </button>
             <button className="auth-modal-button auth-modal-button-primary" type="submit" disabled={busy}>
-              {busy ? '변경 중…' : '비밀번호 변경'}
+              {busy ? texts.submit[1] : texts.submit[0]}
             </button>
           </div>
         </form>
