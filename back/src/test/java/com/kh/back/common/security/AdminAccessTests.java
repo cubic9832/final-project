@@ -80,7 +80,7 @@ class AdminAccessTests {
         mvc.perform(patch("/api/v1/admin/members/999999/role").contentType("application/json").content(body)
                         .header("Authorization", "Bearer " + jwtProvider.createAccessToken(3L, "SUPER_ADMIN")))
                 .andExpect(status().isNotFound())
-                .andExpect(jsonPath("$.error.code").value("MEMBER_NOT_FOUND"));
+                .andExpect(jsonPath("$.error.code").value("TARGET_MEMBER_NOT_FOUND"));
     }
 
     @Test

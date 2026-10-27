@@ -319,6 +319,7 @@ function UnlockButton({ member, onChanged }) {
       onChanged();
     } catch (err) {
       showToast(errorMessage(err, '잠금을 풀지 못했습니다.'));
+      if (err.response?.data?.error?.code === 'TARGET_MEMBER_NOT_FOUND') onChanged(); // 그사이 탈퇴한 회원 → 목록 새로고침
     } finally {
       setBusy(false);
     }
@@ -365,6 +366,7 @@ function RoleActions({ member, onChanged }) {
       onChanged(); // 현황 · 목록 다시 불러오기
     } catch (err) {
       setError(errorMessage(err, '권한을 바꾸지 못했습니다.'));
+      if (err.response?.data?.error?.code === 'TARGET_MEMBER_NOT_FOUND') onChanged(); // 그사이 탈퇴한 회원 → 목록 새로고침
     } finally {
       setBusy(false);
     }
