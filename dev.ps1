@@ -1,8 +1,8 @@
-﻿# Windows development launcher. Keep this terminal open; Ctrl+C stops owned app processes.
+# Windows development launcher. Keep this terminal open; Ctrl+C stops owned app processes.
 [CmdletBinding()]
 param(
     [Parameter(Position = 0)][ValidateSet('up', 'down', 'reset')][string]$Command = 'up',
-    [ValidateRange(1, 65535)][int]$DatabasePort = 3306,
+    [ValidateRange(1, 65535)][int]$DatabasePort = 3307,
     [switch]$Check
 )
 

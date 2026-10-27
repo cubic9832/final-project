@@ -3,14 +3,14 @@
 #   ./dev.sh         전체 실행 (Ctrl+C 로 back/front 종료, DB 컨테이너는 유지)
 #   ./dev.sh down    DB 컨테이너 중지 (데이터 유지)
 #   ./dev.sh reset   DB 컨테이너와 데이터 삭제 (다음 실행 때 Flyway 가 처음부터 적용)
-#   DB_PORT=3307 ./dev.sh   3306 을 이미 쓰고 있을 때
+#   DB_PORT=3308 ./dev.sh   기본 3307 대신 다른 포트를 쓸 때
 # Windows 는 Git Bash 없이 dev.cmd 를 사용한다.
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$ROOT_DIR"
 
-DEFAULT_DB_PORT=3306
+DEFAULT_DB_PORT=3307
 export DB_PORT="${DB_PORT:-$DEFAULT_DB_PORT}"
 
 require_docker() {
@@ -30,7 +30,7 @@ is_port_in_use() {
 
 start_db() {
   if ! is_db_running && is_port_in_use "$DB_PORT"; then
-    echo "$DB_PORT 포트를 다른 프로세스가 사용 중입니다. 예: DB_PORT=3307 ./dev.sh" >&2
+    echo "$DB_PORT 포트를 다른 프로세스가 사용 중입니다. 예: DB_PORT=3308 ./dev.sh" >&2
     exit 1
   fi
   docker compose up -d --wait db
