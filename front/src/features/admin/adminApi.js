@@ -61,3 +61,10 @@ export const getModelReport = async (signal) => {
   const res = await client.get('/admin/model-report', { signal });
   return res.data.data;
 };
+
+// 추천 관리: 추천 서버가 쓰는 후보 차량 전체 (학습 결과 폴더의 catalog.json)
+// → [{ id, brand, model, trim, year, price, fuel, efficiency, lengthMm, seatsLabel, seatsStatus, seatsNote, sourceUrl, checkedOn, quality }]
+export const getRecommendationCandidates = async (signal) => {
+  const res = await client.get('/admin/recommendation-candidates', { signal });
+  return res.data.data;
+};

@@ -1,5 +1,6 @@
 package com.kh.back.admin.service;
 
+import com.kh.back.admin.dto.AdminCandidate;
 import com.kh.back.admin.dto.AdminModelReport;
 import com.kh.back.admin.dto.AdminModelReport.Epoch;
 import com.kh.back.admin.dto.AdminModelReport.Metric;
@@ -93,6 +94,31 @@ public class AdminModelServiceImpl implements AdminModelService {
             log.warn("admin model report: cannot read {}: {}", dir, e.getMessage());
             return new AdminModelReport(false, dir.getFileName().toString(), null, null, null, null, null, null, null, null,
                     null, null, List.of(), List.of(), versions);
+        }
+    }
+
+    @Override
+    public List<AdminCandidate> getCandidates() {
+        Path dir = findRunDir();
+        if (dir == null || !Files.exists(dir.resolve("catalog.json"))) {
+            return List.of();
+        }
+        try {
+            List<AdminCandidate> candidates = new ArrayList<>();
+            for (JsonNode v : read(dir.resolve("catalog.json"))) {
+                candidates.add(new AdminCandidate(v.path("id").asString(null), v.path("brand").asString(null),
+                        v.path("model").asString(null), v.path("trim").asString(null), v.path("year").asString(null),
+                        longOrNull(v.path("price")), v.path("fuel").asString(null),
+                        v.path("efficiency").isNumber() ? v.path("efficiency").asDouble() : null,
+                        v.path("length_mm").isNumber() ? v.path("length_mm").asInt() : null,
+                        v.path("seats_label").asString(null), v.path("seats_status").asString(null),
+                        v.path("seats_note").asString(null), v.path("source_url").asString(null),
+                        v.path("checked_on").asString(null), v.path("quality").asString(null)));
+            }
+            return candidates;
+        } catch (Exception e) {
+            log.warn("admin candidates: cannot read {}: {}", dir, e.getMessage());
+            return List.of();
         }
     }
 

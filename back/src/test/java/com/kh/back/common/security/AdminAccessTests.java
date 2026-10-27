@@ -97,6 +97,19 @@ class AdminAccessTests {
                 .andExpect(status().isForbidden());
     }
 
+    // 추천 관리: 추천 서버가 쓰는 후보 차량 목록(catalog.json), 일반 회원 403
+    @Test
+    void 관리자는_추천_후보_차량을_볼_수_있다() throws Exception {
+        mvc.perform(get("/api/v1/admin/recommendation-candidates")
+                        .header("Authorization", "Bearer " + jwtProvider.createAccessToken(1L, "ADMIN")))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.data[0].brand").isNotEmpty())
+                .andExpect(jsonPath("$.data[0].price").isNumber());
+        mvc.perform(get("/api/v1/admin/recommendation-candidates")
+                        .header("Authorization", "Bearer " + jwtProvider.createAccessToken(2L, "USER")))
+                .andExpect(status().isForbidden());
+    }
+
     // 서비스 연결 상태: 관리자는 실제 DB 확인 결과, 일반 회원 403
     @Test
     void 관리자는_서비스_연결_상태를_볼_수_있다() throws Exception {
