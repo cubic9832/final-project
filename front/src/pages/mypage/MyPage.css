@@ -563,6 +563,17 @@
   border-color: #12335b;
 }
 
+/* 남색 구매계획 카드 안의 버튼: 카드와 같은 색이라 안 보여서 흰 버튼으로 */
+.my-plan .my-plan-button {
+  border-color: #fff;
+  background: #fff;
+  color: #12335b;
+}
+
+.my-plan .my-plan-button:hover {
+  background: #e6eef7;
+}
+
 .my-row-top {
   display: grid;
   grid-template-columns: minmax(300px, 380px) 1fr;
