@@ -14,9 +14,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 7단계: 총관리자 계정 시드 (서버가 켜질 때 한 번).
- * 각자 컴퓨터 DB 에는 관리자가 없어서, 환경변수 ADMIN_SEED_EMAIL · ADMIN_SEED_PASSWORD 를 넣고 서버를 켜면
+ * 각자 컴퓨터 DB 에는 관리자가 없어서, back/admin-seed.local.properties(git 제외, admin-seed.example.properties 를 복사)
+ * 또는 환경변수 ADMIN_SEED_EMAIL · ADMIN_SEED_PASSWORD 에 이메일 · 비밀번호를 넣고 서버를 켜면
  * 그 계정을 총관리자(SUPER_ADMIN)로 만든다. 이미 가입한 이메일이면 권한만 총관리자로 올린다 (비밀번호는 그대로).
- * 비밀번호는 코드 · git 에 넣지 않는다. 환경변수가 없으면 아무것도 하지 않는다 → 배포 서버에 계정이 몰래 생기지 않는다.
+ * 비밀번호는 코드 · git 에 넣지 않는다. 파일 · 환경변수가 없으면 아무것도 하지 않는다 → 배포 서버에 계정이 몰래 생기지 않는다.
  */
 @Slf4j
 @Component
