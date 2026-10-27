@@ -847,3 +847,10 @@
 .my-profile-badges span {
   white-space: nowrap;
 }
+
+/* 프로필 카드 아래 버튼 줄 (관리자는 [관리자 대시보드] 가 하나 더) */
+.my-profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

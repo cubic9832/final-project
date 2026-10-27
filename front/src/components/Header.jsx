@@ -110,6 +110,20 @@ const LogoutButton = styled(LoginLink).attrs({ as: 'button', type: 'button' })`
   cursor: pointer;
 `;
 
+// 7단계: 관리자 · 총관리자에게만 보이는 [관리자 대시보드] 버튼 (일반 로그인으로 들어와도 여기서 바로 이동)
+// && = AccountArea 의 a 글자색 규칙보다 우선 (남색 바탕 · 흰 글자)
+const AdminLink = styled(LoginLink)`
+  && {
+    background: var(--color-primary);
+    color: #fff;
+  }
+
+  &&:hover {
+    background: var(--color-blue-strong);
+    color: #fff;
+  }
+`;
+
 export default function Header() {
   const navigate = useNavigate();
   const member = useAuthStore((state) => state.member); // 로그인 상태가 바뀌면 헤더가 다시 그려진다
@@ -151,7 +165,7 @@ export default function Header() {
           {!initialized ? null : member ? (
             <AccountArea>
               {/* 7단계: 관리자 · 총관리자에게만 관리자 화면 바로가기 (일반 회원에게는 보이지 않는다) */}
-              {isAdminRole(member.role) && <NavLink to="/admin">관리자</NavLink>}
+              {isAdminRole(member.role) && <AdminLink to="/admin">관리자 대시보드</AdminLink>}
               <NavLink to="/mypage">{member.nickName}님</NavLink>
               <LogoutButton onClick={() => setIsLogoutOpen(true)}>로그아웃</LogoutButton>
             </AccountArea>

@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getSessions } from '../../features/auth/authApi';
 import { getMe, getRecentDiagnoses } from '../../features/auth/memberApi';
-import { ROLE_LABELS } from '../../features/auth/roles';
+import { isAdminRole, ROLE_LABELS } from '../../features/auth/roles';
 import { getCurrentTaste, getTasteCatalog } from '../../features/taste-test/tasteApi';
 import { getVehicles } from '../../features/vehicle/vehicleApi';
 import { CardError, CardLoading } from './CardStatus';
@@ -151,7 +151,11 @@ function ProfileCard({ state }) {
           연령대별 차량 추천과 통계에 쓰입니다.
         </p>
       )}
-      <Link className="my-outline-button" to="/mypage/profile">개인정보 · 계정 관리</Link>
+      <div className="my-profile-actions">
+        <Link className="my-outline-button" to="/mypage/profile">개인정보 · 계정 관리</Link>
+        {/* 7단계: 관리자 · 총관리자는 일반 로그인 후 여기서도 관리자 대시보드로 */}
+        {isAdminRole(me.role) && <Link className="my-plan-button my-inline-button" to="/admin">관리자 대시보드</Link>}
+      </div>
     </section>
   );
 }
