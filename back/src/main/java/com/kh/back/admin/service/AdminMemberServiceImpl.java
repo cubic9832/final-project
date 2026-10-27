@@ -115,7 +115,7 @@ public class AdminMemberServiceImpl implements AdminMemberService {
     // 대상 회원이 없을 때 (관리자 화면을 열어 둔 사이 탈퇴 등)
     // MEMBER_NOT_FOUND 는 "로그인한 내 계정이 없다" 는 뜻이라 화면(client.js)이 로그아웃시킨다 → 관리자 본인이 로그아웃되지 않게 다른 코드를 쓴다
     private static ApiException targetNotFound() {
-        return new ApiException(HttpStatus.NOT_FOUND, "TARGET_MEMBER_NOT_FOUND", "대상 회원을 찾을 수 없습니다. 이미 탈퇴했을 수 있어요. 목록을 새로고침해 주세요.");
+        return new ApiException(HttpStatus.NOT_FOUND, "TARGET_MEMBER_NOT_FOUND", "대상 회원을 찾을 수 없습니다. 이미 탈퇴했을 수 있어요.");
     }
 
     private static Map<String, Integer> toMap(List<GroupCountRow> rows) {

@@ -365,8 +365,13 @@ function RoleActions({ member, onChanged }) {
       setConfirming(false);
       onChanged(); // 현황 · 목록 다시 불러오기
     } catch (err) {
+      if (err.response?.data?.error?.code === 'TARGET_MEMBER_NOT_FOUND') {
+        // 그사이 탈퇴한 회원 → 목록을 새로고침하면 이 상세도 사라지므로, 문구는 토스트로 알린다
+        showToast(errorMessage(err, '대상 회원을 찾을 수 없습니다.'));
+        onChanged();
+        return;
+      }
       setError(errorMessage(err, '권한을 바꾸지 못했습니다.'));
-      if (err.response?.data?.error?.code === 'TARGET_MEMBER_NOT_FOUND') onChanged(); // 그사이 탈퇴한 회원 → 목록 새로고침
     } finally {
       setBusy(false);
     }
