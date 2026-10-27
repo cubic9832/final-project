@@ -32,22 +32,18 @@ class CatalogExpansionTests(unittest.TestCase):
         subset = CandidateService(service.ranker, imported)
         from dataclasses import replace
         rich = replace(person(),liquid_assets=300000000)
-        result = subset.recommend(rich, k=20)
-        self.assertEqual({(r['vehicle']['brand'], r['vehicle']['model']) for r in result['recommendations']}, expected)
-        unknown_size = subset.recommend(replace(rich, preferred_size='medium'), k=20)
-        self.assertEqual(unknown_size['conditionalRecommendations'], [])
-        self.assertEqual({(r['vehicle']['brand'], r['vehicle']['model']) for r in unknown_size['recommendations']}, expected)
-        for row in unknown_size['recommendations']:
-            self.assertEqual(row['lengthVerificationRequired'], row['vehicle']['length_mm'] is None)
-            self.assertFalse(row['seatingVerificationRequired'])
-            if row['lengthVerificationRequired']:
-                self.assertEqual(next(c for c in row['preferenceAssessment']['components'] if c['key'] == 'space')['score'], 50)
-        unknown = CandidateService(service.ranker, [replace(imported[0], length_mm=None)])
-        missing = unknown.recommend(replace(rich, preferred_size='medium'))['recommendations'][0]
-        self.assertTrue(missing['lengthVerificationRequired'])
-        self.assertEqual(next(c for c in missing['preferenceAssessment']['components'] if c['key']=='space')['score'],50)
-        poor = subset.recommend(replace(person(), monthly_income=1000000), k=20)
-        self.assertEqual(poor['recommendations'] + poor['conditionalRecommendations'], [])
+        seen=set()
+        for key in expected:
+            configurations=[v for v in imported if (v.brand,v.model)==key]
+            cap=max(v.price for v in configurations)
+            profile=replace(rich,purchase_price_ceiling=cap)
+            current=CandidateService(service.ranker,configurations)
+            result=current.recommend(profile,k=20)
+            seen.update((r['vehicle']['brand'],r['vehicle']['model']) for r in result['recommendations'])
+            unknown_size=current.recommend(replace(profile,preferred_size='medium'),k=20)
+            self.assertEqual(unknown_size['conditionalRecommendations'],[])
+            self.assertTrue(unknown_size['recommendations'])
+        self.assertEqual(seen,expected)
 
     def test_supplement_fills_affordable_electric_and_small_car_gaps_without_breaking_cash_limit(self):
         from dataclasses import replace

@@ -5,6 +5,15 @@ from vehicle_matching.catalog import ROOT
 
 BODY_TYPES = ('SEDAN', 'SUV', 'HATCHBACK', 'WAGON', 'MPV', 'BOX', 'PICKUP')
 
+OTHER_BODY_TYPES = ('HATCHBACK', 'WAGON', 'MPV', 'BOX', 'PICKUP')
+
+
+def matches_body_preference(preferred, actual):
+    if preferred == 'any':
+        return True
+    return actual in OTHER_BODY_TYPES if preferred == 'OTHER' else preferred == actual
+
+
 def apply_body_types(vehicles, strict=True):
     registry = json.loads((ROOT/'data/vehicles/body-type-registry-v1.json').read_text(encoding='utf-8'))
     entries = {(row['brand'], row['model']): row for row in registry['models']}

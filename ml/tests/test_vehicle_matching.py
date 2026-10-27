@@ -16,7 +16,7 @@ from vehicle_matching.finance import Assumptions, Profile, assess, installment
 
 def person(**changes):
     base = Profile(monthly_income=6000000, monthly_expenses=1500000, existing_monthly_payment=200000,
-                   liquid_assets=60000000, down_payment=20000000, emergency_reserve=5000000,
+                   liquid_assets=45000000, down_payment=20000000, emergency_reserve=5000000,
                    monthly_savings=1000000, annual_distance=15000, months=48,
                    preferred_fuel='HYBRID', charging_available=True)
     return replace(base, **changes)
@@ -148,7 +148,7 @@ class CandidateApiTests(unittest.TestCase):
             self.assertEqual(response.status_code, 200)
             data = response.json()['data']
             self.assertEqual(len(data['recommendations']), 3)
-            self.assertEqual(data['scorePolicy'], 'required-seats-preference-priority-ml-v1')
+            self.assertEqual(data['scorePolicy'], 'required-seats-preference-priority-price-band-v2')
             self.assertTrue(all(r['rankingScoreType'] == 'ml-raw' and 'integratedScore' not in r
                                 for r in data['recommendations']))
             json.dumps(data, allow_nan=False)

@@ -20,6 +20,6 @@ export default function BodyTypePreview({ value, label }) {
         <p>{example.description}</p>
         <small>예시: {example.model} · 실제 추천 차량은 달라질 수 있어요.</small>
       </div>
-    </> : <p>선택된 차체 유형이 없습니다.</p>}
+    </> : <p>{value === 'OTHER' ? '해치백·왜건·미니밴·픽업·박스카를 함께 비교해요.' : '차체 형태에 제한 없이 비교해요.'}</p>}
   </div>;
 }

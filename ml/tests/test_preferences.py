@@ -38,7 +38,7 @@ class PreferenceTests(unittest.TestCase):
         cheap = vehicle(id='cheap', model='Cheap', price=37000000, length_mm=4700, seats=5)
         spacious = vehicle(id='large', model='Large', price=45000000, length_mm=5000, seats=5)
         service = CandidateService(FixedRanker(), [cheap, spacious])
-        cost_first = person(preferred_size='large', cost_importance=5, space_importance=1)
+        cost_first = person(preferred_size='large', cost_importance=5, space_importance=1, liquid_assets=50000000, emergency_reserve=0)
         space_first = replace(cost_first, cost_importance=1, space_importance=5)
         self.assertEqual(service.recommend(cost_first)['recommendations'][0]['vehicle']['id'], 'large')
         self.assertEqual(service.recommend(space_first)['recommendations'][0]['vehicle']['id'], 'large')

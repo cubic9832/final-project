@@ -1,7 +1,8 @@
 """Required seating, then importance-ordered preference penalties, then raw ML."""
+from vehicle_matching.body_types import matches_body_preference
 from vehicle_matching.preferences import SIZE_BANDS
 
-POLICY = 'required-seats-preference-priority-ml-v1'
+POLICY = 'required-seats-preference-priority-price-band-v2'
 
 def seating_status(profile, vehicle):
     if not profile.minimum_seats:
@@ -22,7 +23,7 @@ def preference_penalties(profile, vehicle):
         fuel = 'HYBRID' if vehicle.original_fuel == 'PHEV' else vehicle.fuel
         items.append(('fuel', profile.fuel_importance, float(fuel != profile.preferred_fuel)))
     if profile.preferred_body_type != 'any':
-        items.append(('body', profile.body_importance, float(vehicle.body_type != profile.preferred_body_type)))
+        items.append(('body', profile.body_importance, float(not matches_body_preference(profile.preferred_body_type, vehicle.body_type))))
     if profile.preferred_size != 'any':
         lower, upper = SIZE_BANDS[profile.preferred_size]
         # Unknown length cannot outrank any known length. Distance remains continuous.

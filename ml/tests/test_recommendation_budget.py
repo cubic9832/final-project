@@ -10,7 +10,7 @@ class RecommendationBudgetTests(unittest.TestCase):
     def test_fractional_cash_keeps_reserve_without_float_addition_rejection(self):
         cash, reserve = 194965331.33385697, 57558379.91220878
         p = person(liquid_assets=cash, emergency_reserve=reserve, down_payment=0)
-        service = CandidateService(FixedRanker(), [vehicle(price=30000000)])
+        service = CandidateService(FixedRanker(), [vehicle(price=cash-reserve-1)])
         result = service.recommend(p)
         self.assertEqual(len(result['recommendations']), 1)
         self.assertTrue(result['recommendations'][0]['cost']['eligible'])
@@ -21,7 +21,7 @@ class RecommendationBudgetTests(unittest.TestCase):
         service = CandidateService(FixedRanker(), [vehicle(price=15000000)])
         p = person(monthly_income=3500000, monthly_expenses=2000000,
                    existing_monthly_payment=0, monthly_savings=1000000,
-                   liquid_assets=30000000, emergency_reserve=1000000, down_payment=0)
+                   liquid_assets=30000000, emergency_reserve=1000000, down_payment=0, purchase_price_ceiling=15000000)
         first = service.recommend(p)
         self.assertTrue(first['recommendations'])
         changed = service.recommend(replace(p, down_payment=20000000, months=72, annual_rate=0.2))

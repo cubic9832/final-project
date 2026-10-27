@@ -14,24 +14,24 @@ class BudgetBandTests(unittest.TestCase):
               vehicle(id='a',model='A',price=40000000,length_mm=6000),
               vehicle(id='b',model='B',price=45000000,length_mm=6000),
               vehicle(id='c',model='C',price=50000000,length_mm=6000)]
-        result=CandidateService(FixedRanker(),cars).recommend(person(cost_importance=5))
+        result=CandidateService(FixedRanker(),cars).recommend(person(cost_importance=5,liquid_assets=60000000))
         self.assertEqual({r['vehicle']['model'] for r in result['recommendations']},{'A','B','C'})
         self.assertEqual(result['recommendations'][0]['vehicle']['model'], 'A')
-        self.assertEqual(result['budgetPolicy']['lower'],0)
+        self.assertEqual(result['budgetPolicy']['lower'],33000000)
 
-    def test_weighted_ranking_includes_lower_distinct_models_and_never_exceeds_cap(self):
+    def test_price_band_excludes_lower_models_without_exceeding_cap(self):
         cars=[vehicle(id=str(i),model=str(i),price=price) for i,price in enumerate((10000000,25000000,30000000,50000000,100000000))]
-        p=person(purchase_price_ceiling=50000000)
+        p=person(purchase_price_ceiling=50000000,liquid_assets=60000000)
         result=CandidateService(FixedRanker(),cars).recommend(p)
-        self.assertEqual([r['vehicle']['price'] for r in result['recommendations']],[10000000,25000000,30000000])
+        self.assertEqual([r['vehicle']['price'] for r in result['recommendations']],[50000000])
         self.assertTrue(all(r['cost']['eligible'] for r in result['recommendations']))
 
     def test_fuel_preference_orders_equal_ml_scores_without_exceeding_cash(self):
-        cars = [vehicle(id='ev', model='Electric', price=30000000, fuel='ELECTRIC', efficiency=5),
+        cars = [vehicle(id='ev', model='Electric', price=40000000, fuel='ELECTRIC', efficiency=5),
                 vehicle(id='gas', model='Gas', price=45000000, fuel='GASOLINE', efficiency=12),
                 vehicle(id='expensive', model='Expensive', price=60000000, fuel='ELECTRIC', efficiency=5)]
         service = CandidateService(FixedRanker(), cars)
-        p = person(preferred_fuel='ELECTRIC', fuel_importance=5, cost_importance=1)
+        p = person(preferred_fuel='ELECTRIC', fuel_importance=5, cost_importance=1, liquid_assets=45000000, emergency_reserve=0)
         electric = service.recommend(p)
         gas = service.recommend(replace(p, preferred_fuel='GASOLINE'))
         self.assertEqual(electric['recommendations'][0]['vehicle']['id'], 'ev')

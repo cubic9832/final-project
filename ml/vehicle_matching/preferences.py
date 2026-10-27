@@ -3,6 +3,7 @@
 Financial eligibility remains mandatory. User weights affect only feasible cars.
 Length bands describe exterior length, not legal classes or interior capacity.
 """
+from vehicle_matching.body_types import matches_body_preference
 HORIZON = 60
 SIZE_BANDS = {'small': (2500, 4200), 'medium': (4200, 4800), 'large': (4800, 6000)}
 VARIABLE_SEATING_MODELS = ('스타리아', '카니발', 'GV80', '렉스턴', 'EV9', '팰리세이드', '싼타페', '쏘렌토')
@@ -67,7 +68,7 @@ def preference_assessment(profile, vehicle, cost):
         fuel = 'HYBRID' if vehicle.original_fuel == 'PHEV' else vehicle.fuel
         components.append({'key':'fuel','score':100 * (fuel == profile.preferred_fuel), 'weight':profile.fuel_importance})
     if profile.preferred_body_type != 'any':
-        components.append({'key': 'body', 'score': 100 * (vehicle.body_type == profile.preferred_body_type) if vehicle.body_type else 50,
+        components.append({'key': 'body', 'score': 100 * (matches_body_preference(profile.preferred_body_type, vehicle.body_type)) if vehicle.body_type else 50,
                            'weight': profile.body_importance, 'verified': vehicle.body_type is not None})
     if profile.minimum_seats:
         capacity = vehicle.seats if vehicle.seats is not None else min(vehicle.seat_options) if vehicle.seat_options else None

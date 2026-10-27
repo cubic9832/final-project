@@ -2,7 +2,7 @@
 
 # 현재 정책 및 정제 데이터
 
-현재 정책은 required-seats-preference-priority-ml-v1이다. 재무 조건과 최소 인원을 먼저 확인하고, 선호 중요도순·동률 시 ML 원본 점수로 정렬한다. 정원 미확인·충돌·선택 사양은 별도 확인 후보로 분리한다.
+현재 정책은 required-seats-preference-priority-price-band-v2다. 가성비 중요도 낮음·보통·높음에 따라 가용 구매 자금의 80%·70%·60% 하한을 먼저 적용한다. 재무 조건과 최소 인원을 먼저 확인하고, 선호 중요도순·동률 시 ML 원본 점수로 정렬한다. 정원 미확인·충돌·선택 사양은 별도 확인 후보로 분리한다.
 
 학습 자료와 생성·분류 규칙은 `data/households/synthetic/curated-current-v2-20261026`의 README.md와 rules.txt를 따른다. 원본 합성 자료는 정제 후 삭제했고 출처 해시와 Git 커밋을 보고서에 기록했다. 실행 모델은 20261027-seating-verified-v1이며 통합 데이터 모델은 평가용 20261026-refined-v1에 저장했다.
 
@@ -173,7 +173,7 @@ MILD_HYBRID와 PHEV는 원래 연료 표기를 보존하고, 연비·전기 주�
 
 새 재학습용 데이터: `data/households/synthetic/body-preference-v1-20261026`.
 차량 281개 사양·84개 모델의 형태 및 출처는 `data/vehicles/body-type-registry-v1.json`에서 정확한 브랜드·모델 키로 연결한다. 기존 체크포인트 카탈로그와 해시는 변경하지 않는다.
-입력 `preferred_body_type`은 any/SEDAN/SUV/HATCHBACK/WAGON/MPV/BOX/PICKUP, `body_importance`는 1~5. 일치 100·불일치 0·미확인 50, any 제외. 형태는 재무 필터가 아닌 선호 평가다. 예금·월 유지비 적격 계산은 유지한다.
+화면의 차체 선호는 any/SEDAN/SUV/OTHER로 제공한다. OTHER는 HATCHBACK/WAGON/MPV/BOX/PICKUP을 함께 평가하며 차량 원본 차체는 유지한다. 기존 세부 차체 API 입력도 호환한다. `body_importance`는 1~5이며 일치 100·불일치 0·미확인 50, any 제외. 형태는 재무 필터가 아닌 선호 평가다. 예금·월 유지비 적격 계산은 유지한다.
 기존 29개 특징에 차체 관련 17개 특징을 추가한 46개 특징과 정답·비교 쌍을 재생성했다. 기존 재무 그룹/분할을 보존한다. 204개 사례는 새 점수 기준으로 비교 차이가 부족해 별도 재무 검증 JSONL에 보존했다. 세부 규칙은 데이터 폴더의 rules.txt 참조.
 기존 29입력 모델은 호환 로딩하며, 아직 차체를 학습한 모델이 아니다. 재학습 전에는 서비스의 명시적 차체 가중치만 작동한다. 후속 요청으로 20261026-body-v1 모델 재학습을 완료했다(12 epochs 중 검증 최선 11 epoch). 후속 교체 요청으로 기본 실행 경로 및 8002 서버에 적용했다. 실서버 검증은 serving_verification.json에 보존한다. holdout_report.json에 비교 평가를 보존한다.
 

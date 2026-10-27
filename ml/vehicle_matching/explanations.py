@@ -1,7 +1,9 @@
 """Read-only decision evidence. Never changes candidate eligibility or ranking."""
+from vehicle_matching.body_types import matches_body_preference
 import math
 
 from vehicle_matching.preferences import SIZE_BANDS
+from vehicle_matching.recommendation_policy import POLICY
 
 NEAR_TIE_POINTS = 1.0  # Display rule, not a statistical confidence interval.
 
@@ -23,7 +25,7 @@ def preference_evidence(profile, vehicle, components):
             requested=profile.preferred_fuel, actual=vehicle.original_fuel or vehicle.fuel,
             evaluatedFuel=evaluated)
     if profile.preferred_body_type != 'any':
-        add('body', 'unknown' if vehicle.body_type is None else 'match' if vehicle.body_type == profile.preferred_body_type else 'mismatch',
+        add('body', 'unknown' if vehicle.body_type is None else 'match' if matches_body_preference(profile.preferred_body_type, vehicle.body_type) else 'mismatch',
             requested=profile.preferred_body_type, actual=vehicle.body_type, sourceUrls=list(vehicle.body_source_urls))
     if profile.preferred_size != 'any':
         lower, upper = SIZE_BANDS[profile.preferred_size]
@@ -102,7 +104,7 @@ def evaluation_summary(profile, catalog, eligible, costs, combined):
 
 
 def ranking_comparison(higher, lower):
-    if higher.get('rankingPolicy') == 'required-seats-preference-priority-ml-v1':
+    if higher.get('rankingPolicy') == POLICY:
         return {'status':'preference-priority','higherVehicleId':higher['vehicle']['id'], 'lowerVehicleId':lower['vehicle']['id'], 'scoreDifference':higher['rankingScore']-lower['rankingScore'], 'featureAttributionAvailable':False}
     if higher.get('rankingScoreType') == lower.get('rankingScoreType') == 'ml-raw':
         gap = higher['rankingScore'] - lower['rankingScore']

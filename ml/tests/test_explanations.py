@@ -15,7 +15,7 @@ class ExplanationTests(unittest.TestCase):
                         length_mm=4400, seats=5) for i in range(14)]
         cars += [replace(cars[0], id='other-trim'), vehicle(id='unaffordable', model='Too expensive', price=90000000)]
         service = CandidateService(FixedRanker(), cars)
-        profile = person(financing_mode='recommendation')
+        profile = person(financing_mode='recommendation', purchase_price_ceiling=28000000)
         first = service.recommend(profile, k=3)['recommendations']
         expanded = service.recommend(profile, k=9)['recommendations']
         self.assertEqual(len(expanded), 9)
@@ -48,7 +48,7 @@ class ExplanationTests(unittest.TestCase):
         cars = [vehicle(id='small', model='Small', fuel='ELECTRIC', length_mm=3800, seats=4, price=20000000),
                 vehicle(id='large', model='Large', fuel='LPG', length_mm=4900, seats=5, price=28000000)]
         p = replace(person(preferred_fuel='ELECTRIC', preferred_size='large', minimum_seats=2),
-                    down_payment=0, months=0, annual_rate=0, financing_mode='recommendation')
+                    down_payment=0, months=0, annual_rate=0, financing_mode='recommendation', purchase_price_ceiling=28000000)
         ranker = FixedRanker()
         costs = {car.id: assess(p, car, ranker.assumptions) for car in cars}
         scores = {car.id: preference_assessment(p, car, costs[car.id]) for car in cars}

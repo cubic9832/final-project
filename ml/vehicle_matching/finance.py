@@ -62,7 +62,7 @@ class Profile:
             raise ValueError('Invalid minimum seating capacity')
         if self.preferred_size not in ('any', 'small', 'medium', 'large'):
             raise ValueError('Unknown preferred size')
-        if self.preferred_body_type not in ('any', 'SEDAN', 'SUV', 'HATCHBACK', 'WAGON', 'MPV', 'BOX', 'PICKUP'):
+        if self.preferred_body_type not in ('any', 'SEDAN', 'SUV', 'HATCHBACK', 'WAGON', 'MPV', 'BOX', 'PICKUP', 'OTHER'):
             raise ValueError('Unknown preferred body type')
 
 

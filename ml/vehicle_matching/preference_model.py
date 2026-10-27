@@ -1,4 +1,5 @@
 """Preference-aware candidate ranker; separate artifacts from legacy candidate-v2."""
+from vehicle_matching.body_types import matches_body_preference
 import hashlib
 import json
 import math
@@ -24,10 +25,10 @@ FEATURE_NAMES = (*FEATURE_NAMES, 'body_match', 'body_specified', 'body_weight',
                  *('body_' + value for value in BODY_TYPES), *('preferred_body_' + value for value in BODY_TYPES))
 
 def encode_body(profile, vehicle):
-    return np.asarray([float(profile.preferred_body_type == vehicle.body_type) if profile.preferred_body_type != 'any' else .5,
+    return np.asarray([float(matches_body_preference(profile.preferred_body_type, vehicle.body_type)) if profile.preferred_body_type != 'any' else .5,
                        float(profile.preferred_body_type != 'any'), profile.body_importance / 5,
                        *(float(vehicle.body_type == value) for value in BODY_TYPES),
-                       *(float(profile.preferred_body_type == value) for value in BODY_TYPES)], dtype=np.float32)
+                       *(float((vehicle.body_type if profile.preferred_body_type == 'OTHER' else profile.preferred_body_type) == value) for value in BODY_TYPES)], dtype=np.float32)
 
 
 def encode_preference(profile, vehicle, assumptions=Assumptions(), cost=None):

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
-import { sizeOptions, fuelOptions, bodyTypeOptions, bodyTypeLabel } from '../../vehiclePreferences.js';
+import { sizeOptions, fuelOptions, bodyPreferenceOptions, normalizeBodyPreference, bodyTypeLabel } from '../../vehiclePreferences.js';
 import useCandidateRecommendations from './useCandidateRecommendations.js';
 import BodyTypePreview from './BodyTypePreview.jsx';
 import FinancialBudgetSummary from '../../components/FinancialBudgetSummary.jsx';
@@ -10,7 +10,7 @@ import './FinancialVehiclePage.css';
 
 const priorities = [['costImportance', '가성비'], ['bodyImportance', '차체 형태'], ['spaceImportance', '크기 일치'], ['fuelImportance', '선호 연료'], ['seatingImportance', '탑승 인원']];
 const priorityPresets = [{ value: '1', label: '우선도 낮음' }, { value: '3', label: '우선도 중간' }, { value: '5', label: '우선도 높음' }];
-const availableBodyTypeOptions = bodyTypeOptions.filter(item => item.value !== 'PICKUP');
+const availableBodyTypeOptions = bodyPreferenceOptions;
 const initialVehicle = {
   purpose: '출퇴근', fuel: '상관없음',
   preferredBodyType: 'any', bodyImportance: '3',
@@ -21,7 +21,7 @@ export default function FinancialVehiclePage() {
   const { state } = useLocation();
   const navigate = useNavigate();
   const [vehicle, setVehicle] = useState(() => ({ ...initialVehicle, ...state?.vehicle,
-    preferredBodyType: state?.vehicle?.preferredBodyType === 'PICKUP' ? 'any' : (state?.vehicle?.preferredBodyType ?? initialVehicle.preferredBodyType),
+    preferredBodyType: normalizeBodyPreference(state?.vehicle?.preferredBodyType),
     ...Object.fromEntries(priorities.map(([name]) => { const value = Number(state?.vehicle?.[name] ?? initialVehicle[name]); return [name, String(value <= 2 ? 1 : value >= 4 ? 5 : 3)]; })) }));
 
   const diagnosis = { ...state, vehicle };
@@ -59,7 +59,7 @@ export default function FinancialVehiclePage() {
                 {availableBodyTypeOptions.map(item => <label key={item.value}><input type="radio" name="preferredBodyType" value={item.value} checked={vehicle.preferredBodyType === item.value} onChange={() => setVehicle(previous => ({ ...previous, preferredBodyType: item.value }))} /><span>{item.label}</span></label>)}
               </div>
               <BodyTypePreview value={vehicle.preferredBodyType} label={bodyTypeLabel(vehicle.preferredBodyType)} />
-              <p className="vehicle-field-help">차체 형태와 크기는 별도 조건이에요. 쿠페형 SUV는 SUV에 포함해요.</p>
+              <p className="vehicle-field-help">그 외 차체에는 해치백·왜건·미니밴·픽업·박스카가 포함돼요. 차체는 필수 제한이 아닌 선호 조건이에요.</p>
             </fieldset>
             <fieldset className="vehicle-purpose vehicle-size-preference">
               <legend>선호 크기</legend>
@@ -88,7 +88,7 @@ export default function FinancialVehiclePage() {
 
             </fieldset>
 
-            <p className="vehicle-field-help">가성비를 높게 선택하면 구매비·유지비 절약을 더 중요하게 반영해요. 낮게 선택하면 비용 차이의 영향이 줄고 다른 선호가 상대적으로 더 반영됩니다. 비싼 차량에 별도 가점은 주지 않아요.</p>
+            <p className="vehicle-field-help">추천 가격대는 구매 가능 자금의 일정 비율부터 시작해요. 가성비 높음은 60%, 보통은 70%, 낮음은 80%가 하한이며 상한은 100%예요. 월 유지비와 최소 탑승 인원도 충족해야 해요.</p>
 
           </section>
           <FinancialBudgetSummary values={state.values} assets={state.assets} loans={state.loans} />
