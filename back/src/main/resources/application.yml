@@ -77,6 +77,8 @@ admin:
   seed:
     email: ${ADMIN_SEED_EMAIL:}
     password: ${ADMIN_SEED_PASSWORD:}
+  # 7단계: 관리자 모델 관리 탭이 읽는 학습 결과 폴더 (추천 서버 ml/serve-candidates.ps1 의 기본 폴더와 같게, 읽기만)
+  model-run-dir: ${ML_MODEL_RUN_DIR:ml/outputs/models/candidate-preferences/20261026-100k-v1}
 
 logging:
   level:

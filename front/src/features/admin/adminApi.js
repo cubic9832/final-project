@@ -54,3 +54,10 @@ export const getAdminOverview = async (signal) => {
   const res = await client.get('/admin/overview', { signal });
   return res.data.data;
 };
+
+// 모델 관리: 학습 · 평가 결과(ml 학습 결과 파일) + 모델 버전 기록(DB)
+// → { available, runName, schema, trainedAt, testPairAccuracy, metrics: [{ name, previous, current }], history, versions, ... }
+export const getModelReport = async (signal) => {
+  const res = await client.get('/admin/model-report', { signal });
+  return res.data.data;
+};

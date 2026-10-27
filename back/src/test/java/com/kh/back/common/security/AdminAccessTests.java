@@ -83,6 +83,20 @@ class AdminAccessTests {
                 .andExpect(status().isForbidden());
     }
 
+    // 모델 관리: git 에 있는 학습 결과 파일(ml/outputs/...)을 읽는다, 일반 회원 403
+    @Test
+    void 관리자는_모델_학습_결과를_볼_수_있다() throws Exception {
+        mvc.perform(get("/api/v1/admin/model-report")
+                        .header("Authorization", "Bearer " + jwtProvider.createAccessToken(1L, "ADMIN")))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.data.available").value(true))
+                .andExpect(jsonPath("$.data.metrics.length()").value(3))
+                .andExpect(jsonPath("$.data.testPairAccuracy").isNumber());
+        mvc.perform(get("/api/v1/admin/model-report")
+                        .header("Authorization", "Bearer " + jwtProvider.createAccessToken(2L, "USER")))
+                .andExpect(status().isForbidden());
+    }
+
     // 서비스 연결 상태: 관리자는 실제 DB 확인 결과, 일반 회원 403
     @Test
     void 관리자는_서비스_연결_상태를_볼_수_있다() throws Exception {
