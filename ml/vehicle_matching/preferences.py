@@ -66,6 +66,9 @@ def integrated_score(profile, vehicle, cost, ml_score):
     if profile.preferred_fuel:
         fuel = 'HYBRID' if vehicle.original_fuel == 'PHEV' else vehicle.fuel
         components.append({'key':'fuel','score':100 * (fuel == profile.preferred_fuel), 'weight':profile.fuel_importance})
+    if profile.preferred_body_type != 'any':
+        components.append({'key': 'body', 'score': 100 * (vehicle.body_type == profile.preferred_body_type) if vehicle.body_type else 50,
+                           'weight': profile.body_importance, 'verified': vehicle.body_type is not None})
     if profile.minimum_seats:
         capacity = vehicle.seats if vehicle.seats is not None else min(vehicle.seat_options) if vehicle.seat_options else None
         seats = min(1,capacity/profile.minimum_seats) if capacity is not None else .5

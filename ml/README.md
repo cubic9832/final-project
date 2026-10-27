@@ -1,10 +1,14 @@
+## 차체 형태 확장 재학습 자료 (2026-10-26)
+
+재학습에 사용할 최신 분류 자료는 `data/households/synthetic/body-preference-v1-20261026`입니다. 차량 형태 출처/생성 규칙/검증 보고서를 함께 보존합니다. 기존 체크포인트 파일은 보존했고, 차체를 포함한 46입력 모델을 `ml/outputs/models/candidate-preferences/20261026-body-v1`에 재학습 완료했습니다. 실행 서버 및 기본 실행 스크립트는 `20261026-body-v1`로 교체했습니다. 평가 결과는 해당 모델 폴더의 holdout_report.json을 참조하세요. 서비스는 차체 선호를 명시적 가중치로 반영합니다. 자세한 실행 명령은 vehicle_matching/README.md의 차체 형태 확장 절을 참고하세요.
+
 # 현재 ml/test 학습 데이터
 
 현재 운영 판단·미해결 서비스 점수 포화·행동 데이터 수집 후속 요건은 [ML 검증 상태](../docs/ml-recommendation-status.md)에 정리했다. 순위 평가 수정과 실제 서비스 점수 변환 수정은 구분한다.
 
 현재 정제 데이터는 `data/households/synthetic/curated-current-v2-20261026`이며 상세 기준은 해당 폴더의 `rules.txt`를 따른다. 학습·검증·평가·재무 검증 파일을 분리했고, 정제본만으로 `python -m vehicle_matching.train_curated_population`을 실행할 수 있다.
 
-통합 데이터 학습 결과는 `ml/outputs/models/candidate-preferences/20261026-refined-v1`에 있다. 초기 ML 단독 지표 하락은 sigmoid 출력 포화로 확인됐으며, 원본 출력 재평가에서는 통합 모델이 소폭 높았다. 실행 모델은 `20261026-100k-v1`로 유지했다. 최종 추천과 재무 경계 검증은 통과했다. 비교 지표는 정제 폴더의 `balanced_evaluation_report.json`을 참고한다.
+통합 데이터 학습 결과는 `ml/outputs/models/candidate-preferences/20261026-refined-v1`에 있다. 초기 ML 단독 지표 하락은 sigmoid 출력 포화로 확인됐으며, 원본 출력 재평가에서는 통합 모델이 소폭 높았다. 당시 실행 모델은 `20261026-100k-v1`로 유지했으며, 이후 차체 형태 모델 `20261026-body-v1`로 교체했다. 최종 추천과 재무 경계 검증은 통과했다. 비교 지표는 정제 폴더의 `balanced_evaluation_report.json`을 참고한다.
 
 아래 문서는 과거 v1 실험 기록이며 현재 입력·데이터·정책과 구분한다.
 

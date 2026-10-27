@@ -22,6 +22,9 @@ def preference_evidence(profile, vehicle, components):
         add('fuel', 'match' if evaluated == profile.preferred_fuel else 'mismatch',
             requested=profile.preferred_fuel, actual=vehicle.original_fuel or vehicle.fuel,
             evaluatedFuel=evaluated)
+    if profile.preferred_body_type != 'any':
+        add('body', 'unknown' if vehicle.body_type is None else 'match' if vehicle.body_type == profile.preferred_body_type else 'mismatch',
+            requested=profile.preferred_body_type, actual=vehicle.body_type, sourceUrls=list(vehicle.body_source_urls))
     if profile.preferred_size != 'any':
         lower, upper = SIZE_BANDS[profile.preferred_size]
         length = vehicle.length_mm
@@ -64,6 +67,8 @@ def candidate_evidence(profile, vehicle, cost, score):
 def evaluation_summary(profile, catalog, eligible, costs, combined):
     matches = unknown = 0
     keys = []
+    if profile.preferred_body_type != 'any':
+        keys.append('body')
     if profile.preferred_fuel:
         keys.append('fuel')
     if profile.preferred_size != 'any':

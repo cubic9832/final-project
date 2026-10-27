@@ -1,13 +1,33 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import useAuthStore from '../../stores/useAuthStore.js';
 import { Car, ChevronLeft, ChevronRight, Copy, Pencil, Plus, RotateCcw, Search } from 'lucide-react';
 import theme from '../../styles/theme';
 import VehicleEditor from './vehicles/VehicleEditor.jsx';
 import { vehicleFuels, vehicleStatuses } from './vehicles/vehicleManagementExamples.js';
-import { catalogVehicles } from './vehicles/vehicleManagementCatalog.js';
+import { listAdminVehicles, saveAdminVehicle, adminVehicleError } from './vehicles/adminVehicleApi.js';
 import './vehicles/VehicleManagement.css';
 
 export default function AdminVehiclesPanel() {
-  const [vehicles, setVehicles] = useState(catalogVehicles);
+  const [vehicles, setVehicles] = useState([]);
+  const member = useAuthStore(state => state.member);
+  const initialized = useAuthStore(state => state.initialized);
+  const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState('');
+  const [reload, setReload] = useState(0);
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState('');
+  const [fieldErrors, setFieldErrors] = useState({});
+  const pendingSave = useRef(false);
+  useEffect(() => {
+    if (member?.role !== 'ADMIN') return;
+    const controller = new AbortController();
+    setLoading(true); setLoadError('');
+    listAdminVehicles(controller.signal).then(rows => { if (!controller.signal.aborted) setVehicles(rows); })
+      .catch(error => { if (!controller.signal.aborted) setLoadError(adminVehicleError(error)); })
+      .finally(() => { if (!controller.signal.aborted) setLoading(false); });
+    return () => controller.abort();
+  }, [member?.role, reload]);
   const [page, setPage] = useState(1);
   const [filters, setFilters] = useState({ keyword: '', brand: '', fuel: '', status: '' });
   const [editor, setEditor] = useState(null);
@@ -24,27 +44,38 @@ export default function AdminVehiclesPanel() {
   const updateFilter = (key, value) => { setFilters(current => ({ ...current, [key]: value })); setPage(1); };
   const resetFilters = () => { setFilters({ keyword: '', brand: '', fuel: '', status: '' }); setPage(1); };
   function openEditor(vehicle = null, duplicate = false) {
-    setNotice('');
+    setNotice(''); setSaveError(''); setFieldErrors({});
     setEditor({ vehicle: duplicate ? { ...vehicle, id: '', trim: `${vehicle.trim} 사본`, status: '작성 중' } : vehicle });
   }
   function closeEditor() {
     setEditor(null);
     requestAnimationFrame(() => addButton.current?.focus());
   }
-  function savePreview(vehicle) {
-    const next = { ...vehicle, id: vehicle.id || `preview-${crypto.randomUUID()}`, updatedAt: '방금 수정' };
-    setVehicles(current => current.some(item => item.id === next.id) ? current.map(item => item.id === next.id ? next : item) : [next, ...current]);
-    resetFilters(); closeEditor();
-    setNotice(`${next.model} 정보를 이 화면에 임시 저장했어요. 새로고침하면 원래 카탈로그로 돌아갑니다.`);
+  async function saveVehicle(vehicle) {
+    if (pendingSave.current) return;
+    pendingSave.current = true; setSaving(true); setSaveError(''); setFieldErrors({});
+    try {
+      const next = await saveAdminVehicle(vehicle);
+      setVehicles(current => [next, ...current.filter(item => item.id !== next.id)]);
+      resetFilters(); closeEditor(); setNotice(`${next.model} 정보를 저장했어요.${next.status === '공개' ? ' 다음 추천 요청부터 반영됩니다.' : ' 공개 전까지 추천에 포함되지 않습니다.'}`);
+    } catch (error) {
+      setSaveError(adminVehicleError(error));
+      const names = { priceWon: 'price', bodyType: 'body', lengthMm: 'length', imageUrl: 'image', sourceName: 'source' };
+      setFieldErrors(Object.fromEntries((error.response?.data?.errors || []).map(item => [names[item.field] || item.field, item.message])));
+    } finally { pendingSave.current = false; setSaving(false); }
   }
-  if (editor) return <VehicleEditor vehicle={editor.vehicle} onCancel={closeEditor} onSave={savePreview} />;
+  if (!initialized) return <p role="status">로그인 정보를 확인하고 있어요.</p>;
+  if (member?.role !== 'ADMIN') return <section className="admin-card"><h3>관리자 전용 기능입니다.</h3><p>차량 정보를 관리하려면 관리자 권한이 있는 계정으로 로그인해 주세요.</p>{!member && <Link to="/login">로그인</Link>}</section>;
+  if (editor) return <VehicleEditor vehicle={editor.vehicle} onCancel={closeEditor} onSave={saveVehicle} saving={saving} saveError={saveError} fieldErrors={fieldErrors} />;
+  if (loading) return <p role="status">차량 목록을 불러오고 있어요.</p>;
+  if (loadError) return <section className="admin-card"><p role="alert">{loadError}</p><button type="button" className="admin-outline-button" onClick={() => setReload(value => value + 1)}>다시 불러오기</button></section>;
   return <div className="admin-panel-stack vehicle-management">
     <div className="vehicle-management-toolbar"><div><span className="admin-eyebrow">VEHICLE CATALOG</span><h3>차량 데이터를 한곳에서</h3><p>모델과 트림별 정보를 확인하고 관리하세요.</p></div><button ref={addButton} type="button" className="vehicle-management-cta" onClick={() => openEditor()}><Plus size={theme.iconSize.sm} aria-hidden="true" />차량 등록</button></div>
     <div className="admin-summary" aria-label="전체 차량 카탈로그 현황">{[
       ['등록 차량', vehicles.length, '트림·사양 기준'], ['차량 모델', new Set(vehicles.map(v => `${v.brand}::${v.model}`)).size, '브랜드·모델 기준'],
       ['국산 차량', vehicles.filter(v => v.origin === '국산').length, '트림·사양 기준'], ['수입 차량', vehicles.filter(v => v.origin === '수입').length, '트림·사양 기준'],
     ].map(([label, value, note]) => <div className="admin-stat" key={label}><span>{label}</span><strong>{value}<small> 건</small></strong><small>{note}</small></div>)}</div>
-    <section className="admin-card"><div className="admin-card-heading"><div><h3>차량 목록</h3><p>현재 추천 카탈로그 전체입니다. 같은 모델도 연료와 트림이 다르면 각각 관리합니다.</p></div><span className="admin-count-badge">카탈로그 미리보기</span></div>
+    <section className="admin-card"><div className="admin-card-heading"><div><h3>차량 목록</h3><p>같은 모델도 연료와 트림이 다르면 각각 관리합니다. 공개 상태인 차량만 추천에 반영됩니다.</p></div><button type="button" className="admin-outline-button" onClick={() => setReload(value => value + 1)}>목록 새로고침</button></div>
       <div className="vehicle-management-filters"><label className="admin-search-field"><Search size={theme.iconSize.sm} aria-hidden="true" /><input type="search" aria-label="브랜드, 모델 또는 트림 검색" placeholder="브랜드, 모델, 트림 검색" value={filters.keyword} onChange={event => updateFilter('keyword', event.target.value)} /></label>
         {[
           ['brand', '브랜드', brands], ['fuel', '연료', vehicleFuels], ['status', '관리 상태', vehicleStatuses],

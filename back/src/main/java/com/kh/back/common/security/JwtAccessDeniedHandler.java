@@ -21,6 +21,11 @@ public class JwtAccessDeniedHandler implements AccessDeniedHandler {
     public void handle(HttpServletRequest request, HttpServletResponse response,
                        AccessDeniedException exception) throws IOException {
         response.setStatus(HttpStatus.FORBIDDEN.value());
+        if(request.getRequestURI().startsWith("/api/v1/admin/")){
+            var problem=org.springframework.http.ProblemDetail.forStatusAndDetail(HttpStatus.FORBIDDEN,"관리자 권한이 필요합니다.");
+            response.setContentType(MediaType.APPLICATION_PROBLEM_JSON_VALUE);response.setCharacterEncoding("UTF-8");
+            objectMapper.writeValue(response.getWriter(),problem);return;
+        }
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setCharacterEncoding("UTF-8");
         objectMapper.writeValue(response.getWriter(), ApiResponse.fail("ACCESS_DENIED", "접근 권한이 없습니다."));

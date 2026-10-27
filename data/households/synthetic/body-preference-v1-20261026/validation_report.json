@@ -1,0 +1,12 @@
+{
+  "catalog_rows": 281,
+  "model_count": 84,
+  "unknown_body_types": 0,
+  "sampled_reencoded_candidates": 300,
+  "feature_or_teacher_mismatches": 0,
+  "pair_direction_violations": 0,
+  "group_split_leakage": 0,
+  "api_status": 200,
+  "legacy_model_load": "passed; old checkpoint remains 29 inputs",
+  "training_executed": false
+}

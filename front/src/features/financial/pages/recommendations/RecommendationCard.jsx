@@ -50,7 +50,7 @@ export default function RecommendationCard({ candidate, rank, view, comparisonSe
       {candidate.integratedScore && <div className="financial-recommendation-aligned-score"><div data-recommendation-measure="score"><section className="candidate-score" aria-label="종합 적합도">
         <h3>종합 적합도 {candidate.integratedScore.total.toFixed(1)} / 100</h3>
         <p>재무 부담·선호 조건·추천 모델 평가를 합산한 비교 지표예요. 차량 품질이나 구매 만족도를 뜻하지 않아요.</p>
-        <dl>{candidate.integratedScore.components.filter(item => ['fuel', 'space', 'seating'].includes(item.key)).map(item => <div key={item.key}><dt>{{space: '희망 크기 일치도', fuel: '선호 연료 일치도', seating: '희망 인원 충족도'}[item.key]}</dt><dd>{item.verified === false ? '사양 미확인' : `${item.score.toFixed(0)} / 100`}</dd></div>)}</dl>
+        <dl>{candidate.integratedScore.components.filter(item => ['body', 'fuel', 'space', 'seating'].includes(item.key)).map(item => <div key={item.key}><dt>{{body: '차체 형태 일치도', space: '희망 크기 일치도', fuel: '선호 연료 일치도', seating: '희망 인원 충족도'}[item.key]}</dt><dd>{item.verified === false ? '사양 미확인' : `${item.score.toFixed(0)} / 100`}</dd></div>)}</dl>
         <p>{'구매비·유지비 절약을 가성비 중요도에 따라 반영해요. 가성비 중요도가 낮아도 높은 가격에 가점을 주지는 않아요.'}</p>
       </section></div></div>}
 

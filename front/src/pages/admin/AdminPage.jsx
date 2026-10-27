@@ -19,20 +19,20 @@ const sections = [
   { id: 'logs', label: '운영 로그', icon: ScrollText, description: '관리자 변경 이력과 서비스 오류를 추적합니다.', panel: AdminLogsPanel },
 ];
 
-// UI 검토용 화면. 관리 API 호출이나 실제 회원·차량 데이터 변경은 하지 않는다.
+// 차량 관리는 실제 관리 API를 사용하며, 나머지 메뉴는 미리보기다.
 export default function AdminPage() {
   const [params] = useSearchParams();
   const [updatedAt, setUpdatedAt] = useState(() => new Date());
   const section = sections.find(item => item.id === params.get('tab')) || sections[0];
   const Panel = section.panel;
   return <div className="admin-page">
-    <div className="admin-workspace-heading"><div><span className="admin-eyebrow">ADMIN WORKSPACE</span><h1>관리자 대시보드</h1><p>차량과 추천 서비스를 한곳에서 관리하세요.</p></div><span className="admin-example-badge">UI 미리보기 · 예시 데이터</span></div>
+    <div className="admin-workspace-heading"><div><span className="admin-eyebrow">ADMIN WORKSPACE</span><h1>관리자 대시보드</h1><p>차량과 추천 서비스를 한곳에서 관리하세요.</p></div><span className="admin-example-badge">{section.id === 'vehicles' ? '차량 데이터 관리' : 'UI 미리보기 · 예시 데이터'}</span></div>
     <div className="admin-workspace">
       <aside className="admin-sidebar"><div className="admin-sidebar-heading"><ShieldCheck size={theme.iconSize.md} aria-hidden="true" /><div><strong>운영 관리</strong><span>CreditComPass Auto</span></div></div>
         <nav className="admin-navigation" aria-label="관리자 메뉴">{sections.map(({ id, label, icon: Icon }) => <Link key={id} to={`/admin?tab=${id}`} aria-current={section.id === id ? 'page' : undefined}><Icon size={theme.iconSize.md} aria-hidden="true" /><span>{label}</span></Link>)}</nav>
-        <div className="admin-sidebar-footer"><span>화면 검토 모드</span><p>예시 정보로 구성된 화면입니다.</p><Link to="/">서비스 홈 보기<ArrowUpRight size={theme.iconSize.sm} aria-hidden="true" /></Link></div>
+        <div className="admin-sidebar-footer"><span>{section.id === 'vehicles' ? '차량 관리' : '화면 검토 모드'}</span><p>{section.id === 'vehicles' ? '관리자 권한으로 차량 정보를 관리합니다.' : '예시 정보로 구성된 화면입니다.'}</p><Link to="/">서비스 홈 보기<ArrowUpRight size={theme.iconSize.sm} aria-hidden="true" /></Link></div>
       </aside>
-      <div className="admin-content"><header className="admin-heading"><div><h2>{section.label}</h2><p>{section.description}</p></div><button className="admin-outline-button" type="button" onClick={() => setUpdatedAt(new Date())}><RefreshCw size={theme.iconSize.sm} aria-hidden="true" />화면 새로고침</button></header><div className="admin-preview-note"><span>현재 화면의 수치와 상태는 예시이며 실제 운영 데이터와 연결되지 않습니다.</span><span role="status">표시 시각 {updatedAt.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })}</span></div><Panel key={section.id} /></div>
+      <div className="admin-content"><header className="admin-heading"><div><h2>{section.label}</h2><p>{section.description}</p></div>{section.id !== 'vehicles' && <button className="admin-outline-button" type="button" onClick={() => setUpdatedAt(new Date())}><RefreshCw size={theme.iconSize.sm} aria-hidden="true" />화면 새로고침</button>}</header><div className="admin-preview-note"><span>{section.id === 'vehicles' ? '차량 정보는 서버에 저장되며 공개한 차량만 추천에 사용됩니다.' : '현재 화면의 수치와 상태는 예시이며 실제 운영 데이터와 연결되지 않습니다.'}</span><span role="status">표시 시각 {updatedAt.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })}</span></div><Panel key={section.id} /></div>
     </div>
   </div>;
 }

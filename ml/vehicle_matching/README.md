@@ -2,7 +2,7 @@
 
 현재 정책은 cash-preference-weighted-v9이며 현금 구매와 구매 후 12개월 유지비 여력을 확인한다. 연료·차체 크기·정원은 가중치 선호이며 가성비를 낮춰도 고가 보너스를 주지 않는다. 이전 80~100% 가격대 우선 정책은 사용하지 않는다.
 
-학습 자료와 생성·분류 규칙은 `data/households/synthetic/curated-current-v2-20261026`의 README.md와 rules.txt를 따른다. 원본 합성 자료는 정제 후 삭제했고 출처 해시와 Git 커밋을 보고서에 기록했다. 실행 모델은 기존 20261026-100k-v1을 유지하며 통합 데이터 모델은 평가용 20261026-refined-v1에 저장했다.
+학습 자료와 생성·분류 규칙은 `data/households/synthetic/curated-current-v2-20261026`의 README.md와 rules.txt를 따른다. 원본 합성 자료는 정제 후 삭제했고 출처 해시와 Git 커밋을 보고서에 기록했다. 실행 모델은 20261026-body-v1이며 통합 데이터 모델은 평가용 20261026-refined-v1에 저장했다.
 
 아래는 과거 실험 기록으로 현재 데이터 경로·입력·정책의 기준이 아니다.
 
@@ -158,3 +158,17 @@ MILD_HYBRID와 PHEV는 원래 연료 표기를 보존하고, 연비·전기 주�
 기본 k=3으로 서로 다른 모델을 최대 3개 반환하며 점수·확률이 낮다는 이유로 제외하지 않는다. 재무 적격 모델이 1~2개면 그 수만, 0개면 빈 `recommendations`와 `status=no-financially-eligible-vehicle`을 반환한다. `conditionalRecommendations`는 호환용 빈 배열로 남긴다. API의 기존 pair ranker 가중치를 이 작업에서 교체하지 않았으며 아래 새 MLP와는 별개다.
 
 새 데이터: `data/households/synthetic/preference-financial-v4` (306,429행). 결정적 가중 상위 3개는 `recommendations_top3.csv`, 학습용 확률 선택은 `combined_training.csv`다. 별도 MLP 재학습과 결과는 `ml/outputs/models/preference-financial-v4/20261022T120014`에 저장했다. 실행 중인 서버 재시작·배포는 수행하지 않았다.
+
+## 2026-10-26 차체 형태 확장 (현재 작업)
+
+새 재학습용 데이터: `data/households/synthetic/body-preference-v1-20261026`.
+차량 281개 사양·84개 모델의 형태 및 출처는 `data/vehicles/body-type-registry-v1.json`에서 정확한 브랜드·모델 키로 연결한다. 기존 체크포인트 카탈로그와 해시는 변경하지 않는다.
+입력 `preferred_body_type`은 any/SEDAN/SUV/HATCHBACK/WAGON/MPV/BOX/PICKUP, `body_importance`는 1~5. 일치 100·불일치 0·미확인 50, any 제외. 형태는 재무 필터가 아닌 선호 평가다. 예금·월 유지비 적격 계산은 유지한다.
+기존 29개 특징에 차체 관련 17개 특징을 추가한 46개 특징과 정답·비교 쌍을 재생성했다. 기존 재무 그룹/분할을 보존한다. 204개 사례는 새 점수 기준으로 비교 차이가 부족해 별도 재무 검증 JSONL에 보존했다. 세부 규칙은 데이터 폴더의 rules.txt 참조.
+기존 29입력 모델은 호환 로딩하며, 아직 차체를 학습한 모델이 아니다. 재학습 전에는 서비스의 명시적 차체 가중치만 작동한다. 후속 요청으로 20261026-body-v1 모델 재학습을 완료했다(12 epochs 중 검증 최선 11 epoch). 후속 교체 요청으로 기본 실행 경로 및 8002 서버에 적용했다. 실서버 검증은 serving_verification.json에 보존한다. holdout_report.json에 비교 평가를 보존한다.
+
+재생성 (저장 위치가 존재하지 않아야 함):
+`python -m vehicle_matching.extend_body_population --source ../data/households/synthetic/curated-current-v2-20261026 --output ../data/households/synthetic/body-preference-v1-20261026`
+
+후속 재학습 명령 (ml 폴더에서):
+`python -m vehicle_matching.train_curated_population --data-dir ../data/households/synthetic/body-preference-v1-20261026 --output outputs/models/candidate-preferences/body-v1 --epochs 12`

@@ -79,7 +79,7 @@ class CandidateService:
         return {'modelVersion': 'candidate-v2', 'objective': 'financial-eligibility-and-weighted-preferences',
                 'scorePolicy': 'cash-preference-weighted-v9',
                 'evaluationSummary': evaluation_summary(profile, self.vehicles, eligible, costs, combined),
-                'appliedPreferences': {name: getattr(profile, name) for name in ('preferred_fuel', 'preferred_size', 'minimum_seats', 'cost_importance', 'space_importance', 'fuel_importance', 'seating_importance')},
+                'appliedPreferences': {name: getattr(profile, name) for name in ('preferred_body_type', 'body_importance', 'preferred_fuel', 'preferred_size', 'minimum_seats', 'cost_importance', 'space_importance', 'fuel_importance', 'seating_importance')},
                 'budgetPolicy': band,
                 'catalogCount': len(self.vehicles), 'eligibleCount': len(eligible),
                 'excludedReasons': dict(excluded), 'recommendations': chosen,

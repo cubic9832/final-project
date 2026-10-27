@@ -11,6 +11,7 @@ from torch import nn
 from vehicle_matching.catalog import FUELS
 from vehicle_matching.finance import Assumptions, assess
 from vehicle_matching.preferences import SIZE_BANDS
+from vehicle_matching.body_types import BODY_TYPES
 
 FEATURE_NAMES = ('log_income', 'log_expenses', 'log_debt_payment', 'log_assets', 'log_price',
                  'log_running', 'net_monthly_millions', 'price_cash_ratio', 'cash_after_ratio',
@@ -18,6 +19,15 @@ FEATURE_NAMES = ('log_income', 'log_expenses', 'log_debt_payment', 'log_assets',
                  'fuel_match', 'fuel_specified', 'size_lower', 'size_upper', 'size_specified',
                  'minimum_seats', 'cost_weight', 'size_weight', 'fuel_weight', 'seats_weight',
                  *('fuel_' + fuel for fuel in FUELS))
+LEGACY_FEATURE_NAMES = FEATURE_NAMES
+FEATURE_NAMES = (*FEATURE_NAMES, 'body_match', 'body_specified', 'body_weight',
+                 *('body_' + value for value in BODY_TYPES), *('preferred_body_' + value for value in BODY_TYPES))
+
+def encode_body(profile, vehicle):
+    return np.asarray([float(profile.preferred_body_type == vehicle.body_type) if profile.preferred_body_type != 'any' else .5,
+                       float(profile.preferred_body_type != 'any'), profile.body_importance / 5,
+                       *(float(vehicle.body_type == value) for value in BODY_TYPES),
+                       *(float(profile.preferred_body_type == value) for value in BODY_TYPES)], dtype=np.float32)
 
 
 def encode_preference(profile, vehicle, assumptions=Assumptions(), cost=None):
@@ -33,7 +43,7 @@ def encode_preference(profile, vehicle, assumptions=Assumptions(), cost=None):
     seats = vehicle.seats if vehicle.seats is not None else min(vehicle.seat_options) if vehicle.seat_options else None
     lower, upper = SIZE_BANDS.get(profile.preferred_size, (0, 0))
     fuel = 'HYBRID' if vehicle.original_fuel == 'PHEV' else vehicle.fuel
-    return np.asarray([*(math.log1p(value) for value in (profile.monthly_income, profile.monthly_expenses,
+    base = np.asarray([*(math.log1p(value) for value in (profile.monthly_income, profile.monthly_expenses,
                        profile.existing_monthly_payment, funds, vehicle.price, cost['monthly_running_cost'])),
                        available/1e6, vehicle.price/funds, remaining/funds,
                        min(10, cost['monthly_running_cost']/capacity),
@@ -45,10 +55,11 @@ def encode_preference(profile, vehicle, assumptions=Assumptions(), cost=None):
                        profile.cost_importance/5, profile.space_importance/5,
                        profile.fuel_importance/5, profile.seating_importance/5,
                        *(float(vehicle.fuel == value) for value in FUELS)], dtype=np.float32)
+    return np.concatenate((base, encode_body(profile, vehicle)))
 
 
-def preference_network():
-    return nn.Sequential(nn.Linear(len(FEATURE_NAMES), 64), nn.ReLU(), nn.Linear(64, 32), nn.ReLU(), nn.Linear(32, 1))
+def preference_network(feature_count=None):
+    return nn.Sequential(nn.Linear(feature_count or len(FEATURE_NAMES), 64), nn.ReLU(), nn.Linear(64, 32), nn.ReLU(), nn.Linear(32, 1))
 
 
 class PreferenceRanker:
@@ -63,7 +74,7 @@ class PreferenceRanker:
     def predict(self, profile, vehicles):
         if not vehicles:
             return [], []
-        x = np.stack([encode_preference(profile, vehicle, self.assumptions) for vehicle in vehicles])
+        x = np.stack([encode_preference(profile, vehicle, self.assumptions)[:len(self.mean)] for vehicle in vehicles])
         with torch.no_grad():
             scores = self.net(torch.from_numpy(((x-self.mean)/self.scale).astype(np.float32))).sigmoid().flatten().numpy()
         return scores.tolist(), np.any((x < self.minimum-1e-5) | (x > self.maximum+1e-5), axis=1).tolist()
@@ -76,7 +87,7 @@ class PreferenceRanker:
         """
         if not vehicles:
             return []
-        x = np.stack([encode_preference(profile, vehicle, self.assumptions) for vehicle in vehicles])
+        x = np.stack([encode_preference(profile, vehicle, self.assumptions)[:len(self.mean)] for vehicle in vehicles])
         with torch.no_grad():
             return self.net(torch.from_numpy(((x-self.mean)/self.scale).astype(np.float32))).flatten().tolist()
 
@@ -84,7 +95,7 @@ class PreferenceRanker:
         directory = Path(directory)
         directory.mkdir(parents=True, exist_ok=True)
         torch.save(self.net.state_dict(), directory/'model.pt')
-        meta = {'schema': 'candidate-preferences-v3', 'features': list(FEATURE_NAMES),
+        meta = {'schema': 'candidate-preferences-v3', 'features': list(FEATURE_NAMES if len(self.mean) == len(FEATURE_NAMES) else LEGACY_FEATURE_NAMES),
                 'mean': self.mean.tolist(), 'scale': self.scale.tolist(), 'minimum': self.minimum.tolist(),
                 'maximum': self.maximum.tolist(), 'assumptions': self.assumptions.to_dict(), 'training': provenance,
                 'weights_sha256': hashlib.sha256((directory/'model.pt').read_bytes()).hexdigest()}
@@ -94,13 +105,13 @@ class PreferenceRanker:
     def load(cls, directory):
         directory = Path(directory)
         meta = json.loads((directory/'metadata.json').read_text(encoding='utf-8'))
-        if meta['schema'] != 'candidate-preferences-v3' or meta['features'] != list(FEATURE_NAMES):
+        if meta['schema'] != 'candidate-preferences-v3' or meta['features'] not in (list(FEATURE_NAMES), list(LEGACY_FEATURE_NAMES)):
             raise ValueError('Preference model schema mismatch')
         if hashlib.sha256((directory/'model.pt').read_bytes()).hexdigest() != meta['weights_sha256']:
             raise ValueError('Preference model checksum mismatch')
         mean, scale = np.asarray(meta['mean'], dtype=np.float32), np.asarray(meta['scale'], dtype=np.float32)
-        if mean.shape != (len(FEATURE_NAMES),) or scale.shape != mean.shape or not np.all(np.isfinite(mean)) or not np.all(np.isfinite(scale)) or np.any(scale <= 0):
+        if mean.shape != (len(meta['features']),) or scale.shape != mean.shape or not np.all(np.isfinite(mean)) or not np.all(np.isfinite(scale)) or np.any(scale <= 0):
             raise ValueError('Invalid preference scaler')
-        net = preference_network()
+        net = preference_network(len(mean))
         net.load_state_dict(torch.load(directory/'model.pt', map_location='cpu', weights_only=True))
         return cls(net, mean, scale, meta['minimum'], meta['maximum'], Assumptions(**meta['assumptions']))

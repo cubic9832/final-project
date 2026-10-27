@@ -56,6 +56,8 @@ def financial_group(rng, group):
 
 
 def generate(directory, vehicles, seed, count=100000):
+    from vehicle_matching.body_types import apply_body_types
+    vehicles = apply_body_types(vehicles)
     if count % 4:
         raise ValueError('Count must contain whole four-preference financial groups')
     directory.mkdir(parents=True, exist_ok=False)
@@ -73,7 +75,7 @@ def generate(directory, vehicles, seed, count=100000):
               '구매유지예금_원', '선호연료', '선호크기', '최소탑승인원', '가성비중요도', '크기중요도',
               '연료중요도', '인원중요도', '연간주행거리_km', '전체재무적격사양수', '비교모델수', '선택차량번호',
               '선택브랜드', '선택모델', '선택트림', '선택차량가격_원', '월유지비_원', '월예금소진액_원',
-              '구매후예금_원', '예상유지기간_개월', '선택확률_만분율', '생성규칙버전']
+              '구매후예금_원', '예상유지기간_개월', '선택확률_만분율', '생성규칙버전', '선호차체형태', '차체형태중요도', '선택차량차체형태']
     with (directory/'profiles.csv').open('w', newline='', encoding='utf-8-sig') as stream:
         writer = csv.DictWriter(stream, fieldnames=fields)
         writer.writeheader()
@@ -94,7 +96,7 @@ def generate(directory, vehicles, seed, count=100000):
                 pool[v.brand, v.model].append((index, cost))
             for pref in range(4):
                 while True:
-                    values = dict(financial, preferred_fuel=rng.choice((*FUELS, None)), preferred_size=rng.choice(('any','small','medium','large')),
+                    values = dict(financial, preferred_body_type=rng.choice(('any','SEDAN','SUV','HATCHBACK','WAGON','MPV','BOX','PICKUP')), body_importance=rng.choice((1,3,5)), preferred_fuel=rng.choice((*FUELS, None)), preferred_size=rng.choice(('any','small','medium','large')),
                                   minimum_seats=rng.choice((0,2,4,5,6,7,9)), cost_importance=rng.choice((1,3,5)),
                                   space_importance=rng.choice((1,3,5)), fuel_importance=rng.choice((1,3,5)), seating_importance=rng.choice((1,3,5)))
                     signature = tuple(sorted(values.items()))
@@ -141,9 +143,11 @@ def generate(directory, vehicles, seed, count=100000):
                 if chosen is not None:
                     row += [vehicle.id,vehicle.brand,vehicle.model,vehicle.trim,int(vehicle.price),int(cost['monthly_running_cost']),
                             int(cost['monthly_asset_drawdown']),int(profile.liquid_assets-vehicle.price),
-                            cost['asset_runway_months'] if cost['asset_runway_months'] is not None else '월소득으로충당',probability,'preference-population-v1']
+                            cost['asset_runway_months'] if cost['asset_runway_months'] is not None else '월소득으로충당',probability,'preference-population-body-v2']
                 else:
-                    row += ['NO-CHOICE','해당없음','추천없음','해당없음',0,0,0,profile.liquid_assets,'해당없음',0,'preference-population-v1']
+                    row += ['NO-CHOICE','해당없음','추천없음','해당없음',0,0,0,profile.liquid_assets,'해당없음',0,'preference-population-body-v2']
+                from vehicle_matching.extend_body_population import LABELS
+                row += [LABELS[profile.preferred_body_type], profile.body_importance, LABELS[vehicle.body_type] if chosen is not None else '해당없음']
                 writer.writerow(dict(zip(fields,row)))
                 records.append({'id':case_id,'group':group,'split':split,'profile':asdict(profile)})
                 audits[split+'_profiles'] += 1
@@ -159,12 +163,12 @@ def generate(directory, vehicles, seed, count=100000):
         for record in records:
             stream.write(json.dumps(record,ensure_ascii=False)+'\n')
     save_catalog(directory/'catalog.json',vehicles)
-    summary = {'version':'preference-population-v1','seed':seed,'profiles':len(records),'financial_groups':count//4,
+    summary = {'version':'preference-population-body-v2','seed':seed,'profiles':len(records),'financial_groups':count//4,
                'candidate_rows':len(x),'preference_pairs':len(pairs),'counts':dict(audits),
                'held_out_models':[list(key) for key in sorted(unseen)],'violations':0,'duplicate_inputs':0,
                'split_unit':'financial_group','candidate_models_per_case':16,'selection_temperature':.06,
                'coverage_rule':'no forced vehicle balancing; one sampled configuration per distinct model',
-               'teacher':'current cost/fuel/size/seating weighted score excluding ML; purpose not evaluated',
+               'teacher':'current cost/fuel/body/size/seating weighted score excluding ML; purpose not evaluated',
                'inputs':'independently generated first; no legacy row copying or financial repair',
                'profiles_sha256':hashlib.sha256((directory/'profiles.csv').read_bytes()).hexdigest(),
                'arrays_sha256':hashlib.sha256((directory/'candidate_pairs.npz').read_bytes()).hexdigest()}
@@ -182,7 +186,7 @@ def fit_population(x,y,pairs,splits,seed,epochs,output,provenance):
     yt = torch.from_numpy(y)
     training = torch.from_numpy(pairs[splits[pairs[:,0]] == 0])
     validation = torch.from_numpy(pairs[splits[pairs[:,0]] == 1][:50000])
-    net = preference_network()
+    net = preference_network(x.shape[1])
     optimizer = torch.optim.Adam(net.parameters(), lr=.001)
     generator = torch.Generator().manual_seed(seed)
     best, history = -math.inf, []

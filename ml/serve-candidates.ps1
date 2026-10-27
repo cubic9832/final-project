@@ -1,4 +1,4 @@
-param([int]$Port = 8002, [string]$Run = 'outputs/models/candidate-preferences/20261026-100k-v1')
+param([int]$Port = 8002, [string]$Run = 'outputs/models/candidate-preferences/20261026-body-v1')
 
 $ErrorActionPreference = 'Stop'
 $candidatePython = Join-Path $PSScriptRoot '.venv/Scripts/python.exe'

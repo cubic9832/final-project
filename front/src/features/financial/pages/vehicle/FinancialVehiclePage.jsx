@@ -1,16 +1,19 @@
 import { useState } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
-import { sizeOptions, fuelOptions } from '../../vehiclePreferences.js';
+import { sizeOptions, fuelOptions, bodyTypeOptions, bodyTypeLabel } from '../../vehiclePreferences.js';
 import useCandidateRecommendations from './useCandidateRecommendations.js';
+import BodyTypePreview from './BodyTypePreview.jsx';
 import FinancialBudgetSummary from '../../components/FinancialBudgetSummary.jsx';
 import FinancialFlowHeader from '../../components/FinancialFlowHeader.jsx';
 import '../../styles/FinancialPages.css';
 import './FinancialVehiclePage.css';
 
-const priorities = [['costImportance', '가성비'], ['spaceImportance', '크기 일치'], ['fuelImportance', '선호 연료'], ['seatingImportance', '탑승 인원']];
-const priorityPresets = [{ value: '1', label: '낮음' }, { value: '3', label: '보통' }, { value: '5', label: '높음' }];
+const priorities = [['costImportance', '가성비'], ['bodyImportance', '차체 형태'], ['spaceImportance', '크기 일치'], ['fuelImportance', '선호 연료'], ['seatingImportance', '탑승 인원']];
+const priorityPresets = [{ value: '1', label: '우선도 낮음' }, { value: '3', label: '우선도 중간' }, { value: '5', label: '우선도 높음' }];
+const availableBodyTypeOptions = bodyTypeOptions.filter(item => item.value !== 'PICKUP');
 const initialVehicle = {
   purpose: '출퇴근', fuel: '상관없음',
+  preferredBodyType: 'any', bodyImportance: '3',
   costImportance: '3', spaceImportance: '3', minimumSeats: '0', preferredSize: 'any',
   fuelImportance: '3', seatingImportance: '3', purposeImportance: '1',
 };
@@ -18,11 +21,12 @@ export default function FinancialVehiclePage() {
   const { state } = useLocation();
   const navigate = useNavigate();
   const [vehicle, setVehicle] = useState(() => ({ ...initialVehicle, ...state?.vehicle,
+    preferredBodyType: state?.vehicle?.preferredBodyType === 'PICKUP' ? 'any' : (state?.vehicle?.preferredBodyType ?? initialVehicle.preferredBodyType),
     ...Object.fromEntries(priorities.map(([name]) => { const value = Number(state?.vehicle?.[name] ?? initialVehicle[name]); return [name, String(value <= 2 ? 1 : value >= 4 ? 5 : 3)]; })) }));
 
   const diagnosis = { ...state, vehicle };
   const { notice, recommending, showRecommendations } = useCandidateRecommendations(diagnosis);
-  const inactive = name => (name === 'fuelImportance' && vehicle.fuel === '상관없음') || (name === 'spaceImportance' && vehicle.preferredSize === 'any') || (name === 'seatingImportance' && Number(vehicle.minimumSeats) === 0);
+  const inactive = name => (name === 'bodyImportance' && vehicle.preferredBodyType === 'any') || (name === 'fuelImportance' && vehicle.fuel === '상관없음') || (name === 'spaceImportance' && vehicle.preferredSize === 'any') || (name === 'seatingImportance' && Number(vehicle.minimumSeats) === 0);
 
   if (!state?.values) return <Navigate to="/financial" replace />;
 
@@ -33,7 +37,7 @@ export default function FinancialVehiclePage() {
 
   return (
     <div className="financial-page vehicle-page">
-      <FinancialFlowHeader current={2} title="어떤 차를 타고 싶으세요?" description="원하는 연료와 크기를 골라 주세요. 다음 화면에서 종합 분석 결과를 확인할 수 있어요." />
+      <FinancialFlowHeader current={2} title="어떤 차를 타고 싶으세요?" description="원하는 차체 형태와 연료, 크기를 골라 주세요. 다음 화면에서 종합 분석 결과를 확인할 수 있어요." />
       <form onSubmit={handleSubmit}>
         <div className="financial-entry-grid">
           <section className="financial-entry-card vehicle-entry-card" aria-labelledby="vehicle-title">
@@ -48,6 +52,14 @@ export default function FinancialVehiclePage() {
                   <span>{fuel === '가솔린' ? '휘발유(가솔린)' : fuel === '디젤' ? '경유(디젤)' : fuel}</span>
                 </label>)}
               </div>
+            </fieldset>
+            <fieldset className="vehicle-purpose">
+              <legend>선호 차체 형태</legend>
+              <div className="vehicle-purpose-options">
+                {availableBodyTypeOptions.map(item => <label key={item.value}><input type="radio" name="preferredBodyType" value={item.value} checked={vehicle.preferredBodyType === item.value} onChange={() => setVehicle(previous => ({ ...previous, preferredBodyType: item.value }))} /><span>{item.label}</span></label>)}
+              </div>
+              <BodyTypePreview value={vehicle.preferredBodyType} label={bodyTypeLabel(vehicle.preferredBodyType)} />
+              <p className="vehicle-field-help">차체 형태와 크기는 별도 조건이에요. 쿠페형 SUV는 SUV에 포함해요.</p>
             </fieldset>
             <fieldset className="vehicle-purpose vehicle-size-preference">
               <legend>선호 크기</legend>
@@ -82,7 +94,7 @@ export default function FinancialVehiclePage() {
           <FinancialBudgetSummary values={state.values} assets={state.assets} loans={state.loans} />
         </div>
         <section className="vehicle-final-check" aria-labelledby="final-check-title">
-          <div><h2 id="final-check-title">선택한 조건으로 차량을 찾아볼까요?</h2><p>{vehicle.fuel} · {Number(vehicle.minimumSeats) > 0 ? `${vehicle.minimumSeats}명 이상` : '탑승 인원 상관없음'}</p><p>구매 후 예금으로 부족한 월 자금을 최소 12개월 충당할 수 있는 차량도 비교합니다. 유지비는 공통 기준인 연 15,000km로 계산합니다.</p></div>
+          <div><h2 id="final-check-title">선택한 조건으로 차량을 찾아볼까요?</h2><p>{vehicle.fuel} · {bodyTypeLabel(vehicle.preferredBodyType)} · {Number(vehicle.minimumSeats) > 0 ? `${vehicle.minimumSeats}명 이상` : '탑승 인원 상관없음'}</p><p>구매 후 예금으로 부족한 월 자금을 최소 12개월 충당할 수 있는 차량도 비교합니다. 유지비는 공통 기준인 연 15,000km로 계산합니다.</p></div>
         </section>
           <div className="financial-next-row">
             <button type="button" className="financial-previous-button" disabled={recommending} onClick={() => navigate('/financial', { state: diagnosis })}>재무 정보 수정</button>
