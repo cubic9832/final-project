@@ -2,6 +2,8 @@ package com.kh.back.auth.service;
 
 import com.kh.back.auth.dto.AuthTokens;
 import com.kh.back.auth.dto.EmailVerificationResponse;
+import com.kh.back.auth.dto.GoogleLoginResult;
+import com.kh.back.auth.dto.GoogleSignupRequest;
 import com.kh.back.auth.dto.LoginRequest;
 import com.kh.back.auth.dto.PasswordChangeRequest;
 import com.kh.back.auth.dto.PasswordResetRequest;
@@ -15,7 +17,9 @@ import com.kh.back.common.jwt.JwtProvider;
 import com.kh.back.member.dto.MemberDto;
 import com.kh.back.member.dto.MemberResponse;
 import com.kh.back.member.mapper.MemberMapper;
+import com.kh.back.member.dto.UserAgreementDto;
 import com.kh.back.member.dto.UserProfileDto;
+import com.kh.back.member.mapper.UserAgreementMapper;
 import com.kh.back.member.mapper.UserProfileMapper;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -48,9 +52,11 @@ public class AuthServiceImpl implements AuthService {
     private final EmailVerificationProofStore verificationProofStore;
     private static final java.security.SecureRandom NICKNAME_RANDOM = new java.security.SecureRandom(); // 구글 가입 자동 닉네임 숫자 // 보완 7 추가: 인증한 사람에게만 주는 일회용 증명
     private final GoogleTokenVerifier googleTokenVerifier;
+    private final GoogleSignupStore googleSignupStore; // 처음 온 사람의 가입 대기 정보 (10분)
     private final SocialAccountMapper socialAccountMapper;
     private final RecaptchaVerifier recaptchaVerifier;
     private final UserProfileMapper userProfileMapper;
+    private final UserAgreementMapper userAgreementMapper; // 보완 9: 가입 동의 기록 · 이메일 알림
     private final RefreshTokenMapper refreshTokenMapper;
     private final PasswordEncoder passwordEncoder;
     private final JwtProvider jwtProvider;
@@ -109,6 +115,8 @@ public class AuthServiceImpl implements AuthService {
         profile.setBirthDate(request.getBirthDate());
         profile.setGender(request.getGender());
         userProfileMapper.insert(profile);
+        // 보완 9: 약관 동의 시각 · 이메일 알림 (같은 트랜잭션)
+        userAgreementMapper.insert(UserAgreementDto.atSignup(member.getId(), request.isUpdatesAgreed(), LocalDateTime.now()));
 
         // 보완 6: 가입 전에 이 이메일로 로그인에 실패한 기록이 있으면 지운다
         // (없는 이메일로 틀린 기록이 새 계정의 첫 로그인에 이어져 바로 reCAPTCHA 가 뜨지 않게)
@@ -270,18 +278,17 @@ public class AuthServiceImpl implements AuthService {
     // 보완 8: 구글 로그인
     // ① 이미 연결된 구글 계정 → 그 회원으로 로그인
     // ② 연결은 없지만 같은 이메일로 가입한 회원 → 자동 연결 후 로그인 (gmail 일 때만 — 아래 canAutoLink)
-    // ③ 처음 온 사람 → 로그인 화면에서 동의(만 18세 이상 · 약관 · 개인정보)를 체크했으면 바로 가입 + 로그인
-    //    10-22: 추가 정보 화면을 없앴다. 닉네임은 구글 이름으로 자동, 생년월일 · 성별 · 전화번호는 마이페이지에서 입력
+    // ③ 처음 온 사람 → 가입 대기 번호를 주고 구글 가입 화면(/signup/google)으로 (동의 · 생년월일 · 성별)
     @Override
     @Transactional
-    public AuthTokens googleLogin(String idToken, boolean consent) {
+    public GoogleLoginResult googleLogin(String idToken) {
         GoogleTokenVerifier.GoogleUser google = googleTokenVerifier.verify(idToken);
 
         Long linkedUserId = socialAccountMapper.findUserId(GOOGLE, google.sub());
         if (linkedUserId != null) {
             MemberDto member = memberMapper.findById(linkedUserId);
             if (member != null) {
-                return issueTokens(member);
+                return new GoogleLoginResult(issueTokens(member), null);
             }
         }
 
@@ -292,18 +299,44 @@ public class AuthServiceImpl implements AuthService {
             }
             socialAccountMapper.insert(sameEmail.getId(), GOOGLE, google.sub(), google.email());
             loginAttemptLimiter.reset(google.email()); // 구글로 본인 확인이 됐으니 비밀번호 실패 기록은 지운다
-            return issueTokens(sameEmail);
+            return new GoogleLoginResult(issueTokens(sameEmail), null);
         }
 
-        // ③ 처음 온 사람: 동의가 없으면 가입하지 않는다 → 화면이 동의 체크칸을 빨갛게 표시
-        if (!consent) {
-            throw new ApiException(HttpStatus.BAD_REQUEST, "SIGNUP_CONSENT_REQUIRED",
-                    "처음 가입하는 경우 아래 동의 항목을 체크한 뒤 다시 눌러 주세요.");
+        // ③ 처음 온 사람: 아직 가입시키지 않는다. 구글 정보는 서버에 10분 보관하고 화면에는 번호만 준다
+        String signupToken = googleSignupStore.save(google);
+        return new GoogleLoginResult(null,
+                new GoogleLoginResult.SignupRequired(signupToken, google.email(), google.name()));
+    }
+
+    // 보완 8: 구글 가입 화면의 추가 정보로 가입 — 회원가입과 같은 만 18세 검사, 비밀번호 · 이메일 인증은 없다 (구글이 확인)
+    // 닉네임은 구글 이름으로 자동으로 정한다 (가입 후 개인정보 · 계정 관리에서 변경). 동의는 @AssertTrue 로 Controller 에서 확인
+    @Override
+    @Transactional
+    public AuthTokens googleSignup(GoogleSignupRequest request) {
+        GoogleSignupStore.Pending pending = googleSignupStore.peek(request.getSignupToken()); // 성공한 뒤에 지운다
+        if (pending == null) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "GOOGLE_SIGNUP_EXPIRED", "시간이 지났습니다. 구글 로그인을 다시 시도해 주세요.");
         }
+        if (Period.between(request.getBirthDate(), LocalDate.now()).getYears() < MIN_SIGNUP_AGE) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "AGE_RESTRICTED",
+                    "만 " + MIN_SIGNUP_AGE + "세 이상만 가입할 수 있습니다. (운전면허 취득 가능 나이 기준)");
+        }
+        // 추가 정보를 입력하는 사이 같은 이메일로 가입했으면 그 회원에 연결한다 (gmail 일 때만 — 아래 canAutoLink)
+        MemberDto existing = memberMapper.findByEmail(pending.email());
+        if (existing != null) {
+            if (!canAutoLink(pending.email())) {
+                throw googleLinkNotAllowed();
+            }
+            socialAccountMapper.insert(existing.getId(), GOOGLE, pending.sub(), pending.email());
+            AuthTokens tokens = issueTokens(existing);
+            googleSignupStore.remove(request.getSignupToken());
+            return tokens;
+        }
+
         MemberDto member = new MemberDto();
-        member.setEmail(google.email());
+        member.setEmail(pending.email());
         member.setPasswordHash(MemberDto.SOCIAL_ONLY_PASSWORD); // 비밀번호 없음 → 이메일 · 비밀번호 로그인은 항상 실패
-        member.setNickName(autoNickName(google.name()));
+        member.setNickName(autoNickName(pending.name()));
         member.setRole(DEFAULT_ROLE);
         try {
             memberMapper.insert(member);
@@ -311,8 +344,21 @@ public class AuthServiceImpl implements AuthService {
             String reason = String.valueOf(e.getMessage());
             throw reason.contains("uq_users_nick_name") ? nickNameDuplicated() : emailDuplicated(); // 동시에 같은 값이 들어온 드문 경우
         }
-        socialAccountMapper.insert(member.getId(), GOOGLE, google.sub(), google.email());
-        return issueTokens(member).markNewMember(true); // 화면이 자동으로 정한 닉네임을 알려 준다
+
+        // 회원 · 개인 정보 · 구글 연결을 한 트랜잭션으로 저장한다 (하나라도 실패하면 모두 취소)
+        UserProfileDto profile = new UserProfileDto();
+        profile.setUserId(member.getId());
+        profile.setPhone(phoneDigits(request.getPhone()));
+        profile.setBirthDate(request.getBirthDate());
+        profile.setGender(request.getGender());
+        userProfileMapper.insert(profile);
+        // 보완 9: 가입 마무리 화면의 동의 시각 · 이메일 알림
+        userAgreementMapper.insert(UserAgreementDto.atSignup(member.getId(), request.isUpdatesAgreed(), LocalDateTime.now()));
+
+        socialAccountMapper.insert(member.getId(), GOOGLE, pending.sub(), pending.email());
+        AuthTokens tokens = issueTokens(member).markNewMember(true); // 화면이 자동으로 정한 닉네임을 알려 준다
+        googleSignupStore.remove(request.getSignupToken()); // 가입이 끝났으니 1회용 번호를 지운다
+        return tokens;
     }
 
     // 구글 이름으로 닉네임 자동 생성: 공백을 빼고 12자까지. 2자 미만 · 금지어 · 이미 사용 중이면 "회원" + 숫자 4자리

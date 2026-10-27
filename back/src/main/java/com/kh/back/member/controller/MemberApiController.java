@@ -1,6 +1,8 @@
 package com.kh.back.member.controller;
 
+import com.kh.back.member.dto.NotificationUpdateRequest;
 import com.kh.back.member.dto.ProfileUpdateRequest;
+import com.kh.back.member.dto.UserAgreementDto;
 import com.kh.back.member.dto.MemberResponse;
 import com.kh.back.member.dto.NickNameUpdateRequest;
 import com.kh.back.member.dto.WithdrawRequest;
@@ -54,6 +56,21 @@ public class MemberApiController {
     public ApiResponse<MemberResponse> updateProfile(@AuthenticationPrincipal Long userId,
                                                      @Valid @RequestBody ProfileUpdateRequest request) {
         return ApiResponse.ok(memberService.updateProfile(userId, request));
+    }
+
+    // GET /api/v1/members/me/notifications — 보완 9: 가입 동의 기록 · 이메일 알림 범위
+    // 호출: ProfilePage.jsx 화면이 열릴 때 → memberApi.getAgreement
+    @GetMapping("/me/notifications")
+    public ApiResponse<UserAgreementDto> agreement(@AuthenticationPrincipal Long userId) {
+        return ApiResponse.ok(memberService.getAgreement(userId));
+    }
+
+    // PUT /api/v1/members/me/notifications — 보완 9: 이메일 알림 범위 바꾸기. 본문 { emailNotification: ALL | IMPORTANT | NONE }
+    // 호출: ProfilePage.jsx 이메일 알림 [설정] 팝업 [저장] → memberApi.updateNotification
+    @PutMapping("/me/notifications")
+    public ApiResponse<UserAgreementDto> updateNotification(@AuthenticationPrincipal Long userId,
+                                                         @Valid @RequestBody NotificationUpdateRequest request) {
+        return ApiResponse.ok(memberService.updateNotification(userId, request.getEmailNotification()));
     }
 
     // DELETE /api/v1/members/me — 회원 탈퇴 (보완 4). 본문 { password }

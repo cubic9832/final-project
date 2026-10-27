@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 7단계: 관리자 회원 관리 · 회원 현황. users 를 중심으로 user_profiles(V8) · social_accounts(V9) · refresh_token(V6) 을 읽기만 한다 -->
+<mapper namespace="com.kh.back.admin.mapper.AdminMemberMapper">
+
+    <!-- 검색 조건: 닉네임 또는 이메일 일부 + 권한. 목록 · 개수가 같은 조건을 쓴다 -->
+    <sql id="memberFilter">
+        <where>
+            <if test="keyword != null">
+                (u.nick_name LIKE CONCAT('%', #{keyword}, '%') OR u.email LIKE CONCAT('%', #{keyword}, '%'))
+            </if>
+            <!-- "관리자" 로 거르면 총관리자도 함께 보인다 -->
+            <if test="role == 'ADMIN'">
+                AND u.role IN ('ADMIN', 'SUPER_ADMIN')
+            </if>
+            <if test="role != null and role != 'ADMIN'">
+                AND u.role = #{role}
+            </if>
+        </where>
+    </sql>
+
+    <select id="findMembers" resultType="com.kh.back.admin.dto.AdminMemberRow">
+        SELECT u.id, u.email, u.nick_name, u.role, u.created_at,
+               u.password_hash &lt;&gt; 'SOCIAL_ONLY' AS has_password,
+               EXISTS (SELECT 1 FROM social_accounts s WHERE s.user_id = u.id) AS has_google,
+               p.birth_date, p.gender,
+               (SELECT COUNT(*) FROM refresh_token r WHERE r.user_id = u.id AND r.expires_at &gt; NOW()) AS active_sessions,
+               (SELECT MAX(r.created_at) FROM refresh_token r WHERE r.user_id = u.id AND r.expires_at &gt; NOW()) AS last_used_at
+        FROM users u
+        LEFT JOIN user_profiles p ON p.user_id = u.id
+        <include refid="memberFilter"/>
+        ORDER BY u.id DESC
+        LIMIT #{size} OFFSET #{offset}
+    </select>
+
+    <select id="countMembers" resultType="int">
+        SELECT COUNT(*) FROM users u
+        <include refid="memberFilter"/>
+    </select>
+
+    <select id="countAdmins" resultType="int">
+        SELECT COUNT(*) FROM users WHERE role IN ('ADMIN', 'SUPER_ADMIN')
+    </select>
+
+    <!-- 7단계: 총관리자가 관리자 권한을 주고 뺀다 (USER ↔ ADMIN). 회원이 없으면 null -->
+    <select id="findRole" resultType="string">
+        SELECT role FROM users WHERE id = #{id}
+    </select>
+
+    <!-- 7단계: 로그인 잠금 해제 — 잠금은 이메일로 세므로(보완 6) 이메일을 찾는다 -->
+    <select id="findEmail" resultType="string">
+        SELECT email FROM users WHERE id = #{id}
+    </select>
+
+    <update id="updateRole">
+        UPDATE users SET role = #{role} WHERE id = #{id}
+    </update>
+
+    <select id="countJoinedSince" resultType="int">
+        SELECT COUNT(*) FROM users WHERE created_at &gt;= #{since}
+    </select>
+
+    <select id="countGoogle" resultType="int">
+        SELECT COUNT(DISTINCT user_id) FROM social_accounts WHERE provider = 'GOOGLE'
+    </select>
+
+    <select id="countDailyJoins" resultType="com.kh.back.admin.dto.GroupCountRow">
+        SELECT DATE_FORMAT(created_at, '%Y-%m-%d') AS label, COUNT(*) AS count
+        FROM users
+        WHERE created_at &gt;= #{since}
+        GROUP BY label
+    </select>
+
+    <!-- 만 나이 = TIMESTAMPDIFF(YEAR, 생년월일, 오늘). 가입은 만 18세 이상이라 10대는 18 · 19세 -->
+    <select id="countAgeBands" resultType="com.kh.back.admin.dto.GroupCountRow">
+        SELECT CASE
+                   WHEN p.birth_date IS NULL THEN '미입력'
+                   WHEN TIMESTAMPDIFF(YEAR, p.birth_date, CURDATE()) &gt;= 50 THEN '50대 이상'
+                   ELSE CONCAT(FLOOR(TIMESTAMPDIFF(YEAR, p.birth_date, CURDATE()) / 10) * 10, '대')
+               END AS label,
+               COUNT(*) AS count
+        FROM users u
+        LEFT JOIN user_profiles p ON p.user_id = u.id
+        GROUP BY label
+    </select>
+
+    <select id="countGenders" resultType="com.kh.back.admin.dto.GroupCountRow">
+        SELECT COALESCE(p.gender, '미입력') AS label, COUNT(*) AS count
+        FROM users u
+        LEFT JOIN user_profiles p ON p.user_id = u.id
+        GROUP BY label
+    </select>
+
+</mapper>

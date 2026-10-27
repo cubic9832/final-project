@@ -24,6 +24,7 @@ public class SecurityConfig {
     private final JwtProvider jwtProvider;
     private final JwtAuthenticationEntryPoint authenticationEntryPoint;
     private final JwtAccessDeniedHandler accessDeniedHandler;
+    private final CurrentRoleLookup currentRoleLookup; // 7단계: 관리자 API 는 DB 의 지금 권한으로
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -48,6 +49,11 @@ public class SecurityConfig {
                         .requestMatchers("/api/v1/auth/**").permitAll()                    // 회원가입 · 로그인
                         .requestMatchers(HttpMethod.GET, "/api/v1/vehicles/**").permitAll() // 차량 조회는 누구나 (비회원 차량 찾기)
                         .requestMatchers(HttpMethod.GET, "/api/v1/companies/**").permitAll() // 종목 조회 예제
+                        // 7단계: 관리자 권한 주기 · 빼기는 총관리자(SUPER_ADMIN)만 — 아래 관리자 규칙보다 먼저 적는다
+                        .requestMatchers(HttpMethod.PATCH, "/api/v1/admin/members/*/role").hasRole("SUPER_ADMIN")
+                        // 7단계: 관리자 API 는 관리자(ADMIN) · 총관리자(SUPER_ADMIN)만 (토큰의 role → ROLE_…). 일반 회원 403 ACCESS_DENIED, 비회원 401
+                        // 조원이 /api/v1/admin/ 아래에 관리 API 를 만들면 이 규칙이 자동으로 걸린다
+                        .requestMatchers("/api/v1/admin/**").hasAnyRole("ADMIN", "SUPER_ADMIN")
                         .anyRequest().authenticated())                                     // 나머지는 로그인 필요
 
                 // ④ 인증이 필요한데 없을 때의 응답 → 401 실패 봉투
@@ -55,7 +61,7 @@ public class SecurityConfig {
                         .accessDeniedHandler(accessDeniedHandler))
 
                 // ⑤ 우리 토큰 필터를 Security 필터 체인에 끼워 넣는다
-                .addFilterBefore(new JwtAuthenticationFilter(jwtProvider), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new JwtAuthenticationFilter(jwtProvider, currentRoleLookup), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

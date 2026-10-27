@@ -31,7 +31,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     // 토큰 검증에 실패한 이유를 EntryPoint 에 전달할 때 쓰는 이름
     public static final String AUTH_ERROR = "authError";
 
+    // 7단계: 관리자 API 주소 — 여기서만 DB 의 지금 권한을 다시 확인한다
+    private static final String ADMIN_API = "/api/v1/admin/";
+
     private final JwtProvider jwtProvider;
+    private final CurrentRoleLookup currentRoleLookup;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
@@ -43,12 +47,19 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if (header != null && header.startsWith("Bearer ")) {
             try {
                 TokenUser user = jwtProvider.parse(header.substring("Bearer ".length()));
+                String role = user.role();
+                // 7단계: 관리자 API 는 토큰의 role 대신 DB 의 지금 role 을 쓴다
+                // → 총관리자가 관리자를 해제하면 그 순간부터 403 (토큰이 30분 남아 있어도). 탈퇴한 회원은 권한 없음
+                if (request.getRequestURI().startsWith(ADMIN_API)) {
+                    String current = currentRoleLookup.currentRole(user.userId());
+                    role = current == null ? "NONE" : current;
+                }
 
                 // 인증 정보 = (누구인지, 비밀번호, 권한 목록)
                 // principal 자리에 회원 번호를 넣는다 → Controller 에서 @AuthenticationPrincipal Long userId 로 꺼낸다
                 // 권한은 "ROLE_USER" · "ROLE_ADMIN" 형태로 넣어야 hasRole("ADMIN") 규칙이 알아본다
                 UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
-                        user.userId(), null, List.of(new SimpleGrantedAuthority("ROLE_" + user.role())));
+                        user.userId(), null, List.of(new SimpleGrantedAuthority("ROLE_" + role)));
                 SecurityContextHolder.getContext().setAuthentication(authentication);
 
             } catch (ApiException e) {

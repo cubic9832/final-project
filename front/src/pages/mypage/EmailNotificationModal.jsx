@@ -1,5 +1,5 @@
 // 이메일 알림 설정 팝업 (Figma에는 없음. 마이페이지 "이메일 알림 → 설정" 버튼용으로 추가)
-// 지금은 화면 안에서만 저장한다. API 연결 시 handleSubmit 에서 서버 요청으로 바꾼다.
+// 보완 9: [저장] 하면 onSave 가 서버에 저장한다 (PUT /members/me/notifications). 실패하면 팝업 안에 오류
 import { useState } from 'react';
 import AuthModal from '../../features/auth/components/AuthModal';
 import { NOTIFICATION_OPTIONS } from './notificationOptions';
@@ -8,12 +8,18 @@ import './EmailNotificationModal.css';
 export default function EmailNotificationModal({ currentValue, onSave, onClose }) {
   const [value, setValue] = useState(currentValue);
   const [saving, setSaving] = useState(false);
+  const [error, setError] = useState('');
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    // 저장 중 상태를 보여 주기 위한 임시 지연. API 연결 시 서버 요청으로 바꾼다
     setSaving(true);
-    setTimeout(() => onSave(value), 400);
+    setError('');
+    try {
+      await onSave(value); // 성공하면 부모가 팝업을 닫는다
+    } catch (err) {
+      setError(err.response?.data?.error?.message ?? '알림 설정을 저장하지 못했습니다. 잠시 후 다시 시도해 주세요.');
+      setSaving(false);
+    }
   }
 
   return (
@@ -49,6 +55,7 @@ export default function EmailNotificationModal({ currentValue, onSave, onClose }
             ))}
           </fieldset>
 
+          {error && <p className="notification-error" role="alert">{error}</p>}
           <div className="auth-modal-actions">
             <button className="auth-modal-button" type="button" onClick={requestClose} disabled={saving}>
               취소

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 보완 9: 가입 동의 기록 · 이메일 알림 설정. 테이블은 Flyway V14__create_user_agreements.sql 이 만든다 -->
+<mapper namespace="com.kh.back.member.mapper.UserAgreementMapper">
+
+    <insert id="insert">
+        INSERT INTO user_agreements (user_id, terms_agreed_at, privacy_agreed_at, email_notification, updates_agreed_at)
+        VALUES (#{userId}, #{termsAgreedAt}, #{privacyAgreedAt}, #{emailNotification}, #{updatesAgreedAt})
+    </insert>
+
+    <select id="findByUserId" resultType="com.kh.back.member.dto.UserAgreementDto">
+        SELECT user_id, terms_agreed_at, privacy_agreed_at, email_notification, updates_agreed_at
+        FROM user_agreements
+        WHERE user_id = #{userId}
+    </select>
+
+    <!-- user_id 가 기본키라 이미 있으면 ON DUPLICATE KEY UPDATE 로 알림만 바꾼다 (약관 동의 시각은 그대로) -->
+    <insert id="upsertNotification">
+        INSERT INTO user_agreements (user_id, email_notification, updates_agreed_at)
+        VALUES (#{userId}, #{emailNotification}, #{updatesAgreedAt})
+        ON DUPLICATE KEY UPDATE
+            email_notification = VALUES(email_notification),
+            updates_agreed_at = VALUES(updates_agreed_at)
+    </insert>
+
+</mapper>

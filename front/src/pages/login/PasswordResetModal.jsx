@@ -52,6 +52,8 @@ export default function PasswordResetModal({ initialEmail = '', onClose }) {
       setNotice('');
       return;
     }
+    // 코드 입력 단계에서 누른 것 = [다시 받기] — 새 코드가 나가면 이전 코드는 쓸 수 없다
+    const isResend = step === 'code';
     setBusy(true);
     setError('');
     try {
@@ -63,7 +65,7 @@ export default function PasswordResetModal({ initialEmail = '', onClose }) {
       setStep('code');
       setNotice(
         result.mailEnabled
-          ? '인증 코드를 보냈습니다. 메일이 보이지 않으면 스팸함도 확인해 주세요.'
+          ? `${isResend ? '새 인증 코드를 보냈습니다. 이전 코드는 쓸 수 없으니 가장 최근 메일의 코드를 넣어 주세요. ' : '인증 코드를 보냈습니다. '}코드는 ${result.expiresInSeconds / 60}분 동안 쓸 수 있어요. 메일이 안 보이면 스팸함을 확인하고, ${result.resendAfterSeconds / 60}분 뒤 [다시 받기]를 눌러 주세요.`
           : '개발 모드: 메일 대신 서버 로그에 인증 코드가 표시됩니다.',
       );
     } catch (err) {
@@ -188,7 +190,7 @@ export default function PasswordResetModal({ initialEmail = '', onClose }) {
             <label htmlFor="reset-code">
               인증 코드{' '}
               <span className="password-reset-timer">
-                {codeLeft > 0 ? `${Math.floor(codeLeft / 60)}:${String(codeLeft % 60).padStart(2, '0')}` : '만료됨'}
+                {codeLeft > 0 ? `남은 시간 ${Math.floor(codeLeft / 60)}:${String(codeLeft % 60).padStart(2, '0')}` : '코드 만료'}
               </span>
             </label>
             <input
@@ -216,7 +218,7 @@ export default function PasswordResetModal({ initialEmail = '', onClose }) {
               onClick={handleSendCode}
               disabled={busy || resendWait > 0}
             >
-              {resendWait > 0 ? `다시 받기 (${resendWait}초)` : '다시 받기'}
+              {resendWait > 0 ? `${resendWait}초 후 다시 받기` : '다시 받기'}
             </button>
             <button
               className="auth-modal-button auth-modal-button-primary"

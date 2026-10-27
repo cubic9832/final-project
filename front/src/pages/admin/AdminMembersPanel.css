@@ -1,0 +1,160 @@
+/* 7단계: 회원 관리 탭 — 가입 추이 막대 · 나이대 · 성별 막대 · 페이지 버튼 (차트 라이브러리 없이 CSS 로) */
+
+.admin-member-trend {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: end;
+  gap: var(--space-8);
+  height: 180px;
+  padding: 0;
+  list-style: none;
+}
+
+.admin-member-trend li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-4);
+  height: 100%;
+}
+
+.admin-member-trend-bar {
+  width: 60%;
+  min-height: 2px; /* 0명인 날도 자리가 보이게 */
+  border-radius: 4px 4px 0 0;
+  background: var(--color-blue);
+}
+
+.admin-member-trend-count {
+  color: var(--color-primary);
+  font-size: var(--font-caption);
+  font-weight: 700;
+}
+
+.admin-member-trend-date {
+  color: var(--color-muted);
+  font-size: var(--font-caption);
+}
+
+.admin-member-groups + .admin-member-groups {
+  margin-top: var(--space-16);
+}
+
+.admin-member-groups h4 {
+  margin-bottom: var(--space-8);
+  color: var(--color-text-sub);
+  font-size: var(--font-caption);
+}
+
+.admin-member-groups ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding: 0;
+  list-style: none;
+}
+
+.admin-member-groups li {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) 48px;
+  align-items: center;
+  gap: var(--space-8);
+  font-size: var(--font-caption);
+}
+
+.admin-member-groups li strong {
+  color: var(--color-primary);
+  text-align: right;
+}
+
+.admin-member-group-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--color-background);
+}
+
+.admin-member-group-track > span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-blue);
+}
+
+.admin-member-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-12);
+  margin-top: var(--space-16);
+  font-size: var(--font-caption);
+}
+
+.admin-member-pagination button {
+  height: 36px;
+  padding: 0 var(--space-12);
+  border: 1px solid var(--color-border-input);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+
+.admin-member-pagination button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* 총관리자: 관리자 권한 주기 · 빼기 */
+.admin-member-role {
+  margin-top: var(--space-16);
+  padding: var(--space-16);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-background);
+  font-size: var(--font-caption);
+}
+
+.admin-member-role p {
+  margin-bottom: var(--space-12);
+  color: var(--color-text-sub);
+}
+
+.admin-member-role-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-8);
+}
+
+.admin-member-role-buttons > span {
+  flex: 1;
+  color: var(--color-muted);
+}
+
+.admin-member-role-error {
+  margin-top: var(--space-8);
+  color: var(--color-danger);
+}
+
+/* 회원 상세: 누른 회원 바로 아래 줄에 펼친다 */
+.admin-table tr.is-selected td {
+  background: var(--color-blue-tint);
+}
+
+.admin-member-detail-row > td {
+  padding: var(--space-16);
+  background: var(--color-background);
+}
+
+.admin-member-detail {
+  padding: var(--space-16);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.admin-member-detail .admin-card-heading {
+  margin-bottom: var(--space-16);
+}

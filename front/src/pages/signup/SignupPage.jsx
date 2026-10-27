@@ -174,6 +174,8 @@ export default function SignupPage() {
       setDuplicateNotices((prev) => ({ ...prev, email: '이미 인증된 이메일입니다.' }));
       return;
     }
+    // 같은 이메일로 이미 코드를 보냈으면 [다시 받기] — 새 코드가 나가면 이전 코드는 쓸 수 없다
+    const isResend = verification?.email === email;
     setChecking('email');
     try {
       const result = await sendEmailCode(email);
@@ -190,7 +192,8 @@ export default function SignupPage() {
       setDuplicateNotices((prev) => ({
         ...prev,
         email: result.mailEnabled
-          ? '인증 코드를 보냈습니다. 메일이 보이지 않으면 스팸함도 확인해 주세요.' // 보완 7 추가: 스팸함 안내
+          // 10-26: 코드 유효 시간(5분)과 다시 받기 대기(1분)가 헷갈리지 않게 둘 다 글로 알린다
+          ? `${isResend ? '새 인증 코드를 보냈습니다. 이전 코드는 쓸 수 없으니 가장 최근 메일의 코드를 넣어 주세요. ' : '인증 코드를 보냈습니다. '}코드는 ${result.expiresInSeconds / 60}분 동안 쓸 수 있어요. 메일이 안 보이면 스팸함을 확인하고, ${result.resendAfterSeconds / 60}분 뒤 [다시 받기]를 눌러 주세요.`
           : '개발 모드: 메일 대신 서버 로그에 인증 코드가 표시됩니다.',
       }));
     } catch (error) {
@@ -303,7 +306,7 @@ export default function SignupPage() {
 
     setSubmitting(true);
     try {
-      // 약관 동의는 users 테이블에 저장할 곳이 없어 화면에서만 검사한다
+      // 보완 9: 약관 동의도 같이 보내 동의 시각을 DB(user_agreements)에 남긴다 (필수 2개는 서버도 확인)
       const member = await signup({
         email: form.email.trim(),
         password: form.password,
@@ -312,6 +315,9 @@ export default function SignupPage() {
         birthDate: form.birthDate,
         gender: form.gender,
         verificationToken: getProof(form.email.trim()), // 보완 7 추가: 인증한 사람만 가진 번호
+        termsAgreed: agreements.service,
+        privacyAgreed: agreements.privacy,
+        updatesAgreed: agreements.updates,
       });
       clearProof(member.email); // 한 번 쓰면 끝 (서버에서도 지움)
       setJoinedEmail(member.email);
@@ -429,7 +435,7 @@ export default function SignupPage() {
                     />
                     {/* 보완 7: [중복 확인] 대신 [인증 코드 받기] (중복 확인 + 메일 발송). 60초 동안은 다시 받기 대기 */}
                     <button
-                      className="signup-check-button"
+                      className={emailVerified ? 'signup-check-button is-done' : 'signup-check-button'}
                       type="button"
                       onClick={handleSendCode}
                       disabled={checking === 'email' || emailVerified || resendWait > 0}
@@ -440,7 +446,7 @@ export default function SignupPage() {
                           ? '인증 완료'
                           : verification
                             ? resendWait > 0
-                              ? `다시 받기 (${resendWait}초)`
+                              ? `${resendWait}초 후 다시 받기`
                               : '다시 받기'
                             : '인증 코드 받기'}
                     </button>
@@ -459,7 +465,7 @@ export default function SignupPage() {
                           maxLength={6}
                           value={emailCode}
                           onChange={(event) => {
-                            setEmailCode(event.target.value.replace(/D/g, ''));
+                            setEmailCode(event.target.value.replace(/\D/g, '')); // 숫자만 남긴다
                             setErrors((prev) => ({ ...prev, emailCode: undefined }));
                           }}
                           className={errors.emailCode ? 'has-error' : undefined}
@@ -468,7 +474,7 @@ export default function SignupPage() {
                           aria-describedby={errors.emailCode ? 'signup-emailCode-error' : undefined}
                         />
                         <span className={codeLeft > 0 ? 'signup-code-timer' : 'signup-code-timer is-expired'}>
-                          {codeLeft > 0 ? formatSeconds(codeLeft) : '만료됨'}
+                          {codeLeft > 0 ? `남은 시간 ${formatSeconds(codeLeft)}` : '코드 만료'}
                         </span>
                         <button
                           className="signup-check-button"
