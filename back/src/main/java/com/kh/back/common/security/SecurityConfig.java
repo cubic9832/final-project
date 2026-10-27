@@ -43,6 +43,8 @@ public class SecurityConfig {
                         // 10-22: 비밀번호 변경은 /auth 아래지만 로그인 필요 — 공개로 두면 토큰이 만료됐을 때 "만료" 대신
                         //        "로그인 필요"로 응답해 화면이 자동 재발급 없이 로그아웃했다 (위에서부터 검사하므로 permitAll 보다 먼저)
                         .requestMatchers(HttpMethod.POST, "/api/v1/auth/password").authenticated()
+                        // 보완 10: 구글 전용 회원 비밀번호 만들기도 로그인 필요 (같은 이유)
+                        .requestMatchers("/api/v1/auth/password/setup", "/api/v1/auth/password/setup/**").authenticated()
                         // 6단계: 로그인된 기기 보기 · 로그아웃도 /auth 아래(쿠키 경로)지만 로그인 필요
                         .requestMatchers("/api/v1/auth/sessions", "/api/v1/auth/sessions/**").authenticated()
                         .requestMatchers("/api/v1/auth/**").permitAll()                    // 회원가입 · 로그인

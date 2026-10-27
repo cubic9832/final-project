@@ -7,6 +7,7 @@ import com.kh.back.auth.dto.GoogleSignupRequest;
 import com.kh.back.auth.dto.LoginRequest;
 import com.kh.back.auth.dto.PasswordChangeRequest;
 import com.kh.back.auth.dto.PasswordResetRequest;
+import com.kh.back.auth.dto.PasswordSetupRequest;
 import com.kh.back.auth.dto.RefreshTokenDto;
 import com.kh.back.auth.dto.SignupRequest;
 import com.kh.back.auth.mapper.RefreshTokenMapper;
@@ -256,6 +257,62 @@ public class AuthServiceImpl implements AuthService {
         memberMapper.updatePasswordHash(member.getId(), passwordEncoder.encode(request.getNewPassword()));
         refreshTokenMapper.deleteByUserId(member.getId());
         return issueTokens(member);
+    }
+
+    // 보완 10: 구글 전용 회원 비밀번호 만들기 ① 가입 이메일로 인증 코드 (로그인한 본인 + 메일함 주인 둘 다 확인)
+    // 가입 인증(가입 안 한 이메일) · 비밀번호 찾기(비밀번호 있는 회원) 와 대상이 겹치지 않아 같은 인증 표를 쓴다
+    @Override
+    public EmailVerificationResponse sendPasswordSetupCode(Long userId) {
+        String email = setupTarget(userId).getEmail();
+        emailVerificationService.sendCode(email);
+        return new EmailVerificationResponse(EmailVerificationService.CODE_VALIDITY.getSeconds(),
+                EmailVerificationService.RESEND_COOLDOWN.getSeconds(), emailVerificationService.isMailEnabled());
+    }
+
+    // ② 코드 확인 — 맞으면 일회용 증명 번호
+    @Override
+    public String confirmPasswordSetupCode(Long userId, String code) {
+        String email = setupTarget(userId).getEmail();
+        emailVerificationService.confirmCode(email, code);
+        return verificationProofStore.issue(email);
+    }
+
+    // ③ 새 비밀번호 저장 → 이제 이메일 · 비밀번호 로그인도 된다 (구글 연결은 그대로)
+    // 비밀번호 변경과 같이 다른 기기 로그인은 끊고, 지금 기기에는 새 토큰을 준다
+    @Override
+    @Transactional
+    public AuthTokens setupPassword(Long userId, PasswordSetupRequest request) {
+        MemberDto member = setupTarget(userId);
+        String email = member.getEmail();
+        if (!emailVerificationService.isVerified(email)
+                || !verificationProofStore.isValid(request.getVerificationToken(), email)) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "EMAIL_NOT_VERIFIED", "이메일 인증을 먼저 완료해 주세요.");
+        }
+        String violation = PasswordPolicy.check(request.getNewPassword(), email);
+        if (violation != null) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "PASSWORD_POLICY", violation);
+        }
+        member.setPasswordHash(passwordEncoder.encode(request.getNewPassword())); // 응답의 socialOnly 도 false 가 되게
+        memberMapper.updatePasswordHash(member.getId(), member.getPasswordHash());
+        refreshTokenMapper.deleteByUserId(member.getId());
+        emailVerificationService.consume(email);
+        verificationProofStore.remove(request.getVerificationToken());
+        return issueTokens(member);
+    }
+
+    // 비밀번호 만들기 대상: 로그인한 회원이면서 구글로만 가입 (이미 비밀번호가 있으면 400 HAS_PASSWORD → [변경] 사용)
+    private MemberDto setupTarget(Long userId) {
+        if (userId == null) {
+            throw new ApiException(HttpStatus.UNAUTHORIZED, "AUTH_REQUIRED", "로그인이 필요합니다.");
+        }
+        MemberDto member = memberMapper.findById(userId);
+        if (member == null) {
+            throw new ApiException(HttpStatus.NOT_FOUND, "MEMBER_NOT_FOUND", "회원 정보를 찾을 수 없습니다.");
+        }
+        if (!member.isSocialOnly()) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "HAS_PASSWORD", "이미 비밀번호가 있는 계정입니다. 비밀번호 [변경]을 이용해 주세요.");
+        }
+        return member;
     }
 
     // 비밀번호 찾기 대상 회원: 형식 오류 400, 가입 안 한 이메일 400 EMAIL_NOT_FOUND, 구글로만 가입 400 SOCIAL_ACCOUNT

@@ -61,7 +61,7 @@ class AdminRoleChangeTests {
     @Test
     void 없는_회원이면_404() {
         assertThatThrownBy(() -> service.changeRole(SUPER_ADMIN_ID, 99L, "ADMIN"))
-                .isInstanceOfSatisfying(ApiException.class, e -> assertThat(e.getCode()).isEqualTo("MEMBER_NOT_FOUND"));
+                .isInstanceOfSatisfying(ApiException.class, e -> assertThat(e.getCode()).isEqualTo("TARGET_MEMBER_NOT_FOUND"));
     }
 
     @Test
@@ -88,7 +88,7 @@ class AdminRoleChangeTests {
     @Test
     void 없는_회원의_잠금은_풀_수_없다() {
         assertThatThrownBy(() -> service.unlockLogin(SUPER_ADMIN_ID, 99L))
-                .isInstanceOfSatisfying(ApiException.class, e -> assertThat(e.getCode()).isEqualTo("MEMBER_NOT_FOUND"));
+                .isInstanceOfSatisfying(ApiException.class, e -> assertThat(e.getCode()).isEqualTo("TARGET_MEMBER_NOT_FOUND"));
         verify(loginAttemptLimiter, never()).reset(any());
     }
 }

@@ -63,6 +63,24 @@ export const changePassword = async ({ currentPassword, newPassword }) => {
   useAuthStore.getState().setAuth(res.data.data);
 };
 
+// 보완 10: 구글로만 가입한 회원의 비밀번호 만들기 (로그인 필요, 이메일은 서버가 가입 이메일을 쓴다)
+// ① 인증 코드 받기 → ② 코드 확인(일회용 증명 번호) → ③ 저장: 이 기기의 새 토큰을 저장한다 (다른 기기 로그인은 서버가 끊는다)
+export const sendPasswordSetupCode = async () => {
+  const res = await client.post('/auth/password/setup/code');
+  return res.data.data;
+};
+
+export const confirmPasswordSetupCode = async (code) => {
+  const res = await client.post('/auth/password/setup/confirm', { code });
+  return res.data.data.verificationToken;
+};
+
+export const setupPassword = async (newPassword, verificationToken) => {
+  const res = await client.post('/auth/password/setup', { newPassword, verificationToken });
+  useAuthStore.getState().setAuth(res.data.data);
+  return res.data.data.member;
+};
+
 // 보완 8: 구글 로그인 — 연결된 회원이면 로그인 처리 후 { member }, 처음 온 사람이면 { signup: { signupToken, email, name } }
 export const googleLogin = async (idToken) => {
   const res = await client.post('/auth/google', { idToken });

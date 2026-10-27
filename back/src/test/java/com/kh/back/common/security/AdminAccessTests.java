@@ -70,6 +70,19 @@ class AdminAccessTests {
                 .andExpect(jsonPath("$.meta.size").value(5));
     }
 
+    // 서비스 연결 상태: 관리자는 실제 DB 확인 결과, 일반 회원 403
+    @Test
+    void 관리자는_서비스_연결_상태를_볼_수_있다() throws Exception {
+        mvc.perform(get("/api/v1/admin/system-status")
+                        .header("Authorization", "Bearer " + jwtProvider.createAccessToken(1L, "ADMIN")))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.data.databaseUp").value(true))
+                .andExpect(jsonPath("$.data.databaseVersion").isNotEmpty());
+        mvc.perform(get("/api/v1/admin/system-status")
+                        .header("Authorization", "Bearer " + jwtProvider.createAccessToken(2L, "USER")))
+                .andExpect(status().isForbidden());
+    }
+
     // 권한 바꾸기는 총관리자만: 일반 관리자 403, 총관리자는 보안을 통과해 서비스까지 간다 (없는 회원이라 404)
     @Test
     void 권한_바꾸기는_총관리자만() throws Exception {
@@ -80,7 +93,7 @@ class AdminAccessTests {
         mvc.perform(patch("/api/v1/admin/members/999999/role").contentType("application/json").content(body)
                         .header("Authorization", "Bearer " + jwtProvider.createAccessToken(3L, "SUPER_ADMIN")))
                 .andExpect(status().isNotFound())
-                .andExpect(jsonPath("$.error.code").value("MEMBER_NOT_FOUND"));
+                .andExpect(jsonPath("$.error.code").value("TARGET_MEMBER_NOT_FOUND"));
     }
 
     @Test

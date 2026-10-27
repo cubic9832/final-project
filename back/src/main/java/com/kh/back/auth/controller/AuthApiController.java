@@ -11,6 +11,8 @@ import com.kh.back.auth.dto.GoogleSignupRequest;
 import com.kh.back.auth.dto.LoginRequest;
 import com.kh.back.auth.dto.PasswordChangeRequest;
 import com.kh.back.auth.dto.PasswordResetRequest;
+import com.kh.back.auth.dto.PasswordSetupCodeRequest;
+import com.kh.back.auth.dto.PasswordSetupRequest;
 import com.kh.back.auth.dto.SignupRequest;
 import com.kh.back.auth.dto.TokenResponse;
 import com.kh.back.auth.service.AuthService;
@@ -127,6 +129,29 @@ public class AuthApiController {
     public ResponseEntity<ApiResponse<TokenResponse>> changePassword(@AuthenticationPrincipal Long userId,
                                                                      @Valid @RequestBody PasswordChangeRequest request) {
         return withTokens(authService.changePassword(userId, request));
+    }
+
+    // POST /api/v1/auth/password/setup/code — 보완 10: 구글 전용 회원 비밀번호 만들기 ① 가입 이메일로 인증 코드 (본문 없음)
+    // 호출: ProfilePage.jsx 계정 관리 비밀번호 [만들기] → PasswordSetupModal → authApi.sendPasswordSetupCode
+    // 로그인 필요(SecurityConfig), 이미 비밀번호가 있으면 400 HAS_PASSWORD
+    @PostMapping("/password/setup/code")
+    public ApiResponse<EmailVerificationResponse> sendPasswordSetupCode(@AuthenticationPrincipal Long userId) {
+        return ApiResponse.ok(authService.sendPasswordSetupCode(userId));
+    }
+
+    // POST /api/v1/auth/password/setup/confirm — ② 코드 확인. 본문 { code } → { verificationToken }
+    @PostMapping("/password/setup/confirm")
+    public ApiResponse<EmailVerificationProof> confirmPasswordSetupCode(@AuthenticationPrincipal Long userId,
+                                                                        @Valid @RequestBody PasswordSetupCodeRequest request) {
+        return ApiResponse.ok(new EmailVerificationProof(authService.confirmPasswordSetupCode(userId, request.getCode())));
+    }
+
+    // POST /api/v1/auth/password/setup — ③ 새 비밀번호 저장. 본문 { verificationToken, newPassword }
+    // 비밀번호 변경과 같이 다른 기기는 로그아웃, 지금 기기는 새 토큰 + 새 refresh 쿠키
+    @PostMapping("/password/setup")
+    public ResponseEntity<ApiResponse<TokenResponse>> setupPassword(@AuthenticationPrincipal Long userId,
+                                                                    @Valid @RequestBody PasswordSetupRequest request) {
+        return withTokens(authService.setupPassword(userId, request));
     }
 
     // POST /api/v1/auth/google — 보완 8: 구글 로그인. 본문 { idToken } (화면이 구글에서 받은 ID 토큰)

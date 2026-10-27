@@ -16,6 +16,8 @@ import com.kh.back.common.exception.ApiException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
+import java.util.HashSet;
+import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
@@ -86,6 +88,8 @@ public class MemberServiceImpl implements MemberService {
             profile = new UserProfileDto();
             profile.setUserId(userId);
         }
+        // 10-27: 이번 요청에서 바꾼 칸 — DB 에는 이 칸만 쓴다 (동시에 다른 칸을 저장한 요청을 덮어쓰지 않게)
+        Set<String> changed = new HashSet<>();
 
         // 생년월일 · 성별: 보내지 않으면 그대로
         if (request.getBirthDate() != null) {
@@ -95,20 +99,25 @@ public class MemberServiceImpl implements MemberService {
                         "만 " + MIN_AGE + "세 이상만 입력할 수 있습니다. 생년월일을 다시 확인해 주세요.");
             }
             profile.setBirthDate(request.getBirthDate());
+            changed.add("birthDate");
         }
         if (request.getGender() != null) {
             profile.setGender(request.getGender());
+            changed.add("gender");
         }
 
         // 선택 항목: null = 그대로, "" = 지우기, 값 = 바꾸기
         if (request.getPhone() != null) {
             profile.setPhone(request.getPhone().isBlank() ? null : request.getPhone().replace("-", "")); // 숫자만 저장
+            changed.add("phone");
         }
         if (request.getDrivingExperience() != null) {
             profile.setDrivingExperience(blankToNull(request.getDrivingExperience()));
+            changed.add("drivingExperience");
         }
         if (request.getPurchaseTiming() != null) {
             profile.setPurchaseTiming(blankToNull(request.getPurchaseTiming()));
+            changed.add("purchaseTiming");
         }
 
         // 닉네임도 같은 트랜잭션에서 바꾼다 → 아래 저장이 실패하면 닉네임 변경도 함께 취소된다
@@ -116,7 +125,9 @@ public class MemberServiceImpl implements MemberService {
         if (request.getNickName() != null) {
             changeNickName(member, request.getNickName());
         }
-        userProfileMapper.upsert(profile);
+        if (!changed.isEmpty()) {
+            userProfileMapper.upsert(profile, changed); // 닉네임만 바꿨으면 개인정보 표는 건드리지 않는다
+        }
         return MemberResponse.from(member, profile);
     }
 

@@ -33,3 +33,17 @@ export const getAuditLogs = async ({ action, page = 1, size = 20 } = {}, signal)
   const res = await client.get('/admin/audit-logs', { params: { action: action || undefined, page, size }, signal });
   return { logs: res.data.data, meta: res.data.meta };
 };
+
+// 서비스 연결 상태 → { apiStartedAt, databaseUp, databaseMillis, databaseVersion }
+export const getSystemStatus = async (signal) => {
+  const res = await client.get('/admin/system-status', { signal });
+  return res.data.data;
+};
+
+// 추천 서버(FastAPI)가 응답하는지: 화면이 추천을 받을 때와 같은 길(Vite proxy /api/v2)로 선택지 목록을 한 번 불러 본다
+// → 응답 시간(ms). 3초 안에 응답이 없거나 실패하면 오류
+export const pingModelServer = async (signal) => {
+  const start = performance.now();
+  await client.get('/recommendation-options', { baseURL: '/api/v2', timeout: 3000, signal });
+  return Math.round(performance.now() - start);
+};
