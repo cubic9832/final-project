@@ -31,7 +31,8 @@ def exclusions(profile, vehicle):
     return result
 
 
-def integrated_score(profile, vehicle, cost, ml_score):
+def preference_assessment(profile, vehicle, cost):
+    """Descriptive conditions and costs, never used to order service results."""
     # Purchase price already includes principal: add only interest, not installments again.
     balance, interest = cost['principal'], 0.0
     for _ in range(min(cost.get('financing_months', profile.months), HORIZON)):
@@ -55,8 +56,7 @@ def integrated_score(profile, vehicle, cost, ml_score):
         # affordability. Future salary never increases the purchase cash limit.
         # Importance changes the strength of economy, never its direction.
         economy=(purchase_score+monthly_score)/200
-    components = [{'key': 'cost', 'score': economy * 100, 'weight': profile.cost_importance},
-                  {'key': 'model', 'score': ml_score * 100, 'weight': 1}]
+    components = [{'key': 'cost', 'score': economy * 100, 'weight': profile.cost_importance}]
     if profile.preferred_size != 'any':
         lower, upper = SIZE_BANDS[profile.preferred_size]
         distance = max(lower - vehicle.length_mm, vehicle.length_mm - upper, 0) if vehicle.length_mm is not None else None
@@ -73,10 +73,7 @@ def integrated_score(profile, vehicle, cost, ml_score):
         capacity = vehicle.seats if vehicle.seats is not None else min(vehicle.seat_options) if vehicle.seat_options else None
         seats = min(1,capacity/profile.minimum_seats) if capacity is not None else .5
         components.append({'key':'seating','score':100*seats,'weight':profile.seating_importance,'verified':capacity is not None})
-    weight_sum = sum(item['weight'] for item in components)
-    for item in components:
-        item['contribution'] = item['score'] * item['weight'] / weight_sum
-    return {'total': sum(item['contribution'] for item in components), 'components': components,
+    return {'components': components, 'rankingApplied': False,
             'ownershipMonths': HORIZON, 'estimatedOwnershipCost': round(total, 2),
             'monthlyAffordability':{'availableMonthly':round(available,2),'protectedMonthlyBuffer':profile.minimum_buffer,
                                     'spendableMonthly':round(monthly_capacity,2),'runningCostRatio':round(burden,6),
@@ -84,4 +81,16 @@ def integrated_score(profile, vehicle, cost, ml_score):
                                     'costMix':{'purchase':.5,'monthly':.5}},
             'purchasePreference': {'costImportance': profile.cost_importance,
                                    'mode': 'economy'},
-            'policy': 'cash-monthly-affordability-v8', 'spaceEvaluated': profile.preferred_size != 'any' and vehicle.length_mm is not None}
+            'policy': 'preference-reference-only-v1', 'spaceEvaluated': profile.preferred_size != 'any' and vehicle.length_mm is not None}
+
+
+def integrated_score(profile, vehicle, cost, ml_score):
+    """Synthetic training teacher and historical experiment score only."""
+    assessment = preference_assessment(profile, vehicle, cost)
+    components = assessment['components']
+    components.insert(1, {'key': 'model', 'score': ml_score * 100, 'weight': 1})
+    weight_sum = sum(item['weight'] for item in components)
+    for item in components:
+        item['contribution'] = item['score'] * item['weight'] / weight_sum
+    return {**assessment, 'policy': 'cash-monthly-affordability-v8',
+            'total': sum(item['contribution'] for item in components)}

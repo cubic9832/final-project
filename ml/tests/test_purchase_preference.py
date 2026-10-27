@@ -21,16 +21,16 @@ class PurchasePreferenceTests(unittest.TestCase):
         for result in (low, high):
             self.assertNotIn('over', [row['vehicle']['id'] for row in result['recommendations']])
             self.assertTrue(all(row['cost']['eligible'] for row in result['recommendations']))
-            self.assertTrue(all('budget' not in {item['key'] for item in row['integratedScore']['components']} for row in result['recommendations']))
+            self.assertTrue(all('budget' not in {item['key'] for item in row['preferenceAssessment']['components']} for row in result['recommendations']))
 
-    def test_low_importance_allows_size_preference_to_outweigh_cost(self):
+    def test_size_preference_is_respected_at_both_cost_importances(self):
         cheap = vehicle(id='cheap', model='Cheap', price=30000000, length_mm=4600, seats=5)
         matching = replace(cheap, id='matching', model='Matching', price=49000000, length_mm=4900)
         service = CandidateService(FixedRanker(), [cheap, matching])
         profile = person(financing_mode='recommendation', liquid_assets=50000000, emergency_reserve=0,
                          preferred_fuel=None, preferred_size='large', space_importance=3, purpose_importance=1)
         self.assertEqual(service.recommend(replace(profile, cost_importance=1))['recommendations'][0]['vehicle']['id'], 'matching')
-        self.assertEqual(service.recommend(replace(profile, cost_importance=5))['recommendations'][0]['vehicle']['id'], 'cheap')
+        self.assertEqual(service.recommend(replace(profile, cost_importance=5))['recommendations'][0]['vehicle']['id'], 'matching')
 
     def test_low_cost_importance_does_not_override_strong_fuel_preference(self):
         electric = vehicle(id='ev', model='EV', price=40000000, fuel='ELECTRIC', efficiency=5, length_mm=4500)

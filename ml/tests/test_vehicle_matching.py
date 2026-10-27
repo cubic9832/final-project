@@ -108,7 +108,8 @@ class TrainedCandidateTests(unittest.TestCase):
                 keys.append((row['vehicle']['brand'], row['vehicle']['model']))
                 self.assertTrue(row['cost']['eligible'])
                 self.assertGreaterEqual(row['cost']['remaining_monthly'], profile.minimum_buffer)
-                self.assertTrue(0 <= row['rankingScore'] <= 1)
+                self.assertTrue(np.isfinite(row['rankingScore']))
+                self.assertEqual(row['rankingScoreType'], 'ml-raw')
             self.assertEqual(len(keys), len(set(keys)))
 
     def test_catalog_tampering_is_detected(self):
@@ -147,6 +148,9 @@ class CandidateApiTests(unittest.TestCase):
             self.assertEqual(response.status_code, 200)
             data = response.json()['data']
             self.assertEqual(len(data['recommendations']), 3)
+            self.assertEqual(data['scorePolicy'], 'required-seats-preference-priority-ml-v1')
+            self.assertTrue(all(r['rankingScoreType'] == 'ml-raw' and 'integratedScore' not in r
+                                for r in data['recommendations']))
             json.dumps(data, allow_nan=False)
             self.assertGreater(client.get('/api/v2/recommendation-options').json()['data']['modelNames'], 20)
             payload['profile']['monthly_income'] = -1

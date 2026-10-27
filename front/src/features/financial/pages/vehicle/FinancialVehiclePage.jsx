@@ -72,7 +72,7 @@ export default function FinancialVehiclePage() {
               <p className="vehicle-field-help">크기는 차량 전체 길이 기준이며, 실내 공간과는 다를 수 있습니다.</p>
             </fieldset>
             <div className="vehicle-fields">
-              <div className="financial-field"><label htmlFor="vehicle-minimumSeats">희망 탑승 인원 · 운전자 포함</label><select id="vehicle-minimumSeats" value={vehicle.minimumSeats} onChange={event => setVehicle(previous => ({ ...previous, minimumSeats: event.target.value }))}><option value="0">상관없음</option>{[2, 3, 4, 5, 6, 7, 8, 9].map(value => <option key={value} value={value}>{value}명 이상</option>)}</select></div>
+              <div className="financial-field"><label htmlFor="vehicle-minimumSeats">최소 탑승 인원 · 운전자 포함</label><select id="vehicle-minimumSeats" value={vehicle.minimumSeats} onChange={event => setVehicle(previous => ({ ...previous, minimumSeats: event.target.value }))}><option value="0">상관없음</option>{[2, 3, 4, 5, 6, 7, 8, 9].map(value => <option key={value} value={value}>{value}명 이상</option>)}</select><p>최소 인원은 중요도와 관계없이 필수로 적용해요. 정원이 부족한 차량은 추천에서 제외해요.</p></div>
             </div>
             <fieldset className="vehicle-preferences">
               <legend>어떤 점이 중요한가요?</legend>

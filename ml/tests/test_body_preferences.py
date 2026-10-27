@@ -11,7 +11,7 @@ from vehicle_matching.service import CandidateService
 
 
 class BodyPreferenceTests(unittest.TestCase):
-    def test_body_preference_changes_order_but_cannot_override_cash(self):
+    def test_body_preference_orders_equal_ml_scores_without_overriding_cash(self):
         sedan=vehicle(id='sedan',model='Sedan',price=30000000,body_type='SEDAN')
         suv=replace(sedan,id='suv',model='SUV',body_type='SUV')
         p=person(preferred_body_type='SUV',body_importance=5)

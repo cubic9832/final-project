@@ -30,7 +30,7 @@ class RecommendationBudgetTests(unittest.TestCase):
         self.assertEqual(cost['remaining_monthly'], round(500000 - cost['monthly_running_cost'], 2))
         for field in ('required_down_payment', 'upfront_available', 'cash_after_purchase', 'monthly_payment'):
             self.assertNotIn(field, cost)
-        self.assertEqual(service.recommend(replace(p, minimum_buffer=500000))['recommendations'], [])
+        self.assertEqual(service.recommend(replace(p, minimum_buffer=2000000))['recommendations'], [])
 
     def test_ml_receives_no_assumed_financing_parameters(self):
         class RecordingRanker(FixedRanker):

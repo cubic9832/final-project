@@ -32,17 +32,37 @@ class AdminVehicleTests {
     @Autowired ObjectMapper mapper;
     @Autowired JwtProvider jwt;
     @Autowired JdbcTemplate jdbc;
-    private String admin(){return "Bearer "+jwt.createAccessToken(999999L,"ADMIN");}
+    private String admin(){
+        jdbc.update("INSERT INTO users(id,email,password_hash,nick_name,role) VALUES(999999,?,?,?,?) ON DUPLICATE KEY UPDATE role=VALUES(role)","vehicle-api-test@example.com","test-only","차량 API 테스트","ADMIN");
+        return "Bearer "+jwt.createAccessToken(999999L,"ADMIN");
+    }
     private Map<String,Object> request(){
         var v=new HashMap<String,Object>();
         v.putAll(Map.of("brand","테스트","model","관리자 저장 테스트","year","2026","trim","기본","fuel","ELECTRIC","bodyType","SUV","origin","국산","priceWon",30000000,"efficiency",5.5,"seats",5));
         v.putAll(Map.of("lengthMm",4400,"drive","2WD","status","DRAFT","imageUrl","","sourceName","공식 자료","sourceUrl","https://example.com/official","checkedOn","2026-10-26","memo","내부 메모"));
         return v;
     }
+    @Test void duplicateDeletionRestoreAndCosts() throws Exception {
+        var payload=request(); payload.put("monthlyInsurance",0);payload.put("monthlyTax",25000);payload.put("monthlyMaintenance",45000);
+        String created=mvc.perform(post("/api/v1/admin/vehicles").header("Authorization",admin()).contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(payload))).andExpect(status().isCreated()).andReturn().getResponse().getContentAsString();
+        String id=mapper.readTree(created).path("data").path("id").asText();
+        mvc.perform(post("/api/v1/admin/vehicles").header("Authorization",admin()).contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(payload))).andExpect(status().isConflict());
+        mvc.perform(get("/api/v1/admin/vehicles/"+id).header("Authorization",admin())).andExpect(jsonPath("$.data.vehicle.monthly_insurance").value(0)).andExpect(jsonPath("$.data.vehicle.monthly_maintenance").value(45000));
+        mvc.perform(patch("/api/v1/admin/vehicles/"+id+"/deletion").header("Authorization",admin()).contentType(MediaType.APPLICATION_JSON).content("{\"version\":1,\"deleted\":true}")).andExpect(status().isOk()).andExpect(jsonPath("$.data.status").value("DELETED"));
+        mvc.perform(patch("/api/v1/admin/vehicles/"+id+"/deletion").header("Authorization",admin()).contentType(MediaType.APPLICATION_JSON).content("{\"version\":1,\"deleted\":false}")).andExpect(status().isConflict());
+        mvc.perform(patch("/api/v1/admin/vehicles/"+id+"/deletion").header("Authorization",admin()).contentType(MediaType.APPLICATION_JSON).content("{\"version\":2,\"deleted\":false}")).andExpect(status().isOk()).andExpect(jsonPath("$.data.status").value("DRAFT"));
+        payload.put("monthlyTax",-1);
+        mvc.perform(post("/api/v1/admin/vehicles").header("Authorization",admin()).contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(payload))).andExpect(status().isBadRequest());
+    }
     @Test void onlyAdministratorsCanManageVehicles() throws Exception {
         mvc.perform(get("/api/v1/admin/vehicles")).andExpect(status().isUnauthorized());
         mvc.perform(get("/api/v1/admin/vehicles").header("Authorization","Bearer "+jwt.createAccessToken(1L,"USER"))).andExpect(status().isForbidden());
         mvc.perform(get("/api/v1/admin/vehicles").header("Authorization",admin())).andExpect(status().isOk());
+    }
+    @Test void superAdministratorCanManageVehicles() throws Exception {
+        admin();
+        jdbc.update("UPDATE users SET role='SUPER_ADMIN' WHERE id=999999");
+        mvc.perform(get("/api/v1/admin/vehicles").header("Authorization","Bearer "+jwt.createAccessToken(999999L,"SUPER_ADMIN"))).andExpect(status().isOk());
     }
     @Test void savePublishWithdrawAndStaleEditHavePersistentEffects() throws Exception {
         var payload=request();

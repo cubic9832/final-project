@@ -53,3 +53,12 @@ test('존재하지 않거나 중복된 차량 ID는 다른 모델로 대체해 �
   assert.equal(selectComparisonViews(views, ['a', 'a']), null);
   assert.equal(selectComparisonViews(views, ['a']), null);
 });
+
+test('ML 순위를 규칙 기여도나 100점 가중합으로 설명하지 않는다', () => {
+  const candidates = [candidate('a'), candidate('b')];
+  const text = rankingNarrative({ higherVehicleId: 'a', lowerVehicleId: 'b', status: 'ml-ranked', scoreType: 'ml-raw', scoreDifference: 20 }, candidates);
+  assert.match(text, /원본 점수순/);
+  assert.match(text, /참고 정보/);
+  assert.ok(!text.includes('가중합'));
+  assert.ok(!text.includes('+20'));
+});

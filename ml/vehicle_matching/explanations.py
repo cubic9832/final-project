@@ -35,7 +35,7 @@ def preference_evidence(profile, vehicle, components):
             direction=None if length is None else 'shorter' if length < lower else 'longer' if length > upper else 'within')
     if profile.minimum_seats:
         capacity = vehicle.seats if vehicle.seats is not None else min(vehicle.seat_options) if vehicle.seat_options else None
-        add('seating', 'unknown' if capacity is None else 'match' if capacity >= profile.minimum_seats else 'mismatch',
+        add('seating', 'unknown' if vehicle.seats is None or vehicle.seats_status == 'official-reference-conflict' else 'match' if capacity >= profile.minimum_seats else 'mismatch',
             requested=profile.minimum_seats, actual=capacity,
             difference=None if capacity is None else max(0, profile.minimum_seats - capacity),
             dataStatus=vehicle.seats_status, seatOptions=list(vehicle.seat_options))
@@ -102,6 +102,14 @@ def evaluation_summary(profile, catalog, eligible, costs, combined):
 
 
 def ranking_comparison(higher, lower):
+    if higher.get('rankingPolicy') == 'required-seats-preference-priority-ml-v1':
+        return {'status':'preference-priority','higherVehicleId':higher['vehicle']['id'], 'lowerVehicleId':lower['vehicle']['id'], 'scoreDifference':higher['rankingScore']-lower['rankingScore'], 'featureAttributionAvailable':False}
+    if higher.get('rankingScoreType') == lower.get('rankingScoreType') == 'ml-raw':
+        gap = higher['rankingScore'] - lower['rankingScore']
+        return {'higherVehicleId': higher['vehicle']['id'], 'lowerVehicleId': lower['vehicle']['id'],
+                'status': 'ml-ranked' if math.isfinite(gap) and gap >= 0 else 'unavailable',
+                'scoreType': 'ml-raw', 'scoreDifference': gap,
+                'featureAttributionAvailable': False}
     result = {'higherVehicleId': higher['vehicle']['id'], 'lowerVehicleId': lower['vehicle']['id'],
               'nearTieThreshold': NEAR_TIE_POINTS, 'status': 'unavailable'}
     try:

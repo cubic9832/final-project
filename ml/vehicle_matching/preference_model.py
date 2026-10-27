@@ -71,25 +71,25 @@ class PreferenceRanker:
         self.minimum, self.maximum = np.asarray(minimum), np.asarray(maximum)
         self.assumptions = assumptions
 
-    def predict(self, profile, vehicles):
+    def score_candidates(self, profile, vehicles):
         if not vehicles:
             return [], []
         x = np.stack([encode_preference(profile, vehicle, self.assumptions)[:len(self.mean)] for vehicle in vehicles])
         with torch.no_grad():
-            scores = self.net(torch.from_numpy(((x-self.mean)/self.scale).astype(np.float32))).sigmoid().flatten().numpy()
+            scores = self.net(torch.from_numpy(((x-self.mean)/self.scale).astype(np.float32))).flatten().numpy()
         return scores.tolist(), np.any((x < self.minimum-1e-5) | (x > self.maximum+1e-5), axis=1).tolist()
+
+    def predict(self, profile, vehicles):
+        scores, outside = self.score_candidates(profile, vehicles)
+        return torch.tensor(scores, dtype=torch.float32).sigmoid().tolist(), outside
 
     def ranking_scores(self, profile, vehicles):
         """Unbounded logits for ordering; never use rounded/saturated UI scores.
 
-        predict retains its bounded contribution contract for the rule-based
-        service. These logits are not probabilities or weighted-rule scores.
+        predict retains bounded outputs for historical experiment compatibility.
+        These logits are not probabilities or weighted-rule scores.
         """
-        if not vehicles:
-            return []
-        x = np.stack([encode_preference(profile, vehicle, self.assumptions)[:len(self.mean)] for vehicle in vehicles])
-        with torch.no_grad():
-            return self.net(torch.from_numpy(((x-self.mean)/self.scale).astype(np.float32))).flatten().tolist()
+        return self.score_candidates(profile, vehicles)[0]
 
     def save(self, directory, provenance):
         directory = Path(directory)

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import client from '../../../shared/api/client.js';
-import { saveAdminVehicle, listAdminVehicles } from './adminVehicleApi.js';
+import { saveAdminVehicle, listAdminVehicles, toAdminVehicle } from './adminVehicleApi.js';
 
 test('관리자 편집 금액을 원으로 저장하고 서버 ID·수정 버전·공개 상태를 다음 조회에서 유지한다', async () => {
   const original = client.defaults.adapter;
@@ -30,4 +30,9 @@ test('관리자 편집 금액을 원으로 저장하고 서버 ID·수정 버전
     const refreshed = await listAdminVehicles();
     assert.deepEqual(refreshed[0], saved);
   } finally { client.defaults.adapter = original; }
+});
+
+test('관리자가 제거한 이미지는 다시 조회해도 기본 이미지로 되돌아오지 않는다', () => {
+  const row = { id: 'removed', status: 'DRAFT', version: 1, vehicle: { brand: '기아', model: 'K5', trim: '기본', price: 30000000, fuel: 'GASOLINE', image_url: '', image_removed: true } };
+  assert.equal(toAdminVehicle(row).image, '');
 });

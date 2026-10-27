@@ -12,6 +12,8 @@ public class AdminVehicleRepository {
     private final JdbcTemplate jdbc;
     private final ObjectMapper mapper;
 
+    public List<AdminVehicleResponse> listForIdentity() { return findAll(); }
+    public void lockCatalog() { jdbc.queryForList("SELECT id FROM managed_vehicles ORDER BY id FOR UPDATE"); }
     public List<AdminVehicleResponse> findAll() {
         return jdbc.query("SELECT * FROM managed_vehicles ORDER BY updated_at DESC, id", (rs,n) ->
             new AdminVehicleResponse(rs.getString("id"),rs.getLong("version"),rs.getString("status"),rs.getTimestamp("updated_at").toLocalDateTime(),mapper.readTree(rs.getString("payload"))));

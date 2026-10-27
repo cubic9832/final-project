@@ -9,14 +9,14 @@ from vehicle_matching.finance import assess
 
 
 class BudgetBandTests(unittest.TestCase):
-    def test_preferred_band_is_soft_when_cheaper_car_has_higher_score(self):
+    def test_price_does_not_break_equal_ml_score_ties(self):
         cars=[vehicle(id='cheap',model='Cheap',price=10000000,length_mm=4100),
               vehicle(id='a',model='A',price=40000000,length_mm=6000),
               vehicle(id='b',model='B',price=45000000,length_mm=6000),
               vehicle(id='c',model='C',price=50000000,length_mm=6000)]
         result=CandidateService(FixedRanker(),cars).recommend(person(cost_importance=5))
-        self.assertEqual({r['vehicle']['model'] for r in result['recommendations']},{'Cheap','A','B'})
-        self.assertEqual(result['recommendations'][0]['vehicle']['model'], 'Cheap')
+        self.assertEqual({r['vehicle']['model'] for r in result['recommendations']},{'A','B','C'})
+        self.assertEqual(result['recommendations'][0]['vehicle']['model'], 'A')
         self.assertEqual(result['budgetPolicy']['lower'],0)
 
     def test_weighted_ranking_includes_lower_distinct_models_and_never_exceeds_cap(self):
@@ -26,7 +26,7 @@ class BudgetBandTests(unittest.TestCase):
         self.assertEqual([r['vehicle']['price'] for r in result['recommendations']],[10000000,25000000,30000000])
         self.assertTrue(all(r['cost']['eligible'] for r in result['recommendations']))
 
-    def test_fuel_preference_can_beat_price_band_without_exceeding_cash(self):
+    def test_fuel_preference_orders_equal_ml_scores_without_exceeding_cash(self):
         cars = [vehicle(id='ev', model='Electric', price=30000000, fuel='ELECTRIC', efficiency=5),
                 vehicle(id='gas', model='Gas', price=45000000, fuel='GASOLINE', efficiency=12),
                 vehicle(id='expensive', model='Expensive', price=60000000, fuel='ELECTRIC', efficiency=5)]
@@ -39,8 +39,8 @@ class BudgetBandTests(unittest.TestCase):
         self.assertEqual(len(electric['recommendations']), 2)
         self.assertTrue(all(r['cost']['eligible'] for r in electric['recommendations']))
         self.assertNotIn('expensive', [r['vehicle']['id'] for r in electric['recommendations']])
-        self.assertTrue(all(electric['recommendations'][i]['integratedScore']['total'] >=
-                            electric['recommendations'][i+1]['integratedScore']['total']
+        self.assertTrue(all(electric['recommendations'][i]['rankingScore'] >=
+                            electric['recommendations'][i+1]['rankingScore']
                             for i in range(len(electric['recommendations'])-1)))
 
     def test_more_funds_raise_reference_price_band_when_catalog_has_candidates(self):

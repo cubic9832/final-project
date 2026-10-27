@@ -18,6 +18,7 @@ from vehicle_matching.catalog_merge import expand_catalog
 from vehicle_matching.finance import Profile
 from vehicle_matching.model import PairRanker
 from vehicle_matching.service import CandidateService
+from vehicle_matching.recommendation_policy import POLICY
 from vehicle_matching.seating import apply_seating_registry
 from vehicle_matching.specifications import apply_base_specifications, apply_specifications
 
@@ -122,6 +123,7 @@ def create_app(service=None):
         current = current_service(request)
         return {'success': True, 'data': {'modelVersion': 'candidate-v2', 'catalogCount': len(current.vehicles),
                 'modelBundle': getattr(current, 'model_bundle', None),
+                'scorePolicy': POLICY,
                 'catalogSource': 'managed-database' if request.app.state.managed_catalog is not None else 'model-snapshot',
                 'featureCount': len(current.ranker.mean) if hasattr(current.ranker, 'mean') else None,
                 'rankerSchema': getattr(current.ranker, 'schema', 'candidate-v2'),

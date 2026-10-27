@@ -33,9 +33,9 @@ export default function RecommendationCard({ candidate, rank, view, comparisonSe
         {!view.matches.length && <p className="candidate-condition-note">{view.evidence ? '지정한 연료·크기·정원 중 일치가 확인된 선호가 없어요. 구매 가능 여부와 비용도 함께 비교해 주세요.' : '조건별 평가 근거를 불러오지 못했어요. 조건을 다시 적용해 추천받아 주세요.'}</p>}
       </section>
       <section className="candidate-tradeoffs" aria-label={`${vehicle.model} 다른 조건`}>
-        <h3>다른 조건 · 확인할 점</h3>
+        <h3>다른 조건 · 확인할 점</h3>{candidate.preferenceCompromise && <p>일부 선호 조건을 조정한 절충 후보예요.</p>}
         <ul>{[...view.mismatches, ...view.unknowns].sort((a, b) => (b.weight ?? 0) - (a.weight ?? 0)).slice(0, 2).map(item => <li key={item.key}>{item.text}</li>)}</ul>
-        {!view.mismatches.length && !view.unknowns.length && view.evidence && <p>지정한 연료·크기·정원에서 확인된 불일치가 없어요. 이용 목적은 길이 기준의 참고 평가예요.</p>}
+        {!view.mismatches.length && !view.unknowns.length && view.evidence && <p>지정한 연료·크기·정원에서 확인된 불일치가 없어요.</p>}
       </section>
       </div></div>
       <div className={`financial-recommendation-details${expanded ? ' is-expanded' : ''}`}>
@@ -47,11 +47,11 @@ export default function RecommendationCard({ candidate, rank, view, comparisonSe
       <div className="financial-recommendation-aligned-metadata"><div data-recommendation-measure="metadata">
       <p>승차 정원 (운전자 포함): {vehicle.seats ? `${vehicle.seats}인승` : vehicle.seats_label || (vehicle.seat_options?.length ? `${vehicle.seat_options.join(' / ')}인승 사양` : '미확인')}</p>
       </div></div>
-      {candidate.integratedScore && <div className="financial-recommendation-aligned-score"><div data-recommendation-measure="score"><section className="candidate-score" aria-label="종합 적합도">
-        <h3>종합 적합도 {candidate.integratedScore.total.toFixed(1)} / 100</h3>
-        <p>재무 부담·선호 조건·추천 모델 평가를 합산한 비교 지표예요. 차량 품질이나 구매 만족도를 뜻하지 않아요.</p>
-        <dl>{candidate.integratedScore.components.filter(item => ['body', 'fuel', 'space', 'seating'].includes(item.key)).map(item => <div key={item.key}><dt>{{body: '차체 형태 일치도', space: '희망 크기 일치도', fuel: '선호 연료 일치도', seating: '희망 인원 충족도'}[item.key]}</dt><dd>{item.verified === false ? '사양 미확인' : `${item.score.toFixed(0)} / 100`}</dd></div>)}</dl>
-        <p>{'구매비·유지비 절약을 가성비 중요도에 따라 반영해요. 가성비 중요도가 낮아도 높은 가격에 가점을 주지는 않아요.'}</p>
+      {candidate.preferenceAssessment && <div className="financial-recommendation-aligned-score"><div data-recommendation-measure="score"><section className="candidate-score" aria-label="추천 점수와 조건 일치도">
+        <h3>ML 추천 점수 {candidate.rankingScore.toFixed(3)}</h3>
+        {candidate.preferenceCompromise && <p>선호 조건 일부를 조정한 절충 후보입니다. 아래 불일치 항목을 확인해 주세요.</p>}<p>{candidate.seatingVerificationRequired ? '최소 인원 충족 여부를 확인해야 하는 후보예요. 정원 확인 전에는 일반 추천에 포함하지 않아요.' : '재무 조건과 최소 인원을 충족한 차량 중 중요한 선호 조건을 먼저 비교하고, 같은 조건에서는 모델 점수로 정렬해요.'} 점수는 확률이나 100점 척도가 아니며 구매 만족도를 뜻하지 않아요.</p>
+        <dl>{candidate.preferenceAssessment.components.filter(item => ['body', 'fuel', 'space', 'seating'].includes(item.key)).map(item => <div key={item.key}><dt>{{body: '차체 형태 일치도', space: '희망 크기 일치도', fuel: '선호 연료 일치도', seating: '희망 인원 충족도'}[item.key]}</dt><dd>{item.verified === false ? '사양 미확인' : `${item.score.toFixed(0)} / 100`}</dd></div>)}</dl>
+        <p>조건별 일치도는 비교를 돕는 참고 정보이며 추천 점수에 합산하지 않아요.</p>
       </section></div></div>}
 
           <div className="financial-recommendation-aligned-conditions"><section data-recommendation-measure="conditions">
@@ -60,7 +60,7 @@ export default function RecommendationCard({ candidate, rank, view, comparisonSe
           </section></div>
           <div className="financial-recommendation-aligned-cost"><section data-recommendation-measure="cost" className="candidate-cost-section">
           <h3>비용 계산 기준</h3>
-          {candidate.integratedScore && <p className="financial-recommendation-reason-note">5년 예상 비용 {candidateMoney(candidate.integratedScore.estimatedOwnershipCost)} · 차량 가격과 60개월 유지비 합계이며 잔존가치·보조금·선택 옵션은 반영하지 않았어요.</p>}
+          {candidate.preferenceAssessment && <p className="financial-recommendation-reason-note">5년 예상 비용 {candidateMoney(candidate.preferenceAssessment.estimatedOwnershipCost)} · 차량 가격과 60개월 유지비 합계이며 잔존가치·보조금·선택 옵션은 반영하지 않았어요.</p>}
           <p className="financial-recommendation-reason-note">입력한 예금은 차량 구매와 구매 후 부족한 월 자금에 함께 사용하는 총액입니다. 차량값을 먼저 빼고, 남은 예금으로 부족액을 충당합니다. 대출·할부는 가정하지 않습니다.</p>
           <ul className="financial-additional-reasons">{reasons.map(reason => <li key={reason}>{reason}</li>)}</ul>
           {cost.efficiency_estimated && <p className="financial-recommendation-reason-note">{vehicle.efficiency_reference_only ? '정확한 기본 사양의 연비가 미확정되어 공개 인증 사양의 참조 연비로 계산했습니다.' : '연비 미확인: 연료별 가정 범위로 비용을 계산했습니다.'}</p>}

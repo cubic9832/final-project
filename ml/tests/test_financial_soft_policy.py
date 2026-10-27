@@ -8,16 +8,14 @@ from vehicle_matching.finance import assess
 
 
 class FinancialSoftPolicyTests(unittest.TestCase):
-    def test_three_low_score_distinct_models_even_with_preference_mismatches(self):
+    def test_known_shortfall_is_excluded_even_with_available_cash(self):
         class LowRanker(FixedRanker):
             def predict(self,profile,vehicles): return [1e-30]*len(vehicles),[False]*len(vehicles)
         cars=[vehicle(id=str(i),model=str(i),price=10000000+i*100000, fuel='ELECTRIC',seats=2) for i in range(4)]
         cars.append(replace(cars[0],id='another-trim'))
         result=CandidateService(LowRanker(),cars).recommend(person(minimum_seats=7,preferred_size='large',charging_available=False))
-        self.assertEqual(len(result['recommendations']),3)
-        self.assertEqual(len({r['vehicle']['model'] for r in result['recommendations']}),3)
-        self.assertTrue(all(r['cost']['eligible'] for r in result['recommendations']))
-        self.assertTrue(all('insufficient-seats' in r['preferenceGaps'] for r in result['recommendations']))
+        self.assertEqual(result['recommendations'],[])
+        self.assertEqual(result['seatingExcludedCount'],5)
 
     def test_purchase_price_and_monthly_funds_cannot_be_bypassed_by_matching_preferences(self):
         p=person(monthly_income=2000000,monthly_expenses=1500000,monthly_savings=200000,
@@ -33,17 +31,18 @@ class FinancialSoftPolicyTests(unittest.TestCase):
         result=CandidateService(FixedRanker(),[vehicle()]).recommend(person())
         self.assertEqual(len(result['recommendations']),1)
 
-    def test_fuel_and_seating_weights_change_ranking(self):
+    def test_fuel_and_seating_rules_do_not_override_equal_ml_scores(self):
         gas=vehicle(id='gas',model='gas',seats=7,fuel='GASOLINE',price=20000000)
         hybrid=vehicle(id='hybrid',model='hybrid',seats=2,fuel='HYBRID',price=20000000)
         service=CandidateService(FixedRanker(),[gas,hybrid])
         p=person(minimum_seats=7,fuel_importance=5,seating_importance=1)
-        self.assertEqual(service.recommend(p)['recommendations'][0]['vehicle']['id'],'hybrid')
+        self.assertEqual(service.recommend(p)['recommendations'][0]['vehicle']['id'],'gas')
         self.assertEqual(service.recommend(replace(p,fuel_importance=1,seating_importance=5))['recommendations'][0]['vehicle']['id'],'gas')
 
     def test_cash_purchase_has_no_loan_and_monthly_boundary_uses_running_costs(self):
         p=person(financing_mode='recommendation',down_payment=0)
         v=vehicle()
+        p=replace(p,liquid_assets=v.price+p.emergency_reserve)
         cost=assess(p,v)
         self.assertEqual(cost['monthly_payment'],0)
         self.assertEqual(cost['financing_months'],0)

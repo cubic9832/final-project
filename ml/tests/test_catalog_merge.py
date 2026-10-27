@@ -41,11 +41,11 @@ class CatalogExpansionTests(unittest.TestCase):
             self.assertEqual(row['lengthVerificationRequired'], row['vehicle']['length_mm'] is None)
             self.assertFalse(row['seatingVerificationRequired'])
             if row['lengthVerificationRequired']:
-                self.assertEqual(next(c for c in row['integratedScore']['components'] if c['key'] == 'space')['score'], 50)
+                self.assertEqual(next(c for c in row['preferenceAssessment']['components'] if c['key'] == 'space')['score'], 50)
         unknown = CandidateService(service.ranker, [replace(imported[0], length_mm=None)])
         missing = unknown.recommend(replace(rich, preferred_size='medium'))['recommendations'][0]
         self.assertTrue(missing['lengthVerificationRequired'])
-        self.assertEqual(next(c for c in missing['integratedScore']['components'] if c['key']=='space')['score'],50)
+        self.assertEqual(next(c for c in missing['preferenceAssessment']['components'] if c['key']=='space')['score'],50)
         poor = subset.recommend(replace(person(), monthly_income=1000000), k=20)
         self.assertEqual(poor['recommendations'] + poor['conditionalRecommendations'], [])
 

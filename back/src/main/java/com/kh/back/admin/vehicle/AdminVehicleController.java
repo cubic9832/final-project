@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 public class AdminVehicleController {
     private final AdminVehicleService service;
     @GetMapping public ApiResponse<List<AdminVehicleResponse>> list(){return ApiResponse.ok(service.list());}
+    public record DeletionRequest(@jakarta.validation.constraints.Positive long version, boolean deleted) {}
+    @PatchMapping("/{id}/deletion") public ApiResponse<AdminVehicleResponse> deletion(@PathVariable String id,@Valid @RequestBody DeletionRequest input,@AuthenticationPrincipal Long actor){return ApiResponse.ok(service.changeDeleted(id,input.version(),input.deleted(),actor));}
     @GetMapping("/{id}") public ApiResponse<AdminVehicleResponse> get(@PathVariable String id){return ApiResponse.ok(service.get(id));}
     @PostMapping public ResponseEntity<ApiResponse<AdminVehicleResponse>> create(@Valid @RequestBody AdminVehicleRequest input,@AuthenticationPrincipal Long actor){
         var saved=service.save(null,input,actor);return ResponseEntity.created(URI.create("/api/v1/admin/vehicles/"+saved.id())).body(ApiResponse.ok(saved));

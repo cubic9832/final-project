@@ -99,7 +99,15 @@ Pop-Location
 
 현실 검증을 하려면 실제 사용자의 후보 간 선호, 구매 후 월 지출과 만족도를 수집하고, 사용자 단위·시간 기준 평가로 교체해야 한다. 그 전에는 계산식만 쓰는 방식보다 ML이 실제로 더 유용하다는 근거가 없다. 이 브랜치는 후보 확장과 목표·검증 구조를 개선한 **실험 가능한 출발점**이다.
 
-## 사용자 중요도 통합 점수 — weighted-preferences-v1
+## 현재 추천 정책 — financial-filter-ml-raw-v1 (2026-10-27)
+
+재무 적격 필터 이후 ML 원본 출력만으로 내림차순 정렬한다. 동점은 차량 ID 오름차순이며 차종별로 가장 높은 사양 하나만 반환한다. 선호는 모델 입력으로 전달하며, 별도 규칙 점수를 최종 순위에 합산하지 않는다. sigmoid는 과거 실험·학습 호환용 predict에 남지만 서비스 정렬에는 사용하지 않는다.
+
+응답 rankingScore는 음수도 가능한 원본 출력이며 확률·100점 척도가 아니다. rankingScoreType은 ml-raw, scorePolicy는 financial-filter-ml-raw-v1이다. 기존 integratedScore 대신 preferenceAssessment를 반환한다. 이 객체의 components는 조건별 설명용 점수·중요도이며 total·contribution 없이 rankingApplied=false를 명시한다. rankingComparison은 ml-ranked 상태와 원본 점수 차이를 제공하며 항목별 인과 기여도는 제공하지 않는다. 웹 카드와 전체 후보 조건 집계도 이 계약을 사용한다. 모델 재학습은 하지 않았다.
+
+선호 민감도 실험은 outputs/reports/preference-sensitivity-20261027/README.md를 참고한다. 과거 가중합 비교 스크립트·보고서는 당시 정책의 실험 기록이며 현재 서비스 결과와 구분한다.
+
+## 과거 사용자 중요도 통합 점수 — weighted-preferences-v1 (서비스 적용 종료)
 
 기존 candidate-v2 신경망 가중치는 그대로 유지하며 **후처리 정책**으로 중요도를 통합한다. 사용자 중요도 자체를 새로 학습했다고 주장하지 않는다. 기존 report.json의 NDCG는 원래 합성 효용 모델의 평가이며 새 통합 점수의 품질 평가가 아니다.
 
@@ -172,3 +180,11 @@ MILD_HYBRID와 PHEV는 원래 연료 표기를 보존하고, 연비·전기 주�
 
 후속 재학습 명령 (ml 폴더에서):
 `python -m vehicle_matching.train_curated_population --data-dir ../data/households/synthetic/body-preference-v1-20261026 --output outputs/models/candidate-preferences/body-v1 --epochs 12`
+
+## 추천 조건 개선 — required-seats-preference-priority-ml-v1 (2026-10-27)
+
+기존 `20261026-body-v1` 가중치는 유지한다. 재무 필터 다음에 최소 인원을 필수 검사한다. 기본 정원 부족은 제외하고, 정원 미확인·공식 자료 충돌·선택 좌석 업그레이드는 일반 추천 대신 conditionalRecommendations로 반환한다. 최소 인원 0은 정원 제한 없음이다.
+
+남은 후보는 연료·차체·전장 크기 선호를 중요도 5부터 1까지 차례로 비교한다. 같은 중요도는 불일치 정도를 합산한다. 연료·차체 불일치는 1, 크기는 선호 전장 범위를 벗어난 거리/1000으로 계산하고, 전장 미확인은 알려진 길이보다 뒤로 둔다. 조건이 같으면 기존 ML 원본 점수와 ID로 정렬한다. 비용 중요도는 기존 모델 입력으로 유지하고 재무 적격 조건은 완화하지 않는다. 선호 불일치는 preferenceCompromise와 preferencePriority로 명시한다. rankingScore는 계속 원본 ML 값이므로 최종 순서가 점수 내림차순과 다를 수 있다. 최종 정책은 scorePolicy/rankingPolicy로 확인한다. rankingComparison은 preference-priority 상태를 사용한다.
+
+동일 모델·카탈로그·240개 조건 평가와 정원 필터만 적용한 대조군 결과는 outputs/reports/policy-improvement-20261027/에 보관한다.

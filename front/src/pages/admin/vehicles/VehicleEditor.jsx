@@ -54,6 +54,7 @@ export default function VehicleEditor({ vehicle, onCancel, onSave, saving = fals
     if (draft.seats && (!Number.isInteger(Number(draft.seats)) || Number(draft.seats) < 1 || Number(draft.seats) > 15)) invalid.seats = '1~15명으로 입력해 주세요.';
     if (draft.length && (Number(draft.length) < 2500 || Number(draft.length) > 6000)) invalid.length = '전장은 2500~6000mm로 입력해 주세요.';
     if (draft.efficiency && (Number(draft.efficiency) <= 0 || Number(draft.efficiency) > 100)) invalid.efficiency = '0 초과, 100 이하로 입력해 주세요.';
+    for (const name of ['monthlyInsurance', 'monthlyTax', 'monthlyMaintenance']) if (draft[name] !== '' && (!Number.isInteger(Number(draft[name])) || Number(draft[name]) < 0 || Number(draft[name]) > 10000000)) invalid[name] = '0~10,000,000원 사이의 정수를 입력해 주세요.';
     if (draft.status === '공개') {
       for (const name of ['seats', 'length', 'efficiency', 'sourceUrl', 'checkedOn']) if (!draft[name]) invalid[name] = '차량을 공개하려면 입력해 주세요.';
       if (!draft.body || draft.body === '형태 미확인') invalid.body = '공식 사양에 맞는 차체 형태를 선택해 주세요.';
@@ -82,6 +83,11 @@ export default function VehicleEditor({ vehicle, onCancel, onSave, saving = fals
         {field('seats', '기본 승차 정원', { placeholder: '예: 5', inputMode: 'numeric', pattern: '[0-9]{1,2}', suffix: '명' })}
         {field('length', '전장', { placeholder: '예: 4905', inputMode: 'numeric', pattern: '[0-9]{4}', suffix: 'mm' })}
       </div></section>
+      <section className="admin-card"><div className="admin-card-heading"><div><h3>월 예상 유지비</h3><p>미입력은 공통 추정값, 0은 비용 없음입니다. 연료비는 연비와 주행거리로 별도 계산합니다.</p></div></div><div className="vehicle-editor-fields">
+        {field('monthlyInsurance', '보험료', { inputMode: 'numeric', pattern: '[0-9]+', suffix: '원/월' })}
+        {field('monthlyTax', '자동차세', { inputMode: 'numeric', pattern: '[0-9]+', suffix: '원/월' })}
+        {field('monthlyMaintenance', '정비비', { inputMode: 'numeric', pattern: '[0-9]+', suffix: '원/월' })}
+      </div></section>
       <section className="admin-card"><div className="admin-card-heading"><div><h3>자료 출처</h3><p>가격과 제원을 확인한 자료를 연결해 주세요.</p></div></div><div className="vehicle-editor-fields">
         {field('source', '자료명', { placeholder: '예: 제조사 공식 가격표', maxLength: 100 })}
         {field('checkedOn', '확인일', { type: 'date' })}
@@ -91,13 +97,13 @@ export default function VehicleEditor({ vehicle, onCancel, onSave, saving = fals
     </div><aside className="vehicle-editor-aside">
       <section className="admin-card vehicle-editor-preview"><div className="admin-card-heading"><div><h3>차량 이미지</h3><p>사용자 화면에 표시할 이미지입니다.</p></div></div><div className="vehicle-editor-image">{draft.image ? <img src={draft.image} alt={`${draft.brand} ${draft.model} 미리보기`} /> : <div><Car size={theme.iconSize.lg} aria-hidden="true" /><span>차량 이미지를 추가해 주세요.</span></div>}</div>
         <input ref={picker} type="file" accept="image/webp,image/png,image/jpeg" className="admin-sr-only" aria-label="차량 이미지 파일" onChange={upload} />
-        <button type="button" className="admin-outline-button" disabled={readingImage || saving} onClick={() => picker.current?.click()}><ImagePlus size={theme.iconSize.sm} aria-hidden="true" />{readingImage ? '이미지 읽는 중' : draft.image ? '이미지 변경' : '이미지 선택'}</button><p className="vehicle-editor-hint">WebP, PNG, JPG · 최대 5MB<br />배경 없는 전면 사선 이미지를 권장해요.</p>{imageError && <p className="vehicle-editor-error" role="alert">{imageError}</p>}
+        <button type="button" className="admin-outline-button" disabled={readingImage || saving} onClick={() => picker.current?.click()}><ImagePlus size={theme.iconSize.sm} aria-hidden="true" />{readingImage ? '이미지 읽는 중' : draft.image ? '이미지 변경' : '이미지 선택'}</button>{draft.image && <button type="button" className="admin-outline-button" disabled={readingImage || saving} onClick={() => { change('image', ''); change('imageFile', null); if (picker.current) picker.current.value = ''; }}>이미지 제거</button>}<p className="vehicle-editor-hint">WebP, PNG, JPG · 최대 5MB<br />배경 없는 전면 사선 이미지를 권장해요.</p>{imageError && <p className="vehicle-editor-error" role="alert">{imageError}</p>}
         <div className="vehicle-editor-preview-info"><small>{draft.brand || '브랜드'} · {draft.fuel}</small><h4>{draft.model || '모델명'}</h4><p>{draft.trim || '트림명'}</p><strong>{draft.price ? `${Number(draft.price).toLocaleString('ko-KR')}만 원` : '가격 미입력'}</strong></div>
       </section>
       <section className="admin-card"><div className="admin-card-heading"><div><h3>관리 상태</h3><p>목록에 표시할 상태를 선택하세요.</p></div></div>{field('status', '상태', { options: vehicleStatuses })}<p className="vehicle-editor-hint">공개한 차량만 다음 추천 요청부터 반영됩니다. 판매 종료로 변경하면 추천에서 제외됩니다.</p></section>
     </aside></div>
     <footer className="admin-card vehicle-editor-footer">{discard ? <div className="vehicle-editor-discard" role="alert"><div><strong>작성한 내용을 저장하지 않고 닫을까요?</strong><p>편집 중인 내용은 사라집니다.</p></div><button type="button" className="admin-outline-button" onClick={() => setDiscard(false)}>계속 작성</button><button type="button" className="admin-primary-button" onClick={onCancel}>저장하지 않고 닫기</button></div>
-      : <><p><Check size={theme.iconSize.sm} aria-hidden="true" />저장한 정보는 서버에 보관되며 변경 이력이 기록됩니다.</p><div><button type="button" className="admin-outline-button" disabled={saving} onClick={close}><X size={theme.iconSize.sm} aria-hidden="true" />취소</button><button type="submit" className="vehicle-management-cta" disabled={readingImage || saving} aria-busy={saving}><Save size={theme.iconSize.sm} aria-hidden="true" />{saving ? '저장 중…' : '저장'}</button></div></>}
+      : <><p><Check size={theme.iconSize.sm} aria-hidden="true" />저장한 정보는 서버에 보관됩니다.</p><div><button type="button" className="admin-outline-button" disabled={saving} onClick={close}><X size={theme.iconSize.sm} aria-hidden="true" />취소</button><button type="submit" className="vehicle-management-cta" disabled={readingImage || saving} aria-busy={saving}><Save size={theme.iconSize.sm} aria-hidden="true" />{saving ? '저장 중…' : '저장'}</button></div></>}
     </footer>
     {saveError && <p className="vehicle-editor-error" role="alert">{saveError}</p>}
   </form>;

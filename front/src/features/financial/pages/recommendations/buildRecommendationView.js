@@ -35,6 +35,8 @@ export function rankingNarrative(comparison, candidates) {
   const lower = candidates.find(item => item.vehicle.id === comparison.lowerVehicleId);
   if (!higher || !lower || !Number.isFinite(comparison.scoreDifference)) return '후보 간 순위 근거를 확인할 수 없어요.';
   const pair = `두 차량(${higher.vehicle.model}, ${lower.vehicle.model})`;
+  if (comparison.status === 'preference-priority') return `${pair}은 최소 탑승 인원을 충족한 뒤 중요도가 높은 선호부터 비교했어요. 같은 조건에서는 모델 점수로 정렬해요.`;
+  if (comparison.status === 'ml-ranked') return `${pair}은 학습 모델의 원본 점수순으로 추천됐어요. 조건별 일치도는 참고 정보이며, 모델의 항목별 순위 기여도는 제공하지 않아요.`;
   if (comparison.status === 'near-tie') return `${pair}의 가중합 점수 차이는 ${Math.abs(comparison.scoreDifference).toFixed(2)}점으로 비슷한 수준이에요. 1점 미만을 근소한 차이로 표시하며 만족도 차이를 뜻하지 않아요.`;
   const deltas = comparison.contributionDifferences ?? [];
   const positives = deltas.filter(item => item.difference > 0.005).slice(0, 2);
@@ -74,7 +76,7 @@ export function conditionSummary(summary) {
   if (!summary?.complete || !summary.specifiedPreferenceKeys?.length) return null;
   const names = summary.specifiedPreferenceKeys.map(key => ({ body: '차체 형태', fuel: '연료', space: '크기', seating: '정원' })[key]).join('·');
   if (!summary.financiallyEligibleConfigurations) return '현재 불러온 차량 목록에서 구매 자금과 월 유지비 조건을 충족하는 차량이 없어요.';
-  if (summary.confirmedMatchingConfigurations > 0) return `재무 조건을 충족한 전체 후보 중 ${names} 선호를 동시에 충족하는 가격 사양은 ${summary.confirmedMatchingConfigurations}개예요. 표시된 순서는 전체 가중합 평가에 따른 결과예요.`;
+  if (summary.confirmedMatchingConfigurations > 0) return `재무 조건을 충족한 전체 후보 중 ${names} 선호를 동시에 충족하는 가격 사양은 ${summary.confirmedMatchingConfigurations}개예요. 최소 탑승 인원을 확인한 뒤 중요한 선호 조건과 모델 점수로 추천 순서를 정해요.`;
   return `재무 조건을 충족한 전체 후보에서 등록된 사양으로 ${names} 선호를 동시에 만족하는 차량은 없어요.${summary.unresolvedConfigurations ? ` ${summary.unresolvedConfigurations}개 가격 사양은 제원 부족으로 충족 여부를 확정하지 못했어요.` : ''} 카드에서 맞는 조건과 조정이 필요한 조건을 함께 확인해 주세요.`;
 }
 

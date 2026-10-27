@@ -1,5 +1,11 @@
 # 차량 추천 ML 검증 상태와 후속 과제
 
+## 현재 서비스 변경 (2026-10-27)
+
+기본 모델 `20261026-body-v1`을 유지하며, 재무 적격 필터 이후 **ML 원본 점수만으로 정렬**한다. 선호·비용 규칙 점수는 순위에 합산하지 않는다. sigmoid 포화는 서비스 정렬에서 원본 출력을 사용해 회피했다. 규칙 정답 기반 학습 자체는 유지하며, 실제 사용자 만족도 검증을 완료했다는 뜻은 아니다.
+
+API 정책은 `financial-filter-ml-raw-v1`이며 `integratedScore` 대신 설명용 `preferenceAssessment`를 반환한다. 화면도 ML 추천 점수와 조건별 참고 일치도를 분리했다. 선호 반응 검증은 `ml/outputs/reports/preference-sensitivity-20261027/README.md`, 변경 후 검증은 `ml/outputs/reports/ml-only-serving-20261027/README.md`를 참조한다. 아래 2026-10-26 운영 상태·가중합·미해결 서비스 포화 설명은 변경 전 기록이다.
+
 기준일: 2026-10-26. 작업 브랜치: ml/test.
 
 ## 목표와 현재 검증 범위

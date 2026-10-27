@@ -5,7 +5,7 @@ import { bodyTypeLabel } from '../../vehiclePreferences.js';
 // Describe observed specifications and user priorities, not inferred satisfaction.
 export function buildCandidateHighlights(candidate, preferences = {}) {
   const { vehicle, cost } = candidate;
-  const components = candidate.integratedScore?.components ?? [];
+  const components = candidate.preferenceAssessment?.components ?? [];
   const descriptions = [];
   const add = (key, text) => {
     const component = components.find(item => item.key === key);

@@ -23,5 +23,8 @@ public record AdminVehicleRequest(
     @NotNull @Size(max=2000) String sourceUrl,
     LocalDate checkedOn,
     @NotNull @Size(max=1000) String memo,
+    @Min(0) @Max(10000000) Long monthlyInsurance,
+    @Min(0) @Max(10000000) Long monthlyTax,
+    @Min(0) @Max(10000000) Long monthlyMaintenance,
     @Positive Long version
 ) {}

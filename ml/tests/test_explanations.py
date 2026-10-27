@@ -3,10 +3,9 @@ from dataclasses import replace
 
 from test_preferences import FixedRanker
 from test_vehicle_matching import person, vehicle
-from vehicle_matching.budget import apply_budget_preference, budget_order, recommendation_budget
 from vehicle_matching.explanations import ranking_comparison
 from vehicle_matching.finance import assess
-from vehicle_matching.preferences import integrated_score
+from vehicle_matching.preferences import preference_assessment
 from vehicle_matching.service import CandidateService
 
 
@@ -41,7 +40,7 @@ class ExplanationTests(unittest.TestCase):
         summary = result['evaluationSummary']
         self.assertEqual(summary['confirmedMatchingConfigurations'], 0)
         self.assertEqual(summary['unresolvedConfigurations'], 1)
-        items = result['recommendations'][0]['decisionEvidence']['preferences']
+        items = result['conditionalRecommendations'][0]['decisionEvidence']['preferences']
         self.assertEqual(next(item for item in items if item['key'] == 'space')['status'], 'unknown')
         self.assertEqual(next(item for item in items if item['key'] == 'seating')['status'], 'unknown')
 
@@ -52,16 +51,16 @@ class ExplanationTests(unittest.TestCase):
                     down_payment=0, months=0, annual_rate=0, financing_mode='recommendation')
         ranker = FixedRanker()
         costs = {car.id: assess(p, car, ranker.assumptions) for car in cars}
-        band = recommendation_budget(p, cars, costs)
-        scores = {car.id: apply_budget_preference(integrated_score(p, car, costs[car.id], .5), car, band) for car in cars}
-        expected = sorted(cars, key=lambda car: budget_order(car, scores[car.id]['total'], band))
+        scores = {car.id: preference_assessment(p, car, costs[car.id]) for car in cars}
+        expected = sorted(cars, key=lambda car: car.id)
         result = CandidateService(ranker, cars).recommend(p)
         self.assertEqual([item['vehicle']['id'] for item in result['recommendations']], [car.id for car in expected])
         for item in result['recommendations']:
-            self.assertEqual(item['integratedScore'], scores[item['vehicle']['id']])
+            self.assertEqual(item['preferenceAssessment'], scores[item['vehicle']['id']])
             self.assertTrue(item['decisionEvidence']['financial']['eligible'])
         comparison = result['recommendations'][0]['rankingComparison']
-        self.assertAlmostEqual(sum(item['difference'] for item in comparison['contributionDifferences']), comparison['scoreDifference'])
+        self.assertEqual(comparison['status'], 'preference-priority')
+        self.assertFalse(comparison['featureAttributionAvailable'])
 
     def test_ranking_missing_evidence_and_near_ties_are_not_invented(self):
         def item(identity, value):
