@@ -2,6 +2,7 @@ import { useId, useState } from 'react';
 import { Car, ChevronDown } from 'lucide-react';
 import theme from '../../../../styles/theme.js';
 import { candidateImage, candidateMoney, fuelLabels } from './candidatePresentation.js';
+import ExplainTerm from '../../../chatbot/ExplainTerm';
 
 
 export default function RecommendationCard({ candidate, rank, view, comparisonSelected, comparisonFull, onToggleComparison }) {
@@ -17,7 +18,7 @@ export default function RecommendationCard({ candidate, rank, view, comparisonSe
     </div>
     <div className="financial-recommendation-card-body">
       <div className="financial-recommendation-aligned-summary"><div data-recommendation-measure="summary">
-      <p className="financial-recommendation-category">{vehicle.brand} · {{MILD_HYBRID: '마일드 하이브리드', PHEV: '플러그인 하이브리드'}[vehicle.original_fuel] || fuelLabels[vehicle.fuel] || vehicle.fuel}</p>
+      <p className="financial-recommendation-category">{vehicle.brand} · <ExplainTerm term={vehicle.original_fuel || vehicle.fuel} context={`추천 차량 ${vehicle.brand} ${vehicle.model}의 연료 종류`}>{{MILD_HYBRID: '마일드 하이브리드', PHEV: '플러그인 하이브리드'}[vehicle.original_fuel] || fuelLabels[vehicle.fuel] || vehicle.fuel}</ExplainTerm></p>
       {onToggleComparison && <label className="candidate-comparison-select"><input type="checkbox" aria-label={`${vehicle.model} 비교 선택`} checked={comparisonSelected} disabled={comparisonFull && !comparisonSelected} onChange={() => onToggleComparison(vehicle.id)} />{comparisonSelected ? '비교 목록에 담았어요' : '비교 목록에 담기'}</label>}
       <h2>{vehicle.model}</h2><p>{vehicle.year && `${vehicle.year}년형 · `}{vehicle.trim}</p>
 
@@ -25,7 +26,7 @@ export default function RecommendationCard({ candidate, rank, view, comparisonSe
       {candidate.lengthVerificationRequired && <p className="financial-candidate-alert">차량 크기 확인이 필요한 후보입니다.</p>}
       {view?.financial?.fundingSource === 'assets' && <p className="financial-candidate-alert">예금 사용형 추천 · 생활 적자와 차량 유지비를 합해 예금에서 매월 {candidateMoney(view.financial.monthlyAssetDrawdown)}을 사용해요. 구매 후 예금으로 약 {view.financial.assetRunwayMonths}개월 유지 가능하며, 최소 {view.financial.requiredAssetCoverageMonths}개월 충당 기준을 적용했어요.</p>}
       <dl className="financial-recommendation-specs" aria-label={`${vehicle.model} 비용 정보`}>
-        {[['차량 가격', vehicle.price], ['예상 월 유지비', cost.monthly_running_cost], ['구매 후 남는 예금', view.financial?.cashAfterPurchase], ['유지비 지출 후 월 잔여금', cost.remaining_monthly]].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{candidateMoney(value)}</dd></div>)}
+        {[['차량 가격', vehicle.price], ['예상 월 유지비', cost.monthly_running_cost], ['구매 후 남는 예금', view.financial?.cashAfterPurchase], ['유지비 지출 후 월 잔여금', cost.remaining_monthly]].map(([label, value]) => <div key={label}><dt><ExplainTerm term={label} context={`추천 차량 ${vehicle.brand} ${vehicle.model}의 비용 항목`} /></dt><dd>{candidateMoney(value)}</dd></div>)}
       </dl>
       <section className="financial-recommendation-reasons" aria-label={`${vehicle.model} 맞는 조건`}>
         <h3>맞는 조건</h3>

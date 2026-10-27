@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import GlobalToast from './GlobalToast';
 import Header from './Header';
+import ChatWidget from '../features/chatbot/ChatWidget';
 
 const Main = styled.main`
   max-width: var(--layout-max-width);
@@ -32,6 +33,7 @@ export default function Layout() {
       )}
       {/* 공용 알림 표시 자리 — 어느 화면에서든 showToast('…') 로 띄운다 */}
       <GlobalToast />
+      <ChatWidget />
     </>
   );
 }
