@@ -70,6 +70,19 @@ class AdminAccessTests {
                 .andExpect(jsonPath("$.meta.size").value(5));
     }
 
+    // 운영 현황(할 일 · 재무 진단 이용 현황): 관리자 200 (7일 막대 7칸), 일반 회원 403
+    @Test
+    void 관리자는_운영_현황을_볼_수_있다() throws Exception {
+        mvc.perform(get("/api/v1/admin/overview")
+                        .header("Authorization", "Bearer " + jwtProvider.createAccessToken(1L, "ADMIN")))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.data.diagnoses.daily.length()").value(7))
+                .andExpect(jsonPath("$.data.profileMissing").isNumber());
+        mvc.perform(get("/api/v1/admin/overview")
+                        .header("Authorization", "Bearer " + jwtProvider.createAccessToken(2L, "USER")))
+                .andExpect(status().isForbidden());
+    }
+
     // 서비스 연결 상태: 관리자는 실제 DB 확인 결과, 일반 회원 403
     @Test
     void 관리자는_서비스_연결_상태를_볼_수_있다() throws Exception {
