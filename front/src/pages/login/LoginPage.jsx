@@ -3,6 +3,7 @@ import { Car } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { googleLogin, login } from '../../features/auth/authApi';
 import { afterLoginPath } from '../../features/taste-test/tastePrompt';
+import { isAdminRole } from '../../features/auth/roles';
 import useAuthStore from '../../stores/useAuthStore';
 import PasswordInput from '../../features/auth/components/PasswordInput';
 import PasswordResetModal from './PasswordResetModal';
@@ -72,10 +73,12 @@ export default function LoginPage() {
   }, []);
 
   // 로그인 성공 후 갈 곳: 가려던 화면(from) 또는 메인 — 보완 11: 취향 테스트를 안 했고 "나중에 하기"도 안 눌렀으면 취향 테스트
-  const nextPath = useCallback(
-    () => afterLoginPath(useAuthStore.getState().member?.id, location.state?.from ?? '/'),
-    [location.state],
-  );
+  // 보완 12: 관리자는 취향 테스트 안내 없이 관리자 화면(/console)으로 (관리자는 서비스 이용자가 아니므로)
+  const nextPath = useCallback(() => {
+    const member = useAuthStore.getState().member;
+    if (isAdminRole(member?.role)) return Promise.resolve(location.state?.from ?? '/console');
+    return afterLoginPath(member?.id, location.state?.from ?? '/');
+  }, [location.state]);
 
   // 보완 8: 구글 계정을 고르면 서버에 확인 → 연결된 회원이면 로그인, 처음 온 사람이면 구글 가입 화면으로
   // (동의 · 생년월일 · 성별은 그 화면에서 받는다)
