@@ -1,4 +1,5 @@
 """Preference-aware candidate ranker; separate artifacts from legacy candidate-v2."""
+from vehicle_matching.body_types import matches_body_preference
 import hashlib
 import json
 import math
@@ -11,7 +12,7 @@ from torch import nn
 from vehicle_matching.catalog import FUELS
 from vehicle_matching.finance import Assumptions, assess
 from vehicle_matching.preferences import SIZE_BANDS
-from vehicle_matching.body_types import BODY_TYPES
+from vehicle_matching.body_types import LEGACY_BODY_TYPES, SPORTS_BODY_TYPES
 
 FEATURE_NAMES = ('log_income', 'log_expenses', 'log_debt_payment', 'log_assets', 'log_price',
                  'log_running', 'net_monthly_millions', 'price_cash_ratio', 'cash_after_ratio',
@@ -20,14 +21,20 @@ FEATURE_NAMES = ('log_income', 'log_expenses', 'log_debt_payment', 'log_assets',
                  'minimum_seats', 'cost_weight', 'size_weight', 'fuel_weight', 'seats_weight',
                  *('fuel_' + fuel for fuel in FUELS))
 LEGACY_FEATURE_NAMES = FEATURE_NAMES
-FEATURE_NAMES = (*FEATURE_NAMES, 'body_match', 'body_specified', 'body_weight',
-                 *('body_' + value for value in BODY_TYPES), *('preferred_body_' + value for value in BODY_TYPES))
+PREVIOUS_FEATURE_NAMES = (*FEATURE_NAMES, 'body_match', 'body_specified', 'body_weight',
+                 *('body_' + value for value in LEGACY_BODY_TYPES), *('preferred_body_' + value for value in LEGACY_BODY_TYPES))
+# Append features so the existing 29/46-feature checkpoints retain their layout.
+FEATURE_NAMES = (*PREVIOUS_FEATURE_NAMES,
+                 *('body_' + value for value in SPORTS_BODY_TYPES),
+                 *('preferred_body_' + value for value in SPORTS_BODY_TYPES))
 
 def encode_body(profile, vehicle):
-    return np.asarray([float(profile.preferred_body_type == vehicle.body_type) if profile.preferred_body_type != 'any' else .5,
+    return np.asarray([float(matches_body_preference(profile.preferred_body_type, vehicle.body_type)) if profile.preferred_body_type != 'any' else .5,
                        float(profile.preferred_body_type != 'any'), profile.body_importance / 5,
-                       *(float(vehicle.body_type == value) for value in BODY_TYPES),
-                       *(float(profile.preferred_body_type == value) for value in BODY_TYPES)], dtype=np.float32)
+                       *(float(vehicle.body_type == value) for value in LEGACY_BODY_TYPES),
+                       *(float((vehicle.body_type if profile.preferred_body_type == 'OTHER' else profile.preferred_body_type) == value) for value in LEGACY_BODY_TYPES),
+                       *(float(vehicle.body_type == value) for value in SPORTS_BODY_TYPES),
+                       *(float((vehicle.body_type if profile.preferred_body_type == 'OTHER' else profile.preferred_body_type) == value) for value in SPORTS_BODY_TYPES)], dtype=np.float32)
 
 
 def encode_preference(profile, vehicle, assumptions=Assumptions(), cost=None):
@@ -95,7 +102,10 @@ class PreferenceRanker:
         directory = Path(directory)
         directory.mkdir(parents=True, exist_ok=True)
         torch.save(self.net.state_dict(), directory/'model.pt')
-        meta = {'schema': 'candidate-preferences-v3', 'features': list(FEATURE_NAMES if len(self.mean) == len(FEATURE_NAMES) else LEGACY_FEATURE_NAMES),
+        names = next((names for names in (FEATURE_NAMES, PREVIOUS_FEATURE_NAMES, LEGACY_FEATURE_NAMES) if len(names) == len(self.mean)), None)
+        if names is None:
+            raise ValueError('Unsupported preference feature layout')
+        meta = {'schema': 'candidate-preferences-v3', 'features': list(names),
                 'mean': self.mean.tolist(), 'scale': self.scale.tolist(), 'minimum': self.minimum.tolist(),
                 'maximum': self.maximum.tolist(), 'assumptions': self.assumptions.to_dict(), 'training': provenance,
                 'weights_sha256': hashlib.sha256((directory/'model.pt').read_bytes()).hexdigest()}
@@ -105,7 +115,7 @@ class PreferenceRanker:
     def load(cls, directory):
         directory = Path(directory)
         meta = json.loads((directory/'metadata.json').read_text(encoding='utf-8'))
-        if meta['schema'] != 'candidate-preferences-v3' or meta['features'] not in (list(FEATURE_NAMES), list(LEGACY_FEATURE_NAMES)):
+        if meta['schema'] != 'candidate-preferences-v3' or meta['features'] not in (list(FEATURE_NAMES), list(PREVIOUS_FEATURE_NAMES), list(LEGACY_FEATURE_NAMES)):
             raise ValueError('Preference model schema mismatch')
         if hashlib.sha256((directory/'model.pt').read_bytes()).hexdigest() != meta['weights_sha256']:
             raise ValueError('Preference model checksum mismatch')

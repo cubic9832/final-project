@@ -12,3 +12,8 @@ data/households/synthetic/body-preference-v1-20261026/*.csv filter=lfs diff=lfs 
 data/households/synthetic/seating-verified-v1-20261027/*_profiles.jsonl filter=lfs diff=lfs merge=lfs -text
 data/households/synthetic/seating-verified-v1-20261027/*_pairs.npz filter=lfs diff=lfs merge=lfs -text
 data/households/synthetic/seating-verified-v1-20261027/* -text whitespace=cr-at-eol
+data/households/synthetic/behavioral-million-*/** -text whitespace=cr-at-eol
+data/households/synthetic/behavioral-choice-v1/** -text whitespace=cr-at-eol
+data/households/synthetic/sports-official-v1-20261028/rules.txt -text whitespace=cr-at-eol
+ml/outputs/models/behavioral-choices/** -text whitespace=cr-at-eol
+ml/outputs/reports/behavioral-million-20261028/** -text whitespace=cr-at-eol

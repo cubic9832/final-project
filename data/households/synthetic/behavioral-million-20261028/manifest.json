@@ -1,0 +1,2130 @@
+{
+  "schema": "behavioral-population-v1",
+  "profiles_requested": 1000000,
+  "catalog_sha256": "5c6a7a2e39d6b35cc2330a02520da19a54937afbabbc810cfe26bee284f29a4e",
+  "configuration": {
+    "profiles": 1000000,
+    "shard_size": 10000,
+    "seed": 20261028,
+    "source": "http://127.0.0.1:8080/api/v1/vehicles/recommendation-catalog"
+  },
+  "shards": [
+    {
+      "directory": "shard-0000",
+      "partitions": {
+        "train": {
+          "profiles": 7166,
+          "comparisons": 55047,
+          "features": 68172
+        },
+        "validation": {
+          "profiles": 1453,
+          "comparisons": 11143,
+          "features": 13790
+        },
+        "test": {
+          "profiles": 1381,
+          "comparisons": 10606,
+          "features": 13205
+        }
+      },
+      "report_sha256": "a2a4835fa3cd83063c9c9ce551c57b0daaab45cfc2ab7794fa7f336c7abc99d0"
+    },
+    {
+      "directory": "shard-0001",
+      "partitions": {
+        "train": {
+          "profiles": 6784,
+          "comparisons": 52148,
+          "features": 64401
+        },
+        "validation": {
+          "profiles": 1746,
+          "comparisons": 13344,
+          "features": 16617
+        },
+        "test": {
+          "profiles": 1470,
+          "comparisons": 11282,
+          "features": 13712
+        }
+      },
+      "report_sha256": "14869e6f91cb181fd34699f858ae7c6b82970a145ffa784db754c56204f738fc"
+    },
+    {
+      "directory": "shard-0002",
+      "partitions": {
+        "train": {
+          "profiles": 7042,
+          "comparisons": 53957,
+          "features": 67038
+        },
+        "validation": {
+          "profiles": 1563,
+          "comparisons": 12085,
+          "features": 15107
+        },
+        "test": {
+          "profiles": 1395,
+          "comparisons": 10603,
+          "features": 13120
+        }
+      },
+      "report_sha256": "40abd7f15c1af2d50c783bd4766e9c063ed29cf9e2989e023c54f83591ba6a73"
+    },
+    {
+      "directory": "shard-0003",
+      "partitions": {
+        "train": {
+          "profiles": 6992,
+          "comparisons": 53481,
+          "features": 65957
+        },
+        "validation": {
+          "profiles": 1436,
+          "comparisons": 11056,
+          "features": 13565
+        },
+        "test": {
+          "profiles": 1572,
+          "comparisons": 12138,
+          "features": 14938
+        }
+      },
+      "report_sha256": "3cb9b00b5ed8fc4f048046d251484873906a59c970d09fd82eb7d3e8e46d6ccc"
+    },
+    {
+      "directory": "shard-0004",
+      "partitions": {
+        "train": {
+          "profiles": 7088,
+          "comparisons": 54344,
+          "features": 67336
+        },
+        "validation": {
+          "profiles": 1474,
+          "comparisons": 11236,
+          "features": 13828
+        },
+        "test": {
+          "profiles": 1438,
+          "comparisons": 11056,
+          "features": 13752
+        }
+      },
+      "report_sha256": "337dd19f1541c992cb1ae0f80a5d24b34124b300903b06c39063d193aacf3f0f"
+    },
+    {
+      "directory": "shard-0005",
+      "partitions": {
+        "train": {
+          "profiles": 6878,
+          "comparisons": 52690,
+          "features": 65273
+        },
+        "validation": {
+          "profiles": 1599,
+          "comparisons": 12239,
+          "features": 15267
+        },
+        "test": {
+          "profiles": 1523,
+          "comparisons": 11672,
+          "features": 14272
+        }
+      },
+      "report_sha256": "9cd5c374251b04002e8b600bfefe3a3a46b7d096d38f68a10975d7a0185bdf2f"
+    },
+    {
+      "directory": "shard-0006",
+      "partitions": {
+        "train": {
+          "profiles": 7071,
+          "comparisons": 54107,
+          "features": 66936
+        },
+        "validation": {
+          "profiles": 1455,
+          "comparisons": 11130,
+          "features": 13738
+        },
+        "test": {
+          "profiles": 1474,
+          "comparisons": 11248,
+          "features": 13789
+        }
+      },
+      "report_sha256": "636c7e0e5972d5b7856b352faa511fdc6b0a546ab11c7fb3d776afe36a7b3796"
+    },
+    {
+      "directory": "shard-0007",
+      "partitions": {
+        "train": {
+          "profiles": 7084,
+          "comparisons": 54133,
+          "features": 66566
+        },
+        "validation": {
+          "profiles": 1490,
+          "comparisons": 11360,
+          "features": 14019
+        },
+        "test": {
+          "profiles": 1426,
+          "comparisons": 10955,
+          "features": 13535
+        }
+      },
+      "report_sha256": "fbaef46b574e1d92b33431b26488164f98c85245bfc414d7bf4d316ccb4d6df4"
+    },
+    {
+      "directory": "shard-0008",
+      "partitions": {
+        "train": {
+          "profiles": 6950,
+          "comparisons": 53229,
+          "features": 65788
+        },
+        "validation": {
+          "profiles": 1480,
+          "comparisons": 11389,
+          "features": 14113
+        },
+        "test": {
+          "profiles": 1570,
+          "comparisons": 12057,
+          "features": 14821
+        }
+      },
+      "report_sha256": "95e259d807d0e7423350147c060fb73b7a0302237344488acf8f699fe77470f6"
+    },
+    {
+      "directory": "shard-0009",
+      "partitions": {
+        "train": {
+          "profiles": 6851,
+          "comparisons": 52456,
+          "features": 64606
+        },
+        "validation": {
+          "profiles": 1669,
+          "comparisons": 12666,
+          "features": 15568
+        },
+        "test": {
+          "profiles": 1480,
+          "comparisons": 11418,
+          "features": 14065
+        }
+      },
+      "report_sha256": "cbe4c546c58da756d2b32a42a5e92034137d0d44e9bf1959b8cea2f72b9a9486"
+    },
+    {
+      "directory": "shard-0010",
+      "partitions": {
+        "train": {
+          "profiles": 7002,
+          "comparisons": 54108,
+          "features": 66941
+        },
+        "validation": {
+          "profiles": 1501,
+          "comparisons": 11531,
+          "features": 14413
+        },
+        "test": {
+          "profiles": 1497,
+          "comparisons": 11430,
+          "features": 14146
+        }
+      },
+      "report_sha256": "70f0d5e159daf277e5fea66e954ea6ee653b88147617323d1d4be491c837d0c0"
+    },
+    {
+      "directory": "shard-0011",
+      "partitions": {
+        "train": {
+          "profiles": 6883,
+          "comparisons": 52889,
+          "features": 65475
+        },
+        "validation": {
+          "profiles": 1487,
+          "comparisons": 11303,
+          "features": 13835
+        },
+        "test": {
+          "profiles": 1630,
+          "comparisons": 12488,
+          "features": 15573
+        }
+      },
+      "report_sha256": "e7da3e0cf995c65d8bdcfcaf21a4885807db1e8e80fca6b48a45afa6e14b9bf2"
+    },
+    {
+      "directory": "shard-0012",
+      "partitions": {
+        "train": {
+          "profiles": 7022,
+          "comparisons": 53441,
+          "features": 66055
+        },
+        "validation": {
+          "profiles": 1463,
+          "comparisons": 11295,
+          "features": 14112
+        },
+        "test": {
+          "profiles": 1515,
+          "comparisons": 11656,
+          "features": 14553
+        }
+      },
+      "report_sha256": "a4fac89b8ad696890e6296b65e79bbd06f5d2d2dc5441c4c9576c80c9a8f9f4b"
+    },
+    {
+      "directory": "shard-0013",
+      "partitions": {
+        "train": {
+          "profiles": 7113,
+          "comparisons": 54431,
+          "features": 67392
+        },
+        "validation": {
+          "profiles": 1452,
+          "comparisons": 11229,
+          "features": 13941
+        },
+        "test": {
+          "profiles": 1435,
+          "comparisons": 11073,
+          "features": 13586
+        }
+      },
+      "report_sha256": "30f2f88e4ed4f2e58dee6f22e90f1f50ffd1a1167f2b944d3ebacf221163f911"
+    },
+    {
+      "directory": "shard-0014",
+      "partitions": {
+        "train": {
+          "profiles": 6971,
+          "comparisons": 53590,
+          "features": 66480
+        },
+        "validation": {
+          "profiles": 1583,
+          "comparisons": 12078,
+          "features": 15073
+        },
+        "test": {
+          "profiles": 1446,
+          "comparisons": 11059,
+          "features": 13604
+        }
+      },
+      "report_sha256": "cd3e81aa8c13b6cddb142431f99132d4db38c69a9a7519ad75ff762e6665494a"
+    },
+    {
+      "directory": "shard-0015",
+      "partitions": {
+        "train": {
+          "profiles": 7071,
+          "comparisons": 54235,
+          "features": 67409
+        },
+        "validation": {
+          "profiles": 1456,
+          "comparisons": 11042,
+          "features": 13681
+        },
+        "test": {
+          "profiles": 1473,
+          "comparisons": 11252,
+          "features": 14078
+        }
+      },
+      "report_sha256": "29fc576ac147eaab9427b43e2f5e645c30d88f6a75ca8dc0ba899c3cf455e9a4"
+    },
+    {
+      "directory": "shard-0016",
+      "partitions": {
+        "train": {
+          "profiles": 7096,
+          "comparisons": 54200,
+          "features": 66941
+        },
+        "validation": {
+          "profiles": 1352,
+          "comparisons": 10196,
+          "features": 12624
+        },
+        "test": {
+          "profiles": 1552,
+          "comparisons": 11945,
+          "features": 14826
+        }
+      },
+      "report_sha256": "dee16537e6d636e687f13d03b4ee4e3831cc62ff90a0558924e3b471b97fc721"
+    },
+    {
+      "directory": "shard-0017",
+      "partitions": {
+        "train": {
+          "profiles": 7259,
+          "comparisons": 55683,
+          "features": 68804
+        },
+        "validation": {
+          "profiles": 1371,
+          "comparisons": 10568,
+          "features": 13083
+        },
+        "test": {
+          "profiles": 1370,
+          "comparisons": 10565,
+          "features": 13031
+        }
+      },
+      "report_sha256": "83b0267b1074d253a0fda4e8aa3ebc75a52c79237a0001127dc4f05b1a0a5307"
+    },
+    {
+      "directory": "shard-0018",
+      "partitions": {
+        "train": {
+          "profiles": 7020,
+          "comparisons": 53737,
+          "features": 66583
+        },
+        "validation": {
+          "profiles": 1478,
+          "comparisons": 11165,
+          "features": 13619
+        },
+        "test": {
+          "profiles": 1502,
+          "comparisons": 11494,
+          "features": 14202
+        }
+      },
+      "report_sha256": "5fd702b0df7a9b22b544c2092d769a616a23d237a71b00e892bf9d141900dcc8"
+    },
+    {
+      "directory": "shard-0019",
+      "partitions": {
+        "train": {
+          "profiles": 7009,
+          "comparisons": 53776,
+          "features": 66488
+        },
+        "validation": {
+          "profiles": 1484,
+          "comparisons": 11441,
+          "features": 14200
+        },
+        "test": {
+          "profiles": 1507,
+          "comparisons": 11573,
+          "features": 14401
+        }
+      },
+      "report_sha256": "921c455e88357bb09808f02c62bba9c0dacf487b71230215864984b4a3d3ebee"
+    },
+    {
+      "directory": "shard-0020",
+      "partitions": {
+        "train": {
+          "profiles": 7091,
+          "comparisons": 54404,
+          "features": 67469
+        },
+        "validation": {
+          "profiles": 1483,
+          "comparisons": 11478,
+          "features": 14328
+        },
+        "test": {
+          "profiles": 1426,
+          "comparisons": 10992,
+          "features": 13454
+        }
+      },
+      "report_sha256": "299c2a35d9e09ea69026edcca90dba722bd13322df303c45939329f220567607"
+    },
+    {
+      "directory": "shard-0021",
+      "partitions": {
+        "train": {
+          "profiles": 7120,
+          "comparisons": 54399,
+          "features": 67231
+        },
+        "validation": {
+          "profiles": 1465,
+          "comparisons": 11402,
+          "features": 14187
+        },
+        "test": {
+          "profiles": 1415,
+          "comparisons": 10946,
+          "features": 13505
+        }
+      },
+      "report_sha256": "9a6dd07ba47da9c2c736768d8a9a2564a6c96d5f91daedb990821420708731b2"
+    },
+    {
+      "directory": "shard-0022",
+      "partitions": {
+        "train": {
+          "profiles": 6944,
+          "comparisons": 53170,
+          "features": 65871
+        },
+        "validation": {
+          "profiles": 1446,
+          "comparisons": 11033,
+          "features": 13685
+        },
+        "test": {
+          "profiles": 1610,
+          "comparisons": 12159,
+          "features": 15091
+        }
+      },
+      "report_sha256": "1afa6230a80c502885d3e4a41589bcde60adb28d5f55d85918fc793a70cb27f3"
+    },
+    {
+      "directory": "shard-0023",
+      "partitions": {
+        "train": {
+          "profiles": 7081,
+          "comparisons": 54611,
+          "features": 67827
+        },
+        "validation": {
+          "profiles": 1443,
+          "comparisons": 10934,
+          "features": 13485
+        },
+        "test": {
+          "profiles": 1476,
+          "comparisons": 11481,
+          "features": 14261
+        }
+      },
+      "report_sha256": "c8eb9962ab62121120dda93493d3af51238bb42cafde47c8ec95630116ae1883"
+    },
+    {
+      "directory": "shard-0024",
+      "partitions": {
+        "train": {
+          "profiles": 7112,
+          "comparisons": 54546,
+          "features": 67171
+        },
+        "validation": {
+          "profiles": 1450,
+          "comparisons": 11190,
+          "features": 13939
+        },
+        "test": {
+          "profiles": 1438,
+          "comparisons": 11051,
+          "features": 13619
+        }
+      },
+      "report_sha256": "3253ee3a688be0de83734a22f5ab81dd09b982136f0fa0e8d931caf2d91669d6"
+    },
+    {
+      "directory": "shard-0025",
+      "partitions": {
+        "train": {
+          "profiles": 7020,
+          "comparisons": 53949,
+          "features": 66651
+        },
+        "validation": {
+          "profiles": 1508,
+          "comparisons": 11495,
+          "features": 14141
+        },
+        "test": {
+          "profiles": 1472,
+          "comparisons": 11310,
+          "features": 13810
+        }
+      },
+      "report_sha256": "4a39d19ea5330c959ec4b899319336c0f0e0cc017120597e884b748fde37101d"
+    },
+    {
+      "directory": "shard-0026",
+      "partitions": {
+        "train": {
+          "profiles": 6966,
+          "comparisons": 53407,
+          "features": 65961
+        },
+        "validation": {
+          "profiles": 1546,
+          "comparisons": 11875,
+          "features": 14778
+        },
+        "test": {
+          "profiles": 1488,
+          "comparisons": 11400,
+          "features": 14211
+        }
+      },
+      "report_sha256": "f80f3a916b4827c56c6fb4472fca09a51c67b9aaccd0a79f76aa0200a7076d5d"
+    },
+    {
+      "directory": "shard-0027",
+      "partitions": {
+        "train": {
+          "profiles": 7163,
+          "comparisons": 54835,
+          "features": 67333
+        },
+        "validation": {
+          "profiles": 1415,
+          "comparisons": 10749,
+          "features": 13336
+        },
+        "test": {
+          "profiles": 1422,
+          "comparisons": 10875,
+          "features": 13500
+        }
+      },
+      "report_sha256": "7274eb7962b5945f05b54eb3a96862e70368904acd72a6f1451c88175963cf94"
+    },
+    {
+      "directory": "shard-0028",
+      "partitions": {
+        "train": {
+          "profiles": 6997,
+          "comparisons": 53730,
+          "features": 66315
+        },
+        "validation": {
+          "profiles": 1540,
+          "comparisons": 11827,
+          "features": 14706
+        },
+        "test": {
+          "profiles": 1463,
+          "comparisons": 11031,
+          "features": 13561
+        }
+      },
+      "report_sha256": "32fb62af4fa83861bceec67990a254165c75c68a24a978e90d8bbc03acdd3026"
+    },
+    {
+      "directory": "shard-0029",
+      "partitions": {
+        "train": {
+          "profiles": 6952,
+          "comparisons": 53282,
+          "features": 66162
+        },
+        "validation": {
+          "profiles": 1472,
+          "comparisons": 11208,
+          "features": 13937
+        },
+        "test": {
+          "profiles": 1576,
+          "comparisons": 12121,
+          "features": 14890
+        }
+      },
+      "report_sha256": "fedb9d837494fc4daaf67c50c62918533753523ef3cbb668600b03607e8552a7"
+    },
+    {
+      "directory": "shard-0030",
+      "partitions": {
+        "train": {
+          "profiles": 7030,
+          "comparisons": 53746,
+          "features": 66329
+        },
+        "validation": {
+          "profiles": 1488,
+          "comparisons": 11363,
+          "features": 14103
+        },
+        "test": {
+          "profiles": 1482,
+          "comparisons": 11352,
+          "features": 14110
+        }
+      },
+      "report_sha256": "0c58cc90bca751a0ed7bbf104d16648fa53d44e8b3228af6a70cd57f02a4c8f8"
+    },
+    {
+      "directory": "shard-0031",
+      "partitions": {
+        "train": {
+          "profiles": 6795,
+          "comparisons": 51957,
+          "features": 64371
+        },
+        "validation": {
+          "profiles": 1651,
+          "comparisons": 12543,
+          "features": 15621
+        },
+        "test": {
+          "profiles": 1554,
+          "comparisons": 11995,
+          "features": 14923
+        }
+      },
+      "report_sha256": "c2e8447997397746eff28de755bfe0e021b70f1f4a48bed3fe435be705a905e6"
+    },
+    {
+      "directory": "shard-0032",
+      "partitions": {
+        "train": {
+          "profiles": 6884,
+          "comparisons": 52921,
+          "features": 65234
+        },
+        "validation": {
+          "profiles": 1433,
+          "comparisons": 11142,
+          "features": 13772
+        },
+        "test": {
+          "profiles": 1683,
+          "comparisons": 12825,
+          "features": 15981
+        }
+      },
+      "report_sha256": "3d32a0256d0b86f57fcbc2e151d7ce2b3bee98135c6e0597c9c3757fd3dfd301"
+    },
+    {
+      "directory": "shard-0033",
+      "partitions": {
+        "train": {
+          "profiles": 6913,
+          "comparisons": 53320,
+          "features": 66042
+        },
+        "validation": {
+          "profiles": 1574,
+          "comparisons": 12153,
+          "features": 15157
+        },
+        "test": {
+          "profiles": 1513,
+          "comparisons": 11527,
+          "features": 14496
+        }
+      },
+      "report_sha256": "1afaf155af02779afc7195bc1f2125475f2638128e5a7e6c078a0bc3687adc80"
+    },
+    {
+      "directory": "shard-0034",
+      "partitions": {
+        "train": {
+          "profiles": 6918,
+          "comparisons": 53127,
+          "features": 65566
+        },
+        "validation": {
+          "profiles": 1484,
+          "comparisons": 11402,
+          "features": 14134
+        },
+        "test": {
+          "profiles": 1598,
+          "comparisons": 12241,
+          "features": 15131
+        }
+      },
+      "report_sha256": "3913cc66367b4024a7bc3edf59d94257616c5edfca0dac28867497e9d36db7db"
+    },
+    {
+      "directory": "shard-0035",
+      "partitions": {
+        "train": {
+          "profiles": 6897,
+          "comparisons": 53030,
+          "features": 65543
+        },
+        "validation": {
+          "profiles": 1592,
+          "comparisons": 12283,
+          "features": 15305
+        },
+        "test": {
+          "profiles": 1511,
+          "comparisons": 11528,
+          "features": 14300
+        }
+      },
+      "report_sha256": "617483db180059edd7a3e1c930eb1f7102f5f1c9cf0df6f1c77aca46cf2263e6"
+    },
+    {
+      "directory": "shard-0036",
+      "partitions": {
+        "train": {
+          "profiles": 6989,
+          "comparisons": 53431,
+          "features": 65915
+        },
+        "validation": {
+          "profiles": 1508,
+          "comparisons": 11507,
+          "features": 14246
+        },
+        "test": {
+          "profiles": 1503,
+          "comparisons": 11443,
+          "features": 13943
+        }
+      },
+      "report_sha256": "47fea67fcc1284c6eb5bd9fe0f4cbbd60afae0d6de42be3594ed96f5ef89ffbc"
+    },
+    {
+      "directory": "shard-0037",
+      "partitions": {
+        "train": {
+          "profiles": 6892,
+          "comparisons": 52915,
+          "features": 65418
+        },
+        "validation": {
+          "profiles": 1562,
+          "comparisons": 11901,
+          "features": 14654
+        },
+        "test": {
+          "profiles": 1546,
+          "comparisons": 12000,
+          "features": 14805
+        }
+      },
+      "report_sha256": "2d86ae6c2c77a644425c3455d3b2a5128f242c34efc181604bc781e4dffd7c6a"
+    },
+    {
+      "directory": "shard-0038",
+      "partitions": {
+        "train": {
+          "profiles": 7045,
+          "comparisons": 54015,
+          "features": 66899
+        },
+        "validation": {
+          "profiles": 1537,
+          "comparisons": 11795,
+          "features": 14704
+        },
+        "test": {
+          "profiles": 1418,
+          "comparisons": 10985,
+          "features": 13615
+        }
+      },
+      "report_sha256": "52460b7b1d976ba272a4a5731e1b2bee7f9a00b599f492e781ab68f514033c99"
+    },
+    {
+      "directory": "shard-0039",
+      "partitions": {
+        "train": {
+          "profiles": 7112,
+          "comparisons": 54499,
+          "features": 67305
+        },
+        "validation": {
+          "profiles": 1460,
+          "comparisons": 11181,
+          "features": 13950
+        },
+        "test": {
+          "profiles": 1428,
+          "comparisons": 10939,
+          "features": 13376
+        }
+      },
+      "report_sha256": "ba9a1c3bacbabeeb3ec1626f1ebde45abe7d02805901a458d968285ee9dc2a81"
+    },
+    {
+      "directory": "shard-0040",
+      "partitions": {
+        "train": {
+          "profiles": 7107,
+          "comparisons": 54727,
+          "features": 67717
+        },
+        "validation": {
+          "profiles": 1477,
+          "comparisons": 11440,
+          "features": 14130
+        },
+        "test": {
+          "profiles": 1416,
+          "comparisons": 10965,
+          "features": 13454
+        }
+      },
+      "report_sha256": "8827d05295bad999b7a6b863a4b3cb84661da59a9a07e1740ed73ea817379790"
+    },
+    {
+      "directory": "shard-0041",
+      "partitions": {
+        "train": {
+          "profiles": 6998,
+          "comparisons": 53692,
+          "features": 66795
+        },
+        "validation": {
+          "profiles": 1482,
+          "comparisons": 11312,
+          "features": 13966
+        },
+        "test": {
+          "profiles": 1520,
+          "comparisons": 11750,
+          "features": 14582
+        }
+      },
+      "report_sha256": "62b3a1ee1c41628fa6a65ba689ee759753b2d3426a39d332bdd50f487830a606"
+    },
+    {
+      "directory": "shard-0042",
+      "partitions": {
+        "train": {
+          "profiles": 7164,
+          "comparisons": 54942,
+          "features": 68024
+        },
+        "validation": {
+          "profiles": 1477,
+          "comparisons": 11339,
+          "features": 14049
+        },
+        "test": {
+          "profiles": 1359,
+          "comparisons": 10453,
+          "features": 12964
+        }
+      },
+      "report_sha256": "df98c80ce8cfc59a30021354b6b047667b042b9199ee370a215086359015421d"
+    },
+    {
+      "directory": "shard-0043",
+      "partitions": {
+        "train": {
+          "profiles": 7065,
+          "comparisons": 54044,
+          "features": 66950
+        },
+        "validation": {
+          "profiles": 1363,
+          "comparisons": 10388,
+          "features": 12954
+        },
+        "test": {
+          "profiles": 1572,
+          "comparisons": 11853,
+          "features": 14785
+        }
+      },
+      "report_sha256": "ef09b84a48069bfdf175630c715dd20762c0df715f0c584e88bcbc068337b0f5"
+    },
+    {
+      "directory": "shard-0044",
+      "partitions": {
+        "train": {
+          "profiles": 6936,
+          "comparisons": 53038,
+          "features": 65824
+        },
+        "validation": {
+          "profiles": 1504,
+          "comparisons": 11480,
+          "features": 14187
+        },
+        "test": {
+          "profiles": 1560,
+          "comparisons": 12011,
+          "features": 15025
+        }
+      },
+      "report_sha256": "cbeafe0edd59049c83b938ba760b345899a5ddca651dfc771ac38e6ba30c43ad"
+    },
+    {
+      "directory": "shard-0045",
+      "partitions": {
+        "train": {
+          "profiles": 7137,
+          "comparisons": 54749,
+          "features": 67650
+        },
+        "validation": {
+          "profiles": 1467,
+          "comparisons": 11219,
+          "features": 13850
+        },
+        "test": {
+          "profiles": 1396,
+          "comparisons": 10606,
+          "features": 13215
+        }
+      },
+      "report_sha256": "2ca18e4c1699e4731c578b34c32ac5fa0d33adc556f662ff99ce5cd5e1373358"
+    },
+    {
+      "directory": "shard-0046",
+      "partitions": {
+        "train": {
+          "profiles": 7036,
+          "comparisons": 53972,
+          "features": 66878
+        },
+        "validation": {
+          "profiles": 1467,
+          "comparisons": 11199,
+          "features": 13743
+        },
+        "test": {
+          "profiles": 1497,
+          "comparisons": 11705,
+          "features": 14627
+        }
+      },
+      "report_sha256": "4977e7265c879363171a30dd1bcce58713a248fa151bb526fe44271e41d1475a"
+    },
+    {
+      "directory": "shard-0047",
+      "partitions": {
+        "train": {
+          "profiles": 7131,
+          "comparisons": 54447,
+          "features": 67226
+        },
+        "validation": {
+          "profiles": 1385,
+          "comparisons": 10600,
+          "features": 12882
+        },
+        "test": {
+          "profiles": 1484,
+          "comparisons": 11287,
+          "features": 14012
+        }
+      },
+      "report_sha256": "b7621204f5894c8c1f70f3f3e43300bae911212862b1cd94f692e4d94bc5773f"
+    },
+    {
+      "directory": "shard-0048",
+      "partitions": {
+        "train": {
+          "profiles": 7188,
+          "comparisons": 55101,
+          "features": 68507
+        },
+        "validation": {
+          "profiles": 1442,
+          "comparisons": 10861,
+          "features": 13461
+        },
+        "test": {
+          "profiles": 1370,
+          "comparisons": 10515,
+          "features": 13082
+        }
+      },
+      "report_sha256": "ce7605f2d243404cbdb29b713de76272f9f27e49ab212aa3c629d1f1f830fe0d"
+    },
+    {
+      "directory": "shard-0049",
+      "partitions": {
+        "train": {
+          "profiles": 6944,
+          "comparisons": 53154,
+          "features": 66033
+        },
+        "validation": {
+          "profiles": 1503,
+          "comparisons": 11514,
+          "features": 14304
+        },
+        "test": {
+          "profiles": 1553,
+          "comparisons": 11854,
+          "features": 14705
+        }
+      },
+      "report_sha256": "7d170e9e108d5b38262e5ac2cec6b08c14c344a447e29be6f21fba171a2beaa9"
+    },
+    {
+      "directory": "shard-0050",
+      "partitions": {
+        "train": {
+          "profiles": 6928,
+          "comparisons": 53334,
+          "features": 66008
+        },
+        "validation": {
+          "profiles": 1397,
+          "comparisons": 10650,
+          "features": 13124
+        },
+        "test": {
+          "profiles": 1675,
+          "comparisons": 12703,
+          "features": 15684
+        }
+      },
+      "report_sha256": "2f8242ad058c75d4869ca345772bee3872f4b1b491ec854e2baa34232d460204"
+    },
+    {
+      "directory": "shard-0051",
+      "partitions": {
+        "train": {
+          "profiles": 7091,
+          "comparisons": 54336,
+          "features": 67100
+        },
+        "validation": {
+          "profiles": 1436,
+          "comparisons": 10755,
+          "features": 13384
+        },
+        "test": {
+          "profiles": 1473,
+          "comparisons": 11280,
+          "features": 13908
+        }
+      },
+      "report_sha256": "715c52dc612813bf4b3714c0c6c7f0c23542f4fdd0742db671a128f0cfe35d8f"
+    },
+    {
+      "directory": "shard-0052",
+      "partitions": {
+        "train": {
+          "profiles": 7033,
+          "comparisons": 54065,
+          "features": 67283
+        },
+        "validation": {
+          "profiles": 1542,
+          "comparisons": 11720,
+          "features": 14552
+        },
+        "test": {
+          "profiles": 1425,
+          "comparisons": 10939,
+          "features": 13501
+        }
+      },
+      "report_sha256": "274c036d008f2ce92d488729064cf69d3fa8ce24c711b59b970e49d9ba682914"
+    },
+    {
+      "directory": "shard-0053",
+      "partitions": {
+        "train": {
+          "profiles": 7047,
+          "comparisons": 53992,
+          "features": 66821
+        },
+        "validation": {
+          "profiles": 1390,
+          "comparisons": 10601,
+          "features": 13140
+        },
+        "test": {
+          "profiles": 1563,
+          "comparisons": 11880,
+          "features": 14803
+        }
+      },
+      "report_sha256": "c66c48f6ea1e6f9eb35ffb3433c11a5cb9fff449027bbe170b727e8aaa7bf037"
+    },
+    {
+      "directory": "shard-0054",
+      "partitions": {
+        "train": {
+          "profiles": 6973,
+          "comparisons": 53706,
+          "features": 66708
+        },
+        "validation": {
+          "profiles": 1589,
+          "comparisons": 12230,
+          "features": 14992
+        },
+        "test": {
+          "profiles": 1438,
+          "comparisons": 11018,
+          "features": 13747
+        }
+      },
+      "report_sha256": "7e6e68c71283f04397addf4835b2f1487a23d09f2373d017497651d6ae962996"
+    },
+    {
+      "directory": "shard-0055",
+      "partitions": {
+        "train": {
+          "profiles": 6871,
+          "comparisons": 52719,
+          "features": 65285
+        },
+        "validation": {
+          "profiles": 1542,
+          "comparisons": 11772,
+          "features": 14352
+        },
+        "test": {
+          "profiles": 1587,
+          "comparisons": 12313,
+          "features": 15044
+        }
+      },
+      "report_sha256": "d33fed56b7512a8c6c36bd76a4dcf1e93e4228f1075bb23d84bb3df1f6988646"
+    },
+    {
+      "directory": "shard-0056",
+      "partitions": {
+        "train": {
+          "profiles": 7041,
+          "comparisons": 54219,
+          "features": 67232
+        },
+        "validation": {
+          "profiles": 1498,
+          "comparisons": 11408,
+          "features": 14177
+        },
+        "test": {
+          "profiles": 1461,
+          "comparisons": 11269,
+          "features": 13847
+        }
+      },
+      "report_sha256": "4596591566365482111a9922fabed5967b897f3ad0689498bccde9a648ad8ea1"
+    },
+    {
+      "directory": "shard-0057",
+      "partitions": {
+        "train": {
+          "profiles": 7020,
+          "comparisons": 53771,
+          "features": 66799
+        },
+        "validation": {
+          "profiles": 1450,
+          "comparisons": 11236,
+          "features": 13901
+        },
+        "test": {
+          "profiles": 1530,
+          "comparisons": 11950,
+          "features": 14873
+        }
+      },
+      "report_sha256": "708e45f034cafadc127b3d8d4887d5606a740deb9db60ecd3733e1960afdb25e"
+    },
+    {
+      "directory": "shard-0058",
+      "partitions": {
+        "train": {
+          "profiles": 7001,
+          "comparisons": 53618,
+          "features": 66407
+        },
+        "validation": {
+          "profiles": 1457,
+          "comparisons": 11065,
+          "features": 13886
+        },
+        "test": {
+          "profiles": 1542,
+          "comparisons": 11781,
+          "features": 14721
+        }
+      },
+      "report_sha256": "1a1859f950cc83a74ba45b46dc0043c09571f9ab8dcf640d3ec70d05254bf25b"
+    },
+    {
+      "directory": "shard-0059",
+      "partitions": {
+        "train": {
+          "profiles": 7106,
+          "comparisons": 54366,
+          "features": 67402
+        },
+        "validation": {
+          "profiles": 1298,
+          "comparisons": 9936,
+          "features": 12361
+        },
+        "test": {
+          "profiles": 1596,
+          "comparisons": 12279,
+          "features": 15321
+        }
+      },
+      "report_sha256": "d66aa761dc2ef9fa8813dcd2c7bcbc4643b83a0ee62e57745b4c9e7706ba9881"
+    },
+    {
+      "directory": "shard-0060",
+      "partitions": {
+        "train": {
+          "profiles": 6865,
+          "comparisons": 53088,
+          "features": 65629
+        },
+        "validation": {
+          "profiles": 1573,
+          "comparisons": 12071,
+          "features": 14799
+        },
+        "test": {
+          "profiles": 1562,
+          "comparisons": 12007,
+          "features": 14788
+        }
+      },
+      "report_sha256": "62bf37003b8e8f43caf15c9faddf035c50dbed5d7dfa9968ea65e8554e18e2fa"
+    },
+    {
+      "directory": "shard-0061",
+      "partitions": {
+        "train": {
+          "profiles": 6786,
+          "comparisons": 52015,
+          "features": 64462
+        },
+        "validation": {
+          "profiles": 1612,
+          "comparisons": 12488,
+          "features": 15289
+        },
+        "test": {
+          "profiles": 1602,
+          "comparisons": 12362,
+          "features": 15107
+        }
+      },
+      "report_sha256": "f43b086c4d0e069aada171ad1cdd64a8978efeb11ed33be2445e734fde5e0bee"
+    },
+    {
+      "directory": "shard-0062",
+      "partitions": {
+        "train": {
+          "profiles": 6865,
+          "comparisons": 52579,
+          "features": 65047
+        },
+        "validation": {
+          "profiles": 1572,
+          "comparisons": 12030,
+          "features": 15071
+        },
+        "test": {
+          "profiles": 1563,
+          "comparisons": 11918,
+          "features": 14773
+        }
+      },
+      "report_sha256": "a3aaa32ea0eea9638f9d888373dce5167522004e09d67eb843047991aa68ec11"
+    },
+    {
+      "directory": "shard-0063",
+      "partitions": {
+        "train": {
+          "profiles": 7043,
+          "comparisons": 54027,
+          "features": 66690
+        },
+        "validation": {
+          "profiles": 1457,
+          "comparisons": 11215,
+          "features": 13804
+        },
+        "test": {
+          "profiles": 1500,
+          "comparisons": 11472,
+          "features": 14056
+        }
+      },
+      "report_sha256": "bfe8d500e06ff421a3a26e62815ad6469fb16226bc33a3598303b33715d144c2"
+    },
+    {
+      "directory": "shard-0064",
+      "partitions": {
+        "train": {
+          "profiles": 6978,
+          "comparisons": 53642,
+          "features": 66262
+        },
+        "validation": {
+          "profiles": 1481,
+          "comparisons": 11304,
+          "features": 13952
+        },
+        "test": {
+          "profiles": 1541,
+          "comparisons": 11831,
+          "features": 14632
+        }
+      },
+      "report_sha256": "32dec1a32aeba5a1f9a78a3253663beaec90f2c390f37a2b92184a6ef1597cba"
+    },
+    {
+      "directory": "shard-0065",
+      "partitions": {
+        "train": {
+          "profiles": 6897,
+          "comparisons": 52898,
+          "features": 65580
+        },
+        "validation": {
+          "profiles": 1618,
+          "comparisons": 12425,
+          "features": 15275
+        },
+        "test": {
+          "profiles": 1485,
+          "comparisons": 11459,
+          "features": 14035
+        }
+      },
+      "report_sha256": "3073e2700b5c918bbc981cd2f36837ccfa71f7c15bd2515cef3bbd15f117bce3"
+    },
+    {
+      "directory": "shard-0066",
+      "partitions": {
+        "train": {
+          "profiles": 6915,
+          "comparisons": 53095,
+          "features": 65790
+        },
+        "validation": {
+          "profiles": 1561,
+          "comparisons": 12098,
+          "features": 15010
+        },
+        "test": {
+          "profiles": 1524,
+          "comparisons": 11723,
+          "features": 14393
+        }
+      },
+      "report_sha256": "89aafa599236f40a52130402a77ac790856f7a73b192f5f651213aaf44dcfe0c"
+    },
+    {
+      "directory": "shard-0067",
+      "partitions": {
+        "train": {
+          "profiles": 6945,
+          "comparisons": 53563,
+          "features": 66266
+        },
+        "validation": {
+          "profiles": 1543,
+          "comparisons": 11809,
+          "features": 14622
+        },
+        "test": {
+          "profiles": 1512,
+          "comparisons": 11696,
+          "features": 14376
+        }
+      },
+      "report_sha256": "9172a0bae27dfbe826d5b6869ef0b2446e81b5437347f068c7e38139b2cedbf8"
+    },
+    {
+      "directory": "shard-0068",
+      "partitions": {
+        "train": {
+          "profiles": 7070,
+          "comparisons": 54034,
+          "features": 67035
+        },
+        "validation": {
+          "profiles": 1502,
+          "comparisons": 11703,
+          "features": 14582
+        },
+        "test": {
+          "profiles": 1428,
+          "comparisons": 10927,
+          "features": 13601
+        }
+      },
+      "report_sha256": "78c28bbdb2774e98f06f5f2fd0a125b7fb0775164fdf05f105d97b46eee22c11"
+    },
+    {
+      "directory": "shard-0069",
+      "partitions": {
+        "train": {
+          "profiles": 7222,
+          "comparisons": 55337,
+          "features": 68511
+        },
+        "validation": {
+          "profiles": 1424,
+          "comparisons": 10876,
+          "features": 13305
+        },
+        "test": {
+          "profiles": 1354,
+          "comparisons": 10338,
+          "features": 12903
+        }
+      },
+      "report_sha256": "404bb4fd764fdc77732ab4b03f40ca1627071c48954fa70b0710426bd8840869"
+    },
+    {
+      "directory": "shard-0070",
+      "partitions": {
+        "train": {
+          "profiles": 6950,
+          "comparisons": 53130,
+          "features": 65477
+        },
+        "validation": {
+          "profiles": 1601,
+          "comparisons": 12234,
+          "features": 15035
+        },
+        "test": {
+          "profiles": 1449,
+          "comparisons": 11063,
+          "features": 13686
+        }
+      },
+      "report_sha256": "ce3a31f3c3ce103420e43333fba32dbf94b559fcf79851b3882ee5e17a90eddf"
+    },
+    {
+      "directory": "shard-0071",
+      "partitions": {
+        "train": {
+          "profiles": 6907,
+          "comparisons": 53323,
+          "features": 65853
+        },
+        "validation": {
+          "profiles": 1513,
+          "comparisons": 11629,
+          "features": 14498
+        },
+        "test": {
+          "profiles": 1580,
+          "comparisons": 12146,
+          "features": 15110
+        }
+      },
+      "report_sha256": "e4ff10bdb2a28c38c36aa6ec5082a1eb35a13c90ff262d4fa72ed3e3961eebd7"
+    },
+    {
+      "directory": "shard-0072",
+      "partitions": {
+        "train": {
+          "profiles": 6905,
+          "comparisons": 52953,
+          "features": 65498
+        },
+        "validation": {
+          "profiles": 1495,
+          "comparisons": 11367,
+          "features": 14031
+        },
+        "test": {
+          "profiles": 1600,
+          "comparisons": 12180,
+          "features": 14970
+        }
+      },
+      "report_sha256": "160f88ed6d0bf356d2ae829395919743e0de585411cb6ec655aeaa44cb83208f"
+    },
+    {
+      "directory": "shard-0073",
+      "partitions": {
+        "train": {
+          "profiles": 7004,
+          "comparisons": 53629,
+          "features": 66619
+        },
+        "validation": {
+          "profiles": 1609,
+          "comparisons": 12335,
+          "features": 15335
+        },
+        "test": {
+          "profiles": 1387,
+          "comparisons": 10686,
+          "features": 13263
+        }
+      },
+      "report_sha256": "0b33138483fb4aa315393b638a905d4850e065076f0a3fc7a0619b702d4cbd2d"
+    },
+    {
+      "directory": "shard-0074",
+      "partitions": {
+        "train": {
+          "profiles": 7080,
+          "comparisons": 54484,
+          "features": 67112
+        },
+        "validation": {
+          "profiles": 1421,
+          "comparisons": 10872,
+          "features": 13555
+        },
+        "test": {
+          "profiles": 1499,
+          "comparisons": 11574,
+          "features": 14323
+        }
+      },
+      "report_sha256": "5d662ba0b5f05c7e7c51786c871a4efc2cc2f882b38c919512118ad8ac65a1a7"
+    },
+    {
+      "directory": "shard-0075",
+      "partitions": {
+        "train": {
+          "profiles": 7073,
+          "comparisons": 54058,
+          "features": 67056
+        },
+        "validation": {
+          "profiles": 1428,
+          "comparisons": 11051,
+          "features": 13637
+        },
+        "test": {
+          "profiles": 1499,
+          "comparisons": 11266,
+          "features": 13888
+        }
+      },
+      "report_sha256": "9fdf2f3c7c8df1c37d812c6672e01f132fce6ade3448077afddf1ae28325d0ff"
+    },
+    {
+      "directory": "shard-0076",
+      "partitions": {
+        "train": {
+          "profiles": 7016,
+          "comparisons": 54161,
+          "features": 66767
+        },
+        "validation": {
+          "profiles": 1427,
+          "comparisons": 11012,
+          "features": 13591
+        },
+        "test": {
+          "profiles": 1557,
+          "comparisons": 11984,
+          "features": 14849
+        }
+      },
+      "report_sha256": "38ae53e984bee4509ad168e948a599408bca1d347a29d4ea36749b08a689d250"
+    },
+    {
+      "directory": "shard-0077",
+      "partitions": {
+        "train": {
+          "profiles": 6918,
+          "comparisons": 53018,
+          "features": 65544
+        },
+        "validation": {
+          "profiles": 1522,
+          "comparisons": 11520,
+          "features": 14254
+        },
+        "test": {
+          "profiles": 1560,
+          "comparisons": 11800,
+          "features": 14463
+        }
+      },
+      "report_sha256": "c5563afe7e87ba7df8b043e5738ae6405f9b5dfd55f5c80a40ec90404e57f287"
+    },
+    {
+      "directory": "shard-0078",
+      "partitions": {
+        "train": {
+          "profiles": 6906,
+          "comparisons": 53030,
+          "features": 65690
+        },
+        "validation": {
+          "profiles": 1547,
+          "comparisons": 11891,
+          "features": 14608
+        },
+        "test": {
+          "profiles": 1547,
+          "comparisons": 12004,
+          "features": 14864
+        }
+      },
+      "report_sha256": "966d2d95bc59664bc712b5a89dfdda6891623ae3d45f51881822816255c92700"
+    },
+    {
+      "directory": "shard-0079",
+      "partitions": {
+        "train": {
+          "profiles": 6903,
+          "comparisons": 52652,
+          "features": 64950
+        },
+        "validation": {
+          "profiles": 1556,
+          "comparisons": 11828,
+          "features": 14816
+        },
+        "test": {
+          "profiles": 1541,
+          "comparisons": 11855,
+          "features": 14611
+        }
+      },
+      "report_sha256": "102e2a144860ca765ce6e5b32e30079b74b8059128cb48b428fd1fffa9f7433a"
+    },
+    {
+      "directory": "shard-0080",
+      "partitions": {
+        "train": {
+          "profiles": 6980,
+          "comparisons": 53584,
+          "features": 66235
+        },
+        "validation": {
+          "profiles": 1536,
+          "comparisons": 11924,
+          "features": 14787
+        },
+        "test": {
+          "profiles": 1484,
+          "comparisons": 11490,
+          "features": 14053
+        }
+      },
+      "report_sha256": "44f27e4fb4e03334f5d50e1c44de559c8472023830e224ad0735069366854b63"
+    },
+    {
+      "directory": "shard-0081",
+      "partitions": {
+        "train": {
+          "profiles": 7156,
+          "comparisons": 54615,
+          "features": 67307
+        },
+        "validation": {
+          "profiles": 1452,
+          "comparisons": 11178,
+          "features": 13856
+        },
+        "test": {
+          "profiles": 1392,
+          "comparisons": 10709,
+          "features": 13092
+        }
+      },
+      "report_sha256": "df52234e28ea539f1f69263aca953956aed83bac5510463cdb43647c9bc836fe"
+    },
+    {
+      "directory": "shard-0082",
+      "partitions": {
+        "train": {
+          "profiles": 6914,
+          "comparisons": 52780,
+          "features": 65226
+        },
+        "validation": {
+          "profiles": 1580,
+          "comparisons": 12034,
+          "features": 14915
+        },
+        "test": {
+          "profiles": 1506,
+          "comparisons": 11446,
+          "features": 14279
+        }
+      },
+      "report_sha256": "919448a39de06a1a3b3e0ca33eb98cabd808caee4717e415c09c3fc22731341d"
+    },
+    {
+      "directory": "shard-0083",
+      "partitions": {
+        "train": {
+          "profiles": 6814,
+          "comparisons": 52392,
+          "features": 64729
+        },
+        "validation": {
+          "profiles": 1643,
+          "comparisons": 12512,
+          "features": 15517
+        },
+        "test": {
+          "profiles": 1543,
+          "comparisons": 11877,
+          "features": 14641
+        }
+      },
+      "report_sha256": "11f4f8e278f350eb50ca8ba0c2795e4402be4f8fef080bb2234694a2b1ddd97b"
+    },
+    {
+      "directory": "shard-0084",
+      "partitions": {
+        "train": {
+          "profiles": 7100,
+          "comparisons": 54456,
+          "features": 67433
+        },
+        "validation": {
+          "profiles": 1453,
+          "comparisons": 11136,
+          "features": 13748
+        },
+        "test": {
+          "profiles": 1447,
+          "comparisons": 11024,
+          "features": 13581
+        }
+      },
+      "report_sha256": "a9b84f19a3fc2e64901ded1240bbeb71bf3b05a79cb37fd4ec576e208ea26364"
+    },
+    {
+      "directory": "shard-0085",
+      "partitions": {
+        "train": {
+          "profiles": 7052,
+          "comparisons": 53900,
+          "features": 66545
+        },
+        "validation": {
+          "profiles": 1467,
+          "comparisons": 11280,
+          "features": 14012
+        },
+        "test": {
+          "profiles": 1481,
+          "comparisons": 11403,
+          "features": 13947
+        }
+      },
+      "report_sha256": "854621f382f7092397ffeb1dbea791f6cfec66d2150fb87ad181f5a1a8e779ca"
+    },
+    {
+      "directory": "shard-0086",
+      "partitions": {
+        "train": {
+          "profiles": 7027,
+          "comparisons": 53844,
+          "features": 66349
+        },
+        "validation": {
+          "profiles": 1507,
+          "comparisons": 11606,
+          "features": 14221
+        },
+        "test": {
+          "profiles": 1466,
+          "comparisons": 11374,
+          "features": 14080
+        }
+      },
+      "report_sha256": "23eb3b78990a428e112a16a83b3f823db5fe9cdaa5c161e54ffde54fa03f09d9"
+    },
+    {
+      "directory": "shard-0087",
+      "partitions": {
+        "train": {
+          "profiles": 6835,
+          "comparisons": 52447,
+          "features": 64894
+        },
+        "validation": {
+          "profiles": 1577,
+          "comparisons": 12075,
+          "features": 14978
+        },
+        "test": {
+          "profiles": 1588,
+          "comparisons": 12048,
+          "features": 14861
+        }
+      },
+      "report_sha256": "d9e1896985cc1491036db2c43b2b9b250595b3258c7cf3860c299c4a80cd7d3d"
+    },
+    {
+      "directory": "shard-0088",
+      "partitions": {
+        "train": {
+          "profiles": 6990,
+          "comparisons": 53671,
+          "features": 66367
+        },
+        "validation": {
+          "profiles": 1532,
+          "comparisons": 11688,
+          "features": 14605
+        },
+        "test": {
+          "profiles": 1478,
+          "comparisons": 11329,
+          "features": 14121
+        }
+      },
+      "report_sha256": "d43452d0ddbc2c55ca1808e2f156c95b2d13531c844144d8df49cd716c8cf535"
+    },
+    {
+      "directory": "shard-0089",
+      "partitions": {
+        "train": {
+          "profiles": 7082,
+          "comparisons": 54225,
+          "features": 67230
+        },
+        "validation": {
+          "profiles": 1434,
+          "comparisons": 10904,
+          "features": 13547
+        },
+        "test": {
+          "profiles": 1484,
+          "comparisons": 11447,
+          "features": 14175
+        }
+      },
+      "report_sha256": "d960736d841603252dd8de4cbfa1232e84c7baa6c24cd15c6c295a078a407bfd"
+    },
+    {
+      "directory": "shard-0090",
+      "partitions": {
+        "train": {
+          "profiles": 7085,
+          "comparisons": 54400,
+          "features": 67209
+        },
+        "validation": {
+          "profiles": 1486,
+          "comparisons": 11545,
+          "features": 14376
+        },
+        "test": {
+          "profiles": 1429,
+          "comparisons": 11017,
+          "features": 13635
+        }
+      },
+      "report_sha256": "98414b38d038a777844ea16a9af8a2af2de898c96eb390c1943df207af9693bb"
+    },
+    {
+      "directory": "shard-0091",
+      "partitions": {
+        "train": {
+          "profiles": 7028,
+          "comparisons": 53705,
+          "features": 66271
+        },
+        "validation": {
+          "profiles": 1523,
+          "comparisons": 11562,
+          "features": 14306
+        },
+        "test": {
+          "profiles": 1449,
+          "comparisons": 11051,
+          "features": 13540
+        }
+      },
+      "report_sha256": "c3274d9f731beb29dcaf28233c256277ab1c7adadaa51bc78937291079e3ed5e"
+    },
+    {
+      "directory": "shard-0092",
+      "partitions": {
+        "train": {
+          "profiles": 7047,
+          "comparisons": 53757,
+          "features": 66996
+        },
+        "validation": {
+          "profiles": 1397,
+          "comparisons": 10574,
+          "features": 13037
+        },
+        "test": {
+          "profiles": 1556,
+          "comparisons": 11912,
+          "features": 14817
+        }
+      },
+      "report_sha256": "dad1423cecb5a27439e7f6fb52f75dc222a077eabc27280f325a8d385440a1b8"
+    },
+    {
+      "directory": "shard-0093",
+      "partitions": {
+        "train": {
+          "profiles": 6893,
+          "comparisons": 52412,
+          "features": 64855
+        },
+        "validation": {
+          "profiles": 1488,
+          "comparisons": 11447,
+          "features": 14143
+        },
+        "test": {
+          "profiles": 1619,
+          "comparisons": 12500,
+          "features": 15408
+        }
+      },
+      "report_sha256": "a712ad35bfb964813c38e2872c5bff6cdf628ab728b1b0406e9f1ef7adc09dbd"
+    },
+    {
+      "directory": "shard-0094",
+      "partitions": {
+        "train": {
+          "profiles": 6969,
+          "comparisons": 53136,
+          "features": 65803
+        },
+        "validation": {
+          "profiles": 1501,
+          "comparisons": 11416,
+          "features": 14035
+        },
+        "test": {
+          "profiles": 1530,
+          "comparisons": 11642,
+          "features": 14516
+        }
+      },
+      "report_sha256": "4a8c6290f989d3f25a6b311e73cf1e7924ad8bab7d1c10121ad2493011e013a0"
+    },
+    {
+      "directory": "shard-0095",
+      "partitions": {
+        "train": {
+          "profiles": 6844,
+          "comparisons": 52861,
+          "features": 65412
+        },
+        "validation": {
+          "profiles": 1544,
+          "comparisons": 11929,
+          "features": 14526
+        },
+        "test": {
+          "profiles": 1612,
+          "comparisons": 12232,
+          "features": 15210
+        }
+      },
+      "report_sha256": "18500f86bc292fa2b92a164f79a9d64376616391a2f9f6908eb74b6b2b755c0a"
+    },
+    {
+      "directory": "shard-0096",
+      "partitions": {
+        "train": {
+          "profiles": 7064,
+          "comparisons": 54518,
+          "features": 67585
+        },
+        "validation": {
+          "profiles": 1430,
+          "comparisons": 11017,
+          "features": 13659
+        },
+        "test": {
+          "profiles": 1506,
+          "comparisons": 11463,
+          "features": 14230
+        }
+      },
+      "report_sha256": "f6ea2f54b69328c078789cb23e7cb4931809e37d628e8e128652032a5d3ff4a8"
+    },
+    {
+      "directory": "shard-0097",
+      "partitions": {
+        "train": {
+          "profiles": 6960,
+          "comparisons": 53157,
+          "features": 65515
+        },
+        "validation": {
+          "profiles": 1508,
+          "comparisons": 11480,
+          "features": 14213
+        },
+        "test": {
+          "profiles": 1532,
+          "comparisons": 11825,
+          "features": 14623
+        }
+      },
+      "report_sha256": "7ea4d896d22338a75bf5a5c182cdc628e49319ea20147d254149f0b029889bde"
+    },
+    {
+      "directory": "shard-0098",
+      "partitions": {
+        "train": {
+          "profiles": 6915,
+          "comparisons": 53355,
+          "features": 66254
+        },
+        "validation": {
+          "profiles": 1459,
+          "comparisons": 11248,
+          "features": 14055
+        },
+        "test": {
+          "profiles": 1626,
+          "comparisons": 12467,
+          "features": 15243
+        }
+      },
+      "report_sha256": "bad47cbf80c6395b6488c8aa8196b86dee1b988c2f3dbb82f4396cbcb1c24e19"
+    },
+    {
+      "directory": "shard-0099",
+      "partitions": {
+        "train": {
+          "profiles": 7033,
+          "comparisons": 53743,
+          "features": 66604
+        },
+        "validation": {
+          "profiles": 1459,
+          "comparisons": 11069,
+          "features": 13668
+        },
+        "test": {
+          "profiles": 1508,
+          "comparisons": 11591,
+          "features": 14324
+        }
+      },
+      "report_sha256": "916bb0364b2de54fbd57a287c4c77c136dd518dd97b33f4033148d95341d1c53"
+    }
+  ],
+  "partitions": {
+    "train": {
+      "profiles": 700126,
+      "comparisons": 5368642,
+      "features": 6642560
+    },
+    "validation": {
+      "profiles": 149653,
+      "comparisons": 1146064,
+      "features": 1419029
+    },
+    "test": {
+      "profiles": 150221,
+      "comparisons": 1152320,
+      "features": 1424758
+    }
+  }
+}

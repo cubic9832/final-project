@@ -1,0 +1,511 @@
+{
+  "SourceBranch": "hhc",
+  "FilesChecked": 84,
+  "FilesChanged": 0,
+  "Models": [
+    {
+      "Path": "ml/outputs/models/.gitkeep",
+      "Before": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "After": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261026-100k-v1/catalog.json",
+      "Before": "78FC859B0ED717E5B8AF544E8DE6D132DCC5F50BDF1D22D2ABF368E20BD77B62",
+      "After": "78FC859B0ED717E5B8AF544E8DE6D132DCC5F50BDF1D22D2ABF368E20BD77B62",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261026-100k-v1/holdout_report.json",
+      "Before": "D2FE14D7DA57F2E2CF3A10571070FAFE70E1BB969684496C5AEBAF810FE4A1F1",
+      "After": "D2FE14D7DA57F2E2CF3A10571070FAFE70E1BB969684496C5AEBAF810FE4A1F1",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261026-100k-v1/metadata.json",
+      "Before": "B7A812A9C215F15CBBE4204CF8A50CF9412C28A7133028E507D189E2620F6E89",
+      "After": "B7A812A9C215F15CBBE4204CF8A50CF9412C28A7133028E507D189E2620F6E89",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261026-100k-v1/model.pt",
+      "Before": "054FBC1F2964BC3E75763264452595B7BD1140F4F9F9D9C0527E93CEF44092B4",
+      "After": "054FBC1F2964BC3E75763264452595B7BD1140F4F9F9D9C0527E93CEF44092B4",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261026-100k-v1/report.json",
+      "Before": "2A60CF94237C0BF20A692CA129D9C112FB1DF41B07AF8032813E3D4F5EE7357C",
+      "After": "2A60CF94237C0BF20A692CA129D9C112FB1DF41B07AF8032813E3D4F5EE7357C",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261026-body-v1/catalog.json",
+      "Before": "A4B861CCFB894E0F9A3F1BA5ACBD548219F929EA8AB0CDDB531AF708C5185B83",
+      "After": "A4B861CCFB894E0F9A3F1BA5ACBD548219F929EA8AB0CDDB531AF708C5185B83",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261026-body-v1/holdout_report.json",
+      "Before": "BCC67957C6025892EA5E5BBBE4517A4816ADEB4049D3FC99A6CD554A75F7BA3E",
+      "After": "BCC67957C6025892EA5E5BBBE4517A4816ADEB4049D3FC99A6CD554A75F7BA3E",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261026-body-v1/metadata.json",
+      "Before": "328130EDD88478668E1577D0ED0AEBCEF1F69BAC67E92406051FC13817DA0F28",
+      "After": "328130EDD88478668E1577D0ED0AEBCEF1F69BAC67E92406051FC13817DA0F28",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261026-body-v1/model.pt",
+      "Before": "4A6A2E03D7AADCCA61CD415ABA08C54592529531E2FCE73297E14C72584653E1",
+      "After": "4A6A2E03D7AADCCA61CD415ABA08C54592529531E2FCE73297E14C72584653E1",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261026-body-v1/README.md",
+      "Before": "2ADA3A5DF5D185E98786EF83B5EAF7AC2DFA63A02340BC6209BF94DD496FEA1D",
+      "After": "2ADA3A5DF5D185E98786EF83B5EAF7AC2DFA63A02340BC6209BF94DD496FEA1D",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261026-body-v1/serving_verification.json",
+      "Before": "0F354863FEAE2EDFE49973205201FF0DB1EE84B1E8EE1BB4742A3BCB574A95F6",
+      "After": "0F354863FEAE2EDFE49973205201FF0DB1EE84B1E8EE1BB4742A3BCB574A95F6",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261026-body-v1/training_report.json",
+      "Before": "51F52C4CA72620531864CEB1734D918AE0DA7233C52259FDBD24EB0EB458A5D3",
+      "After": "51F52C4CA72620531864CEB1734D918AE0DA7233C52259FDBD24EB0EB458A5D3",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261026-refined-v1/catalog.json",
+      "Before": "A5A64E13BFBB6FE4F9FB8CCADB1788AAD13A2388D393A79924906DC826411408",
+      "After": "A5A64E13BFBB6FE4F9FB8CCADB1788AAD13A2388D393A79924906DC826411408",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261026-refined-v1/metadata.json",
+      "Before": "B08BB2A230D1393AC325D29C933F644DA5CEAB899DBC8E47964DF22A1A82A6B6",
+      "After": "B08BB2A230D1393AC325D29C933F644DA5CEAB899DBC8E47964DF22A1A82A6B6",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261026-refined-v1/model.pt",
+      "Before": "B395786D95885971E09AB9CED7B15177FAEFFAB1BF992064AEEC2609215B41A1",
+      "After": "B395786D95885971E09AB9CED7B15177FAEFFAB1BF992064AEEC2609215B41A1",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261026-refined-v1/report.json",
+      "Before": "56A678B746A00E2E2CF542E75158AD57879AF7F02F376AE3428A344D246CC4FC",
+      "After": "56A678B746A00E2E2CF542E75158AD57879AF7F02F376AE3428A344D246CC4FC",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261027-seating-verified-v1/catalog.json",
+      "Before": "14845AF9A9A7589FB77157D8BB7FA369EEEBB94EFEA24B1F527EF56D67529BB6",
+      "After": "14845AF9A9A7589FB77157D8BB7FA369EEEBB94EFEA24B1F527EF56D67529BB6",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261027-seating-verified-v1/metadata.json",
+      "Before": "533540703039F6D81BEE6FD388CA337EB7DF946728D8A35DA8765822F52A59B9",
+      "After": "533540703039F6D81BEE6FD388CA337EB7DF946728D8A35DA8765822F52A59B9",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261027-seating-verified-v1/model.pt",
+      "Before": "92FF55C07F86C97BB1693AD3E0693A0C022569A847630A6DA6ACBFA3F0DB67EE",
+      "After": "92FF55C07F86C97BB1693AD3E0693A0C022569A847630A6DA6ACBFA3F0DB67EE",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261027-seating-verified-v1/serving_verification.json",
+      "Before": "F0F8B0D2E18388C4FC614E904991177B58053127720ADB6796010259BA93DA0E",
+      "After": "F0F8B0D2E18388C4FC614E904991177B58053127720ADB6796010259BA93DA0E",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261027-seating-verified-v1/training_report.json",
+      "Before": "7F2A65911CB7A3261D1B0CA318DCB2E36D6D607639FE76A2192A2A8175665E1D",
+      "After": "7F2A65911CB7A3261D1B0CA318DCB2E36D6D607639FE76A2192A2A8175665E1D",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261028-sports-official-v1/catalog.json",
+      "Before": "A7F87940DE451D3C0F4EDAAE90B45AD89292F6302BD2D4DE4B1BFC0F556BA088",
+      "After": "A7F87940DE451D3C0F4EDAAE90B45AD89292F6302BD2D4DE4B1BFC0F556BA088",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261028-sports-official-v1/metadata.json",
+      "Before": "AFF1FC0B95E010614A201B201ECB1734EA694BD4D5D04746D38561586011B076",
+      "After": "AFF1FC0B95E010614A201B201ECB1734EA694BD4D5D04746D38561586011B076",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261028-sports-official-v1/model.pt",
+      "Before": "A7F96E14933F5FD53E88EB4262E61FF4BFDC34F83FBB13FFFE52ADCB69A076C2",
+      "After": "A7F96E14933F5FD53E88EB4262E61FF4BFDC34F83FBB13FFFE52ADCB69A076C2",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261028-sports-official-v1/README.md",
+      "Before": "D8BACB39A47A256A61CDBB3D0C80677E98B73B367BBDDCD6FC45CB82910F2BFD",
+      "After": "D8BACB39A47A256A61CDBB3D0C80677E98B73B367BBDDCD6FC45CB82910F2BFD",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-preferences/20261028-sports-official-v1/training_report.json",
+      "Before": "D7581651C0F181FFBC2A284C827BCC0BD4F8EC189FA935D80C49F735E1F20205",
+      "After": "D7581651C0F181FFBC2A284C827BCC0BD4F8EC189FA935D80C49F735E1F20205",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-retrained/20261022-165001-specifications-v1/audit.json",
+      "Before": "5F4D46923FCF1CE62BD1B4D160417E1795E8C1FD6BC467A8596A1D815FA26B32",
+      "After": "5F4D46923FCF1CE62BD1B4D160417E1795E8C1FD6BC467A8596A1D815FA26B32",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-retrained/20261022-165001-specifications-v1/catalog.json",
+      "Before": "A5A64E13BFBB6FE4F9FB8CCADB1788AAD13A2388D393A79924906DC826411408",
+      "After": "A5A64E13BFBB6FE4F9FB8CCADB1788AAD13A2388D393A79924906DC826411408",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-retrained/20261022-165001-specifications-v1/live_verification.json",
+      "Before": "75F7C4E5E91570BF665738BDBCC86848FE56FAE7489E438CB53314DA82D26747",
+      "After": "75F7C4E5E91570BF665738BDBCC86848FE56FAE7489E438CB53314DA82D26747",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-retrained/20261022-165001-specifications-v1/metadata.json",
+      "Before": "3F8C480EDBA00F3335AF3BB42F92F5A52D313A7F2577C8BB2C30AAA147568FB8",
+      "After": "3F8C480EDBA00F3335AF3BB42F92F5A52D313A7F2577C8BB2C30AAA147568FB8",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-retrained/20261022-165001-specifications-v1/model.pt",
+      "Before": "D88769EC96AB7E21B3B46A57A7A274CE1A58622D0045D92F1F4EBEA7226258A6",
+      "After": "D88769EC96AB7E21B3B46A57A7A274CE1A58622D0045D92F1F4EBEA7226258A6",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-retrained/20261022-165001-specifications-v1/report.json",
+      "Before": "0C97B733168EA0FBD6DCBD79C3EE105D92B58629F505F40A3F7C5CF9A92CDDBA",
+      "After": "0C97B733168EA0FBD6DCBD79C3EE105D92B58629F505F40A3F7C5CF9A92CDDBA",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-retrained/20261022-165001-specifications-v1/specification-evidence.json",
+      "Before": "73EC4DCEE4B89C0AA137622299219057E111C1A71CB35A9CAF50DF82089A2696",
+      "After": "73EC4DCEE4B89C0AA137622299219057E111C1A71CB35A9CAF50DF82089A2696",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-retrained/20261022-specifications-v1/catalog.json",
+      "Before": "A5A64E13BFBB6FE4F9FB8CCADB1788AAD13A2388D393A79924906DC826411408",
+      "After": "A5A64E13BFBB6FE4F9FB8CCADB1788AAD13A2388D393A79924906DC826411408",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-retrained/20261022-specifications-v1/live_verification.json",
+      "Before": "7899AE0FE389F731B0CDE3F8785A01BC2C1D2A421AD62DE5200384FE88080BF0",
+      "After": "7899AE0FE389F731B0CDE3F8785A01BC2C1D2A421AD62DE5200384FE88080BF0",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-retrained/20261022-specifications-v1/metadata.json",
+      "Before": "3F8C480EDBA00F3335AF3BB42F92F5A52D313A7F2577C8BB2C30AAA147568FB8",
+      "After": "3F8C480EDBA00F3335AF3BB42F92F5A52D313A7F2577C8BB2C30AAA147568FB8",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-retrained/20261022-specifications-v1/model.pt",
+      "Before": "D88769EC96AB7E21B3B46A57A7A274CE1A58622D0045D92F1F4EBEA7226258A6",
+      "After": "D88769EC96AB7E21B3B46A57A7A274CE1A58622D0045D92F1F4EBEA7226258A6",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-retrained/20261022-specifications-v1/report.json",
+      "Before": "4FBC4552235F04F553A9653B4092438818902B671F8066E40CCFDC36CF570A21",
+      "After": "4FBC4552235F04F553A9653B4092438818902B671F8066E40CCFDC36CF570A21",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-retrained/20261022-supplement-v1/catalog.json",
+      "Before": "E401EF72F242F80CEE2731CE91D620BC2A0C48F5E49CF8615CC1775BD9E70D7C",
+      "After": "E401EF72F242F80CEE2731CE91D620BC2A0C48F5E49CF8615CC1775BD9E70D7C",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-retrained/20261022-supplement-v1/comparison.json",
+      "Before": "B3D4EBC67D1FB19DCACDC62DED784A7444ED931F6E00B0C9CC21A4CEF07A7AF5",
+      "After": "B3D4EBC67D1FB19DCACDC62DED784A7444ED931F6E00B0C9CC21A4CEF07A7AF5",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-retrained/20261022-supplement-v1/live_verification.json",
+      "Before": "579976AA5BBB0C186CE88ACAD00FF5ECBDD0860318DFF610D60C9B420FEF1C62",
+      "After": "579976AA5BBB0C186CE88ACAD00FF5ECBDD0860318DFF610D60C9B420FEF1C62",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-retrained/20261022-supplement-v1/metadata.json",
+      "Before": "E8C1DAE858888128833F24BDF42A12B359D11A0D6972385A57B33AEADB9DAEC9",
+      "After": "E8C1DAE858888128833F24BDF42A12B359D11A0D6972385A57B33AEADB9DAEC9",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-retrained/20261022-supplement-v1/model.pt",
+      "Before": "68CBE023453B0A558C185F6A692514D97509C289D3EC357B7A5B696FCD3E40B2",
+      "After": "68CBE023453B0A558C185F6A692514D97509C289D3EC357B7A5B696FCD3E40B2",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/candidate-retrained/20261022-supplement-v1/report.json",
+      "Before": "8B3695BEF17754E2499E9811AC20093FEE1C129F0D0357FAF80E787B5EEBA601",
+      "After": "8B3695BEF17754E2499E9811AC20093FEE1C129F0D0357FAF80E787B5EEBA601",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/domestic-car/20261019T102520/model.json",
+      "Before": "AE3B55CFDBBE58B045EB47556542B8BEE17D84E4D31D416FF7C0B7B6BACF46BE",
+      "After": "AE3B55CFDBBE58B045EB47556542B8BEE17D84E4D31D416FF7C0B7B6BACF46BE",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/domestic-car/20261019T102520/model.pt",
+      "Before": "2A87B1C38460E517F17BE62EC30C5F8387B9CFADE6C4875B314967A2B15D5CC6",
+      "After": "2A87B1C38460E517F17BE62EC30C5F8387B9CFADE6C4875B314967A2B15D5CC6",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/domestic-car/20261019T102520/preprocessor.json",
+      "Before": "4646FEADB598CED5F946C2195C86B092D1843BFDCCC93916A36C005CACB0632A",
+      "After": "4646FEADB598CED5F946C2195C86B092D1843BFDCCC93916A36C005CACB0632A",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/domestic-car/20261019T102520/report.json",
+      "Before": "2A62378C3F8C6008FEEFCA6CC7F4E88366B9181ED0D4DAB1D976AA32F4F95BB8",
+      "After": "2A62378C3F8C6008FEEFCA6CC7F4E88366B9181ED0D4DAB1D976AA32F4F95BB8",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/domestic-car/integration-check/model.json",
+      "Before": "AE3B55CFDBBE58B045EB47556542B8BEE17D84E4D31D416FF7C0B7B6BACF46BE",
+      "After": "AE3B55CFDBBE58B045EB47556542B8BEE17D84E4D31D416FF7C0B7B6BACF46BE",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/domestic-car/integration-check/model.pt",
+      "Before": "B31EE0CD922E39C360256946A6D12A3C9084C768693DF7AE367F8F2BE7783C12",
+      "After": "B31EE0CD922E39C360256946A6D12A3C9084C768693DF7AE367F8F2BE7783C12",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/domestic-car/integration-check/preprocessor.json",
+      "Before": "4646FEADB598CED5F946C2195C86B092D1843BFDCCC93916A36C005CACB0632A",
+      "After": "4646FEADB598CED5F946C2195C86B092D1843BFDCCC93916A36C005CACB0632A",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/domestic-car/integration-check/report.json",
+      "Before": "343F55186BE9F7E7253C91A94E16E35FB0404727656FB388E751E7EC37615FBC",
+      "After": "343F55186BE9F7E7253C91A94E16E35FB0404727656FB388E751E7EC37615FBC",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/financial-ui-v1/all-cars/20261019T121402/model.json",
+      "Before": "916BE300E197A44CAD18C0EDE2E45F7EC4F0E1BA0963ED9922B70A9E6384473B",
+      "After": "916BE300E197A44CAD18C0EDE2E45F7EC4F0E1BA0963ED9922B70A9E6384473B",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/financial-ui-v1/all-cars/20261019T121402/model.pt",
+      "Before": "C4E1CAD785270AD100A5CF22E84129D44F88E5651C32DEF905AA6665C5551B6D",
+      "After": "C4E1CAD785270AD100A5CF22E84129D44F88E5651C32DEF905AA6665C5551B6D",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/financial-ui-v1/all-cars/20261019T121402/preprocessor.json",
+      "Before": "9038A5DDE442B723C920F6670296799F2D32F57C14FFBAA3537F363CAF8FBC9A",
+      "After": "9038A5DDE442B723C920F6670296799F2D32F57C14FFBAA3537F363CAF8FBC9A",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/financial-ui-v1/all-cars/20261019T121402/report.json",
+      "Before": "FF6B0160FA50E52323643E5FEDA2F4C9DAC400ACB4DDD24413C35CAD9EF95A1D",
+      "After": "FF6B0160FA50E52323643E5FEDA2F4C9DAC400ACB4DDD24413C35CAD9EF95A1D",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/imported-car/20261019T102526/model.json",
+      "Before": "8675E32691639CFFF838D1ECEAFBDF40D97F55798448A9754CACFAA5D253E030",
+      "After": "8675E32691639CFFF838D1ECEAFBDF40D97F55798448A9754CACFAA5D253E030",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/imported-car/20261019T102526/model.pt",
+      "Before": "A96425693A32D3D5038C5AE8B2EA024C91EC308505AE1B203D7C5D7549DE2E3A",
+      "After": "A96425693A32D3D5038C5AE8B2EA024C91EC308505AE1B203D7C5D7549DE2E3A",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/imported-car/20261019T102526/preprocessor.json",
+      "Before": "078A035A3DC0B131E1763B0ACDC7038F96F14FF016789637DC7DE7ACE971EBAC",
+      "After": "078A035A3DC0B131E1763B0ACDC7038F96F14FF016789637DC7DE7ACE971EBAC",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/imported-car/20261019T102526/report.json",
+      "Before": "F3FAB3C37D8671FEC9AB76C21E4FEB98B23F173ED58BA8B74F9C0108C438AAE2",
+      "After": "F3FAB3C37D8671FEC9AB76C21E4FEB98B23F173ED58BA8B74F9C0108C438AAE2",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/imported-car/integration-check/model.json",
+      "Before": "8675E32691639CFFF838D1ECEAFBDF40D97F55798448A9754CACFAA5D253E030",
+      "After": "8675E32691639CFFF838D1ECEAFBDF40D97F55798448A9754CACFAA5D253E030",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/imported-car/integration-check/model.pt",
+      "Before": "493E5B77BC88EB1E2B241885222C227169B60E11D730A184F1962E59C915B227",
+      "After": "493E5B77BC88EB1E2B241885222C227169B60E11D730A184F1962E59C915B227",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/imported-car/integration-check/preprocessor.json",
+      "Before": "078A035A3DC0B131E1763B0ACDC7038F96F14FF016789637DC7DE7ACE971EBAC",
+      "After": "078A035A3DC0B131E1763B0ACDC7038F96F14FF016789637DC7DE7ACE971EBAC",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/imported-car/integration-check/report.json",
+      "Before": "905EE6ABC8FDC0277E0200FF74C05AD5F666163D909B9C678E28565C0EA7D17C",
+      "After": "905EE6ABC8FDC0277E0200FF74C05AD5F666163D909B9C678E28565C0EA7D17C",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-financial-v4/20261022T120014/evaluation_predictions.npz",
+      "Before": "5BABC124B1E3DF8A4B663406680157A88ABC48BB49413C59A872A80602223AA0",
+      "After": "5BABC124B1E3DF8A4B663406680157A88ABC48BB49413C59A872A80602223AA0",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-financial-v4/20261022T120014/model.json",
+      "Before": "930A061FCDDBB877862066DBF77A67A98E5DFF13A4A2D6151C6E570FA11D3F72",
+      "After": "930A061FCDDBB877862066DBF77A67A98E5DFF13A4A2D6151C6E570FA11D3F72",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-financial-v4/20261022T120014/model.pt",
+      "Before": "DAB2C899D76F9F8B0461C2B97ED412AC361F1F621C47675C866D40CC5DE477AD",
+      "After": "DAB2C899D76F9F8B0461C2B97ED412AC361F1F621C47675C866D40CC5DE477AD",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-financial-v4/20261022T120014/preprocessor.json",
+      "Before": "DDCBDAD9AE062F379410ACD910718411B7B9689496137A5C3814F2C6D883142F",
+      "After": "DDCBDAD9AE062F379410ACD910718411B7B9689496137A5C3814F2C6D883142F",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-financial-v4/20261022T120014/README.md",
+      "Before": "ED2329BBEBF2BACC6B75FC4FE504BE9CBED1F7ABDEC4A8F384C7CAC1810DC3A5",
+      "After": "ED2329BBEBF2BACC6B75FC4FE504BE9CBED1F7ABDEC4A8F384C7CAC1810DC3A5",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-financial-v4/20261022T120014/report.json",
+      "Before": "30D9DEBB582CA7D1349CAA3AEA43BD7F4975471B25EE3E0D1090D28782179A25",
+      "After": "30D9DEBB582CA7D1349CAA3AEA43BD7F4975471B25EE3E0D1090D28782179A25",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-quality-v2/20261022T111445/evaluation_predictions.npz",
+      "Before": "82F1B1B3CAFAFB167EBF4047602A8D6ED302834F0425D8D592C79EE8F4AF83B4",
+      "After": "82F1B1B3CAFAFB167EBF4047602A8D6ED302834F0425D8D592C79EE8F4AF83B4",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-quality-v2/20261022T111445/model.json",
+      "Before": "9DFD7E9B127A0570A5D462C87C15B63D00DAEF068BD2807EDC7E2DE5A0DB1033",
+      "After": "9DFD7E9B127A0570A5D462C87C15B63D00DAEF068BD2807EDC7E2DE5A0DB1033",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-quality-v2/20261022T111445/model.pt",
+      "Before": "30CA50F33BD1B525921765DFE86281D9F638CACF7C929D0845619A3EED8175FE",
+      "After": "30CA50F33BD1B525921765DFE86281D9F638CACF7C929D0845619A3EED8175FE",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-quality-v2/20261022T111445/preprocessor.json",
+      "Before": "8BDD58E490484AB7D30118982D4B22FB39C0621F63E22D1995D82265CF7D3E40",
+      "After": "8BDD58E490484AB7D30118982D4B22FB39C0621F63E22D1995D82265CF7D3E40",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-quality-v2/20261022T111445/README.md",
+      "Before": "B71A982F72A909DE75E036C709C7BF4802F5D113AC4F308F045ED9FCAB0A1EB0",
+      "After": "B71A982F72A909DE75E036C709C7BF4802F5D113AC4F308F045ED9FCAB0A1EB0",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-quality-v2/20261022T111445/report.json",
+      "Before": "5141BAABAFDE65B91791448CDF2E5D8B7BE7BB46CE7EBDA784779DA75EA5A604",
+      "After": "5141BAABAFDE65B91791448CDF2E5D8B7BE7BB46CE7EBDA784779DA75EA5A604",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-quality-v3/20261022T113749/evaluation_predictions.npz",
+      "Before": "9A398D1EF3E9F8BCF03D084AE07A66A4756384A739949B8B45D4BCAC9E8F6F30",
+      "After": "9A398D1EF3E9F8BCF03D084AE07A66A4756384A739949B8B45D4BCAC9E8F6F30",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-quality-v3/20261022T113749/model.json",
+      "Before": "9DFD7E9B127A0570A5D462C87C15B63D00DAEF068BD2807EDC7E2DE5A0DB1033",
+      "After": "9DFD7E9B127A0570A5D462C87C15B63D00DAEF068BD2807EDC7E2DE5A0DB1033",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-quality-v3/20261022T113749/model.pt",
+      "Before": "56F56939ADF8E016D4C08BD1204FD8B3281ABE8CECC5F4FDE0B9832F1CE92088",
+      "After": "56F56939ADF8E016D4C08BD1204FD8B3281ABE8CECC5F4FDE0B9832F1CE92088",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-quality-v3/20261022T113749/preprocessor.json",
+      "Before": "83EEDF0E205FF78C44D19E6D78669E1CD4F9C60A1B8AA6A3D08C6699A87C801C",
+      "After": "83EEDF0E205FF78C44D19E6D78669E1CD4F9C60A1B8AA6A3D08C6699A87C801C",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-quality-v3/20261022T113749/rare_vehicle_comparison.json",
+      "Before": "28F6EC550F69AFC8EF7B51DBE3728C4D5F4C1391A3B4BF9E1785141B8A6E9F3E",
+      "After": "28F6EC550F69AFC8EF7B51DBE3728C4D5F4C1391A3B4BF9E1785141B8A6E9F3E",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-quality-v3/20261022T113749/README.md",
+      "Before": "7B1D6437A1E67AB919960E29A18B5DD4DB65A47E41C589B3362C1FC4E62D2453",
+      "After": "7B1D6437A1E67AB919960E29A18B5DD4DB65A47E41C589B3362C1FC4E62D2453",
+      "Unchanged": true
+    },
+    {
+      "Path": "ml/outputs/models/preference-quality-v3/20261022T113749/report.json",
+      "Before": "C5D1396417C5040695B970138BD5A58A7157A79EF6C533D7B54FBE50464748F3",
+      "After": "C5D1396417C5040695B970138BD5A58A7157A79EF6C533D7B54FBE50464748F3",
+      "Unchanged": true
+    }
+  ]
+}

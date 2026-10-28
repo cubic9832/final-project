@@ -28,3 +28,5 @@ outputs/reports/*
 
 !outputs/models/candidate-preferences/20261027-seating-verified-v1/
 !outputs/reports/seating-retraining-20261027/
+!outputs/models/behavioral-choices/
+!outputs/reports/behavioral-million-20261028/

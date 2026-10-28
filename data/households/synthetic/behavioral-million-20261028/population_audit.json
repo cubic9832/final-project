@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "profiles": 1000000,
+  "partitions": {
+    "train": 700126,
+    "validation": 149653,
+    "test": 150221
+  },
+  "financial_groups": 274268,
+  "cross_shard_duplicates": 0,
+  "split_leakage": 0
+}

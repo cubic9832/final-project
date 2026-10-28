@@ -9,6 +9,13 @@ __pycache__/
 .env.*
 !.env.example
 /tmp/
+
+# Local behavioral population arrays; manifests and audits remain versioned.
+/data/households/synthetic/behavioral-million-*/shard-*/*_choices.npz
+/data/households/synthetic/behavioral-million-*/shard-*/*_profiles.jsonl
+/data/households/synthetic/behavioral-million-*/shard-*/*_audit.jsonl
+/data/households/synthetic/behavioral-million-*/shard-*/excluded_profiles.jsonl
+/data/households/synthetic/behavioral-million-*/shard-*/catalog.json
 *.iml
 out/
 

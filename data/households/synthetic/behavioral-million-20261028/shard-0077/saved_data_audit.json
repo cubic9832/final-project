@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "comparisons_checked": 76338,
+  "profiles_checked": 10000,
+  "split_leakage": 0,
+  "ineligible_comparisons": 0,
+  "label_mismatches": 0
+}

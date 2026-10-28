@@ -1,0 +1,6 @@
+Applied rules: legacy_rules.txt and behavioral_rules.txt.
+Conflicts: behavioral rules override deterministic teacher labels, preference-priority ranking,
+sports-only per-model quotas, historical input reuse and historical held-out model lists.
+Fresh input population; no historical training rows are merged.
+Financial/seating constraints, preference-first inputs, catalog provenance and group isolation remain.
+No model training or service activation is performed.
