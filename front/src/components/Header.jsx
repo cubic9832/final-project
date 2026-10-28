@@ -165,7 +165,7 @@ export default function Header() {
           {!initialized ? null : member ? (
             <AccountArea>
               {/* 7단계: 관리자 · 총관리자에게만 관리자 화면 바로가기 (일반 회원에게는 보이지 않는다) */}
-              {isAdminRole(member.role) && <AdminLink to="/admin">관리자 대시보드</AdminLink>}
+              {isAdminRole(member.role) && <AdminLink to="/console">관리자 대시보드</AdminLink>}
               <NavLink to="/mypage">{member.nickName}님</NavLink>
               <LogoutButton onClick={() => setIsLogoutOpen(true)}>로그아웃</LogoutButton>
             </AccountArea>

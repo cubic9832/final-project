@@ -11,7 +11,8 @@ const Main = styled.main`
   padding: var(--space-24) var(--layout-gutter);
 `;
 
-export default function Layout() {
+// 보완 11: children 을 주면 Outlet 대신 그것을 보여 준다 (RequireAdmin 이 관리자가 아닌 사람에게 404 화면을 헤더와 함께 보여 줄 때)
+export default function Layout({ children }) {
   const { pathname } = useLocation();
   const home = pathname === '/' || pathname === '/about';
 
@@ -24,11 +25,11 @@ export default function Layout() {
       <Header />
       {home ? (
         <main>
-          <Outlet />
+          {children ?? <Outlet />}
         </main>
       ) : (
         <Main>
-          <Outlet />
+          {children ?? <Outlet />}
         </Main>
       )}
       {/* 공용 알림 표시 자리 — 어느 화면에서든 showToast('…') 로 띄운다 */}
