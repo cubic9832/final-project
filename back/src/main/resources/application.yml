@@ -5,7 +5,7 @@ spring:
       max-request-size: 6MB
   application:
     name: back
-  # 7단계: 총관리자 시드 설정을 git 에 올리지 않는 파일에서 읽는다 (있을 때만). back/admin-seed.example.properties 참고
+  # 7단계: 총관리자 시드. back/admin-seed.local.properties (있을 때만). 예시는 admin-seed.example.properties
   # gradle bootRun 은 back 폴더에서, IntelliJ 는 프로젝트 폴더에서 실행될 수 있어 두 곳을 모두 본다
   config:
     import: "optional:file:./admin-seed.local.properties,optional:file:./back/admin-seed.local.properties"
@@ -74,13 +74,10 @@ recaptcha:
   secret-key: ${RECAPTCHA_SECRET_KEY:6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe}
 
 # 실행되는 SQL 을 콘솔에서 보기 위한 로그 레벨
-# 7단계: 총관리자 계정 시드 — back/admin-seed.local.properties(git 제외) 또는 환경변수가 있을 때만
-# 서버가 켜질 때 그 계정을 총관리자로 만든다 (AdminAccountSeeder). 비밀번호는 코드 · git 에 넣지 않는다
-# 배포 서버에서는 넣지 않거나, 넣었다면 첫 실행 뒤 지운다
-admin:
-  seed:
-    email: ${ADMIN_SEED_EMAIL:}
-    password: ${ADMIN_SEED_PASSWORD:}
+# 7단계: 총관리자 계정은 back/admin-seed.local.properties 의 admin.seed.email · admin.seed.password
+# 또는 환경변수 ADMIN_SEED_EMAIL · ADMIN_SEED_PASSWORD 로 만든다 (AdminAccountSeeder).
+# 여기에 빈 기본값을 적으면 import 한 파일 값을 빈 문자열로 덮어써서 시드가 건너뛰어지므로 키를 두지 않는다.
+# 환경변수는 설정 파일보다 우선한다. 배포 서버에서는 파일·환경변수를 넣지 않거나, 첫 실행 뒤 지운다.
 
 logging:
   level:
