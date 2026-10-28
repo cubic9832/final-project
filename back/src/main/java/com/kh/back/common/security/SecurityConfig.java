@@ -53,7 +53,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/v1/companies/**").permitAll() // 종목 조회 예제
                         // 7단계: 관리자 권한 주기 · 빼기는 총관리자(SUPER_ADMIN)만 — 아래 관리자 규칙보다 먼저 적는다
                         .requestMatchers(HttpMethod.PATCH, "/api/v1/admin/members/*/role").hasRole("SUPER_ADMIN")
-                        // 7단계: 관리자 API 는 관리자(ADMIN) · 총관리자(SUPER_ADMIN)만 (토큰의 role → ROLE_…). 일반 회원 403 ACCESS_DENIED, 비회원 401
+                        // 7단계: 관리자 API 는 관리자(ADMIN) · 총관리자(SUPER_ADMIN)만 (토큰의 role → ROLE_…). 일반 회원 404(보완 11, 숨김), 비회원 401
                         // 조원이 /api/v1/admin/ 아래에 관리 API 를 만들면 이 규칙이 자동으로 걸린다
                         .requestMatchers("/api/v1/admin/**").hasAnyRole("ADMIN", "SUPER_ADMIN")
                         .anyRequest().authenticated())                                     // 나머지는 로그인 필요
