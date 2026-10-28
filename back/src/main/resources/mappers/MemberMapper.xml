@@ -4,17 +4,20 @@
 <!-- 회원(users 테이블). 테이블은 Flyway V1__create_schema.sql 이 만든다 -->
 <mapper namespace="com.kh.back.member.mapper.MemberMapper">
 
+    <!-- 보완 11: 권한은 admin_accounts(V18)에 있는 회원만 ADMIN · SUPER_ADMIN, 없으면 USER -->
     <!-- 컬럼은 snake_case, 필드는 camelCase. map-underscore-to-camel-case 설정이 자동으로 맞춰 준다 -->
     <select id="findById" resultType="com.kh.back.member.dto.MemberDto">
-        SELECT id, email, password_hash, nick_name, role, created_at
-        FROM users
-        WHERE id = #{id}
+        SELECT u.id, u.email, u.password_hash, u.nick_name, COALESCE(a.role, 'USER') AS role, u.created_at
+        FROM users u
+        LEFT JOIN admin_accounts a ON a.user_id = u.id
+        WHERE u.id = #{id}
     </select>
 
     <select id="findByEmail" resultType="com.kh.back.member.dto.MemberDto">
-        SELECT id, email, password_hash, nick_name, role, created_at
-        FROM users
-        WHERE email = #{email}
+        SELECT u.id, u.email, u.password_hash, u.nick_name, COALESCE(a.role, 'USER') AS role, u.created_at
+        FROM users u
+        LEFT JOIN admin_accounts a ON a.user_id = u.id
+        WHERE u.email = #{email}
     </select>
 
     <!-- 보완 3: 닉네임 중복 확인. 비교는 DB 정렬 규칙(utf8mb4_unicode_ci)을 따르므로 UNIQUE(V7)와 같은 기준 -->

@@ -93,7 +93,12 @@ public class AdminMemberServiceImpl implements AdminMemberService {
         if (current.equals(role)) {
             return; // 이미 그 권한이면 아무것도 하지 않는다
         }
-        adminMemberMapper.updateRole(targetId, role);
+        // 보완 11: 권한은 admin_accounts 표 — 일반 회원으로 되돌리면 표에서 지우고, 관리자로 지정하면 넣는다 (지정한 총관리자도 남긴다)
+        if ("USER".equals(role)) {
+            adminMemberMapper.revokeAdmin(targetId);
+        } else {
+            adminMemberMapper.grantAdmin(targetId, role, actorId);
+        }
         // 운영 로그: 누가 누구를 무엇으로 바꿨는지 (같은 트랜잭션 → 기록이 실패하면 권한 변경도 취소)
         adminAuditLogMapper.insert(actorId, "ROLE_CHANGE", "MEMBER", targetId, current + " → " + role);
         refreshTokenMapper.deleteByUserId(targetId);

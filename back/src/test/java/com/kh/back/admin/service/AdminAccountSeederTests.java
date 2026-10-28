@@ -42,7 +42,8 @@ class AdminAccountSeederTests {
         ArgumentCaptor<MemberDto> saved = ArgumentCaptor.forClass(MemberDto.class);
         verify(memberMapper).insert(saved.capture());
         assertThat(saved.getValue().getEmail()).isEqualTo("boss@example.com");
-        assertThat(saved.getValue().getRole()).isEqualTo("SUPER_ADMIN");
+        assertThat(saved.getValue().getRole()).isEqualTo("USER"); // 보완 11: 권한은 admin_accounts 에
+        verify(adminMemberMapper).grantAdmin(saved.getValue().getId(), "SUPER_ADMIN", null);
         assertThat(saved.getValue().getPasswordHash()).isEqualTo("hashed");
     }
 
@@ -55,7 +56,7 @@ class AdminAccountSeederTests {
 
         seeder("boss@example.com", "").seed();
 
-        verify(adminMemberMapper).updateRole(5L, "SUPER_ADMIN");
+        verify(adminMemberMapper).grantAdmin(5L, "SUPER_ADMIN", null);
         verify(memberMapper, never()).insert(any());
     }
 
@@ -63,6 +64,6 @@ class AdminAccountSeederTests {
     void 비밀번호가_규칙에_맞지_않으면_만들지_않는다() {
         seeder("boss@example.com", "1234").seed();
         verify(memberMapper, never()).insert(any());
-        verify(adminMemberMapper, never()).updateRole(anyLong(), any());
+        verify(adminMemberMapper, never()).grantAdmin(anyLong(), any(), any());
     }
 }
