@@ -23,8 +23,9 @@ public class GoogleSignupRequest {
     @NotBlank(message = "구글 로그인을 다시 시도해 주세요.")
     private String signupToken;
 
-    // 전화번호는 선택 항목 — 비워 두면 저장하지 않는다
-    @Pattern(regexp = "^$|^010-?\\d{4}-?\\d{4}$", message = "전화번호는 010-1234-5678 형식으로 입력해 주세요.")
+    // 보완 11: 전화번호는 필수 (회원가입과 같은 규칙)
+    @NotBlank(message = "전화번호를 입력해 주세요.")
+    @Pattern(regexp = "^010-?\\d{4}-?\\d{4}$", message = "전화번호는 010-1234-5678 형식으로 입력해 주세요.")
     private String phone;
 
     @NotNull(message = "생년월일을 입력해 주세요.")

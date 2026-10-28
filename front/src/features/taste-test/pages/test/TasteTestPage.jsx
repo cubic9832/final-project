@@ -5,6 +5,7 @@ import useAuthStore from '../../../../stores/useAuthStore';
 import { getTasteCatalog, getCurrentTaste, putCurrentTaste, tasteErrorMessage } from '../../tasteApi';
 import { isCurrentTasteSaved, resolveTaste, savedTasteAnswers } from '../../serverTasteFlow';
 import { readMemberTasteDraft, writeMemberTasteDraft } from '../../tasteDraftStorage';
+import { dismissTastePrompt } from '../../tastePrompt'; // 보완 11: 나중에 하기 → 로그인할 때 다시 안내하지 않음
 import TasteQuestion from './TasteQuestion';
 import TasteResult from './TasteResult';
 import TasteSaveModal from './TasteSaveModal';
@@ -95,7 +96,7 @@ export default function TasteTestPage() {
         <p>첫 차와 함께하고 싶은 일상을 떠올려보세요.<br />선택한 답에 따라 다음 질문이 달라져요.</p>
         <p className="taste-caption">8문항 · 약 2~3분 · 선택 사항</p>
         <div className="taste-actions">
-          <button type="button" className="taste-button taste-button-outline" onClick={() => navigate('/')}>나중에 하기</button>
+          <button type="button" className="taste-button taste-button-outline" onClick={() => { dismissTastePrompt(useAuthStore.getState().member?.id); navigate('/'); }}>나중에 하기</button>
           <button type="button" className="taste-button taste-button-cta" onClick={restart}>취향 테스트 시작</button>
         </div>
         {current && <p>현재 취향 · {catalog.types[current.primary]?.name ?? current.primary} <button type="button" className="taste-button taste-button-outline" onClick={showCurrent}>저장한 취향 보기</button></p>}

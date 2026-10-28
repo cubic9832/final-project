@@ -82,6 +82,11 @@ const GlobalStyle = createGlobalStyle`
     scroll-margin-top: 96px;
   }
 
+  /* 보완 11: 필수 입력 표시 * — 재무 진단(.financial-required)과 같은 색. 로그인 · 회원가입 · 개인정보 수정에서 쓴다 */
+  .form-required {
+    color: var(--color-mint-strong);
+  }
+
   a:focus-visible,
   button:focus-visible,
   input:focus-visible,

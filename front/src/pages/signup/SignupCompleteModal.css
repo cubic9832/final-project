@@ -1,17 +1,24 @@
 /* 회원가입 완료 팝업 — 공통 부분은 AuthModal.css */
 
+/* 보완 11: 아이콘 + 안내 문구를 한 줄로 */
+.signup-complete-head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-12);
+}
+
 .signup-complete-icon {
   display: grid;
+  flex-shrink: 0;
   place-items: center;
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: var(--color-mint-tint);
   color: var(--color-mint-strong);
 }
 
 .signup-complete-text {
-  margin-top: var(--space-16);
   color: var(--color-text);
   font-size: var(--font-body);
   line-height: 1.7;
