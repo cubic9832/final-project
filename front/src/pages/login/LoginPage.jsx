@@ -73,10 +73,10 @@ export default function LoginPage() {
   }, []);
 
   // 로그인 성공 후 갈 곳: 가려던 화면(from) 또는 메인 — 보완 11: 취향 테스트를 안 했고 "나중에 하기"도 안 눌렀으면 취향 테스트
-  // 보완 12: 관리자는 취향 테스트 안내 없이 관리자 화면(/console)으로 (관리자는 서비스 이용자가 아니므로)
+  // 보완 12: 관리자는 가려던 화면 · 취향 테스트와 상관없이 항상 관리자 화면(/console)으로 (관리자는 서비스 이용자가 아니므로)
   const nextPath = useCallback(() => {
     const member = useAuthStore.getState().member;
-    if (isAdminRole(member?.role)) return Promise.resolve(location.state?.from ?? '/console');
+    if (isAdminRole(member?.role)) return Promise.resolve('/console');
     return afterLoginPath(member?.id, location.state?.from ?? '/');
   }, [location.state]);
 
