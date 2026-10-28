@@ -49,7 +49,7 @@ class ProfileRequest(BaseModel):
     purchase_price_ceiling: float = Field(default=0, ge=0, le=1e12)
     minimum_seats: int = Field(default=0, ge=0, le=9, strict=True)
     preferred_size: Literal['any', 'small', 'medium', 'large'] = 'any'
-    preferred_body_type: Literal['any', 'SEDAN', 'SUV', 'HATCHBACK', 'WAGON', 'MPV', 'BOX', 'PICKUP'] = 'any'
+    preferred_body_type: Literal['any', 'SEDAN', 'SUV', 'HATCHBACK', 'WAGON', 'MPV', 'BOX', 'PICKUP', 'COUPE', 'CONVERTIBLE', 'ROADSTER', 'OTHER'] = 'any'
     body_importance: int = Field(default=3, ge=1, le=5, strict=True)
     financing_mode: Literal['fixed', 'automatic', 'recommendation'] = Field(default='recommendation', exclude=True, deprecated=True)
 
@@ -83,7 +83,8 @@ def load_service(directory, *, apply_specification_updates=True):
     ranker.assumptions = replace(ranker.assumptions, acquisition_ratio=0, stress_rate_addition=0,
                                  stress_running_multiplier=1, version='cost-utility-v2.3-base-cost-only')
     from vehicle_matching.body_types import apply_body_types
-    current = CandidateService(ranker, apply_body_types(vehicles, strict=False))
+    current = CandidateService(ranker, apply_body_types(vehicles, strict=False),
+                               ml_only=meta['training'].get('ranking_policy') == 'required-eligibility-then-ml-only-experimental')
     current.model_bundle = path.name
     return current
 
@@ -103,7 +104,7 @@ def create_app(service=None):
         current=request.app.state.candidates
         provider=request.app.state.managed_catalog
         if provider is None:return current
-        updated=CandidateService(current.ranker,provider.read())
+        updated=CandidateService(current.ranker,provider.read(),ml_only=current.ml_only)
         updated.model_bundle=current.model_bundle
         return updated
 
@@ -126,7 +127,7 @@ def create_app(service=None):
         current = current_service(request)
         return {'success': True, 'data': {'modelVersion': 'candidate-v2', 'catalogCount': len(current.vehicles),
                 'modelBundle': getattr(current, 'model_bundle', None),
-                'scorePolicy': POLICY,
+                'scorePolicy': current.policy,
                 'catalogSource': 'managed-database' if request.app.state.managed_catalog is not None else 'model-snapshot',
                 'featureCount': len(current.ranker.mean) if hasattr(current.ranker, 'mean') else None,
                 'rankerSchema': getattr(current.ranker, 'schema', 'candidate-v2'),

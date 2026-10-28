@@ -34,6 +34,17 @@
 
 ## 실행
 
+### 실행 중인 비교 서버
+
+2026-10-28에 `ml/test` 화면은 `http://127.0.0.1:5174`, 모델 API는 `http://127.0.0.1:8003`으로 실행했다.
+화면의 `/api/v2`는 새 모델 API로 연결하며 로그인·차량 목록 등 나머지 API는 기존 Spring 8080을 공유한다.
+기존 `hhc`의 화면 5173과 모델 API 8002는 그대로 유지한다. 프로세스와 로그는 worktree의 `tmp/behavioral-server/`에 기록한다.
+
+모델 API는 `ML_CANDIDATE_RUN`으로 독립 체크포인트를 지정한다. 메타데이터의 실험 정렬 정책을 확인해
+재무·필수 좌석 통과 후 모델 점수순으로 추천하며, 기존 모델은 기존 선호 우선 정책을 유지한다.
+`VITE_ML_TARGET`, `VITE_API_TARGET`, `VITE_CACHE_DIR`로 화면의 API 대상과 캐시를 분리한다.
+새 서버의 모델 확인·추천 API와 관련 테스트 9개를 검증했다.
+
 이 worktree 루트 PowerShell에서 실행한다. Python 실행 파일은 `hhc`의 기존 가상환경을 공유하지만 `PYTHONPATH`는 이 worktree를 가리킨다. 패키지 재설치나 기존 가상환경 변경은 하지 않는다.
 
 ```powershell
