@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { Car, Cpu, Home, LayoutDashboard, ListChecks, LogOut, RefreshCw, ScrollText, ShieldCheck, Users } from 'lucide-react';
+import { Car, Cpu, LayoutDashboard, ListChecks, LogOut, RefreshCw, ScrollText, ShieldCheck, Users } from 'lucide-react';
 import theme from '../../styles/theme';
 import GlobalToast from '../../components/GlobalToast';
 import { logout } from '../../features/auth/authApi';
@@ -27,7 +27,8 @@ const sections = [
 
 // 관리자 대시보드. 7단계: 회원 관리 · 운영 로그 탭, 운영 현황의 회원 · 차량 수 · 서비스 연결 상태 · 최근 이력은 실제 데이터(/api/v1/admin/**)
 // 10-27: 화면의 "예시" 표시 · 안내 문구는 지웠다 (사용자 요청). 10-27 오후: 추천 · 모델 탭도 실제 데이터 (추천 서버 학습 결과 · DB)
-// 보완 11: 주소는 /console, 공통 헤더 없이 관리자 화면만 — 오른쪽 위에 누가 로그인했는지 · 서비스 홈 · 로그아웃,
+// 보완 11: 주소는 /console, 공통 헤더 없이 관리자 화면만 — 오른쪽 위에 누가 로그인했는지 · 로그아웃
+//          (보완 12: [서비스 홈] 은 지움 — 관리자는 로그인하면 바로 이 화면이고, 서비스 화면에는 돌아올 버튼이 없어서)
 //          대시보드 첫 화면은 왼쪽 메뉴의 "운영 현황" (탭 주소 /console?tab=…)
 export default function AdminPage() {
   const [params] = useSearchParams();
@@ -50,7 +51,6 @@ export default function AdminPage() {
     <div className="admin-workspace-heading"><div><span className="admin-eyebrow">ADMIN WORKSPACE</span><h1>관리자 대시보드</h1><p>차량과 추천 서비스를 한곳에서 관리하세요.</p></div>
       <div className="admin-account-bar">
         <span className="admin-account-name"><strong>{member?.nickName}</strong>{ROLE_LABELS[member?.role]}</span>
-        <Link className="admin-outline-button" to="/"><Home size={theme.iconSize.sm} aria-hidden="true" />서비스 홈</Link>
         <button className="admin-outline-button" type="button" onClick={() => setIsLogoutOpen(true)}><LogOut size={theme.iconSize.sm} aria-hidden="true" />로그아웃</button>
       </div>
     </div>
