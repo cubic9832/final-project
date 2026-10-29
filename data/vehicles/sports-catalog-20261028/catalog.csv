@@ -1,0 +1,23 @@
+﻿brand,model,trim,body_type,price,fuel,length_mm,seats,efficiency,quality,source_url
+BMW,2시리즈 쿠페,M240i xDrive 쿠페 프로,COUPE,76900000,GASOLINE,,,,official-price-body-reviewed-specs-partial,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf
+BMW,2시리즈 쿠페,M2 쿠페,COUPE,94400000,GASOLINE,,,,official-price-body-reviewed-specs-partial,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf
+BMW,2시리즈 그란쿠페,220 그란 쿠페 M 스포츠 디자인,COUPE,51100000,GASOLINE,,,,official-price-body-reviewed-specs-partial,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf
+BMW,4시리즈 쿠페,420i 쿠페 M 스포츠 프로,COUPE,75000000,GASOLINE,,,,official-price-body-reviewed-specs-partial,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf
+BMW,4시리즈 쿠페,M440i xDrive 쿠페 프로,COUPE,95600000,GASOLINE,,,,official-price-body-reviewed-specs-partial,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf
+BMW,4시리즈 쿠페,M4 컴페티션 M xDrive,COUPE,140500000,GASOLINE,,,,official-price-body-reviewed-specs-partial,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf
+BMW,4시리즈 그란쿠페,420i 그란 쿠페 M 스포츠 프로,COUPE,69900000,GASOLINE,,,,official-price-body-reviewed-specs-partial,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf
+BMW,4시리즈 그란쿠페,i4 eDrive40 그란 쿠페 M 스포츠,COUPE,79100000,ELECTRIC,,,,official-price-body-reviewed-specs-partial,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf
+BMW,4시리즈 컨버터블,420i 컨버터블 M 스포츠,CONVERTIBLE,77900000,GASOLINE,,,,official-price-body-reviewed-specs-partial,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf
+BMW,4시리즈 컨버터블,M4 컴페티션 M xDrive 컨버터블,CONVERTIBLE,145700000,GASOLINE,,,,official-price-body-reviewed-specs-partial,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf
+BMW,8시리즈 그란쿠페,M850i xDrive 그란 쿠페 M 퍼포먼스,COUPE,151100000,GASOLINE,,,,official-price-body-reviewed-specs-partial,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf
+BMW,Z4,sDrive20i M 스포츠,ROADSTER,78100000,GASOLINE,,,,official-price-body-reviewed-specs-partial,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf
+BMW,Z4,M40i,ROADSTER,100900000,GASOLINE,,,,official-price-body-reviewed-specs-partial,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf
+MINI,Cooper Convertible,C Classic,CONVERTIBLE,48900000,GASOLINE,3880,4,12.0,official-price-spec-reviewed,https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Price-Option-List.pdf
+MINI,Cooper Convertible,S Favoured,CONVERTIBLE,53900000,GASOLINE,3880,4,12.2,official-price-spec-reviewed,https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Price-Option-List.pdf
+MINI,Cooper Convertible,JCW,CONVERTIBLE,59900000,GASOLINE,3880,4,11.8,official-price-spec-reviewed,https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Price-Option-List.pdf
+토요타,GR86,STANDARD 6MT,COUPE,43600000,GASOLINE,4265,4,9.5,official-price-spec-reviewed,https://www.toyota.co.kr/models/gr86/
+토요타,GR86,PREMIUM 6MT,COUPE,49600000,GASOLINE,4265,4,9.5,official-price-spec-reviewed,https://www.toyota.co.kr/models/gr86/
+마세라티,GranTurismo,2026 V6 490PS,COUPE,229800000,GASOLINE,,,,official-price-body-reviewed-specs-partial,https://www.maserati.com/kr/ko/dealers/stellaautomobiles
+마세라티,GranTurismo,2026 Trofeo V6 550PS,COUPE,287400000,GASOLINE,,,,official-price-body-reviewed-specs-partial,https://www.maserati.com/kr/ko/dealers/stellaautomobiles
+마세라티,GranCabrio,2026 V6 490PS,CONVERTIBLE,247700000,GASOLINE,,4,,official-price-body-reviewed-specs-partial,https://www.maserati.com/kr/ko/dealers/stellaautomobiles
+마세라티,GranCabrio,2026 Trofeo V6 550PS,CONVERTIBLE,305300000,GASOLINE,,4,,official-price-body-reviewed-specs-partial,https://www.maserati.com/kr/ko/dealers/stellaautomobiles

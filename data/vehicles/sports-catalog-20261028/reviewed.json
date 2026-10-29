@@ -1,0 +1,51 @@
+{
+  "checked_on": "2026-10-28",
+  "scope": "국산·수입을 가리지 않는 국내 공식 판매 승용 쿠페·오픈카. 검증된 1차 추가분이며 국내 전수 목록은 아님.",
+  "columns": ["brand", "model", "trim", "body_type", "price", "fuel", "length_mm", "seats", "efficiency", "price_source", "spec_source"],
+  "configurations": [
+    ["BMW","2시리즈 쿠페","M240i xDrive 쿠페 프로","COUPE",76900000,"GASOLINE",null,null,null,"web-price-0","web-price-0"],
+    ["BMW","2시리즈 쿠페","M2 쿠페","COUPE",94400000,"GASOLINE",null,null,null,"web-bmw-tail","web-bmw-tail"],
+    ["BMW","2시리즈 그란쿠페","220 그란 쿠페 M 스포츠 디자인","COUPE",51100000,"GASOLINE",null,null,null,"web-bmw-tail","web-bmw-tail"],
+    ["BMW","4시리즈 쿠페","420i 쿠페 M 스포츠 프로","COUPE",75000000,"GASOLINE",null,null,null,"web-price-0","web-price-0"],
+    ["BMW","4시리즈 쿠페","M440i xDrive 쿠페 프로","COUPE",95600000,"GASOLINE",null,null,null,"web-bmw-tail","web-bmw-tail"],
+    ["BMW","4시리즈 쿠페","M4 컴페티션 M xDrive","COUPE",140500000,"GASOLINE",null,null,null,"web-bmw-tail","web-bmw-tail"],
+    ["BMW","4시리즈 그란쿠페","420i 그란 쿠페 M 스포츠 프로","COUPE",69900000,"GASOLINE",null,null,null,"web-bmw-tail","web-bmw-tail"],
+    ["BMW","4시리즈 그란쿠페","i4 eDrive40 그란 쿠페 M 스포츠","COUPE",79100000,"ELECTRIC",null,null,null,"web-price-0","web-price-0"],
+    ["BMW","4시리즈 컨버터블","420i 컨버터블 M 스포츠","CONVERTIBLE",77900000,"GASOLINE",null,null,null,"web-price-0","web-price-0"],
+    ["BMW","4시리즈 컨버터블","M4 컴페티션 M xDrive 컨버터블","CONVERTIBLE",145700000,"GASOLINE",null,null,null,"web-bmw-tail","web-bmw-tail"],
+    ["BMW","8시리즈 그란쿠페","M850i xDrive 그란 쿠페 M 퍼포먼스","COUPE",151100000,"GASOLINE",null,null,null,"web-bmw-tail","web-bmw-tail"],
+    ["BMW","Z4","sDrive20i M 스포츠","ROADSTER",78100000,"GASOLINE",null,null,null,"web-price-0","web-price-0"],
+    ["BMW","Z4","M40i","ROADSTER",100900000,"GASOLINE",null,null,null,"web-price-0","web-price-0"],
+    ["MINI","Cooper Convertible","C Classic","CONVERTIBLE",48900000,"GASOLINE",3880,4,12.0,"mini-price","mini-spec"],
+    ["MINI","Cooper Convertible","S Favoured","CONVERTIBLE",53900000,"GASOLINE",3880,4,12.2,"mini-price","mini-spec"],
+    ["MINI","Cooper Convertible","JCW","CONVERTIBLE",59900000,"GASOLINE",3880,4,11.8,"mini-price","mini-spec"],
+    ["토요타","GR86","STANDARD 6MT","COUPE",43600000,"GASOLINE",4265,4,9.5,"toyota-gr86","toyota-spec"],
+    ["토요타","GR86","PREMIUM 6MT","COUPE",49600000,"GASOLINE",4265,4,9.5,"toyota-gr86","toyota-spec"],
+    ["마세라티","GranTurismo","2026 V6 490PS","COUPE",229800000,"GASOLINE",null,null,null,"web-price-1","web-maserati-fuel-seats"],
+    ["마세라티","GranTurismo","2026 Trofeo V6 550PS","COUPE",287400000,"GASOLINE",null,null,null,"web-price-1","web-maserati-fuel-seats"],
+    ["마세라티","GranCabrio","2026 V6 490PS","CONVERTIBLE",247700000,"GASOLINE",null,4,null,"web-price-1","web-maserati-fuel-seats"],
+    ["마세라티","GranCabrio","2026 Trofeo V6 550PS","CONVERTIBLE",305300000,"GASOLINE",null,4,null,"web-price-1","web-maserati-fuel-seats"]
+  ],
+  "additional_evidence": {
+    "MINI fuel": {"url":"https://www.press.bmwgroup.com/korea/article/detail/T0440782KO?language=ko","basis":"공식 한국 보도자료의 신형 MINI 쿠퍼 컨버터블 가솔린 표기와 국내 현재 가격표의 직렬 4기통 터보 엔진을 대조"},
+    "GR86 fuel": {"url":"https://toyota.co.kr/files/manual/2024-01-09-17-37-32-3772.pdf","basis":"GR86 공식 취급설명서의 4행정 가솔린 엔진 표기; 현행 2387cc 공식 제원과 대조"},
+    "GranCabrio seats": {"url":"https://www.maserati.com/kr/ko/models/grancabrio","basis":"공식 한국 페이지 검색 색인의 ‘네 명이 함께 누리는 카브리오의 즐거움’ 표기"},
+    "MINI spec": {"url":"https://www.mini.co.kr/ko_KR/home/Product-Information-KR.html","basis":"제조사에서 직접 연결한 minikr.co.kr PDF를 렌더링하여 표의 열과 숫자 대조"}
+  },
+  "notes": [
+    "가격은 확인 시점의 공식 표시 가격이다. BMW/MINI는 VAT 포함 권장소비자가, 토요타는 VAT 포함 공식 모델 페이지 가격, 마세라티는 국내 공식 판매점 페이지의 2026 시작 가격이다. 선택품목·취득등록비·할인·보조금을 추가하지 않았다.",
+    "같은 모델군의 M·JCW·연료·트림은 구성으로 보존하며 모델별 1만 행 수를 별도로 부풀리지 않는다. 기본 차체가 다른 쿠페/컨버터블은 별도 모델군이다.",
+    "그란쿠페는 제조사의 4도어 쿠페 분류를 보존한다. 2도어 또는 2인승으로 추정하지 않는다. 쿠페형 SUV는 추가 대상에서 제외한다.",
+    "null 전장·좌석은 미확인이다. 공식 세계 공통 제원이나 과거 세대 값을 국내 현행 트림에 임의 연결하지 않는다. 최소 정원이 지정된 학습 사례에는 미확인 정원 차량을 넣지 않는다.",
+    "연비 누락은 rules.txt의 기존 연료별 구간 중간값으로 비용을 추정하며 공인 연비로 저장하지 않는다.",
+    "국산 제조사 현대·기아·제네시스 현행 공식 모델 목록도 조사했다. 이번 자료에서 독립 승용 쿠페/오픈카로 확인된 신규 국산 모델은 없으며 GV80 Coupe를 일반 쿠페로 바꾸지 않았다."
+  ],
+  "deferred": [
+    {"brand":"메르세데스-벤츠","models":"CLA Coupe, CLE Coupe, CLE Cabriolet, AMG GT Coupe, AMG GT 4-Door Coupe, SL Roadster","reason":"국내 공식 메뉴 등재 확인. 가격표의 동적 다운로드/직접 요청 403으로 현행 트림과 가격 연결을 완료하지 못해 학습 제외","source":"https://www.mercedes-benz.co.kr/passengercars/models/price-list.html"},
+    {"brand":"포르쉐","models":"911 Coupe/Cabriolet/Targa, 718 Cayman/Boxster","reason":"국내 모델 메뉴 확인. 현행 모델별 MSRP와 판매 가능 여부를 연결하지 못함. Finder의 옵션 포함 신차 호가를 MSRP로 혼용하지 않음","source":"https://www.porsche.com/korea/ko/models/911/"},
+    {"brand":"로터스","models":"Emira","reason":"국내 공식 판매 및 2025 V6 MT 출시가 확인. 현재 트림 가격으로 재확인하기 전 과거 가격 사용 보류","source":"https://www.lotuscars.co.kr/NEWS/?bmode=view&idx=144342095"},
+    {"brand":"벤틀리·롤스로이스","models":"Continental GT/GTC, Spectre","reason":"공식 현지화 소개/딜러 존재 확인. 국내 현행 기본 가격 미확인으로 추정 가격을 넣지 않음","source":"https://www.bentleymotors.com/kr/ko/models/continental-gt.html"},
+    {"brand":"페라리·람보르기니·애스턴마틴·맥라렌·렉서스·포드","models":"국내 쿠페·오픈카 라인업 추가 검수 대상","reason":"이번 1차 자료에서는 현재 국내 판매 트림의 공식 가격/제원 연결을 완료하지 못함. 전수 확보로 주장하지 않음","source":""},
+    {"brand":"마세라티","models":"MCPURA, MCPURA Cielo, GT2 Stradale, Folgore 파생형","reason":"국내 공식 메뉴 확인. 현행 기본 가격과 사양을 연결하지 못한 파생형 제외","source":"https://www.maserati.com/kr/ko/dealers/stellaautomobiles"}
+  ]
+}

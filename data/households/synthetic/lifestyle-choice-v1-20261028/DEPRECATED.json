@@ -1,0 +1,6 @@
+{
+  "status": "deprecated-do-not-train",
+  "training_allowed": false,
+  "reason": "Vehicle traits were random fixtures, not evidence-backed properties.",
+  "replacement": "data/households/synthetic/lifestyle-choice-v2-evidence-20261028"
+}

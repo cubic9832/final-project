@@ -12,6 +12,7 @@ cd "$ROOT_DIR"
 
 DEFAULT_DB_PORT=3307
 export DB_PORT="${DB_PORT:-$DEFAULT_DB_PORT}"
+export DB_HOST="${DB_HOST:-192.168.10.18}"
 
 require_docker() {
   if ! docker info >/dev/null 2>&1; then
@@ -47,9 +48,7 @@ stop_apps() {
 }
 
 start_apps() {
-  if [ "$DB_PORT" != "$DEFAULT_DB_PORT" ]; then
-    export SPRING_DATASOURCE_URL="jdbc:mysql://localhost:$DB_PORT/final_sample?serverTimezone=Asia/Seoul&characterEncoding=UTF-8"
-  fi
+  export SPRING_DATASOURCE_URL="jdbc:mysql://$DB_HOST:$DB_PORT/final_sample?serverTimezone=Asia/Seoul&characterEncoding=UTF-8"
 
   if [ ! -d front/node_modules ]; then
     (cd front && npm ci)
@@ -71,8 +70,10 @@ start_apps() {
 
 case "${1:-up}" in
   up)
-    require_docker
-    start_db
+    if [ "$DB_HOST" = "localhost" ] || [ "$DB_HOST" = "127.0.0.1" ]; then
+      require_docker
+      start_db
+    fi
     start_apps
     ;;
   down)

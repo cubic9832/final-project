@@ -41,7 +41,7 @@ export default function FinancialPage() {
 
   function input(name, label, value, onChange, { required = false, help, readOnly = false } = {}) {
     return <div className="financial-field" key={name}>
-      <label htmlFor={`financial-${name}`}>{label}{required ? <span className="financial-required"> *</span> : ' (선택)'}</label>
+      <label htmlFor={`financial-${name}`}>{label}{required ? <span className="financial-required"> </span> : ' (선택)'}</label>
       <div className="financial-input-wrap"><input id={`financial-${name}`} type="number" min="0" max="9999999999.99" step="0.01" inputMode="decimal" placeholder="0" required={required} readOnly={readOnly} value={value} onKeyDown={event => { if (['e', 'E', '+', '-'].includes(event.key)) event.preventDefault(); }} onChange={event => { const next = event.target.value; if (!/^\d{0,10}(\.\d{0,2})?$/.test(next)) { event.currentTarget.value = String(value ?? ''); return; } onChange(next); setErrors(previous => ({ ...previous, [name]: '' })); }} aria-invalid={Boolean(errors[name])} aria-describedby={errors[name] ? `${name}-error` : help ? `${name}-help` : undefined} onInvalid={event => { event.preventDefault(); const message = event.currentTarget.validationMessage; setErrors(previous => ({ ...previous, [name]: message })); }} /><span aria-hidden="true">만 원</span></div>
       {help && <p className="financial-input-help" id={`${name}-help`}>{help}</p>}
       {Number(value) >= 10000 && <p className="financial-input-help">{formatFinancialMoney(Number(value) * 10000)}</p>}

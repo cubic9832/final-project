@@ -138,7 +138,7 @@ export default function Header() {
               <NavLink to="/about">About Us</NavLink>
             </li>
             <li>
-              <NavLink to="/financial">재무 진단</NavLink>
+              <NavLink to="/financial">차량 맞춤 추천</NavLink>
             </li>
             <li>
               <NavLink to="/search">차량 찾기</NavLink>

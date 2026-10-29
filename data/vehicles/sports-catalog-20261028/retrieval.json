@@ -1,0 +1,188 @@
+[
+  {
+    "id": "bmw-price",
+    "url": "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf",
+    "checked_on": "2026-10-28",
+    "status": "UNAVAILABLE",
+    "error": "The read operation timed out"
+  },
+  {
+    "id": "bmw-lineup",
+    "url": "https://www.bmw.co.kr/ko/all-models.html",
+    "checked_on": "2026-10-28",
+    "status": "UNAVAILABLE",
+    "error": "The read operation timed out"
+  },
+  {
+    "id": "mini-price",
+    "url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Price-Option-List.pdf",
+    "checked_on": "2026-10-28",
+    "final_url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Price-Option-List.pdf",
+    "sha256": "eca510574a310f9f8f0e92da017a09bf573befafaf4cf6121d359ed7626d7a91",
+    "bytes": 192083,
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "mini-spec",
+    "url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Specification.pdf",
+    "checked_on": "2026-10-28",
+    "final_url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Specification.pdf",
+    "sha256": "cf664059f1e26e97b1dd387a54270ccda3235dea6970f9840599f0cd4bc6e53f",
+    "bytes": 64775,
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "mini-lineup",
+    "url": "https://www.mini.co.kr/ko_KR/home/Product-Information-KR.html",
+    "checked_on": "2026-10-28",
+    "status": "UNAVAILABLE",
+    "error": "The read operation timed out"
+  },
+  {
+    "id": "toyota-gr86",
+    "url": "https://www.toyota.co.kr/models/gr86/",
+    "checked_on": "2026-10-28",
+    "final_url": "https://www.toyota.co.kr/models/gr86/",
+    "sha256": "7645d676718f6050081e77c073c6551ed9524b09a0316e01c3a54d9a5366e09a",
+    "bytes": 97811,
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "toyota-spec",
+    "url": "https://www.toyota.co.kr/download/model/GR86_spec.pdf",
+    "checked_on": "2026-10-28",
+    "final_url": "https://www.toyota.co.kr/download/model/GR86_spec.pdf",
+    "sha256": "07d7eefc0eabe4e5ce1793dd10b3aafa4155e3dc3fec912cecceceb63af9ec3e",
+    "bytes": 446372,
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "maserati-home",
+    "url": "https://www.maserati.com/kr/ko?redirect=1",
+    "checked_on": "2026-10-28",
+    "status": "UNAVAILABLE",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "maserati-dealer",
+    "url": "https://www.maserati.com/kr/ko/dealers/stellaautomobiles",
+    "checked_on": "2026-10-28",
+    "status": "UNAVAILABLE",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "maserati-granturismo",
+    "url": "https://www.maserati.com/kr/ko/models/granturismo",
+    "checked_on": "2026-10-28",
+    "status": "UNAVAILABLE",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "maserati-grancabrio",
+    "url": "https://www.maserati.com/kr/ko/models/grancabrio",
+    "checked_on": "2026-10-28",
+    "status": "UNAVAILABLE",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "maserati-mcpura",
+    "url": "https://www.maserati.com/kr/ko/models/mcpura",
+    "checked_on": "2026-10-28",
+    "status": "UNAVAILABLE",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "maserati-gt2",
+    "url": "https://www.maserati.com/kr/ko/models/gt2-stradale",
+    "checked_on": "2026-10-28",
+    "status": "UNAVAILABLE",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "lotus-emira",
+    "url": "https://www.lotuscars.com/ko-KR/emira",
+    "checked_on": "2026-10-28",
+    "final_url": "https://www.lotuscars.com/ko-KR/emira",
+    "sha256": "f62353bd93e5aa287c01ea5b166f59ef7411eab9a35cc5c034ecbfb876bf77b7",
+    "bytes": 67355,
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "lotus-price",
+    "url": "https://www.lotuscars.co.kr/NEWS/?bmode=view&idx=144342095",
+    "checked_on": "2026-10-28",
+    "final_url": "https://www.lotuscars.co.kr/NEWS/?bmode=view&idx=144342095",
+    "sha256": "25563b21cb0c6869d53bf481b740978dbd3cb03019585046a6653d50fcb913f9",
+    "bytes": 477863,
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "porsche-lineup",
+    "url": "https://www.porsche.com/korea/ko/models/911/",
+    "checked_on": "2026-10-28",
+    "status": "UNAVAILABLE",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "porsche-new-stock",
+    "url": "https://finder.porsche.com/kr/ko-KR/s/carrera",
+    "checked_on": "2026-10-28",
+    "status": "UNAVAILABLE",
+    "error": "HTTP Error 429: Too Many Requests"
+  },
+  {
+    "id": "benz-price",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/price-list.html",
+    "checked_on": "2026-10-28",
+    "status": "UNAVAILABLE",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "benz-cle",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/coupe/cle/overview.html",
+    "checked_on": "2026-10-28",
+    "status": "UNAVAILABLE",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "bentley-gt",
+    "url": "https://bentleyseoul.com/model/continental-gt/",
+    "checked_on": "2026-10-28",
+    "status": "UNAVAILABLE",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'bentleyseoul.com'. (_ssl.c:1082)>"
+  },
+  {
+    "id": "rolls-spectre",
+    "url": "https://www.rolls-roycemotorcars.com/ko_KR/showroom/spectre.html",
+    "checked_on": "2026-10-28",
+    "status": "UNAVAILABLE",
+    "error": "The read operation timed out"
+  },
+  {
+    "id": "hyundai-lineup",
+    "url": "https://www.hyundai.com/kr/ko/e/api/product/car/catalog-price",
+    "checked_on": "2026-10-28",
+    "final_url": "https://www.hyundai.com/kr/ko/e/api/product/car/catalog-price",
+    "sha256": "5b0b8923dd91908b632d425531d9c16384d87c75ac6e814fff2151f97a51b4f8",
+    "bytes": 35057,
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "kia-lineup",
+    "url": "https://www.kia.com/kr/vehicles/sedan",
+    "checked_on": "2026-10-28",
+    "final_url": "https://www.kia.com/kr/vehicles/sedan",
+    "sha256": "20c98216feaadbe945142971534828c51f15388424b1970fea43727ad1271d84",
+    "bytes": 85587,
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "genesis-lineup",
+    "url": "https://www.genesis.com/kr/ko/models.html",
+    "checked_on": "2026-10-28",
+    "final_url": "https://www.genesis.com/kr/ko/models/gv80",
+    "sha256": "1d3aaa5d0031acd8243e43871acd2da72e1ae0765fd633da1156dc8014964c38",
+    "bytes": 661468,
+    "status": "EXTRACTED"
+  }
+]

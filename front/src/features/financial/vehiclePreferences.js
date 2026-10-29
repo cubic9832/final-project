@@ -8,8 +8,15 @@ export const bodyTypeOptions = [
   { value: 'SUV', label: 'SUV' }, { value: 'HATCHBACK', label: '해치백' },
   { value: 'WAGON', label: '왜건' }, { value: 'MPV', label: '미니밴·승합' },
   { value: 'BOX', label: '박스카' }, { value: 'PICKUP', label: '픽업트럭' },
+  { value: 'COUPE', label: '쿠페' }, { value: 'CONVERTIBLE', label: '컨버터블' },
+  { value: 'ROADSTER', label: '로드스터' },
 ];
-export const bodyTypeLabel = value => bodyTypeOptions.find(item => item.value === value)?.label ?? '형태 미확인';
+export const bodyPreferenceOptions = [
+  { value: 'any', label: '상관없음' }, { value: 'SEDAN', label: '세단' },
+  { value: 'SUV', label: 'SUV' }, { value: 'OTHER', label: '그 외 차체' },
+];
+export const normalizeBodyPreference = value => ['HATCHBACK', 'WAGON', 'MPV', 'BOX', 'PICKUP', 'COUPE', 'CONVERTIBLE', 'ROADSTER'].includes(value) ? 'OTHER' : (bodyPreferenceOptions.some(item => item.value === value) ? value : 'any');
+export const bodyTypeLabel = value => [...bodyTypeOptions, ...bodyPreferenceOptions].find(item => item.value === value)?.label ?? '형태 미확인';
 export const sizeOptions = [
   { value: 'any', label: '상관없음 · 크기 평가 제외' },
   { value: 'small', label: '작은 크기 · 전장 4.2m 이하' },

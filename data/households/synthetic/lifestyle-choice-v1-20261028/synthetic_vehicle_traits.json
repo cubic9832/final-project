@@ -1,0 +1,2597 @@
+{
+  "status": "fictional-not-measured-not-for-production",
+  "dimensions": [
+    "exterior_sportiness",
+    "exterior_angularity",
+    "interior_minimalism",
+    "ride_comfort",
+    "driving_engagement",
+    "practicality"
+  ],
+  "vehicles": {
+    "SPORT-0313da36e7595ef7": {
+      "exterior_sportiness": 0.812719,
+      "exterior_angularity": 0.165868,
+      "interior_minimalism": 0.343107,
+      "ride_comfort": 0.06536,
+      "driving_engagement": 0.877454,
+      "practicality": 0.431234
+    },
+    "SPORT-03970cd84d30d96f": {
+      "exterior_sportiness": 0.252851,
+      "exterior_angularity": 0.157646,
+      "interior_minimalism": 0.797409,
+      "ride_comfort": 0.523993,
+      "driving_engagement": 0.80241,
+      "practicality": 0.890555
+    },
+    "SPORT-0aa5ec06e05bfbfe": {
+      "exterior_sportiness": 0.57456,
+      "exterior_angularity": 0.931547,
+      "interior_minimalism": 0.053078,
+      "ride_comfort": 0.273303,
+      "driving_engagement": 0.320131,
+      "practicality": 0.657342
+    },
+    "SPORT-0c45e6ba03b35c07": {
+      "exterior_sportiness": 0.000745,
+      "exterior_angularity": 0.530824,
+      "interior_minimalism": 0.905324,
+      "ride_comfort": 0.838874,
+      "driving_engagement": 0.316917,
+      "practicality": 0.942897
+    },
+    "SPORT-0eb9f32638b38d6b": {
+      "exterior_sportiness": 0.57456,
+      "exterior_angularity": 0.931547,
+      "interior_minimalism": 0.053078,
+      "ride_comfort": 0.273303,
+      "driving_engagement": 0.320131,
+      "practicality": 0.657342
+    },
+    "SPORT-107f17bb620ba8cd": {
+      "exterior_sportiness": 0.000745,
+      "exterior_angularity": 0.530824,
+      "interior_minimalism": 0.905324,
+      "ride_comfort": 0.838874,
+      "driving_engagement": 0.316917,
+      "practicality": 0.942897
+    },
+    "SPORT-4bb264913759e74b": {
+      "exterior_sportiness": 0.000745,
+      "exterior_angularity": 0.530824,
+      "interior_minimalism": 0.905324,
+      "ride_comfort": 0.838874,
+      "driving_engagement": 0.316917,
+      "practicality": 0.942897
+    },
+    "SPORT-4f6544766d9ec799": {
+      "exterior_sportiness": 0.816555,
+      "exterior_angularity": 0.960573,
+      "interior_minimalism": 0.279947,
+      "ride_comfort": 0.507972,
+      "driving_engagement": 0.940567,
+      "practicality": 0.213496
+    },
+    "SPORT-5ea71e4b2e97abc7": {
+      "exterior_sportiness": 0.528889,
+      "exterior_angularity": 0.443597,
+      "interior_minimalism": 0.079431,
+      "ride_comfort": 0.218311,
+      "driving_engagement": 0.556396,
+      "practicality": 0.663914
+    },
+    "SPORT-6a007c7fea67dfbc": {
+      "exterior_sportiness": 0.608011,
+      "exterior_angularity": 0.489738,
+      "interior_minimalism": 0.181789,
+      "ride_comfort": 0.532408,
+      "driving_engagement": 0.273573,
+      "practicality": 0.921905
+    },
+    "SPORT-6fd53300ad6c5cfb": {
+      "exterior_sportiness": 0.527421,
+      "exterior_angularity": 0.431992,
+      "interior_minimalism": 0.459461,
+      "ride_comfort": 0.546852,
+      "driving_engagement": 0.250534,
+      "practicality": 0.200818
+    },
+    "SPORT-839c9159aedb4458": {
+      "exterior_sportiness": 0.528889,
+      "exterior_angularity": 0.443597,
+      "interior_minimalism": 0.079431,
+      "ride_comfort": 0.218311,
+      "driving_engagement": 0.556396,
+      "practicality": 0.663914
+    },
+    "SPORT-9b8a152a6b916393": {
+      "exterior_sportiness": 0.252851,
+      "exterior_angularity": 0.157646,
+      "interior_minimalism": 0.797409,
+      "ride_comfort": 0.523993,
+      "driving_engagement": 0.80241,
+      "practicality": 0.890555
+    },
+    "SPORT-9ffbe45a9fd7cad6": {
+      "exterior_sportiness": 0.608011,
+      "exterior_angularity": 0.489738,
+      "interior_minimalism": 0.181789,
+      "ride_comfort": 0.532408,
+      "driving_engagement": 0.273573,
+      "practicality": 0.921905
+    },
+    "SPORT-aaacde75ec1de4df": {
+      "exterior_sportiness": 0.232206,
+      "exterior_angularity": 0.26055,
+      "interior_minimalism": 0.607836,
+      "ride_comfort": 0.102987,
+      "driving_engagement": 0.212176,
+      "practicality": 0.528229
+    },
+    "SPORT-bf59f2a2a3aaea76": {
+      "exterior_sportiness": 0.719682,
+      "exterior_angularity": 0.159649,
+      "interior_minimalism": 0.861357,
+      "ride_comfort": 0.671463,
+      "driving_engagement": 0.244875,
+      "practicality": 0.946056
+    },
+    "SPORT-e57a272b0b2fca6e": {
+      "exterior_sportiness": 0.527421,
+      "exterior_angularity": 0.431992,
+      "interior_minimalism": 0.459461,
+      "ride_comfort": 0.546852,
+      "driving_engagement": 0.250534,
+      "practicality": 0.200818
+    },
+    "SPORT-e767c60466be92fc": {
+      "exterior_sportiness": 0.816555,
+      "exterior_angularity": 0.960573,
+      "interior_minimalism": 0.279947,
+      "ride_comfort": 0.507972,
+      "driving_engagement": 0.940567,
+      "practicality": 0.213496
+    },
+    "SPORT-ed9f1e3b6a60f706": {
+      "exterior_sportiness": 0.719682,
+      "exterior_angularity": 0.159649,
+      "interior_minimalism": 0.861357,
+      "ride_comfort": 0.671463,
+      "driving_engagement": 0.244875,
+      "practicality": 0.946056
+    },
+    "SPORT-eea982011b1ca734": {
+      "exterior_sportiness": 0.812719,
+      "exterior_angularity": 0.165868,
+      "interior_minimalism": 0.343107,
+      "ride_comfort": 0.06536,
+      "driving_engagement": 0.877454,
+      "practicality": 0.431234
+    },
+    "SPORT-f3297d0c4ea75370": {
+      "exterior_sportiness": 0.9253,
+      "exterior_angularity": 0.007501,
+      "interior_minimalism": 0.223401,
+      "ride_comfort": 0.261072,
+      "driving_engagement": 0.440808,
+      "practicality": 0.433317
+    },
+    "SPORT-f5326c56ad8df80e": {
+      "exterior_sportiness": 0.57456,
+      "exterior_angularity": 0.931547,
+      "interior_minimalism": 0.053078,
+      "ride_comfort": 0.273303,
+      "driving_engagement": 0.320131,
+      "practicality": 0.657342
+    },
+    "V-0044b613009f7748": {
+      "exterior_sportiness": 0.040112,
+      "exterior_angularity": 0.59227,
+      "interior_minimalism": 0.523176,
+      "ride_comfort": 0.820509,
+      "driving_engagement": 0.499894,
+      "practicality": 0.497608
+    },
+    "V-00f674d94357e621": {
+      "exterior_sportiness": 0.097427,
+      "exterior_angularity": 0.436347,
+      "interior_minimalism": 0.29997,
+      "ride_comfort": 0.608713,
+      "driving_engagement": 0.79546,
+      "practicality": 0.013167
+    },
+    "V-03246901475ca53f": {
+      "exterior_sportiness": 0.106029,
+      "exterior_angularity": 0.461412,
+      "interior_minimalism": 0.579124,
+      "ride_comfort": 0.403943,
+      "driving_engagement": 0.256121,
+      "practicality": 0.79122
+    },
+    "V-049d84937c97ad57": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "V-05ddec06ebe5113d": {
+      "exterior_sportiness": 0.124946,
+      "exterior_angularity": 0.043342,
+      "interior_minimalism": 0.224343,
+      "ride_comfort": 0.322857,
+      "driving_engagement": 0.674897,
+      "practicality": 0.457226
+    },
+    "V-0610c5f2afaac210": {
+      "exterior_sportiness": 0.92589,
+      "exterior_angularity": 0.986575,
+      "interior_minimalism": 0.139199,
+      "ride_comfort": 0.363452,
+      "driving_engagement": 0.787328,
+      "practicality": 0.03025
+    },
+    "V-07ddb98a8309e8e0": {
+      "exterior_sportiness": 0.360971,
+      "exterior_angularity": 0.391299,
+      "interior_minimalism": 0.641994,
+      "ride_comfort": 0.254689,
+      "driving_engagement": 0.611621,
+      "practicality": 0.553282
+    },
+    "V-08c6da2d63b963f5": {
+      "exterior_sportiness": 0.91689,
+      "exterior_angularity": 0.488393,
+      "interior_minimalism": 0.115134,
+      "ride_comfort": 0.071024,
+      "driving_engagement": 0.499041,
+      "practicality": 0.549532
+    },
+    "V-0b42368eb362f17c": {
+      "exterior_sportiness": 0.416081,
+      "exterior_angularity": 0.488071,
+      "interior_minimalism": 0.627001,
+      "ride_comfort": 0.078285,
+      "driving_engagement": 0.811784,
+      "practicality": 0.881588
+    },
+    "V-0bb1f2693415ff77": {
+      "exterior_sportiness": 0.813834,
+      "exterior_angularity": 0.921655,
+      "interior_minimalism": 0.295804,
+      "ride_comfort": 0.688976,
+      "driving_engagement": 0.467508,
+      "practicality": 0.242903
+    },
+    "V-0d7f59c429c6292a": {
+      "exterior_sportiness": 0.499124,
+      "exterior_angularity": 0.502116,
+      "interior_minimalism": 0.892546,
+      "ride_comfort": 0.486583,
+      "driving_engagement": 0.30713,
+      "practicality": 0.17088
+    },
+    "V-0f43c458707b24c4": {
+      "exterior_sportiness": 0.095288,
+      "exterior_angularity": 0.788971,
+      "interior_minimalism": 0.200642,
+      "ride_comfort": 0.403663,
+      "driving_engagement": 0.959401,
+      "practicality": 0.292467
+    },
+    "V-0f655fc71eb8570e": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "V-1148f28b56f11c8d": {
+      "exterior_sportiness": 0.095288,
+      "exterior_angularity": 0.788971,
+      "interior_minimalism": 0.200642,
+      "ride_comfort": 0.403663,
+      "driving_engagement": 0.959401,
+      "practicality": 0.292467
+    },
+    "V-165485f91c88e7c8": {
+      "exterior_sportiness": 0.054443,
+      "exterior_angularity": 0.905808,
+      "interior_minimalism": 0.614487,
+      "ride_comfort": 0.118949,
+      "driving_engagement": 0.766301,
+      "practicality": 0.838779
+    },
+    "V-16bd39ceec4188b8": {
+      "exterior_sportiness": 0.467404,
+      "exterior_angularity": 0.991399,
+      "interior_minimalism": 0.27405,
+      "ride_comfort": 0.229615,
+      "driving_engagement": 0.629867,
+      "practicality": 0.615208
+    },
+    "V-16dde464240a4a8e": {
+      "exterior_sportiness": 0.467404,
+      "exterior_angularity": 0.991399,
+      "interior_minimalism": 0.27405,
+      "ride_comfort": 0.229615,
+      "driving_engagement": 0.629867,
+      "practicality": 0.615208
+    },
+    "V-190ba4c755b528d6": {
+      "exterior_sportiness": 0.37443,
+      "exterior_angularity": 0.012454,
+      "interior_minimalism": 0.644143,
+      "ride_comfort": 0.900361,
+      "driving_engagement": 0.834911,
+      "practicality": 0.141967
+    },
+    "V-19c8ef05355d9af2": {
+      "exterior_sportiness": 0.207852,
+      "exterior_angularity": 0.887073,
+      "interior_minimalism": 0.520996,
+      "ride_comfort": 0.728153,
+      "driving_engagement": 0.602185,
+      "practicality": 0.528893
+    },
+    "V-1a2fb071cae19dc6": {
+      "exterior_sportiness": 0.37443,
+      "exterior_angularity": 0.012454,
+      "interior_minimalism": 0.644143,
+      "ride_comfort": 0.900361,
+      "driving_engagement": 0.834911,
+      "practicality": 0.141967
+    },
+    "V-1ab8626515143797": {
+      "exterior_sportiness": 0.66985,
+      "exterior_angularity": 0.546823,
+      "interior_minimalism": 0.281054,
+      "ride_comfort": 0.791053,
+      "driving_engagement": 0.895818,
+      "practicality": 0.562697
+    },
+    "V-1bcd3a475be19802": {
+      "exterior_sportiness": 0.467404,
+      "exterior_angularity": 0.991399,
+      "interior_minimalism": 0.27405,
+      "ride_comfort": 0.229615,
+      "driving_engagement": 0.629867,
+      "practicality": 0.615208
+    },
+    "V-1c9e5e02aeb45496": {
+      "exterior_sportiness": 0.830868,
+      "exterior_angularity": 0.572443,
+      "interior_minimalism": 0.013113,
+      "ride_comfort": 0.521187,
+      "driving_engagement": 0.428736,
+      "practicality": 0.234418
+    },
+    "V-1cc1b7798f3ca8db": {
+      "exterior_sportiness": 0.095288,
+      "exterior_angularity": 0.788971,
+      "interior_minimalism": 0.200642,
+      "ride_comfort": 0.403663,
+      "driving_engagement": 0.959401,
+      "practicality": 0.292467
+    },
+    "V-1e59d2cf88131713": {
+      "exterior_sportiness": 0.499124,
+      "exterior_angularity": 0.502116,
+      "interior_minimalism": 0.892546,
+      "ride_comfort": 0.486583,
+      "driving_engagement": 0.30713,
+      "practicality": 0.17088
+    },
+    "V-1e97c367b8b2a7b6": {
+      "exterior_sportiness": 0.392623,
+      "exterior_angularity": 0.567976,
+      "interior_minimalism": 0.714732,
+      "ride_comfort": 0.08793,
+      "driving_engagement": 0.263047,
+      "practicality": 0.949772
+    },
+    "V-1ea88a23996f39d3": {
+      "exterior_sportiness": 0.095288,
+      "exterior_angularity": 0.788971,
+      "interior_minimalism": 0.200642,
+      "ride_comfort": 0.403663,
+      "driving_engagement": 0.959401,
+      "practicality": 0.292467
+    },
+    "V-20b4be5730d6553a": {
+      "exterior_sportiness": 0.973447,
+      "exterior_angularity": 0.208239,
+      "interior_minimalism": 0.64049,
+      "ride_comfort": 0.695152,
+      "driving_engagement": 0.652465,
+      "practicality": 0.204929
+    },
+    "V-2189ef47898e3f66": {
+      "exterior_sportiness": 0.098965,
+      "exterior_angularity": 0.972241,
+      "interior_minimalism": 0.312251,
+      "ride_comfort": 0.438948,
+      "driving_engagement": 0.455242,
+      "practicality": 0.171351
+    },
+    "V-2292e2e4efc58cae": {
+      "exterior_sportiness": 0.472758,
+      "exterior_angularity": 0.036334,
+      "interior_minimalism": 0.031738,
+      "ride_comfort": 0.661804,
+      "driving_engagement": 0.61316,
+      "practicality": 0.320993
+    },
+    "V-240be12db34ba8b0": {
+      "exterior_sportiness": 0.995256,
+      "exterior_angularity": 0.440765,
+      "interior_minimalism": 0.087606,
+      "ride_comfort": 0.179155,
+      "driving_engagement": 0.002189,
+      "practicality": 0.20278
+    },
+    "V-2476ec2f7d44326a": {
+      "exterior_sportiness": 0.207852,
+      "exterior_angularity": 0.887073,
+      "interior_minimalism": 0.520996,
+      "ride_comfort": 0.728153,
+      "driving_engagement": 0.602185,
+      "practicality": 0.528893
+    },
+    "V-27887ee7cbab9543": {
+      "exterior_sportiness": 0.650971,
+      "exterior_angularity": 0.992266,
+      "interior_minimalism": 0.216746,
+      "ride_comfort": 0.663808,
+      "driving_engagement": 0.470353,
+      "practicality": 0.764429
+    },
+    "V-27b311febff2b34c": {
+      "exterior_sportiness": 0.124946,
+      "exterior_angularity": 0.043342,
+      "interior_minimalism": 0.224343,
+      "ride_comfort": 0.322857,
+      "driving_engagement": 0.674897,
+      "practicality": 0.457226
+    },
+    "V-28e35ab7d6ef4cbd": {
+      "exterior_sportiness": 0.521563,
+      "exterior_angularity": 0.199302,
+      "interior_minimalism": 0.997185,
+      "ride_comfort": 0.367998,
+      "driving_engagement": 0.184452,
+      "practicality": 0.0027
+    },
+    "V-295daaac0b367972": {
+      "exterior_sportiness": 0.095288,
+      "exterior_angularity": 0.788971,
+      "interior_minimalism": 0.200642,
+      "ride_comfort": 0.403663,
+      "driving_engagement": 0.959401,
+      "practicality": 0.292467
+    },
+    "V-2b6bc1d3b49dc152": {
+      "exterior_sportiness": 0.813834,
+      "exterior_angularity": 0.921655,
+      "interior_minimalism": 0.295804,
+      "ride_comfort": 0.688976,
+      "driving_engagement": 0.467508,
+      "practicality": 0.242903
+    },
+    "V-2e0fdfe89a4d121e": {
+      "exterior_sportiness": 0.124946,
+      "exterior_angularity": 0.043342,
+      "interior_minimalism": 0.224343,
+      "ride_comfort": 0.322857,
+      "driving_engagement": 0.674897,
+      "practicality": 0.457226
+    },
+    "V-309fcb751ac5e682": {
+      "exterior_sportiness": 0.207852,
+      "exterior_angularity": 0.887073,
+      "interior_minimalism": 0.520996,
+      "ride_comfort": 0.728153,
+      "driving_engagement": 0.602185,
+      "practicality": 0.528893
+    },
+    "V-321d01c3cfacf874": {
+      "exterior_sportiness": 0.704911,
+      "exterior_angularity": 0.762903,
+      "interior_minimalism": 0.939639,
+      "ride_comfort": 0.826299,
+      "driving_engagement": 0.282809,
+      "practicality": 0.757423
+    },
+    "V-32a54466e07f3ed6": {
+      "exterior_sportiness": 0.668976,
+      "exterior_angularity": 0.88934,
+      "interior_minimalism": 0.410493,
+      "ride_comfort": 0.54449,
+      "driving_engagement": 0.237911,
+      "practicality": 0.201157
+    },
+    "V-336d414c0bfa6ca5": {
+      "exterior_sportiness": 0.464537,
+      "exterior_angularity": 0.048787,
+      "interior_minimalism": 0.011133,
+      "ride_comfort": 0.467949,
+      "driving_engagement": 0.721488,
+      "practicality": 0.79425
+    },
+    "V-354f355b55d99324": {
+      "exterior_sportiness": 0.300999,
+      "exterior_angularity": 0.215955,
+      "interior_minimalism": 0.822132,
+      "ride_comfort": 0.619221,
+      "driving_engagement": 0.84591,
+      "practicality": 0.33537
+    },
+    "V-354f355b55d99324-11seat": {
+      "exterior_sportiness": 0.300999,
+      "exterior_angularity": 0.215955,
+      "interior_minimalism": 0.822132,
+      "ride_comfort": 0.619221,
+      "driving_engagement": 0.84591,
+      "practicality": 0.33537
+    },
+    "V-3552655fed8cf2e8": {
+      "exterior_sportiness": 0.561946,
+      "exterior_angularity": 0.461854,
+      "interior_minimalism": 0.921333,
+      "ride_comfort": 0.709236,
+      "driving_engagement": 0.666993,
+      "practicality": 0.130888
+    },
+    "V-378114de233e14d4": {
+      "exterior_sportiness": 0.499124,
+      "exterior_angularity": 0.502116,
+      "interior_minimalism": 0.892546,
+      "ride_comfort": 0.486583,
+      "driving_engagement": 0.30713,
+      "practicality": 0.17088
+    },
+    "V-382856d132a74854": {
+      "exterior_sportiness": 0.168288,
+      "exterior_angularity": 0.769347,
+      "interior_minimalism": 0.390765,
+      "ride_comfort": 0.316649,
+      "driving_engagement": 0.4005,
+      "practicality": 0.895196
+    },
+    "V-3886eccd1ec206ee": {
+      "exterior_sportiness": 0.207852,
+      "exterior_angularity": 0.887073,
+      "interior_minimalism": 0.520996,
+      "ride_comfort": 0.728153,
+      "driving_engagement": 0.602185,
+      "practicality": 0.528893
+    },
+    "V-39287483c25f8023": {
+      "exterior_sportiness": 0.422135,
+      "exterior_angularity": 0.022743,
+      "interior_minimalism": 0.742333,
+      "ride_comfort": 0.262071,
+      "driving_engagement": 0.665315,
+      "practicality": 0.229917
+    },
+    "V-3a70e1aecf961a84": {
+      "exterior_sportiness": 0.054443,
+      "exterior_angularity": 0.905808,
+      "interior_minimalism": 0.614487,
+      "ride_comfort": 0.118949,
+      "driving_engagement": 0.766301,
+      "practicality": 0.838779
+    },
+    "V-3cbbde8842d5ec6a": {
+      "exterior_sportiness": 0.499124,
+      "exterior_angularity": 0.502116,
+      "interior_minimalism": 0.892546,
+      "ride_comfort": 0.486583,
+      "driving_engagement": 0.30713,
+      "practicality": 0.17088
+    },
+    "V-3d019184d238a603": {
+      "exterior_sportiness": 0.467404,
+      "exterior_angularity": 0.991399,
+      "interior_minimalism": 0.27405,
+      "ride_comfort": 0.229615,
+      "driving_engagement": 0.629867,
+      "practicality": 0.615208
+    },
+    "V-3db52022f5132999": {
+      "exterior_sportiness": 0.554171,
+      "exterior_angularity": 0.265479,
+      "interior_minimalism": 0.332501,
+      "ride_comfort": 0.417236,
+      "driving_engagement": 0.604566,
+      "practicality": 0.726642
+    },
+    "V-3ee6d9eb0ee3ca51": {
+      "exterior_sportiness": 0.598132,
+      "exterior_angularity": 0.434573,
+      "interior_minimalism": 0.559356,
+      "ride_comfort": 0.091059,
+      "driving_engagement": 0.376459,
+      "practicality": 0.81612
+    },
+    "V-3ee7ff531ae67f81": {
+      "exterior_sportiness": 0.467404,
+      "exterior_angularity": 0.991399,
+      "interior_minimalism": 0.27405,
+      "ride_comfort": 0.229615,
+      "driving_engagement": 0.629867,
+      "practicality": 0.615208
+    },
+    "V-40307546993d9378": {
+      "exterior_sportiness": 0.168288,
+      "exterior_angularity": 0.769347,
+      "interior_minimalism": 0.390765,
+      "ride_comfort": 0.316649,
+      "driving_engagement": 0.4005,
+      "practicality": 0.895196
+    },
+    "V-4058fd5b3e326ce4": {
+      "exterior_sportiness": 0.92589,
+      "exterior_angularity": 0.986575,
+      "interior_minimalism": 0.139199,
+      "ride_comfort": 0.363452,
+      "driving_engagement": 0.787328,
+      "practicality": 0.03025
+    },
+    "V-43413ddb2e70c4b5": {
+      "exterior_sportiness": 0.789186,
+      "exterior_angularity": 0.898193,
+      "interior_minimalism": 0.022473,
+      "ride_comfort": 0.814497,
+      "driving_engagement": 0.574949,
+      "practicality": 0.887878
+    },
+    "V-444e0e3b5c436f9a": {
+      "exterior_sportiness": 0.944532,
+      "exterior_angularity": 0.944625,
+      "interior_minimalism": 0.446446,
+      "ride_comfort": 0.652254,
+      "driving_engagement": 0.178555,
+      "practicality": 0.430946
+    },
+    "V-481a86b7ecb83c8a": {
+      "exterior_sportiness": 0.106029,
+      "exterior_angularity": 0.461412,
+      "interior_minimalism": 0.579124,
+      "ride_comfort": 0.403943,
+      "driving_engagement": 0.256121,
+      "practicality": 0.79122
+    },
+    "V-49023c7dde386135": {
+      "exterior_sportiness": 0.607716,
+      "exterior_angularity": 0.310106,
+      "interior_minimalism": 0.290354,
+      "ride_comfort": 0.219452,
+      "driving_engagement": 0.647834,
+      "practicality": 0.375731
+    },
+    "V-499049dcaf1bd358": {
+      "exterior_sportiness": 0.813834,
+      "exterior_angularity": 0.921655,
+      "interior_minimalism": 0.295804,
+      "ride_comfort": 0.688976,
+      "driving_engagement": 0.467508,
+      "practicality": 0.242903
+    },
+    "V-4992a62f769b2f63": {
+      "exterior_sportiness": 0.097427,
+      "exterior_angularity": 0.436347,
+      "interior_minimalism": 0.29997,
+      "ride_comfort": 0.608713,
+      "driving_engagement": 0.79546,
+      "practicality": 0.013167
+    },
+    "V-4a0eb7956d875e53": {
+      "exterior_sportiness": 0.499124,
+      "exterior_angularity": 0.502116,
+      "interior_minimalism": 0.892546,
+      "ride_comfort": 0.486583,
+      "driving_engagement": 0.30713,
+      "practicality": 0.17088
+    },
+    "V-4ecd449bcfe84bc6": {
+      "exterior_sportiness": 0.942754,
+      "exterior_angularity": 0.387727,
+      "interior_minimalism": 0.489552,
+      "ride_comfort": 0.771035,
+      "driving_engagement": 0.891957,
+      "practicality": 0.950411
+    },
+    "V-4ed3170c9e6a0711": {
+      "exterior_sportiness": 0.467404,
+      "exterior_angularity": 0.991399,
+      "interior_minimalism": 0.27405,
+      "ride_comfort": 0.229615,
+      "driving_engagement": 0.629867,
+      "practicality": 0.615208
+    },
+    "V-50f04ef5d5a83cf4": {
+      "exterior_sportiness": 0.580053,
+      "exterior_angularity": 0.850802,
+      "interior_minimalism": 0.012189,
+      "ride_comfort": 0.550232,
+      "driving_engagement": 0.444148,
+      "practicality": 0.046465
+    },
+    "V-52f843db7c9b3dcc": {
+      "exterior_sportiness": 0.858237,
+      "exterior_angularity": 0.338071,
+      "interior_minimalism": 0.637225,
+      "ride_comfort": 0.977197,
+      "driving_engagement": 0.602226,
+      "practicality": 0.726003
+    },
+    "V-53876460a134edd0": {
+      "exterior_sportiness": 0.076302,
+      "exterior_angularity": 0.216908,
+      "interior_minimalism": 0.71157,
+      "ride_comfort": 0.99399,
+      "driving_engagement": 0.113768,
+      "practicality": 0.345802
+    },
+    "V-53e46729ce9d3c2f": {
+      "exterior_sportiness": 0.499124,
+      "exterior_angularity": 0.502116,
+      "interior_minimalism": 0.892546,
+      "ride_comfort": 0.486583,
+      "driving_engagement": 0.30713,
+      "practicality": 0.17088
+    },
+    "V-54e87f67313082ea": {
+      "exterior_sportiness": 0.254647,
+      "exterior_angularity": 0.838041,
+      "interior_minimalism": 0.452349,
+      "ride_comfort": 0.110717,
+      "driving_engagement": 0.632973,
+      "practicality": 0.352898
+    },
+    "V-56921e32d83713eb": {
+      "exterior_sportiness": 0.92589,
+      "exterior_angularity": 0.986575,
+      "interior_minimalism": 0.139199,
+      "ride_comfort": 0.363452,
+      "driving_engagement": 0.787328,
+      "practicality": 0.03025
+    },
+    "V-57d0930969a7505b": {
+      "exterior_sportiness": 0.561946,
+      "exterior_angularity": 0.461854,
+      "interior_minimalism": 0.921333,
+      "ride_comfort": 0.709236,
+      "driving_engagement": 0.666993,
+      "practicality": 0.130888
+    },
+    "V-57ece7c7152d061b": {
+      "exterior_sportiness": 0.054443,
+      "exterior_angularity": 0.905808,
+      "interior_minimalism": 0.614487,
+      "ride_comfort": 0.118949,
+      "driving_engagement": 0.766301,
+      "practicality": 0.838779
+    },
+    "V-581a3d6b917bb98d": {
+      "exterior_sportiness": 0.995708,
+      "exterior_angularity": 0.582778,
+      "interior_minimalism": 0.745737,
+      "ride_comfort": 0.047199,
+      "driving_engagement": 0.106229,
+      "practicality": 0.22059
+    },
+    "V-58e2d4d6e84086a2": {
+      "exterior_sportiness": 0.918164,
+      "exterior_angularity": 0.90815,
+      "interior_minimalism": 0.368655,
+      "ride_comfort": 0.045577,
+      "driving_engagement": 0.329098,
+      "practicality": 0.526166
+    },
+    "V-5b2210b42ca62a1d": {
+      "exterior_sportiness": 0.879712,
+      "exterior_angularity": 0.661535,
+      "interior_minimalism": 0.100582,
+      "ride_comfort": 0.81747,
+      "driving_engagement": 0.951163,
+      "practicality": 0.064676
+    },
+    "V-5b2ab5cb91d2aa9c": {
+      "exterior_sportiness": 0.156793,
+      "exterior_angularity": 0.480437,
+      "interior_minimalism": 0.553415,
+      "ride_comfort": 0.259261,
+      "driving_engagement": 0.602443,
+      "practicality": 0.671009
+    },
+    "V-5ca7a7f55e7ddf10": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "V-5cff62937ff25f78": {
+      "exterior_sportiness": 0.207852,
+      "exterior_angularity": 0.887073,
+      "interior_minimalism": 0.520996,
+      "ride_comfort": 0.728153,
+      "driving_engagement": 0.602185,
+      "practicality": 0.528893
+    },
+    "V-5d1c10abd9f07cbb": {
+      "exterior_sportiness": 0.207852,
+      "exterior_angularity": 0.887073,
+      "interior_minimalism": 0.520996,
+      "ride_comfort": 0.728153,
+      "driving_engagement": 0.602185,
+      "practicality": 0.528893
+    },
+    "V-5d91b536e43062eb": {
+      "exterior_sportiness": 0.119552,
+      "exterior_angularity": 0.444258,
+      "interior_minimalism": 0.591297,
+      "ride_comfort": 0.693873,
+      "driving_engagement": 0.40773,
+      "practicality": 0.687605
+    },
+    "V-5dbcf369868398ac": {
+      "exterior_sportiness": 0.561946,
+      "exterior_angularity": 0.461854,
+      "interior_minimalism": 0.921333,
+      "ride_comfort": 0.709236,
+      "driving_engagement": 0.666993,
+      "practicality": 0.130888
+    },
+    "V-5eee00bb634458e8": {
+      "exterior_sportiness": 0.207852,
+      "exterior_angularity": 0.887073,
+      "interior_minimalism": 0.520996,
+      "ride_comfort": 0.728153,
+      "driving_engagement": 0.602185,
+      "practicality": 0.528893
+    },
+    "V-5f4da2f91536f0dd": {
+      "exterior_sportiness": 0.995256,
+      "exterior_angularity": 0.440765,
+      "interior_minimalism": 0.087606,
+      "ride_comfort": 0.179155,
+      "driving_engagement": 0.002189,
+      "practicality": 0.20278
+    },
+    "V-62e0cb38eac57639": {
+      "exterior_sportiness": 0.040112,
+      "exterior_angularity": 0.59227,
+      "interior_minimalism": 0.523176,
+      "ride_comfort": 0.820509,
+      "driving_engagement": 0.499894,
+      "practicality": 0.497608
+    },
+    "V-63cce431b22aa969": {
+      "exterior_sportiness": 0.789186,
+      "exterior_angularity": 0.898193,
+      "interior_minimalism": 0.022473,
+      "ride_comfort": 0.814497,
+      "driving_engagement": 0.574949,
+      "practicality": 0.887878
+    },
+    "V-64c4c208c9a01ac9": {
+      "exterior_sportiness": 0.538264,
+      "exterior_angularity": 0.564235,
+      "interior_minimalism": 0.725972,
+      "ride_comfort": 0.216169,
+      "driving_engagement": 0.153544,
+      "practicality": 0.603201
+    },
+    "V-66a7b9ceb8c3be1a": {
+      "exterior_sportiness": 0.944532,
+      "exterior_angularity": 0.944625,
+      "interior_minimalism": 0.446446,
+      "ride_comfort": 0.652254,
+      "driving_engagement": 0.178555,
+      "practicality": 0.430946
+    },
+    "V-6706c72fceca7879": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "V-680d73c062953216": {
+      "exterior_sportiness": 0.124946,
+      "exterior_angularity": 0.043342,
+      "interior_minimalism": 0.224343,
+      "ride_comfort": 0.322857,
+      "driving_engagement": 0.674897,
+      "practicality": 0.457226
+    },
+    "V-6af2938396a565bf": {
+      "exterior_sportiness": 0.195596,
+      "exterior_angularity": 0.212944,
+      "interior_minimalism": 0.587657,
+      "ride_comfort": 0.041418,
+      "driving_engagement": 0.399506,
+      "practicality": 0.701067
+    },
+    "V-6b77312928132e11": {
+      "exterior_sportiness": 0.789186,
+      "exterior_angularity": 0.898193,
+      "interior_minimalism": 0.022473,
+      "ride_comfort": 0.814497,
+      "driving_engagement": 0.574949,
+      "practicality": 0.887878
+    },
+    "V-6cc731ec2b6d03ed": {
+      "exterior_sportiness": 0.521563,
+      "exterior_angularity": 0.199302,
+      "interior_minimalism": 0.997185,
+      "ride_comfort": 0.367998,
+      "driving_engagement": 0.184452,
+      "practicality": 0.0027
+    },
+    "V-6d7695dc8385495e": {
+      "exterior_sportiness": 0.207852,
+      "exterior_angularity": 0.887073,
+      "interior_minimalism": 0.520996,
+      "ride_comfort": 0.728153,
+      "driving_engagement": 0.602185,
+      "practicality": 0.528893
+    },
+    "V-6e683dc9eda4ece1": {
+      "exterior_sportiness": 0.561946,
+      "exterior_angularity": 0.461854,
+      "interior_minimalism": 0.921333,
+      "ride_comfort": 0.709236,
+      "driving_engagement": 0.666993,
+      "practicality": 0.130888
+    },
+    "V-6ef5793704f06837": {
+      "exterior_sportiness": 0.66985,
+      "exterior_angularity": 0.546823,
+      "interior_minimalism": 0.281054,
+      "ride_comfort": 0.791053,
+      "driving_engagement": 0.895818,
+      "practicality": 0.562697
+    },
+    "V-6f565a9bbfc6290d": {
+      "exterior_sportiness": 0.538264,
+      "exterior_angularity": 0.564235,
+      "interior_minimalism": 0.725972,
+      "ride_comfort": 0.216169,
+      "driving_engagement": 0.153544,
+      "practicality": 0.603201
+    },
+    "V-6f81b67096aa7ca3": {
+      "exterior_sportiness": 0.499124,
+      "exterior_angularity": 0.502116,
+      "interior_minimalism": 0.892546,
+      "ride_comfort": 0.486583,
+      "driving_engagement": 0.30713,
+      "practicality": 0.17088
+    },
+    "V-70b8f38e89078317": {
+      "exterior_sportiness": 0.995256,
+      "exterior_angularity": 0.440765,
+      "interior_minimalism": 0.087606,
+      "ride_comfort": 0.179155,
+      "driving_engagement": 0.002189,
+      "practicality": 0.20278
+    },
+    "V-715dedd28ebdf536": {
+      "exterior_sportiness": 0.607716,
+      "exterior_angularity": 0.310106,
+      "interior_minimalism": 0.290354,
+      "ride_comfort": 0.219452,
+      "driving_engagement": 0.647834,
+      "practicality": 0.375731
+    },
+    "V-71de732a43eaa3c4": {
+      "exterior_sportiness": 0.521563,
+      "exterior_angularity": 0.199302,
+      "interior_minimalism": 0.997185,
+      "ride_comfort": 0.367998,
+      "driving_engagement": 0.184452,
+      "practicality": 0.0027
+    },
+    "V-71e783ee54f51895": {
+      "exterior_sportiness": 0.124946,
+      "exterior_angularity": 0.043342,
+      "interior_minimalism": 0.224343,
+      "ride_comfort": 0.322857,
+      "driving_engagement": 0.674897,
+      "practicality": 0.457226
+    },
+    "V-741faec94763182b": {
+      "exterior_sportiness": 0.467404,
+      "exterior_angularity": 0.991399,
+      "interior_minimalism": 0.27405,
+      "ride_comfort": 0.229615,
+      "driving_engagement": 0.629867,
+      "practicality": 0.615208
+    },
+    "V-74264ca3a644637e": {
+      "exterior_sportiness": 0.168288,
+      "exterior_angularity": 0.769347,
+      "interior_minimalism": 0.390765,
+      "ride_comfort": 0.316649,
+      "driving_engagement": 0.4005,
+      "practicality": 0.895196
+    },
+    "V-74e0ecc8924bace2": {
+      "exterior_sportiness": 0.830868,
+      "exterior_angularity": 0.572443,
+      "interior_minimalism": 0.013113,
+      "ride_comfort": 0.521187,
+      "driving_engagement": 0.428736,
+      "practicality": 0.234418
+    },
+    "V-7512039f72332b43": {
+      "exterior_sportiness": 0.054443,
+      "exterior_angularity": 0.905808,
+      "interior_minimalism": 0.614487,
+      "ride_comfort": 0.118949,
+      "driving_engagement": 0.766301,
+      "practicality": 0.838779
+    },
+    "V-75c170f55ebf46e1": {
+      "exterior_sportiness": 0.995256,
+      "exterior_angularity": 0.440765,
+      "interior_minimalism": 0.087606,
+      "ride_comfort": 0.179155,
+      "driving_engagement": 0.002189,
+      "practicality": 0.20278
+    },
+    "V-76ab737c0b1942ec": {
+      "exterior_sportiness": 0.538264,
+      "exterior_angularity": 0.564235,
+      "interior_minimalism": 0.725972,
+      "ride_comfort": 0.216169,
+      "driving_engagement": 0.153544,
+      "practicality": 0.603201
+    },
+    "V-76cf273e0878e8f3": {
+      "exterior_sportiness": 0.98686,
+      "exterior_angularity": 0.583089,
+      "interior_minimalism": 0.103227,
+      "ride_comfort": 0.269665,
+      "driving_engagement": 0.491326,
+      "practicality": 0.065769
+    },
+    "V-772a5c9f49b3228a": {
+      "exterior_sportiness": 0.813834,
+      "exterior_angularity": 0.921655,
+      "interior_minimalism": 0.295804,
+      "ride_comfort": 0.688976,
+      "driving_engagement": 0.467508,
+      "practicality": 0.242903
+    },
+    "V-77c9bb01e171bfbc": {
+      "exterior_sportiness": 0.207852,
+      "exterior_angularity": 0.887073,
+      "interior_minimalism": 0.520996,
+      "ride_comfort": 0.728153,
+      "driving_engagement": 0.602185,
+      "practicality": 0.528893
+    },
+    "V-78b24dde779f00dc": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "V-7a6e4b693348a2af": {
+      "exterior_sportiness": 0.858237,
+      "exterior_angularity": 0.338071,
+      "interior_minimalism": 0.637225,
+      "ride_comfort": 0.977197,
+      "driving_engagement": 0.602226,
+      "practicality": 0.726003
+    },
+    "V-7c6bf0c7fdad02e8": {
+      "exterior_sportiness": 0.207852,
+      "exterior_angularity": 0.887073,
+      "interior_minimalism": 0.520996,
+      "ride_comfort": 0.728153,
+      "driving_engagement": 0.602185,
+      "practicality": 0.528893
+    },
+    "V-7dcc8b40623f8ba7": {
+      "exterior_sportiness": 0.995256,
+      "exterior_angularity": 0.440765,
+      "interior_minimalism": 0.087606,
+      "ride_comfort": 0.179155,
+      "driving_engagement": 0.002189,
+      "practicality": 0.20278
+    },
+    "V-7f662e069167dcda": {
+      "exterior_sportiness": 0.124946,
+      "exterior_angularity": 0.043342,
+      "interior_minimalism": 0.224343,
+      "ride_comfort": 0.322857,
+      "driving_engagement": 0.674897,
+      "practicality": 0.457226
+    },
+    "V-80325bbc2b2a332e": {
+      "exterior_sportiness": 0.467404,
+      "exterior_angularity": 0.991399,
+      "interior_minimalism": 0.27405,
+      "ride_comfort": 0.229615,
+      "driving_engagement": 0.629867,
+      "practicality": 0.615208
+    },
+    "V-808c60e1e96cb737": {
+      "exterior_sportiness": 0.168288,
+      "exterior_angularity": 0.769347,
+      "interior_minimalism": 0.390765,
+      "ride_comfort": 0.316649,
+      "driving_engagement": 0.4005,
+      "practicality": 0.895196
+    },
+    "V-830bbc3777bfe3c4": {
+      "exterior_sportiness": 0.995256,
+      "exterior_angularity": 0.440765,
+      "interior_minimalism": 0.087606,
+      "ride_comfort": 0.179155,
+      "driving_engagement": 0.002189,
+      "practicality": 0.20278
+    },
+    "V-844095d9fff024f9": {
+      "exterior_sportiness": 0.499124,
+      "exterior_angularity": 0.502116,
+      "interior_minimalism": 0.892546,
+      "ride_comfort": 0.486583,
+      "driving_engagement": 0.30713,
+      "practicality": 0.17088
+    },
+    "V-8502ea48598fbafd": {
+      "exterior_sportiness": 0.499124,
+      "exterior_angularity": 0.502116,
+      "interior_minimalism": 0.892546,
+      "ride_comfort": 0.486583,
+      "driving_engagement": 0.30713,
+      "practicality": 0.17088
+    },
+    "V-85e4e6c7e4bacf98": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "V-860e34ed8a4374d0": {
+      "exterior_sportiness": 0.095288,
+      "exterior_angularity": 0.788971,
+      "interior_minimalism": 0.200642,
+      "ride_comfort": 0.403663,
+      "driving_engagement": 0.959401,
+      "practicality": 0.292467
+    },
+    "V-864ea8d64ac8a552": {
+      "exterior_sportiness": 0.095288,
+      "exterior_angularity": 0.788971,
+      "interior_minimalism": 0.200642,
+      "ride_comfort": 0.403663,
+      "driving_engagement": 0.959401,
+      "practicality": 0.292467
+    },
+    "V-86c3b79222dc88b2": {
+      "exterior_sportiness": 0.124946,
+      "exterior_angularity": 0.043342,
+      "interior_minimalism": 0.224343,
+      "ride_comfort": 0.322857,
+      "driving_engagement": 0.674897,
+      "practicality": 0.457226
+    },
+    "V-8975cee909bf0d63": {
+      "exterior_sportiness": 0.91689,
+      "exterior_angularity": 0.488393,
+      "interior_minimalism": 0.115134,
+      "ride_comfort": 0.071024,
+      "driving_engagement": 0.499041,
+      "practicality": 0.549532
+    },
+    "V-8982a4a38042c344": {
+      "exterior_sportiness": 0.467404,
+      "exterior_angularity": 0.991399,
+      "interior_minimalism": 0.27405,
+      "ride_comfort": 0.229615,
+      "driving_engagement": 0.629867,
+      "practicality": 0.615208
+    },
+    "V-89eca9bf45d07cb9": {
+      "exterior_sportiness": 0.416081,
+      "exterior_angularity": 0.488071,
+      "interior_minimalism": 0.627001,
+      "ride_comfort": 0.078285,
+      "driving_engagement": 0.811784,
+      "practicality": 0.881588
+    },
+    "V-8c5ee5d4fbc1f6ee": {
+      "exterior_sportiness": 0.040112,
+      "exterior_angularity": 0.59227,
+      "interior_minimalism": 0.523176,
+      "ride_comfort": 0.820509,
+      "driving_engagement": 0.499894,
+      "practicality": 0.497608
+    },
+    "V-8c6673301218147b": {
+      "exterior_sportiness": 0.168288,
+      "exterior_angularity": 0.769347,
+      "interior_minimalism": 0.390765,
+      "ride_comfort": 0.316649,
+      "driving_engagement": 0.4005,
+      "practicality": 0.895196
+    },
+    "V-8f669ba6287bd6aa": {
+      "exterior_sportiness": 0.918164,
+      "exterior_angularity": 0.90815,
+      "interior_minimalism": 0.368655,
+      "ride_comfort": 0.045577,
+      "driving_engagement": 0.329098,
+      "practicality": 0.526166
+    },
+    "V-8f69b3918b7ebf51": {
+      "exterior_sportiness": 0.144678,
+      "exterior_angularity": 0.892438,
+      "interior_minimalism": 0.854201,
+      "ride_comfort": 0.250099,
+      "driving_engagement": 0.692257,
+      "practicality": 0.085565
+    },
+    "V-923809da72a4bb56": {
+      "exterior_sportiness": 0.668976,
+      "exterior_angularity": 0.88934,
+      "interior_minimalism": 0.410493,
+      "ride_comfort": 0.54449,
+      "driving_engagement": 0.237911,
+      "practicality": 0.201157
+    },
+    "V-93c853f94ae1ad6d": {
+      "exterior_sportiness": 0.499124,
+      "exterior_angularity": 0.502116,
+      "interior_minimalism": 0.892546,
+      "ride_comfort": 0.486583,
+      "driving_engagement": 0.30713,
+      "practicality": 0.17088
+    },
+    "V-956f3c7e58374da7": {
+      "exterior_sportiness": 0.168288,
+      "exterior_angularity": 0.769347,
+      "interior_minimalism": 0.390765,
+      "ride_comfort": 0.316649,
+      "driving_engagement": 0.4005,
+      "practicality": 0.895196
+    },
+    "V-9611addacabd613d": {
+      "exterior_sportiness": 0.892884,
+      "exterior_angularity": 0.496673,
+      "interior_minimalism": 0.318062,
+      "ride_comfort": 0.845664,
+      "driving_engagement": 0.325362,
+      "practicality": 0.646241
+    },
+    "V-97a85760eaf39612": {
+      "exterior_sportiness": 0.207852,
+      "exterior_angularity": 0.887073,
+      "interior_minimalism": 0.520996,
+      "ride_comfort": 0.728153,
+      "driving_engagement": 0.602185,
+      "practicality": 0.528893
+    },
+    "V-98232df3ad9fe4a6": {
+      "exterior_sportiness": 0.076302,
+      "exterior_angularity": 0.216908,
+      "interior_minimalism": 0.71157,
+      "ride_comfort": 0.99399,
+      "driving_engagement": 0.113768,
+      "practicality": 0.345802
+    },
+    "V-9d1224e390500902": {
+      "exterior_sportiness": 0.195596,
+      "exterior_angularity": 0.212944,
+      "interior_minimalism": 0.587657,
+      "ride_comfort": 0.041418,
+      "driving_engagement": 0.399506,
+      "practicality": 0.701067
+    },
+    "V-a11900461d6610ff": {
+      "exterior_sportiness": 0.499124,
+      "exterior_angularity": 0.502116,
+      "interior_minimalism": 0.892546,
+      "ride_comfort": 0.486583,
+      "driving_engagement": 0.30713,
+      "practicality": 0.17088
+    },
+    "V-a20d092ac64adade": {
+      "exterior_sportiness": 0.097427,
+      "exterior_angularity": 0.436347,
+      "interior_minimalism": 0.29997,
+      "ride_comfort": 0.608713,
+      "driving_engagement": 0.79546,
+      "practicality": 0.013167
+    },
+    "V-a2909bddf36f5aa4": {
+      "exterior_sportiness": 0.554171,
+      "exterior_angularity": 0.265479,
+      "interior_minimalism": 0.332501,
+      "ride_comfort": 0.417236,
+      "driving_engagement": 0.604566,
+      "practicality": 0.726642
+    },
+    "V-a3f19a84bbeaae57": {
+      "exterior_sportiness": 0.168288,
+      "exterior_angularity": 0.769347,
+      "interior_minimalism": 0.390765,
+      "ride_comfort": 0.316649,
+      "driving_engagement": 0.4005,
+      "practicality": 0.895196
+    },
+    "V-a5ac585323fa02e0": {
+      "exterior_sportiness": 0.124946,
+      "exterior_angularity": 0.043342,
+      "interior_minimalism": 0.224343,
+      "ride_comfort": 0.322857,
+      "driving_engagement": 0.674897,
+      "practicality": 0.457226
+    },
+    "V-a653bea6df1a8e60": {
+      "exterior_sportiness": 0.024266,
+      "exterior_angularity": 0.280854,
+      "interior_minimalism": 0.086792,
+      "ride_comfort": 0.996147,
+      "driving_engagement": 0.469426,
+      "practicality": 0.867409
+    },
+    "V-a7b8348cfdc9aca8": {
+      "exterior_sportiness": 0.598132,
+      "exterior_angularity": 0.434573,
+      "interior_minimalism": 0.559356,
+      "ride_comfort": 0.091059,
+      "driving_engagement": 0.376459,
+      "practicality": 0.81612
+    },
+    "V-ab3674ab910b1811": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "V-ab63421a8b27d732": {
+      "exterior_sportiness": 0.098965,
+      "exterior_angularity": 0.972241,
+      "interior_minimalism": 0.312251,
+      "ride_comfort": 0.438948,
+      "driving_engagement": 0.455242,
+      "practicality": 0.171351
+    },
+    "V-ab6acd952a10f58f": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "V-ac58006081c96e21": {
+      "exterior_sportiness": 0.813834,
+      "exterior_angularity": 0.921655,
+      "interior_minimalism": 0.295804,
+      "ride_comfort": 0.688976,
+      "driving_engagement": 0.467508,
+      "practicality": 0.242903
+    },
+    "V-adf4605489be598a": {
+      "exterior_sportiness": 0.499124,
+      "exterior_angularity": 0.502116,
+      "interior_minimalism": 0.892546,
+      "ride_comfort": 0.486583,
+      "driving_engagement": 0.30713,
+      "practicality": 0.17088
+    },
+    "V-af6e97a51f640796": {
+      "exterior_sportiness": 0.995256,
+      "exterior_angularity": 0.440765,
+      "interior_minimalism": 0.087606,
+      "ride_comfort": 0.179155,
+      "driving_engagement": 0.002189,
+      "practicality": 0.20278
+    },
+    "V-b0517b3b5605cfd7": {
+      "exterior_sportiness": 0.789186,
+      "exterior_angularity": 0.898193,
+      "interior_minimalism": 0.022473,
+      "ride_comfort": 0.814497,
+      "driving_engagement": 0.574949,
+      "practicality": 0.887878
+    },
+    "V-b0f20733851ebb89": {
+      "exterior_sportiness": 0.668976,
+      "exterior_angularity": 0.88934,
+      "interior_minimalism": 0.410493,
+      "ride_comfort": 0.54449,
+      "driving_engagement": 0.237911,
+      "practicality": 0.201157
+    },
+    "V-b1345be137e8a2e6": {
+      "exterior_sportiness": 0.830868,
+      "exterior_angularity": 0.572443,
+      "interior_minimalism": 0.013113,
+      "ride_comfort": 0.521187,
+      "driving_engagement": 0.428736,
+      "practicality": 0.234418
+    },
+    "V-b394a1fe9d20b21f": {
+      "exterior_sportiness": 0.789186,
+      "exterior_angularity": 0.898193,
+      "interior_minimalism": 0.022473,
+      "ride_comfort": 0.814497,
+      "driving_engagement": 0.574949,
+      "practicality": 0.887878
+    },
+    "V-b40ccf2b6655f1c8": {
+      "exterior_sportiness": 0.422135,
+      "exterior_angularity": 0.022743,
+      "interior_minimalism": 0.742333,
+      "ride_comfort": 0.262071,
+      "driving_engagement": 0.665315,
+      "practicality": 0.229917
+    },
+    "V-b5960357aef1485b": {
+      "exterior_sportiness": 0.561946,
+      "exterior_angularity": 0.461854,
+      "interior_minimalism": 0.921333,
+      "ride_comfort": 0.709236,
+      "driving_engagement": 0.666993,
+      "practicality": 0.130888
+    },
+    "V-b5b3d323b10f266d": {
+      "exterior_sportiness": 0.516969,
+      "exterior_angularity": 0.567231,
+      "interior_minimalism": 0.929663,
+      "ride_comfort": 0.423708,
+      "driving_engagement": 0.073626,
+      "practicality": 0.151704
+    },
+    "V-b7354dcb1817d620": {
+      "exterior_sportiness": 0.482942,
+      "exterior_angularity": 0.273917,
+      "interior_minimalism": 0.990428,
+      "ride_comfort": 0.518928,
+      "driving_engagement": 0.108966,
+      "practicality": 0.144646
+    },
+    "V-b760b756161dea52": {
+      "exterior_sportiness": 0.105274,
+      "exterior_angularity": 0.994263,
+      "interior_minimalism": 0.042678,
+      "ride_comfort": 0.721608,
+      "driving_engagement": 0.527231,
+      "practicality": 0.039769
+    },
+    "V-b8c54dcf00819400": {
+      "exterior_sportiness": 0.561946,
+      "exterior_angularity": 0.461854,
+      "interior_minimalism": 0.921333,
+      "ride_comfort": 0.709236,
+      "driving_engagement": 0.666993,
+      "practicality": 0.130888
+    },
+    "V-b91ba9ede7f6fb62": {
+      "exterior_sportiness": 0.801992,
+      "exterior_angularity": 0.242445,
+      "interior_minimalism": 0.156813,
+      "ride_comfort": 0.507872,
+      "driving_engagement": 0.838774,
+      "practicality": 0.039553
+    },
+    "V-b9cc97d474045dc9": {
+      "exterior_sportiness": 0.53272,
+      "exterior_angularity": 0.09378,
+      "interior_minimalism": 0.209596,
+      "ride_comfort": 0.442222,
+      "driving_engagement": 0.737469,
+      "practicality": 0.527615
+    },
+    "V-bf20621f1289b7c2": {
+      "exterior_sportiness": 0.98686,
+      "exterior_angularity": 0.583089,
+      "interior_minimalism": 0.103227,
+      "ride_comfort": 0.269665,
+      "driving_engagement": 0.491326,
+      "practicality": 0.065769
+    },
+    "V-bf58e20c93bc6acd": {
+      "exterior_sportiness": 0.054443,
+      "exterior_angularity": 0.905808,
+      "interior_minimalism": 0.614487,
+      "ride_comfort": 0.118949,
+      "driving_engagement": 0.766301,
+      "practicality": 0.838779
+    },
+    "V-bfcf6995f3269d9f": {
+      "exterior_sportiness": 0.124946,
+      "exterior_angularity": 0.043342,
+      "interior_minimalism": 0.224343,
+      "ride_comfort": 0.322857,
+      "driving_engagement": 0.674897,
+      "practicality": 0.457226
+    },
+    "V-c00cbc6f35c9d03e": {
+      "exterior_sportiness": 0.995256,
+      "exterior_angularity": 0.440765,
+      "interior_minimalism": 0.087606,
+      "ride_comfort": 0.179155,
+      "driving_engagement": 0.002189,
+      "practicality": 0.20278
+    },
+    "V-c095daeded4010d7": {
+      "exterior_sportiness": 0.416081,
+      "exterior_angularity": 0.488071,
+      "interior_minimalism": 0.627001,
+      "ride_comfort": 0.078285,
+      "driving_engagement": 0.811784,
+      "practicality": 0.881588
+    },
+    "V-c1d974553cfc5ea4": {
+      "exterior_sportiness": 0.607716,
+      "exterior_angularity": 0.310106,
+      "interior_minimalism": 0.290354,
+      "ride_comfort": 0.219452,
+      "driving_engagement": 0.647834,
+      "practicality": 0.375731
+    },
+    "V-c346665e926b6fba": {
+      "exterior_sportiness": 0.897375,
+      "exterior_angularity": 0.113371,
+      "interior_minimalism": 0.291502,
+      "ride_comfort": 0.999215,
+      "driving_engagement": 0.246931,
+      "practicality": 0.487081
+    },
+    "V-c4b2b81a04f5017f": {
+      "exterior_sportiness": 0.392623,
+      "exterior_angularity": 0.567976,
+      "interior_minimalism": 0.714732,
+      "ride_comfort": 0.08793,
+      "driving_engagement": 0.263047,
+      "practicality": 0.949772
+    },
+    "V-c51586b7f7b4b4a8": {
+      "exterior_sportiness": 0.467404,
+      "exterior_angularity": 0.991399,
+      "interior_minimalism": 0.27405,
+      "ride_comfort": 0.229615,
+      "driving_engagement": 0.629867,
+      "practicality": 0.615208
+    },
+    "V-c71f8f2f997de41c": {
+      "exterior_sportiness": 0.467404,
+      "exterior_angularity": 0.991399,
+      "interior_minimalism": 0.27405,
+      "ride_comfort": 0.229615,
+      "driving_engagement": 0.629867,
+      "practicality": 0.615208
+    },
+    "V-c797502845d81f01": {
+      "exterior_sportiness": 0.66985,
+      "exterior_angularity": 0.546823,
+      "interior_minimalism": 0.281054,
+      "ride_comfort": 0.791053,
+      "driving_engagement": 0.895818,
+      "practicality": 0.562697
+    },
+    "V-c84beb1fd09a7d2f": {
+      "exterior_sportiness": 0.107467,
+      "exterior_angularity": 0.384042,
+      "interior_minimalism": 0.915702,
+      "ride_comfort": 0.351884,
+      "driving_engagement": 0.487076,
+      "practicality": 0.854746
+    },
+    "V-c90c0264fb93fd17": {
+      "exterior_sportiness": 0.858237,
+      "exterior_angularity": 0.338071,
+      "interior_minimalism": 0.637225,
+      "ride_comfort": 0.977197,
+      "driving_engagement": 0.602226,
+      "practicality": 0.726003
+    },
+    "V-c96bb9a8153a42b2": {
+      "exterior_sportiness": 0.714987,
+      "exterior_angularity": 0.247022,
+      "interior_minimalism": 0.490482,
+      "ride_comfort": 0.723484,
+      "driving_engagement": 0.181165,
+      "practicality": 0.849554
+    },
+    "V-cf6f2d7d199ccf63": {
+      "exterior_sportiness": 0.124946,
+      "exterior_angularity": 0.043342,
+      "interior_minimalism": 0.224343,
+      "ride_comfort": 0.322857,
+      "driving_engagement": 0.674897,
+      "practicality": 0.457226
+    },
+    "V-cfb3864831786d0d": {
+      "exterior_sportiness": 0.467404,
+      "exterior_angularity": 0.991399,
+      "interior_minimalism": 0.27405,
+      "ride_comfort": 0.229615,
+      "driving_engagement": 0.629867,
+      "practicality": 0.615208
+    },
+    "V-cfe4c672c3883ce3": {
+      "exterior_sportiness": 0.107467,
+      "exterior_angularity": 0.384042,
+      "interior_minimalism": 0.915702,
+      "ride_comfort": 0.351884,
+      "driving_engagement": 0.487076,
+      "practicality": 0.854746
+    },
+    "V-d064e55ed7806828": {
+      "exterior_sportiness": 0.897375,
+      "exterior_angularity": 0.113371,
+      "interior_minimalism": 0.291502,
+      "ride_comfort": 0.999215,
+      "driving_engagement": 0.246931,
+      "practicality": 0.487081
+    },
+    "V-d1605b60b5fb7d05": {
+      "exterior_sportiness": 0.813834,
+      "exterior_angularity": 0.921655,
+      "interior_minimalism": 0.295804,
+      "ride_comfort": 0.688976,
+      "driving_engagement": 0.467508,
+      "practicality": 0.242903
+    },
+    "V-d1c7deecf0bce0a1": {
+      "exterior_sportiness": 0.124946,
+      "exterior_angularity": 0.043342,
+      "interior_minimalism": 0.224343,
+      "ride_comfort": 0.322857,
+      "driving_engagement": 0.674897,
+      "practicality": 0.457226
+    },
+    "V-d273b0529ddabab6": {
+      "exterior_sportiness": 0.207852,
+      "exterior_angularity": 0.887073,
+      "interior_minimalism": 0.520996,
+      "ride_comfort": 0.728153,
+      "driving_engagement": 0.602185,
+      "practicality": 0.528893
+    },
+    "V-d2a973d8d43ff671": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "V-d2bd33ec83c02e0c": {
+      "exterior_sportiness": 0.195596,
+      "exterior_angularity": 0.212944,
+      "interior_minimalism": 0.587657,
+      "ride_comfort": 0.041418,
+      "driving_engagement": 0.399506,
+      "practicality": 0.701067
+    },
+    "V-d400f3c5158572ac": {
+      "exterior_sportiness": 0.598132,
+      "exterior_angularity": 0.434573,
+      "interior_minimalism": 0.559356,
+      "ride_comfort": 0.091059,
+      "driving_engagement": 0.376459,
+      "practicality": 0.81612
+    },
+    "V-d4c8a72e96d47279": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "V-d59481ae22c8585c": {
+      "exterior_sportiness": 0.298939,
+      "exterior_angularity": 0.316571,
+      "interior_minimalism": 0.963127,
+      "ride_comfort": 0.743343,
+      "driving_engagement": 0.299027,
+      "practicality": 0.306739
+    },
+    "V-d7301997ec0857a4": {
+      "exterior_sportiness": 0.559429,
+      "exterior_angularity": 0.96706,
+      "interior_minimalism": 0.789232,
+      "ride_comfort": 0.336601,
+      "driving_engagement": 0.269261,
+      "practicality": 0.391452
+    },
+    "V-d91d36c37d262f84": {
+      "exterior_sportiness": 0.054443,
+      "exterior_angularity": 0.905808,
+      "interior_minimalism": 0.614487,
+      "ride_comfort": 0.118949,
+      "driving_engagement": 0.766301,
+      "practicality": 0.838779
+    },
+    "V-d9c96399680afe0e": {
+      "exterior_sportiness": 0.830868,
+      "exterior_angularity": 0.572443,
+      "interior_minimalism": 0.013113,
+      "ride_comfort": 0.521187,
+      "driving_engagement": 0.428736,
+      "practicality": 0.234418
+    },
+    "V-d9efd6396b5bb78f": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "V-dbe217b4a18ac473": {
+      "exterior_sportiness": 0.061937,
+      "exterior_angularity": 0.345836,
+      "interior_minimalism": 0.794328,
+      "ride_comfort": 0.396823,
+      "driving_engagement": 0.763306,
+      "practicality": 0.731507
+    },
+    "V-dc44d74133e274cb": {
+      "exterior_sportiness": 0.207852,
+      "exterior_angularity": 0.887073,
+      "interior_minimalism": 0.520996,
+      "ride_comfort": 0.728153,
+      "driving_engagement": 0.602185,
+      "practicality": 0.528893
+    },
+    "V-de765f6315ce9d02": {
+      "exterior_sportiness": 0.207852,
+      "exterior_angularity": 0.887073,
+      "interior_minimalism": 0.520996,
+      "ride_comfort": 0.728153,
+      "driving_engagement": 0.602185,
+      "practicality": 0.528893
+    },
+    "V-df61e866c2f2b0cc": {
+      "exterior_sportiness": 0.463436,
+      "exterior_angularity": 0.457198,
+      "interior_minimalism": 0.8083,
+      "ride_comfort": 0.670341,
+      "driving_engagement": 0.094573,
+      "practicality": 0.573748
+    },
+    "V-e06f0bbe332598d5": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "V-e1e1e97914b59e16": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "V-e2d0562a4e4a1b1d": {
+      "exterior_sportiness": 0.598132,
+      "exterior_angularity": 0.434573,
+      "interior_minimalism": 0.559356,
+      "ride_comfort": 0.091059,
+      "driving_engagement": 0.376459,
+      "practicality": 0.81612
+    },
+    "V-e54a84fd664ec2c6": {
+      "exterior_sportiness": 0.161089,
+      "exterior_angularity": 0.934518,
+      "interior_minimalism": 0.098125,
+      "ride_comfort": 0.251303,
+      "driving_engagement": 0.492657,
+      "practicality": 0.08395
+    },
+    "V-e5622256bb513572": {
+      "exterior_sportiness": 0.561946,
+      "exterior_angularity": 0.461854,
+      "interior_minimalism": 0.921333,
+      "ride_comfort": 0.709236,
+      "driving_engagement": 0.666993,
+      "practicality": 0.130888
+    },
+    "V-e5b7be7e384bb09e": {
+      "exterior_sportiness": 0.626476,
+      "exterior_angularity": 0.736491,
+      "interior_minimalism": 0.858662,
+      "ride_comfort": 0.883679,
+      "driving_engagement": 0.404365,
+      "practicality": 0.449957
+    },
+    "V-e7fcb6d0fc152bb7": {
+      "exterior_sportiness": 0.37443,
+      "exterior_angularity": 0.012454,
+      "interior_minimalism": 0.644143,
+      "ride_comfort": 0.900361,
+      "driving_engagement": 0.834911,
+      "practicality": 0.141967
+    },
+    "V-e8b5890f58591810": {
+      "exterior_sportiness": 0.124946,
+      "exterior_angularity": 0.043342,
+      "interior_minimalism": 0.224343,
+      "ride_comfort": 0.322857,
+      "driving_engagement": 0.674897,
+      "practicality": 0.457226
+    },
+    "V-e965a0974dbeb52a": {
+      "exterior_sportiness": 0.598132,
+      "exterior_angularity": 0.434573,
+      "interior_minimalism": 0.559356,
+      "ride_comfort": 0.091059,
+      "driving_engagement": 0.376459,
+      "practicality": 0.81612
+    },
+    "V-e9d82a9b4b4f4f99": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "V-ead94bb561ea201f": {
+      "exterior_sportiness": 0.789186,
+      "exterior_angularity": 0.898193,
+      "interior_minimalism": 0.022473,
+      "ride_comfort": 0.814497,
+      "driving_engagement": 0.574949,
+      "practicality": 0.887878
+    },
+    "V-eaf2d231b0b9299e": {
+      "exterior_sportiness": 0.107467,
+      "exterior_angularity": 0.384042,
+      "interior_minimalism": 0.915702,
+      "ride_comfort": 0.351884,
+      "driving_engagement": 0.487076,
+      "practicality": 0.854746
+    },
+    "V-ebd621882f8582b3": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "V-ebf8c5c3b52b032c": {
+      "exterior_sportiness": 0.416081,
+      "exterior_angularity": 0.488071,
+      "interior_minimalism": 0.627001,
+      "ride_comfort": 0.078285,
+      "driving_engagement": 0.811784,
+      "practicality": 0.881588
+    },
+    "V-efc8ceb863dfb96c": {
+      "exterior_sportiness": 0.559429,
+      "exterior_angularity": 0.96706,
+      "interior_minimalism": 0.789232,
+      "ride_comfort": 0.336601,
+      "driving_engagement": 0.269261,
+      "practicality": 0.391452
+    },
+    "V-efdc973ffc5cfc48": {
+      "exterior_sportiness": 0.778705,
+      "exterior_angularity": 0.78606,
+      "interior_minimalism": 0.058457,
+      "ride_comfort": 0.20587,
+      "driving_engagement": 0.170137,
+      "practicality": 0.607436
+    },
+    "V-f0a7a6bec0e426cb": {
+      "exterior_sportiness": 0.521563,
+      "exterior_angularity": 0.199302,
+      "interior_minimalism": 0.997185,
+      "ride_comfort": 0.367998,
+      "driving_engagement": 0.184452,
+      "practicality": 0.0027
+    },
+    "V-f2caf287e54c07c2": {
+      "exterior_sportiness": 0.095288,
+      "exterior_angularity": 0.788971,
+      "interior_minimalism": 0.200642,
+      "ride_comfort": 0.403663,
+      "driving_engagement": 0.959401,
+      "practicality": 0.292467
+    },
+    "V-f42fa2d52946eb5b": {
+      "exterior_sportiness": 0.195596,
+      "exterior_angularity": 0.212944,
+      "interior_minimalism": 0.587657,
+      "ride_comfort": 0.041418,
+      "driving_engagement": 0.399506,
+      "practicality": 0.701067
+    },
+    "V-f439c35be1d7e94e": {
+      "exterior_sportiness": 0.92589,
+      "exterior_angularity": 0.986575,
+      "interior_minimalism": 0.139199,
+      "ride_comfort": 0.363452,
+      "driving_engagement": 0.787328,
+      "practicality": 0.03025
+    },
+    "V-f602ab49930016ac": {
+      "exterior_sportiness": 0.561946,
+      "exterior_angularity": 0.461854,
+      "interior_minimalism": 0.921333,
+      "ride_comfort": 0.709236,
+      "driving_engagement": 0.666993,
+      "practicality": 0.130888
+    },
+    "V-f6aaeb6255c988ea": {
+      "exterior_sportiness": 0.15789,
+      "exterior_angularity": 0.74712,
+      "interior_minimalism": 0.326057,
+      "ride_comfort": 0.849043,
+      "driving_engagement": 0.177707,
+      "practicality": 0.45239
+    },
+    "V-f74d0a20e8a8e51b": {
+      "exterior_sportiness": 0.499124,
+      "exterior_angularity": 0.502116,
+      "interior_minimalism": 0.892546,
+      "ride_comfort": 0.486583,
+      "driving_engagement": 0.30713,
+      "practicality": 0.17088
+    },
+    "V-f7d0513154686ba5": {
+      "exterior_sportiness": 0.207852,
+      "exterior_angularity": 0.887073,
+      "interior_minimalism": 0.520996,
+      "ride_comfort": 0.728153,
+      "driving_engagement": 0.602185,
+      "practicality": 0.528893
+    },
+    "V-f8bebd472f5109cf": {
+      "exterior_sportiness": 0.66985,
+      "exterior_angularity": 0.546823,
+      "interior_minimalism": 0.281054,
+      "ride_comfort": 0.791053,
+      "driving_engagement": 0.895818,
+      "practicality": 0.562697
+    },
+    "V-fae92875173561cb": {
+      "exterior_sportiness": 0.467404,
+      "exterior_angularity": 0.991399,
+      "interior_minimalism": 0.27405,
+      "ride_comfort": 0.229615,
+      "driving_engagement": 0.629867,
+      "practicality": 0.615208
+    },
+    "V-fb098506a10d0153": {
+      "exterior_sportiness": 0.168288,
+      "exterior_angularity": 0.769347,
+      "interior_minimalism": 0.390765,
+      "ride_comfort": 0.316649,
+      "driving_engagement": 0.4005,
+      "practicality": 0.895196
+    },
+    "V-fb9ffeb6b909a638": {
+      "exterior_sportiness": 0.858237,
+      "exterior_angularity": 0.338071,
+      "interior_minimalism": 0.637225,
+      "ride_comfort": 0.977197,
+      "driving_engagement": 0.602226,
+      "practicality": 0.726003
+    },
+    "V-fbc16a5e49890bfb": {
+      "exterior_sportiness": 0.464537,
+      "exterior_angularity": 0.048787,
+      "interior_minimalism": 0.011133,
+      "ride_comfort": 0.467949,
+      "driving_engagement": 0.721488,
+      "practicality": 0.79425
+    },
+    "V-fca66ac7dba984a3": {
+      "exterior_sportiness": 0.467404,
+      "exterior_angularity": 0.991399,
+      "interior_minimalism": 0.27405,
+      "ride_comfort": 0.229615,
+      "driving_engagement": 0.629867,
+      "practicality": 0.615208
+    },
+    "V-fe064d15a080c8bb": {
+      "exterior_sportiness": 0.467404,
+      "exterior_angularity": 0.991399,
+      "interior_minimalism": 0.27405,
+      "ride_comfort": 0.229615,
+      "driving_engagement": 0.629867,
+      "practicality": 0.615208
+    },
+    "V-feec12c6666425a3": {
+      "exterior_sportiness": 0.107467,
+      "exterior_angularity": 0.384042,
+      "interior_minimalism": 0.915702,
+      "ride_comfort": 0.351884,
+      "driving_engagement": 0.487076,
+      "practicality": 0.854746
+    },
+    "V-ff0f16294c9d93d2": {
+      "exterior_sportiness": 0.499124,
+      "exterior_angularity": 0.502116,
+      "interior_minimalism": 0.892546,
+      "ride_comfort": 0.486583,
+      "driving_engagement": 0.30713,
+      "practicality": 0.17088
+    },
+    "legacy-C0028": {
+      "exterior_sportiness": 0.349464,
+      "exterior_angularity": 0.310026,
+      "interior_minimalism": 0.020277,
+      "ride_comfort": 0.873328,
+      "driving_engagement": 0.776256,
+      "practicality": 0.081946
+    },
+    "legacy-C0029": {
+      "exterior_sportiness": 0.349464,
+      "exterior_angularity": 0.310026,
+      "interior_minimalism": 0.020277,
+      "ride_comfort": 0.873328,
+      "driving_engagement": 0.776256,
+      "practicality": 0.081946
+    },
+    "legacy-C0030": {
+      "exterior_sportiness": 0.349464,
+      "exterior_angularity": 0.310026,
+      "interior_minimalism": 0.020277,
+      "ride_comfort": 0.873328,
+      "driving_engagement": 0.776256,
+      "practicality": 0.081946
+    },
+    "legacy-C0031": {
+      "exterior_sportiness": 0.349464,
+      "exterior_angularity": 0.310026,
+      "interior_minimalism": 0.020277,
+      "ride_comfort": 0.873328,
+      "driving_engagement": 0.776256,
+      "practicality": 0.081946
+    },
+    "legacy-C0032": {
+      "exterior_sportiness": 0.704911,
+      "exterior_angularity": 0.762903,
+      "interior_minimalism": 0.939639,
+      "ride_comfort": 0.826299,
+      "driving_engagement": 0.282809,
+      "practicality": 0.757423
+    },
+    "legacy-C0034": {
+      "exterior_sportiness": 0.704911,
+      "exterior_angularity": 0.762903,
+      "interior_minimalism": 0.939639,
+      "ride_comfort": 0.826299,
+      "driving_engagement": 0.282809,
+      "practicality": 0.757423
+    },
+    "legacy-C0053": {
+      "exterior_sportiness": 0.559429,
+      "exterior_angularity": 0.96706,
+      "interior_minimalism": 0.789232,
+      "ride_comfort": 0.336601,
+      "driving_engagement": 0.269261,
+      "practicality": 0.391452
+    },
+    "legacy-C0054": {
+      "exterior_sportiness": 0.559429,
+      "exterior_angularity": 0.96706,
+      "interior_minimalism": 0.789232,
+      "ride_comfort": 0.336601,
+      "driving_engagement": 0.269261,
+      "practicality": 0.391452
+    },
+    "legacy-C0055": {
+      "exterior_sportiness": 0.559429,
+      "exterior_angularity": 0.96706,
+      "interior_minimalism": 0.789232,
+      "ride_comfort": 0.336601,
+      "driving_engagement": 0.269261,
+      "practicality": 0.391452
+    },
+    "legacy-C0056": {
+      "exterior_sportiness": 0.559429,
+      "exterior_angularity": 0.96706,
+      "interior_minimalism": 0.789232,
+      "ride_comfort": 0.336601,
+      "driving_engagement": 0.269261,
+      "practicality": 0.391452
+    },
+    "legacy-C0075": {
+      "exterior_sportiness": 0.467404,
+      "exterior_angularity": 0.991399,
+      "interior_minimalism": 0.27405,
+      "ride_comfort": 0.229615,
+      "driving_engagement": 0.629867,
+      "practicality": 0.615208
+    },
+    "legacy-C0079": {
+      "exterior_sportiness": 0.467404,
+      "exterior_angularity": 0.991399,
+      "interior_minimalism": 0.27405,
+      "ride_comfort": 0.229615,
+      "driving_engagement": 0.629867,
+      "practicality": 0.615208
+    },
+    "legacy-C0095": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "legacy-C0096": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "legacy-C0097": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "legacy-C0098": {
+      "exterior_sportiness": 0.765476,
+      "exterior_angularity": 0.431489,
+      "interior_minimalism": 0.527467,
+      "ride_comfort": 0.593181,
+      "driving_engagement": 0.025047,
+      "practicality": 0.59888
+    },
+    "legacy-IMP-C001": {
+      "exterior_sportiness": 0.166213,
+      "exterior_angularity": 0.892201,
+      "interior_minimalism": 0.050621,
+      "ride_comfort": 0.504893,
+      "driving_engagement": 0.414062,
+      "practicality": 0.561422
+    },
+    "legacy-IMP-C002": {
+      "exterior_sportiness": 0.166213,
+      "exterior_angularity": 0.892201,
+      "interior_minimalism": 0.050621,
+      "ride_comfort": 0.504893,
+      "driving_engagement": 0.414062,
+      "practicality": 0.561422
+    },
+    "legacy-IMP-C003": {
+      "exterior_sportiness": 0.948584,
+      "exterior_angularity": 0.180885,
+      "interior_minimalism": 0.104193,
+      "ride_comfort": 0.019124,
+      "driving_engagement": 0.60202,
+      "practicality": 0.938437
+    },
+    "legacy-IMP-C004": {
+      "exterior_sportiness": 0.621005,
+      "exterior_angularity": 0.286505,
+      "interior_minimalism": 0.967017,
+      "ride_comfort": 0.487259,
+      "driving_engagement": 0.642041,
+      "practicality": 0.245269
+    },
+    "legacy-IMP-C005": {
+      "exterior_sportiness": 0.621005,
+      "exterior_angularity": 0.286505,
+      "interior_minimalism": 0.967017,
+      "ride_comfort": 0.487259,
+      "driving_engagement": 0.642041,
+      "practicality": 0.245269
+    },
+    "legacy-IMP-C006": {
+      "exterior_sportiness": 0.621005,
+      "exterior_angularity": 0.286505,
+      "interior_minimalism": 0.967017,
+      "ride_comfort": 0.487259,
+      "driving_engagement": 0.642041,
+      "practicality": 0.245269
+    },
+    "legacy-IMP-C007": {
+      "exterior_sportiness": 0.621005,
+      "exterior_angularity": 0.286505,
+      "interior_minimalism": 0.967017,
+      "ride_comfort": 0.487259,
+      "driving_engagement": 0.642041,
+      "practicality": 0.245269
+    },
+    "legacy-IMP-C008": {
+      "exterior_sportiness": 0.104457,
+      "exterior_angularity": 0.106978,
+      "interior_minimalism": 0.011989,
+      "ride_comfort": 0.68239,
+      "driving_engagement": 0.907513,
+      "practicality": 0.963517
+    },
+    "legacy-IMP-C009": {
+      "exterior_sportiness": 0.104457,
+      "exterior_angularity": 0.106978,
+      "interior_minimalism": 0.011989,
+      "ride_comfort": 0.68239,
+      "driving_engagement": 0.907513,
+      "practicality": 0.963517
+    },
+    "legacy-IMP-C010": {
+      "exterior_sportiness": 0.104457,
+      "exterior_angularity": 0.106978,
+      "interior_minimalism": 0.011989,
+      "ride_comfort": 0.68239,
+      "driving_engagement": 0.907513,
+      "practicality": 0.963517
+    },
+    "legacy-IMP-C011": {
+      "exterior_sportiness": 0.104457,
+      "exterior_angularity": 0.106978,
+      "interior_minimalism": 0.011989,
+      "ride_comfort": 0.68239,
+      "driving_engagement": 0.907513,
+      "practicality": 0.963517
+    },
+    "legacy-IMP-C012": {
+      "exterior_sportiness": 0.252076,
+      "exterior_angularity": 0.968106,
+      "interior_minimalism": 0.835051,
+      "ride_comfort": 0.217172,
+      "driving_engagement": 0.7621,
+      "practicality": 0.555966
+    },
+    "legacy-IMP-C013": {
+      "exterior_sportiness": 0.252076,
+      "exterior_angularity": 0.968106,
+      "interior_minimalism": 0.835051,
+      "ride_comfort": 0.217172,
+      "driving_engagement": 0.7621,
+      "practicality": 0.555966
+    },
+    "legacy-IMP-C014": {
+      "exterior_sportiness": 0.252076,
+      "exterior_angularity": 0.968106,
+      "interior_minimalism": 0.835051,
+      "ride_comfort": 0.217172,
+      "driving_engagement": 0.7621,
+      "practicality": 0.555966
+    },
+    "legacy-IMP-C015": {
+      "exterior_sportiness": 0.252076,
+      "exterior_angularity": 0.968106,
+      "interior_minimalism": 0.835051,
+      "ride_comfort": 0.217172,
+      "driving_engagement": 0.7621,
+      "practicality": 0.555966
+    },
+    "legacy-IMP-C016": {
+      "exterior_sportiness": 0.858505,
+      "exterior_angularity": 0.999697,
+      "interior_minimalism": 0.641008,
+      "ride_comfort": 0.853311,
+      "driving_engagement": 0.490349,
+      "practicality": 0.146522
+    },
+    "legacy-IMP-C017": {
+      "exterior_sportiness": 0.858505,
+      "exterior_angularity": 0.999697,
+      "interior_minimalism": 0.641008,
+      "ride_comfort": 0.853311,
+      "driving_engagement": 0.490349,
+      "practicality": 0.146522
+    },
+    "legacy-IMP-C018": {
+      "exterior_sportiness": 0.858505,
+      "exterior_angularity": 0.999697,
+      "interior_minimalism": 0.641008,
+      "ride_comfort": 0.853311,
+      "driving_engagement": 0.490349,
+      "practicality": 0.146522
+    },
+    "research-09ba848c424f73d6": {
+      "exterior_sportiness": 0.957587,
+      "exterior_angularity": 0.881043,
+      "interior_minimalism": 0.185655,
+      "ride_comfort": 0.176839,
+      "driving_engagement": 0.470528,
+      "practicality": 0.441772
+    },
+    "research-2252ddfcfaf4f93d": {
+      "exterior_sportiness": 0.135019,
+      "exterior_angularity": 0.888758,
+      "interior_minimalism": 0.830613,
+      "ride_comfort": 0.226666,
+      "driving_engagement": 0.340404,
+      "practicality": 0.288172
+    },
+    "research-2f7d8729da556495": {
+      "exterior_sportiness": 0.173425,
+      "exterior_angularity": 0.18658,
+      "interior_minimalism": 0.903974,
+      "ride_comfort": 0.905077,
+      "driving_engagement": 0.375392,
+      "practicality": 0.145704
+    },
+    "research-325b63506b5cf709": {
+      "exterior_sportiness": 0.888566,
+      "exterior_angularity": 0.602753,
+      "interior_minimalism": 0.088992,
+      "ride_comfort": 0.072806,
+      "driving_engagement": 0.739819,
+      "practicality": 0.496331
+    },
+    "research-39295d8e95003284": {
+      "exterior_sportiness": 0.873853,
+      "exterior_angularity": 0.006322,
+      "interior_minimalism": 0.750782,
+      "ride_comfort": 0.321287,
+      "driving_engagement": 0.958655,
+      "practicality": 0.665063
+    },
+    "research-3be8660b2daab103": {
+      "exterior_sportiness": 0.873853,
+      "exterior_angularity": 0.006322,
+      "interior_minimalism": 0.750782,
+      "ride_comfort": 0.321287,
+      "driving_engagement": 0.958655,
+      "practicality": 0.665063
+    },
+    "research-41dbe8464511fe28": {
+      "exterior_sportiness": 0.860148,
+      "exterior_angularity": 0.749491,
+      "interior_minimalism": 0.612167,
+      "ride_comfort": 0.731313,
+      "driving_engagement": 0.469558,
+      "practicality": 0.372476
+    },
+    "research-4ee3df1a41b7dede": {
+      "exterior_sportiness": 0.957587,
+      "exterior_angularity": 0.881043,
+      "interior_minimalism": 0.185655,
+      "ride_comfort": 0.176839,
+      "driving_engagement": 0.470528,
+      "practicality": 0.441772
+    },
+    "research-6140c12787f85049": {
+      "exterior_sportiness": 0.543083,
+      "exterior_angularity": 0.688993,
+      "interior_minimalism": 0.668551,
+      "ride_comfort": 0.379377,
+      "driving_engagement": 0.027609,
+      "practicality": 0.530351
+    },
+    "research-6cd54995b2928c34": {
+      "exterior_sportiness": 0.984846,
+      "exterior_angularity": 0.00527,
+      "interior_minimalism": 0.256217,
+      "ride_comfort": 0.212532,
+      "driving_engagement": 0.649678,
+      "practicality": 0.453239
+    },
+    "research-81f001cd557917d0": {
+      "exterior_sportiness": 0.159633,
+      "exterior_angularity": 0.654288,
+      "interior_minimalism": 0.855874,
+      "ride_comfort": 0.541409,
+      "driving_engagement": 0.211426,
+      "practicality": 0.857196
+    },
+    "research-901d5a74773caa55": {
+      "exterior_sportiness": 0.873853,
+      "exterior_angularity": 0.006322,
+      "interior_minimalism": 0.750782,
+      "ride_comfort": 0.321287,
+      "driving_engagement": 0.958655,
+      "practicality": 0.665063
+    },
+    "research-90fba97cde44e041": {
+      "exterior_sportiness": 0.957587,
+      "exterior_angularity": 0.881043,
+      "interior_minimalism": 0.185655,
+      "ride_comfort": 0.176839,
+      "driving_engagement": 0.470528,
+      "practicality": 0.441772
+    },
+    "research-94eaa971ad63e86a": {
+      "exterior_sportiness": 0.245587,
+      "exterior_angularity": 0.719513,
+      "interior_minimalism": 0.546248,
+      "ride_comfort": 0.425379,
+      "driving_engagement": 0.746701,
+      "practicality": 0.915944
+    },
+    "research-b2432b18494d0213": {
+      "exterior_sportiness": 0.214392,
+      "exterior_angularity": 0.541146,
+      "interior_minimalism": 0.837655,
+      "ride_comfort": 0.855602,
+      "driving_engagement": 0.587469,
+      "practicality": 0.78813
+    },
+    "research-c096cac3883cc344": {
+      "exterior_sportiness": 0.873853,
+      "exterior_angularity": 0.006322,
+      "interior_minimalism": 0.750782,
+      "ride_comfort": 0.321287,
+      "driving_engagement": 0.958655,
+      "practicality": 0.665063
+    },
+    "research-d386d919e490ca62": {
+      "exterior_sportiness": 0.957587,
+      "exterior_angularity": 0.881043,
+      "interior_minimalism": 0.185655,
+      "ride_comfort": 0.176839,
+      "driving_engagement": 0.470528,
+      "practicality": 0.441772
+    },
+    "research-d40dc69716d07f60": {
+      "exterior_sportiness": 0.658503,
+      "exterior_angularity": 0.784543,
+      "interior_minimalism": 0.936974,
+      "ride_comfort": 0.023281,
+      "driving_engagement": 0.383628,
+      "practicality": 0.665475
+    },
+    "research-f4a205961e52ed2b": {
+      "exterior_sportiness": 0.873853,
+      "exterior_angularity": 0.006322,
+      "interior_minimalism": 0.750782,
+      "ride_comfort": 0.321287,
+      "driving_engagement": 0.958655,
+      "practicality": 0.665063
+    },
+    "supp-03d3766d44d98675": {
+      "exterior_sportiness": 0.103146,
+      "exterior_angularity": 0.794225,
+      "interior_minimalism": 0.926452,
+      "ride_comfort": 0.012623,
+      "driving_engagement": 0.164364,
+      "practicality": 0.689927
+    },
+    "supp-3b1a87bb6b3f1fa6": {
+      "exterior_sportiness": 0.868569,
+      "exterior_angularity": 0.896208,
+      "interior_minimalism": 0.409089,
+      "ride_comfort": 0.436712,
+      "driving_engagement": 0.931227,
+      "practicality": 0.384989
+    },
+    "supp-3c90e23f0266eb3f": {
+      "exterior_sportiness": 0.599717,
+      "exterior_angularity": 0.097561,
+      "interior_minimalism": 0.70171,
+      "ride_comfort": 0.273803,
+      "driving_engagement": 0.73579,
+      "practicality": 0.140073
+    },
+    "supp-5f9725c71abd1153": {
+      "exterior_sportiness": 0.890966,
+      "exterior_angularity": 0.806542,
+      "interior_minimalism": 0.44856,
+      "ride_comfort": 0.119132,
+      "driving_engagement": 0.251331,
+      "practicality": 0.453612
+    },
+    "supp-6b9efd8429d4ff40": {
+      "exterior_sportiness": 0.599717,
+      "exterior_angularity": 0.097561,
+      "interior_minimalism": 0.70171,
+      "ride_comfort": 0.273803,
+      "driving_engagement": 0.73579,
+      "practicality": 0.140073
+    },
+    "supp-705332910b044385": {
+      "exterior_sportiness": 0.760636,
+      "exterior_angularity": 0.032852,
+      "interior_minimalism": 0.856091,
+      "ride_comfort": 0.331926,
+      "driving_engagement": 0.560984,
+      "practicality": 0.943171
+    },
+    "supp-73b5c7015451b933": {
+      "exterior_sportiness": 0.599717,
+      "exterior_angularity": 0.097561,
+      "interior_minimalism": 0.70171,
+      "ride_comfort": 0.273803,
+      "driving_engagement": 0.73579,
+      "practicality": 0.140073
+    },
+    "supp-7649f161ed165de2": {
+      "exterior_sportiness": 0.703817,
+      "exterior_angularity": 0.514763,
+      "interior_minimalism": 0.730856,
+      "ride_comfort": 0.584836,
+      "driving_engagement": 0.628926,
+      "practicality": 0.562069
+    },
+    "supp-8952b93576f29ab7": {
+      "exterior_sportiness": 0.890966,
+      "exterior_angularity": 0.806542,
+      "interior_minimalism": 0.44856,
+      "ride_comfort": 0.119132,
+      "driving_engagement": 0.251331,
+      "practicality": 0.453612
+    },
+    "supp-89cd283873134273": {
+      "exterior_sportiness": 0.738429,
+      "exterior_angularity": 0.530132,
+      "interior_minimalism": 0.148666,
+      "ride_comfort": 0.746105,
+      "driving_engagement": 0.806495,
+      "practicality": 0.986528
+    },
+    "supp-94a653523ded614f": {
+      "exterior_sportiness": 0.599717,
+      "exterior_angularity": 0.097561,
+      "interior_minimalism": 0.70171,
+      "ride_comfort": 0.273803,
+      "driving_engagement": 0.73579,
+      "practicality": 0.140073
+    },
+    "supp-9f6be1db30c9df4c": {
+      "exterior_sportiness": 0.738429,
+      "exterior_angularity": 0.530132,
+      "interior_minimalism": 0.148666,
+      "ride_comfort": 0.746105,
+      "driving_engagement": 0.806495,
+      "practicality": 0.986528
+    },
+    "supp-ba096b3dfe19c304": {
+      "exterior_sportiness": 0.621005,
+      "exterior_angularity": 0.286505,
+      "interior_minimalism": 0.967017,
+      "ride_comfort": 0.487259,
+      "driving_engagement": 0.642041,
+      "practicality": 0.245269
+    },
+    "supp-cd1d2d189f7eb993": {
+      "exterior_sportiness": 0.890966,
+      "exterior_angularity": 0.806542,
+      "interior_minimalism": 0.44856,
+      "ride_comfort": 0.119132,
+      "driving_engagement": 0.251331,
+      "practicality": 0.453612
+    },
+    "supp-d078eb022e6e0a57": {
+      "exterior_sportiness": 0.758165,
+      "exterior_angularity": 0.616749,
+      "interior_minimalism": 0.677802,
+      "ride_comfort": 0.804666,
+      "driving_engagement": 0.985549,
+      "practicality": 0.766106
+    },
+    "supp-e44a5324b8cefbf6": {
+      "exterior_sportiness": 0.252076,
+      "exterior_angularity": 0.968106,
+      "interior_minimalism": 0.835051,
+      "ride_comfort": 0.217172,
+      "driving_engagement": 0.7621,
+      "practicality": 0.555966
+    }
+  }
+}

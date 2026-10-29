@@ -7,7 +7,7 @@ import numpy as np
 from vehicle_matching.catalog import ROOT
 from vehicle_matching.partition_preference_population import compact_pairs, partition
 from vehicle_matching.train_preference_population import generate
-from vehicle_matching.audit_preference_population import audit
+from experiments.audit_preference_population import audit
 from test_vehicle_matching import vehicle
 
 

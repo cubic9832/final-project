@@ -37,6 +37,6 @@
 
 현재 ML은 동일 규칙을 학습한 근사치다. 규칙 단독보다 높은 규칙 일치도를 기대할 수 없으며, 영향력 증가 자체가 개선 지표는 아니다. 사용자 선택/전문가 평가 없이 더 좋은 추천이라고 결론 내리지 않는다.
 
-재현: ml 폴더에서 `.venv/Scripts/python.exe -m vehicle_matching.experiment_score_transforms --output outputs/reports/새실험폴더`.
+재현: ml 폴더에서 `.venv/Scripts/python.exe -m experiments.experiment_score_transforms --output outputs/reports/새실험폴더`.
 
 sample_manifest.json에 보정·평가 그룹, calibration.json에 고정 보정값, report.json에 모든 지표와 모델/학습 배열 해시가 있다. *_cases.csv는 사례별 지표, *_scores.csv는 모든 후보의 원본·변환 점수, changed_examples.json은 상세 사례다.

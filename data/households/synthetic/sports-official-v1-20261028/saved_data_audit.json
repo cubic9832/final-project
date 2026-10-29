@@ -1,0 +1,20 @@
+{
+  "cases_reread": 110000,
+  "counts": {
+    "BMW|2시리즈 그란쿠페": 10000,
+    "BMW|2시리즈 쿠페": 10000,
+    "BMW|4시리즈 그란쿠페": 10000,
+    "BMW|4시리즈 컨버터블": 10000,
+    "BMW|4시리즈 쿠페": 10000,
+    "BMW|8시리즈 그란쿠페": 10000,
+    "BMW|Z4": 10000,
+    "MINI|Cooper Convertible": 10000,
+    "마세라티|GranCabrio": 10000,
+    "마세라티|GranTurismo": 10000,
+    "토요타|GR86": 10000
+  },
+  "duplicate_inputs": 0,
+  "new_financial_group_split_leakage": 0,
+  "ineligible_pairs": 0,
+  "incorrect_teacher_order": 0
+}

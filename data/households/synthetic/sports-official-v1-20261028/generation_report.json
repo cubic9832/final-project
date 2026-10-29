@@ -1,0 +1,148 @@
+{
+  "seed": 20261028,
+  "policy": "required-seats-preference-priority-ml-v1",
+  "rows_per_model": 10000,
+  "model_families": 11,
+  "sports_cases": 110000,
+  "counts": {
+    "BMW|2시리즈 그란쿠페|train": 7079,
+    "BMW|2시리즈 그란쿠페|validation": 1484,
+    "BMW|2시리즈 그란쿠페|test": 1437,
+    "BMW|2시리즈 쿠페|validation": 1493,
+    "BMW|2시리즈 쿠페|train": 7005,
+    "BMW|2시리즈 쿠페|test": 1502,
+    "BMW|4시리즈 그란쿠페|train": 6981,
+    "BMW|4시리즈 그란쿠페|test": 1541,
+    "BMW|4시리즈 그란쿠페|validation": 1478,
+    "BMW|4시리즈 컨버터블|train": 7020,
+    "BMW|4시리즈 컨버터블|test": 1522,
+    "BMW|4시리즈 컨버터블|validation": 1458,
+    "BMW|4시리즈 쿠페|train": 7028,
+    "BMW|4시리즈 쿠페|test": 1444,
+    "BMW|4시리즈 쿠페|validation": 1528,
+    "BMW|8시리즈 그란쿠페|train": 7003,
+    "BMW|8시리즈 그란쿠페|validation": 1456,
+    "BMW|8시리즈 그란쿠페|test": 1541,
+    "BMW|Z4|train": 7031,
+    "BMW|Z4|test": 1492,
+    "BMW|Z4|validation": 1477,
+    "MINI|Cooper Convertible|test": 1523,
+    "MINI|Cooper Convertible|train": 6972,
+    "MINI|Cooper Convertible|validation": 1505,
+    "마세라티|GranCabrio|train": 7076,
+    "마세라티|GranCabrio|test": 1416,
+    "마세라티|GranCabrio|validation": 1508,
+    "마세라티|GranTurismo|test": 1509,
+    "마세라티|GranTurismo|train": 7016,
+    "마세라티|GranTurismo|validation": 1475,
+    "토요타|GR86|train": 6979,
+    "토요타|GR86|validation": 1498,
+    "토요타|GR86|test": 1523
+  },
+  "partitions": {
+    "train": {
+      "new_cases": 77190,
+      "new_feature_rows": 154380,
+      "total_pairs": 1192245,
+      "total_feature_rows": 1575733
+    },
+    "validation": {
+      "new_cases": 16360,
+      "new_feature_rows": 32720,
+      "total_pairs": 213601,
+      "total_feature_rows": 283504
+    },
+    "test": {
+      "new_cases": 16450,
+      "new_feature_rows": 32900,
+      "total_pairs": 363249,
+      "total_feature_rows": 474158
+    }
+  },
+  "source": "C:\\workspace\\final-project\\data\\households\\synthetic\\seating-verified-v1-20261027",
+  "source_hashes": {
+    "train_pairs.npz": "08588ad9ed2a4befd90404dee9220e4afdbca8ddcd92c1fd973009454942ccd0",
+    "train_profiles.jsonl": "bbba5bf191640856eeb3a521d0d38162cab1ec9d9d13ac7737c4eeba9453dea7",
+    "validation_pairs.npz": "dfb455c143a2262144c2cd10bc8feb8b3de81b3de33353c87523ac6d802f6047",
+    "validation_profiles.jsonl": "8c13d92731fc299080a8e51ea8afa53c7d2261af609b5ab1b5e1242cc94bb9f8",
+    "test_pairs.npz": "5f72b1a008e7929f9aa7d535c7360b0b5265255064f4b1bc1856c15d85ce6839",
+    "test_profiles.jsonl": "e9fc8535731a651949a48a87b4b95e57a84dacca70c1883f07e14fbcd5ff7a72"
+  },
+  "supplement_sha256": "d7faadc0c155af3ba902f76421f11b59c9e13afdd680acf5edb90fcbb1b38ae0",
+  "financial_group_leakage": 0,
+  "duplicate_profiles": 0,
+  "independent_decimal_violations": 0,
+  "held_out_models_preserved_for_new_training_comparisons": [
+    [
+      "BMW",
+      "3시리즈"
+    ],
+    [
+      "BMW",
+      "X4"
+    ],
+    [
+      "KG모빌리티",
+      "토레스"
+    ],
+    [
+      "기아",
+      "EV3 GT"
+    ],
+    [
+      "기아",
+      "EV6"
+    ],
+    [
+      "기아",
+      "K8"
+    ],
+    [
+      "기아",
+      "모닝"
+    ],
+    [
+      "기아",
+      "카니발 하이리무진"
+    ],
+    [
+      "메르세데스-벤츠",
+      "E-Class"
+    ],
+    [
+      "제네시스",
+      "G70"
+    ],
+    [
+      "제네시스",
+      "G90 Long Wheel Base"
+    ],
+    [
+      "제네시스",
+      "GV80 Coupe"
+    ],
+    [
+      "현대",
+      "더 뉴 스타리아 Electric"
+    ],
+    [
+      "현대",
+      "더 뉴 스타리아 리무진 Electric"
+    ],
+    [
+      "현대",
+      "싼타페"
+    ],
+    [
+      "현대",
+      "캐스퍼"
+    ],
+    [
+      "현대",
+      "투싼"
+    ]
+  ],
+  "quantity_override": "User explicitly requested 10000 independent accepted comparison exposures per new model; not forced wins or purchase labels.",
+  "eligibility": "Current cash and 12-month running deficit rules; required seats must be verified. Missing efficiency uses existing documented assumptions.",
+  "evaluation_scope": "Synthetic policy agreement. New models occur in training; this is unseen-financial-group evaluation, not unseen-new-model accuracy."
+}

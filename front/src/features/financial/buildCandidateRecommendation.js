@@ -47,7 +47,7 @@ export function buildCandidateRecommendation({ values = {}, assets = {}, loans, 
   if (!Number.isInteger(profile.minimum_seats) || profile.minimum_seats < 0 || profile.minimum_seats > 9) errors.push('최소 탑승 인원');
   if (!['any', 'small', 'medium', 'large'].includes(profile.preferred_size)) errors.push('선호 크기');
   if (!(vehicle.fuel in fuels)) errors.push('선호 연료');
-  if (!['any', 'SEDAN', 'SUV', 'HATCHBACK', 'WAGON', 'MPV', 'BOX', 'PICKUP'].includes(profile.preferred_body_type)) errors.push('선호 차체 형태');
+  if (!['any', 'SEDAN', 'SUV', 'HATCHBACK', 'WAGON', 'MPV', 'BOX', 'PICKUP', 'COUPE', 'CONVERTIBLE', 'ROADSTER', 'OTHER'].includes(profile.preferred_body_type)) errors.push('선호 차체 형태');
   if (!Number.isInteger(profile.body_importance) || profile.body_importance < 1 || profile.body_importance > 5) errors.push('차체 형태 중요도');
   return { errors, request: errors.length ? null : { profile, k: 3 } };
 }

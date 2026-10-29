@@ -55,4 +55,4 @@
 
 cases.csv는600개 사례 요약, reversal_pairs.csv는154쌍의 기여·경제적 차이·원본 순위, details.json은 입력·사양·조건별 손실·점수 상세를 담는다. 미지의 제원은 검증 여부를 별도로 기록했다.
 
-재현: ml 폴더에서 `.venv/Scripts/python.exe -m vehicle_matching.audit_preference_reversals --output outputs/reports/새검토폴더`. 앞선 실험의sample_manifest.json과 고정 보정값을 사용한다.
+재현: ml 폴더에서 `.venv/Scripts/python.exe -m experiments.audit_preference_reversals --output outputs/reports/새검토폴더`. 앞선 실험의sample_manifest.json과 고정 보정값을 사용한다.

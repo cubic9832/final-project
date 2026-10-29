@@ -1,0 +1,548 @@
+[
+  {
+    "brand": "BMW",
+    "model": "2시리즈 쿠페",
+    "trim": "M240i xDrive 쿠페 프로",
+    "body_type": "COUPE",
+    "price": 76900000,
+    "fuel": "GASOLINE",
+    "length_mm": null,
+    "seats": null,
+    "efficiency": null,
+    "price_source": "web-price-0",
+    "spec_source": "web-price-0",
+    "id": "SPORT-5ea71e4b2e97abc7",
+    "source_urls": [
+      "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+    ],
+    "missing_fields": [
+      "length_mm",
+      "seats",
+      "efficiency"
+    ],
+    "source_hashes": {
+      "web-price-0": "b957ebceddd0762c63b0dd8fbe34f36f6a5730ecdc81b98a6482e9f06e0392af"
+    }
+  },
+  {
+    "brand": "BMW",
+    "model": "2시리즈 쿠페",
+    "trim": "M2 쿠페",
+    "body_type": "COUPE",
+    "price": 94400000,
+    "fuel": "GASOLINE",
+    "length_mm": null,
+    "seats": null,
+    "efficiency": null,
+    "price_source": "web-bmw-tail",
+    "spec_source": "web-bmw-tail",
+    "id": "SPORT-839c9159aedb4458",
+    "source_urls": [
+      "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+    ],
+    "missing_fields": [
+      "length_mm",
+      "seats",
+      "efficiency"
+    ],
+    "source_hashes": {
+      "web-bmw-tail": "23e1b1299b39732bc5619ead0fe95cd8cf9241aa959b77cd41b1d3ff1b33cf97"
+    }
+  },
+  {
+    "brand": "BMW",
+    "model": "2시리즈 그란쿠페",
+    "trim": "220 그란 쿠페 M 스포츠 디자인",
+    "body_type": "COUPE",
+    "price": 51100000,
+    "fuel": "GASOLINE",
+    "length_mm": null,
+    "seats": null,
+    "efficiency": null,
+    "price_source": "web-bmw-tail",
+    "spec_source": "web-bmw-tail",
+    "id": "SPORT-aaacde75ec1de4df",
+    "source_urls": [
+      "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+    ],
+    "missing_fields": [
+      "length_mm",
+      "seats",
+      "efficiency"
+    ],
+    "source_hashes": {
+      "web-bmw-tail": "23e1b1299b39732bc5619ead0fe95cd8cf9241aa959b77cd41b1d3ff1b33cf97"
+    }
+  },
+  {
+    "brand": "BMW",
+    "model": "4시리즈 쿠페",
+    "trim": "420i 쿠페 M 스포츠 프로",
+    "body_type": "COUPE",
+    "price": 75000000,
+    "fuel": "GASOLINE",
+    "length_mm": null,
+    "seats": null,
+    "efficiency": null,
+    "price_source": "web-price-0",
+    "spec_source": "web-price-0",
+    "id": "SPORT-107f17bb620ba8cd",
+    "source_urls": [
+      "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+    ],
+    "missing_fields": [
+      "length_mm",
+      "seats",
+      "efficiency"
+    ],
+    "source_hashes": {
+      "web-price-0": "b957ebceddd0762c63b0dd8fbe34f36f6a5730ecdc81b98a6482e9f06e0392af"
+    }
+  },
+  {
+    "brand": "BMW",
+    "model": "4시리즈 쿠페",
+    "trim": "M440i xDrive 쿠페 프로",
+    "body_type": "COUPE",
+    "price": 95600000,
+    "fuel": "GASOLINE",
+    "length_mm": null,
+    "seats": null,
+    "efficiency": null,
+    "price_source": "web-bmw-tail",
+    "spec_source": "web-bmw-tail",
+    "id": "SPORT-4bb264913759e74b",
+    "source_urls": [
+      "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+    ],
+    "missing_fields": [
+      "length_mm",
+      "seats",
+      "efficiency"
+    ],
+    "source_hashes": {
+      "web-bmw-tail": "23e1b1299b39732bc5619ead0fe95cd8cf9241aa959b77cd41b1d3ff1b33cf97"
+    }
+  },
+  {
+    "brand": "BMW",
+    "model": "4시리즈 쿠페",
+    "trim": "M4 컴페티션 M xDrive",
+    "body_type": "COUPE",
+    "price": 140500000,
+    "fuel": "GASOLINE",
+    "length_mm": null,
+    "seats": null,
+    "efficiency": null,
+    "price_source": "web-bmw-tail",
+    "spec_source": "web-bmw-tail",
+    "id": "SPORT-0c45e6ba03b35c07",
+    "source_urls": [
+      "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+    ],
+    "missing_fields": [
+      "length_mm",
+      "seats",
+      "efficiency"
+    ],
+    "source_hashes": {
+      "web-bmw-tail": "23e1b1299b39732bc5619ead0fe95cd8cf9241aa959b77cd41b1d3ff1b33cf97"
+    }
+  },
+  {
+    "brand": "BMW",
+    "model": "4시리즈 그란쿠페",
+    "trim": "420i 그란 쿠페 M 스포츠 프로",
+    "body_type": "COUPE",
+    "price": 69900000,
+    "fuel": "GASOLINE",
+    "length_mm": null,
+    "seats": null,
+    "efficiency": null,
+    "price_source": "web-bmw-tail",
+    "spec_source": "web-bmw-tail",
+    "id": "SPORT-e767c60466be92fc",
+    "source_urls": [
+      "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+    ],
+    "missing_fields": [
+      "length_mm",
+      "seats",
+      "efficiency"
+    ],
+    "source_hashes": {
+      "web-bmw-tail": "23e1b1299b39732bc5619ead0fe95cd8cf9241aa959b77cd41b1d3ff1b33cf97"
+    }
+  },
+  {
+    "brand": "BMW",
+    "model": "4시리즈 그란쿠페",
+    "trim": "i4 eDrive40 그란 쿠페 M 스포츠",
+    "body_type": "COUPE",
+    "price": 79100000,
+    "fuel": "ELECTRIC",
+    "length_mm": null,
+    "seats": null,
+    "efficiency": null,
+    "price_source": "web-price-0",
+    "spec_source": "web-price-0",
+    "id": "SPORT-4f6544766d9ec799",
+    "source_urls": [
+      "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+    ],
+    "missing_fields": [
+      "length_mm",
+      "seats",
+      "efficiency"
+    ],
+    "source_hashes": {
+      "web-price-0": "b957ebceddd0762c63b0dd8fbe34f36f6a5730ecdc81b98a6482e9f06e0392af"
+    }
+  },
+  {
+    "brand": "BMW",
+    "model": "4시리즈 컨버터블",
+    "trim": "420i 컨버터블 M 스포츠",
+    "body_type": "CONVERTIBLE",
+    "price": 77900000,
+    "fuel": "GASOLINE",
+    "length_mm": null,
+    "seats": null,
+    "efficiency": null,
+    "price_source": "web-price-0",
+    "spec_source": "web-price-0",
+    "id": "SPORT-6fd53300ad6c5cfb",
+    "source_urls": [
+      "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+    ],
+    "missing_fields": [
+      "length_mm",
+      "seats",
+      "efficiency"
+    ],
+    "source_hashes": {
+      "web-price-0": "b957ebceddd0762c63b0dd8fbe34f36f6a5730ecdc81b98a6482e9f06e0392af"
+    }
+  },
+  {
+    "brand": "BMW",
+    "model": "4시리즈 컨버터블",
+    "trim": "M4 컴페티션 M xDrive 컨버터블",
+    "body_type": "CONVERTIBLE",
+    "price": 145700000,
+    "fuel": "GASOLINE",
+    "length_mm": null,
+    "seats": null,
+    "efficiency": null,
+    "price_source": "web-bmw-tail",
+    "spec_source": "web-bmw-tail",
+    "id": "SPORT-e57a272b0b2fca6e",
+    "source_urls": [
+      "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+    ],
+    "missing_fields": [
+      "length_mm",
+      "seats",
+      "efficiency"
+    ],
+    "source_hashes": {
+      "web-bmw-tail": "23e1b1299b39732bc5619ead0fe95cd8cf9241aa959b77cd41b1d3ff1b33cf97"
+    }
+  },
+  {
+    "brand": "BMW",
+    "model": "8시리즈 그란쿠페",
+    "trim": "M850i xDrive 그란 쿠페 M 퍼포먼스",
+    "body_type": "COUPE",
+    "price": 151100000,
+    "fuel": "GASOLINE",
+    "length_mm": null,
+    "seats": null,
+    "efficiency": null,
+    "price_source": "web-bmw-tail",
+    "spec_source": "web-bmw-tail",
+    "id": "SPORT-f3297d0c4ea75370",
+    "source_urls": [
+      "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+    ],
+    "missing_fields": [
+      "length_mm",
+      "seats",
+      "efficiency"
+    ],
+    "source_hashes": {
+      "web-bmw-tail": "23e1b1299b39732bc5619ead0fe95cd8cf9241aa959b77cd41b1d3ff1b33cf97"
+    }
+  },
+  {
+    "brand": "BMW",
+    "model": "Z4",
+    "trim": "sDrive20i M 스포츠",
+    "body_type": "ROADSTER",
+    "price": 78100000,
+    "fuel": "GASOLINE",
+    "length_mm": null,
+    "seats": null,
+    "efficiency": null,
+    "price_source": "web-price-0",
+    "spec_source": "web-price-0",
+    "id": "SPORT-03970cd84d30d96f",
+    "source_urls": [
+      "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+    ],
+    "missing_fields": [
+      "length_mm",
+      "seats",
+      "efficiency"
+    ],
+    "source_hashes": {
+      "web-price-0": "b957ebceddd0762c63b0dd8fbe34f36f6a5730ecdc81b98a6482e9f06e0392af"
+    }
+  },
+  {
+    "brand": "BMW",
+    "model": "Z4",
+    "trim": "M40i",
+    "body_type": "ROADSTER",
+    "price": 100900000,
+    "fuel": "GASOLINE",
+    "length_mm": null,
+    "seats": null,
+    "efficiency": null,
+    "price_source": "web-price-0",
+    "spec_source": "web-price-0",
+    "id": "SPORT-9b8a152a6b916393",
+    "source_urls": [
+      "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+    ],
+    "missing_fields": [
+      "length_mm",
+      "seats",
+      "efficiency"
+    ],
+    "source_hashes": {
+      "web-price-0": "b957ebceddd0762c63b0dd8fbe34f36f6a5730ecdc81b98a6482e9f06e0392af"
+    }
+  },
+  {
+    "brand": "MINI",
+    "model": "Cooper Convertible",
+    "trim": "C Classic",
+    "body_type": "CONVERTIBLE",
+    "price": 48900000,
+    "fuel": "GASOLINE",
+    "length_mm": 3880,
+    "seats": 4,
+    "efficiency": 12.0,
+    "price_source": "mini-price",
+    "spec_source": "mini-spec",
+    "id": "SPORT-0aa5ec06e05bfbfe",
+    "source_urls": [
+      "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Price-Option-List.pdf",
+      "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Specification.pdf"
+    ],
+    "missing_fields": [],
+    "source_hashes": {
+      "mini-price": "eca510574a310f9f8f0e92da017a09bf573befafaf4cf6121d359ed7626d7a91",
+      "mini-spec": "cf664059f1e26e97b1dd387a54270ccda3235dea6970f9840599f0cd4bc6e53f"
+    }
+  },
+  {
+    "brand": "MINI",
+    "model": "Cooper Convertible",
+    "trim": "S Favoured",
+    "body_type": "CONVERTIBLE",
+    "price": 53900000,
+    "fuel": "GASOLINE",
+    "length_mm": 3880,
+    "seats": 4,
+    "efficiency": 12.2,
+    "price_source": "mini-price",
+    "spec_source": "mini-spec",
+    "id": "SPORT-f5326c56ad8df80e",
+    "source_urls": [
+      "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Price-Option-List.pdf",
+      "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Specification.pdf"
+    ],
+    "missing_fields": [],
+    "source_hashes": {
+      "mini-price": "eca510574a310f9f8f0e92da017a09bf573befafaf4cf6121d359ed7626d7a91",
+      "mini-spec": "cf664059f1e26e97b1dd387a54270ccda3235dea6970f9840599f0cd4bc6e53f"
+    }
+  },
+  {
+    "brand": "MINI",
+    "model": "Cooper Convertible",
+    "trim": "JCW",
+    "body_type": "CONVERTIBLE",
+    "price": 59900000,
+    "fuel": "GASOLINE",
+    "length_mm": 3880,
+    "seats": 4,
+    "efficiency": 11.8,
+    "price_source": "mini-price",
+    "spec_source": "mini-spec",
+    "id": "SPORT-0eb9f32638b38d6b",
+    "source_urls": [
+      "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Price-Option-List.pdf",
+      "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Specification.pdf"
+    ],
+    "missing_fields": [],
+    "source_hashes": {
+      "mini-price": "eca510574a310f9f8f0e92da017a09bf573befafaf4cf6121d359ed7626d7a91",
+      "mini-spec": "cf664059f1e26e97b1dd387a54270ccda3235dea6970f9840599f0cd4bc6e53f"
+    }
+  },
+  {
+    "brand": "토요타",
+    "model": "GR86",
+    "trim": "STANDARD 6MT",
+    "body_type": "COUPE",
+    "price": 43600000,
+    "fuel": "GASOLINE",
+    "length_mm": 4265,
+    "seats": 4,
+    "efficiency": 9.5,
+    "price_source": "toyota-gr86",
+    "spec_source": "toyota-spec",
+    "id": "SPORT-0313da36e7595ef7",
+    "source_urls": [
+      "https://www.toyota.co.kr/models/gr86/",
+      "https://www.toyota.co.kr/download/model/GR86_spec.pdf"
+    ],
+    "missing_fields": [],
+    "source_hashes": {
+      "toyota-gr86": "7645d676718f6050081e77c073c6551ed9524b09a0316e01c3a54d9a5366e09a",
+      "toyota-spec": "07d7eefc0eabe4e5ce1793dd10b3aafa4155e3dc3fec912cecceceb63af9ec3e"
+    }
+  },
+  {
+    "brand": "토요타",
+    "model": "GR86",
+    "trim": "PREMIUM 6MT",
+    "body_type": "COUPE",
+    "price": 49600000,
+    "fuel": "GASOLINE",
+    "length_mm": 4265,
+    "seats": 4,
+    "efficiency": 9.5,
+    "price_source": "toyota-gr86",
+    "spec_source": "toyota-spec",
+    "id": "SPORT-eea982011b1ca734",
+    "source_urls": [
+      "https://www.toyota.co.kr/models/gr86/",
+      "https://www.toyota.co.kr/download/model/GR86_spec.pdf"
+    ],
+    "missing_fields": [],
+    "source_hashes": {
+      "toyota-gr86": "7645d676718f6050081e77c073c6551ed9524b09a0316e01c3a54d9a5366e09a",
+      "toyota-spec": "07d7eefc0eabe4e5ce1793dd10b3aafa4155e3dc3fec912cecceceb63af9ec3e"
+    }
+  },
+  {
+    "brand": "마세라티",
+    "model": "GranTurismo",
+    "trim": "2026 V6 490PS",
+    "body_type": "COUPE",
+    "price": 229800000,
+    "fuel": "GASOLINE",
+    "length_mm": null,
+    "seats": null,
+    "efficiency": null,
+    "price_source": "web-price-1",
+    "spec_source": "web-maserati-fuel-seats",
+    "id": "SPORT-bf59f2a2a3aaea76",
+    "source_urls": [
+      "https://www.maserati.com/kr/ko/dealers/stellaautomobiles",
+      "https://www.maserati.com/kr/ko/news/special-promotion-for-new-grecale"
+    ],
+    "missing_fields": [
+      "length_mm",
+      "seats",
+      "efficiency"
+    ],
+    "source_hashes": {
+      "web-price-1": "9a38620d935826b9135bcb706a7588649caa362e4720c51d745e155fd6e733fe",
+      "web-maserati-fuel-seats": "64021b05dc5d94ac7d3cb8447d568be3d152f7595de26ce515e540f1ba8ab449"
+    }
+  },
+  {
+    "brand": "마세라티",
+    "model": "GranTurismo",
+    "trim": "2026 Trofeo V6 550PS",
+    "body_type": "COUPE",
+    "price": 287400000,
+    "fuel": "GASOLINE",
+    "length_mm": null,
+    "seats": null,
+    "efficiency": null,
+    "price_source": "web-price-1",
+    "spec_source": "web-maserati-fuel-seats",
+    "id": "SPORT-ed9f1e3b6a60f706",
+    "source_urls": [
+      "https://www.maserati.com/kr/ko/dealers/stellaautomobiles",
+      "https://www.maserati.com/kr/ko/news/special-promotion-for-new-grecale"
+    ],
+    "missing_fields": [
+      "length_mm",
+      "seats",
+      "efficiency"
+    ],
+    "source_hashes": {
+      "web-price-1": "9a38620d935826b9135bcb706a7588649caa362e4720c51d745e155fd6e733fe",
+      "web-maserati-fuel-seats": "64021b05dc5d94ac7d3cb8447d568be3d152f7595de26ce515e540f1ba8ab449"
+    }
+  },
+  {
+    "brand": "마세라티",
+    "model": "GranCabrio",
+    "trim": "2026 V6 490PS",
+    "body_type": "CONVERTIBLE",
+    "price": 247700000,
+    "fuel": "GASOLINE",
+    "length_mm": null,
+    "seats": 4,
+    "efficiency": null,
+    "price_source": "web-price-1",
+    "spec_source": "web-maserati-fuel-seats",
+    "id": "SPORT-9ffbe45a9fd7cad6",
+    "source_urls": [
+      "https://www.maserati.com/kr/ko/dealers/stellaautomobiles",
+      "https://www.maserati.com/kr/ko/news/special-promotion-for-new-grecale"
+    ],
+    "missing_fields": [
+      "length_mm",
+      "efficiency"
+    ],
+    "source_hashes": {
+      "web-price-1": "9a38620d935826b9135bcb706a7588649caa362e4720c51d745e155fd6e733fe",
+      "web-maserati-fuel-seats": "64021b05dc5d94ac7d3cb8447d568be3d152f7595de26ce515e540f1ba8ab449"
+    }
+  },
+  {
+    "brand": "마세라티",
+    "model": "GranCabrio",
+    "trim": "2026 Trofeo V6 550PS",
+    "body_type": "CONVERTIBLE",
+    "price": 305300000,
+    "fuel": "GASOLINE",
+    "length_mm": null,
+    "seats": 4,
+    "efficiency": null,
+    "price_source": "web-price-1",
+    "spec_source": "web-maserati-fuel-seats",
+    "id": "SPORT-6a007c7fea67dfbc",
+    "source_urls": [
+      "https://www.maserati.com/kr/ko/dealers/stellaautomobiles",
+      "https://www.maserati.com/kr/ko/news/special-promotion-for-new-grecale"
+    ],
+    "missing_fields": [
+      "length_mm",
+      "efficiency"
+    ],
+    "source_hashes": {
+      "web-price-1": "9a38620d935826b9135bcb706a7588649caa362e4720c51d745e155fd6e733fe",
+      "web-maserati-fuel-seats": "64021b05dc5d94ac7d3cb8447d568be3d152f7595de26ce515e540f1ba8ab449"
+    }
+  }
+]

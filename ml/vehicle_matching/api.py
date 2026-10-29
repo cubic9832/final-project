@@ -1,4 +1,4 @@
-"""Isolated v2 experiment. The original v1 server is unchanged."""
+"""Current vehicle recommendation API."""
 import json
 import logging
 import os
@@ -12,7 +12,7 @@ from fastapi.exceptions import RequestValidationError
 from pydantic import BaseModel, ConfigDict, Field
 from starlette.exceptions import HTTPException
 
-from recommender.api import problem
+from vehicle_matching.problems import problem
 from vehicle_matching.catalog import ROOT, catalog_fingerprint, read_catalog
 from vehicle_matching.catalog_merge import expand_catalog
 from vehicle_matching.finance import Profile
@@ -49,7 +49,7 @@ class ProfileRequest(BaseModel):
     purchase_price_ceiling: float = Field(default=0, ge=0, le=1e12)
     minimum_seats: int = Field(default=0, ge=0, le=9, strict=True)
     preferred_size: Literal['any', 'small', 'medium', 'large'] = 'any'
-    preferred_body_type: Literal['any', 'SEDAN', 'SUV', 'HATCHBACK', 'WAGON', 'MPV', 'BOX', 'PICKUP'] = 'any'
+    preferred_body_type: Literal['any', 'SEDAN', 'SUV', 'HATCHBACK', 'WAGON', 'MPV', 'BOX', 'PICKUP', 'COUPE', 'CONVERTIBLE', 'ROADSTER', 'OTHER'] = 'any'
     body_importance: int = Field(default=3, ge=1, le=5, strict=True)
     financing_mode: Literal['fixed', 'automatic', 'recommendation'] = Field(default='recommendation', exclude=True, deprecated=True)
 

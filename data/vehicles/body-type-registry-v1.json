@@ -849,6 +849,120 @@
       ],
       "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
       "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "BMW",
+      "model": "2시리즈 쿠페",
+      "body_type": "COUPE",
+      "source_urls": [
+        "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+      ],
+      "classification_basis": "국내 공식 가격표의 쿠페·그란쿠페·컨버터블·로드스터 분류 및 모델 카탈로그 대조",
+      "note": "2026-10-28 스포츠 차체 추가. 모델명 유사도 추정이나 SUV 기본값 없음."
+    },
+    {
+      "brand": "BMW",
+      "model": "2시리즈 그란쿠페",
+      "body_type": "COUPE",
+      "source_urls": [
+        "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+      ],
+      "classification_basis": "국내 공식 가격표의 쿠페·그란쿠페·컨버터블·로드스터 분류 및 모델 카탈로그 대조",
+      "note": "2026-10-28 스포츠 차체 추가. 모델명 유사도 추정이나 SUV 기본값 없음."
+    },
+    {
+      "brand": "BMW",
+      "model": "4시리즈 쿠페",
+      "body_type": "COUPE",
+      "source_urls": [
+        "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+      ],
+      "classification_basis": "국내 공식 가격표의 쿠페·그란쿠페·컨버터블·로드스터 분류 및 모델 카탈로그 대조",
+      "note": "2026-10-28 스포츠 차체 추가. 모델명 유사도 추정이나 SUV 기본값 없음."
+    },
+    {
+      "brand": "BMW",
+      "model": "4시리즈 그란쿠페",
+      "body_type": "COUPE",
+      "source_urls": [
+        "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+      ],
+      "classification_basis": "국내 공식 가격표의 쿠페·그란쿠페·컨버터블·로드스터 분류 및 모델 카탈로그 대조",
+      "note": "2026-10-28 스포츠 차체 추가. 모델명 유사도 추정이나 SUV 기본값 없음."
+    },
+    {
+      "brand": "BMW",
+      "model": "4시리즈 컨버터블",
+      "body_type": "CONVERTIBLE",
+      "source_urls": [
+        "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+      ],
+      "classification_basis": "국내 공식 가격표의 쿠페·그란쿠페·컨버터블·로드스터 분류 및 모델 카탈로그 대조",
+      "note": "2026-10-28 스포츠 차체 추가. 모델명 유사도 추정이나 SUV 기본값 없음."
+    },
+    {
+      "brand": "BMW",
+      "model": "8시리즈 그란쿠페",
+      "body_type": "COUPE",
+      "source_urls": [
+        "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+      ],
+      "classification_basis": "국내 공식 가격표의 쿠페·그란쿠페·컨버터블·로드스터 분류 및 모델 카탈로그 대조",
+      "note": "2026-10-28 스포츠 차체 추가. 모델명 유사도 추정이나 SUV 기본값 없음."
+    },
+    {
+      "brand": "BMW",
+      "model": "Z4",
+      "body_type": "ROADSTER",
+      "source_urls": [
+        "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf"
+      ],
+      "classification_basis": "국내 공식 가격표의 쿠페·그란쿠페·컨버터블·로드스터 분류 및 모델 카탈로그 대조",
+      "note": "2026-10-28 스포츠 차체 추가. 모델명 유사도 추정이나 SUV 기본값 없음."
+    },
+    {
+      "brand": "MINI",
+      "model": "Cooper Convertible",
+      "body_type": "CONVERTIBLE",
+      "source_urls": [
+        "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Price-Option-List.pdf",
+        "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Specification.pdf"
+      ],
+      "classification_basis": "국내 공식 가격표의 쿠페·그란쿠페·컨버터블·로드스터 분류 및 모델 카탈로그 대조",
+      "note": "2026-10-28 스포츠 차체 추가. 모델명 유사도 추정이나 SUV 기본값 없음."
+    },
+    {
+      "brand": "토요타",
+      "model": "GR86",
+      "body_type": "COUPE",
+      "source_urls": [
+        "https://www.toyota.co.kr/models/gr86/",
+        "https://www.toyota.co.kr/download/model/GR86_spec.pdf"
+      ],
+      "classification_basis": "국내 공식 가격표의 쿠페·그란쿠페·컨버터블·로드스터 분류 및 모델 카탈로그 대조",
+      "note": "2026-10-28 스포츠 차체 추가. 모델명 유사도 추정이나 SUV 기본값 없음."
+    },
+    {
+      "brand": "마세라티",
+      "model": "GranTurismo",
+      "body_type": "COUPE",
+      "source_urls": [
+        "https://www.maserati.com/kr/ko/dealers/stellaautomobiles",
+        "https://www.maserati.com/kr/ko/news/special-promotion-for-new-grecale"
+      ],
+      "classification_basis": "국내 공식 가격표의 쿠페·그란쿠페·컨버터블·로드스터 분류 및 모델 카탈로그 대조",
+      "note": "2026-10-28 스포츠 차체 추가. 모델명 유사도 추정이나 SUV 기본값 없음."
+    },
+    {
+      "brand": "마세라티",
+      "model": "GranCabrio",
+      "body_type": "CONVERTIBLE",
+      "source_urls": [
+        "https://www.maserati.com/kr/ko/dealers/stellaautomobiles",
+        "https://www.maserati.com/kr/ko/news/special-promotion-for-new-grecale"
+      ],
+      "classification_basis": "국내 공식 가격표의 쿠페·그란쿠페·컨버터블·로드스터 분류 및 모델 카탈로그 대조",
+      "note": "2026-10-28 스포츠 차체 추가. 모델명 유사도 추정이나 SUV 기본값 없음."
     }
   ]
 }

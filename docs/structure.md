@@ -80,7 +80,7 @@ pages/
 
 기존 데이터 경로와 생성 규칙은 데이터 해시·출처 기록 및 ML CSV 연결을 보존하기 위해 유지한다. `sources`는 원본, `extracted`는 추출 중간 자료, `csv`는 변환 결과다. 가구 합성 데이터는 생성 묶음별 디렉터리에서 JSON·CSV·설정·검증 기록을 함께 관리한다. 소스 코드와 테스트는 `tools/data`로 분리했다.
 
-`data/households/manual/profiles.csv`는 기존 루트 파일을 보존한 자료다. 검증된 ML 입력으로 자동 채택하지 않으며, 학습 데이터의 기준 경로는 `ml/config/datasets.json`이다.
+`data/households/manual/profiles.csv`는 기존 루트 파일을 보존한 자료다. 검증된 ML 입력으로 자동 채택하지 않으며, 현재 학습 자료는 `data/households/synthetic/seating-verified-v1-20261027`이다. 이전 `ml/config/datasets.json`은 삭제된 데이터 경로만 가리켜 제거했다.
 
 원본 파일·합성 데이터의 일괄 이동이나 재생성은 구조 변경에 포함하지 않는다. 데이터 묶음을 추가할 때 소스 코드를 복제하지 않고 패키지의 생성 모듈과 별도 설정을 사용한다.
 
@@ -92,7 +92,7 @@ pages/
 
 - 웹 개발 실행: 루트 `dev.sh`, 프런트 `front/package.json`, 백엔드 Gradle.
 - 데이터 처리: [데이터 도구](../tools/data/README.md)의 모듈 실행 방법 사용.
-- ML 코드: `ml/recommender`. 모델·전처리·평가 결과: `ml/outputs/models/financial-ui-v1/all-cars/{시각}`. 입력 UI를 변경하지 않고 기존 진단값으로 재학습한다.
+- ML 코드: `ml/vehicle_matching`. 기본 모델: `ml/outputs/models/candidate-preferences/20261027-seating-verified-v1`. 독립 분석은 `ml/experiments`, 구형 v1 구현은 `ml/legacy`에서 보관한다. [파일별 관리 목록](../ml/FILE_INVENTORY.md)을 참고한다.
 - 모델 실행 의존성은 `ml/pyproject.toml`에서 관리하고 API는 serve extra로 설치한다. 검증한 Windows CPU 직접 의존성 버전은 `ml/requirements-cpu-windows.txt`에 기록한다.
 - 설치 의존성·Python 캐시·가상환경·임시 파일은 루트 `.gitignore`에서 제외한다. 원본·재현에 필요한 설정과 공유할 결과는 의도적으로 관리한다.
 - `examples/legacy`는 웹 빌드 대상이 아니며 예전 IDE 프로젝트를 보존한다.

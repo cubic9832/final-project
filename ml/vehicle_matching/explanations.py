@@ -1,4 +1,5 @@
 """Read-only decision evidence. Never changes candidate eligibility or ranking."""
+from vehicle_matching.body_types import matches_body_preference
 import math
 
 from vehicle_matching.preferences import SIZE_BANDS
@@ -23,7 +24,7 @@ def preference_evidence(profile, vehicle, components):
             requested=profile.preferred_fuel, actual=vehicle.original_fuel or vehicle.fuel,
             evaluatedFuel=evaluated)
     if profile.preferred_body_type != 'any':
-        add('body', 'unknown' if vehicle.body_type is None else 'match' if vehicle.body_type == profile.preferred_body_type else 'mismatch',
+        add('body', 'unknown' if vehicle.body_type is None else 'match' if matches_body_preference(profile.preferred_body_type, vehicle.body_type) else 'mismatch',
             requested=profile.preferred_body_type, actual=vehicle.body_type, sourceUrls=list(vehicle.body_source_urls))
     if profile.preferred_size != 'any':
         lower, upper = SIZE_BANDS[profile.preferred_size]

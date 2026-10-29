@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "comparisons_checked": 40000,
+  "financial_groups": 20000,
+  "split_leakage": 0,
+  "feature_label_mismatches": 0,
+  "auditor_sha256": "7afd552eaa1e93544d11543efffc353610f50a4e428358cf7c80512a1eb73e16",
+  "sha256": {
+    "test.jsonl": "e6a8e504c8887566b879eaaf3f5e24fb8f089c8c0e27224f6417bb67f6780022",
+    "test_choices.npz": "5f26732241120e7dda454f490e9c96778da105ea9871fe8687bc7ba52b976219",
+    "train.jsonl": "defe951e5d02a5b3c1609da4cff07a4871aa8e1e06c18ab9abbd54c730b97e80",
+    "train_choices.npz": "1d9acdb013bfa1ced48f36ed70f5fcce2bfde1daa171ecaa3fd9bdb1dea31444",
+    "validation.jsonl": "b65e6220d58ba386d16d7b03e305577f7904fdc150ee4082ffb8a37bc58b93cf",
+    "validation_choices.npz": "1bf186f6d1f6d468cd5a7fca219c67ec2cf448cc0023c0f28b06a7a0a43aa265"
+  }
+}

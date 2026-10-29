@@ -3,10 +3,15 @@
 param(
     [Parameter(Position = 0)][ValidateSet('up', 'down', 'reset')][string]$Command = 'up',
     [ValidateRange(1, 65535)][int]$DatabasePort = 3307,
+    [string]$DatabaseHost = '192.168.10.18',
     [switch]$Check
 )
 
 $ErrorActionPreference = 'Stop'
+if (-not $PSBoundParameters.ContainsKey('DatabaseHost') -and -not [string]::IsNullOrWhiteSpace($env:DB_HOST)) {
+    $DatabaseHost = $env:DB_HOST
+}
+$isLocalDatabase = $DatabaseHost -in @('localhost', '127.0.0.1')
 if (Test-Path variable:PSNativeCommandUseErrorActionPreference) {
     $PSNativeCommandUseErrorActionPreference = $false
 }
@@ -81,11 +86,11 @@ try {
     if (-not (Test-Path -LiteralPath $mlPython)) {
         throw 'ML environment is missing. Follow ml/README.md to create ml/.venv and install dependencies.'
     }
-    foreach ($port in @($DatabasePort, 8080, 8001, 5173)) {
+    foreach ($port in @(8080, 8002, 5173)) {
         $state = if (Test-LocalPort $port) { 'in use (reuse)' } else { 'available' }
         Write-Host "Port ${port}: $state"
     }
-    if (-not (Test-LocalPort $DatabasePort)) {
+    if ($isLocalDatabase -and -not (Test-LocalPort $DatabasePort)) {
         Require-Command 'docker.exe'
         & docker info *> $null
         if ($LASTEXITCODE -ne 0) { throw 'Start Docker Desktop, or start your local MySQL server, then retry.' }
@@ -95,7 +100,7 @@ try {
         return
     }
 
-    if (-not (Test-LocalPort $DatabasePort)) {
+    if ($isLocalDatabase -and -not (Test-LocalPort $DatabasePort)) {
         $previousDbPort = $env:DB_PORT
         try {
             $env:DB_PORT = [string]$DatabasePort
@@ -105,7 +110,7 @@ try {
             $env:DB_PORT = $previousDbPort
         }
     } else {
-        Write-Host '[MySQL] Reusing the existing database. Expected: final_sample, user server.'
+        Write-Host "[MySQL] Using ${DatabaseHost}:$DatabasePort, database final_sample, user server."
     }
     if (-not (Test-Path -LiteralPath (Join-Path $projectRoot 'front/node_modules'))) {
         & npm.cmd --prefix front ci
@@ -113,12 +118,12 @@ try {
     }
 
     New-Item -ItemType Directory -Path $logDirectory -Force | Out-Null
-    $dbUrl = "jdbc:mysql://localhost:$DatabasePort/final_sample?serverTimezone=Asia/Seoul&characterEncoding=UTF-8"
+    $dbUrl = "jdbc:mysql://${DatabaseHost}:$DatabasePort/final_sample?serverTimezone=Asia/Seoul&characterEncoding=UTF-8"
     if (-not (Test-LocalPort 8080)) {
         Start-App 'spring-compile' 0 (Join-Path $projectRoot 'back') '& .\gradlew.bat --no-daemon classes --continuous --quiet'
     }
     Start-App 'spring' 8080 (Join-Path $projectRoot 'back') "`$env:SPRING_DATASOURCE_URL = '$dbUrl'; & .\gradlew.bat --no-daemon bootRun"
-    Start-App 'ml' 8001 $projectRoot '& .\ml\serve.ps1'
+    Start-App 'ml' 8002 $projectRoot '& .\ml\serve-candidates.ps1'
     Start-App 'react' 5173 (Join-Path $projectRoot 'front') '& npm.cmd run dev -- --host 127.0.0.1 --port 5173 --strictPort'
 
     Write-Host "Logs: $logDirectory"
@@ -141,7 +146,7 @@ try {
         if ($pending.Count -eq 0 -and -not $announced) {
             Write-Host 'React:  http://127.0.0.1:5173/'
             Write-Host 'Spring: http://127.0.0.1:8080/'
-            Write-Host 'ML:     http://127.0.0.1:8001/docs'
+            Write-Host 'ML:     http://127.0.0.1:8002/docs'
             Write-Host 'Servers are listening. Keep this terminal open; Ctrl+C to stop newly started apps. Database stays running.'
             $announced = $true
         }
