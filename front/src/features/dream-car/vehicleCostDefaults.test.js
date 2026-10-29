@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { annualVehicleTax, getVehicleCostDefaults, updatePlanInput } from './vehicleCostDefaults.js';
 import { calculatePurchasePlan, defaultPlan } from './purchasePlan.js';
-import catalog from '../../../../data/households/synthetic/sports-official-v1-20261028/catalog.json' with { type: 'json' };
+import catalog from '../vehicle/planningVehicleCatalog.json' with { type: 'json' };
 
 test('자동차세는 구간별 전체 배기량 세율과 지방교육세를 적용한다', () => {
   assert.equal(annualVehicleTax(1000), 10.4);
@@ -16,12 +16,13 @@ test('전기차 선택 시 전비·충전 단가·보험료·세금을 함께 �
   const result = getVehicleCostDefaults({ id: 'unknown', price: 50000000, fuel: 'ELECTRIC', efficiency: 5.2, seats: 5 });
   assert.deepEqual(result.inputs, { efficiency: 5.2, energyPrice: 350, insurance: 110, annualTax: 13, maintenance: 75 });
 });
-test('배기량 미확인은 가격 기반 예산을 채우고 연비 미확인은 유지한다', () => {
+test('배기량과 연비 미확인은 계산 가능한 예산용 추정값으로 보완한다', () => {
   const result = getVehicleCostDefaults({ id: 'unknown', price: 30000000, fuel: 'DIESEL', efficiency: null });
   assert.equal(result.inputs.annualTax, 30);
   assert.equal(result.inputs.maintenance, 45);
   assert.match(result.notes.annualTax, /실제 세액 아님/);
-  assert.equal(result.inputs.efficiency, '');
+  assert.equal(result.inputs.efficiency, 14);
+  assert.equal(result.efficiencyEstimated, true);
   assert.equal(result.inputs.energyPrice, 1550);
 });
 

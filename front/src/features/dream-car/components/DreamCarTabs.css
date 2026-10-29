@@ -1,0 +1,4 @@
+.dream-car-tabs { display:flex; gap:var(--space-24); border-bottom:1px solid var(--color-border); margin-bottom:var(--space-24); }
+.dream-car-tabs a { display:inline-flex; align-items:center; min-height:48px; padding:var(--space-12) var(--space-8); color:var(--color-muted); border-bottom:2px solid transparent; }
+.dream-car-tabs a:hover { color:var(--color-blue-strong); }
+.dream-car-tabs a[aria-current=page] { border-bottom-color:var(--color-primary); color:var(--color-primary); font-weight:700; }

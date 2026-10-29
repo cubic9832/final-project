@@ -1,0 +1,4 @@
+.dream-car-page-header { margin-bottom:var(--space-32); }
+.dream-car-page-header>span { display:flex; align-items:center; gap:var(--space-8); color:var(--color-mint-strong); font-size:var(--font-caption); font-weight:700; letter-spacing:1px; }
+.dream-car-page-header h1 { font-size:var(--font-page-title); line-height:1.5; margin:var(--space-12) 0; letter-spacing:-1px; }
+.dream-car-page-header p { color:var(--color-muted); }

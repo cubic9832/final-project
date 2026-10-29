@@ -1,4 +1,5 @@
 import displacements from './vehicleDisplacements.json' with { type: 'json' };
+import { resolvePlanningEfficiency } from '../vehicle/resolvePlanningEfficiency.js';
 
 export const taxSource = 'https://www.law.go.kr/LSW/lsSideInfoP.do?docCls=jo&joBrNo=00&joNo=0127&lsiSeq=282559&urlMode=lsScJoRltInfoR';
 
@@ -22,11 +23,14 @@ export function getVehicleCostDefaults(vehicle, annualDistance = 12000) {
   const baseMaintenance = Math.max(30, vehicle.price / 10000 * 0.015);
   // 연간 비용의 40%는 고정 적립, 60%는 주행에 따른 소모로 가정한다.
   const maintenance = Math.round(baseMaintenance * (0.4 + 0.6 * distance / 12000));
-  const efficiency = vehicle.efficiency > 0 ? vehicle.efficiency : '';
+  const efficiencyInfo = resolvePlanningEfficiency(vehicle);
+  const efficiency = efficiencyInfo.value;
   return {
+    efficiencyEstimated: efficiencyInfo.estimated,
+    efficiencySource: efficiencyInfo.sourceUrl,
     inputs: { efficiency, energyPrice, insurance, annualTax: tax ?? estimatedTax, maintenance },
     notes: {
-      efficiency: efficiency === '' ? '등록 연비 없음 · 직접 입력 필요' : `등록 사양 ${vehicle.efficiency_reference_only ? '(참고값)' : ''} · ${vehicle.checked_on || '확인일 미등록'}`,
+      efficiency: efficiencyInfo.basis,
       energyPrice: '연료별 기본 가정 · 실시간 시세 아님',
       insurance: '계획용 추정 · 연 60만 원 + 차량가의 1% · 실제 견적 아님',
       annualTax: tax === null ? '예산용 추정 · 차량가의 연 1% (최소 20만 원) · 실제 세액 아님' : vehicle.fuel === 'ELECTRIC' ? '비영업용 승용 전기차 · 지방교육세 포함' : `${cc.toLocaleString('ko-KR')}cc · 비영업용 신차 · 지방교육세 30% 포함`,
