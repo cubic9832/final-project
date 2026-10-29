@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import client from '../../shared/api/client.js';
-import { getVehicles, selectPresetVehicles, toVehicle } from './vehicleApi.js';
+import { getVehicles, searchVehicleIds, selectPresetVehicles, toVehicle } from './vehicleApi.js';
 
 const row = { id: 42, brand: '현대', name: '아반떼 하이브리드', trimName: '스마트', modelYear: 2026, conditionCode: 'NEW', classCode: 'COMPACT_SEDAN', fuelCode: 'HYBRID', price: 25550000, efficiencyValue: 21.1, efficiencyUnit: 'km/L', sourceUrl: 'https://www.hyundai.com/price.pdf' };
 
@@ -31,6 +31,17 @@ test('API failures propagate instead of returning sample vehicles', async () => 
   const adapter = client.defaults.adapter;
   client.defaults.adapter = async () => { throw new Error('offline'); };
   try { await assert.rejects(getVehicles(), /offline/); }
+  finally { client.defaults.adapter = adapter; }
+});
+
+test('keyword search sends q and returns relevance-ordered IDs as screen IDs', async () => {
+  const adapter = client.defaults.adapter;
+  client.defaults.adapter = async (config) => {
+    assert.equal(config.url, '/vehicles');
+    assert.deepEqual(config.params, { q: '현대 하이브리드' });
+    return { data: { data: [{ ...row, id: 7 }, { ...row, id: 3 }] }, status: 200, config };
+  };
+  try { assert.deepEqual(await searchVehicleIds('현대 하이브리드'), ['7', '3']); }
   finally { client.defaults.adapter = adapter; }
 });
 
