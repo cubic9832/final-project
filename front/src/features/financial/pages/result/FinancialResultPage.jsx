@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import FinancialAnalysis from '../recommendations/FinancialAnalysis.jsx';
 import FinancialFlowHeader from '../../components/FinancialFlowHeader.jsx';
@@ -17,11 +17,17 @@ export default function FinancialResultPage() {
   const navigate = useNavigate();
   const member = useAuthStore((store) => store.member);
   const ready = Boolean(state?.diagnosis?.values) && state?.result?.modelVersion === 'candidate-v2';
+  // 저장이 늦게 끝났을 때 이미 다른 화면(추천 차량 등)으로 떠났으면 결과 화면으로 되돌리지 않기 위한 표시
+  const mountedRef = useRef(true);
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => { mountedRef.current = false; };
+  }, []);
   useEffect(() => {
     if (!ready || !member || state.diagnosisSaved || savedResults.has(state.result)) return;
     savedResults.add(state.result);
     saveDiagnosis(buildDiagnosisSummary(state.diagnosis, state.result))
-      .then(() => navigate(pathname, { replace: true, state: { ...state, diagnosisSaved: true } }))
+      .then(() => { if (mountedRef.current) navigate(pathname, { replace: true, state: { ...state, diagnosisSaved: true } }); })
       .catch(() => savedResults.delete(state.result)); // 저장 실패는 결과 보기를 막지 않는다 (다음에 다시 시도)
   }, [ready, member, state, pathname, navigate]);
   if (!state?.diagnosis?.values || state?.result?.modelVersion !== 'candidate-v2') return <Navigate to={state?.values ? '/financial/vehicle' : '/financial'} state={state} replace />;

@@ -11,8 +11,9 @@ import lombok.Setter;
  * 6단계: 개인정보 수정 요청 (PUT /api/v1/members/me/profile).
  * 값 규칙:
  * - birthDate · gender: 보내지 않으면(null) 지금 값 그대로. 생년월일은 만 18세 이상만 (Service 에서 검사)
- * - phone · drivingExperience · purchaseTiming (선택 항목): null = 그대로, "" = 지우기, 값 = 바꾸기
+ * - phone (필수 항목, 보완 11): null = 그대로, 값 = 바꾸기. "" 는 거절 (필수라 지울 수 없다)
  *   (전화번호는 화면에 가린 값만 내려가므로, 바꾸지 않으면 null 로 보낸다)
+ * - drivingExperience · purchaseTiming (선택 항목): null = 그대로, "" = 지우기, 값 = 바꾸기
  * - nickName: null = 그대로, 값 = 바꾸기 (회원가입 · PATCH /members/me 와 같은 2~12자 · 금지어 · 중복 규칙)
  *   개인정보와 한 요청 · 한 트랜잭션으로 저장해, 하나라도 실패하면 아무것도 바뀌지 않는다
  * 화면은 바꾼 항목만 보낸다 → 다른 탭에서 저장한 값을 옛 값으로 덮어쓰지 않는다
@@ -30,8 +31,8 @@ public class ProfileUpdateRequest {
     @Pattern(regexp = "^(MALE|FEMALE|NONE)$", message = "성별을 다시 선택해 주세요.")
     private String gender;
 
-    // 회원가입과 같은 형식 (010-1234-5678 · 01012345678), "" 는 지우기
-    @Pattern(regexp = "^$|^010-?\\d{4}-?\\d{4}$", message = "전화번호는 010-1234-5678 형식으로 입력해 주세요.")
+    // 회원가입과 같은 형식 (010-1234-5678 · 01012345678). 필수라 "" 로 지울 수 없다 (null = 그대로는 @Pattern 이 통과시킨다)
+    @Pattern(regexp = "^010-?\\d{4}-?\\d{4}$", message = "전화번호는 010-1234-5678 형식으로 입력해 주세요.")
     private String phone;
 
     @Pattern(regexp = "^$|^(NONE|UNDER_1Y|YEARS_1_3|OVER_3Y)$", message = "운전 경력을 다시 선택해 주세요.")

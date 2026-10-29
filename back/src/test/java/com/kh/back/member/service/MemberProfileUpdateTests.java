@@ -24,7 +24,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-// 6단계: 개인정보 수정 (만 18세 검사, 선택 항목 null = 그대로 · "" = 지우기, 구글 가입 회원은 행이 없어도 저장)
+// 6단계: 개인정보 수정 (만 18세 검사, 선택 항목 null = 그대로 · "" = 지우기, 전화번호는 필수라 "" 거절, 구글 가입 회원은 행이 없어도 저장)
 @ExtendWith(MockitoExtension.class)
 class MemberProfileUpdateTests {
 
@@ -72,7 +72,7 @@ class MemberProfileUpdateTests {
     }
 
     @Test
-    void 전화번호는_null_이면_그대로_빈값이면_지운다() {
+    void 전화번호는_null_이면_그대로_빈값이면_거절한다() {
         UserProfileDto existing = new UserProfileDto();
         existing.setUserId(7L);
         existing.setPhone("01012345678");
@@ -82,9 +82,11 @@ class MemberProfileUpdateTests {
         ProfileUpdateRequest keep = request(null);
         assertThat(memberService.updateProfile(7L, keep).getPhoneMasked()).isEqualTo("010-****-5678");
 
+        // 보완 11: 필수 항목이라 빈 값으로 지울 수 없다
         ProfileUpdateRequest clear = request(null);
         clear.setPhone("");
-        assertThat(memberService.updateProfile(7L, clear).getPhoneMasked()).isNull();
+        assertThatThrownBy(() -> memberService.updateProfile(7L, clear))
+                .isInstanceOfSatisfying(ApiException.class, e -> assertThat(e.getCode()).isEqualTo("PHONE_REQUIRED"));
     }
 
     // 닉네임과 개인정보는 한 요청 · 한 트랜잭션: 닉네임이 거절되면 개인정보도 저장하지 않는다

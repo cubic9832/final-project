@@ -106,9 +106,13 @@ public class MemberServiceImpl implements MemberService {
             changed.add("gender");
         }
 
-        // 선택 항목: null = 그대로, "" = 지우기, 값 = 바꾸기
+        // 전화번호(필수, 보완 11): null = 그대로, 값 = 바꾸기, 빈 값으로 지우는 요청은 거절
+        // (Controller 의 @Valid 를 거치지 않는 호출도 여기서 막는다)
         if (request.getPhone() != null) {
-            profile.setPhone(request.getPhone().isBlank() ? null : request.getPhone().replace("-", "")); // 숫자만 저장
+            if (request.getPhone().isBlank()) {
+                throw new ApiException(HttpStatus.BAD_REQUEST, "PHONE_REQUIRED", "전화번호를 입력해 주세요.");
+            }
+            profile.setPhone(request.getPhone().replace("-", "")); // 숫자만 저장
             changed.add("phone");
         }
         if (request.getDrivingExperience() != null) {
