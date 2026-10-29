@@ -36,6 +36,80 @@ start_db() {
   docker compose up -d --wait db
 }
 
+lan_ipv4_windows() {
+  powershell.exe -NoProfile -Command '
+    $addresses = @(Get-NetIPAddress -AddressFamily IPv4 -ErrorAction SilentlyContinue | Where-Object {
+      $_.IPAddress -notlike "127.*" -and $_.IPAddress -notlike "169.254.*" -and
+      $_.InterfaceAlias -notmatch "vEthernet|WSL|Hyper-V|Loopback|Bluetooth|Virtual|Docker|Default Switch"
+    })
+    $ethernet = @($addresses | Where-Object { $_.InterfaceAlias -match "Ethernet|이더넷" })
+    if ($ethernet.Count -gt 0) { $ethernet[0].IPAddress; exit }
+    $wifi = @($addresses | Where-Object { $_.InterfaceAlias -match "Wi-Fi|WiFi|Wireless|WLAN|무선" })
+    if ($wifi.Count -gt 0) { $wifi[0].IPAddress; exit }
+    if ($addresses.Count -gt 0) { $addresses[0].IPAddress }
+  ' | tr -d "\r"
+}
+
+lan_ipv4_darwin() {
+  local iface ip
+  if command -v networksetup >/dev/null 2>&1; then
+    while IFS= read -r iface; do
+      [ -n "$iface" ] || continue
+      ip="$(ipconfig getifaddr "$iface" 2>/dev/null || true)"
+      if [ -n "$ip" ]; then
+        printf "%s\n" "$ip"
+        return 0
+      fi
+    done < <(networksetup -listallhardwareports 2>/dev/null | awk '
+      /^Hardware Port: / {
+        port = substr($0, 16)
+        kind = ""
+        if (port ~ /Ethernet/ && port !~ /Bridge/) kind = "ethernet"
+        else if (port == "Wi-Fi") kind = "wifi"
+        getline
+        if (kind != "" && $1 == "Device:") {
+          if (kind == "ethernet") ethernet[++n] = $2
+          else wifi = $2
+        }
+      }
+      END {
+        for (i = 1; i <= n; i++) print ethernet[i]
+        if (wifi != "") print wifi
+      }
+    ')
+  fi
+  iface="$(route -n get default 2>/dev/null | awk "/interface:/{print \$2}")"
+  if [ -n "${iface:-}" ]; then
+    ipconfig getifaddr "$iface" 2>/dev/null || true
+  fi
+}
+
+lan_ipv4_linux() {
+  ip -4 route get 1.1.1.1 2>/dev/null | awk '{for (i = 1; i <= NF; i++) if ($i == "src") { print $(i + 1); exit }}'
+}
+
+lan_ipv4() {
+  case "$(uname -s)" in
+    MINGW*|MSYS*|CYGWIN*) lan_ipv4_windows ;;
+    Darwin) lan_ipv4_darwin ;;
+    *) lan_ipv4_linux ;;
+  esac
+}
+
+print_lan_access() {
+  local ip
+  ip="$(lan_ipv4 || true)"
+  if [ -z "$ip" ]; then
+    echo "같은 네트워크 IP를 찾지 못했습니다. ipconfig에서 이더넷 IPv4를 확인하세요."
+    return
+  fi
+  echo "같은 네트워크 IPv4: $ip"
+  echo "다른 PC 프론트: http://$ip:5173"
+  echo "다른 PC DB 확인 (cmd, mysql 클라이언트 필요):"
+  echo "mysql -h $ip -P $DB_PORT -u server -pserver final_sample -e \"SELECT MAX(version) v, MIN(success) ok FROM flyway_schema_history; SELECT status, COUNT(*) c FROM managed_vehicles GROUP BY status;\""
+  echo "기대값: v=20, ok=1, PUBLISHED=308, REVIEW=3"
+}
+
 APP_PIDS=()
 
 stop_apps() {
@@ -50,6 +124,8 @@ start_apps() {
   if [ "$DB_PORT" != "$DEFAULT_DB_PORT" ]; then
     export SPRING_DATASOURCE_URL="jdbc:mysql://localhost:$DB_PORT/final_sample?serverTimezone=Asia/Seoul&characterEncoding=UTF-8"
   fi
+
+  print_lan_access
 
   if [ ! -d front/node_modules ]; then
     (cd front && npm ci)
