@@ -23,7 +23,7 @@ public interface AdminMemberMapper {
 
     String findEmail(Long id); // 로그인 잠금 해제용 (없으면 null)
 
-    // 보완 11: 권한은 admin_accounts(V18) — 지정은 넣기(있으면 바꾸기), 해제는 지우기
+    // 보완 11: 권한은 admin_accounts(V21) — 지정은 넣기(있으면 바꾸기), 해제는 지우기
     int grantAdmin(@Param("id") Long id, @Param("role") String role, @Param("grantedBy") Long grantedBy);
 
     int revokeAdmin(Long id);

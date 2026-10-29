@@ -10,7 +10,7 @@
             <if test="keyword != null">
                 (u.nick_name LIKE CONCAT('%', #{keyword}, '%') OR u.email LIKE CONCAT('%', #{keyword}, '%'))
             </if>
-            <!-- 보완 11: 권한은 admin_accounts(V18). "관리자" 로 거르면 총관리자도 함께 보인다, "일반 회원" = 표에 없는 회원 -->
+            <!-- 보완 11: 권한은 admin_accounts(V21). "관리자" 로 거르면 총관리자도 함께 보인다, "일반 회원" = 표에 없는 회원 -->
             <if test="role == 'ADMIN'">
                 AND a.role IS NOT NULL
             </if>

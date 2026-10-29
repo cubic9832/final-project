@@ -1,6 +1,6 @@
 -- 보완 11: 관리자 권한을 회원 표(users)에서 따로 떼어 낸다.
 -- 로그인은 그대로 users 하나로 하고(일반 로그인 창), 이 표에 있는 회원만 관리자 · 총관리자다. 없으면 일반 회원(USER).
--- 번호: develop 은 V14 까지지만 main 에 V15 ~ V17 이 있어 합칠 때 겹치지 않게 V18 을 쓴다.
+-- 번호: main 에 V13 ~ V20 이 있어(차량 데이터 등) 합칠 때 겹치지 않게 V21 을 쓴다. (develop 은 V14 까지)
 -- 총관리자는 화면에서 만들 수 없고 DB(또는 서버 시드 AdminAccountSeeder)로만 넣는다.
 
 CREATE TABLE admin_accounts (

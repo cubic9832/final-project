@@ -4,7 +4,7 @@
 <!-- 회원(users 테이블). 테이블은 Flyway V1__create_schema.sql 이 만든다 -->
 <mapper namespace="com.kh.back.member.mapper.MemberMapper">
 
-    <!-- 보완 11: 권한은 admin_accounts(V18)에 있는 회원만 ADMIN · SUPER_ADMIN, 없으면 USER -->
+    <!-- 보완 11: 권한은 admin_accounts(V21)에 있는 회원만 ADMIN · SUPER_ADMIN, 없으면 USER -->
     <!-- 컬럼은 snake_case, 필드는 camelCase. map-underscore-to-camel-case 설정이 자동으로 맞춰 준다 -->
     <select id="findById" resultType="com.kh.back.member.dto.MemberDto">
         SELECT u.id, u.email, u.password_hash, u.nick_name, COALESCE(a.role, 'USER') AS role, u.created_at
