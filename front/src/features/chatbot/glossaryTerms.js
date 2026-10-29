@@ -28,9 +28,3 @@ const terms = new Map(entries.flatMap(([id, label, aliases]) =>
 export function findGlossaryTerm(value) {
   return terms.get(normalize(value)) ?? null;
 }
-
-export function buildTermQuestion(term, context = '') {
-  const location = context ? `지금 보고 있는 화면 정보: ${context.slice(0, 250)}.\n` : '';
-  const name = /_(SUV|SEDAN)$/.test(term.id) ? `${term.id}(${term.label})` : term.label;
-  return `${location}화면에 나온 ${name}의 쉬운 뜻을 알려주세요. 헷갈리기 쉬운 비슷한 용어가 있다면 차이도 설명해 주세요.`;
-}

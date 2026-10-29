@@ -1,10 +1,25 @@
 chatbot:
+  provider: ${CHATBOT_PROVIDER:gemini}
   gemini:
     api-key: ${GEMINI_API_KEY:}
     model: ${GEMINI_MODEL:gemini-3.5-flash-lite}
   knowledge-location: ${CHATBOT_KNOWLEDGE_LOCATION:classpath:chatbot/knowledge/*.md}
 
 spring:
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY:no-key}
+      timeout: 30s
+      max-retries: 0
+      chat:
+        options:
+          model: ${OPENAI_MODEL:gpt-5.6-luna}
+          max-completion-tokens: 2048
+          store: false
+      embedding:
+        enabled: false
+    retry:
+      max-attempts: 1
   application:
     name: back
   # 7단계: 총관리자 시드 설정을 git 에 올리지 않는 파일에서 읽는다 (있을 때만). back/admin-seed.example.properties 참고
