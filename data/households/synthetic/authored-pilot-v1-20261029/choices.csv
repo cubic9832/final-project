@@ -1,0 +1,151 @@
+﻿id,profile_id,split,a,b,label,reason,reason_scope,a_model,a_trim,b_model,b_trim
+AP001-C1,AP001,train,V-d7301997ec0857a4,supp-8952b93576f29ab7,1,캐스퍼의 SUV 형태보다 모닝의 낮은 구매가격을 택합니다.,authored preference; not measured vehicle performance,모닝,트렌디,캐스퍼,스마트
+AP001-C2,AP001,train,V-28e35ab7d6ef4cbd,V-d7301997ec0857a4,0,레이의 박스형보다 해치백 외형이 취향에 맞습니다.,authored preference; not measured vehicle performance,레이,트렌디,모닝,트렌디
+AP001-C3,AP001,train,V-d7301997ec0857a4,V-336d414c0bfa6ca5,1,높은 차체에 추가 비용을 내기보다 작은 해치백을 택합니다.,authored preference; not measured vehicle performance,모닝,트렌디,베뉴,Smart
+AP001-C4,AP001,train,V-64c4c208c9a01ac9,V-d7301997ec0857a4,0,세단에 대한 관심보다 작은 주차 공간과 낮은 가격이 중요합니다.,authored preference; not measured vehicle performance,디 올 뉴 아반떼,Modern,모닝,트렌디
+AP001-C5,AP001,train,V-d7301997ec0857a4,V-d9c96399680afe0e,1,크로스오버보다 구매 후 남겨 둘 현금을 중시합니다.,authored preference; not measured vehicle performance,모닝,트렌디,트랙스 크로스오버,LS DELUXE
+AP002-C1,AP002,train,supp-8952b93576f29ab7,V-d7301997ec0857a4,0,SUV 느낌보다 해치백 형태를 좋아합니다.,authored preference; not measured vehicle performance,캐스퍼,스마트,모닝,트렌디
+AP002-C2,AP002,train,V-d7301997ec0857a4,V-64c4c208c9a01ac9,1,세단보다 작은 차체를 소유하고 싶습니다.,authored preference; not measured vehicle performance,모닝,트렌디,디 올 뉴 아반떼,Modern
+AP002-C3,AP002,train,V-ab63421a8b27d732,V-d7301997ec0857a4,0,G70을 살 수 있어도 작은 해치백이라는 취향을 우선합니다.,authored preference; not measured vehicle performance,G70,기본 모델,모닝,트렌디
+AP002-C4,AP002,train,V-d7301997ec0857a4,V-4ecd449bcfe84bc6,1,SUV의 공간을 거의 쓰지 않아 선택하지 않습니다.,authored preference; not measured vehicle performance,모닝,트렌디,GV70,기본 모델
+AP002-C5,AP002,train,V-52f843db7c9b3dcc,V-d7301997ec0857a4,0,그랜저의 가격대보다 작은 차를 타는 만족을 택합니다.,authored preference; not measured vehicle performance,더 뉴 그랜저,Premium,모닝,트렌디
+AP003-C1,AP003,train,supp-6b9efd8429d4ff40,supp-89cd283873134273,1,레이의 박스형보다 SUV 외형을 택합니다.,authored preference; not measured vehicle performance,캐스퍼 일렉트릭,프리미엄,레이 EV,라이트 4인승
+AP003-C2,AP003,train,V-923809da72a4bb56,supp-6b9efd8429d4ff40,0,EV3의 추가 구매비를 쓰기보다 저렴한 전기 SUV를 택합니다.,authored preference; not measured vehicle performance,EV3,스탠다드,캐스퍼 일렉트릭,프리미엄
+AP003-C3,AP003,train,supp-6b9efd8429d4ff40,V-e2d0562a4e4a1b1d,1,코나 Electric까지 예산을 쓰고 싶지 않습니다.,authored preference; not measured vehicle performance,캐스퍼 일렉트릭,프리미엄,코나 Electric,Premium
+AP003-C4,AP003,train,V-8c5ee5d4fbc1f6ee,supp-6b9efd8429d4ff40,0,세단보다 SUV 형태를 선호합니다.,authored preference; not measured vehicle performance,EV4,스탠다드,캐스퍼 일렉트릭,프리미엄
+AP003-C5,AP003,train,supp-6b9efd8429d4ff40,V-772a5c9f49b3228a,1,충전이 가능하므로 하이브리드보다 전기차를 선택합니다.,authored preference; not measured vehicle performance,캐스퍼 일렉트릭,프리미엄,코나 Hybrid,Modern
+AP004-C1,AP004,train,V-64c4c208c9a01ac9,V-f8bebd472f5109cf,0,구매가격 차이는 감수하고 하이브리드 구동을 원합니다.,authored preference; not measured vehicle performance,디 올 뉴 아반떼,Modern,쏘나타 디 엣지 Hybrid,Premium
+AP004-C2,AP004,train,V-f8bebd472f5109cf,V-1e59d2cf88131713,1,같은 세단에서도 가솔린보다 하이브리드를 택합니다.,authored preference; not measured vehicle performance,쏘나타 디 엣지 Hybrid,Premium,쏘나타 디 엣지,Premium
+AP004-C3,AP004,train,V-b0517b3b5605cfd7,V-f8bebd472f5109cf,0,SUV 대신 세단을 고릅니다.,authored preference; not measured vehicle performance,투싼 Hybrid,Modern,쏘나타 디 엣지 Hybrid,Premium
+AP004-C4,AP004,train,V-f8bebd472f5109cf,V-39287483c25f8023,1,그랜저 Hybrid보다 구매가격을 낮춰 현금을 보존합니다.,authored preference; not measured vehicle performance,쏘나타 디 엣지 Hybrid,Premium,더 뉴 그랜저 Hybrid,Premium
+AP004-C5,AP004,train,V-772a5c9f49b3228a,V-f8bebd472f5109cf,0,소형 SUV보다 세단이라는 선호를 우선합니다.,authored preference; not measured vehicle performance,코나 Hybrid,Modern,쏘나타 디 엣지 Hybrid,Premium
+AP005-C1,AP005,train,V-b0517b3b5605cfd7,V-772a5c9f49b3228a,1,코나보다 전장이 긴 SUV를 원해 추가 구매비를 수용합니다.,authored preference; not measured vehicle performance,투싼 Hybrid,Modern,코나 Hybrid,Modern
+AP005-C2,AP005,train,V-f8bebd472f5109cf,V-b0517b3b5605cfd7,0,세단보다 SUV 형태를 택합니다.,authored preference; not measured vehicle performance,쏘나타 디 엣지 Hybrid,Premium,투싼 Hybrid,Modern
+AP005-C3,AP005,train,V-b0517b3b5605cfd7,V-860e34ed8a4374d0,1,싼타페의 추가 가격보다 투싼 수준에서 예산을 멈춥니다.,authored preference; not measured vehicle performance,투싼 Hybrid,Modern,싼타페 Hybrid,Exclusive
+AP005-C4,AP005,train,V-39287483c25f8023,V-b0517b3b5605cfd7,0,세단 대신 SUV라는 가족의 합의를 따릅니다.,authored preference; not measured vehicle performance,더 뉴 그랜저 Hybrid,Premium,투싼 Hybrid,Modern
+AP005-C5,AP005,train,V-b0517b3b5605cfd7,V-4ecd449bcfe84bc6,1,브랜드보다 낮은 구매가격과 하이브리드를 중시합니다.,authored preference; not measured vehicle performance,투싼 Hybrid,Modern,GV70,기본 모델
+AP006-C1,AP006,train,V-444e0e3b5c436f9a,V-354f355b55d99324,0,카니발보다 하이브리드 연료 선호를 우선합니다.,authored preference; not measured vehicle performance,카니발,프레스티지,더 뉴 스타리아 Hybrid,Modern 9인승
+AP006-C2,AP006,train,V-354f355b55d99324,V-4992a62f769b2f63,1,라운지의 추가 구매비보다 기본 Hybrid의 가격을 택합니다.,authored preference; not measured vehicle performance,더 뉴 스타리아 Hybrid,Modern 9인승,더 뉴 스타리아 라운지 Hybrid,Prestige
+AP006-C3,AP006,train,legacy-C0028,V-354f355b55d99324,0,SUV보다 MPV를 원합니다.,authored preference; not measured vehicle performance,팰리세이드,Exclusive,더 뉴 스타리아 Hybrid,Modern 9인승
+AP006-C4,AP006,train,V-354f355b55d99324,legacy-C0032,1,팰리세이드 Hybrid보다 MPV 형태와 낮은 가격이 중요합니다.,authored preference; not measured vehicle performance,더 뉴 스타리아 Hybrid,Modern 9인승,팰리세이드 Hybrid,Exclusive
+AP006-C5,AP006,train,EXP-1096d5d0d358b84e,V-354f355b55d99324,0,시에나까지 지출하지 않고 구매 후 현금을 남깁니다.,authored preference; not measured vehicle performance,시에나,HEV AWD 17인치,더 뉴 스타리아 Hybrid,Modern 9인승
+AP007-C1,AP007,train,legacy-C0028,V-444e0e3b5c436f9a,1,MPV보다는 SUV 외형을 선택합니다.,authored preference; not measured vehicle performance,팰리세이드,Exclusive,카니발,프레스티지
+AP007-C2,AP007,train,V-354f355b55d99324,legacy-C0028,0,MPV보다 SUV 형태에 타협하는 편이 낫습니다.,authored preference; not measured vehicle performance,더 뉴 스타리아 Hybrid,Modern 9인승,팰리세이드,Exclusive
+AP007-C3,AP007,train,legacy-C0028,V-2292e2e4efc58cae,1,라운지 MPV보다 SUV가 외형 취향에 가깝다고 느낍니다.,authored preference; not measured vehicle performance,팰리세이드,Exclusive,더 뉴 스타리아 라운지,Inspiration
+AP007-C4,AP007,train,legacy-C0032,legacy-C0028,0,연간 주행이 많지 않아 Hybrid의 추가 구매비를 쓰지 않습니다.,authored preference; not measured vehicle performance,팰리세이드 Hybrid,Exclusive,팰리세이드,Exclusive
+AP007-C5,AP007,train,legacy-C0028,EXP-1096d5d0d358b84e,1,수입 MPV보다 SUV 외형을 택합니다.,authored preference; not measured vehicle performance,팰리세이드,Exclusive,시에나,HEV AWD 17인치
+AP008-C1,AP008,train,V-923809da72a4bb56,V-715dedd28ebdf536,0,EV3보다 전장이 긴 차를 원합니다.,authored preference; not measured vehicle performance,EV3,스탠다드,EV5,스탠다드
+AP008-C2,AP008,train,V-715dedd28ebdf536,V-8c5ee5d4fbc1f6ee,1,세단보다 SUV를 택합니다.,authored preference; not measured vehicle performance,EV5,스탠다드,EV4,스탠다드
+AP008-C3,AP008,train,V-772a5c9f49b3228a,V-715dedd28ebdf536,0,충전할 수 있으므로 하이브리드보다 전기 구동을 원합니다.,authored preference; not measured vehicle performance,코나 Hybrid,Modern,EV5,스탠다드
+AP008-C4,AP008,train,V-715dedd28ebdf536,V-0610c5f2afaac210,1,아이오닉 5보다 낮은 구매가격을 중시합니다.,authored preference; not measured vehicle performance,EV5,스탠다드,아이오닉 5,Modern
+AP008-C5,AP008,train,legacy-IMP-C001,V-715dedd28ebdf536,0,Model Y보다 구매비를 줄이는 쪽을 택합니다.,authored preference; not measured vehicle performance,Model Y,Premium RWD,EV5,스탠다드
+AP009-C1,AP009,train,V-ab63421a8b27d732,V-d59481ae22c8585c,1,상위 차급보다 G70의 외형에 대한 개인적 호감을 택합니다.,authored preference; not measured vehicle performance,G70,기본 모델,G80,기본 모델
+AP009-C2,AP009,train,V-4ecd449bcfe84bc6,V-ab63421a8b27d732,0,SUV보다 세단을 원합니다.,authored preference; not measured vehicle performance,GV70,기본 모델,G70,기본 모델
+AP009-C3,AP009,train,V-ab63421a8b27d732,V-e54a84fd664ec2c6,1,왜건보다 세단의 뒷모습을 좋아합니다.,authored preference; not measured vehicle performance,G70,기본 모델,G70 Shooting Brake,기본 모델
+AP009-C4,AP009,train,V-52f843db7c9b3dcc,V-ab63421a8b27d732,0,그랜저보다 G70 디자인에 끌립니다.,authored preference; not measured vehicle performance,더 뉴 그랜저,Premium,G70,기본 모델
+AP009-C5,AP009,train,V-ab63421a8b27d732,supp-7649f161ed165de2,1,수입 브랜드보다 G70의 디자인을 더 좋아합니다.,authored preference; not measured vehicle performance,G70,기본 모델,3시리즈,320d
+AP010-C1,AP010,train,V-ab63421a8b27d732,V-e54a84fd664ec2c6,0,같은 계열에서도 세단보다 왜건 형태를 택합니다.,authored preference; not measured vehicle performance,G70,기본 모델,G70 Shooting Brake,기본 모델
+AP010-C2,AP010,train,V-e54a84fd664ec2c6,V-4ecd449bcfe84bc6,1,SUV보다 왜건 외형이 취향에 맞습니다.,authored preference; not measured vehicle performance,G70 Shooting Brake,기본 모델,GV70,기본 모델
+AP010-C3,AP010,train,supp-705332910b044385,V-e54a84fd664ec2c6,0,수입 왜건보다 낮은 구매가격과 가솔린 선호를 택합니다.,authored preference; not measured vehicle performance,3시리즈 투어링,320d 투어링,G70 Shooting Brake,기본 모델
+AP010-C4,AP010,train,V-e54a84fd664ec2c6,V-1e59d2cf88131713,1,세단보다 왜건이라는 취향을 우선합니다.,authored preference; not measured vehicle performance,G70 Shooting Brake,기본 모델,쏘나타 디 엣지,Premium
+AP010-C5,AP010,train,V-b0517b3b5605cfd7,V-e54a84fd664ec2c6,0,연료 선호와 왜건 형태 때문에 SUV를 고르지 않습니다.,authored preference; not measured vehicle performance,투싼 Hybrid,Modern,G70 Shooting Brake,기본 모델
+AP011-C1,AP011,train,supp-705332910b044385,supp-7649f161ed165de2,1,세단 대신 왜건을 원합니다.,authored preference; not measured vehicle performance,3시리즈 투어링,320d 투어링,3시리즈,320d
+AP011-C2,AP011,train,V-e54a84fd664ec2c6,supp-705332910b044385,0,가격보다 BMW 왜건에 대한 호감을 우선합니다.,authored preference; not measured vehicle performance,G70 Shooting Brake,기본 모델,3시리즈 투어링,320d 투어링
+AP011-C3,AP011,train,supp-705332910b044385,supp-03d3766d44d98675,1,같은 브랜드에서도 SUV보다 왜건을 원합니다.,authored preference; not measured vehicle performance,3시리즈 투어링,320d 투어링,X1,sDrive18d xLine
+AP011-C4,AP011,train,legacy-IMP-C012,supp-705332910b044385,0,더 높은 SUV 차급보다 왜건 외형을 택합니다.,authored preference; not measured vehicle performance,X3,X3 20 xDrive,3시리즈 투어링,320d 투어링
+AP011-C5,AP011,train,supp-705332910b044385,legacy-IMP-C004,1,큰 세단보다 왜건을 소유하고 싶습니다.,authored preference; not measured vehicle performance,3시리즈 투어링,320d 투어링,5시리즈,520i
+AP012-C1,AP012,train,V-923809da72a4bb56,V-8c5ee5d4fbc1f6ee,0,SUV보다 세단을 원합니다.,authored preference; not measured vehicle performance,EV3,스탠다드,EV4,스탠다드
+AP012-C2,AP012,train,V-8c5ee5d4fbc1f6ee,V-715dedd28ebdf536,1,SUV의 공간보다 세단 형태를 택합니다.,authored preference; not measured vehicle performance,EV4,스탠다드,EV5,스탠다드
+AP012-C3,AP012,train,V-b91ba9ede7f6fb62,V-8c5ee5d4fbc1f6ee,0,아이오닉 6보다 초기 지출을 줄이고 싶습니다.,authored preference; not measured vehicle performance,더 뉴 아이오닉 6,스탠다드,EV4,스탠다드
+AP012-C4,AP012,train,V-8c5ee5d4fbc1f6ee,V-f8bebd472f5109cf,1,충전 여건이 있어 하이브리드보다 전기를 택합니다.,authored preference; not measured vehicle performance,EV4,스탠다드,쏘나타 디 엣지 Hybrid,Premium
+AP012-C5,AP012,train,V-0610c5f2afaac210,V-8c5ee5d4fbc1f6ee,0,SUV보다 세단을 선호하며 구매비도 아끼고 싶습니다.,authored preference; not measured vehicle performance,아이오닉 5,Modern,EV4,스탠다드
+AP013-C1,AP013,train,V-b91ba9ede7f6fb62,V-8c5ee5d4fbc1f6ee,1,EV4보다 긴 세단을 선호합니다.,authored preference; not measured vehicle performance,더 뉴 아이오닉 6,스탠다드,EV4,스탠다드
+AP013-C2,AP013,train,V-715dedd28ebdf536,V-b91ba9ede7f6fb62,0,SUV보다 세단을 택합니다.,authored preference; not measured vehicle performance,EV5,스탠다드,더 뉴 아이오닉 6,스탠다드
+AP013-C3,AP013,train,V-b91ba9ede7f6fb62,V-d59481ae22c8585c,1,가솔린 대신 전기차를 원합니다.,authored preference; not measured vehicle performance,더 뉴 아이오닉 6,스탠다드,G80,기본 모델
+AP013-C4,AP013,train,V-c96bb9a8153a42b2,V-b91ba9ede7f6fb62,0,Electrified G80의 높은 구매비까지는 원하지 않습니다.,authored preference; not measured vehicle performance,Electrified G80,기본 모델,더 뉴 아이오닉 6,스탠다드
+AP013-C5,AP013,train,V-b91ba9ede7f6fb62,legacy-IMP-C001,1,SUV보다 전기 세단이라는 취향을 우선합니다.,authored preference; not measured vehicle performance,더 뉴 아이오닉 6,스탠다드,Model Y,Premium RWD
+AP014-C1,AP014,train,V-d59481ae22c8585c,V-52f843db7c9b3dcc,0,G80보다 낮은 구매가격을 택합니다.,authored preference; not measured vehicle performance,G80,기본 모델,더 뉴 그랜저,Premium
+AP014-C2,AP014,train,V-52f843db7c9b3dcc,V-9d1224e390500902,1,K9보다 초기 지출을 줄이고 싶습니다.,authored preference; not measured vehicle performance,더 뉴 그랜저,Premium,K9,플래티넘
+AP014-C3,AP014,train,V-4ecd449bcfe84bc6,V-52f843db7c9b3dcc,0,SUV보다 세단을 원합니다.,authored preference; not measured vehicle performance,GV70,기본 모델,더 뉴 그랜저,Premium
+AP014-C4,AP014,train,V-52f843db7c9b3dcc,V-39287483c25f8023,1,주행거리가 짧아 Hybrid의 추가 가격을 쓰지 않습니다.,authored preference; not measured vehicle performance,더 뉴 그랜저,Premium,더 뉴 그랜저 Hybrid,Premium
+AP014-C5,AP014,train,legacy-C0097,V-52f843db7c9b3dcc,0,K8보다 그랜저 외형이 취향에 맞습니다.,authored preference; not measured vehicle performance,K8,프레스티지,더 뉴 그랜저,Premium
+AP015-C1,AP015,train,V-64c4c208c9a01ac9,V-1e59d2cf88131713,1,상위 차급보다 낮은 구매가격을 택합니다.,authored preference; not measured vehicle performance,디 올 뉴 아반떼,Modern,쏘나타 디 엣지,Premium
+AP015-C2,AP015,train,V-52f843db7c9b3dcc,V-64c4c208c9a01ac9,0,그랜저의 추가 가격을 지불하고 싶지 않습니다.,authored preference; not measured vehicle performance,더 뉴 그랜저,Premium,디 올 뉴 아반떼,Modern
+AP015-C3,AP015,train,V-64c4c208c9a01ac9,V-ab63421a8b27d732,1,디자인보다 자산 보존을 우선합니다.,authored preference; not measured vehicle performance,디 올 뉴 아반떼,Modern,G70,기본 모델
+AP015-C4,AP015,train,V-d59481ae22c8585c,V-64c4c208c9a01ac9,0,프리미엄 브랜드에 추가 지출할 의향이 없습니다.,authored preference; not measured vehicle performance,G80,기본 모델,디 올 뉴 아반떼,Modern
+AP015-C5,AP015,train,V-64c4c208c9a01ac9,legacy-IMP-C003,1,수입 브랜드보다 낮은 구매비를 선택합니다.,authored preference; not measured vehicle performance,디 올 뉴 아반떼,Modern,E-Class,E 200 EXCLUSIVE
+AP016-C1,AP016,train,V-52f843db7c9b3dcc,V-d59481ae22c8585c,0,구매비 차이를 감수하고 제네시스 브랜드를 원합니다.,authored preference; not measured vehicle performance,더 뉴 그랜저,Premium,G80,기본 모델
+AP016-C2,AP016,train,V-d59481ae22c8585c,V-dbe217b4a18ac473,1,SUV보다 세단 형태를 택합니다.,authored preference; not measured vehicle performance,G80,기본 모델,GV80,기본 모델
+AP016-C3,AP016,train,V-ab63421a8b27d732,V-d59481ae22c8585c,0,G70보다 긴 세단을 원합니다.,authored preference; not measured vehicle performance,G70,기본 모델,G80,기본 모델
+AP016-C4,AP016,train,V-d59481ae22c8585c,V-b9cc97d474045dc9,1,G90까지 예산을 올리지 않고 지출을 멈춥니다.,authored preference; not measured vehicle performance,G80,기본 모델,G90,기본 모델
+AP016-C5,AP016,train,legacy-IMP-C003,V-d59481ae22c8585c,0,수입 브랜드보다 G80의 외형을 선호합니다.,authored preference; not measured vehicle performance,E-Class,E 200 EXCLUSIVE,G80,기본 모델
+AP017-C1,AP017,train,legacy-IMP-C004,V-d59481ae22c8585c,1,G80보다 BMW 디자인을 좋아합니다.,authored preference; not measured vehicle performance,5시리즈,520i,G80,기본 모델
+AP017-C2,AP017,train,legacy-IMP-C003,legacy-IMP-C004,0,벤츠보다 BMW의 외형을 선호합니다.,authored preference; not measured vehicle performance,E-Class,E 200 EXCLUSIVE,5시리즈,520i
+AP017-C3,AP017,train,legacy-IMP-C004,supp-7649f161ed165de2,1,3시리즈보다 긴 세단을 원합니다.,authored preference; not measured vehicle performance,5시리즈,520i,3시리즈,320d
+AP017-C4,AP017,train,legacy-IMP-C012,legacy-IMP-C004,0,같은 브랜드라도 SUV 대신 세단을 택합니다.,authored preference; not measured vehicle performance,X3,X3 20 xDrive,5시리즈,520i
+AP017-C5,AP017,train,legacy-IMP-C004,V-b9cc97d474045dc9,1,상위 가격대보다 원하는 BMW 외형을 택합니다.,authored preference; not measured vehicle performance,5시리즈,520i,G90,기본 모델
+AP018-C1,AP018,train,V-39287483c25f8023,legacy-IMP-C008,0,낮은 가격보다 렉서스 브랜드에 대한 호감을 택합니다.,authored preference; not measured vehicle performance,더 뉴 그랜저 Hybrid,Premium,ES,ES 350h PREMIUM
+AP018-C2,AP018,train,legacy-IMP-C008,V-d59481ae22c8585c,1,가솔린보다 하이브리드를 원합니다.,authored preference; not measured vehicle performance,ES,ES 350h PREMIUM,G80,기본 모델
+AP018-C3,AP018,train,legacy-IMP-C003,legacy-IMP-C008,0,브랜드 취향과 하이브리드 선호가 함께 맞습니다.,authored preference; not measured vehicle performance,E-Class,E 200 EXCLUSIVE,ES,ES 350h PREMIUM
+AP018-C4,AP018,train,legacy-IMP-C008,legacy-IMP-C004,1,BMW보다 렉서스에 더 끌립니다.,authored preference; not measured vehicle performance,ES,ES 350h PREMIUM,5시리즈,520i
+AP018-C5,AP018,train,V-4ecd449bcfe84bc6,legacy-IMP-C008,0,SUV보다 세단을 택합니다.,authored preference; not measured vehicle performance,GV70,기본 모델,ES,ES 350h PREMIUM
+AP019-C1,AP019,train,V-28e35ab7d6ef4cbd,V-d7301997ec0857a4,1,해치백보다 박스형 외형을 좋아합니다.,authored preference; not measured vehicle performance,레이,트렌디,모닝,트렌디
+AP019-C2,AP019,train,supp-8952b93576f29ab7,V-28e35ab7d6ef4cbd,0,SUV보다 박스형을 원합니다.,authored preference; not measured vehicle performance,캐스퍼,스마트,레이,트렌디
+AP019-C3,AP019,train,V-28e35ab7d6ef4cbd,V-336d414c0bfa6ca5,1,차급을 높이기보다 박스형을 고릅니다.,authored preference; not measured vehicle performance,레이,트렌디,베뉴,Smart
+AP019-C4,AP019,train,V-64c4c208c9a01ac9,V-28e35ab7d6ef4cbd,0,세단 형태보다 박스형이 생활차 이미지에 맞습니다.,authored preference; not measured vehicle performance,디 올 뉴 아반떼,Modern,레이,트렌디
+AP019-C5,AP019,train,V-28e35ab7d6ef4cbd,supp-89cd283873134273,1,충전 여건이 없어 가솔린을 택합니다.,authored preference; not measured vehicle performance,레이,트렌디,레이 EV,라이트 4인승
+AP020-C1,AP020,train,V-28e35ab7d6ef4cbd,supp-89cd283873134273,0,충전이 가능하므로 전기 구동을 선택합니다.,authored preference; not measured vehicle performance,레이,트렌디,레이 EV,라이트 4인승
+AP020-C2,AP020,train,supp-89cd283873134273,supp-6b9efd8429d4ff40,1,SUV보다 박스형 외형을 좋아합니다.,authored preference; not measured vehicle performance,레이 EV,라이트 4인승,캐스퍼 일렉트릭,프리미엄
+AP020-C3,AP020,train,V-923809da72a4bb56,supp-89cd283873134273,0,EV3보다 박스형 취향과 낮은 구매비를 택합니다.,authored preference; not measured vehicle performance,EV3,스탠다드,레이 EV,라이트 4인승
+AP020-C4,AP020,train,supp-89cd283873134273,V-e2d0562a4e4a1b1d,1,큰 구매 지출보다 작은 박스형 차를 원합니다.,authored preference; not measured vehicle performance,레이 EV,라이트 4인승,코나 Electric,Premium
+AP020-C5,AP020,train,V-d7301997ec0857a4,supp-89cd283873134273,0,해치백보다 전기 박스형을 택합니다.,authored preference; not measured vehicle performance,모닝,트렌디,레이 EV,라이트 4인승
+AP021-C1,AP021,validation,V-336d414c0bfa6ca5,V-64c4c208c9a01ac9,1,세단보다 SUV 형태를 원합니다.,authored preference; not measured vehicle performance,베뉴,Smart,디 올 뉴 아반떼,Modern
+AP021-C2,AP021,validation,V-e5622256bb513572,V-336d414c0bfa6ca5,0,셀토스의 추가 가격보다 구매비를 줄입니다.,authored preference; not measured vehicle performance,셀토스,트렌디,베뉴,Smart
+AP021-C3,AP021,validation,V-336d414c0bfa6ca5,V-74264ca3a644637e,1,코나까지 지출을 올리지 않습니다.,authored preference; not measured vehicle performance,베뉴,Smart,코나,Modern
+AP021-C4,AP021,validation,V-d9c96399680afe0e,V-336d414c0bfa6ca5,0,크로스오버보다 더 짧은 전장 취향을 우선합니다.,authored preference; not measured vehicle performance,트랙스 크로스오버,LS DELUXE,베뉴,Smart
+AP021-C5,AP021,validation,V-336d414c0bfa6ca5,V-feec12c6666425a3,1,티볼리보다 낮은 구매가격을 선택합니다.,authored preference; not measured vehicle performance,베뉴,Smart,티볼리,V1
+AP022-C1,AP022,validation,V-772a5c9f49b3228a,V-190ba4c755b528d6,0,가격이 비슷해도 니로의 외형을 더 좋아합니다.,authored preference; not measured vehicle performance,코나 Hybrid,Modern,니로,트렌디
+AP022-C2,AP022,validation,V-190ba4c755b528d6,V-b0517b3b5605cfd7,1,투싼보다 구매비를 줄이고 싶습니다.,authored preference; not measured vehicle performance,니로,트렌디,투싼 Hybrid,Modern
+AP022-C3,AP022,validation,V-64c4c208c9a01ac9,V-190ba4c755b528d6,0,가솔린 세단보다 하이브리드 SUV를 원합니다.,authored preference; not measured vehicle performance,디 올 뉴 아반떼,Modern,니로,트렌디
+AP022-C4,AP022,validation,V-190ba4c755b528d6,V-923809da72a4bb56,1,충전 여건이 없어 하이브리드를 택합니다.,authored preference; not measured vehicle performance,니로,트렌디,EV3,스탠다드
+AP022-C5,AP022,validation,V-7f662e069167dcda,V-190ba4c755b528d6,0,가솔린보다 하이브리드 선호를 우선합니다.,authored preference; not measured vehicle performance,스포티지,프레스티지,니로,트렌디
+AP023-C1,AP023,validation,V-c346665e926b6fba,V-b0517b3b5605cfd7,1,토레스의 외형에 더 끌립니다.,authored preference; not measured vehicle performance,토레스 하이브리드,T5,투싼 Hybrid,Modern
+AP023-C2,AP023,validation,V-772a5c9f49b3228a,V-c346665e926b6fba,0,더 높은 구매비를 감수하고 원하는 외형을 택합니다.,authored preference; not measured vehicle performance,코나 Hybrid,Modern,토레스 하이브리드,T5
+AP023-C3,AP023,validation,V-c346665e926b6fba,V-7f662e069167dcda,1,하이브리드와 토레스 디자인이 함께 맞습니다.,authored preference; not measured vehicle performance,토레스 하이브리드,T5,스포티지,프레스티지
+AP023-C4,AP023,validation,V-3db52022f5132999,V-c346665e926b6fba,0,같은 외형이면 추가 비용을 내고 하이브리드를 원합니다.,authored preference; not measured vehicle performance,토레스,T5,토레스 하이브리드,T5
+AP023-C5,AP023,validation,V-c346665e926b6fba,V-5b2210b42ca62a1d,1,같은 브랜드보다 토레스 디자인에 대한 호감이 중요합니다.,authored preference; not measured vehicle performance,토레스 하이브리드,T5,액티언 하이브리드,S8
+AP024-C1,AP024,validation,V-b0517b3b5605cfd7,V-7f662e069167dcda,0,하이브리드 선호를 양보하고 낮은 구매가격을 택합니다.,authored preference; not measured vehicle performance,투싼 Hybrid,Modern,스포티지,프레스티지
+AP024-C2,AP024,validation,V-7f662e069167dcda,V-89eca9bf45d07cb9,1,더 큰 SUV보다 구매비를 줄입니다.,authored preference; not measured vehicle performance,스포티지,프레스티지,싼타페,Exclusive
+AP024-C3,AP024,validation,V-af6e97a51f640796,V-7f662e069167dcda,0,상위 차급보다 현금 보존을 우선합니다.,authored preference; not measured vehicle performance,쏘렌토,프레스티지,스포티지,프레스티지
+AP024-C4,AP024,validation,V-7f662e069167dcda,V-3db52022f5132999,1,가격이 비슷해도 스포티지 디자인을 더 좋아합니다.,authored preference; not measured vehicle performance,스포티지,프레스티지,토레스,T5
+AP024-C5,AP024,validation,V-64c4c208c9a01ac9,V-7f662e069167dcda,0,세단보다 SUV 형태를 택합니다.,authored preference; not measured vehicle performance,디 올 뉴 아반떼,Modern,스포티지,프레스티지
+AP025-C1,AP025,validation,V-481a86b7ecb83c8a,legacy-C0032,1,충전할 수 있어 하이브리드보다 전기를 원합니다.,authored preference; not measured vehicle performance,EV9,스탠다드,팰리세이드 Hybrid,Exclusive
+AP025-C2,AP025,validation,V-444e0e3b5c436f9a,V-481a86b7ecb83c8a,0,MPV보다 전기 SUV를 택합니다.,authored preference; not measured vehicle performance,카니발,프레스티지,EV9,스탠다드
+AP025-C3,AP025,validation,V-481a86b7ecb83c8a,V-b760b756161dea52,1,전기차 중에서도 SUV 형태를 원합니다.,authored preference; not measured vehicle performance,EV9,스탠다드,더 뉴 스타리아 Electric,Modern
+AP025-C4,AP025,validation,V-20b4be5730d6553a,V-481a86b7ecb83c8a,0,라운지 MPV보다 SUV 외형을 좋아합니다.,authored preference; not measured vehicle performance,더 뉴 스타리아 라운지 Electric,Inspiration,EV9,스탠다드
+AP025-C5,AP025,validation,V-481a86b7ecb83c8a,V-27887ee7cbab9543,1,GT 추가 가격보다 기본 EV9 수준에서 지출을 멈춥니다.,authored preference; not measured vehicle performance,EV9,스탠다드,EV9 GT,GT
+AP026-C1,AP026,test,legacy-C0028,legacy-C0032,0,추가 구매비를 내고 하이브리드를 택합니다.,authored preference; not measured vehicle performance,팰리세이드,Exclusive,팰리세이드 Hybrid,Exclusive
+AP026-C2,AP026,test,legacy-C0032,V-444e0e3b5c436f9a,1,MPV보다 SUV 형태를 좋아합니다.,authored preference; not measured vehicle performance,팰리세이드 Hybrid,Exclusive,카니발,프레스티지
+AP026-C3,AP026,test,V-354f355b55d99324,legacy-C0032,0,낮은 가격보다 SUV 외형을 택합니다.,authored preference; not measured vehicle performance,더 뉴 스타리아 Hybrid,Modern 9인승,팰리세이드 Hybrid,Exclusive
+AP026-C4,AP026,test,legacy-C0032,EXP-1096d5d0d358b84e,1,같은 하이브리드라도 MPV 대신 SUV를 원합니다.,authored preference; not measured vehicle performance,팰리세이드 Hybrid,Exclusive,시에나,HEV AWD 17인치
+AP026-C5,AP026,test,V-4992a62f769b2f63,legacy-C0032,0,라운지 MPV보다 SUV 외형을 택합니다.,authored preference; not measured vehicle performance,더 뉴 스타리아 라운지 Hybrid,Prestige,팰리세이드 Hybrid,Exclusive
+AP027-C1,AP027,test,V-444e0e3b5c436f9a,V-354f355b55d99324,1,스타리아보다 카니발의 외형을 좋아합니다.,authored preference; not measured vehicle performance,카니발,프레스티지,더 뉴 스타리아 Hybrid,Modern 9인승
+AP027-C2,AP027,test,legacy-C0028,V-444e0e3b5c436f9a,0,SUV보다 MPV를 원합니다.,authored preference; not measured vehicle performance,팰리세이드,Exclusive,카니발,프레스티지
+AP027-C3,AP027,test,V-444e0e3b5c436f9a,V-2292e2e4efc58cae,1,라운지보다 낮은 구매가격과 카니발 외형을 택합니다.,authored preference; not measured vehicle performance,카니발,프레스티지,더 뉴 스타리아 라운지,Inspiration
+AP027-C4,AP027,test,V-54e87f67313082ea,V-444e0e3b5c436f9a,0,하이리무진의 추가 구매비는 쓰지 않습니다.,authored preference; not measured vehicle performance,카니발 하이리무진,노블레스,카니발,프레스티지
+AP027-C5,AP027,test,V-444e0e3b5c436f9a,EXP-1096d5d0d358b84e,1,주행거리가 짧아 수입 하이브리드에 더 지출하지 않습니다.,authored preference; not measured vehicle performance,카니발,프레스티지,시에나,HEV AWD 17인치
+AP028-C1,AP028,test,V-4ecd449bcfe84bc6,V-9611addacabd613d,0,같은 계열에서도 전기 구동을 원합니다.,authored preference; not measured vehicle performance,GV70,기본 모델,Electrified GV70,기본 모델
+AP028-C2,AP028,test,V-9611addacabd613d,V-0610c5f2afaac210,1,구매비 차이를 감수하고 제네시스 디자인을 원합니다.,authored preference; not measured vehicle performance,Electrified GV70,기본 모델,아이오닉 5,Modern
+AP028-C3,AP028,test,legacy-IMP-C001,V-9611addacabd613d,0,테슬라보다 제네시스 브랜드를 선호합니다.,authored preference; not measured vehicle performance,Model Y,Premium RWD,Electrified GV70,기본 모델
+AP028-C4,AP028,test,V-9611addacabd613d,V-c96bb9a8153a42b2,1,세단보다 SUV를 택합니다.,authored preference; not measured vehicle performance,Electrified GV70,기본 모델,Electrified G80,기본 모델
+AP028-C5,AP028,test,V-dbe217b4a18ac473,V-9611addacabd613d,0,더 큰 가솔린 SUV보다 전기 SUV를 원합니다.,authored preference; not measured vehicle performance,GV80,기본 모델,Electrified GV70,기본 모델
+AP029-C1,AP029,test,V-b7354dcb1817d620,V-e5b7be7e384bb09e,1,추가 가격을 감수하고 GT 모델을 소유하고 싶습니다.,authored preference; not measured vehicle performance,EV6 GT,GT,EV6,스탠다드
+AP029-C2,AP029,test,V-ab63421a8b27d732,V-b7354dcb1817d620,0,내연기관 세단보다 원하는 전기 GT를 택합니다.,authored preference; not measured vehicle performance,G70,기본 모델,EV6 GT,GT
+AP029-C3,AP029,test,V-b7354dcb1817d620,V-481a86b7ecb83c8a,1,큰 차체보다 EV6 GT 외형을 원합니다.,authored preference; not measured vehicle performance,EV6 GT,GT,EV9,스탠다드
+AP029-C4,AP029,test,V-4ecd449bcfe84bc6,V-b7354dcb1817d620,0,브랜드보다 전기 GT 모델에 대한 호감을 택합니다.,authored preference; not measured vehicle performance,GV70,기본 모델,EV6 GT,GT
+AP029-C5,AP029,test,V-b7354dcb1817d620,V-efdc973ffc5cfc48,1,같은 GT 명칭이라도 EV6 외형이 더 취향에 맞습니다.,authored preference; not measured vehicle performance,EV6 GT,GT,EV5 GT,GT
+AP030-C1,AP030,test,V-f8bebd472f5109cf,V-1e59d2cf88131713,0,짧은 주행거리에서는 Hybrid의 추가 구매비를 쓰지 않습니다.,authored preference; not measured vehicle performance,쏘나타 디 엣지 Hybrid,Premium,쏘나타 디 엣지,Premium
+AP030-C2,AP030,test,V-1e59d2cf88131713,V-52f843db7c9b3dcc,1,그랜저보다 쏘나타 외형을 좋아합니다.,authored preference; not measured vehicle performance,쏘나타 디 엣지,Premium,더 뉴 그랜저,Premium
+AP030-C3,AP030,test,V-ab63421a8b27d732,V-1e59d2cf88131713,0,G70의 추가 가격보다 구매 후 현금을 남깁니다.,authored preference; not measured vehicle performance,G70,기본 모델,쏘나타 디 엣지,Premium
+AP030-C4,AP030,test,V-1e59d2cf88131713,V-8c5ee5d4fbc1f6ee,1,충전 여건이 없어 가솔린을 택합니다.,authored preference; not measured vehicle performance,쏘나타 디 엣지,Premium,EV4,스탠다드
+AP030-C5,AP030,test,V-57ece7c7152d061b,V-1e59d2cf88131713,0,SUV보다 세단 외형을 원합니다.,authored preference; not measured vehicle performance,투싼,Modern,쏘나타 디 엣지,Premium

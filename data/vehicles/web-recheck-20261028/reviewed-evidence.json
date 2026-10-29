@@ -1,0 +1,449 @@
+{
+  "schema": "reviewed-web-evidence-v1",
+  "checked_on": "2026-10-28",
+  "policy": {
+    "official": "exact compatible scoped official evidence first",
+    "unofficial": "at least 3 publishers and distinct known origins; compare all eligible values; reject conflicts",
+    "approximation": "dimensions spread <= max(10 mm, 0.5%); seconds spread <= max(0.4 s, 5%); other numeric spread <=3%; seats exact",
+    "measurement": "reported specifications and instrumented tests are never pooled",
+    "remaining": "estimates stay estimates unless this gate passes; no invented sources"
+  },
+  "reviews": [
+    {
+      "selector": {
+        "brand": "기아",
+        "model": "스포티지"
+      },
+      "scope": "NQ5 facelift; 전고는 루프랙/X-Line 조건 차이로 보류",
+      "samples": [
+        {
+          "publisher": "기아",
+          "url": "https://www.kia.com/kr/vehicles/sportage/specification",
+          "values": {
+            "width_mm": 1865,
+            "wheelbase_mm": 2755
+          },
+          "conditions": "NQ5 facelift; 전고는 루프랙/X-Line 조건 차이로 보류",
+          "official": true,
+          "origin_id": "기아",
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true,
+          "checked_on": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "기아",
+        "model": "K8"
+      },
+      "scope": "GL3 facelift; 전고는 17~20인치 휠별 차이로 보류",
+      "samples": [
+        {
+          "publisher": "기아",
+          "url": "https://www.kia.com/kr/vehicles/k8/specification",
+          "values": {
+            "width_mm": 1880,
+            "wheelbase_mm": 2895
+          },
+          "conditions": "GL3 facelift; 전고는 17~20인치 휠별 차이로 보류",
+          "official": true,
+          "origin_id": "기아",
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true,
+          "checked_on": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "기아",
+        "model": "쏘렌토"
+      },
+      "scope": "MQ4 facelift; 전고는 루프랙 조건 차이로 보류",
+      "samples": [
+        {
+          "publisher": "기아",
+          "url": "https://www.kia.com/kr/vehicles/sorento/specification",
+          "values": {
+            "width_mm": 1900,
+            "wheelbase_mm": 2815
+          },
+          "conditions": "MQ4 facelift; 전고는 루프랙 조건 차이로 보류",
+          "official": true,
+          "origin_id": "기아",
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true,
+          "checked_on": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "기아",
+        "model": "니로"
+      },
+      "scope": "SG2 국내 니로 HEV",
+      "samples": [
+        {
+          "publisher": "기아",
+          "url": "https://www.kia.com/kr/vehicles/niro/specification",
+          "values": {
+            "width_mm": 1825,
+            "height_mm": 1545,
+            "wheelbase_mm": 2720
+          },
+          "conditions": "SG2 국내 니로 HEV",
+          "official": true,
+          "origin_id": "기아",
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true,
+          "checked_on": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "기아",
+        "model": "모닝"
+      },
+      "scope": "JA facelift 국내 1.0 가솔린; 9.7kgf·m × 9.80665 = Nm",
+      "samples": [
+        {
+          "publisher": "기아",
+          "url": "https://www.kia.com/kr/vehicles/morning/specification",
+          "values": {
+            "width_mm": 1595,
+            "height_mm": 1485,
+            "wheelbase_mm": 2400,
+            "power_ps": 76,
+            "torque_nm": 95.124505
+          },
+          "conditions": "JA facelift 국내 1.0 가솔린; 9.7kgf·m × 9.80665 = Nm",
+          "official": true,
+          "origin_id": "기아",
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true,
+          "checked_on": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "기아",
+        "model": "레이"
+      },
+      "scope": "국내 레이 1.0 가솔린; 전기차 제외; 9.7kgf·m × 9.80665 = Nm",
+      "samples": [
+        {
+          "publisher": "기아",
+          "url": "https://www.kia.com/kr/vehicles/ray/specification",
+          "values": {
+            "width_mm": 1595,
+            "height_mm": 1700,
+            "wheelbase_mm": 2520,
+            "power_ps": 76,
+            "torque_nm": 95.124505
+          },
+          "conditions": "국내 레이 1.0 가솔린; 전기차 제외; 9.7kgf·m × 9.80665 = Nm",
+          "official": true,
+          "origin_id": "기아",
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true,
+          "checked_on": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "기아",
+        "model": "EV3"
+      },
+      "scope": "국내 EV3 일반 모델; GT 모델/GT-line 전고·출력 차이 미전이",
+      "samples": [
+        {
+          "publisher": "기아",
+          "url": "https://www.kia.com/kr/vehicles/ev3/specification",
+          "values": {
+            "width_mm": 1850,
+            "wheelbase_mm": 2680
+          },
+          "conditions": "국내 EV3 일반 모델; GT 모델/GT-line 전고·출력 차이 미전이",
+          "official": true,
+          "origin_id": "기아",
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true,
+          "checked_on": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "기아",
+        "model": "EV4"
+      },
+      "scope": "국내 EV4 세단; 별도 GT 모델 제외",
+      "samples": [
+        {
+          "publisher": "기아",
+          "url": "https://www.kia.com/kr/vehicles/ev4/specification",
+          "values": {
+            "width_mm": 1860,
+            "height_mm": 1480,
+            "wheelbase_mm": 2820
+          },
+          "conditions": "국내 EV4 세단; 별도 GT 모델 제외",
+          "official": true,
+          "origin_id": "기아",
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true,
+          "checked_on": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "기아",
+        "model": "K5"
+      },
+      "scope": "DL3 facelift 국내 K5 공통 차체 제원",
+      "samples": [
+        {
+          "publisher": "기아",
+          "url": "https://www.kia.com/kr/vehicles/k5/specification",
+          "values": {
+            "width_mm": 1860,
+            "height_mm": 1445,
+            "wheelbase_mm": 2850
+          },
+          "conditions": "DL3 facelift 국내 K5 공통 차체 제원",
+          "official": true,
+          "origin_id": "기아",
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true,
+          "checked_on": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "BMW",
+        "model": "Z4"
+      },
+      "scope": "2024 G29 facelift Swiss official body reference; domestic year unspecified; p5–7 both sDrive20i and M40i",
+      "samples": [
+        {
+          "publisher": "BMW",
+          "url": "https://www.bmw.ch/content/dam/bmw/marketCH/bmw_ch/brochure/fr_CH/newvehicles/preis-lists/G29_Z4_Juli_2024_F.pdf.asset.1719311592338.pdf",
+          "values": {
+            "length_mm": 4324,
+            "width_mm": 1864,
+            "height_mm": 1304,
+            "wheelbase_mm": 2470,
+            "seats": 2,
+            "cargo_litres": 281
+          },
+          "conditions": "2024 G29 facelift Swiss official body reference; domestic year unspecified; p5–7 both sDrive20i and M40i",
+          "official": true,
+          "origin_id": "BMW",
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true,
+          "checked_on": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "BMW",
+        "model": "2시리즈 쿠페",
+        "trims": [
+          "M240i xDrive 쿠페 프로"
+        ]
+      },
+      "scope": "2024 G42 M240i xDrive official reference; use p7–8 only; regional power/weight differences excluded",
+      "samples": [
+        {
+          "publisher": "BMW",
+          "url": "https://www.press.bmwgroup.com/asia/article/attachment/T0443240EN/618422",
+          "values": {
+            "length_mm": 4548,
+            "width_mm": 1838,
+            "height_mm": 1404,
+            "wheelbase_mm": 2741,
+            "seats": 4,
+            "ground_clearance_mm": 128,
+            "cargo_litres": 390,
+            "displacement_cc": 2998,
+            "torque_nm": 500
+          },
+          "conditions": "2024 G42 M240i xDrive official reference; use p7–8 only; regional power/weight differences excluded",
+          "official": true,
+          "origin_id": "BMW",
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true,
+          "checked_on": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "BMW",
+        "model": "2시리즈 쿠페",
+        "trims": [
+          "M2 쿠페"
+        ]
+      },
+      "scope": "2024 G87 M2 official reference; manual/automatic common body fields only; domestic model year unspecified",
+      "samples": [
+        {
+          "publisher": "BMW",
+          "url": "https://www.press.bmwgroup.com/global/article/attachment/T0442878EN/617892",
+          "values": {
+            "length_mm": 4580,
+            "width_mm": 1887,
+            "height_mm": 1403,
+            "wheelbase_mm": 2747,
+            "seats": 4,
+            "ground_clearance_mm": 123,
+            "cargo_litres": 390,
+            "displacement_cc": 2993,
+            "power_ps": 480
+          },
+          "conditions": "2024 G87 M2 official reference; manual/automatic common body fields only; domestic model year unspecified",
+          "official": true,
+          "origin_id": "BMW",
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true,
+          "checked_on": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "BMW",
+        "model": "4시리즈 쿠페",
+        "trims": [
+          "420i 쿠페 M 스포츠 프로"
+        ]
+      },
+      "scope": "G22 LCI 420i M Sport 184 PS 8AT RWD body/power reference; M440i and M4 excluded",
+      "samples": [
+        {
+          "publisher": "BMW",
+          "url": "https://www.bmw.co.uk/en/all-models/4-series/coupe/bmw-4-series-coupe-technical-data.html",
+          "values": {
+            "length_mm": 4768,
+            "width_mm": 1852,
+            "height_mm": 1383,
+            "wheelbase_mm": 2851,
+            "seats": 4,
+            "cargo_litres": 440,
+            "displacement_cc": 1998,
+            "power_ps": 184,
+            "torque_nm": 300
+          },
+          "conditions": "G22 LCI 420i M Sport 184 PS 8AT RWD body/power reference; M440i and M4 excluded",
+          "official": true,
+          "origin_id": "BMW",
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true,
+          "checked_on": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "토요타",
+        "model": "GR86"
+      },
+      "scope": "ZN8 2.4 6MT overseas factory reference; KR output differs slightly; no domestic acceleration certification inferred",
+      "samples": [
+        {
+          "publisher": "토요타",
+          "url": "https://newsroom.toyota.eu/all-new-toyota-gr86/",
+          "values": {
+            "width_mm": 1775,
+            "height_mm": 1310,
+            "wheelbase_mm": 2575,
+            "torque_nm": 250,
+            "top_speed_kmh": 226
+          },
+          "conditions": "ZN8 2.4 6MT overseas factory reference; KR output differs slightly; no domestic acceleration certification inferred",
+          "official": true,
+          "origin_id": "토요타",
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true,
+          "checked_on": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "마세라티",
+        "model": "GranCabrio"
+      },
+      "scope": "Second-generation V6 2025–2026 body-width/height approximation only; regional length differences excluded; not three independent physical measurements",
+      "samples": [
+        {
+          "publisher": "CarsGuide",
+          "url": "https://www.carsguide.com.au/maserati/grancabrio/car-dimensions",
+          "values": {
+            "width_mm": 1957,
+            "height_mm": 1365
+          },
+          "conditions": "second-generation 2024–2026; exclude pre-2024",
+          "official": false,
+          "origin_id": "CarsGuide",
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true,
+          "checked_on": "2026-10-28"
+        },
+        {
+          "publisher": "Goo-net",
+          "url": "https://www.goo-net.com/catalog/MASERATI/GRANCABRIO/10156868/",
+          "values": {
+            "width_mm": 1957,
+            "height_mm": 1365
+          },
+          "conditions": "2025 base 490PS M189; body envelope only",
+          "official": false,
+          "origin_id": "Goo-net",
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true,
+          "checked_on": "2026-10-28"
+        },
+        {
+          "publisher": "km77",
+          "url": "https://www.km77.com/coches/maserati/grancabrio/2024/estandar/estandar/grancabrio/datos",
+          "values": {
+            "width_mm": 1957,
+            "height_mm": 1365
+          },
+          "conditions": "2025–2026 V6; body envelope only",
+          "official": false,
+          "origin_id": "km77",
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true,
+          "checked_on": "2026-10-28"
+        }
+      ]
+    }
+  ]
+}

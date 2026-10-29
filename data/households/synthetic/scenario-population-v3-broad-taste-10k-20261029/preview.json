@@ -1,0 +1,2382 @@
+[
+  {
+    "user": {
+      "id": 0,
+      "group": "46a8368b74b29a4d2d7a0990676e2b64314ae3d9fa436999d7a28270250616fa",
+      "profile": {
+        "monthly_income": 6000000,
+        "monthly_expenses": 2180000,
+        "existing_monthly_payment": 360000,
+        "liquid_assets": 119840000,
+        "down_payment": 0,
+        "emergency_reserve": 28800000,
+        "monthly_savings": 920000,
+        "annual_distance": 12000,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "commute",
+        "preferred_fuel": "GASOLINE",
+        "charging_available": false,
+        "cost_importance": 4,
+        "space_importance": 4,
+        "minimum_seats": 5,
+        "preferred_size": "medium",
+        "financing_mode": "recommendation",
+        "fuel_importance": 4,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 65240000,
+        "preferred_body_type": "SUV",
+        "body_importance": 2
+      },
+      "experience_priorities": {
+        "cost": 4,
+        "space": 4,
+        "performance": 1,
+        "ride_comfort": 3,
+        "quietness": 3,
+        "design": 5,
+        "brand": 1,
+        "technology": 3
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        0.8,
+        0.6400000000000001,
+        0.4,
+        0.8,
+        0.8,
+        0.0,
+        0.0,
+        0.7
+      ],
+      "scenario": "commute 중심, 연 12,000km, 필수 5석. 안정적 충전 접근 없음. 선호 SUV/GASOLINE/medium. 비용 중요도 4, 디자인 중요도 5.",
+      "split": "train"
+    },
+    "choices": [
+      {
+        "a": "아이오닉 5",
+        "b": "Model Y",
+        "label": 0,
+        "reason": "구매 후 자금 보존을 더 중시해 Model Y을 선택했습니다."
+      },
+      {
+        "a": "PV5 패신저",
+        "b": "코나 Electric",
+        "label": 0,
+        "reason": "차체 취향을 더 중시해 코나 Electric을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "그랑 콜레오스",
+        "b": "G70",
+        "label": 0,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 G70을 선택했습니다. 차체 취향·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "투싼",
+        "b": "쏘나타 디 엣지",
+        "label": 1,
+        "reason": "차체 취향·외부 전장 취향을 더 중시해 투싼을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "카니발",
+        "b": "아르카나",
+        "label": 0,
+        "reason": "차체 취향·외부 전장 취향을 더 중시해 아르카나을 선택했습니다."
+      },
+      {
+        "a": "티볼리",
+        "b": "액티언 하이브리드",
+        "label": 1,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 티볼리을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "무쏘",
+        "b": "G70 Shooting Brake",
+        "label": 0,
+        "reason": "외부 전장 취향·월 유지비 부담을 더 중시해 G70 Shooting Brake을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "코나",
+        "b": "싼타페",
+        "label": 1,
+        "reason": "구매 후 자금 보존·외부 전장 취향을 더 중시해 코나을 선택했습니다."
+      },
+      {
+        "a": "베뉴",
+        "b": "셀토스",
+        "label": 1,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 베뉴을 선택했습니다. 외부 전장 취향·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "팰리세이드",
+        "b": "EV6",
+        "label": 1,
+        "reason": "연료 취향·충전 접근성을 더 중시해 팰리세이드을 선택했습니다. 외부 전장 취향·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 1,
+      "group": "44e63f37e723949c6ec2b356e8510f8642595e0923e0fc7742a1f2ea8ddba296",
+      "profile": {
+        "monthly_income": 10290000,
+        "monthly_expenses": 2920000,
+        "existing_monthly_payment": 0,
+        "liquid_assets": 226010000,
+        "down_payment": 0,
+        "emergency_reserve": 50900000,
+        "monthly_savings": 2160000,
+        "annual_distance": 21500,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "commute",
+        "preferred_fuel": "ELECTRIC",
+        "charging_available": true,
+        "cost_importance": 3,
+        "space_importance": 2,
+        "minimum_seats": 5,
+        "preferred_size": "large",
+        "financing_mode": "recommendation",
+        "fuel_importance": 5,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 105700000,
+        "preferred_body_type": "SEDAN",
+        "body_importance": 2
+      },
+      "experience_priorities": {
+        "cost": 3,
+        "space": 2,
+        "performance": 2,
+        "ride_comfort": 4,
+        "quietness": 4,
+        "design": 4,
+        "brand": 1,
+        "technology": 3
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        0.6,
+        0.86,
+        0.4,
+        1.0,
+        0.4,
+        0.0,
+        0.0,
+        0.15
+      ],
+      "scenario": "commute 중심, 연 21,500km, 필수 5석. 안정적 충전 접근 가능. 선호 SEDAN/ELECTRIC/large. 비용 중요도 3, 디자인 중요도 4.",
+      "split": "test"
+    },
+    "choices": [
+      {
+        "a": "티볼리",
+        "b": "Sierra",
+        "label": 1,
+        "reason": "구매 후 자금 보존·월 유지비 부담을 더 중시해 티볼리을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "쏘나타 디 엣지 Hybrid",
+        "b": "G80",
+        "label": 1,
+        "reason": "구매 후 자금 보존·월 유지비 부담을 더 중시해 쏘나타 디 엣지 Hybrid을 선택했습니다."
+      },
+      {
+        "a": "5시리즈",
+        "b": "베뉴",
+        "label": 1,
+        "reason": "차체 취향·외부 전장 취향을 더 중시해 5시리즈을 선택했습니다. 구매 후 자금 보존·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "ES",
+        "b": "더 뉴 스타리아 Electric",
+        "label": 0,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 더 뉴 스타리아 Electric을 선택했습니다. 차체 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "Golf",
+        "b": "XC60",
+        "label": 0,
+        "reason": "외부 전장 취향을 더 중시해 XC60을 선택했습니다. 구매 후 자금 보존·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 라운지 Electric",
+        "b": "G80 Black",
+        "label": 1,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 더 뉴 스타리아 라운지 Electric을 선택했습니다. 차체 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "코나 Electric",
+        "b": "트랙스 크로스오버",
+        "label": 1,
+        "reason": "연료 취향·월 유지비 부담을 더 중시해 코나 Electric을 선택했습니다. 외부 전장 취향·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "Electrified GV70",
+        "b": "GV80 Black Hybrid",
+        "label": 1,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 Electrified GV70을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "무쏘 EV",
+        "b": "시에나",
+        "label": 1,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 무쏘 EV을 선택했습니다."
+      },
+      {
+        "a": "X4",
+        "b": "G70 Shooting Brake",
+        "label": 0,
+        "reason": "구매 후 자금 보존을 더 중시해 G70 Shooting Brake을 선택했습니다. 외부 전장 취향·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 2,
+      "group": "40b2198c275486dce768f1f74821a08f4401b8bc5b3703a42d10b35dcbf977e6",
+      "profile": {
+        "monthly_income": 6100000,
+        "monthly_expenses": 2430000,
+        "existing_monthly_payment": 370000,
+        "liquid_assets": 110450000,
+        "down_payment": 0,
+        "emergency_reserve": 31890000,
+        "monthly_savings": 950000,
+        "annual_distance": 25000,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "family",
+        "preferred_fuel": "ELECTRIC",
+        "charging_available": true,
+        "cost_importance": 5,
+        "space_importance": 4,
+        "minimum_seats": 5,
+        "preferred_size": "medium",
+        "financing_mode": "recommendation",
+        "fuel_importance": 4,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 64570000,
+        "preferred_body_type": "SUV",
+        "body_importance": 3
+      },
+      "experience_priorities": {
+        "cost": 5,
+        "space": 4,
+        "performance": 2,
+        "ride_comfort": 4,
+        "quietness": 4,
+        "design": 4,
+        "brand": 2,
+        "technology": 3
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        1.0,
+        1.5,
+        0.6,
+        0.8,
+        0.8,
+        0.0,
+        0.0,
+        0.15
+      ],
+      "scenario": "family 중심, 연 25,000km, 필수 5석. 안정적 충전 접근 가능. 선호 SUV/ELECTRIC/medium. 비용 중요도 5, 디자인 중요도 4.",
+      "split": "test"
+    },
+    "choices": [
+      {
+        "a": "G70",
+        "b": "토레스 하이브리드",
+        "label": 0,
+        "reason": "차체 취향·구매 후 자금 보존을 더 중시해 토레스 하이브리드을 선택했습니다."
+      },
+      {
+        "a": "K8",
+        "b": "EV4",
+        "label": 0,
+        "reason": "연료 취향·외부 전장 취향을 더 중시해 EV4을 선택했습니다."
+      },
+      {
+        "a": "그랑 콜레오스",
+        "b": "아이오닉 5",
+        "label": 0,
+        "reason": "연료 취향·월 유지비 부담을 더 중시해 아이오닉 5을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 리무진 Hybrid",
+        "b": "X1",
+        "label": 0,
+        "reason": "차체 취향·외부 전장 취향을 더 중시해 X1을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "EV5 GT",
+        "b": "모닝",
+        "label": 1,
+        "reason": "연료 취향·차체 취향을 더 중시해 EV5 GT을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "GV70",
+        "b": "쏘렌토",
+        "label": 0,
+        "reason": "구매 후 자금 보존·월 유지비 부담을 더 중시해 쏘렌토을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "액티언",
+        "b": "디 올 뉴 아반떼",
+        "label": 1,
+        "reason": "차체 취향을 더 중시해 액티언을 선택했습니다. 구매 후 자금 보존·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "EV4 GT",
+        "b": "필랑트",
+        "label": 0,
+        "reason": "종합 선호는 EV4 GT 쪽이지만 이번 확률적 선택에서는 필랑트을 선택했습니다. 선택 후보의 상대적 장점은 차체 취향·구매 후 자금 보존입니다. 연료 취향·외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 라운지 Hybrid",
+        "b": "308 SMART HYBRID",
+        "label": 0,
+        "reason": "구매 후 자금 보존·월 유지비 부담을 더 중시해 308 SMART HYBRID을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "코나 Hybrid",
+        "b": "코나",
+        "label": 1,
+        "reason": "월 유지비 부담을 더 중시해 코나 Hybrid을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 3,
+      "group": "6fdec63453ce37f0e1145d3fc6fd74a6b919ad9e4f1838582fccdf603d4b890f",
+      "profile": {
+        "monthly_income": 4090000,
+        "monthly_expenses": 1380000,
+        "existing_monthly_payment": 150000,
+        "liquid_assets": 77730000,
+        "down_payment": 0,
+        "emergency_reserve": 21190000,
+        "monthly_savings": 690000,
+        "annual_distance": 35500,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "commute",
+        "preferred_fuel": "ELECTRIC",
+        "charging_available": true,
+        "cost_importance": 5,
+        "space_importance": 3,
+        "minimum_seats": 5,
+        "preferred_size": "large",
+        "financing_mode": "recommendation",
+        "fuel_importance": 5,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 39970000,
+        "preferred_body_type": "PICKUP",
+        "body_importance": 3
+      },
+      "experience_priorities": {
+        "cost": 5,
+        "space": 3,
+        "performance": 3,
+        "ride_comfort": 5,
+        "quietness": 4,
+        "design": 3,
+        "brand": 2,
+        "technology": 5
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        1.0,
+        1.5,
+        0.6,
+        1.0,
+        0.6,
+        0.0,
+        0.0,
+        0.15
+      ],
+      "scenario": "commute 중심, 연 35,500km, 필수 5석. 안정적 충전 접근 가능. 선호 PICKUP/ELECTRIC/large. 비용 중요도 5, 디자인 중요도 3.",
+      "split": "validation"
+    },
+    "choices": [
+      {
+        "a": "코나 Hybrid",
+        "b": "토레스",
+        "label": 0,
+        "reason": "외부 전장 취향·구매 후 자금 보존을 더 중시해 토레스을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "셀토스",
+        "b": "쏘나타 디 엣지 Hybrid",
+        "label": 0,
+        "reason": "외부 전장 취향·월 유지비 부담을 더 중시해 쏘나타 디 엣지 Hybrid을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "무쏘",
+        "b": "디 올 뉴 아반떼",
+        "label": 0,
+        "reason": "종합 선호는 무쏘 쪽이지만 이번 확률적 선택에서는 디 올 뉴 아반떼을 선택했습니다. 선택 후보의 상대적 장점은 구매 후 자금 보존·월 유지비 부담입니다. 차체 취향·외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "스포티지",
+        "b": "K5",
+        "label": 1,
+        "reason": "종합 선호는 K5 쪽이지만 이번 확률적 선택에서는 스포티지을 선택했습니다. 외부 전장 취향·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "아르카나",
+        "b": "니로",
+        "label": 1,
+        "reason": "외부 전장 취향·구매 후 자금 보존을 더 중시해 아르카나을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "투싼",
+        "b": "티볼리",
+        "label": 0,
+        "reason": "종합 선호는 투싼 쪽이지만 이번 확률적 선택에서는 티볼리을 선택했습니다. 선택 후보의 상대적 장점은 구매 후 자금 보존입니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "액티언",
+        "b": "투싼 Hybrid",
+        "label": 1,
+        "reason": "종합 선호는 투싼 Hybrid 쪽이지만 이번 확률적 선택에서는 액티언을 선택했습니다. 선택 후보의 상대적 장점은 외부 전장 취향입니다. 월 유지비 부담·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "레이",
+        "b": "코나",
+        "label": 0,
+        "reason": "외부 전장 취향을 더 중시해 코나을 선택했습니다. 구매 후 자금 보존·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "쏘나타 디 엣지",
+        "b": "액티언 하이브리드",
+        "label": 1,
+        "reason": "구매 후 자금 보존·외부 전장 취향을 더 중시해 쏘나타 디 엣지을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "베뉴",
+        "b": "모닝",
+        "label": 0,
+        "reason": "종합 선호는 베뉴 쪽이지만 이번 확률적 선택에서는 모닝을 선택했습니다. 선택 후보의 상대적 장점은 구매 후 자금 보존·월 유지비 부담입니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 4,
+      "group": "d92f4bd0dece89d6a2971c4f749744927a968d87d6670c20eb824f731b3b9ede",
+      "profile": {
+        "monthly_income": 6670000,
+        "monthly_expenses": 2640000,
+        "existing_monthly_payment": 480000,
+        "liquid_assets": 133160000,
+        "down_payment": 0,
+        "emergency_reserve": 35680000,
+        "monthly_savings": 1140000,
+        "annual_distance": 16500,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "family",
+        "preferred_fuel": "HYBRID",
+        "charging_available": true,
+        "cost_importance": 4,
+        "space_importance": 4,
+        "minimum_seats": 5,
+        "preferred_size": "medium",
+        "financing_mode": "recommendation",
+        "fuel_importance": 4,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 68830000,
+        "preferred_body_type": "SUV",
+        "body_importance": 3
+      },
+      "experience_priorities": {
+        "cost": 4,
+        "space": 4,
+        "performance": 3,
+        "ride_comfort": 4,
+        "quietness": 3,
+        "design": 4,
+        "brand": 1,
+        "technology": 3
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        0.8,
+        0.8800000000000001,
+        0.6,
+        0.8,
+        0.8,
+        0.0,
+        0.0,
+        0.15
+      ],
+      "scenario": "family 중심, 연 16,500km, 필수 5석. 안정적 충전 접근 가능. 선호 SUV/HYBRID/medium. 비용 중요도 4, 디자인 중요도 4.",
+      "split": "train"
+    },
+    "choices": [
+      {
+        "a": "액티언",
+        "b": "K5",
+        "label": 0,
+        "reason": "종합 선호는 액티언 쪽이지만 이번 확률적 선택에서는 K5을 선택했습니다. 선택 후보의 상대적 장점은 월 유지비 부담입니다. 차체 취향·외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "EV3",
+        "b": "토레스 하이브리드",
+        "label": 0,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 토레스 하이브리드을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "XC60",
+        "b": "더 뉴 스타리아 라운지",
+        "label": 1,
+        "reason": "차체 취향·외부 전장 취향을 더 중시해 XC60을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "GV70",
+        "b": "토레스",
+        "label": 0,
+        "reason": "구매 후 자금 보존·월 유지비 부담을 더 중시해 토레스을 선택했습니다."
+      },
+      {
+        "a": "팰리세이드 Hybrid",
+        "b": "EV4",
+        "label": 1,
+        "reason": "연료 취향·차체 취향을 더 중시해 팰리세이드 Hybrid을 선택했습니다. 외부 전장 취향·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 라운지 Hybrid",
+        "b": "Golf",
+        "label": 1,
+        "reason": "연료 취향을 더 중시해 더 뉴 스타리아 라운지 Hybrid을 선택했습니다. 외부 전장 취향·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "EV3 GT",
+        "b": "트랙스 크로스오버",
+        "label": 0,
+        "reason": "구매 후 자금 보존을 더 중시해 트랙스 크로스오버을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "308 SMART HYBRID",
+        "b": "더 뉴 아이오닉 6",
+        "label": 1,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 308 SMART HYBRID을 선택했습니다. 외부 전장 취향·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "토레스 EVX",
+        "b": "싼타페 Hybrid",
+        "label": 1,
+        "reason": "종합 선호는 싼타페 Hybrid 쪽이지만 이번 확률적 선택에서는 토레스 EVX을 선택했습니다. 선택 후보의 상대적 장점은 외부 전장 취향·월 유지비 부담입니다. 연료 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "모닝",
+        "b": "더 뉴 스타리아 Electric",
+        "label": 0,
+        "reason": "종합 선호는 모닝 쪽이지만 이번 확률적 선택에서는 더 뉴 스타리아 Electric을 선택했습니다. 선택 후보의 상대적 장점은 외부 전장 취향·월 유지비 부담입니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 5,
+      "group": "b451d0c2cd1959e0a9e23580cc628853f8f1e85d6ae4568deb2eea8bd3db7c12",
+      "profile": {
+        "monthly_income": 37960000,
+        "monthly_expenses": 8100000,
+        "existing_monthly_payment": 0,
+        "liquid_assets": 2178810000,
+        "down_payment": 0,
+        "emergency_reserve": 376110000,
+        "monthly_savings": 8060000,
+        "annual_distance": 10500,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "leisure",
+        "preferred_fuel": "ELECTRIC",
+        "charging_available": true,
+        "cost_importance": 3,
+        "space_importance": 4,
+        "minimum_seats": 5,
+        "preferred_size": "small",
+        "financing_mode": "recommendation",
+        "fuel_importance": 3,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 478670000,
+        "preferred_body_type": "SUV",
+        "body_importance": 5
+      },
+      "experience_priorities": {
+        "cost": 3,
+        "space": 4,
+        "performance": 3,
+        "ride_comfort": 3,
+        "quietness": 3,
+        "design": 5,
+        "brand": 2,
+        "technology": 4
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        0.6,
+        0.42,
+        1.0,
+        0.6,
+        0.8,
+        0.0,
+        0.0,
+        0.15
+      ],
+      "scenario": "leisure 중심, 연 10,500km, 필수 5석. 안정적 충전 접근 가능. 선호 SUV/ELECTRIC/small. 비용 중요도 3, 디자인 중요도 5.",
+      "split": "train"
+    },
+    "choices": [
+      {
+        "a": "G80 Black",
+        "b": "3시리즈",
+        "label": 0,
+        "reason": "외부 전장 취향·구매 후 자금 보존을 더 중시해 3시리즈을 선택했습니다."
+      },
+      {
+        "a": "렉스턴 뉴 아레나",
+        "b": "더 뉴 그랜저",
+        "label": 1,
+        "reason": "차체 취향·외부 전장 취향을 더 중시해 렉스턴 뉴 아레나을 선택했습니다."
+      },
+      {
+        "a": "EV4 GT",
+        "b": "더 뉴 스타리아 라운지 Electric",
+        "label": 1,
+        "reason": "외부 전장 취향을 더 중시해 EV4 GT을 선택했습니다."
+      },
+      {
+        "a": "X3",
+        "b": "Cayenne",
+        "label": 1,
+        "reason": "종합 선호는 Cayenne 쪽이지만 이번 확률적 선택에서는 X3을 선택했습니다. 선택 후보의 상대적 장점은 구매 후 자금 보존입니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "G90",
+        "b": "Electrified GV70",
+        "label": 0,
+        "reason": "차체 취향·연료 취향을 더 중시해 Electrified GV70을 선택했습니다."
+      },
+      {
+        "a": "E-Class",
+        "b": "시에나",
+        "label": 1,
+        "reason": "외부 전장 취향을 더 중시해 E-Class을 선택했습니다."
+      },
+      {
+        "a": "GV80 Hybrid",
+        "b": "3시리즈 투어링",
+        "label": 1,
+        "reason": "차체 취향을 더 중시해 GV80 Hybrid을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "K9",
+        "b": "니로",
+        "label": 0,
+        "reason": "차체 취향·외부 전장 취향을 더 중시해 니로을 선택했습니다."
+      },
+      {
+        "a": "5시리즈",
+        "b": "G80",
+        "label": 1,
+        "reason": "종합 선호는 G80 쪽이지만 이번 확률적 선택에서는 5시리즈을 선택했습니다. 외부 전장 취향·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "EV9",
+        "b": "무쏘 EV",
+        "label": 1,
+        "reason": "차체 취향·외부 전장 취향을 더 중시해 EV9을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 6,
+      "group": "669cf13761defb466984e83bda5b63441146ecedf8354f7dd768e7fd93f9c718",
+      "profile": {
+        "monthly_income": 1750000,
+        "monthly_expenses": 2100000,
+        "existing_monthly_payment": 0,
+        "liquid_assets": 427480000,
+        "down_payment": 0,
+        "emergency_reserve": 95980000,
+        "monthly_savings": 0,
+        "annual_distance": 9500,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "commute",
+        "preferred_fuel": "GASOLINE",
+        "charging_available": false,
+        "cost_importance": 3,
+        "space_importance": 3,
+        "minimum_seats": 5,
+        "preferred_size": "large",
+        "financing_mode": "recommendation",
+        "fuel_importance": 4,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 85200000,
+        "preferred_body_type": "SEDAN",
+        "body_importance": 3
+      },
+      "experience_priorities": {
+        "cost": 3,
+        "space": 3,
+        "performance": 1,
+        "ride_comfort": 5,
+        "quietness": 5,
+        "design": 3,
+        "brand": 3,
+        "technology": 3
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        0.6,
+        0.37999999999999995,
+        0.6,
+        0.8,
+        0.6,
+        0.0,
+        0.0,
+        0.7
+      ],
+      "scenario": "commute 중심, 연 9,500km, 필수 5석. 안정적 충전 접근 없음. 선호 SEDAN/GASOLINE/large. 비용 중요도 3, 디자인 중요도 3.",
+      "split": "train"
+    },
+    "choices": [
+      {
+        "a": "카니발 하이리무진",
+        "b": "Canyon",
+        "label": 1,
+        "reason": "구매 후 자금 보존을 더 중시해 카니발 하이리무진을 선택했습니다."
+      },
+      {
+        "a": "EV5 GT",
+        "b": "더 뉴 스타리아 리무진 Electric",
+        "label": 0,
+        "reason": "외부 전장 취향을 더 중시해 더 뉴 스타리아 리무진 Electric을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 Hybrid",
+        "b": "Golf GTI",
+        "label": 0,
+        "reason": "연료 취향을 더 중시해 Golf GTI을 선택했습니다. 외부 전장 취향·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "GV80 Coupe",
+        "b": "더 뉴 그랜저 Hybrid",
+        "label": 0,
+        "reason": "종합 선호는 GV80 Coupe 쪽이지만 이번 확률적 선택에서는 더 뉴 그랜저 Hybrid을 선택했습니다. 선택 후보의 상대적 장점은 차체 취향·구매 후 자금 보존입니다. 연료 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "디 올 뉴 아반떼",
+        "b": "K8",
+        "label": 1,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 디 올 뉴 아반떼을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "GV80",
+        "b": "레이",
+        "label": 1,
+        "reason": "외부 전장 취향을 더 중시해 GV80을 선택했습니다. 구매 후 자금 보존·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "X4",
+        "b": "X1",
+        "label": 0,
+        "reason": "종합 선호는 X4 쪽이지만 이번 확률적 선택에서는 X1을 선택했습니다. 선택 후보의 상대적 장점은 구매 후 자금 보존입니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "필랑트",
+        "b": "EV9 GT",
+        "label": 1,
+        "reason": "충전 접근성·구매 후 자금 보존을 더 중시해 필랑트을 선택했습니다."
+      },
+      {
+        "a": "코나 Hybrid",
+        "b": "쏘렌토",
+        "label": 0,
+        "reason": "연료 취향·외부 전장 취향을 더 중시해 쏘렌토을 선택했습니다. 구매 후 자금 보존·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "스포티지",
+        "b": "투싼 Hybrid",
+        "label": 0,
+        "reason": "종합 선호는 스포티지 쪽이지만 이번 확률적 선택에서는 투싼 Hybrid을 선택했습니다. 외부 전장 취향·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 7,
+      "group": "103a443ff42621b700ff0480bf65fabcd10c8ba0cb4e33fa82d46b75af1f7c8c",
+      "profile": {
+        "monthly_income": 6320000,
+        "monthly_expenses": 2110000,
+        "existing_monthly_payment": 0,
+        "liquid_assets": 150790000,
+        "down_payment": 0,
+        "emergency_reserve": 35010000,
+        "monthly_savings": 1240000,
+        "annual_distance": 21000,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "commute",
+        "preferred_fuel": "ELECTRIC",
+        "charging_available": true,
+        "cost_importance": 2,
+        "space_importance": 2,
+        "minimum_seats": 5,
+        "preferred_size": "large",
+        "financing_mode": "recommendation",
+        "fuel_importance": 3,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 71540000,
+        "preferred_body_type": "SEDAN",
+        "body_importance": 2
+      },
+      "experience_priorities": {
+        "cost": 2,
+        "space": 2,
+        "performance": 2,
+        "ride_comfort": 4,
+        "quietness": 4,
+        "design": 4,
+        "brand": 1,
+        "technology": 3
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        0.4,
+        0.5599999999999999,
+        0.4,
+        0.6,
+        0.4,
+        0.0,
+        0.0,
+        0.15
+      ],
+      "scenario": "commute 중심, 연 21,000km, 필수 5석. 안정적 충전 접근 가능. 선호 SEDAN/ELECTRIC/large. 비용 중요도 2, 디자인 중요도 4.",
+      "split": "train"
+    },
+    "choices": [
+      {
+        "a": "쏘나타 디 엣지 Hybrid",
+        "b": "EV5 GT",
+        "label": 0,
+        "reason": "연료 취향·월 유지비 부담을 더 중시해 EV5 GT을 선택했습니다. 차체 취향·외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "코나 Hybrid",
+        "b": "더 뉴 스타리아 리무진 Hybrid",
+        "label": 1,
+        "reason": "종합 선호는 더 뉴 스타리아 리무진 Hybrid 쪽이지만 이번 확률적 선택에서는 코나 Hybrid을 선택했습니다. 선택 후보의 상대적 장점은 구매 후 자금 보존·월 유지비 부담입니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "EV5",
+        "b": "308 SMART HYBRID",
+        "label": 1,
+        "reason": "연료 취향·외부 전장 취향을 더 중시해 EV5을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "트랙스 크로스오버",
+        "b": "EV3 GT",
+        "label": 0,
+        "reason": "연료 취향·월 유지비 부담을 더 중시해 EV3 GT을 선택했습니다. 외부 전장 취향·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "X3",
+        "b": "3시리즈",
+        "label": 0,
+        "reason": "차체 취향·구매 후 자금 보존을 더 중시해 3시리즈을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "EV4",
+        "b": "셀토스",
+        "label": 1,
+        "reason": "연료 취향·차체 취향을 더 중시해 EV4을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "G70",
+        "b": "EV9",
+        "label": 1,
+        "reason": "종합 선호는 EV9 쪽이지만 이번 확률적 선택에서는 G70을 선택했습니다. 선택 후보의 상대적 장점은 차체 취향·구매 후 자금 보존입니다. 연료 취향·외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "Model Y",
+        "b": "EV3",
+        "label": 1,
+        "reason": "외부 전장 취향을 더 중시해 Model Y을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "토레스 EVX",
+        "b": "XC60",
+        "label": 1,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 토레스 EVX을 선택했습니다."
+      },
+      {
+        "a": "3시리즈 투어링",
+        "b": "투싼 Hybrid",
+        "label": 0,
+        "reason": "구매 후 자금 보존을 더 중시해 투싼 Hybrid을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 8,
+      "group": "ad1f56c3a7a2cd1ca0dab9350b3fe9ef1144629c2457a7c8269eb36f54194817",
+      "profile": {
+        "monthly_income": 4430000,
+        "monthly_expenses": 1750000,
+        "existing_monthly_payment": 250000,
+        "liquid_assets": 94760000,
+        "down_payment": 0,
+        "emergency_reserve": 20670000,
+        "monthly_savings": 660000,
+        "annual_distance": 16000,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "commute",
+        "preferred_fuel": "HYBRID",
+        "charging_available": false,
+        "cost_importance": 3,
+        "space_importance": 3,
+        "minimum_seats": 5,
+        "preferred_size": "medium",
+        "financing_mode": "recommendation",
+        "fuel_importance": 5,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 47860000,
+        "preferred_body_type": "SUV",
+        "body_importance": 2
+      },
+      "experience_priorities": {
+        "cost": 3,
+        "space": 3,
+        "performance": 1,
+        "ride_comfort": 3,
+        "quietness": 3,
+        "design": 4,
+        "brand": 1,
+        "technology": 3
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        0.6,
+        0.64,
+        0.4,
+        1.0,
+        0.6,
+        0.0,
+        0.0,
+        0.7
+      ],
+      "scenario": "commute 중심, 연 16,000km, 필수 5석. 안정적 충전 접근 없음. 선호 SUV/HYBRID/medium. 비용 중요도 3, 디자인 중요도 4.",
+      "split": "train"
+    },
+    "choices": [
+      {
+        "a": "코나",
+        "b": "EV6",
+        "label": 1,
+        "reason": "충전 접근성·구매 후 자금 보존을 더 중시해 코나을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "액티언 하이브리드",
+        "b": "더 뉴 그랜저",
+        "label": 1,
+        "reason": "연료 취향·차체 취향을 더 중시해 액티언 하이브리드을 선택했습니다."
+      },
+      {
+        "a": "스포티지",
+        "b": "렉스턴 뉴 아레나",
+        "label": 1,
+        "reason": "구매 후 자금 보존·외부 전장 취향을 더 중시해 스포티지을 선택했습니다."
+      },
+      {
+        "a": "K8",
+        "b": "디 올 뉴 아반떼",
+        "label": 0,
+        "reason": "외부 전장 취향·구매 후 자금 보존을 더 중시해 디 올 뉴 아반떼을 선택했습니다."
+      },
+      {
+        "a": "Golf",
+        "b": "그랑 콜레오스",
+        "label": 0,
+        "reason": "연료 취향·차체 취향을 더 중시해 그랑 콜레오스을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "무쏘",
+        "b": "쏘나타 디 엣지",
+        "label": 1,
+        "reason": "종합 선호는 쏘나타 디 엣지 쪽이지만 이번 확률적 선택에서는 무쏘을 선택했습니다. 선택 후보의 상대적 장점은 구매 후 자금 보존입니다. 외부 전장 취향·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "필랑트",
+        "b": "더 뉴 스타리아 라운지 Hybrid",
+        "label": 1,
+        "reason": "차체 취향·외부 전장 취향을 더 중시해 필랑트을 선택했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 Hybrid",
+        "b": "카니발",
+        "label": 1,
+        "reason": "연료 취향·월 유지비 부담을 더 중시해 더 뉴 스타리아 Hybrid을 선택했습니다. 외부 전장 취향·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "아르카나",
+        "b": "팰리세이드",
+        "label": 1,
+        "reason": "외부 전장 취향·구매 후 자금 보존을 더 중시해 아르카나을 선택했습니다."
+      },
+      {
+        "a": "쏘나타 디 엣지 Hybrid",
+        "b": "EV5",
+        "label": 1,
+        "reason": "연료 취향·충전 접근성을 더 중시해 쏘나타 디 엣지 Hybrid을 선택했습니다. 차체 취향·외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 9,
+      "group": "4a40c9caf0242462ee3817a53f57d9c6851c7eeddecee0a5b8c967f0f2d0a921",
+      "profile": {
+        "monthly_income": 5480000,
+        "monthly_expenses": 1900000,
+        "existing_monthly_payment": 200000,
+        "liquid_assets": 115120000,
+        "down_payment": 0,
+        "emergency_reserve": 28380000,
+        "monthly_savings": 840000,
+        "annual_distance": 23500,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "commute",
+        "preferred_fuel": "HYBRID",
+        "charging_available": true,
+        "cost_importance": 5,
+        "space_importance": 3,
+        "minimum_seats": 5,
+        "preferred_size": "medium",
+        "financing_mode": "recommendation",
+        "fuel_importance": 3,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 56720000,
+        "preferred_body_type": "SUV",
+        "body_importance": 2
+      },
+      "experience_priorities": {
+        "cost": 5,
+        "space": 3,
+        "performance": 3,
+        "ride_comfort": 4,
+        "quietness": 3,
+        "design": 3,
+        "brand": 1,
+        "technology": 4
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        1.0,
+        1.5,
+        0.4,
+        0.6,
+        0.6,
+        0.0,
+        0.0,
+        0.15
+      ],
+      "scenario": "commute 중심, 연 23,500km, 필수 5석. 안정적 충전 접근 가능. 선호 SUV/HYBRID/medium. 비용 중요도 5, 디자인 중요도 3.",
+      "split": "train"
+    },
+    "choices": [
+      {
+        "a": "더 뉴 스타리아 라운지",
+        "b": "코나 Electric",
+        "label": 0,
+        "reason": "차체 취향·외부 전장 취향을 더 중시해 코나 Electric을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "아이오닉 5",
+        "b": "토레스",
+        "label": 0,
+        "reason": "구매 후 자금 보존을 더 중시해 토레스을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "싼타페",
+        "b": "G70 Shooting Brake",
+        "label": 1,
+        "reason": "차체 취향·구매 후 자금 보존을 더 중시해 싼타페을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "티볼리",
+        "b": "Golf GTI",
+        "label": 1,
+        "reason": "차체 취향·구매 후 자금 보존을 더 중시해 티볼리을 선택했습니다."
+      },
+      {
+        "a": "더 뉴 아이오닉 6",
+        "b": "투싼",
+        "label": 0,
+        "reason": "차체 취향·구매 후 자금 보존을 더 중시해 투싼을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "액티언",
+        "b": "베뉴",
+        "label": 0,
+        "reason": "구매 후 자금 보존·월 유지비 부담을 더 중시해 베뉴을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "팰리세이드 Hybrid",
+        "b": "GV70",
+        "label": 1,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 팰리세이드 Hybrid을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "레이",
+        "b": "K5",
+        "label": 0,
+        "reason": "외부 전장 취향·월 유지비 부담을 더 중시해 K5을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "토레스 하이브리드",
+        "b": "PV5 패신저",
+        "label": 1,
+        "reason": "연료 취향·차체 취향을 더 중시해 토레스 하이브리드을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "모닝",
+        "b": "무쏘 EV",
+        "label": 1,
+        "reason": "구매 후 자금 보존을 더 중시해 모닝을 선택했습니다. 외부 전장 취향·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 10,
+      "group": "1614e4a8c7b0b08ab93bfb00371cea74256c5f5d55101b7d37666add5a899ecd",
+      "profile": {
+        "monthly_income": 7350000,
+        "monthly_expenses": 2480000,
+        "existing_monthly_payment": 340000,
+        "liquid_assets": 204380000,
+        "down_payment": 0,
+        "emergency_reserve": 42360000,
+        "monthly_savings": 1540000,
+        "annual_distance": 25500,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "leisure",
+        "preferred_fuel": "DIESEL",
+        "charging_available": false,
+        "cost_importance": 1,
+        "space_importance": 4,
+        "minimum_seats": 5,
+        "preferred_size": "medium",
+        "financing_mode": "recommendation",
+        "fuel_importance": 5,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 79470000,
+        "preferred_body_type": "WAGON",
+        "body_importance": 5
+      },
+      "experience_priorities": {
+        "cost": 1,
+        "space": 4,
+        "performance": 4,
+        "ride_comfort": 5,
+        "quietness": 3,
+        "design": 5,
+        "brand": 5,
+        "technology": 3
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        0.2,
+        0.30000000000000004,
+        1.0,
+        1.0,
+        0.8,
+        0.0,
+        0.0,
+        0.7
+      ],
+      "scenario": "leisure 중심, 연 25,500km, 필수 5석. 안정적 충전 접근 없음. 선호 WAGON/DIESEL/medium. 비용 중요도 1, 디자인 중요도 5.",
+      "split": "train"
+    },
+    "choices": [
+      {
+        "a": "시에나",
+        "b": "EV6 GT",
+        "label": 1,
+        "reason": "충전 접근성을 더 중시해 시에나을 선택했습니다. 외부 전장 취향·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "Canyon",
+        "b": "ES",
+        "label": 0,
+        "reason": "외부 전장 취향·월 유지비 부담을 더 중시해 ES을 선택했습니다."
+      },
+      {
+        "a": "GV80",
+        "b": "더 뉴 스타리아 라운지 Electric",
+        "label": 1,
+        "reason": "충전 접근성·외부 전장 취향을 더 중시해 GV80을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "GV80 Hybrid",
+        "b": "니로",
+        "label": 0,
+        "reason": "외부 전장 취향·구매 후 자금 보존을 더 중시해 니로을 선택했습니다."
+      },
+      {
+        "a": "카니발 하이리무진",
+        "b": "E-Class",
+        "label": 0,
+        "reason": "외부 전장 취향·월 유지비 부담을 더 중시해 E-Class을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 리무진 Hybrid",
+        "b": "더 뉴 스타리아 Electric",
+        "label": 1,
+        "reason": "충전 접근성을 더 중시해 더 뉴 스타리아 리무진 Hybrid을 선택했습니다. 구매 후 자금 보존·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "X1",
+        "b": "EV4 GT",
+        "label": 1,
+        "reason": "연료 취향·충전 접근성을 더 중시해 X1을 선택했습니다. 월 유지비 부담·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "K9",
+        "b": "싼타페 Hybrid",
+        "label": 1,
+        "reason": "종합 선호는 싼타페 Hybrid 쪽이지만 이번 확률적 선택에서는 K9을 선택했습니다. 외부 전장 취향·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "5시리즈",
+        "b": "더 뉴 그랜저 Hybrid",
+        "label": 0,
+        "reason": "구매 후 자금 보존·월 유지비 부담을 더 중시해 더 뉴 그랜저 Hybrid을 선택했습니다."
+      },
+      {
+        "a": "Electrified GV70",
+        "b": "G80",
+        "label": 1,
+        "reason": "종합 선호는 G80 쪽이지만 이번 확률적 선택에서는 Electrified GV70을 선택했습니다. 선택 후보의 상대적 장점은 외부 전장 취향·월 유지비 부담입니다. 충전 접근성·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 11,
+      "group": "fee17720a1da60142469a30fa26af9d66c183c336daf9575c1a2feb65a7a1b6e",
+      "profile": {
+        "monthly_income": 6010000,
+        "monthly_expenses": 2220000,
+        "existing_monthly_payment": 360000,
+        "liquid_assets": 132170000,
+        "down_payment": 0,
+        "emergency_reserve": 30120000,
+        "monthly_savings": 860000,
+        "annual_distance": 19500,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "commute",
+        "preferred_fuel": "HYBRID",
+        "charging_available": false,
+        "cost_importance": 3,
+        "space_importance": 3,
+        "minimum_seats": 5,
+        "preferred_size": "medium",
+        "financing_mode": "recommendation",
+        "fuel_importance": 4,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 60360000,
+        "preferred_body_type": "SUV",
+        "body_importance": 2
+      },
+      "experience_priorities": {
+        "cost": 3,
+        "space": 3,
+        "performance": 2,
+        "ride_comfort": 4,
+        "quietness": 3,
+        "design": 4,
+        "brand": 1,
+        "technology": 4
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        0.6,
+        0.78,
+        0.4,
+        0.8,
+        0.6,
+        0.0,
+        0.0,
+        0.7
+      ],
+      "scenario": "commute 중심, 연 19,500km, 필수 5석. 안정적 충전 접근 없음. 선호 SUV/HYBRID/medium. 비용 중요도 3, 디자인 중요도 4.",
+      "split": "train"
+    },
+    "choices": [
+      {
+        "a": "코나",
+        "b": "쏘렌토",
+        "label": 1,
+        "reason": "구매 후 자금 보존·외부 전장 취향을 더 중시해 코나을 선택했습니다."
+      },
+      {
+        "a": "더 뉴 아이오닉 6",
+        "b": "코나 Hybrid",
+        "label": 0,
+        "reason": "연료 취향·충전 접근성을 더 중시해 코나 Hybrid을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "투싼",
+        "b": "더 뉴 스타리아 Electric",
+        "label": 1,
+        "reason": "충전 접근성·차체 취향을 더 중시해 투싼을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "필랑트",
+        "b": "GV70",
+        "label": 1,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 필랑트을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "레이",
+        "b": "EV3",
+        "label": 1,
+        "reason": "종합 선호는 EV3 쪽이지만 이번 확률적 선택에서는 레이을 선택했습니다. 선택 후보의 상대적 장점은 충전 접근성·구매 후 자금 보존입니다. 차체 취향·외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "팰리세이드 Hybrid",
+        "b": "Golf GTI",
+        "label": 1,
+        "reason": "연료 취향·차체 취향을 더 중시해 팰리세이드 Hybrid을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "토레스",
+        "b": "디 올 뉴 아반떼",
+        "label": 1,
+        "reason": "차체 취향을 더 중시해 토레스을 선택했습니다. 월 유지비 부담·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 Hybrid",
+        "b": "더 뉴 그랜저 Hybrid",
+        "label": 0,
+        "reason": "외부 전장 취향·월 유지비 부담을 더 중시해 더 뉴 그랜저 Hybrid을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "K5",
+        "b": "액티언",
+        "label": 0,
+        "reason": "차체 취향·외부 전장 취향을 더 중시해 액티언을 선택했습니다. 구매 후 자금 보존·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "무쏘",
+        "b": "싼타페",
+        "label": 0,
+        "reason": "차체 취향·외부 전장 취향을 더 중시해 싼타페을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 12,
+      "group": "20d5d83cdc656b25d0f75ceed3fd49f7a421435567722a50faf0493e676275f0",
+      "profile": {
+        "monthly_income": 2470000,
+        "monthly_expenses": 3000000,
+        "existing_monthly_payment": 0,
+        "liquid_assets": 565720000,
+        "down_payment": 0,
+        "emergency_reserve": 132380000,
+        "monthly_savings": 0,
+        "annual_distance": 8000,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "commute",
+        "preferred_fuel": "GASOLINE",
+        "charging_available": false,
+        "cost_importance": 5,
+        "space_importance": 3,
+        "minimum_seats": 5,
+        "preferred_size": "medium",
+        "financing_mode": "recommendation",
+        "fuel_importance": 4,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 123040000,
+        "preferred_body_type": "SEDAN",
+        "body_importance": 3
+      },
+      "experience_priorities": {
+        "cost": 5,
+        "space": 3,
+        "performance": 1,
+        "ride_comfort": 4,
+        "quietness": 4,
+        "design": 4,
+        "brand": 2,
+        "technology": 2
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        1.0,
+        0.5333333333333333,
+        0.6,
+        0.8,
+        0.6,
+        0.0,
+        0.0,
+        0.7
+      ],
+      "scenario": "commute 중심, 연 8,000km, 필수 5석. 안정적 충전 접근 없음. 선호 SEDAN/GASOLINE/medium. 비용 중요도 5, 디자인 중요도 4.",
+      "split": "train"
+    },
+    "choices": [
+      {
+        "a": "X4",
+        "b": "X5",
+        "label": 0,
+        "reason": "종합 선호는 X4 쪽이지만 이번 확률적 선택에서는 X5을 선택했습니다. 구매 후 자금 보존·외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "토레스 EVX",
+        "b": "GV80 Black Hybrid",
+        "label": 0,
+        "reason": "충전 접근성을 더 중시해 GV80 Black Hybrid을 선택했습니다. 구매 후 자금 보존·외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 라운지 Electric",
+        "b": "알파드",
+        "label": 0,
+        "reason": "충전 접근성·외부 전장 취향을 더 중시해 알파드을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "G80 Black",
+        "b": "Sierra",
+        "label": 1,
+        "reason": "차체 취향·외부 전장 취향을 더 중시해 G80 Black을 선택했습니다."
+      },
+      {
+        "a": "Electrified G80",
+        "b": "더 뉴 스타리아 리무진 Electric",
+        "label": 1,
+        "reason": "차체 취향·외부 전장 취향을 더 중시해 Electrified G80을 선택했습니다."
+      },
+      {
+        "a": "GV80 Coupe",
+        "b": "EV9 GT",
+        "label": 1,
+        "reason": "연료 취향·충전 접근성을 더 중시해 GV80 Coupe을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 그랜저",
+        "b": "EV6 GT",
+        "label": 1,
+        "reason": "차체 취향·충전 접근성을 더 중시해 더 뉴 그랜저을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 리무진 Hybrid",
+        "b": "ES",
+        "label": 0,
+        "reason": "차체 취향·외부 전장 취향을 더 중시해 ES을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "GV80 Hybrid",
+        "b": "G90",
+        "label": 0,
+        "reason": "연료 취향·차체 취향을 더 중시해 G90을 선택했습니다. 외부 전장 취향·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "5시리즈",
+        "b": "더 뉴 스타리아 라운지",
+        "label": 1,
+        "reason": "연료 취향·차체 취향을 더 중시해 5시리즈을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 13,
+      "group": "fc7b1e96e37e80eb8c2725db0af37abc47d39d9e5c872be9fc968e98e97dbb5c",
+      "profile": {
+        "monthly_income": 2810000,
+        "monthly_expenses": 1170000,
+        "existing_monthly_payment": 170000,
+        "liquid_assets": 48620000,
+        "down_payment": 0,
+        "emergency_reserve": 9360000,
+        "monthly_savings": 320000,
+        "annual_distance": 6500,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "business",
+        "preferred_fuel": "GASOLINE",
+        "charging_available": false,
+        "cost_importance": 4,
+        "space_importance": 3,
+        "minimum_seats": 4,
+        "preferred_size": "small",
+        "financing_mode": "recommendation",
+        "fuel_importance": 4,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 26010000,
+        "preferred_body_type": "HATCHBACK",
+        "body_importance": 5
+      },
+      "experience_priorities": {
+        "cost": 4,
+        "space": 3,
+        "performance": 2,
+        "ride_comfort": 3,
+        "quietness": 2,
+        "design": 3,
+        "brand": 2,
+        "technology": 2
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        0.8,
+        0.3466666666666667,
+        1.0,
+        0.8,
+        0.6,
+        0.0,
+        0.0,
+        0.7
+      ],
+      "scenario": "business 중심, 연 6,500km, 필수 4석. 안정적 충전 접근 없음. 선호 HATCHBACK/GASOLINE/small. 비용 중요도 4, 디자인 중요도 3.",
+      "split": "train"
+    },
+    "choices": [
+      {
+        "a": "캐스퍼",
+        "b": "K5",
+        "label": 1,
+        "reason": "연료 취향·외부 전장 취향을 더 중시해 캐스퍼을 선택했습니다."
+      },
+      {
+        "a": "베뉴",
+        "b": "레이",
+        "label": 0,
+        "reason": "구매 후 자금 보존을 더 중시해 레이을 선택했습니다."
+      },
+      {
+        "a": "트랙스 크로스오버",
+        "b": "셀토스",
+        "label": 1,
+        "reason": "종합 선호는 셀토스 쪽이지만 이번 확률적 선택에서는 트랙스 크로스오버을 선택했습니다. 선택 후보의 상대적 장점은 구매 후 자금 보존입니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "코나",
+        "b": "티볼리",
+        "label": 0,
+        "reason": "외부 전장 취향을 더 중시해 티볼리을 선택했습니다."
+      },
+      {
+        "a": "디 올 뉴 아반떼",
+        "b": "모닝",
+        "label": 0,
+        "reason": "차체 취향·외부 전장 취향을 더 중시해 모닝을 선택했습니다."
+      },
+      {
+        "a": "티볼리",
+        "b": "캐스퍼",
+        "label": 0,
+        "reason": "구매 후 자금 보존·외부 전장 취향을 더 중시해 캐스퍼을 선택했습니다."
+      },
+      {
+        "a": "티볼리",
+        "b": "레이",
+        "label": 0,
+        "reason": "구매 후 자금 보존·외부 전장 취향을 더 중시해 레이을 선택했습니다."
+      },
+      {
+        "a": "코나",
+        "b": "트랙스 크로스오버",
+        "label": 0,
+        "reason": "종합 선호는 코나 쪽이지만 이번 확률적 선택에서는 트랙스 크로스오버을 선택했습니다. 선택 후보의 상대적 장점은 구매 후 자금 보존입니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "모닝",
+        "b": "베뉴",
+        "label": 1,
+        "reason": "차체 취향·구매 후 자금 보존을 더 중시해 모닝을 선택했습니다."
+      },
+      {
+        "a": "베뉴",
+        "b": "코나",
+        "label": 0,
+        "reason": "종합 선호는 베뉴 쪽이지만 이번 확률적 선택에서는 코나을 선택했습니다. 외부 전장 취향·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 14,
+      "group": "dd97cb5b8dc3cf33001bc3d59bacaf0b3f2d0c1951cf40c3817ca66399649c48",
+      "profile": {
+        "monthly_income": 7230000,
+        "monthly_expenses": 2420000,
+        "existing_monthly_payment": 230000,
+        "liquid_assets": 155450000,
+        "down_payment": 0,
+        "emergency_reserve": 34780000,
+        "monthly_savings": 1230000,
+        "annual_distance": 13000,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "leisure",
+        "preferred_fuel": "GASOLINE",
+        "charging_available": false,
+        "cost_importance": 3,
+        "space_importance": 4,
+        "minimum_seats": 5,
+        "preferred_size": "medium",
+        "financing_mode": "recommendation",
+        "fuel_importance": 4,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 92570000,
+        "preferred_body_type": "SUV",
+        "body_importance": 5
+      },
+      "experience_priorities": {
+        "cost": 3,
+        "space": 4,
+        "performance": 4,
+        "ride_comfort": 3,
+        "quietness": 4,
+        "design": 5,
+        "brand": 2,
+        "technology": 2
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        0.6,
+        0.52,
+        1.0,
+        0.8,
+        0.8,
+        0.0,
+        0.0,
+        0.7
+      ],
+      "scenario": "leisure 중심, 연 13,000km, 필수 5석. 안정적 충전 접근 없음. 선호 SUV/GASOLINE/medium. 비용 중요도 3, 디자인 중요도 5.",
+      "split": "train"
+    },
+    "choices": [
+      {
+        "a": "더 뉴 스타리아 리무진 Electric",
+        "b": "Electrified G80",
+        "label": 1,
+        "reason": "종합 선호는 Electrified G80 쪽이지만 이번 확률적 선택에서는 더 뉴 스타리아 리무진 Electric을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "알파드",
+        "b": "Model Y",
+        "label": 0,
+        "reason": "차체 취향·외부 전장 취향을 더 중시해 Model Y을 선택했습니다. 충전 접근성에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "시에나",
+        "b": "G70 Shooting Brake",
+        "label": 0,
+        "reason": "연료 취향·외부 전장 취향을 더 중시해 G70 Shooting Brake을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "EV5 GT",
+        "b": "아이오닉 5",
+        "label": 0,
+        "reason": "종합 선호는 EV5 GT 쪽이지만 이번 확률적 선택에서는 아이오닉 5을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "쏘나타 디 엣지",
+        "b": "EV9 GT",
+        "label": 0,
+        "reason": "차체 취향을 더 중시해 EV9 GT을 선택했습니다. 충전 접근성·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "3시리즈",
+        "b": "팰리세이드",
+        "label": 0,
+        "reason": "차체 취향·연료 취향을 더 중시해 팰리세이드을 선택했습니다. 외부 전장 취향·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "Canyon",
+        "b": "X4",
+        "label": 0,
+        "reason": "차체 취향·외부 전장 취향을 더 중시해 X4을 선택했습니다. 연료 취향·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "EV9",
+        "b": "PV5 패신저",
+        "label": 1,
+        "reason": "차체 취향을 더 중시해 EV9을 선택했습니다. 외부 전장 취향·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "E-Class",
+        "b": "3시리즈 투어링",
+        "label": 1,
+        "reason": "연료 취향을 더 중시해 E-Class을 선택했습니다. 외부 전장 취향·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "EV4 GT",
+        "b": "쏘나타 디 엣지 Hybrid",
+        "label": 0,
+        "reason": "충전 접근성·구매 후 자금 보존을 더 중시해 쏘나타 디 엣지 Hybrid을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 15,
+      "group": "78a97741d16c25817bc3d9447f01aef72f7c821660b9df16bfe38df7f12fe26d",
+      "profile": {
+        "monthly_income": 42360000,
+        "monthly_expenses": 8940000,
+        "existing_monthly_payment": 0,
+        "liquid_assets": 2568910000,
+        "down_payment": 0,
+        "emergency_reserve": 458290000,
+        "monthly_savings": 9070000,
+        "annual_distance": 11000,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "leisure",
+        "preferred_fuel": "ELECTRIC",
+        "charging_available": true,
+        "cost_importance": 3,
+        "space_importance": 4,
+        "minimum_seats": 5,
+        "preferred_size": "large",
+        "financing_mode": "recommendation",
+        "fuel_importance": 4,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 576650000,
+        "preferred_body_type": "SUV",
+        "body_importance": 5
+      },
+      "experience_priorities": {
+        "cost": 3,
+        "space": 4,
+        "performance": 2,
+        "ride_comfort": 4,
+        "quietness": 4,
+        "design": 4,
+        "brand": 1,
+        "technology": 4
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        0.6,
+        0.43999999999999995,
+        1.0,
+        0.8,
+        0.8,
+        0.0,
+        0.0,
+        0.15
+      ],
+      "scenario": "leisure 중심, 연 11,000km, 필수 5석. 안정적 충전 접근 가능. 선호 SUV/ELECTRIC/large. 비용 중요도 3, 디자인 중요도 4.",
+      "split": "train"
+    },
+    "choices": [
+      {
+        "a": "G90 Long Wheel Base",
+        "b": "G90 Long Wheel Base Black",
+        "label": 0,
+        "reason": "종합 선호는 G90 Long Wheel Base 쪽이지만 이번 확률적 선택에서는 G90 Long Wheel Base Black을 선택했습니다."
+      },
+      {
+        "a": "GV80",
+        "b": "HUMMER EV SUV",
+        "label": 0,
+        "reason": "연료 취향을 더 중시해 HUMMER EV SUV을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "Sierra",
+        "b": "EV5",
+        "label": 0,
+        "reason": "차체 취향·연료 취향을 더 중시해 EV5을 선택했습니다."
+      },
+      {
+        "a": "Cayenne",
+        "b": "렉스턴 뉴 아레나",
+        "label": 0,
+        "reason": "외부 전장 취향·구매 후 자금 보존을 더 중시해 렉스턴 뉴 아레나을 선택했습니다."
+      },
+      {
+        "a": "X5",
+        "b": "더 뉴 스타리아 라운지 Hybrid",
+        "label": 1,
+        "reason": "차체 취향을 더 중시해 X5을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "스포티지",
+        "b": "GV80 Black Hybrid",
+        "label": 0,
+        "reason": "외부 전장 취향을 더 중시해 GV80 Black Hybrid을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "코나 Electric",
+        "b": "GV80 Coupe",
+        "label": 1,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 코나 Electric을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "아르카나",
+        "b": "G80",
+        "label": 1,
+        "reason": "차체 취향·구매 후 자금 보존을 더 중시해 아르카나을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "X1",
+        "b": "ES",
+        "label": 1,
+        "reason": "차체 취향을 더 중시해 X1을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "싼타페 Hybrid",
+        "b": "X3",
+        "label": 0,
+        "reason": "종합 선호는 싼타페 Hybrid 쪽이지만 이번 확률적 선택에서는 X3을 선택했습니다. 외부 전장 취향·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 16,
+      "group": "5f974cd47b8ba63e22740e58e949448983b78fcce24bdc41c1b2f1de5b969f80",
+      "profile": {
+        "monthly_income": 5210000,
+        "monthly_expenses": 1520000,
+        "existing_monthly_payment": 180000,
+        "liquid_assets": 128380000,
+        "down_payment": 0,
+        "emergency_reserve": 25100000,
+        "monthly_savings": 860000,
+        "annual_distance": 12000,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "commute",
+        "preferred_fuel": "GASOLINE",
+        "charging_available": true,
+        "cost_importance": 4,
+        "space_importance": 3,
+        "minimum_seats": 5,
+        "preferred_size": "medium",
+        "financing_mode": "recommendation",
+        "fuel_importance": 5,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 54740000,
+        "preferred_body_type": "HATCHBACK",
+        "body_importance": 5
+      },
+      "experience_priorities": {
+        "cost": 4,
+        "space": 3,
+        "performance": 2,
+        "ride_comfort": 3,
+        "quietness": 2,
+        "design": 5,
+        "brand": 2,
+        "technology": 3
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        0.8,
+        0.6400000000000001,
+        1.0,
+        1.0,
+        0.6,
+        0.0,
+        0.0,
+        0.15
+      ],
+      "scenario": "commute 중심, 연 12,000km, 필수 5석. 안정적 충전 접근 가능. 선호 HATCHBACK/GASOLINE/medium. 비용 중요도 4, 디자인 중요도 5.",
+      "split": "train"
+    },
+    "choices": [
+      {
+        "a": "투싼 Hybrid",
+        "b": "EV6",
+        "label": 0,
+        "reason": "종합 선호는 투싼 Hybrid 쪽이지만 이번 확률적 선택에서는 EV6을 선택했습니다. 선택 후보의 상대적 장점은 월 유지비 부담입니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "토레스 하이브리드",
+        "b": "G70 Shooting Brake",
+        "label": 0,
+        "reason": "연료 취향을 더 중시해 G70 Shooting Brake을 선택했습니다. 구매 후 자금 보존·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "Golf",
+        "b": "액티언 하이브리드",
+        "label": 1,
+        "reason": "차체 취향·월 유지비 부담을 더 중시해 Golf을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "니로",
+        "b": "308 SMART HYBRID",
+        "label": 0,
+        "reason": "차체 취향을 더 중시해 308 SMART HYBRID을 선택했습니다. 외부 전장 취향·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "G70",
+        "b": "액티언",
+        "label": 1,
+        "reason": "종합 선호는 액티언 쪽이지만 이번 확률적 선택에서는 G70을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "K8",
+        "b": "EV4",
+        "label": 0,
+        "reason": "외부 전장 취향·월 유지비 부담을 더 중시해 EV4을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "렉스턴 뉴 아레나",
+        "b": "EV3 GT",
+        "label": 0,
+        "reason": "종합 선호는 렉스턴 뉴 아레나 쪽이지만 이번 확률적 선택에서는 EV3 GT을 선택했습니다. 선택 후보의 상대적 장점은 외부 전장 취향·월 유지비 부담입니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "쏘렌토",
+        "b": "그랑 콜레오스",
+        "label": 0,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 그랑 콜레오스을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "카니발",
+        "b": "무쏘 EV",
+        "label": 1,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 카니발을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "싼타페 Hybrid",
+        "b": "더 뉴 스타리아 라운지",
+        "label": 1,
+        "reason": "외부 전장 취향·월 유지비 부담을 더 중시해 싼타페 Hybrid을 선택했습니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 17,
+      "group": "6711241031c1a6e4f157969bf68c9b21124a38c746b525d2931d7138b3f1be69",
+      "profile": {
+        "monthly_income": 6340000,
+        "monthly_expenses": 2520000,
+        "existing_monthly_payment": 470000,
+        "liquid_assets": 140180000,
+        "down_payment": 0,
+        "emergency_reserve": 31610000,
+        "monthly_savings": 1140000,
+        "annual_distance": 23500,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "family",
+        "preferred_fuel": "HYBRID",
+        "charging_available": false,
+        "cost_importance": 3,
+        "space_importance": 4,
+        "minimum_seats": 7,
+        "preferred_size": "medium",
+        "financing_mode": "recommendation",
+        "fuel_importance": 3,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 85040000,
+        "preferred_body_type": "MPV",
+        "body_importance": 3
+      },
+      "experience_priorities": {
+        "cost": 3,
+        "space": 4,
+        "performance": 1,
+        "ride_comfort": 5,
+        "quietness": 4,
+        "design": 3,
+        "brand": 2,
+        "technology": 2
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        0.6,
+        0.8999999999999999,
+        0.6,
+        0.6,
+        0.8,
+        0.0,
+        0.0,
+        0.7
+      ],
+      "scenario": "family 중심, 연 23,500km, 필수 7석. 안정적 충전 접근 없음. 선호 MPV/HYBRID/medium. 비용 중요도 3, 디자인 중요도 3.",
+      "split": "train"
+    },
+    "choices": [
+      {
+        "a": "더 뉴 스타리아 라운지 Hybrid",
+        "b": "카니발 하이리무진",
+        "label": 1,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 더 뉴 스타리아 라운지 Hybrid을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "팰리세이드 Hybrid",
+        "b": "더 뉴 스타리아 Hybrid",
+        "label": 0,
+        "reason": "차체 취향·구매 후 자금 보존을 더 중시해 더 뉴 스타리아 Hybrid을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 리무진 Hybrid",
+        "b": "EV9",
+        "label": 1,
+        "reason": "차체 취향·연료 취향을 더 중시해 더 뉴 스타리아 리무진 Hybrid을 선택했습니다. 외부 전장 취향·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 라운지 Electric",
+        "b": "팰리세이드",
+        "label": 0,
+        "reason": "충전 접근성·외부 전장 취향을 더 중시해 팰리세이드을 선택했습니다. 차체 취향·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "카니발",
+        "b": "시에나",
+        "label": 0,
+        "reason": "연료 취향·월 유지비 부담을 더 중시해 시에나을 선택했습니다. 구매 후 자금 보존·외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 Electric",
+        "b": "PV5 패신저",
+        "label": 0,
+        "reason": "외부 전장 취향·구매 후 자금 보존을 더 중시해 PV5 패신저을 선택했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 라운지",
+        "b": "더 뉴 스타리아 Electric",
+        "label": 1,
+        "reason": "충전 접근성·구매 후 자금 보존을 더 중시해 더 뉴 스타리아 라운지을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "팰리세이드 Hybrid",
+        "b": "팰리세이드",
+        "label": 0,
+        "reason": "종합 선호는 팰리세이드 Hybrid 쪽이지만 이번 확률적 선택에서는 팰리세이드을 선택했습니다. 선택 후보의 상대적 장점은 구매 후 자금 보존입니다. 연료 취향·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "카니발 하이리무진",
+        "b": "EV9",
+        "label": 1,
+        "reason": "차체 취향·충전 접근성을 더 중시해 카니발 하이리무진을 선택했습니다. 외부 전장 취향·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 라운지",
+        "b": "카니발 하이리무진",
+        "label": 0,
+        "reason": "종합 선호는 더 뉴 스타리아 라운지 쪽이지만 이번 확률적 선택에서는 카니발 하이리무진을 선택했습니다. 선택 후보의 상대적 장점은 외부 전장 취향입니다. 구매 후 자금 보존·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 18,
+      "group": "f6719b8359ae3800c8d6f3024749e9dbff45c3ef32e33ca4e28f65965bd6eddc",
+      "profile": {
+        "monthly_income": 9200000,
+        "monthly_expenses": 3840000,
+        "existing_monthly_payment": 410000,
+        "liquid_assets": 219690000,
+        "down_payment": 0,
+        "emergency_reserve": 60110000,
+        "monthly_savings": 1460000,
+        "annual_distance": 11000,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "family",
+        "preferred_fuel": "GASOLINE",
+        "charging_available": false,
+        "cost_importance": 5,
+        "space_importance": 5,
+        "minimum_seats": 7,
+        "preferred_size": "small",
+        "financing_mode": "recommendation",
+        "fuel_importance": 4,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 139720000,
+        "preferred_body_type": "ROADSTER",
+        "body_importance": 4
+      },
+      "experience_priorities": {
+        "cost": 5,
+        "space": 5,
+        "performance": 4,
+        "ride_comfort": 3,
+        "quietness": 2,
+        "design": 5,
+        "brand": 1,
+        "technology": 2
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        1.0,
+        0.7333333333333333,
+        0.8,
+        0.8,
+        1.0,
+        0.0,
+        0.0,
+        0.7
+      ],
+      "scenario": "family 중심, 연 11,000km, 필수 7석. 안정적 충전 접근 없음. 선호 ROADSTER/GASOLINE/small. 비용 중요도 5, 디자인 중요도 5.",
+      "split": "train"
+    },
+    "choices": [
+      {
+        "a": "더 뉴 스타리아 라운지 Electric",
+        "b": "X5",
+        "label": 0,
+        "reason": "충전 접근성·외부 전장 취향을 더 중시해 X5을 선택했습니다. 구매 후 자금 보존·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 라운지 Hybrid",
+        "b": "알파드",
+        "label": 0,
+        "reason": "종합 선호는 더 뉴 스타리아 라운지 Hybrid 쪽이지만 이번 확률적 선택에서는 알파드을 선택했습니다. 선택 후보의 상대적 장점은 외부 전장 취향입니다. 구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 Electric",
+        "b": "더 뉴 스타리아 리무진 Hybrid",
+        "label": 0,
+        "reason": "충전 접근성을 더 중시해 더 뉴 스타리아 리무진 Hybrid을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 라운지",
+        "b": "PV5 패신저",
+        "label": 0,
+        "reason": "종합 선호는 더 뉴 스타리아 라운지 쪽이지만 이번 확률적 선택에서는 PV5 패신저을 선택했습니다. 선택 후보의 상대적 장점은 외부 전장 취향·월 유지비 부담입니다. 충전 접근성·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "카니발",
+        "b": "팰리세이드 Hybrid",
+        "label": 1,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 카니발을 선택했습니다. 외부 전장 취향·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "카니발 하이리무진",
+        "b": "시에나",
+        "label": 1,
+        "reason": "연료 취향·구매 후 자금 보존을 더 중시해 카니발 하이리무진을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 Hybrid",
+        "b": "EV9",
+        "label": 1,
+        "reason": "충전 접근성·구매 후 자금 보존을 더 중시해 더 뉴 스타리아 Hybrid을 선택했습니다. 외부 전장 취향·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 Hybrid",
+        "b": "팰리세이드",
+        "label": 0,
+        "reason": "연료 취향·외부 전장 취향을 더 중시해 팰리세이드을 선택했습니다. 구매 후 자금 보존·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "X5",
+        "b": "알파드",
+        "label": 0,
+        "reason": "구매 후 자금 보존을 더 중시해 알파드을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "PV5 패신저",
+        "b": "알파드",
+        "label": 1,
+        "reason": "구매 후 자금 보존·외부 전장 취향을 더 중시해 PV5 패신저을 선택했습니다. 충전 접근성에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  },
+  {
+    "user": {
+      "id": 19,
+      "group": "1a278707dfe4e1067e8bd019d5b7f044a79b6ca98896772a1463f7081bf057cc",
+      "profile": {
+        "monthly_income": 20740000,
+        "monthly_expenses": 4730000,
+        "existing_monthly_payment": 0,
+        "liquid_assets": 1258490000,
+        "down_payment": 0,
+        "emergency_reserve": 241780000,
+        "monthly_savings": 7830000,
+        "annual_distance": 13500,
+        "months": 0,
+        "annual_rate": 0,
+        "minimum_buffer": 200000,
+        "purpose": "commute",
+        "preferred_fuel": "HYBRID",
+        "charging_available": true,
+        "cost_importance": 5,
+        "space_importance": 3,
+        "minimum_seats": 5,
+        "preferred_size": "small",
+        "financing_mode": "recommendation",
+        "fuel_importance": 4,
+        "seating_importance": 5,
+        "purpose_importance": 3,
+        "purchase_price_ceiling": 338120000,
+        "preferred_body_type": "HATCHBACK",
+        "body_importance": 3
+      },
+      "experience_priorities": {
+        "cost": 5,
+        "space": 3,
+        "performance": 2,
+        "ride_comfort": 3,
+        "quietness": 3,
+        "design": 2,
+        "brand": 1,
+        "technology": 2
+      },
+      "preferred_brands": [],
+      "model_affinities": {},
+      "channel_weights": [
+        1.0,
+        0.9,
+        0.6,
+        0.8,
+        0.6,
+        0.0,
+        0.0,
+        0.15
+      ],
+      "scenario": "commute 중심, 연 13,500km, 필수 5석. 안정적 충전 접근 가능. 선호 HATCHBACK/HYBRID/small. 비용 중요도 5, 디자인 중요도 2.",
+      "split": "validation"
+    },
+    "choices": [
+      {
+        "a": "더 뉴 스타리아 Hybrid",
+        "b": "더 뉴 스타리아 리무진 Hybrid",
+        "label": 1,
+        "reason": "구매 후 자금 보존을 더 중시해 더 뉴 스타리아 Hybrid을 선택했습니다."
+      },
+      {
+        "a": "Electrified G80",
+        "b": "X5",
+        "label": 0,
+        "reason": "외부 전장 취향을 더 중시해 X5을 선택했습니다. 구매 후 자금 보존·월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "카니발",
+        "b": "쏘렌토",
+        "label": 0,
+        "reason": "연료 취향·외부 전장 취향을 더 중시해 쏘렌토을 선택했습니다."
+      },
+      {
+        "a": "GV80 Coupe",
+        "b": "EV9",
+        "label": 0,
+        "reason": "구매 후 자금 보존·월 유지비 부담을 더 중시해 EV9을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "토레스 EVX",
+        "b": "G70",
+        "label": 0,
+        "reason": "외부 전장 취향을 더 중시해 G70을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "PV5 패신저",
+        "b": "싼타페 Hybrid",
+        "label": 0,
+        "reason": "연료 취향을 더 중시해 싼타페 Hybrid을 선택했습니다. 외부 전장 취향에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "더 뉴 스타리아 라운지 Electric",
+        "b": "K8",
+        "label": 0,
+        "reason": "외부 전장 취향·구매 후 자금 보존을 더 중시해 K8을 선택했습니다. 월 유지비 부담에서는 상대 후보에 비해 양보했습니다."
+      },
+      {
+        "a": "EV9 GT",
+        "b": "더 뉴 아이오닉 6",
+        "label": 0,
+        "reason": "외부 전장 취향·구매 후 자금 보존을 더 중시해 더 뉴 아이오닉 6을 선택했습니다."
+      },
+      {
+        "a": "G90 Long Wheel Base",
+        "b": "무쏘 EV",
+        "label": 0,
+        "reason": "구매 후 자금 보존·외부 전장 취향을 더 중시해 무쏘 EV을 선택했습니다."
+      },
+      {
+        "a": "XC60",
+        "b": "EV3 GT",
+        "label": 1,
+        "reason": "연료 취향을 더 중시해 XC60을 선택했습니다. 외부 전장 취향·구매 후 자금 보존에서는 상대 후보에 비해 양보했습니다."
+      }
+    ]
+  }
+]

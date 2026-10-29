@@ -1,0 +1,818 @@
+[
+  {
+    "brand": "Ferrari",
+    "model": "296 GTB",
+    "slug": "ferrari-296-gtb",
+    "source_url": "https://www.ferrarisouthbay.com/new-vehicles/296-gtb",
+    "source_kind": "manufacturer-authorized-dealer-global-specifications",
+    "image_url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/296_GTB_Thumb_8f6ff97551.png",
+    "image_caption": "296_GTB Thumb.png",
+    "technical_groups": [
+      {
+        "id": 1,
+        "name": "Engine",
+        "items": [
+          {
+            "id": 1,
+            "label": "Type",
+            "value": "V6 - 120° Turbo"
+          },
+          {
+            "id": 2,
+            "label": "Total displacement",
+            "value": "2992cc"
+          },
+          {
+            "id": 3,
+            "label": "Max Power (Hybrid)",
+            "value": "830cv"
+          },
+          {
+            "id": 4,
+            "label": "Max Power* (ICE)",
+            "value": "663 CV"
+          },
+          {
+            "id": 5,
+            "label": "Max Torque*",
+            "value": "610Nm"
+          },
+          {
+            "id": 6,
+            "label": "Max Engine Speed",
+            "value": "8500 RPM"
+          },
+          {
+            "id": 8,
+            "label": "Compression Ratio",
+            "value": "9.4:1"
+          },
+          {
+            "id": 7,
+            "label": "Battery Capacity",
+            "value": "7.45kWh"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Transmission and Gearbox",
+        "items": [
+          {
+            "id": 9,
+            "label": "Type",
+            "value": "8-speed F1 DCT"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Performance",
+        "items": [
+          {
+            "id": 10,
+            "label": "Max Speed",
+            "value": "> 330 km/h"
+          },
+          {
+            "id": 11,
+            "label": "0-100 km/h",
+            "value": "2.9 s"
+          },
+          {
+            "id": 12,
+            "label": "0-200 km/h",
+            "value": "7.6s"
+          },
+          {
+            "id": 13,
+            "label": "200-0 km/h",
+            "value": "107 m"
+          },
+          {
+            "id": 15,
+            "label": "Fiorno lap time",
+            "value": "1' 21\""
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Dimensions and Weight",
+        "items": [
+          {
+            "id": 14,
+            "label": "Length",
+            "value": " 4565 mm"
+          },
+          {
+            "id": 17,
+            "label": "Width",
+            "value": "1958 mm"
+          },
+          {
+            "id": 16,
+            "label": "Height",
+            "value": "1187 mm"
+          },
+          {
+            "id": 19,
+            "label": "Wheelbase",
+            "value": " 2600 mm"
+          },
+          {
+            "id": 18,
+            "label": "Front Track",
+            "value": "1665 mm"
+          },
+          {
+            "id": 20,
+            "label": "Rear Track",
+            "value": "1632 mm"
+          },
+          {
+            "id": 24,
+            "label": "Dry Weight***",
+            "value": "1470 kg"
+          },
+          {
+            "id": 23,
+            "label": "Dry Weight/Power Ratio",
+            "value": "1.77 kg/cv"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Tires and Breaks",
+        "items": [
+          {
+            "id": 21,
+            "label": "Front",
+            "value": "245/35 ZR 20 J9.0"
+          },
+          {
+            "id": 22,
+            "label": "Rear",
+            "value": "305/35 ZR 20 J11.0"
+          }
+        ]
+      }
+    ],
+    "market": "global-reference-not-Korean-homologation",
+    "note": "Technical table only. Summary cards have conflicting acceleration/power units; do not copy summary cards."
+  },
+  {
+    "brand": "Ferrari",
+    "model": "296 GTS",
+    "slug": "ferrari-296-gts",
+    "source_url": "https://www.ferrarisouthbay.com/new-vehicles/296-gts",
+    "source_kind": "manufacturer-authorized-dealer-global-specifications",
+    "image_url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/296_GTS_1_thumbnail_azonln_1_f0b5c084fc.png",
+    "image_caption": "296GTS-1-thumbnail_azonln (1).png",
+    "technical_groups": [
+      {
+        "id": 37,
+        "name": "Engine",
+        "items": [
+          {
+            "id": 144,
+            "label": "Type",
+            "value": "V6 - 120° Turbo"
+          },
+          {
+            "id": 143,
+            "label": "Total displacement",
+            "value": "2992cc"
+          },
+          {
+            "id": 150,
+            "label": "Max Power (Hybrid)",
+            "value": "830cv"
+          },
+          {
+            "id": 147,
+            "label": "Max Power* (ICE)",
+            "value": "663 CV"
+          },
+          {
+            "id": 146,
+            "label": "Max Torque*",
+            "value": "610Nm"
+          },
+          {
+            "id": 152,
+            "label": "Max Engine Speed",
+            "value": "8500 RPM"
+          },
+          {
+            "id": 151,
+            "label": "Compression Ratio",
+            "value": "9.4:1"
+          },
+          {
+            "id": 149,
+            "label": "Battery Capacity",
+            "value": "7.45kWh"
+          }
+        ]
+      },
+      {
+        "id": 36,
+        "name": "Transmission and Gearbox",
+        "items": [
+          {
+            "id": 145,
+            "label": "Type",
+            "value": "8-speed F1 DCT"
+          }
+        ]
+      },
+      {
+        "id": 38,
+        "name": "Performance",
+        "items": [
+          {
+            "id": 148,
+            "label": "Max Speed",
+            "value": "> 330 km/h"
+          },
+          {
+            "id": 153,
+            "label": "0-100 km/h",
+            "value": "2.9 s"
+          },
+          {
+            "id": 154,
+            "label": "0-200 km/h",
+            "value": "7.6s"
+          },
+          {
+            "id": 155,
+            "label": "200-0 km/h",
+            "value": "107 m"
+          },
+          {
+            "id": 156,
+            "label": "Fiorno lap time",
+            "value": "1' 21\""
+          }
+        ]
+      },
+      {
+        "id": 39,
+        "name": "Dimensions and Weight",
+        "items": [
+          {
+            "id": 160,
+            "label": "Length",
+            "value": " 4565 mm"
+          },
+          {
+            "id": 159,
+            "label": "Width",
+            "value": "1958 mm"
+          },
+          {
+            "id": 158,
+            "label": "Height",
+            "value": "1187 mm"
+          },
+          {
+            "id": 157,
+            "label": "Wheelbase",
+            "value": " 2600 mm"
+          },
+          {
+            "id": 161,
+            "label": "Front Track",
+            "value": "1665 mm"
+          },
+          {
+            "id": 165,
+            "label": "Rear Track",
+            "value": "1632 mm"
+          },
+          {
+            "id": 162,
+            "label": "Dry Weight***",
+            "value": "1470 kg"
+          },
+          {
+            "id": 163,
+            "label": "Dry Weight/Power Ratio",
+            "value": "1.77 kg/cv"
+          }
+        ]
+      },
+      {
+        "id": 40,
+        "name": "Tires and Breaks",
+        "items": [
+          {
+            "id": 164,
+            "label": "Front",
+            "value": "245/35 ZR 20 J9.0"
+          },
+          {
+            "id": 166,
+            "label": "Rear",
+            "value": "305/35 ZR 20 J11.0"
+          }
+        ]
+      }
+    ],
+    "market": "global-reference-not-Korean-homologation",
+    "note": "Technical table only. Summary cards have conflicting acceleration/power units; do not copy summary cards."
+  },
+  {
+    "brand": "Ferrari",
+    "model": "12Cilindri",
+    "slug": "ferrari-12-cilindri",
+    "source_url": "https://www.ferrarisouthbay.com/new-vehicles/12-cilindri",
+    "source_kind": "manufacturer-authorized-dealer-global-specifications",
+    "image_url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/12cilindri_outlined_e4f2b203fe.png",
+    "image_caption": "12cilindri- outlined.png",
+    "technical_groups": [
+      {
+        "id": 258,
+        "name": "Engine",
+        "items": [
+          {
+            "id": 1001,
+            "label": "Type",
+            "value": "V12 "
+          },
+          {
+            "id": 1000,
+            "label": "Total displacement",
+            "value": "6493 cm3"
+          },
+          {
+            "id": 1003,
+            "label": "Max Power*",
+            "value": "830 CV"
+          },
+          {
+            "id": 1002,
+            "label": "Max Torque*",
+            "value": "678 Nm"
+          },
+          {
+            "id": 1004,
+            "label": "Max Engine Speed",
+            "value": "9500 RPM"
+          },
+          {
+            "id": 1005,
+            "label": "Compression Ratio",
+            "value": "13.5:1"
+          }
+        ]
+      },
+      {
+        "id": 259,
+        "name": "Transmission and Gearbox",
+        "items": [
+          {
+            "id": 1006,
+            "label": "Type",
+            "value": "8-speed DCT"
+          }
+        ]
+      },
+      {
+        "id": 260,
+        "name": "Dimensions and Weight",
+        "items": [
+          {
+            "id": 1007,
+            "label": "Length",
+            "value": " 4733 mm"
+          },
+          {
+            "id": 1008,
+            "label": "Width",
+            "value": "2176 mm"
+          },
+          {
+            "id": 1009,
+            "label": "Height",
+            "value": "1292 mm"
+          },
+          {
+            "id": 1010,
+            "label": "Wheelbase",
+            "value": " 2700 mm"
+          },
+          {
+            "id": 1011,
+            "label": "Front Track",
+            "value": "11686 mm"
+          },
+          {
+            "id": 1012,
+            "label": "Rear Track",
+            "value": "1645 mm"
+          },
+          {
+            "id": 1013,
+            "label": "Dry Weight***",
+            "value": "1560 kg"
+          }
+        ]
+      },
+      {
+        "id": 261,
+        "name": "Tires and Breaks",
+        "items": [
+          {
+            "id": 1014,
+            "label": "Front",
+            "value": "275/35 R21 J10.0"
+          },
+          {
+            "id": 1015,
+            "label": "Rear",
+            "value": "315/35 R21 J11.5"
+          }
+        ]
+      }
+    ],
+    "market": "global-reference-not-Korean-homologation",
+    "note": "Technical table only. Summary cards have conflicting acceleration/power units; do not copy summary cards."
+  },
+  {
+    "brand": "Ferrari",
+    "model": "12Cilindri Spider",
+    "slug": "ferrari-12-cilindri-spider",
+    "source_url": "https://www.ferrarisouthbay.com/new-vehicles/12-cilindri-spider",
+    "source_kind": "manufacturer-authorized-dealer-global-specifications",
+    "image_url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/12cilindri_spider_outlined_e9e7e3263e.png",
+    "image_caption": "12cilindri spider - outlined.png",
+    "technical_groups": [
+      {
+        "id": 263,
+        "name": "Engine",
+        "items": [
+          {
+            "id": 1017,
+            "label": "Type",
+            "value": "V12 "
+          },
+          {
+            "id": 1016,
+            "label": "Total displacement",
+            "value": "6493 cm3"
+          },
+          {
+            "id": 1019,
+            "label": "Max Power*",
+            "value": "830 CV"
+          },
+          {
+            "id": 1018,
+            "label": "Max Torque*",
+            "value": "678 Nm"
+          },
+          {
+            "id": 1020,
+            "label": "Max Engine Speed",
+            "value": "9500 RPM"
+          },
+          {
+            "id": 1021,
+            "label": "Compression Ratio",
+            "value": "13.5:1"
+          }
+        ]
+      },
+      {
+        "id": 264,
+        "name": "Transmission and Gearbox",
+        "items": [
+          {
+            "id": 1022,
+            "label": "Type",
+            "value": "8-speed DCT"
+          }
+        ]
+      },
+      {
+        "id": 262,
+        "name": "Dimensions and Weight",
+        "items": [
+          {
+            "id": 1023,
+            "label": "Length",
+            "value": " 4733 mm"
+          },
+          {
+            "id": 1024,
+            "label": "Width",
+            "value": "2176 mm"
+          },
+          {
+            "id": 1025,
+            "label": "Height",
+            "value": "1292 mm"
+          },
+          {
+            "id": 1026,
+            "label": "Wheelbase",
+            "value": " 2700 mm"
+          },
+          {
+            "id": 1027,
+            "label": "Front Track",
+            "value": "11686 mm"
+          },
+          {
+            "id": 1028,
+            "label": "Rear Track",
+            "value": "1645 mm"
+          },
+          {
+            "id": 1029,
+            "label": "Dry Weight***",
+            "value": "1620 kg"
+          }
+        ]
+      },
+      {
+        "id": 265,
+        "name": "Tires and Breaks",
+        "items": [
+          {
+            "id": 1030,
+            "label": "Front",
+            "value": "275/35 R21 J10.0"
+          },
+          {
+            "id": 1031,
+            "label": "Rear",
+            "value": "315/35 R21 J11.5"
+          }
+        ]
+      }
+    ],
+    "market": "global-reference-not-Korean-homologation",
+    "note": "Technical table only. Summary cards have conflicting acceleration/power units; do not copy summary cards."
+  },
+  {
+    "brand": "Ferrari",
+    "model": "Amalfi",
+    "slug": "ferrari-amalfi",
+    "source_url": "https://www.ferrarisouthbay.com/new-vehicles/amalfi",
+    "source_kind": "manufacturer-authorized-dealer-global-specifications",
+    "image_url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/OUTLINE_63c5f92b26.png",
+    "image_caption": "OUTLINE.png",
+    "technical_groups": [
+      {
+        "id": 283,
+        "name": "Engine",
+        "items": [
+          {
+            "id": 1102,
+            "label": "Type",
+            "value": "V8 Twin-Turbo"
+          },
+          {
+            "id": 1103,
+            "label": "Total displacement",
+            "value": "3855 CC"
+          },
+          {
+            "id": 1105,
+            "label": "Max Power",
+            "value": "640 CV @ 5750 - 7500 RPM"
+          },
+          {
+            "id": 1104,
+            "label": "Max Torque*",
+            "value": " 760 nm at 3000/5750 rpm"
+          },
+          {
+            "id": 1106,
+            "label": "Max Engine Speed",
+            "value": "7600 RPM"
+          },
+          {
+            "id": 1107,
+            "label": "Compression Ratio",
+            "value": "9.4:1"
+          }
+        ]
+      },
+      {
+        "id": 281,
+        "name": "Transmission and Gearbox",
+        "items": [
+          {
+            "id": 1108,
+            "label": "Type",
+            "value": "8-speed F1 DCT"
+          }
+        ]
+      },
+      {
+        "id": 282,
+        "name": "Performance",
+        "items": [
+          {
+            "id": 1109,
+            "label": "Max Speed",
+            "value": "320 km/h"
+          },
+          {
+            "id": 1110,
+            "label": "0-100 km/h",
+            "value": "3.3s"
+          },
+          {
+            "id": 1112,
+            "label": "0-200 km/h",
+            "value": "9.0s"
+          }
+        ]
+      },
+      {
+        "id": 284,
+        "name": "Dimensions and Weight",
+        "items": [
+          {
+            "id": 1111,
+            "label": "Length",
+            "value": "4660mm"
+          },
+          {
+            "id": 1113,
+            "label": "Width",
+            "value": "1974mm"
+          },
+          {
+            "id": 1114,
+            "label": "Height",
+            "value": "1301mm"
+          },
+          {
+            "id": 1115,
+            "label": "Wheelbase",
+            "value": "2670mm"
+          },
+          {
+            "id": 1116,
+            "label": "Dry Weight",
+            "value": "1470kg"
+          }
+        ]
+      },
+      {
+        "id": 285,
+        "name": "Tires and Breaks",
+        "items": [
+          {
+            "id": 1117,
+            "label": "Front",
+            "value": "245/35 R 20” J8.0"
+          },
+          {
+            "id": 1118,
+            "label": "Rear",
+            "value": "285/35 R20” J10.0"
+          }
+        ]
+      }
+    ],
+    "market": "global-reference-not-Korean-homologation",
+    "note": "Technical table only. Summary cards have conflicting acceleration/power units; do not copy summary cards."
+  },
+  {
+    "brand": "Ferrari",
+    "model": "Amalfi Spider",
+    "slug": "ferrari-amalfi-spider",
+    "source_url": "https://www.ferrarisouthbay.com/new-vehicles/amalfi-spider",
+    "source_kind": "manufacturer-authorized-dealer-global-specifications",
+    "image_url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Amalfi_Spider_Outline_1f12b973c1.png",
+    "image_caption": "Amalfi Spider Outline.png",
+    "technical_groups": [
+      {
+        "id": 296,
+        "name": "Engine",
+        "items": [
+          {
+            "id": 1160,
+            "label": "Type",
+            "value": "V8 Twin-Turbo"
+          },
+          {
+            "id": 1159,
+            "label": "Total displacement",
+            "value": "3855 CC"
+          },
+          {
+            "id": 1161,
+            "label": "Max Power",
+            "value": "640 CV @ 5750 - 7500 RPM"
+          },
+          {
+            "id": 1162,
+            "label": "Max Torque*",
+            "value": " 760 nm at 3000/5750 rpm"
+          },
+          {
+            "id": 1163,
+            "label": "Max Engine Speed",
+            "value": "7600 RPM"
+          },
+          {
+            "id": 1164,
+            "label": "Compression Ratio",
+            "value": "9.4:1"
+          }
+        ]
+      },
+      {
+        "id": 297,
+        "name": "Transmission and Gearbox",
+        "items": [
+          {
+            "id": 1165,
+            "label": "Type",
+            "value": "8-speed F1 DCT"
+          }
+        ]
+      },
+      {
+        "id": 298,
+        "name": "Performance",
+        "items": [
+          {
+            "id": 1167,
+            "label": "Max Speed",
+            "value": "320 km/h"
+          },
+          {
+            "id": 1166,
+            "label": "0-100 km/h",
+            "value": "3.3s"
+          },
+          {
+            "id": 1168,
+            "label": "0-200 km/h",
+            "value": "9.4s"
+          }
+        ]
+      },
+      {
+        "id": 300,
+        "name": "Dimensions and Weight",
+        "items": [
+          {
+            "id": 1171,
+            "label": "Length",
+            "value": "4660mm"
+          },
+          {
+            "id": 1170,
+            "label": "Width",
+            "value": "1974mm"
+          },
+          {
+            "id": 1169,
+            "label": "Height",
+            "value": "1301mm"
+          },
+          {
+            "id": 1175,
+            "label": "Wheelbase",
+            "value": "2670mm"
+          },
+          {
+            "id": 1172,
+            "label": "Dry Weight",
+            "value": "1556kg"
+          }
+        ]
+      },
+      {
+        "id": 299,
+        "name": "Tires and Breaks",
+        "items": [
+          {
+            "id": 1173,
+            "label": "Front",
+            "value": "245/35 R 20” J8.0"
+          },
+          {
+            "id": 1174,
+            "label": "Rear",
+            "value": "285/35 R20” J10.0"
+          }
+        ]
+      }
+    ],
+    "market": "global-reference-not-Korean-homologation",
+    "note": "Technical table only. Summary cards have conflicting acceleration/power units; do not copy summary cards."
+  }
+]

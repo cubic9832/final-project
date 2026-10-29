@@ -1,3 +1,68 @@
+## 현재 보존하는 학습 산출물
+
+현재 기본 실행 모델은 `outputs/models/scenario-choices/20261029-v3-broad-taste-10k`다. 대응 학습 데이터는 `data/households/synthetic/scenario-population-v3-broad-taste-10k-20261029`이며, 재생성에 필요한 authored-pilot 시드, scenario-seeds-v2, v3 설정과 차량 근거 자료를 함께 보존한다.
+
+이전 candidate-preferences·behavioral·lifestyle·preference-cohorts 모델과 lifestyle-million·preference-cohorts·시나리오 v1/v2 산출물은 삭제했다. 아래 이전 실험 설명의 산출물 경로는 과거 실행 기록이며 현재 체크아웃에는 없다. 해당 산출물을 직접 로드하는 과거 통합 테스트는 다시 생성하거나 별도 확보한 뒤 실행해야 한다. 현재 서비스 검증은 `test_scenario_serving`과 `test_scenario_training`을 사용한다.
+
+# 일반 취향 기반 v3 모델 서버 적용 — 2026-10-29
+
+현재 기본 모델은 `outputs/models/scenario-choices/20261029-v3-broad-taste-10k`입니다.
+입력 68개, 전체 96모델·308사양을 활용한 사용자 1만 명·비교 선택 10만 쌍으로 학습했습니다.
+`ScenarioService`가 재무·필수 좌석 조건을 적용한 후 새 모델 원본 점수로 정렬합니다.
+브랜드·차량 모델을 묻지 않고 비용 성향·차체·연료·크기·주행거리·충전 여건으로 추천합니다.
+브랜드·모델 호감은 데이터 정답 생성과 실제 추론에서 제외했습니다. API도 해당 선호 필드를 받지 않습니다.
+
+로컬 화면은 `http://127.0.0.1:5174`, 모델 API는 `http://127.0.0.1:8003`입니다.
+기본 실행은 `./ml/serve-candidates.ps1 -Python C:/workspace/final-project/ml/.venv/Scripts/python.exe`입니다.
+화면 실행 시 `$env:VITE_ML_TARGET='http://127.0.0.1:8003'`을 지정합니다.
+[학습 결과와 서버 적용 기록](outputs/models/scenario-choices/20261029-v3-broad-taste-10k/README.md)을 확인합니다.
+
+# 추정 제원 웹 재검토 및 재학습 — 2026-10-28 (이전)
+
+당시 기본 모델은 `outputs/models/preference-cohorts/20261028-v6-web-recheck`였다.
+추정 항목 651개를 공식 참고값 647개·비공식 3사이트 제원 일치값 4개로 교체했다.
+전체 323사양·28항목의 빈 값은 0개이며, 근거가 부족한 합성 가정은 추정 상태를 유지한다.
+[최신 전체 CSV·검토 기준·재현 방법](../data/vehicles/web-recheck-20261028/README.md)을 참고한다.
+
+# 전체 차량 제원 보완 및 재학습 — 2026-10-28 (이전)
+
+현재 기본 모델은 `outputs/models/preference-cohorts/20261028-v4-complete`이다.
+323개 사양의 공통 정보 28개를 빈 값 없이 보완하고 공식·원장·사진 평가·추정을 구분한다.
+새 비교군 데이터는 922개 비교군·2,766개 선호 프로필·794,358개 후보 평가 행이다.
+UI의 차량 상세 제원에서 항목별 값·상태·근거·출처를 확인한다.
+[전체 제원과 재현 방법](../data/vehicles/complete-specifications-20261028/README.md)을 참고한다.
+추정 정원·가격·전장으로 기존 재무 적격 검증을 통과시키지 않는다.
+
+# 비교군 데이터 기반 재학습 — 2026-10-28 (이전)
+
+`ml/test` 기본 모델을 `outputs/models/preference-cohorts/20261028-v1`로 교체했다.
+차량 323개 사양, 비교군 866개·선호 프로필 2,598개·후보 평가 362,778행을 사용한다.
+UI는 디자인·차체·가속·목적의 선호를 받고, 고급 조사 차량은 구매 추천과 별도의 취향 참고 영역에서 표시한다.
+재현 명령·지표·한계와 로컬 실행 방법은 [교체 보고서](outputs/reports/preference-cohorts-20261028/README.md)를 따른다.
+
+아래는 이전 모델 기록이다. 아래의 기존 모델 경로를 기본값으로 해석하지 않는다.
+
+# 취향 확장 100만 건 재학습 — 2026-10-28 (이전)
+
+`ml/test`의 기본 실행 모델은 `outputs/models/lifestyle-choices/20261028-million-v1`이다.
+근거 기반 차량 특성 + 사용자 취향 비교 100만 건으로 새 스키마를 학습했다.
+외관 디자인·용도·브랜드와 기존 연료·크기·차체 선호를 API·UI에 연결했다.
+전체 결과, 재현 설정, 알려진 한계는 [완료 보고서](outputs/reports/lifestyle-million-20261028/README.md)를 따른다.
+
+```powershell
+# worktree 자체에 ml/.venv를 설치했으면 -Python은 생략한다.
+./ml/serve-candidates.ps1 -Python C:/workspace/final-project/ml/.venv/Scripts/python.exe -Port 8128
+$env:VITE_ML_TARGET='http://127.0.0.1:8128'
+npm --prefix front run dev -- --host 127.0.0.1 --port 5298
+```
+
+데이터: `data/households/synthetic/lifestyle-million-20261028`.
+모델·전처리 형식이 달라 이전 PreferenceRanker 가중치는 재사용하지 않았다.
+고급 차량 조사 후보는 학습의 취향 비교에 포함되지만 구매 적격 추천에서 제외된다.
+서비스는 근거가 연결된 모델 카탈로그를 사용한다. 관리 DB 스냅샷으로 자동 치환하지 않는다.
+
+아래는 이전 모델 기록이다.
+
 # 정원 검수 후 재학습 — 2026-10-27
 
 현재 실행 모델은 `20261027-seating-verified-v1`이다. 기본 실행 스크립트와 API 기본 경로에 적용했다. 이전 `20261026-body-v1` 체크포인트는 보존했다.

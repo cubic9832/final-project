@@ -1,0 +1,17 @@
+{
+  "checked_on": "2026-10-28",
+  "branch": "ml/test",
+  "scope": {"models": 23, "configurations": 41, "specification_fields": 535},
+  "images": {"registered": 23, "transparent_corner_checks_passed": 23, "browser_loaded": 23, "browser_failed": 0},
+  "frontend_tests": {"passed": 44, "failed": 0},
+  "frontend_build": "passed",
+  "frontend_lint": {"errors": 0, "preexisting_warnings": 4},
+  "browser_flow": "추천 목록의 Cooper Convertible C Classic 카드에서 상세 보기와 공개 제원 12개 보기를 열어 트림·수치·공식 출처 링크 확인",
+  "ml_snapshot_changes": false,
+  "limitations": [
+    "모델군 대표 사진이며 모든 트림의 장비·색상과 일치하는 사진은 아님",
+    "포르쉐는 공식 정면 투명 이미지 사용",
+    "일부 BMW 치수·정원 및 미확인 국내 공인 연비는 채우지 않음",
+    "국제 참조 제원을 국내 인증이나 신차 주문 가능 여부로 확정하지 않음"
+  ]
+}

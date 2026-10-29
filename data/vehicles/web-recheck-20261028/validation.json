@@ -1,0 +1,20 @@
+{
+  "data_hashes": "passed",
+  "model_snapshot_matches_latest_data": true,
+  "ml_tests": 128,
+  "data_tests": 17,
+  "frontend_tests": 45,
+  "frontend_build": "passed",
+  "lint": "4 pre-existing warnings",
+  "training_test": {
+    "rows": 140265,
+    "weighted_mae": 5.137687548995018e-05,
+    "weighted_mse": 1.3340122784200048e-08
+  },
+  "saved_data_audit": {
+    "status": "passed",
+    "comparisons_checked": 922,
+    "ranking_rows_checked": 794358,
+    "financial_groups_checked": 100
+  }
+}

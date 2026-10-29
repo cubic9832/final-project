@@ -20,6 +20,6 @@ export default function BodyTypePreview({ value, label }) {
         <p>{example.description}</p>
         <small>예시: {example.model} · 실제 추천 차량은 달라질 수 있어요.</small>
       </div>
-    </> : <p>선택된 차체 유형이 없습니다.</p>}
+    </> : <p>{({ COUPE: '쿠페는 제조사가 쿠페로 분류한 차체 형태입니다. 문 개수와 정원은 모델별로 확인해 주세요.', CONVERTIBLE: '컨버터블은 지붕을 열고 닫을 수 있는 형태입니다. 정원은 모델별로 확인해 주세요.', ROADSTER: '로드스터는 개방형 스포츠 차체입니다. 정원과 지붕 구성은 모델별로 확인해 주세요.' })[value] || '선택된 차체 유형이 없습니다.'}</p>}
   </div>;
 }

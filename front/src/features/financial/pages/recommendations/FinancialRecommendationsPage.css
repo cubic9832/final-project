@@ -144,3 +144,22 @@
 .candidate-open-comparison:hover { background: var(--color-mint-hover); }
 .candidate-open-comparison:disabled { opacity: 0.5; cursor: not-allowed; }
 .candidate-open-comparison:focus-visible, .candidate-comparison-table-wrap:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 3px; }
+
+.financial-recommendations-summary dd.lifestyle-summary-text { font-size: var(--font-body); line-height: 1.6; overflow-wrap: anywhere; }
+.candidate-vehicle-specifications { margin-top: var(--space-16); }
+.candidate-vehicle-specifications summary { cursor: pointer; color: var(--color-primary); font-weight: 700; padding: var(--space-8) 0; }
+.candidate-vehicle-specifications summary:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 2px; }
+.candidate-vehicle-specifications dl > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: var(--space-8); padding: var(--space-8) 0; border-bottom: 1px solid var(--color-border); }
+.candidate-vehicle-specifications dd { margin: 0; overflow-wrap: anywhere; }
+.candidate-vehicle-specifications a { color: var(--color-blue-strong); }
+.vehicle-preference-summary { margin-top: var(--space-24); }
+.vehicle-preference-summary h4 { color: var(--color-primary); font-size: var(--font-body); margin-bottom: var(--space-8); }
+.vehicle-preference-summary dl > div { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: var(--space-8); padding: var(--space-8) 0; border-bottom: 1px solid var(--color-border); }
+.vehicle-preference-summary dt { color: var(--color-text-sub); }
+.vehicle-preference-summary dd { margin: 0; color: var(--color-primary); overflow-wrap: anywhere; }
+.vehicle-sales-verification summary { cursor: pointer; color: var(--color-primary); font-weight: 700; padding: var(--space-8) 0; }
+.vehicle-sales-verification summary:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 2px; }
+.vehicle-sales-verification dl > div { padding: var(--space-8) 0; border-bottom: 1px solid var(--color-border); }
+.vehicle-sales-verification dt { font-weight: 700; }
+.vehicle-sales-verification dd { margin: var(--space-8) 0 0; overflow-wrap: anywhere; }
+.vehicle-sales-verification a { display: inline-block; margin-right: var(--space-8); color: var(--color-blue-strong); }

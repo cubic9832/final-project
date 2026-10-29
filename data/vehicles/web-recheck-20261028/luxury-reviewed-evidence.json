@@ -1,0 +1,168 @@
+{
+  "reviews": [
+    {
+      "selector": {
+        "brand": "Ferrari",
+        "model": "12Cilindri"
+      },
+      "scope": "Authorized Ferrari dealer model header: 0–100 km/h 2.9 sec; two-seat berlinetta; do not use erroneous 11686mm track or dry mass as curb mass",
+      "samples": [
+        {
+          "publisher": "Ferrari South Bay",
+          "origin_id": "Ferrari",
+          "url": "https://www.ferrarisouthbay.com/new-vehicles/12-cilindri",
+          "values": {
+            "seconds_0_100": 2.9,
+            "seats": 2
+          },
+          "conditions": "Authorized Ferrari dealer model header: 0–100 km/h 2.9 sec; two-seat berlinetta; do not use erroneous 11686mm track or dry mass as curb mass",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "Ferrari",
+        "model": "12Cilindri Spider"
+      },
+      "scope": "Authorized Ferrari dealer header reports rounded 3.0 sec, not exact 2.95; two seats; overseas model-level reference; dry mass excluded",
+      "samples": [
+        {
+          "publisher": "Ferrari South Bay",
+          "origin_id": "Ferrari",
+          "url": "https://www.ferrarisouthbay.com/new-vehicles/12-cilindri-spider",
+          "values": {
+            "seconds_0_100": 3,
+            "seats": 2
+          },
+          "conditions": "Authorized Ferrari dealer header reports rounded 3.0 sec, not exact 2.95; two seats; overseas model-level reference; dry mass excluded",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "Ferrari",
+        "model": "Amalfi"
+      },
+      "scope": "Authorized dealer dimensions/engine table; width as published, mirror basis unspecified; no dry-to-curb mass substitution",
+      "samples": [
+        {
+          "publisher": "Ferrari South Bay",
+          "origin_id": "Ferrari",
+          "url": "https://www.ferrarisouthbay.com/new-vehicles/amalfi",
+          "values": {
+            "width_mm": 1974,
+            "displacement_cc": 3855,
+            "torque_nm": 760
+          },
+          "conditions": "Authorized dealer dimensions/engine table; width as published, mirror basis unspecified; no dry-to-curb mass substitution",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "Ferrari",
+        "model": "Amalfi Spider"
+      },
+      "scope": "Authorized dealer dimensions/engine table; width as published, mirror basis unspecified; no dry-to-curb mass substitution",
+      "samples": [
+        {
+          "publisher": "Ferrari South Bay",
+          "origin_id": "Ferrari",
+          "url": "https://www.ferrarisouthbay.com/new-vehicles/amalfi-spider",
+          "values": {
+            "width_mm": 1974,
+            "displacement_cc": 3855,
+            "torque_nm": 760
+          },
+          "conditions": "Authorized dealer dimensions/engine table; width as published, mirror basis unspecified; no dry-to-curb mass substitution",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "Ferrari",
+        "model": "Roma Spider"
+      },
+      "scope": "Authorized dealer dimensions/engine table; width as published, mirror basis unspecified; no dry-to-curb mass substitution",
+      "samples": [
+        {
+          "publisher": "Ferrari South Bay",
+          "origin_id": "Ferrari",
+          "url": "https://www.ferrarisouthbay.com/new-vehicles/roma-spider",
+          "values": {
+            "width_mm": 1974,
+            "displacement_cc": 3855,
+            "torque_nm": 760
+          },
+          "conditions": "Authorized dealer dimensions/engine table; width as published, mirror basis unspecified; no dry-to-curb mass substitution",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "Ferrari",
+        "model": "296 GTB"
+      },
+      "scope": "Authorized dealer body table and explicit two-seat description; headline 830kW conflicts with 830CV detail, so power remains unresolved; dry mass excluded",
+      "samples": [
+        {
+          "publisher": "Ferrari South Bay",
+          "origin_id": "Ferrari",
+          "url": "https://www.ferrarisouthbay.com/new-vehicles/296-gtb",
+          "values": {
+            "width_mm": 1958,
+            "seats": 2
+          },
+          "conditions": "Authorized dealer body table and explicit two-seat description; headline 830kW conflicts with 830CV detail, so power remains unresolved; dry mass excluded",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "Ferrari",
+        "model": "296 GTS"
+      },
+      "scope": "Authorized dealer body table and explicit two-seat description; headline 830kW conflicts with 830CV detail, so power remains unresolved; dry mass excluded",
+      "samples": [
+        {
+          "publisher": "Ferrari South Bay",
+          "origin_id": "Ferrari",
+          "url": "https://www.ferrarisouthbay.com/new-vehicles/296-gts",
+          "values": {
+            "width_mm": 1958,
+            "seats": 2
+          },
+          "conditions": "Authorized dealer body table and explicit two-seat description; headline 830kW conflicts with 830CV detail, so power remains unresolved; dry mass excluded",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    }
+  ]
+}

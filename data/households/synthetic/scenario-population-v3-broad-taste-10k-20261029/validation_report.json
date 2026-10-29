@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "profiles": 10000,
+  "comparisons": 100000,
+  "duplicate_users": 0,
+  "financial_group_leakage": 0,
+  "financial_violations": 0,
+  "seating_violations": 0,
+  "feature_mismatches": 0,
+  "label_mismatches": 0,
+  "counts": {
+    "candidate_checks": 127849,
+    "train_profiles": 6998,
+    "train_choices": 69980,
+    "validation_profiles": 1439,
+    "validation_choices": 14390,
+    "test_profiles": 1563,
+    "test_choices": 15630
+  },
+  "models_by_split": {
+    "train": 96,
+    "validation": 96,
+    "test": 96
+  },
+  "catalog_models": 96,
+  "used_specifications": 308,
+  "catalog_specifications": 308,
+  "coverage_status": "passed"
+}

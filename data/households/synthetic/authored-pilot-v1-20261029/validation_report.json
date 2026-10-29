@@ -1,0 +1,2429 @@
+{
+  "status": "passed",
+  "profiles": 30,
+  "choices": 150,
+  "selected_vehicle_specs": 65,
+  "financial_checks": 300,
+  "financial_violations": 0,
+  "seating_violations": 0,
+  "labels": {
+    "A": 75,
+    "B": 75
+  },
+  "partitions": {
+    "train": {
+      "profiles": 20,
+      "choices": 100
+    },
+    "validation": {
+      "profiles": 5,
+      "choices": 25
+    },
+    "test": {
+      "profiles": 5,
+      "choices": 25
+    }
+  },
+  "candidate_assessments": [
+    {
+      "choice_id": "AP001-C1",
+      "vehicle_id": "V-d7301997ec0857a4",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 266633,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP001-C1",
+      "vehicle_id": "supp-8952b93576f29ab7",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 268917,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP001-C2",
+      "vehicle_id": "V-28e35ab7d6ef4cbd",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 278024,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP001-C2",
+      "vehicle_id": "V-d7301997ec0857a4",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 266633,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP001-C3",
+      "vehicle_id": "V-d7301997ec0857a4",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 266633,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP001-C3",
+      "vehicle_id": "V-336d414c0bfa6ca5",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 272592,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP001-C4",
+      "vehicle_id": "V-64c4c208c9a01ac9",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 268917,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP001-C4",
+      "vehicle_id": "V-d7301997ec0857a4",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 266633,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP001-C5",
+      "vehicle_id": "V-d7301997ec0857a4",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 266633,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP001-C5",
+      "vehicle_id": "V-d9c96399680afe0e",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 279489,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP002-C1",
+      "vehicle_id": "supp-8952b93576f29ab7",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 258427,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP002-C1",
+      "vehicle_id": "V-d7301997ec0857a4",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 256429,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP002-C2",
+      "vehicle_id": "V-d7301997ec0857a4",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 256429,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP002-C2",
+      "vehicle_id": "V-64c4c208c9a01ac9",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 258427,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP002-C3",
+      "vehicle_id": "V-ab63421a8b27d732",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 278750,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP002-C3",
+      "vehicle_id": "V-d7301997ec0857a4",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 256429,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP002-C4",
+      "vehicle_id": "V-d7301997ec0857a4",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 256429,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP002-C4",
+      "vehicle_id": "V-4ecd449bcfe84bc6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 292143,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP002-C5",
+      "vehicle_id": "V-52f843db7c9b3dcc",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 275518,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP002-C5",
+      "vehicle_id": "V-d7301997ec0857a4",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 256429,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP003-C1",
+      "vehicle_id": "supp-6b9efd8429d4ff40",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 230259,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP003-C1",
+      "vehicle_id": "supp-89cd283873134273",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 236471,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP003-C2",
+      "vehicle_id": "V-923809da72a4bb56",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 235481,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP003-C2",
+      "vehicle_id": "supp-6b9efd8429d4ff40",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 230259,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP003-C3",
+      "vehicle_id": "supp-6b9efd8429d4ff40",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 230259,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP003-C3",
+      "vehicle_id": "V-e2d0562a4e4a1b1d",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 232728,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP003-C4",
+      "vehicle_id": "V-8c5ee5d4fbc1f6ee",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 230259,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP003-C4",
+      "vehicle_id": "supp-6b9efd8429d4ff40",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 230259,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP003-C5",
+      "vehicle_id": "supp-6b9efd8429d4ff40",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 230259,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP003-C5",
+      "vehicle_id": "V-772a5c9f49b3228a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 253182,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP004-C1",
+      "vehicle_id": "V-64c4c208c9a01ac9",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 499686,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP004-C1",
+      "vehicle_id": "V-f8bebd472f5109cf",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 416959,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP004-C2",
+      "vehicle_id": "V-f8bebd472f5109cf",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 416959,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP004-C2",
+      "vehicle_id": "V-1e59d2cf88131713",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 542143,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP004-C3",
+      "vehicle_id": "V-b0517b3b5605cfd7",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 462778,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP004-C3",
+      "vehicle_id": "V-f8bebd472f5109cf",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 416959,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP004-C4",
+      "vehicle_id": "V-f8bebd472f5109cf",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 416959,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP004-C4",
+      "vehicle_id": "V-39287483c25f8023",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 429566,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP004-C5",
+      "vehicle_id": "V-772a5c9f49b3228a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 412273,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP004-C5",
+      "vehicle_id": "V-f8bebd472f5109cf",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 416959,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP005-C1",
+      "vehicle_id": "V-b0517b3b5605cfd7",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 333149,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP005-C1",
+      "vehicle_id": "V-772a5c9f49b3228a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 306213,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP005-C2",
+      "vehicle_id": "V-f8bebd472f5109cf",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 308712,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP005-C2",
+      "vehicle_id": "V-b0517b3b5605cfd7",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 333149,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP005-C3",
+      "vehicle_id": "V-b0517b3b5605cfd7",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 333149,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP005-C3",
+      "vehicle_id": "V-860e34ed8a4374d0",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 339839,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP005-C4",
+      "vehicle_id": "V-39287483c25f8023",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 315435,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP005-C4",
+      "vehicle_id": "V-b0517b3b5605cfd7",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 333149,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP005-C5",
+      "vehicle_id": "V-b0517b3b5605cfd7",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 333149,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP005-C5",
+      "vehicle_id": "V-4ecd449bcfe84bc6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 429898,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP006-C1",
+      "vehicle_id": "V-444e0e3b5c436f9a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 485000,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP006-C1",
+      "vehicle_id": "V-354f355b55d99324",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 397599,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP006-C2",
+      "vehicle_id": "V-354f355b55d99324",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 397599,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP006-C2",
+      "vehicle_id": "V-4992a62f769b2f63",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 397599,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP006-C3",
+      "vehicle_id": "legacy-C0028",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 463351,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP006-C3",
+      "vehicle_id": "V-354f355b55d99324",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 397599,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP006-C4",
+      "vehicle_id": "V-354f355b55d99324",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 397599,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP006-C4",
+      "vehicle_id": "legacy-C0032",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 397599,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP006-C5",
+      "vehicle_id": "EXP-1096d5d0d358b84e",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 382081,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP006-C5",
+      "vehicle_id": "V-354f355b55d99324",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 397599,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP007-C1",
+      "vehicle_id": "legacy-C0028",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 370568,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP007-C1",
+      "vehicle_id": "V-444e0e3b5c436f9a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 385000,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP007-C2",
+      "vehicle_id": "V-354f355b55d99324",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 326733,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP007-C2",
+      "vehicle_id": "legacy-C0028",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 370568,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP007-C3",
+      "vehicle_id": "legacy-C0028",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 370568,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP007-C3",
+      "vehicle_id": "V-2292e2e4efc58cae",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 349180,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP007-C4",
+      "vehicle_id": "legacy-C0032",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 326733,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP007-C4",
+      "vehicle_id": "legacy-C0028",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 370568,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP007-C5",
+      "vehicle_id": "legacy-C0028",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 370568,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP007-C5",
+      "vehicle_id": "EXP-1096d5d0d358b84e",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 316387,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP008-C1",
+      "vehicle_id": "V-923809da72a4bb56",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 297180,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP008-C1",
+      "vehicle_id": "V-715dedd28ebdf536",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 299380,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP008-C2",
+      "vehicle_id": "V-715dedd28ebdf536",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 299380,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP008-C2",
+      "vehicle_id": "V-8c5ee5d4fbc1f6ee",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 285575,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP008-C3",
+      "vehicle_id": "V-772a5c9f49b3228a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 336516,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP008-C3",
+      "vehicle_id": "V-715dedd28ebdf536",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 299380,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP008-C4",
+      "vehicle_id": "V-715dedd28ebdf536",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 299380,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP008-C4",
+      "vehicle_id": "V-0610c5f2afaac210",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 299380,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP008-C5",
+      "vehicle_id": "legacy-IMP-C001",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 289167,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP008-C5",
+      "vehicle_id": "V-715dedd28ebdf536",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 299380,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP009-C1",
+      "vehicle_id": "V-ab63421a8b27d732",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 372500,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP009-C1",
+      "vehicle_id": "V-d59481ae22c8585c",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 392921,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP009-C2",
+      "vehicle_id": "V-4ecd449bcfe84bc6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 399286,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP009-C2",
+      "vehicle_id": "V-ab63421a8b27d732",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 372500,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP009-C3",
+      "vehicle_id": "V-ab63421a8b27d732",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 372500,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP009-C3",
+      "vehicle_id": "V-e54a84fd664ec2c6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 377661,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP009-C4",
+      "vehicle_id": "V-52f843db7c9b3dcc",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 366035,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP009-C4",
+      "vehicle_id": "V-ab63421a8b27d732",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 372500,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP009-C5",
+      "vehicle_id": "V-ab63421a8b27d732",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 372500,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP009-C5",
+      "vehicle_id": "supp-7649f161ed165de2",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 315483,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP010-C1",
+      "vehicle_id": "V-ab63421a8b27d732",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 426072,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP010-C1",
+      "vehicle_id": "V-e54a84fd664ec2c6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 432707,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP010-C2",
+      "vehicle_id": "V-e54a84fd664ec2c6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 432707,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP010-C2",
+      "vehicle_id": "V-4ecd449bcfe84bc6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 460511,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP010-C3",
+      "vehicle_id": "supp-705332910b044385",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 362084,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP010-C3",
+      "vehicle_id": "V-e54a84fd664ec2c6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 432707,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP010-C4",
+      "vehicle_id": "V-e54a84fd664ec2c6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 432707,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP010-C4",
+      "vehicle_id": "V-1e59d2cf88131713",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 399286,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP010-C5",
+      "vehicle_id": "V-b0517b3b5605cfd7",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 351667,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP010-C5",
+      "vehicle_id": "V-e54a84fd664ec2c6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 432707,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP011-C1",
+      "vehicle_id": "supp-705332910b044385",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 430950,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP011-C1",
+      "vehicle_id": "supp-7649f161ed165de2",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 418005,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP011-C2",
+      "vehicle_id": "V-e54a84fd664ec2c6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 529037,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP011-C2",
+      "vehicle_id": "supp-705332910b044385",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 430950,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP011-C3",
+      "vehicle_id": "supp-705332910b044385",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 430950,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP011-C3",
+      "vehicle_id": "supp-03d3766d44d98675",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 424302,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP011-C4",
+      "vehicle_id": "legacy-IMP-C012",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 529037,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP011-C4",
+      "vehicle_id": "supp-705332910b044385",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 430950,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP011-C5",
+      "vehicle_id": "supp-705332910b044385",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 430950,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP011-C5",
+      "vehicle_id": "legacy-IMP-C004",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 494918,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP012-C1",
+      "vehicle_id": "V-923809da72a4bb56",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 342052,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP012-C1",
+      "vehicle_id": "V-8c5ee5d4fbc1f6ee",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 325805,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP012-C2",
+      "vehicle_id": "V-8c5ee5d4fbc1f6ee",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 325805,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP012-C2",
+      "vehicle_id": "V-715dedd28ebdf536",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 345131,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP012-C3",
+      "vehicle_id": "V-b91ba9ede7f6fb62",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 314630,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP012-C3",
+      "vehicle_id": "V-8c5ee5d4fbc1f6ee",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 325805,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP012-C4",
+      "vehicle_id": "V-8c5ee5d4fbc1f6ee",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 325805,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP012-C4",
+      "vehicle_id": "V-f8bebd472f5109cf",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 401495,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP012-C5",
+      "vehicle_id": "V-0610c5f2afaac210",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 345131,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP012-C5",
+      "vehicle_id": "V-8c5ee5d4fbc1f6ee",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 325805,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP013-C1",
+      "vehicle_id": "V-b91ba9ede7f6fb62",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 272963,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP013-C1",
+      "vehicle_id": "V-8c5ee5d4fbc1f6ee",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 280546,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP013-C2",
+      "vehicle_id": "V-715dedd28ebdf536",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 293661,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP013-C2",
+      "vehicle_id": "V-b91ba9ede7f6fb62",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 272963,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP013-C3",
+      "vehicle_id": "V-b91ba9ede7f6fb62",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 272963,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP013-C3",
+      "vehicle_id": "V-d59481ae22c8585c",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 467179,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP013-C4",
+      "vehicle_id": "V-c96bb9a8153a42b2",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 310947,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP013-C4",
+      "vehicle_id": "V-b91ba9ede7f6fb62",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 272963,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP013-C5",
+      "vehicle_id": "V-b91ba9ede7f6fb62",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 272963,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP013-C5",
+      "vehicle_id": "legacy-IMP-C001",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 283959,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP014-C1",
+      "vehicle_id": "V-d59481ae22c8585c",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 288961,
+      "funding_source": "assets"
+    },
+    {
+      "choice_id": "AP014-C1",
+      "vehicle_id": "V-52f843db7c9b3dcc",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 275518,
+      "funding_source": "assets"
+    },
+    {
+      "choice_id": "AP014-C2",
+      "vehicle_id": "V-52f843db7c9b3dcc",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 275518,
+      "funding_source": "assets"
+    },
+    {
+      "choice_id": "AP014-C2",
+      "vehicle_id": "V-9d1224e390500902",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 301667,
+      "funding_source": "assets"
+    },
+    {
+      "choice_id": "AP014-C3",
+      "vehicle_id": "V-4ecd449bcfe84bc6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 292143,
+      "funding_source": "assets"
+    },
+    {
+      "choice_id": "AP014-C3",
+      "vehicle_id": "V-52f843db7c9b3dcc",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 275518,
+      "funding_source": "assets"
+    },
+    {
+      "choice_id": "AP014-C4",
+      "vehicle_id": "V-52f843db7c9b3dcc",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 275518,
+      "funding_source": "assets"
+    },
+    {
+      "choice_id": "AP014-C4",
+      "vehicle_id": "V-39287483c25f8023",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 242066,
+      "funding_source": "assets"
+    },
+    {
+      "choice_id": "AP014-C5",
+      "vehicle_id": "legacy-C0097",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 265209,
+      "funding_source": "assets"
+    },
+    {
+      "choice_id": "AP014-C5",
+      "vehicle_id": "V-52f843db7c9b3dcc",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 275518,
+      "funding_source": "assets"
+    },
+    {
+      "choice_id": "AP015-C1",
+      "vehicle_id": "V-64c4c208c9a01ac9",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 310875,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP015-C1",
+      "vehicle_id": "V-1e59d2cf88131713",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 327858,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP015-C2",
+      "vehicle_id": "V-52f843db7c9b3dcc",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 340173,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP015-C2",
+      "vehicle_id": "V-64c4c208c9a01ac9",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 310875,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP015-C3",
+      "vehicle_id": "V-64c4c208c9a01ac9",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 310875,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP015-C3",
+      "vehicle_id": "V-ab63421a8b27d732",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 345715,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP015-C4",
+      "vehicle_id": "V-d59481ae22c8585c",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 363218,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP015-C4",
+      "vehicle_id": "V-64c4c208c9a01ac9",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 310875,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP015-C5",
+      "vehicle_id": "V-64c4c208c9a01ac9",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 310875,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP015-C5",
+      "vehicle_id": "legacy-IMP-C003",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 331342,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP016-C1",
+      "vehicle_id": "V-52f843db7c9b3dcc",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 469483,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP016-C1",
+      "vehicle_id": "V-d59481ae22c8585c",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 511733,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP016-C2",
+      "vehicle_id": "V-d59481ae22c8585c",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 511733,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP016-C2",
+      "vehicle_id": "V-dbe217b4a18ac473",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 547638,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP016-C3",
+      "vehicle_id": "V-ab63421a8b27d732",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 479643,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP016-C3",
+      "vehicle_id": "V-d59481ae22c8585c",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 511733,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP016-C4",
+      "vehicle_id": "V-d59481ae22c8585c",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 511733,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP016-C4",
+      "vehicle_id": "V-b9cc97d474045dc9",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 551667,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP016-C5",
+      "vehicle_id": "legacy-IMP-C003",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 453293,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP016-C5",
+      "vehicle_id": "V-d59481ae22c8585c",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 511733,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP017-C1",
+      "vehicle_id": "legacy-IMP-C004",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 408141,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP017-C1",
+      "vehicle_id": "V-d59481ae22c8585c",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 452327,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP017-C2",
+      "vehicle_id": "legacy-IMP-C003",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 404513,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP017-C2",
+      "vehicle_id": "legacy-IMP-C004",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 408141,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP017-C3",
+      "vehicle_id": "legacy-IMP-C004",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 408141,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP017-C3",
+      "vehicle_id": "supp-7649f161ed165de2",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 352764,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP017-C4",
+      "vehicle_id": "legacy-IMP-C012",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 432707,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP017-C4",
+      "vehicle_id": "legacy-IMP-C004",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 408141,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP017-C5",
+      "vehicle_id": "legacy-IMP-C004",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 408141,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP017-C5",
+      "vehicle_id": "V-b9cc97d474045dc9",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 485000,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP018-C1",
+      "vehicle_id": "V-39287483c25f8023",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 380653,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP018-C1",
+      "vehicle_id": "legacy-IMP-C008",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 370568,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP018-C2",
+      "vehicle_id": "legacy-IMP-C008",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 370568,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP018-C2",
+      "vehicle_id": "V-d59481ae22c8585c",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 541436,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP018-C3",
+      "vehicle_id": "legacy-IMP-C003",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 477683,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP018-C3",
+      "vehicle_id": "legacy-IMP-C008",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 370568,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP018-C4",
+      "vehicle_id": "legacy-IMP-C008",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 370568,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP018-C4",
+      "vehicle_id": "legacy-IMP-C004",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 482521,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP018-C5",
+      "vehicle_id": "V-4ecd449bcfe84bc6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 552347,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP018-C5",
+      "vehicle_id": "legacy-IMP-C008",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 370568,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP019-C1",
+      "vehicle_id": "V-28e35ab7d6ef4cbd",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 254768,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP019-C1",
+      "vehicle_id": "V-d7301997ec0857a4",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 246225,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP019-C2",
+      "vehicle_id": "supp-8952b93576f29ab7",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 247938,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP019-C2",
+      "vehicle_id": "V-28e35ab7d6ef4cbd",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 254768,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP019-C3",
+      "vehicle_id": "V-28e35ab7d6ef4cbd",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 254768,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP019-C3",
+      "vehicle_id": "V-336d414c0bfa6ca5",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 250694,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP019-C4",
+      "vehicle_id": "V-64c4c208c9a01ac9",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 247938,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP019-C4",
+      "vehicle_id": "V-28e35ab7d6ef4cbd",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 254768,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP019-C5",
+      "vehicle_id": "V-28e35ab7d6ef4cbd",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 254768,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP019-C5",
+      "vehicle_id": "supp-89cd283873134273",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 219314,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP020-C1",
+      "vehicle_id": "V-28e35ab7d6ef4cbd",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 301280,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP020-C1",
+      "vehicle_id": "supp-89cd283873134273",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 242190,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP020-C2",
+      "vehicle_id": "supp-89cd283873134273",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 242190,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP020-C2",
+      "vehicle_id": "supp-6b9efd8429d4ff40",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 235288,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP020-C3",
+      "vehicle_id": "V-923809da72a4bb56",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 241090,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP020-C3",
+      "vehicle_id": "supp-89cd283873134273",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 242190,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP020-C4",
+      "vehicle_id": "supp-89cd283873134273",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 242190,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP020-C4",
+      "vehicle_id": "V-e2d0562a4e4a1b1d",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 238031,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP020-C5",
+      "vehicle_id": "V-d7301997ec0857a4",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 287041,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP020-C5",
+      "vehicle_id": "supp-89cd283873134273",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 242190,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP021-C1",
+      "vehicle_id": "V-336d414c0bfa6ca5",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 305438,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP021-C1",
+      "vehicle_id": "V-64c4c208c9a01ac9",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 300385,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP021-C2",
+      "vehicle_id": "V-e5622256bb513572",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 317000,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP021-C2",
+      "vehicle_id": "V-336d414c0bfa6ca5",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 305438,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP021-C3",
+      "vehicle_id": "V-336d414c0bfa6ca5",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 305438,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP021-C3",
+      "vehicle_id": "V-74264ca3a644637e",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 306324,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP021-C4",
+      "vehicle_id": "V-d9c96399680afe0e",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 314922,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP021-C4",
+      "vehicle_id": "V-336d414c0bfa6ca5",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 305438,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP021-C5",
+      "vehicle_id": "V-336d414c0bfa6ca5",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 305438,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP021-C5",
+      "vehicle_id": "V-feec12c6666425a3",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 327242,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP022-C1",
+      "vehicle_id": "V-772a5c9f49b3228a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 381970,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP022-C1",
+      "vehicle_id": "V-190ba4c755b528d6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 378070,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP022-C2",
+      "vehicle_id": "V-190ba4c755b528d6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 378070,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP022-C2",
+      "vehicle_id": "V-b0517b3b5605cfd7",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 425741,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP022-C3",
+      "vehicle_id": "V-64c4c208c9a01ac9",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 457728,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP022-C3",
+      "vehicle_id": "V-190ba4c755b528d6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 378070,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP022-C4",
+      "vehicle_id": "V-190ba4c755b528d6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 378070,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP022-C4",
+      "vehicle_id": "V-923809da72a4bb56",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 330834,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP022-C5",
+      "vehicle_id": "V-7f662e069167dcda",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 502074,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP022-C5",
+      "vehicle_id": "V-190ba4c755b528d6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 378070,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP023-C1",
+      "vehicle_id": "V-c346665e926b6fba",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 332059,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP023-C1",
+      "vehicle_id": "V-b0517b3b5605cfd7",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 323889,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP023-C2",
+      "vehicle_id": "V-772a5c9f49b3228a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 298637,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP023-C2",
+      "vehicle_id": "V-c346665e926b6fba",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 332059,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP023-C3",
+      "vehicle_id": "V-c346665e926b6fba",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 332059,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP023-C3",
+      "vehicle_id": "V-7f662e069167dcda",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 367927,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP023-C4",
+      "vehicle_id": "V-3db52022f5132999",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 389546,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP023-C4",
+      "vehicle_id": "V-c346665e926b6fba",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 332059,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP023-C5",
+      "vehicle_id": "V-c346665e926b6fba",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 332059,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP023-C5",
+      "vehicle_id": "V-5b2210b42ca62a1d",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 335000,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP024-C1",
+      "vehicle_id": "V-b0517b3b5605cfd7",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 268334,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP024-C1",
+      "vehicle_id": "V-7f662e069167dcda",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 294757,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP024-C2",
+      "vehicle_id": "V-7f662e069167dcda",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 294757,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP024-C2",
+      "vehicle_id": "V-89eca9bf45d07cb9",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 307728,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP024-C3",
+      "vehicle_id": "V-af6e97a51f640796",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 310000,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP024-C3",
+      "vehicle_id": "V-7f662e069167dcda",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 294757,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP024-C4",
+      "vehicle_id": "V-7f662e069167dcda",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 294757,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP024-C4",
+      "vehicle_id": "V-3db52022f5132999",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 307728,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP024-C5",
+      "vehicle_id": "V-64c4c208c9a01ac9",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 279406,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP024-C5",
+      "vehicle_id": "V-7f662e069167dcda",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 294757,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP025-C1",
+      "vehicle_id": "V-481a86b7ecb83c8a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 337778,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP025-C1",
+      "vehicle_id": "legacy-C0032",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 444843,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP025-C2",
+      "vehicle_id": "V-444e0e3b5c436f9a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 551667,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP025-C2",
+      "vehicle_id": "V-481a86b7ecb83c8a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 337778,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP025-C3",
+      "vehicle_id": "V-481a86b7ecb83c8a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 337778,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP025-C3",
+      "vehicle_id": "V-b760b756161dea52",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 349530,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP025-C4",
+      "vehicle_id": "V-20b4be5730d6553a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 349530,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP025-C4",
+      "vehicle_id": "V-481a86b7ecb83c8a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 337778,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP025-C5",
+      "vehicle_id": "V-481a86b7ecb83c8a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 337778,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP025-C5",
+      "vehicle_id": "V-27887ee7cbab9543",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 363241,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP026-C1",
+      "vehicle_id": "legacy-C0028",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 494279,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP026-C1",
+      "vehicle_id": "legacy-C0032",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 421221,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP026-C2",
+      "vehicle_id": "legacy-C0032",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 421221,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP026-C2",
+      "vehicle_id": "V-444e0e3b5c436f9a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 518334,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP026-C3",
+      "vehicle_id": "V-354f355b55d99324",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 421221,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP026-C3",
+      "vehicle_id": "legacy-C0032",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 421221,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP026-C4",
+      "vehicle_id": "legacy-C0032",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 421221,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP026-C4",
+      "vehicle_id": "EXP-1096d5d0d358b84e",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 403979,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP026-C5",
+      "vehicle_id": "V-4992a62f769b2f63",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 421221,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP026-C5",
+      "vehicle_id": "legacy-C0032",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 421221,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP027-C1",
+      "vehicle_id": "V-444e0e3b5c436f9a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 335000,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP027-C1",
+      "vehicle_id": "V-354f355b55d99324",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 291300,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP027-C2",
+      "vehicle_id": "legacy-C0028",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 324176,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP027-C2",
+      "vehicle_id": "V-444e0e3b5c436f9a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 335000,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP027-C3",
+      "vehicle_id": "V-444e0e3b5c436f9a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 335000,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP027-C3",
+      "vehicle_id": "V-2292e2e4efc58cae",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 308135,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP027-C4",
+      "vehicle_id": "V-54e87f67313082ea",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 343824,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP027-C4",
+      "vehicle_id": "V-444e0e3b5c436f9a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 335000,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP027-C5",
+      "vehicle_id": "V-444e0e3b5c436f9a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 335000,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP027-C5",
+      "vehicle_id": "EXP-1096d5d0d358b84e",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 283541,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP028-C1",
+      "vehicle_id": "V-4ecd449bcfe84bc6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 460511,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP028-C1",
+      "vehicle_id": "V-9611addacabd613d",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 301667,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP028-C2",
+      "vehicle_id": "V-9611addacabd613d",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 301667,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP028-C2",
+      "vehicle_id": "V-0610c5f2afaac210",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 287942,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP028-C3",
+      "vehicle_id": "legacy-IMP-C001",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 278750,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP028-C3",
+      "vehicle_id": "V-9611addacabd613d",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 301667,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP028-C4",
+      "vehicle_id": "V-9611addacabd613d",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 301667,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP028-C4",
+      "vehicle_id": "V-c96bb9a8153a42b2",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 304319,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP028-C5",
+      "vehicle_id": "V-dbe217b4a18ac473",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 481704,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP028-C5",
+      "vehicle_id": "V-9611addacabd613d",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 301667,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP029-C1",
+      "vehicle_id": "V-b7354dcb1817d620",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 284781,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP029-C1",
+      "vehicle_id": "V-e5b7be7e384bb09e",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 253940,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP029-C2",
+      "vehicle_id": "V-ab63421a8b27d732",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 359108,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP029-C2",
+      "vehicle_id": "V-b7354dcb1817d620",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 284781,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP029-C3",
+      "vehicle_id": "V-b7354dcb1817d620",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 284781,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP029-C3",
+      "vehicle_id": "V-481a86b7ecb83c8a",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 275278,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP029-C4",
+      "vehicle_id": "V-4ecd449bcfe84bc6",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 383980,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP029-C4",
+      "vehicle_id": "V-b7354dcb1817d620",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 284781,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP029-C5",
+      "vehicle_id": "V-b7354dcb1817d620",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 284781,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP029-C5",
+      "vehicle_id": "V-efdc973ffc5cfc48",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 275278,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP030-C1",
+      "vehicle_id": "V-f8bebd472f5109cf",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 223660,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP030-C1",
+      "vehicle_id": "V-1e59d2cf88131713",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 244524,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP030-C2",
+      "vehicle_id": "V-1e59d2cf88131713",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 244524,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP030-C2",
+      "vehicle_id": "V-52f843db7c9b3dcc",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 249656,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP030-C3",
+      "vehicle_id": "V-ab63421a8b27d732",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 251965,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP030-C3",
+      "vehicle_id": "V-1e59d2cf88131713",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 244524,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP030-C4",
+      "vehicle_id": "V-1e59d2cf88131713",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 244524,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP030-C4",
+      "vehicle_id": "V-8c5ee5d4fbc1f6ee",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 210144,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP030-C5",
+      "vehicle_id": "V-57ece7c7152d061b",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 245000,
+      "funding_source": "income"
+    },
+    {
+      "choice_id": "AP030-C5",
+      "vehicle_id": "V-1e59d2cf88131713",
+      "eligible": true,
+      "seating_status": "match",
+      "monthly_running_cost": 244524,
+      "funding_source": "income"
+    }
+  ]
+}

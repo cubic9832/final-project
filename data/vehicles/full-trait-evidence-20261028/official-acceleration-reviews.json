@@ -1,0 +1,7 @@
+{
+  "checked_on": "2026-10-28",
+  "reviews": [
+    {"brand":"볼보","model":"XC60","trims":["B5 AWD Plus","B5 AWD Ultra"],"years":["2026"],"seconds_0_100":6.9,"source_url":"https://www.volvocars.com/kr/cars/xc60/","basis":"2026 model year; B5 AWD; Acceleration (0-100 km/h): 6.9s","limitation":"제조사 페이지는 국내 판매 모델과 다를 수 있다고 명시합니다. 트림별 독립 실측값이 아닌 동일 파워트레인 공개 수치입니다."},
+    {"brand":"볼보","model":"XC60","trims":["T8 AWD Ultra"],"years":["2026"],"seconds_0_100":4.8,"source_url":"https://www.volvocars.com/kr/cars/xc60-hybrid/","basis":"2026 model year; T8 AWD; Acceleration (0-100 km/h): 4.8s","limitation":"제조사 페이지는 국내 판매 모델과 다를 수 있다고 명시합니다. 트림별 독립 실측값이 아닌 동일 파워트레인 공개 수치입니다."}
+  ]
+}

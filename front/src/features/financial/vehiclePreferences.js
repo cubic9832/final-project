@@ -8,6 +8,8 @@ export const bodyTypeOptions = [
   { value: 'SUV', label: 'SUV' }, { value: 'HATCHBACK', label: '해치백' },
   { value: 'WAGON', label: '왜건' }, { value: 'MPV', label: '미니밴·승합' },
   { value: 'BOX', label: '박스카' }, { value: 'PICKUP', label: '픽업트럭' },
+  { value: 'COUPE', label: '쿠페' }, { value: 'CONVERTIBLE', label: '컨버터블' },
+  { value: 'ROADSTER', label: '로드스터' },
 ];
 export const bodyTypeLabel = value => bodyTypeOptions.find(item => item.value === value)?.label ?? '형태 미확인';
 export const sizeOptions = [

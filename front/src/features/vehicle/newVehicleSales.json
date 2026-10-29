@@ -1,0 +1,1087 @@
+{
+  "checked_on": "2026-10-28",
+  "revision": "20261028-prices-v2",
+  "scope": "display-only-sales-verification",
+  "vehicles": [
+    {
+      "identity": {
+        "id": "research-09ba848c424f73d6",
+        "brand": "Porsche",
+        "model": "911 카브리올레",
+        "trim": "Carrera 4 GTS Cabriolet",
+        "year": "2027"
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": "2027",
+        "status": "official-reference",
+        "basis": "국내 구성기 표시 연식.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "seats": {
+        "value": null,
+        "status": "unverified",
+        "basis": "국내 등록 정원과 좌석 옵션 구성 미확인. 학습용 추정 정원과 구분합니다. 모델군의 2+2 소개를 모든 트림의 기본 정원으로 적용하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "designation": {
+        "value": "Carrera 4 GTS Cabriolet",
+        "status": "official-reference",
+        "basis": "국내 공식 구성기의 사양명.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "domestic": {
+        "value": "국내 공식 라인업 · 2026-10-28 등재 확인",
+        "status": "official-reference",
+        "basis": "국내 라인업 등재 확인일이며 최초 출시일이 아닙니다. 개별 차량 주문·재고를 의미하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "price": {
+        "value": 273200000,
+        "status": "official-reference",
+        "basis": "국내 공식 MSRP. 선택품목·취득세·운송료·기타 핸들링 제외. 개별소비세 한시 인하 적용 여부는 판매점 확인 필요.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      }
+    },
+    {
+      "identity": {
+        "id": "research-2252ddfcfaf4f93d",
+        "brand": "Lamborghini",
+        "model": "Revuelto",
+        "trim": "research-candidate",
+        "year": null
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": "2024",
+        "status": "secondary-reference",
+        "basis": "채택한 가격 자료의 연식. 현재 주문 차량의 연식 또는 최초 출시 연도를 의미하지 않습니다.",
+        "sources": [
+          "https://web.getcha.kr/discount-price/4"
+        ]
+      },
+      "seats": {
+        "value": null,
+        "status": "unverified",
+        "basis": "국내 등록 정원과 좌석 옵션 구성 미확인. 학습용 추정 정원과 구분합니다.",
+        "sources": []
+      },
+      "designation": {
+        "value": "Revuelto",
+        "status": "official-model",
+        "basis": "공식 모델명 확인. 별도 국내 판매 트림·옵션 구성은 미확인.",
+        "sources": [
+          "https://www.lamborghini.com/ko-en/모델/revuelto"
+        ]
+      },
+      "domestic": {
+        "value": "2023-06-23 국내 출시",
+        "status": "reported-history",
+        "basis": "2023-06-23 국내 도입 보도. 현재 주문·재고와는 구분합니다.",
+        "sources": [
+          "https://www.koreajoongangdaily.com/business/lamborghini-introduces-its-first-plugin-hybrid-electric-vehicle-in-korea/10283832"
+        ]
+      },
+      "price": {
+        "value": 784000000,
+        "status": "secondary-reference",
+        "basis": "겟차 2024년형 V12(2025.03) 목록가 784,000,000원. 다른 시점의 795,000,000원 보도와 연식·세금 조건이 다를 수 있습니다.",
+        "sources": [
+          "https://web.getcha.kr/discount-price/4"
+        ],
+        "alternative_note": "기존 목록가 784,000,000원과 다른 보도 795,000,000원이 다릅니다. 연식·세금 조건 미확인."
+      }
+    },
+    {
+      "identity": {
+        "id": "research-2f7d8729da556495",
+        "brand": "Ferrari",
+        "model": "Amalfi Spider",
+        "trim": "research-candidate",
+        "year": null
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": null,
+        "status": "unverified",
+        "basis": "국내 판매 연식 미확인. 합성 데이터의 기준 연도를 실제 연식으로 사용하지 않습니다.",
+        "sources": []
+      },
+      "seats": {
+        "value": "2+ 구조 · 국내 등록 정원 미확인",
+        "status": "official-layout",
+        "basis": "공식 설명은 앞좌석과 소형 뒷좌석의 2+ 구조입니다. 학습용 추정 2명을 공식 정원으로 해석하지 않습니다.",
+        "sources": [
+          "https://www.ferraribeverlyhills.com/articles/introducing-the-amalfi-spider"
+        ]
+      },
+      "designation": {
+        "value": "Amalfi Spider",
+        "status": "official-model",
+        "basis": "공식 모델명 확인. 별도 국내 판매 트림·옵션 구성은 미확인.",
+        "sources": [
+          "https://www.ferrarisouthbay.com/new-vehicles/amalfi-spider"
+        ]
+      },
+      "domestic": {
+        "value": "2026-06 국내 첫 공개",
+        "status": "reported-history",
+        "basis": "카사 페라리 국내 첫 공개 행사. 현재 주문·재고와 구분합니다.",
+        "sources": [
+          "https://biz.heraldcorp.com/article/10777821"
+        ]
+      },
+      "price": {
+        "value": 433000000,
+        "status": "estimated-price",
+        "basis": "국내 아말피 쿠페 출시가 385,000,000원에 Motor1 보도 이탈리아 스파이더/쿠페 가격비 272,000/242,000을 적용하고 백만 원 단위 반올림. 국내 예상가 433,000,000원이며 공식 판매 가격이 아닙니다.",
+        "sources": [
+          "https://it.motor1.com/reviews/803509/ferrari-amalfi-spider-2026-prova/",
+          "https://zdnet.co.kr/view/?no=20251023162226"
+        ],
+        "calculation": {
+          "base_price_won": 385000000,
+          "spider_eur": 272000,
+          "coupe_eur": 242000,
+          "rounding_won": 1000000
+        }
+      }
+    },
+    {
+      "identity": {
+        "id": "research-325b63506b5cf709",
+        "brand": "Ferrari",
+        "model": "Amalfi",
+        "trim": "research-candidate",
+        "year": null
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": null,
+        "status": "unverified",
+        "basis": "국내 판매 연식 미확인. 합성 데이터의 기준 연도를 실제 연식으로 사용하지 않습니다.",
+        "sources": []
+      },
+      "seats": {
+        "value": "2+ 구조 · 국내 등록 정원 미확인",
+        "status": "official-layout",
+        "basis": "공식 설명은 앞좌석과 소형 뒷좌석의 2+ 구조입니다. 학습용 추정 2명을 공식 정원으로 해석하지 않습니다.",
+        "sources": [
+          "https://www.ferrarisouthbay.com/new-vehicles/amalfi"
+        ]
+      },
+      "designation": {
+        "value": "Amalfi",
+        "status": "official-model",
+        "basis": "공식 모델명 확인. 별도 국내 판매 트림·옵션 구성은 미확인.",
+        "sources": [
+          "https://www.ferrarisouthbay.com/new-vehicles/amalfi"
+        ]
+      },
+      "domestic": {
+        "value": "2025-10-23 국내 출시",
+        "status": "reported-history",
+        "basis": "2025-10-23 국내 출시 보도.",
+        "sources": [
+          "https://zdnet.co.kr/view/?no=20251023162226"
+        ]
+      },
+      "price": {
+        "value": 385000000,
+        "status": "reported-launch-price",
+        "basis": "2025-10-23 국내 출시 당시 보도 가격. 현재 공식 견적과 세금·옵션 조건은 미확인.",
+        "sources": [
+          "https://zdnet.co.kr/view/?no=20251023162226"
+        ]
+      }
+    },
+    {
+      "identity": {
+        "id": "research-39295d8e95003284",
+        "brand": "Porsche",
+        "model": "911 쿠페",
+        "trim": "Turbo S",
+        "year": "2027"
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": "2027",
+        "status": "official-reference",
+        "basis": "국내 구성기 표시 연식.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "seats": {
+        "value": null,
+        "status": "unverified",
+        "basis": "국내 등록 정원과 좌석 옵션 구성 미확인. 학습용 추정 정원과 구분합니다. 모델군의 2+2 소개를 모든 트림의 기본 정원으로 적용하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "designation": {
+        "value": "Turbo S",
+        "status": "official-reference",
+        "basis": "국내 공식 구성기의 사양명.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "domestic": {
+        "value": "국내 공식 라인업 · 2026-10-28 등재 확인",
+        "status": "official-reference",
+        "basis": "국내 라인업 등재 확인일이며 최초 출시일이 아닙니다. 개별 차량 주문·재고를 의미하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "price": {
+        "value": 350000000,
+        "status": "official-reference",
+        "basis": "국내 공식 MSRP. 선택품목·취득세·운송료·기타 핸들링 제외. 개별소비세 한시 인하 적용 여부는 판매점 확인 필요.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      }
+    },
+    {
+      "identity": {
+        "id": "research-3be8660b2daab103",
+        "brand": "Porsche",
+        "model": "911 쿠페",
+        "trim": "GT3 with Touring Package",
+        "year": "2027"
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": "2027",
+        "status": "official-reference",
+        "basis": "국내 구성기 표시 연식.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "seats": {
+        "value": null,
+        "status": "unverified",
+        "basis": "국내 등록 정원과 좌석 옵션 구성 미확인. 학습용 추정 정원과 구분합니다. 모델군의 2+2 소개를 모든 트림의 기본 정원으로 적용하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "designation": {
+        "value": "GT3 with Touring Package",
+        "status": "official-reference",
+        "basis": "국내 공식 구성기의 사양명.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "domestic": {
+        "value": "국내 공식 라인업 · 2026-10-28 등재 확인",
+        "status": "official-reference",
+        "basis": "국내 라인업 등재 확인일이며 최초 출시일이 아닙니다. 개별 차량 주문·재고를 의미하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "price": {
+        "value": 283000000,
+        "status": "official-reference",
+        "basis": "국내 공식 MSRP. 선택품목·취득세·운송료·기타 핸들링 제외. 개별소비세 한시 인하 적용 여부는 판매점 확인 필요.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      }
+    },
+    {
+      "identity": {
+        "id": "research-41dbe8464511fe28",
+        "brand": "Porsche",
+        "model": "911 타르가",
+        "trim": "Targa 4 GTS",
+        "year": "2027"
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": "2027",
+        "status": "official-reference",
+        "basis": "국내 구성기 표시 연식.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "seats": {
+        "value": null,
+        "status": "unverified",
+        "basis": "국내 등록 정원과 좌석 옵션 구성 미확인. 학습용 추정 정원과 구분합니다. 모델군의 2+2 소개를 모든 트림의 기본 정원으로 적용하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "designation": {
+        "value": "Targa 4 GTS",
+        "status": "official-reference",
+        "basis": "국내 공식 구성기의 사양명.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "domestic": {
+        "value": "국내 공식 라인업 · 2026-10-28 등재 확인",
+        "status": "official-reference",
+        "basis": "국내 라인업 등재 확인일이며 최초 출시일이 아닙니다. 개별 차량 주문·재고를 의미하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "price": {
+        "value": 273400000,
+        "status": "official-reference",
+        "basis": "국내 공식 MSRP. 선택품목·취득세·운송료·기타 핸들링 제외. 개별소비세 한시 인하 적용 여부는 판매점 확인 필요.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      }
+    },
+    {
+      "identity": {
+        "id": "research-4ee3df1a41b7dede",
+        "brand": "Porsche",
+        "model": "911 카브리올레",
+        "trim": "Turbo S Cabriolet",
+        "year": "2027"
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": "2027",
+        "status": "official-reference",
+        "basis": "국내 구성기 표시 연식.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "seats": {
+        "value": null,
+        "status": "unverified",
+        "basis": "국내 등록 정원과 좌석 옵션 구성 미확인. 학습용 추정 정원과 구분합니다. 모델군의 2+2 소개를 모든 트림의 기본 정원으로 적용하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "designation": {
+        "value": "Turbo S Cabriolet",
+        "status": "official-reference",
+        "basis": "국내 공식 구성기의 사양명.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "domestic": {
+        "value": "국내 공식 라인업 · 2026-10-28 등재 확인",
+        "status": "official-reference",
+        "basis": "국내 라인업 등재 확인일이며 최초 출시일이 아닙니다. 개별 차량 주문·재고를 의미하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "price": {
+        "value": 368000000,
+        "status": "official-reference",
+        "basis": "국내 공식 MSRP. 선택품목·취득세·운송료·기타 핸들링 제외. 개별소비세 한시 인하 적용 여부는 판매점 확인 필요.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      }
+    },
+    {
+      "identity": {
+        "id": "research-6140c12787f85049",
+        "brand": "Ferrari",
+        "model": "12Cilindri Spider",
+        "trim": "research-candidate",
+        "year": null
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": null,
+        "status": "unverified",
+        "basis": "국내 판매 연식 미확인. 합성 데이터의 기준 연도를 실제 연식으로 사용하지 않습니다.",
+        "sources": []
+      },
+      "seats": {
+        "value": 2,
+        "status": "official-reference",
+        "basis": "해외 공식 딜러의 모델 좌석 구성. 국내 개별 차량 등록 사양과 구분합니다.",
+        "sources": [
+          "https://www.ferrarisouthbay.com/new-vehicles/12-cilindri-spider"
+        ]
+      },
+      "designation": {
+        "value": "12Cilindri Spider",
+        "status": "official-model",
+        "basis": "공식 모델명 확인. 별도 국내 판매 트림·옵션 구성은 미확인.",
+        "sources": [
+          "https://www.ferrarisouthbay.com/new-vehicles/12-cilindri-spider"
+        ]
+      },
+      "domestic": {
+        "value": "2026년 국내 신차 목록 등재 · 정식 출시일 미공표",
+        "status": "secondary-reference",
+        "basis": "다나와 국내 모델 목록의 2026년~현재 표기와 카눈 판매중인 모델 목록 등재 확인. 판매 개시·인증 완료 날짜는 별도로 확인되지 않았습니다.",
+        "sources": [
+          "https://auto.danawa.com/auto/?Model=4644&Work=model",
+          "https://www.carnoon.co.kr/newcar/search/?brand=262"
+        ]
+      },
+      "price": {
+        "value": 700000000,
+        "status": "secondary-reference",
+        "basis": "카눈 판매중인 12Cilindri Spider 목록가 700,000,000원. KB차차차 매거진의 과거 630,000,000원대 보도와 구분합니다. 제조사 공식 확정가 또는 독립 3출처 합의로 승격하지 않습니다.",
+        "sources": [
+          "https://www.carnoon.co.kr/newcar/search/?brand=262"
+        ]
+      }
+    },
+    {
+      "identity": {
+        "id": "research-6cd54995b2928c34",
+        "brand": "Ferrari",
+        "model": "296 GTS",
+        "trim": "research-candidate",
+        "year": null
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": null,
+        "status": "unverified",
+        "basis": "국내 판매 연식 미확인. 합성 데이터의 기준 연도를 실제 연식으로 사용하지 않습니다.",
+        "sources": []
+      },
+      "seats": {
+        "value": 2,
+        "status": "official-reference",
+        "basis": "해외 공식 딜러의 모델 좌석 구성. 국내 개별 차량 등록 사양과 구분합니다.",
+        "sources": [
+          "https://www.ferrarisouthbay.com/new-vehicles/296-gts"
+        ]
+      },
+      "designation": {
+        "value": "296 GTS",
+        "status": "official-model",
+        "basis": "공식 모델명 확인. 별도 국내 판매 트림·옵션 구성은 미확인.",
+        "sources": [
+          "https://www.ferrarisouthbay.com/new-vehicles/296-gts"
+        ]
+      },
+      "domestic": {
+        "value": "2022-08-05 국내 출시",
+        "status": "reported-history",
+        "basis": "2022-08-05 국내 출시. 현재 주문 상태와는 구분합니다.",
+        "sources": [
+          "https://m.etnews.com/20220805000078"
+        ]
+      },
+      "price": {
+        "value": 461000000,
+        "status": "secondary-reference",
+        "basis": "카눈 국내 296 GTS 목록가 461,000,000원. 기존 참고가 460,000,000원과 차이가 있으며 현재 공식 견적은 아닙니다.",
+        "sources": [
+          "https://www.carnoon.co.kr/newcar/search/?brand=262"
+        ],
+        "alternative_note": "기존 참고가 460,000,000원과 카눈 461,000,000원이 있습니다. 근사해도 동일 조건의 독립 3출처 검증이 아니므로 확정 보류."
+      }
+    },
+    {
+      "identity": {
+        "id": "research-81f001cd557917d0",
+        "brand": "Lamborghini",
+        "model": "Temerario",
+        "trim": "research-candidate",
+        "year": null
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": "2026",
+        "status": "secondary-reference",
+        "basis": "채택한 가격 자료의 연식. 현재 주문 차량의 연식 또는 최초 출시 연도를 의미하지 않습니다.",
+        "sources": [
+          "https://web.getcha.kr/discount-price/4"
+        ]
+      },
+      "seats": {
+        "value": null,
+        "status": "unverified",
+        "basis": "국내 등록 정원과 좌석 옵션 구성 미확인. 학습용 추정 정원과 구분합니다.",
+        "sources": []
+      },
+      "designation": {
+        "value": "Temerario",
+        "status": "official-model",
+        "basis": "공식 모델명 확인. 별도 국내 판매 트림·옵션 구성은 미확인.",
+        "sources": [
+          "https://www.lamborghini.com/ko-en/모델/temerario"
+        ]
+      },
+      "domestic": {
+        "value": "2025-03 국내 공개 · 2026-05 국내 인도 개시",
+        "status": "reported-history",
+        "basis": "제조사 한국 프리미어 보도자료 배포 2025-03-07. 2026-05-26 국내 고객 인도 개시 보도.",
+        "sources": [
+          "https://v.daum.net/v/20260526170611256"
+        ]
+      },
+      "price": {
+        "value": 473000000,
+        "status": "secondary-reference",
+        "basis": "겟차 2026년형 목록가 473,000,000원. 과거 출시 보도 가격 440,000,000원과 구분합니다.",
+        "sources": [
+          "https://web.getcha.kr/discount-price/4"
+        ],
+        "alternative_note": "기존 목록가 473,000,000원과 출시 보도 440,000,000원이 다릅니다. 같은 연식·세금·옵션 조건 미확인."
+      }
+    },
+    {
+      "identity": {
+        "id": "research-901d5a74773caa55",
+        "brand": "Porsche",
+        "model": "911 쿠페",
+        "trim": "Carrera GTS",
+        "year": "2027"
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": "2027",
+        "status": "official-reference",
+        "basis": "국내 구성기 표시 연식.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "seats": {
+        "value": null,
+        "status": "unverified",
+        "basis": "국내 등록 정원과 좌석 옵션 구성 미확인. 학습용 추정 정원과 구분합니다. 모델군의 2+2 소개를 모든 트림의 기본 정원으로 적용하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "designation": {
+        "value": "Carrera GTS",
+        "status": "official-reference",
+        "basis": "국내 공식 구성기의 사양명.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "domestic": {
+        "value": "국내 공식 라인업 · 2026-10-28 등재 확인",
+        "status": "official-reference",
+        "basis": "국내 라인업 등재 확인일이며 최초 출시일이 아닙니다. 개별 차량 주문·재고를 의미하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "price": {
+        "value": 247300000,
+        "status": "official-reference",
+        "basis": "국내 공식 MSRP. 선택품목·취득세·운송료·기타 핸들링 제외. 개별소비세 한시 인하 적용 여부는 판매점 확인 필요.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      }
+    },
+    {
+      "identity": {
+        "id": "research-90fba97cde44e041",
+        "brand": "Porsche",
+        "model": "911 카브리올레",
+        "trim": "Carrera GTS Cabriolet",
+        "year": "2027"
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": "2027",
+        "status": "official-reference",
+        "basis": "국내 구성기 표시 연식.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "seats": {
+        "value": null,
+        "status": "unverified",
+        "basis": "국내 등록 정원과 좌석 옵션 구성 미확인. 학습용 추정 정원과 구분합니다. 모델군의 2+2 소개를 모든 트림의 기본 정원으로 적용하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "designation": {
+        "value": "Carrera GTS Cabriolet",
+        "status": "official-reference",
+        "basis": "국내 공식 구성기의 사양명.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "domestic": {
+        "value": "국내 공식 라인업 · 2026-10-28 등재 확인",
+        "status": "official-reference",
+        "basis": "국내 라인업 등재 확인일이며 최초 출시일이 아닙니다. 개별 차량 주문·재고를 의미하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "price": {
+        "value": 263600000,
+        "status": "official-reference",
+        "basis": "국내 공식 MSRP. 선택품목·취득세·운송료·기타 핸들링 제외. 개별소비세 한시 인하 적용 여부는 판매점 확인 필요.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      }
+    },
+    {
+      "identity": {
+        "id": "research-94eaa971ad63e86a",
+        "brand": "Ferrari",
+        "model": "Roma Spider",
+        "trim": "research-candidate",
+        "year": null
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": "2024",
+        "status": "secondary-reference",
+        "basis": "채택한 가격 자료의 연식. 현재 주문 차량의 연식 또는 최초 출시 연도를 의미하지 않습니다.",
+        "sources": [
+          "https://www.carnoon.co.kr/newcar/vehicle/11730"
+        ]
+      },
+      "seats": {
+        "value": "2+ 구조 · 국내 등록 정원 미확인",
+        "status": "official-layout",
+        "basis": "공식 설명은 앞좌석과 소형 뒷좌석의 2+ 구조입니다. 학습용 추정 2명을 공식 정원으로 해석하지 않습니다.",
+        "sources": [
+          "https://www.ferrarisouthbay.com/new-vehicles/roma-spider"
+        ]
+      },
+      "designation": {
+        "value": "Roma Spider",
+        "status": "official-model",
+        "basis": "공식 모델명 확인. 별도 국내 판매 트림·옵션 구성은 미확인.",
+        "sources": [
+          "https://www.ferrarisouthbay.com/new-vehicles/roma-spider"
+        ]
+      },
+      "domestic": {
+        "value": "2023-06-01 국내 출시",
+        "status": "reported-history",
+        "basis": "2023-06-01 국내 출시 행사. 현재 주문 상태와는 구분합니다.",
+        "sources": [
+          "https://www.newspim.com/news/view/20230601000928"
+        ]
+      },
+      "price": {
+        "value": 375000000,
+        "status": "secondary-reference",
+        "basis": "카눈의 2024년형 Roma Spider V8 가격 375,000,000원 채택. 겟차의 같은 모델명 340,000,000원은 대체 관측값으로 보존합니다.",
+        "sources": [
+          "https://www.carnoon.co.kr/newcar/vehicle/11730"
+        ],
+        "alternative_note": "기존 참고가 340,000,000원의 로마 쿠페·스파이더 구분과 현재 연식 조건이 불명확하여 채택 보류."
+      }
+    },
+    {
+      "identity": {
+        "id": "research-b2432b18494d0213",
+        "brand": "Ferrari",
+        "model": "296 GTB",
+        "trim": "research-candidate",
+        "year": null
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": null,
+        "status": "unverified",
+        "basis": "국내 판매 연식 미확인. 합성 데이터의 기준 연도를 실제 연식으로 사용하지 않습니다.",
+        "sources": []
+      },
+      "seats": {
+        "value": 2,
+        "status": "official-reference",
+        "basis": "해외 공식 딜러의 모델 좌석 구성. 국내 개별 차량 등록 사양과 구분합니다.",
+        "sources": [
+          "https://www.ferrarisouthbay.com/new-vehicles/296-gtb"
+        ]
+      },
+      "designation": {
+        "value": "296 GTB",
+        "status": "official-model",
+        "basis": "공식 모델명 확인. 별도 국내 판매 트림·옵션 구성은 미확인.",
+        "sources": [
+          "https://www.ferrarisouthbay.com/new-vehicles/296-gtb"
+        ]
+      },
+      "domestic": {
+        "value": "2022-01-20 국내 출시",
+        "status": "reported-history",
+        "basis": "2022-01-20 국내 출시. 현재 주문 상태와는 구분합니다.",
+        "sources": [
+          "https://zdnet.co.kr/view/?no=20220120114253"
+        ]
+      },
+      "price": {
+        "value": 398000000,
+        "status": "secondary-reference",
+        "basis": "카눈 국내 296 GTB 목록의 시작가 398,000,000원. 범위 상단 415,000,000원과 과거 참고가 376,000,000원은 연식·옵션 조건이 달라 병기합니다.",
+        "sources": [
+          "https://www.carnoon.co.kr/newcar/search/?brand=262"
+        ],
+        "alternative_note": "기존 참고가 376,000,000원과 카눈 398,000,000~415,000,000원이 다릅니다. 연식·옵션 조건 미확인으로 가격 확정 보류."
+      }
+    },
+    {
+      "identity": {
+        "id": "research-c096cac3883cc344",
+        "brand": "Porsche",
+        "model": "911 쿠페",
+        "trim": "GT3",
+        "year": "2027"
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": "2027",
+        "status": "official-reference",
+        "basis": "국내 구성기 표시 연식.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "seats": {
+        "value": null,
+        "status": "unverified",
+        "basis": "국내 등록 정원과 좌석 옵션 구성 미확인. 학습용 추정 정원과 구분합니다. 모델군의 2+2 소개를 모든 트림의 기본 정원으로 적용하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "designation": {
+        "value": "GT3",
+        "status": "official-reference",
+        "basis": "국내 공식 구성기의 사양명.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "domestic": {
+        "value": "국내 공식 라인업 · 2026-10-28 등재 확인",
+        "status": "official-reference",
+        "basis": "국내 라인업 등재 확인일이며 최초 출시일이 아닙니다. 개별 차량 주문·재고를 의미하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "price": {
+        "value": 283000000,
+        "status": "official-reference",
+        "basis": "국내 공식 MSRP. 선택품목·취득세·운송료·기타 핸들링 제외. 개별소비세 한시 인하 적용 여부는 판매점 확인 필요.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      }
+    },
+    {
+      "identity": {
+        "id": "research-d386d919e490ca62",
+        "brand": "Porsche",
+        "model": "911 카브리올레",
+        "trim": "Spirit 70",
+        "year": "2026"
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": "2026",
+        "status": "official-reference",
+        "basis": "구성기에 표시된 연식. Spirit 70의 기술 제원 각주는 2025 MY로 별도 표기되어 있습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "seats": {
+        "value": null,
+        "status": "unverified",
+        "basis": "국내 등록 정원과 좌석 옵션 구성 미확인. 학습용 추정 정원과 구분합니다. 모델군의 2+2 소개를 모든 트림의 기본 정원으로 적용하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "designation": {
+        "value": "Spirit 70",
+        "status": "official-reference",
+        "basis": "국내 공식 구성기의 사양명.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "domestic": {
+        "value": "국내 공식 라인업 · 2026-10-28 등재 확인",
+        "status": "official-reference",
+        "basis": "국내 라인업 등재 확인일이며 최초 출시일이 아닙니다. 개별 차량 주문·재고를 의미하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "price": {
+        "value": 326000000,
+        "status": "official-reference",
+        "basis": "국내 공식 MSRP. 선택품목·취득세·운송료·기타 핸들링 제외. 개별소비세 한시 인하 적용 여부는 판매점 확인 필요.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      }
+    },
+    {
+      "identity": {
+        "id": "research-d40dc69716d07f60",
+        "brand": "Ferrari",
+        "model": "12Cilindri",
+        "trim": "research-candidate",
+        "year": null
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": null,
+        "status": "unverified",
+        "basis": "국내 판매 연식 미확인. 합성 데이터의 기준 연도를 실제 연식으로 사용하지 않습니다.",
+        "sources": []
+      },
+      "seats": {
+        "value": 2,
+        "status": "official-reference",
+        "basis": "해외 공식 딜러의 모델 좌석 구성. 국내 개별 차량 등록 사양과 구분합니다.",
+        "sources": [
+          "https://www.ferrarisouthbay.com/new-vehicles/12-cilindri"
+        ]
+      },
+      "designation": {
+        "value": "12Cilindri",
+        "status": "official-model",
+        "basis": "공식 모델명 확인. 별도 국내 판매 트림·옵션 구성은 미확인.",
+        "sources": [
+          "https://www.ferrarisouthbay.com/new-vehicles/12-cilindri"
+        ]
+      },
+      "domestic": {
+        "value": "2024-05-30 국내 공개",
+        "status": "reported-history",
+        "basis": "국내 공개 행사일. 당시 국내 가격·인도 시점은 미정이었으며 이후 가격 목록과 구분합니다.",
+        "sources": [
+          "https://autodiary.kr/2024/05/4241422/"
+        ]
+      },
+      "price": {
+        "value": 580000000,
+        "status": "secondary-reference",
+        "basis": "기존 2차 사이트 참고 가격. 동일 연식·세금·옵션 조건의 독립 3출처 합의와 현재 공식 가격은 미확인.",
+        "sources": [
+          "https://mauto.danawa.com/auto/?Model=4643&Work=model"
+        ]
+      }
+    },
+    {
+      "identity": {
+        "id": "research-f4a205961e52ed2b",
+        "brand": "Porsche",
+        "model": "911 쿠페",
+        "trim": "Carrera 4 GTS",
+        "year": "2027"
+      },
+      "checked_on": "2026-10-28",
+      "financial_assessment": "not-assessed",
+      "order": {
+        "value": null,
+        "status": "unverified",
+        "basis": "현재 신규 주문 접수·국내 배정 물량·재고·인도 일정 미확인.",
+        "sources": []
+      },
+      "year": {
+        "value": "2027",
+        "status": "official-reference",
+        "basis": "국내 구성기 표시 연식.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "seats": {
+        "value": null,
+        "status": "unverified",
+        "basis": "국내 등록 정원과 좌석 옵션 구성 미확인. 학습용 추정 정원과 구분합니다. 모델군의 2+2 소개를 모든 트림의 기본 정원으로 적용하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "designation": {
+        "value": "Carrera 4 GTS",
+        "status": "official-reference",
+        "basis": "국내 공식 구성기의 사양명.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "domestic": {
+        "value": "국내 공식 라인업 · 2026-10-28 등재 확인",
+        "status": "official-reference",
+        "basis": "국내 라인업 등재 확인일이며 최초 출시일이 아닙니다. 개별 차량 주문·재고를 의미하지 않습니다.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      },
+      "price": {
+        "value": 256900000,
+        "status": "official-reference",
+        "basis": "국내 공식 MSRP. 선택품목·취득세·운송료·기타 핸들링 제외. 개별소비세 한시 인하 적용 여부는 판매점 확인 필요.",
+        "sources": [
+          "https://www.porsche.com/korea/ko/models/911/configure/"
+        ]
+      }
+    }
+  ]
+}

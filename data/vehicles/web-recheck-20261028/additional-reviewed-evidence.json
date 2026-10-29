@@ -1,0 +1,360 @@
+{
+  "reviews": [
+    {
+      "selector": {
+        "brand": "BMW",
+        "model": "2시리즈 그란쿠페"
+      },
+      "scope": "F74 220; height conflict 1435/1445 held; KR powertrain not inferred",
+      "samples": [
+        {
+          "publisher": "BMW",
+          "origin_id": "BMW",
+          "url": "https://www.bmw.de/de/neufahrzeuge/2er/gran-coupe/bmw-2er-gran-coupe-technische-daten.html",
+          "values": {
+            "length_mm": 4546,
+            "width_mm": 1800,
+            "wheelbase_mm": 2670,
+            "cargo_litres": 360
+          },
+          "conditions": "F74 220; height conflict 1435/1445 held; KR powertrain not inferred",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "BMW",
+        "model": "4시리즈 그란쿠페",
+        "trims": [
+          "420i 그란 쿠페 M 스포츠 프로"
+        ]
+      },
+      "scope": "G26 420i RWD 184PS 8AT; cargo seats raised; not i4/M440i",
+      "samples": [
+        {
+          "publisher": "BMW",
+          "origin_id": "BMW",
+          "url": "https://www.bmw.co.uk/en/all-models/4-series/gran-coupe/4-series-gran-coupe-2024-g26-technical-data.html",
+          "values": {
+            "length_mm": 4783,
+            "width_mm": 1852,
+            "height_mm": 1442,
+            "wheelbase_mm": 2856,
+            "cargo_litres": 470,
+            "displacement_cc": 1998,
+            "power_ps": 184,
+            "torque_nm": 300
+          },
+          "conditions": "G26 420i RWD 184PS 8AT; cargo seats raised; not i4/M440i",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "BMW",
+        "model": "4시리즈 그란쿠페",
+        "trims": [
+          "i4 eDrive40 그란 쿠페 M 스포츠"
+        ]
+      },
+      "scope": "G26 i4 eDrive40 RWD; regional official reference; cargo seats raised",
+      "samples": [
+        {
+          "publisher": "BMW",
+          "origin_id": "BMW",
+          "url": "https://www.bmw.co.uk/en/all-models/4-series/gran-coupe/4-series-gran-coupe-2024-g26-technical-data.html",
+          "values": {
+            "length_mm": 4783,
+            "width_mm": 1852,
+            "height_mm": 1448,
+            "wheelbase_mm": 2856,
+            "cargo_litres": 470,
+            "power_ps": 340,
+            "torque_nm": 430
+          },
+          "conditions": "G26 i4 eDrive40 RWD; regional official reference; cargo seats raised",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "BMW",
+        "model": "4시리즈 컨버터블",
+        "trims": [
+          "420i 컨버터블 M 스포츠"
+        ]
+      },
+      "scope": "G23 420i M Sport; GB reference, not G83 M4",
+      "samples": [
+        {
+          "publisher": "BMW",
+          "origin_id": "BMW",
+          "url": "https://www.bmw.co.uk/en/all-models/4-series/4-series-cabrio/bmw-4-series-convertible-technical-data.html",
+          "values": {
+            "length_mm": 4768,
+            "width_mm": 1852,
+            "height_mm": 1384,
+            "wheelbase_mm": 2851,
+            "cargo_litres": 385,
+            "displacement_cc": 1998,
+            "power_ps": 184,
+            "torque_nm": 300
+          },
+          "conditions": "G23 420i M Sport; GB reference, not G83 M4",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "BMW",
+        "model": "3시리즈 투어링"
+      },
+      "scope": "G21 320d RWD 8AT; seats raised cargo; not xDrive",
+      "samples": [
+        {
+          "publisher": "BMW",
+          "origin_id": "BMW",
+          "url": "https://www.bmw.de/de/neufahrzeuge/3er/bmw-3-er-touring/bmw-3er-touring-technische-daten.html",
+          "values": {
+            "width_mm": 1827,
+            "height_mm": 1440,
+            "wheelbase_mm": 2851,
+            "power_ps": 190,
+            "torque_nm": 400,
+            "displacement_cc": 1995,
+            "top_speed_kmh": 229,
+            "cargo_litres": 500
+          },
+          "conditions": "G21 320d RWD 8AT; seats raised cargo; not xDrive",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "BMW",
+        "model": "3시리즈"
+      },
+      "scope": "G20 non-M shared body only, no xDrive height/weight transfer",
+      "samples": [
+        {
+          "publisher": "BMW",
+          "origin_id": "BMW",
+          "url": "https://www.bmw.de/content/bmw/marketDE/bmw_de/de/neufahrzeuge/3er/bmw-3-er-limousine/bmw-3er-limousine-technische-daten.html",
+          "values": {
+            "width_mm": 1827,
+            "wheelbase_mm": 2851,
+            "cargo_litres": 480
+          },
+          "conditions": "G20 non-M shared body only, no xDrive height/weight transfer",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "BMW",
+        "model": "5시리즈"
+      },
+      "scope": "G60 ICE sedan; original length 5060 matches; exclude i5/M5/PHEV",
+      "samples": [
+        {
+          "publisher": "BMW",
+          "origin_id": "BMW",
+          "url": "https://www.bmw.de/de_DE/all-models/5-series/sedan/5-series-sedan-2023-g60-technical-data.html/bmw-520i-limousine.bmw",
+          "values": {
+            "width_mm": 1900,
+            "height_mm": 1515,
+            "wheelbase_mm": 2995,
+            "cargo_litres": 520
+          },
+          "conditions": "G60 ICE sedan; original length 5060 matches; exclude i5/M5/PHEV",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "BMW",
+        "model": "X3"
+      },
+      "scope": "G45 non-PHEV body; catalog length 4755 confirms generation; seats raised cargo",
+      "samples": [
+        {
+          "publisher": "BMW",
+          "origin_id": "BMW",
+          "url": "https://www.bmw.de/de/bmw-modelle-vergleichen.html/X/G45/31GP/S02TE/content.q",
+          "values": {
+            "width_mm": 1920,
+            "height_mm": 1660,
+            "wheelbase_mm": 2865,
+            "cargo_litres": 570
+          },
+          "conditions": "G45 non-PHEV body; catalog length 4755 confirms generation; seats raised cargo",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "BMW",
+        "model": "X1",
+        "trims": [
+          "sDrive18d xLine"
+        ]
+      },
+      "scope": "U11 sDrive18d 150PS FWD 7AT overseas reference; not KR measurement",
+      "samples": [
+        {
+          "publisher": "BMW",
+          "origin_id": "BMW",
+          "url": "https://www.bmw.de/de/neufahrzeuge/x/x1/bmw-x1-technische-daten.html",
+          "values": {
+            "width_mm": 1845,
+            "height_mm": 1642,
+            "wheelbase_mm": 2692,
+            "power_ps": 150,
+            "torque_nm": 360,
+            "displacement_cc": 1995,
+            "top_speed_kmh": 210,
+            "cargo_litres": 540,
+            "seconds_0_100": 8.9
+          },
+          "conditions": "U11 sDrive18d 150PS FWD 7AT overseas reference; not KR measurement",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "BMW",
+        "model": "X5"
+      },
+      "scope": "G05 LCI xDrive30d xLine body; 7-seat weight/cargo excluded; not G65",
+      "samples": [
+        {
+          "publisher": "BMW",
+          "origin_id": "BMW",
+          "url": "https://www.bmw.co.uk/content/bmw/marketGB/bmw_co_uk/en/all-models/x-models/x5/bmw-x5-technical-data.html",
+          "values": {
+            "width_mm": 2004,
+            "height_mm": 1765,
+            "wheelbase_mm": 2975
+          },
+          "conditions": "G05 LCI xDrive30d xLine body; 7-seat weight/cargo excluded; not G65",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "MINI",
+        "model": "Cooper Convertible",
+        "trims": [
+          "C Classic",
+          "S Favoured"
+        ]
+      },
+      "scope": "F67 C/S body; JCW excluded; erroneous 741kg source weight not used",
+      "samples": [
+        {
+          "publisher": "MINI",
+          "origin_id": "MINI",
+          "url": "https://www.mini.co.uk/en_GB/home/range/mini-cooper-convertible/technical-data.22GX.S07EP.html",
+          "values": {
+            "width_mm": 1744,
+            "height_mm": 1431
+          },
+          "conditions": "F67 C/S body; JCW excluded; erroneous 741kg source weight not used",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "테슬라",
+        "model": "Model Y"
+      },
+      "scope": "2025+ Juniper Premium five-seat; width excludes mirrors; clearance unladen; 822L behind raised second row, not VDA-equivalent",
+      "samples": [
+        {
+          "publisher": "테슬라",
+          "origin_id": "테슬라",
+          "url": "https://www.tesla.com/ownersmanual/modely/en_mx/GUID-1E76B638-7B12-4D9A-8767-94B7F1E92A0E.html",
+          "values": {
+            "width_mm": 1920,
+            "height_mm": 1624,
+            "wheelbase_mm": 2890,
+            "ground_clearance_mm": 167,
+            "cargo_litres": 822
+          },
+          "conditions": "2025+ Juniper Premium five-seat; width excludes mirrors; clearance unladen; 822L behind raised second row, not VDA-equivalent",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "메르세데스-벤츠",
+        "model": "E-Class"
+      },
+      "scope": "W214 E200 non-PHEV; not W213; width 1880/1904 conflict held",
+      "samples": [
+        {
+          "publisher": "메르세데스-벤츠",
+          "origin_id": "메르세데스-벤츠",
+          "url": "https://www.mercedes-benz.ie/services/manuals/e-class-saloon-2023-02-w214-mbux/vehicle-data/vehicle-dimensions/",
+          "values": {
+            "height_mm": 1468,
+            "wheelbase_mm": 2961
+          },
+          "conditions": "W214 E200 non-PHEV; not W213; width 1880/1904 conflict held",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    }
+  ]
+}

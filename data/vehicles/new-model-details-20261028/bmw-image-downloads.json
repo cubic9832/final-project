@@ -1,0 +1,65 @@
+[
+  {
+    "brand": "BMW",
+    "model": "2시리즈 쿠페",
+    "slug": "bmw-2-coupe",
+    "source_url": "https://www.bmw.co.kr/ko/all-models.html",
+    "image_url": "https://prod.cosy.bmw.cloud/bmwweb/cosySec?COSY-EU-100-73315jAvmZ7dgMyNxRUQRqWHIBJeiJ9m0xuzHKCpLebtOPoxWmwPAb4gLhWptvYhFU1qitagd56reMnTNIu8dtE6MJeiPVWfNwb5WNRXb8WCdqBz62tdnkq8qZ4zOALULRzkIFJGJ0zABKupUiIFeWS6GBnKMPVYpeGWhbNm6ipPo90yYw0bHi4Tmtj9%25wc3y7QiftxdIWCw178zBGWtECUkwa27slGAt9ECrXpF7r%25lZQ6KCZiXRaYWl98Q5nmPXHRagOybQVunvIT9aNZO2B3inFlIjedwOoQBDMztIrBeqhk7bqvMLoAC9EqhJHFliafou%25KXw0KHSfWQt4v%25V1Pa7cjfNEbnCHy10s9Ol%259E4riIXfdscZwBQ1urxRteaEJZ857MjJxRUgChDYC5Gvloqmsgp2XHLyPv6jQ%25J9k2YDafuJOjmqn1SFbDyLOEVxKqTJIsNSfL3uBrK1vJdSeZWEuuzVMRPvySkNh5byyVA0og9QNNF4Hv4Ux0Kc%252cdH4WxfjxincP81D87LxbUEqUJo89GsLGpZUiprJp9eGw6Zu6aTptYRSYnu67m5Vl8YYCygNXMBmlTv0qfvyXq3B4lxTjHPmnSk%25p1XZmQGZI5LasNF1XOLtDOPCv7RZ8XCWit74Sc1QOBCsJdoR7Gq2XTqWhc9uvFtuNoEiyAInuuQwWptvWcbpqHsix2md4WsiBO3qImvhU6VJdoVKjfbYE5IUyg19wtPoxhXwt7b4gkVe7ncGs5Tn=",
+    "status": "failed",
+    "error": "HTTP Error 500: Internal Server Error"
+  },
+  {
+    "brand": "BMW",
+    "model": "2시리즈 그란쿠페",
+    "slug": "bmw-2-gran-coupe",
+    "source_url": "https://www.bmw.co.kr/ko/all-models.html",
+    "image_url": "https://prod.cosy.bmw.cloud/bmwweb/cosySec?COSY-EU-100-73315jAvmZ7dgMujNRUQRqWHIBJeiJ8VVluzHJZ0uDShtf5eqKD3v%25fMA8o4YKQ53f0%25lif2p8YYCjgkRCzChCWB5GvlolZEgp2XHXIvv6jQ%25ohq2YDafHRjjmqn1%25VYDyLOEfmgqTJIs1SfL3uBrEVBJdSeZGjNuzVMRpzeSkNh56JmVA0ogS8cNF4HvVJA0Kc%252NKd4Wxfj0WucP81D4PPxbUEqcu889GsLxSHUiprJ8z0Gw6ZuUIPptYRSDtb67m5VqztYCygNLc3mlTv0JnvyX324uOXTQdjcSmw3azDxVyidnkq8W4CzOALUPZXkIFJGbhJABKup9o3FeWS6i9NKMPVYws5WhbNmtQrPo90ys6IbHi4TrBB9%25wc3ZqiiftxdRTJw178z7QltECUkCo87slGAl5uCrXpFX2WlZQ6KQPxXRaYWanyQ5nmPnR0agOybOJynvIT9jgCO2B3iDvMIjedwq2xBDMztKGweqhrhPeEQm2awpfQ53nqPR9ayVJxW%25w1pIYJ3MuO30zbSy7sYJNbjWNRqADd3aJqZvjDlwXYuW4O%259%25UdDOPSIagdI64XM6yvLB9lrE6vkduKM4adOKU2JBzcbt3aJBZswUrb4g7c4ptvmQxDOPLNrA90qIeMnvzg%25eMhO30CmRhEdFJNiE=",
+    "status": "failed",
+    "error": "HTTP Error 500: Internal Server Error"
+  },
+  {
+    "brand": "BMW",
+    "model": "4시리즈 쿠페",
+    "slug": "bmw-4-coupe",
+    "source_url": "https://www.bmw.co.kr/ko/all-models.html",
+    "image_url": "https://prod.cosy.bmw.cloud/bmwweb/cosySec?COSY-EU-100-73315jAvmZ7dgMyNxRUQRqWHIBJeiJ9m0xuzHJZ0uDShtf5eqKD3v%25fMA8o4YKQ53f0%25lif2p8YYCjgkRCzChCWB5GvlolPsgp2XHXRcv6jQ%25QBY2YDafHS6jmqn1%25rYDyLOEfm%25qTJIs1SfL3uBrEVtJdSeZsNxuzVMRpsFSkNh56q4VA0ogYAhNF4HvVUt0Kc%252NuF4Wxfj0WzcP81D4PSxbUEqcuo89GsLxdbUiprJ8OaGw6ZuUIPptYRSGpW67m5Vp3%25YCygN6W9mlTv0YPmyX324uXtTQdjcSKX3azDxVGAdnkq8NeqzOALU0M9kIFJG4hIABKupcolFeWS6xkRKMPVY8AaWhbNmUFQPo90y7QhbHi4TCE49%25wc3lsKiftxdXrLw178zQuvtECUkaQp7slGAnjJCrXpFOhDlZQ6KInkXRaYWDA1Q5nmPqFtagOybLKnnvIT9JrrO2B3iu8IIjedweHhBDMztM5deqhk7hSGMLoACot6hJHFlH4Qou%25KX%25adHSfWQf1U%25V1Pa1E9fNEbnEVT10s9OsN1E4riIr6iscZwBZYvrxRteRmBZ857MGdTRUgChauP5GvSvO5J19xEMWq10tsGONBEiy6knDMLWZb6tgYrt3CImioub6TI8nTNGXU7tE6GVc8U%25MfbYzdnxBDF7UrOmZE47ZPdfgPicpRB%25SJPPe5EagdE7raFx6RCzIhtE6RVuMFSId4ozdWhc91kUrOpTSXB3GZ5gscC4D5gvrt3H9NvJ7Q6TeJ=",
+    "status": "failed",
+    "error": "HTTP Error 500: Internal Server Error"
+  },
+  {
+    "brand": "BMW",
+    "model": "4시리즈 그란쿠페",
+    "slug": "bmw-4-gran-coupe",
+    "source_url": "https://www.bmw.co.kr/ko/all-models.html",
+    "image_url": "https://prod.cosy.bmw.cloud/bmwweb/cosySec?COSY-EU-100-73315jAvmZ7dgMyDKRUQRqWHIBJeiJ9m%25BuzHJZ0uDShtf5eqKD3v%25fMA8o4YKQ53f0%25lif2p8YYCjgkRCzChCWB5GvlolPsgp2XHXRcv6jQ%25oup2YDafHs6jmqn1%25YHDyLOEfu%25qTJIs1S4L3uBrU2VJdSeZGdBuzVMRpKkSkNh56PRVA0ogS8wNF4HvVJA0Kc%252NKd4Wxfj0WucP81D4TWxbUEqcaX89GsLxCuUiprJ8vBGw6ZuUGKptYRSGTH67m5VpKbYCygN6WYmlTv0JkCyX324uXtTQdjcSKX3azDxVGAdnkq8NeqzOALU0M9kIFJG4hIABKupcolFeWS6xkRKMPVY8AXWhbNmt2%25Po90y710bHi4TCEF9%25wc3lsqiftxdXJgw178zQXGtECUka2L7slGAnMjCrXpFOazlZQ6KjI1XRaYWDA1Q5nmPqFaagOybLssnvIT9JxOO2B3iBoMIjedweR3BDMztMuUeqhk7hNlMLoACoXThJHFlH%25Wou%25KX%25JYHSfWQfuH%25V1Pa1UPfNEbnEGR10s9OspnE4riICDAscZqZXsjoKNHOkvoub%25cXJaHWp8TlgO2k1F8brUfbYiQGWBDF86Q0l6Jct49bH8cLV04MOhFUbmDFagd94fXG1HS91AmhrAWVxEaMqjAVw9UCrmH9fCdN8EiyQIbH8ELDOdqQmSBymkIVKoT4fXx6qtaYc1sr%25ViSgsrZfbYeKJZj9786nj=",
+    "status": "failed",
+    "error": "HTTP Error 500: Internal Server Error"
+  },
+  {
+    "brand": "BMW",
+    "model": "4시리즈 컨버터블",
+    "slug": "bmw-4-convertible",
+    "source_url": "https://www.bmw.co.kr/ko/all-models.html",
+    "image_url": "https://prod.cosy.bmw.cloud/bmwweb/cosySec?COSY-EU-100-73315jAvmZ7dgMujNRUQRqWHIBJeiJ9m%25BuzHJZ0uDShtf5eqKD3v%25fMA8o4YKQ53f0%25lif2p8YYCjgkRCzChCWB5GvlolPsgp2XHXRcv6jQ%25QBH2YDafHS6jmqn1%25rYDyLOEfSrqTJIs1yfL3uBrEV1JdSeZsNxuzVMRpD0SkNh56kMVA0ogY6hNF4HvVJA0Kc%252NKd4Wxfj0WucP81D4TWxbUEqcaX89GsLxnKUiprJ8lSGw6ZuUGKptYRSGTN67m5Vp3%25YCygN6W9mlTv0YPmyX324uXtTQdjcSKX3azDxVBDdnkq8NebzOALU0MOkIFJG4hCABKupczZFeWS6xkQKMPVY8AXWhbNmtXMPo90y710bHi4TCEF9%25wc3lsqiftxdXJgw178zQXGtECUka2L7slGAnMjCrXpFOazlZQ6KjI1XRaYWDA1Q5nmPqFaagOybLssnvIT9IheO2B3iBZTIjedweJ8BDMztMVCeqhk7hlyMLoACoHchJHFlH%25Wou%25KX%25JYHSfWQfuH%25V1Pa1UPfNEbnEGR10s9OspnE4riICzOscZqZXsjoKNHOkvoub%25cXJaHWp8TlgO2k1F8brUfbYiQGWBDF86Q0l6Jct49bH8cLV04MOhFUymlFagd94fXG1HS91AmhrAWVxEaMqjAVw9UCrmH9fCdN8EiyQIbH8ELDOdqQmSBymkIVKoT4fXx6qtaYc1sr%25ViSgsrZfbYeKJZj9786nj=",
+    "status": "failed",
+    "error": "HTTP Error 500: Internal Server Error"
+  },
+  {
+    "brand": "BMW",
+    "model": "8시리즈 그란쿠페",
+    "slug": "bmw-8-gran-coupe",
+    "source_url": "https://www.bmw.co.kr/ko/all-models.html",
+    "image_url": "https://prod.cosy.bmw.cloud/bmwweb/cosySec?COSY-EU-100-73315jAvmZ7dgM3IURUQRqWHIBJeiJsmshuzHJZ0uDShtf5eqKD3v%25fMA8o4YKQ53f0%25lif2p8YYCjgkRCzugnRLfbc1eKDfNEbnbdf10s9O9a6E4riIn0SscZwBO5nrxRteIgtZ857MBvoRUgChSD25GvloVsjgp2XHNrzv6jQ%2506z2YDaf4OAjmqn1cI9DyLOEjVuqTJIsDfLL3uBrq1kJdSeZLj3uzVMRJv9SkNh5uW4VA0ogSb5NF4HvVy10Kc%252NrQ4Wxfj0ZgcP81D4s1xbUEqc6289GsLvybUiprJ2CrGw6ZujlwptYRSDXK67m5VqQpYCygNLpbmlTv0J6PyX324AO2TQdjcFI63azDxKBsdnkq8WZHzOALUPhmkIFJGbPCABKup9C1FeWS6fUaKMPVY1GWWhbNmEOOPo90ysjfbHi4Trxu9%25wc3Z8QiftxdtXCw178z7hxtECUkCRJ7slGAlvKCrXpFXWclZQ6KQaqXRaYWanyQ5nmPnR0agOybO5onvIT9IgnO2B3iBSoIjedwqQBBDMztLc0eqhk7WpkMLWo0CqXhFUcm7Ragd%25kcWExHWpbl8FO2kcGlV7Gq0iNPWhc0DuVNBaekxwwhiXRTPNHC8%25hJP%25z6eEzFu4fXBjvzzi1htE6hPHtTScfbYlnWhcfD2aTjl6JOY6dnuAMmNHC4GjiXp0%251EoubJR1EsHWpIAqsvPwcGQv=",
+    "status": "failed",
+    "error": "HTTP Error 500: Internal Server Error"
+  },
+  {
+    "brand": "BMW",
+    "model": "Z4",
+    "slug": "bmw-z4",
+    "source_url": "https://www.bmw.co.kr/ko/all-models.html",
+    "image_url": "https://prod.cosy.bmw.cloud/bmwweb/cosySec?COSY-EU-100-73315jAvmZ7dgMyHpRUQRqWHIBJeiJ9msFuzHJZ0uDShtf5eqKD3v%25fMA8o4YKQ53f0%25lif2p8YYCjgkRCzugnRLfbc1eKDfNEbnbdf10s9O96uE4riInv0scZwBOgMrxRteIcOZ857MBvIRUgChe2C5GvloVsjgp2XHNplv6jQ%250NX2YDaf4UPjmqn125YDyLOEjyGqTJIsDTgL3uBrq5QJdSeZLYuuzVMRJlmSkNh5upzVA0ogS7wNF4HvVCd0Kc%252N9O4Wxfj0tOcP81D4pVxbUEqcdx89GsLv9KUiprJ2T9Gw6ZujNmptYRSDPO67m5VqQ5YCygNLaWmlTv0JnbyX324uYfTQdjcSm43azDxVyidnkq8W4CzOALUPZekIFJGbhJABKup9o3FeWS6iHgKMPVYw2sWhbNmtwaPo90y7aZbHi4TrCe9%25wc3ZmeiftxdRyKw178z5TttECUkgoo7slGAv64CrXpFXOalZQ6KQfpXRaYWa2NQ5nmPnq9agOybOiGnvIT9IBSO2B3iBezIjedwe28BDMztMNzeqhk7h0fMLoACuOhhJHFlSUxou%25KX9GlHS9fxQun%25P6U3XvIjAEKU9ZG19mwapPeqKUYa4XYux7ci9%25UxJN4chIoKG0Zc7nvzic1QpE%25ViEFyoZFPN8snhLDFFhr9lZy%25i1lz0UswTaB9%25UsJqIzLayVeTyABNWH3c1Q8YL7nmxErZfNwVvrZR19mMWuRDiCUYOD=",
+    "status": "failed",
+    "error": "HTTP Error 500: Internal Server Error"
+  }
+]

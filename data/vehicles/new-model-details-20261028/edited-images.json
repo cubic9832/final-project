@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "bmw-2-coupe",
+    "source_generated_file": "C:\\Users\\user1\\.codex\\generated_images\\01a1806d-6ba6-7bf3-a40c-6e61bfeab1c1\\exec-d4e63e3d-28a5-4af6-a13f-44943cfa18db.png",
+    "file": "data/vehicles/new-model-details-20261028/cutouts/bmw-2-coupe.png",
+    "processing": "imagegen-background-extraction",
+    "prompt": "Remove environment only; preserve exact source vehicle, angle, paint, wheels, lights and roof state; transparent catalog cutout."
+  },
+  {
+    "slug": "bmw-2-gran-coupe",
+    "source_generated_file": "C:\\Users\\user1\\.codex\\generated_images\\01a1806d-6ba6-7bf3-a40c-6e61bfeab1c1\\exec-d006b0f0-7ae8-4990-9f60-316a82a59423.png",
+    "file": "data/vehicles/new-model-details-20261028/cutouts/bmw-2-gran-coupe.png",
+    "processing": "imagegen-background-extraction",
+    "prompt": "Remove environment only; preserve exact source vehicle, angle, paint, wheels, lights and roof state; transparent catalog cutout."
+  },
+  {
+    "slug": "bmw-4-coupe",
+    "source_generated_file": "C:\\Users\\user1\\.codex\\generated_images\\01a1806d-6ba6-7bf3-a40c-6e61bfeab1c1\\exec-c198430b-18fc-4bcf-8966-8d1cea54f784.png",
+    "file": "data/vehicles/new-model-details-20261028/cutouts/bmw-4-coupe.png",
+    "processing": "imagegen-background-extraction",
+    "prompt": "Remove environment only; preserve exact source vehicle, angle, paint, wheels, lights and roof state; transparent catalog cutout."
+  },
+  {
+    "slug": "bmw-4-gran-coupe",
+    "source_generated_file": "C:\\Users\\user1\\.codex\\generated_images\\01a1806d-6ba6-7bf3-a40c-6e61bfeab1c1\\exec-9cf73399-219a-47eb-8f91-aa9d92b74f36.png",
+    "file": "data/vehicles/new-model-details-20261028/cutouts/bmw-4-gran-coupe.png",
+    "processing": "imagegen-background-extraction",
+    "prompt": "Remove environment only; preserve exact source vehicle, angle, paint, wheels, lights and roof state; transparent catalog cutout."
+  },
+  {
+    "slug": "bmw-4-convertible",
+    "source_generated_file": "C:\\Users\\user1\\.codex\\generated_images\\01a1806d-6ba6-7bf3-a40c-6e61bfeab1c1\\exec-9c581c9b-d7bc-4970-94ad-36ca08565a39.png",
+    "file": "data/vehicles/new-model-details-20261028/cutouts/bmw-4-convertible.png",
+    "processing": "imagegen-background-extraction",
+    "prompt": "Remove environment only; preserve exact source vehicle, angle, paint, wheels, lights and roof state; transparent catalog cutout."
+  },
+  {
+    "slug": "lamborghini-temerario",
+    "source_generated_file": "C:\\Users\\user1\\.codex\\generated_images\\01a1806d-6ba6-7bf3-a40c-6e61bfeab1c1\\exec-0ddf4f25-f8fa-4649-bc52-4e939ababb22.png",
+    "file": "data/vehicles/new-model-details-20261028/cutouts/lamborghini-temerario.png",
+    "processing": "imagegen-background-extraction",
+    "prompt": "Remove environment only; preserve exact source vehicle, angle, paint, wheels, lights and roof state; transparent catalog cutout."
+  },
+  {
+    "slug": "lamborghini-revuelto",
+    "source_generated_file": "C:\\Users\\user1\\.codex\\generated_images\\01a1806d-6ba6-7bf3-a40c-6e61bfeab1c1\\exec-d2e1bc27-e544-46ef-a42e-272439213fbb.png",
+    "file": "data/vehicles/new-model-details-20261028/cutouts/lamborghini-revuelto.png",
+    "processing": "imagegen-background-extraction",
+    "prompt": "Remove environment only; preserve exact source vehicle, angle, paint, wheels, lights and roof state; transparent catalog cutout."
+  },
+  {
+    "slug": "toyota-gr86",
+    "source_generated_file": "C:\\Users\\user1\\.codex\\generated_images\\01a1806d-6ba6-7bf3-a40c-6e61bfeab1c1\\exec-4b3ba63d-7d6b-49a0-b4b0-7749e67a91d8.png",
+    "file": "data/vehicles/new-model-details-20261028/cutouts/toyota-gr86.png",
+    "processing": "imagegen-background-extraction",
+    "prompt": "Remove environment only; preserve exact source vehicle, angle, paint, wheels, lights and roof state; transparent catalog cutout."
+  }
+]

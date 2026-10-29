@@ -16,10 +16,21 @@ __pycache__/
 /data/households/synthetic/behavioral-million-*/shard-*/*_audit.jsonl
 /data/households/synthetic/behavioral-million-*/shard-*/excluded_profiles.jsonl
 /data/households/synthetic/behavioral-million-*/shard-*/catalog.json
+
+# Scenario population: keep configuration, manifest, summaries and preview in Git.
+/data/households/synthetic/scenario-population-*/shard-*/*_choices.npz
+/data/households/synthetic/scenario-population-*/shard-*/*_profiles.jsonl
+/data/households/synthetic/scenario-population-*/shard-*/*_choices.jsonl
+/data/households/synthetic/scenario-population-*/shard-*/*_audit.jsonl
 *.iml
 out/
 
 # Runtime uploaded vehicle images
+# Inactive training experiments are generated locally; keep only active scenario v3 data.
+/data/households/synthetic/lifestyle-million-*/
+/data/households/synthetic/preference-cohorts-*/
+/data/households/synthetic/scenario-population-v1-*/
+/data/households/synthetic/scenario-population-v2-*/
 /uploads/
 /back/uploads/
 # 7단계: 총관리자 시드 계정 (각자 만드는 파일, 비밀번호가 들어 있어 올리지 않는다)

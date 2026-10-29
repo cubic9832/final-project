@@ -1,0 +1,151 @@
+{
+  "vehicles": 323,
+  "fields": [
+    "length_mm",
+    "width_mm",
+    "height_mm",
+    "wheelbase_mm",
+    "seats",
+    "curb_weight_kg",
+    "displacement_cc",
+    "power_ps",
+    "torque_nm",
+    "top_speed_kmh",
+    "cargo_litres",
+    "ground_clearance_mm",
+    "fuel",
+    "efficiency",
+    "efficiency_unit",
+    "price_won",
+    "model_year",
+    "body_type",
+    "transmission",
+    "drive",
+    "monthly_insurance_won",
+    "monthly_tax_won",
+    "monthly_maintenance_won",
+    "seconds_0_100",
+    "exterior_sportiness",
+    "exterior_angularity",
+    "interior_minimalism",
+    "ride_comfort"
+  ],
+  "missing_values": 0,
+  "field_status_counts": {
+    "length_mm": {
+      "catalog-reference": 287,
+      "estimated": 19,
+      "official-reference": 17
+    },
+    "width_mm": {
+      "estimated": 313,
+      "official-reference": 10
+    },
+    "height_mm": {
+      "estimated": 316,
+      "official-reference": 7
+    },
+    "wheelbase_mm": {
+      "estimated": 303,
+      "official-reference": 20
+    },
+    "seats": {
+      "catalog-reference": 289,
+      "estimated": 34
+    },
+    "curb_weight_kg": {
+      "estimated": 282,
+      "official-reference": 41
+    },
+    "displacement_cc": {
+      "official-reference": 79,
+      "estimated": 244
+    },
+    "power_ps": {
+      "official-reference": 17,
+      "estimated": 306
+    },
+    "torque_nm": {
+      "estimated": 310,
+      "official-reference": 13
+    },
+    "top_speed_kmh": {
+      "estimated": 300,
+      "official-reference": 23
+    },
+    "cargo_litres": {
+      "estimated": 323
+    },
+    "ground_clearance_mm": {
+      "estimated": 323
+    },
+    "fuel": {
+      "catalog-reference": 322,
+      "estimated": 1
+    },
+    "efficiency": {
+      "catalog-reference": 287,
+      "estimated": 36
+    },
+    "efficiency_unit": {
+      "estimated": 323
+    },
+    "price_won": {
+      "catalog-reference": 321,
+      "estimated": 2
+    },
+    "model_year": {
+      "estimated": 216,
+      "catalog-reference": 107
+    },
+    "body_type": {
+      "catalog-reference": 323
+    },
+    "transmission": {
+      "official-reference": 25,
+      "estimated": 298
+    },
+    "drive": {
+      "official-reference": 34,
+      "estimated": 289
+    },
+    "monthly_insurance_won": {
+      "estimated": 323
+    },
+    "monthly_tax_won": {
+      "estimated": 323
+    },
+    "monthly_maintenance_won": {
+      "estimated": 323
+    },
+    "seconds_0_100": {
+      "estimated": 285,
+      "official-reference": 38
+    },
+    "exterior_sportiness": {
+      "visual-review": 323
+    },
+    "exterior_angularity": {
+      "visual-review": 323
+    },
+    "interior_minimalism": {
+      "estimated": 323
+    },
+    "ride_comfort": {
+      "estimated": 323
+    }
+  },
+  "policy": "Synthetic estimates fill usable specifications only. Evidence/source URLs, conflicts and optional metadata are not invented. Financial source catalog and identity remain unchanged.",
+  "sources": {
+    "data/households/synthetic/preference-cohorts-training-20261028/catalog.json": "b09bd733b7dd1d0585a432087e83dd4e314b7212ea12a1aa80bb84eeaa7a0b1b",
+    "data/vehicles/new-model-details-20261028/vehicle-details.json": "30a9e608b0368958738626de53905fe2018ccbdc72a80eafe992e595c70685f7",
+    "data/vehicles/normalized-vehicle-details.json": "dd534dc50cc5d24f89e7c3d2c781f98c8f66e343b08a88b5b52583193aceac16",
+    "data/vehicles/full-trait-evidence-20261028/vehicle_traits.json": "60fb12e43f1e4c2a86ed91fafa63ae4af2d50da8df162f28232be034ce07ac38",
+    "tools/data/vehicles/complete_vehicle_specifications.py": "30612e28f6d99c80e9a902c9f997412456029b07b9f2ab721dadc3ab4ad301ba"
+  },
+  "outputs": {
+    "vehicles.json": "2feed3c3d871b8c48afd7b993c35dec8dbaadc243d48abffbaedb2485e350979",
+    "vehicles.csv": "d295941f328b554d0c3b74e0fdee76a95c98fd41e2f5cc74e797d43d602d1f5c",
+    "vehicle_traits.json": "42515c1102d0bd323cf4b940bf8095ff6a4cbb5d46a01d4176c736f5a337ba80"
+  }
+}

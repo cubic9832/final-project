@@ -1,0 +1,147 @@
+{
+  "version": "scenario-population-v3",
+  "profiles": 10000,
+  "comparisons": 100000,
+  "partitions": {
+    "train": {
+      "profiles": 6998,
+      "comparisons": 69980
+    },
+    "validation": {
+      "profiles": 1439,
+      "comparisons": 14390
+    },
+    "test": {
+      "profiles": 1563,
+      "comparisons": 15630
+    }
+  },
+  "feature_names": [
+    "log_income",
+    "log_expenses",
+    "log_debt_payment",
+    "log_assets",
+    "log_price",
+    "log_running",
+    "net_monthly_millions",
+    "price_cash_ratio",
+    "cash_after_ratio",
+    "monthly_burden",
+    "length",
+    "length_known",
+    "seats",
+    "seats_known",
+    "fuel_match",
+    "fuel_specified",
+    "size_lower",
+    "size_upper",
+    "size_specified",
+    "minimum_seats",
+    "cost_weight",
+    "size_weight",
+    "fuel_weight",
+    "seats_weight",
+    "fuel_GASOLINE",
+    "fuel_HYBRID",
+    "fuel_DIESEL",
+    "fuel_LPG",
+    "fuel_ELECTRIC",
+    "body_match",
+    "body_specified",
+    "body_weight",
+    "body_SEDAN",
+    "body_SUV",
+    "body_HATCHBACK",
+    "body_WAGON",
+    "body_MPV",
+    "body_BOX",
+    "body_PICKUP",
+    "preferred_body_SEDAN",
+    "preferred_body_SUV",
+    "preferred_body_HATCHBACK",
+    "preferred_body_WAGON",
+    "preferred_body_MPV",
+    "preferred_body_BOX",
+    "preferred_body_PICKUP",
+    "body_COUPE",
+    "body_CONVERTIBLE",
+    "body_ROADSTER",
+    "preferred_body_COUPE",
+    "preferred_body_CONVERTIBLE",
+    "preferred_body_ROADSTER",
+    "scenario_asset_retention",
+    "scenario_running_affordability",
+    "scenario_body_match",
+    "scenario_fuel_match",
+    "scenario_length_match",
+    "scenario_brand_match",
+    "scenario_model_affinity",
+    "scenario_charging_convenience",
+    "importance_asset_retention",
+    "importance_running_affordability",
+    "importance_body_match",
+    "importance_fuel_match",
+    "importance_length_match",
+    "importance_brand_match",
+    "importance_model_affinity",
+    "importance_charging_convenience"
+  ],
+  "catalog_sha256": "cc80cb30b0dc87f1bdebdd6bdd5d350b778aa77c6a49cb436cdaa44ab6f092bf",
+  "shards": [
+    {
+      "directory": "shard-0000",
+      "report_sha256": "be553ab3a3c99e1f372ce135756dc0eb7b1d4844ed0b4eaa35707125666395fd"
+    },
+    {
+      "directory": "shard-0001",
+      "report_sha256": "774b8e808bf2e659a2da2115094bdd0670d79ad29f47136df807208f879584c3"
+    },
+    {
+      "directory": "shard-0002",
+      "report_sha256": "87c43e1a7c52494afaf8fc559cd9939e7a776451553de5e6fba7254fc7845f7a"
+    },
+    {
+      "directory": "shard-0003",
+      "report_sha256": "53eba2ed766f94df3455d8b8fb82c4a6d82375e8d14132d6a70c98187af98d8b"
+    },
+    {
+      "directory": "shard-0004",
+      "report_sha256": "ca50f8f16d0ba36cf27d3da42c4a7328bce2c3eadba52c38e33735c2e59a2148"
+    },
+    {
+      "directory": "shard-0005",
+      "report_sha256": "e1a015c9385a83430d8be68f802f285e158ee136799386195e5f99794e054a73"
+    },
+    {
+      "directory": "shard-0006",
+      "report_sha256": "7f0311016a3aa9b2ca0e311fff86711274bf17a873303b4c30cdafc93f03aaac"
+    },
+    {
+      "directory": "shard-0007",
+      "report_sha256": "d1a26faa4fd01c94949b7210a0bf6727cadf289c33921a0695744db685d25841"
+    },
+    {
+      "directory": "shard-0008",
+      "report_sha256": "da9365876a6b3d5bc58fd7977c6d430a7429302145b41fea3ce9cec80b0f9a44"
+    },
+    {
+      "directory": "shard-0009",
+      "report_sha256": "714f087c1555c03923f2cb211d51bc89119a5acd5db5a56da3ddd5e1049fc67b"
+    }
+  ],
+  "source_hashes": {
+    "data\\households\\synthetic\\authored-pilot-v1-20261029\\profiles.jsonl": "4b10a3c31f6ae7e795cf5707b81b2c06aa6d595fa648be5690865367dcc4b947",
+    "data\\households\\synthetic\\authored-pilot-v1-20261029\\choices.jsonl": "ec1a331d03b21236572a4a8ef9cb284b5ac4436674215d5966ade2c7d3599a02",
+    "data\\households\\synthetic\\authored-pilot-v1-20261029\\catalog.json": "c944131e1993f1921205442c9bedb85eebe2a53f2a9a2542e66a2390f54c3539",
+    "tools\\data\\households\\scenario_population_v3_config.json": "25640353265ec63f4a7ab2bb1cbf7e0d1fa354c2057fff62e18dc484261e1ca2",
+    "tools\\data\\households\\generate_scenario_population.py": "2be3a0baaaaede11cf4ce45dd14390e849948eaf8dfbb60e65ebdfa60f14f807",
+    "ml\\vehicle_matching\\scenario_features.py": "9091528dbe63fe5112f4fe0807e53bd69b8a87d190908d3e05ede19ac5769dc0",
+    "ml\\vehicle_matching\\finance.py": "2d8a21ec5b0555acb59f15308fa3b9c5223b48d1e54ae5ef2e137e5cb4fd14ad",
+    "ml\\vehicle_matching\\preference_model.py": "409b7974134ac93ff9881fd5818a726c65524f6d61c5e3a9dbac3bd13c97f956",
+    "ml\\vehicle_matching\\recommendation_policy.py": "7edd57385e5dbeb2790755145a169da16a54936d9a5dec299c790e74f100c8c9",
+    "tools\\data\\households\\scenario_coverage.py": "6e1da1fa8e4877b0cfc7d07ba286794f28ada77645b9663e63c74868cf8ba958",
+    "tools\\data\\vehicles\\scenario_seating.py": "3742505db281feea0af8038a3f759b3f5a9b4848491ce48a1a4bf3e2b09db9ee",
+    "data\\vehicles\\scenario-seating-20261029\\registry.json": "222fb0d2212240cd064e02d4497fbbbf029a23743ae5cfa50c4323c542a67d5a",
+    "data\\households\\synthetic\\scenario-seeds-v2-20261029\\additional_personas.json": "6e12075cbe8594e9ccc069267a181cbc603e4a4317a4cea6f4baef97df469c8e"
+  }
+}

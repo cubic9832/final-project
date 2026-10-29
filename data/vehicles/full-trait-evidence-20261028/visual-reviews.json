@@ -1,0 +1,2897 @@
+{
+  "rubric": {
+    "exterior_sportiness": "0 높고 직립 / 0.5 혼합 / 1 낮고 스포티한 비례",
+    "exterior_angularity": "0 곡면 / 0.5 혼합 / 1 각진 윤곽"
+  },
+  "reviews": [
+    {
+      "brand": "BMW",
+      "model": "2시리즈 그란쿠페",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 4도어 루프와 짧은 데크, 곡면 위에 직선형 흡기구",
+          "source_url": "https://www.bmw.co.kr/ko/all-models.html",
+          "image_path": "front/public/images/recommendations/new-models-20261028/bmw-2-gran-coupe.webp",
+          "image_sha256": "b797fabb737ca3e9d19dc46fab9cc962adf3ea1e038e7464ec1a3b62913ff55f",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮은 4도어 루프와 짧은 데크, 곡면 위에 직선형 흡기구",
+          "source_url": "https://www.bmw.co.kr/ko/all-models.html",
+          "image_path": "front/public/images/recommendations/new-models-20261028/bmw-2-gran-coupe.webp",
+          "image_sha256": "b797fabb737ca3e9d19dc46fab9cc962adf3ea1e038e7464ec1a3b62913ff55f",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "BMW",
+      "model": "2시리즈 쿠페",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 2도어 루프, 네모난 흡기구와 각진 펜더",
+          "source_url": "https://www.bmw.co.kr/ko/all-models.html",
+          "image_path": "front/public/images/recommendations/new-models-20261028/bmw-2-coupe.webp",
+          "image_sha256": "2f05de74e06d62ffd85658a04781c68d0f7bbc0401d80c6db58ce7156fc30e11",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 2도어 루프, 네모난 흡기구와 각진 펜더",
+          "source_url": "https://www.bmw.co.kr/ko/all-models.html",
+          "image_path": "front/public/images/recommendations/new-models-20261028/bmw-2-coupe.webp",
+          "image_sha256": "2f05de74e06d62ffd85658a04781c68d0f7bbc0401d80c6db58ce7156fc30e11",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "BMW",
+      "model": "3시리즈",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 세단 지붕과 긴 보닛, 직선 램프와 곡면 차체",
+          "source_url": "https://www.press.bmwgroup.com",
+          "image_path": "front/public/images/recommendations/cutouts/bmw-3-series.webp",
+          "image_sha256": "03604a77dfdde6fcbd14a2c29a8a475c331b39862899798323d58314e9eb44de",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮은 세단 지붕과 긴 보닛, 직선 램프와 곡면 차체",
+          "source_url": "https://www.press.bmwgroup.com",
+          "image_path": "front/public/images/recommendations/cutouts/bmw-3-series.webp",
+          "image_sha256": "03604a77dfdde6fcbd14a2c29a8a475c331b39862899798323d58314e9eb44de",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "BMW",
+      "model": "3시리즈 투어링",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮지만 뒤까지 이어지는 왜건 지붕, 직선과 곡면 혼합",
+          "source_url": "https://www.press.bmwgroup.com/korea/photo/detail/P90577991/",
+          "image_path": "front/public/images/recommendations/cutouts/bmw-3-series-touring.webp",
+          "image_sha256": "fa3046e139245bd2d2d215f67ea0bafbaea45248ceb976682662bc8083cbe436",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮지만 뒤까지 이어지는 왜건 지붕, 직선과 곡면 혼합",
+          "source_url": "https://www.press.bmwgroup.com/korea/photo/detail/P90577991/",
+          "image_path": "front/public/images/recommendations/cutouts/bmw-3-series-touring.webp",
+          "image_sha256": "fa3046e139245bd2d2d215f67ea0bafbaea45248ceb976682662bc8083cbe436",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "BMW",
+      "model": "4시리즈 그란쿠페",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮게 흐르는 패스트백 지붕, 세로 그릴과 곡면 펜더",
+          "source_url": "https://www.bmw.co.kr/ko/all-models.html",
+          "image_path": "front/public/images/recommendations/new-models-20261028/bmw-4-gran-coupe.webp",
+          "image_sha256": "a6f4b69d0a89d1d61dc56d0cecaac3d3b7f8afab2c120831216d6b9f0132848c",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮게 흐르는 패스트백 지붕, 세로 그릴과 곡면 펜더",
+          "source_url": "https://www.bmw.co.kr/ko/all-models.html",
+          "image_path": "front/public/images/recommendations/new-models-20261028/bmw-4-gran-coupe.webp",
+          "image_sha256": "a6f4b69d0a89d1d61dc56d0cecaac3d3b7f8afab2c120831216d6b9f0132848c",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "BMW",
+      "model": "4시리즈 컨버터블",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 오픈탑 비례, 직선 흡기구와 둥근 휠 아치",
+          "source_url": "https://www.bmw.co.kr/ko/all-models.html",
+          "image_path": "front/public/images/recommendations/new-models-20261028/bmw-4-convertible.webp",
+          "image_sha256": "d889cd49cf3c4bb18c1f841440fcad1344c2fb99bc0bcfab93d29c540ea5b16f",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮은 오픈탑 비례, 직선 흡기구와 둥근 휠 아치",
+          "source_url": "https://www.bmw.co.kr/ko/all-models.html",
+          "image_path": "front/public/images/recommendations/new-models-20261028/bmw-4-convertible.webp",
+          "image_sha256": "d889cd49cf3c4bb18c1f841440fcad1344c2fb99bc0bcfab93d29c540ea5b16f",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "BMW",
+      "model": "4시리즈 쿠페",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "긴 보닛과 낮은 2도어 루프, 곡면과 날카로운 램프 혼합",
+          "source_url": "https://www.bmw.co.kr/ko/all-models.html",
+          "image_path": "front/public/images/recommendations/new-models-20261028/bmw-4-coupe.webp",
+          "image_sha256": "d39c45ad700a08da68c9ed5183ff207c29871fc86138b435aacb3f80d5f3eff4",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "긴 보닛과 낮은 2도어 루프, 곡면과 날카로운 램프 혼합",
+          "source_url": "https://www.bmw.co.kr/ko/all-models.html",
+          "image_path": "front/public/images/recommendations/new-models-20261028/bmw-4-coupe.webp",
+          "image_sha256": "d39c45ad700a08da68c9ed5183ff207c29871fc86138b435aacb3f80d5f3eff4",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "BMW",
+      "model": "5시리즈",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "긴 보닛과 낮은 세단 루프, 각진 그릴과 곡면 차체",
+          "source_url": "https://www.bmw.co.kr/ko/all-models/5-series/sedan/bmw-5-series-sedan-overview.html",
+          "image_path": "front/public/images/recommendations/cutouts/bmw-5-series.webp",
+          "image_sha256": "f5ade1ddc31ef8c8f2e5136fa58366db470b7b859feee554a7a075de49435a3e",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "긴 보닛과 낮은 세단 루프, 각진 그릴과 곡면 차체",
+          "source_url": "https://www.bmw.co.kr/ko/all-models/5-series/sedan/bmw-5-series-sedan-overview.html",
+          "image_path": "front/public/images/recommendations/cutouts/bmw-5-series.webp",
+          "image_sha256": "f5ade1ddc31ef8c8f2e5136fa58366db470b7b859feee554a7a075de49435a3e",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "BMW",
+      "model": "8시리즈 그란쿠페",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮고 긴 4도어 쿠페 비례, 부드러운 루프와 직선 캐릭터라인",
+          "source_url": "https://www.bmw.co.kr/ko/more-bmw/exclusive-models.html",
+          "image_path": "front/public/images/recommendations/new-models-20261028/bmw-8-gran-coupe.webp",
+          "image_sha256": "b63f00c23a5ff2df3279f34680f49e2fcbc29e66de878ce0cd51b4b9d1eeda95",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮고 긴 4도어 쿠페 비례, 부드러운 루프와 직선 캐릭터라인",
+          "source_url": "https://www.bmw.co.kr/ko/more-bmw/exclusive-models.html",
+          "image_path": "front/public/images/recommendations/new-models-20261028/bmw-8-gran-coupe.webp",
+          "image_sha256": "b63f00c23a5ff2df3279f34680f49e2fcbc29e66de878ce0cd51b4b9d1eeda95",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "BMW",
+      "model": "X1",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "높은 해치형 실루엣에 완만한 지붕, 각진 그릴과 범퍼",
+          "source_url": "https://www.bmw.co.kr",
+          "image_path": "front/public/images/recommendations/cutouts/bmw-x1.webp",
+          "image_sha256": "30cbc5e866e3165a49c5b32b0c4732cc73035d59f409b2b24528181e3058a0f2",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "높은 해치형 실루엣에 완만한 지붕, 각진 그릴과 범퍼",
+          "source_url": "https://www.bmw.co.kr",
+          "image_path": "front/public/images/recommendations/cutouts/bmw-x1.webp",
+          "image_sha256": "30cbc5e866e3165a49c5b32b0c4732cc73035d59f409b2b24528181e3058a0f2",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "BMW",
+      "model": "X3",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "중간 높이 SUV 비례, 각진 그릴과 평평한 차체 면",
+          "source_url": "https://www.bmw.co.kr/ko/all-models/x-series/x3/bmw-x3.html",
+          "image_path": "front/public/images/recommendations/cutouts/bmw-x3.webp",
+          "image_sha256": "fbdd0658dcc5a6816e847a4a1aa1cc06d134863aa82d3492051f577540a79579",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "중간 높이 SUV 비례, 각진 그릴과 평평한 차체 면",
+          "source_url": "https://www.bmw.co.kr/ko/all-models/x-series/x3/bmw-x3.html",
+          "image_path": "front/public/images/recommendations/cutouts/bmw-x3.webp",
+          "image_sha256": "fbdd0658dcc5a6816e847a4a1aa1cc06d134863aa82d3492051f577540a79579",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "BMW",
+      "model": "X4",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "SUV 높이에 낮게 떨어지는 쿠페 지붕, 곡면과 직선 혼합",
+          "source_url": "https://www.press.bmwgroup.com/korea/article/detail/T0354632KO/",
+          "image_path": "front/public/images/recommendations/cutouts/bmw-x4.webp",
+          "image_sha256": "e62db457f73202213fdd10f8da484279df55176938455a99a595b164799f2ced",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "SUV 높이에 낮게 떨어지는 쿠페 지붕, 곡면과 직선 혼합",
+          "source_url": "https://www.press.bmwgroup.com/korea/article/detail/T0354632KO/",
+          "image_path": "front/public/images/recommendations/cutouts/bmw-x4.webp",
+          "image_sha256": "e62db457f73202213fdd10f8da484279df55176938455a99a595b164799f2ced",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "BMW",
+      "model": "X5",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "높은 SUV 차체와 완만한 루프, 곡면 펜더와 직선 그릴",
+          "source_url": "https://www.press.bmwgroup.com",
+          "image_path": "front/public/images/recommendations/cutouts/bmw-x5.webp",
+          "image_sha256": "8ce415e931d9dba5fbd3fca82c62c6239820535d87aeab21f8bab542c7ee7427",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "높은 SUV 차체와 완만한 루프, 곡면 펜더와 직선 그릴",
+          "source_url": "https://www.press.bmwgroup.com",
+          "image_path": "front/public/images/recommendations/cutouts/bmw-x5.webp",
+          "image_sha256": "8ce415e931d9dba5fbd3fca82c62c6239820535d87aeab21f8bab542c7ee7427",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "BMW",
+      "model": "Z4",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 2좌석 오픈탑과 긴 보닛, 곡면 차체와 각진 램프",
+          "source_url": "https://www.press.bmwgroup.com/belux/photo/detail/P90479451/BMW-Z4-M40i-09-2022?language=de",
+          "image_path": "front/public/images/recommendations/new-models-20261028/bmw-z4.webp",
+          "image_sha256": "8e18129695a0c8656b3edaaeef1ab30b807c809fe685bce26eb1ced1b3e2d40c",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮은 2좌석 오픈탑과 긴 보닛, 곡면 차체와 각진 램프",
+          "source_url": "https://www.press.bmwgroup.com/belux/photo/detail/P90479451/BMW-Z4-M40i-09-2022?language=de",
+          "image_path": "front/public/images/recommendations/new-models-20261028/bmw-z4.webp",
+          "image_sha256": "8e18129695a0c8656b3edaaeef1ab30b807c809fe685bce26eb1ced1b3e2d40c",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "Ferrari",
+      "model": "12Cilindri",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮고 긴 2도어 차체, 날카로운 전면과 평평한 면",
+          "source_url": "https://www.ferrarisouthbay.com/new-vehicles/12-cilindri",
+          "image_path": "front/public/images/recommendations/new-models-20261028/ferrari-12-cilindri.webp",
+          "image_sha256": "4f4635777609cd15813a3ad6706ad2ea0f02840e171456d69167542e444b7e60",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮고 긴 2도어 차체, 날카로운 전면과 평평한 면",
+          "source_url": "https://www.ferrarisouthbay.com/new-vehicles/12-cilindri",
+          "image_path": "front/public/images/recommendations/new-models-20261028/ferrari-12-cilindri.webp",
+          "image_sha256": "4f4635777609cd15813a3ad6706ad2ea0f02840e171456d69167542e444b7e60",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "Ferrari",
+      "model": "12Cilindri Spider",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 오픈탑 차체, 수평 전면과 각진 테일 윤곽",
+          "source_url": "https://www.ferrarisouthbay.com/new-vehicles/12-cilindri-spider",
+          "image_path": "front/public/images/recommendations/new-models-20261028/ferrari-12-cilindri-spider.webp",
+          "image_sha256": "1563e801330e02a428b0e29a6659975a4594c5cec241131e5ae78942cb92b194",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 오픈탑 차체, 수평 전면과 각진 테일 윤곽",
+          "source_url": "https://www.ferrarisouthbay.com/new-vehicles/12-cilindri-spider",
+          "image_path": "front/public/images/recommendations/new-models-20261028/ferrari-12-cilindri-spider.webp",
+          "image_sha256": "1563e801330e02a428b0e29a6659975a4594c5cec241131e5ae78942cb92b194",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "Ferrari",
+      "model": "296 GTB",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "매우 낮은 루프와 볼륨 있는 둥근 펜더",
+          "source_url": "https://www.ferrarisouthbay.com/new-vehicles/296-gtb",
+          "image_path": "front/public/images/recommendations/new-models-20261028/ferrari-296-gtb.webp",
+          "image_sha256": "56c3bff4912967941527bc6e601792354f3216313f031e8d6c54f7e99dd25d8d",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "매우 낮은 루프와 볼륨 있는 둥근 펜더",
+          "source_url": "https://www.ferrarisouthbay.com/new-vehicles/296-gtb",
+          "image_path": "front/public/images/recommendations/new-models-20261028/ferrari-296-gtb.webp",
+          "image_sha256": "56c3bff4912967941527bc6e601792354f3216313f031e8d6c54f7e99dd25d8d",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "Ferrari",
+      "model": "296 GTS",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 미드십 비례, 둥근 펜더와 날카로운 전면 혼합",
+          "source_url": "https://www.ferrarisouthbay.com/new-vehicles/296-gts",
+          "image_path": "front/public/images/recommendations/new-models-20261028/ferrari-296-gts.webp",
+          "image_sha256": "c28d233c8c575da573c1a3c82868dfc46b08d698b710dbd98afbc7499574dca2",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮은 미드십 비례, 둥근 펜더와 날카로운 전면 혼합",
+          "source_url": "https://www.ferrarisouthbay.com/new-vehicles/296-gts",
+          "image_path": "front/public/images/recommendations/new-models-20261028/ferrari-296-gts.webp",
+          "image_sha256": "c28d233c8c575da573c1a3c82868dfc46b08d698b710dbd98afbc7499574dca2",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "Ferrari",
+      "model": "Amalfi",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮고 긴 보닛과 부드럽게 흐르는 곡면",
+          "source_url": "https://www.ferrarisouthbay.com/new-vehicles/amalfi",
+          "image_path": "front/public/images/recommendations/new-models-20261028/ferrari-amalfi.webp",
+          "image_sha256": "7f14fec0922bab95229229982dcb54429fca6f1a5d2a5b4aa2deb2b81a104a47",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "낮고 긴 보닛과 부드럽게 흐르는 곡면",
+          "source_url": "https://www.ferrarisouthbay.com/new-vehicles/amalfi",
+          "image_path": "front/public/images/recommendations/new-models-20261028/ferrari-amalfi.webp",
+          "image_sha256": "7f14fec0922bab95229229982dcb54429fca6f1a5d2a5b4aa2deb2b81a104a47",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "Ferrari",
+      "model": "Amalfi Spider",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 오픈탑과 긴 보닛, 곡면 차체와 수평 전면 혼합",
+          "source_url": "https://www.ferrarisouthbay.com/new-vehicles/amalfi-spider",
+          "image_path": "front/public/images/recommendations/new-models-20261028/ferrari-amalfi-spider.webp",
+          "image_sha256": "a2518d1aff0f008381c95e8d89b75acb2ccb085f80ad9d99dee25fde7623c725",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮은 오픈탑과 긴 보닛, 곡면 차체와 수평 전면 혼합",
+          "source_url": "https://www.ferrarisouthbay.com/new-vehicles/amalfi-spider",
+          "image_path": "front/public/images/recommendations/new-models-20261028/ferrari-amalfi-spider.webp",
+          "image_sha256": "a2518d1aff0f008381c95e8d89b75acb2ccb085f80ad9d99dee25fde7623c725",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "Ferrari",
+      "model": "Roma Spider",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 오픈탑과 길게 흐르는 둥근 측면",
+          "source_url": "https://www.ferraribeverlyhills.com/articles/discover-a-new-chapter-with-the-ferrari-roma-spider",
+          "image_path": "front/public/images/recommendations/new-models-20261028/ferrari-roma-spider.webp",
+          "image_sha256": "a7e2fc558a7fef18fa14884821970ad575b4c0aacd2a5fceb0ae44926e67bee1",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "낮은 오픈탑과 길게 흐르는 둥근 측면",
+          "source_url": "https://www.ferraribeverlyhills.com/articles/discover-a-new-chapter-with-the-ferrari-roma-spider",
+          "image_path": "front/public/images/recommendations/new-models-20261028/ferrari-roma-spider.webp",
+          "image_sha256": "a7e2fc558a7fef18fa14884821970ad575b4c0aacd2a5fceb0ae44926e67bee1",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "렉스턴 뉴 아레나",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높고 직립한 SUV 비례, 둥근 펜더와 직선형 그릴",
+          "source_url": "https://www.kg-mobility.com",
+          "image_path": "front/public/images/recommendations/cutouts/rexton.webp",
+          "image_sha256": "9beeb3b280ece3450e17cb569fa6492702c6810c6ac856515017f543428238b3",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "높고 직립한 SUV 비례, 둥근 펜더와 직선형 그릴",
+          "source_url": "https://www.kg-mobility.com",
+          "image_path": "front/public/images/recommendations/cutouts/rexton.webp",
+          "image_sha256": "9beeb3b280ece3450e17cb569fa6492702c6810c6ac856515017f543428238b3",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "액티언",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "높은 SUV에 경사진 뒤 지붕, 각진 램프와 캐릭터라인",
+          "source_url": "https://www.kg-mobility.com",
+          "image_path": "front/public/images/recommendations/cutouts/actyon.webp",
+          "image_sha256": "9d434a6a4619f2a4dd024da7078a13571d4a0e21b6284012a50080f0f53af2a9",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "높은 SUV에 경사진 뒤 지붕, 각진 램프와 캐릭터라인",
+          "source_url": "https://www.kg-mobility.com",
+          "image_path": "front/public/images/recommendations/cutouts/actyon.webp",
+          "image_sha256": "9d434a6a4619f2a4dd024da7078a13571d4a0e21b6284012a50080f0f53af2a9",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "액티언 하이브리드",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "액티언과 같은 SUV 윤곽, 각진 전면과 직선 면",
+          "source_url": "https://www.kg-mobility.com",
+          "image_path": "front/public/images/recommendations/cutouts/actyon-hybrid.webp",
+          "image_sha256": "d855111a0c30ad1b6de14a10a8da3a3236150c4d4a3be84b9095f9fae1e0266e",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "액티언과 같은 SUV 윤곽, 각진 전면과 직선 면",
+          "source_url": "https://www.kg-mobility.com",
+          "image_path": "front/public/images/recommendations/cutouts/actyon-hybrid.webp",
+          "image_sha256": "d855111a0c30ad1b6de14a10a8da3a3236150c4d4a3be84b9095f9fae1e0266e",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "토레스",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "직립한 지붕과 네모난 SUV 윤곽, 각진 펜더",
+          "source_url": "https://www.kg-mobility.com",
+          "image_path": "front/public/images/recommendations/cutouts/torres.webp",
+          "image_sha256": "459f3b9c1f3837076bf3fc75ebc5d74389ed645d844c0a89e46e19b73aebeb34",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "직립한 지붕과 네모난 SUV 윤곽, 각진 펜더",
+          "source_url": "https://www.kg-mobility.com",
+          "image_path": "front/public/images/recommendations/cutouts/torres.webp",
+          "image_sha256": "459f3b9c1f3837076bf3fc75ebc5d74389ed645d844c0a89e46e19b73aebeb34",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "토레스 EVX",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높고 직립한 차체, 수평 램프와 네모난 면",
+          "source_url": "https://www.kg-mobility.com",
+          "image_path": "front/public/images/recommendations/cutouts/torres-evx.webp",
+          "image_sha256": "c10c7e5f74dc2a6847fc99b343f26c8eecf6bf233b69c7cc7fe8be307e978e29",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "높고 직립한 차체, 수평 램프와 네모난 면",
+          "source_url": "https://www.kg-mobility.com",
+          "image_path": "front/public/images/recommendations/cutouts/torres-evx.webp",
+          "image_sha256": "c10c7e5f74dc2a6847fc99b343f26c8eecf6bf233b69c7cc7fe8be307e978e29",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "토레스 하이브리드",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높은 박스형 SUV 비례와 각진 전면",
+          "source_url": "https://www.kg-mobility.com",
+          "image_path": "front/public/images/recommendations/cutouts/torres-hybrid.webp",
+          "image_sha256": "9089899bd53196aedbba1309341637b0c95cfdf59332fd3704d1c6adb620ba7c",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "높은 박스형 SUV 비례와 각진 전면",
+          "source_url": "https://www.kg-mobility.com",
+          "image_path": "front/public/images/recommendations/cutouts/torres-hybrid.webp",
+          "image_sha256": "9089899bd53196aedbba1309341637b0c95cfdf59332fd3704d1c6adb620ba7c",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "티볼리",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "짧고 높은 해치형 SUV 비례, 곡면과 직선 혼합",
+          "source_url": "https://www.kg-mobility.com",
+          "image_path": "front/public/images/recommendations/cutouts/tivoli.webp",
+          "image_sha256": "0143512dc0a8a4ed3fa5fe4da6f39abe6f5b47ad90cd5419e3fc95f4b55b4fca",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "짧고 높은 해치형 SUV 비례, 곡면과 직선 혼합",
+          "source_url": "https://www.kg-mobility.com",
+          "image_path": "front/public/images/recommendations/cutouts/tivoli.webp",
+          "image_sha256": "0143512dc0a8a4ed3fa5fe4da6f39abe6f5b47ad90cd5419e3fc95f4b55b4fca",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "Lamborghini",
+      "model": "Revuelto",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "매우 낮은 쐐기형 차체, 뾰족한 램프와 삼각 면",
+          "source_url": "https://www.lamborghini.com/en-en/models/revuelto",
+          "image_path": "front/public/images/recommendations/new-models-20261028/lamborghini-revuelto.webp",
+          "image_sha256": "af1e2f142499d3545898b4a83ef53320cc33e9a516285b44c6eabb7f4f15746a",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "매우 낮은 쐐기형 차체, 뾰족한 램프와 삼각 면",
+          "source_url": "https://www.lamborghini.com/en-en/models/revuelto",
+          "image_path": "front/public/images/recommendations/new-models-20261028/lamborghini-revuelto.webp",
+          "image_sha256": "af1e2f142499d3545898b4a83ef53320cc33e9a516285b44c6eabb7f4f15746a",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "Lamborghini",
+      "model": "Temerario",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 쐐기형 루프, 각진 흡기구와 다각형 면",
+          "source_url": "https://www.lamborghini.com/en-en/models/temerario",
+          "image_path": "front/public/images/recommendations/new-models-20261028/lamborghini-temerario.webp",
+          "image_sha256": "1f33f6e27a890e57ab210d18a7176570eda69e912a70db3bbc2fe2af699a78e9",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 쐐기형 루프, 각진 흡기구와 다각형 면",
+          "source_url": "https://www.lamborghini.com/en-en/models/temerario",
+          "image_path": "front/public/images/recommendations/new-models-20261028/lamborghini-temerario.webp",
+          "image_sha256": "1f33f6e27a890e57ab210d18a7176570eda69e912a70db3bbc2fe2af699a78e9",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "MINI",
+      "model": "Cooper Convertible",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "짧고 비교적 직립한 오픈탑, 원형 램프와 둥근 윤곽",
+          "source_url": "https://www.mini.co.kr/ko_KR/home/range/mini-cooper-convertible.html",
+          "image_path": "front/public/images/recommendations/new-models-20261028/mini-convertible.webp",
+          "image_sha256": "960d16146944d5647603ac6da5d48d02a4f825d44846c7571d690d55c16c4b34",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "짧고 비교적 직립한 오픈탑, 원형 램프와 둥근 윤곽",
+          "source_url": "https://www.mini.co.kr/ko_KR/home/range/mini-cooper-convertible.html",
+          "image_path": "front/public/images/recommendations/new-models-20261028/mini-convertible.webp",
+          "image_sha256": "960d16146944d5647603ac6da5d48d02a4f825d44846c7571d690d55c16c4b34",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "Porsche",
+      "model": "911 카브리올레",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮고 넓은 오픈탑 전면, 원형 램프와 둥근 펜더",
+          "source_url": "https://www.porsche.com/korea/ko/models/911/carrera-cabriolet-models/911-carrera-gts-cabriolet/",
+          "image_path": "front/public/images/recommendations/new-models-20261028/porsche-911-cabriolet-full.webp",
+          "image_sha256": "4246fe246749078ee1c3f4ccc90bfb33cee621c07aff2519b913639893ae2c43",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "낮고 넓은 오픈탑 전면, 원형 램프와 둥근 펜더",
+          "source_url": "https://www.porsche.com/korea/ko/models/911/carrera-cabriolet-models/911-carrera-gts-cabriolet/",
+          "image_path": "front/public/images/recommendations/new-models-20261028/porsche-911-cabriolet-full.webp",
+          "image_sha256": "4246fe246749078ee1c3f4ccc90bfb33cee621c07aff2519b913639893ae2c43",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "Porsche",
+      "model": "911 쿠페",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮고 넓은 쿠페 전면, 원형 램프와 부드러운 곡면",
+          "source_url": "https://www.porsche.com/korea/ko/models/911/carrera-models/911-carrera-gts/",
+          "image_path": "front/public/images/recommendations/new-models-20261028/porsche-911-coupe-full.webp",
+          "image_sha256": "6671df054a4b466008283ea2cd4e05c64a83b7a9e71ebb5157b0c44a4620ba37",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "낮고 넓은 쿠페 전면, 원형 램프와 부드러운 곡면",
+          "source_url": "https://www.porsche.com/korea/ko/models/911/carrera-models/911-carrera-gts/",
+          "image_path": "front/public/images/recommendations/new-models-20261028/porsche-911-coupe-full.webp",
+          "image_sha256": "6671df054a4b466008283ea2cd4e05c64a83b7a9e71ebb5157b0c44a4620ba37",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "Porsche",
+      "model": "911 타르가",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮고 넓은 타르가 전면, 둥근 헤드램프와 펜더",
+          "source_url": "https://www.porsche.com/korea/ko/models/911/targa-models/911-targa-4-gts/",
+          "image_path": "front/public/images/recommendations/new-models-20261028/porsche-911-targa-full.webp",
+          "image_sha256": "2b7788093dbda6e61fdba89c31eeb02dd27a2f4bb7f8d5bed31a51c3ba9c8a0a",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "낮고 넓은 타르가 전면, 둥근 헤드램프와 펜더",
+          "source_url": "https://www.porsche.com/korea/ko/models/911/targa-models/911-targa-4-gts/",
+          "image_path": "front/public/images/recommendations/new-models-20261028/porsche-911-targa-full.webp",
+          "image_sha256": "2b7788093dbda6e61fdba89c31eeb02dd27a2f4bb7f8d5bed31a51c3ba9c8a0a",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "EV3",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "직립한 소형 SUV 루프와 각진 램프·휠 아치",
+          "source_url": "https://www.kia.com/kr/vehicles/ev3/features",
+          "image_path": "front/public/images/recommendations/models/ev3.webp",
+          "image_sha256": "cfb12d837f6582c65c1a612bd8c999951d89d036a9905c028b1848fef67e68e0",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "직립한 소형 SUV 루프와 각진 램프·휠 아치",
+          "source_url": "https://www.kia.com/kr/vehicles/ev3/features",
+          "image_path": "front/public/images/recommendations/models/ev3.webp",
+          "image_sha256": "cfb12d837f6582c65c1a612bd8c999951d89d036a9905c028b1848fef67e68e0",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "EV3 GT",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "EV3와 같은 직립 실루엣, 각진 전면과 면",
+          "source_url": "https://www.kia.com/kr/vehicles/ev3-gt/features",
+          "image_path": "front/public/images/recommendations/models/ev3-gt.webp",
+          "image_sha256": "40783e087a9ff831c03224cce01f5f6109d72751fc05f763d2411d6c37dcde0a",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "EV3와 같은 직립 실루엣, 각진 전면과 면",
+          "source_url": "https://www.kia.com/kr/vehicles/ev3-gt/features",
+          "image_path": "front/public/images/recommendations/models/ev3-gt.webp",
+          "image_sha256": "40783e087a9ff831c03224cce01f5f6109d72751fc05f763d2411d6c37dcde0a",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "EV4",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮게 흐르는 패스트백 루프, 곡면과 직선형 램프 혼합",
+          "source_url": "https://www.kia.com/kr/vehicles/ev4/features",
+          "image_path": "front/public/images/recommendations/models/ev4.webp",
+          "image_sha256": "21d2bf467cc403deb1be1f559dee0a33e1848aa92224d191ff61cac8e36728f4",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮게 흐르는 패스트백 루프, 곡면과 직선형 램프 혼합",
+          "source_url": "https://www.kia.com/kr/vehicles/ev4/features",
+          "image_path": "front/public/images/recommendations/models/ev4.webp",
+          "image_sha256": "21d2bf467cc403deb1be1f559dee0a33e1848aa92224d191ff61cac8e36728f4",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "EV4 GT",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "EV4와 같은 낮은 패스트백, 직선과 곡면 혼합",
+          "source_url": "https://www.kia.com/kr/vehicles/ev4-gt/features",
+          "image_path": "front/public/images/recommendations/models/ev4-gt.webp",
+          "image_sha256": "049cf8d114cd9b53058d720cf193aeb59959c078ad07f52304cf8afd271393bd",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "EV4와 같은 낮은 패스트백, 직선과 곡면 혼합",
+          "source_url": "https://www.kia.com/kr/vehicles/ev4-gt/features",
+          "image_path": "front/public/images/recommendations/models/ev4-gt.webp",
+          "image_sha256": "049cf8d114cd9b53058d720cf193aeb59959c078ad07f52304cf8afd271393bd",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "EV5",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높고 직립한 SUV 지붕, 네모난 윤곽과 램프",
+          "source_url": "https://www.kia.com/kr/vehicles/ev5/features",
+          "image_path": "front/public/images/recommendations/models/ev5.webp",
+          "image_sha256": "aba05020cb3ce39e52e4fd2bb23bbd6890e0a92c87663a4137ff008301dd33ea",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "높고 직립한 SUV 지붕, 네모난 윤곽과 램프",
+          "source_url": "https://www.kia.com/kr/vehicles/ev5/features",
+          "image_path": "front/public/images/recommendations/models/ev5.webp",
+          "image_sha256": "aba05020cb3ce39e52e4fd2bb23bbd6890e0a92c87663a4137ff008301dd33ea",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "EV5 GT",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "EV5와 같은 직립한 지붕, 각진 휠 아치",
+          "source_url": "https://www.kia.com/kr/vehicles/ev5-gt/features",
+          "image_path": "front/public/images/recommendations/models/ev5-gt.webp",
+          "image_sha256": "7fc0fa7567f6ec98a554918fc4ee4943e8af4b076ce1fbf6d2fc00dc248cc248",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "EV5와 같은 직립한 지붕, 각진 휠 아치",
+          "source_url": "https://www.kia.com/kr/vehicles/ev5-gt/features",
+          "image_path": "front/public/images/recommendations/models/ev5-gt.webp",
+          "image_sha256": "7fc0fa7567f6ec98a554918fc4ee4943e8af4b076ce1fbf6d2fc00dc248cc248",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "EV6",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮게 흐르는 크로스오버 루프, 곡선 펜더와 직선 램프",
+          "source_url": "https://www.kia.com/kr/vehicles/ev6/features",
+          "image_path": "front/public/images/recommendations/models/ev6.webp",
+          "image_sha256": "698808bdddff5d6b106a1565cf560a1ab47a9fe0cf95d21fffecb65b3ccd7bb7",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮게 흐르는 크로스오버 루프, 곡선 펜더와 직선 램프",
+          "source_url": "https://www.kia.com/kr/vehicles/ev6/features",
+          "image_path": "front/public/images/recommendations/models/ev6.webp",
+          "image_sha256": "698808bdddff5d6b106a1565cf560a1ab47a9fe0cf95d21fffecb65b3ccd7bb7",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "EV6 GT",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "EV6와 같은 낮은 루프, 곡선 차체와 각진 흡기구",
+          "source_url": "https://www.kia.com/kr/vehicles/ev6-gt/features",
+          "image_path": "front/public/images/recommendations/models/ev6-gt.webp",
+          "image_sha256": "098a0beb76bf7d140d51143994c9ece0e508ec69043e044bcafa44800c6be482",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "EV6와 같은 낮은 루프, 곡선 차체와 각진 흡기구",
+          "source_url": "https://www.kia.com/kr/vehicles/ev6-gt/features",
+          "image_path": "front/public/images/recommendations/models/ev6-gt.webp",
+          "image_sha256": "098a0beb76bf7d140d51143994c9ece0e508ec69043e044bcafa44800c6be482",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "EV9",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높고 긴 박스형 차체, 직선 패널과 네모난 아치",
+          "source_url": "https://www.kia.com/kr/vehicles/ev9/features",
+          "image_path": "front/public/images/recommendations/models/ev9.webp",
+          "image_sha256": "4f760f6c7485d5960c56e63de0598db4f8c5c440aa9fdbfc0142fb780fa56bd1",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "높고 긴 박스형 차체, 직선 패널과 네모난 아치",
+          "source_url": "https://www.kia.com/kr/vehicles/ev9/features",
+          "image_path": "front/public/images/recommendations/models/ev9.webp",
+          "image_sha256": "4f760f6c7485d5960c56e63de0598db4f8c5c440aa9fdbfc0142fb780fa56bd1",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "EV9 GT",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "EV9와 같은 박스형 SUV, 각진 램프와 직선 면",
+          "source_url": "https://www.kia.com/kr/vehicles/ev9-gt/features",
+          "image_path": "front/public/images/recommendations/models/ev9-gt.webp",
+          "image_sha256": "fbc1beb581a5dd0a86b4b29a78cfe728fd1030d6836be412cfb3bbc34eff3fac",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "EV9와 같은 박스형 SUV, 각진 램프와 직선 면",
+          "source_url": "https://www.kia.com/kr/vehicles/ev9-gt/features",
+          "image_path": "front/public/images/recommendations/models/ev9-gt.webp",
+          "image_sha256": "fbc1beb581a5dd0a86b4b29a78cfe728fd1030d6836be412cfb3bbc34eff3fac",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "K5",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮게 흐르는 루프와 길게 뻗은 세단 비례, 직선과 곡선 혼합",
+          "source_url": "https://www.kia.com/kr/vehicles/k5/features",
+          "image_path": "front/public/images/recommendations/cutouts/k5.webp",
+          "image_sha256": "82e3db2e1a547847ee7ea25d4599d994c7e6ac90ab2d6f2bc0dcaf1c8d266b40",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮게 흐르는 루프와 길게 뻗은 세단 비례, 직선과 곡선 혼합",
+          "source_url": "https://www.kia.com/kr/vehicles/k5/features",
+          "image_path": "front/public/images/recommendations/cutouts/k5.webp",
+          "image_sha256": "82e3db2e1a547847ee7ea25d4599d994c7e6ac90ab2d6f2bc0dcaf1c8d266b40",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "K8",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "긴 일반 세단 비례, 곡면 차체와 수평 전면 혼합",
+          "source_url": "https://www.kia.com/kr/vehicles/k8/features",
+          "image_path": "front/public/images/recommendations/cutouts/k8.webp",
+          "image_sha256": "267959ea7c710a1f6f0d95d72b7089def9cb15c7357950e2b492561d301e8a04",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "긴 일반 세단 비례, 곡면 차체와 수평 전면 혼합",
+          "source_url": "https://www.kia.com/kr/vehicles/k8/features",
+          "image_path": "front/public/images/recommendations/cutouts/k8.webp",
+          "image_sha256": "267959ea7c710a1f6f0d95d72b7089def9cb15c7357950e2b492561d301e8a04",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "K9",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "길고 단정한 세단 루프, 둥근 펜더와 직선 램프",
+          "source_url": "https://www.kia.com/kr/vehicles/k9/features",
+          "image_path": "front/public/images/recommendations/models/k9.webp",
+          "image_sha256": "5f92b3e45f3a8dbe681a78428e5b7403f338ec79b4be56d5ed11c466bce754fe",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "길고 단정한 세단 루프, 둥근 펜더와 직선 램프",
+          "source_url": "https://www.kia.com/kr/vehicles/k9/features",
+          "image_path": "front/public/images/recommendations/models/k9.webp",
+          "image_sha256": "5f92b3e45f3a8dbe681a78428e5b7403f338ec79b4be56d5ed11c466bce754fe",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "니로",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높은 해치형 루프, 곡선 차체와 직선형 후면 장식 혼합",
+          "source_url": "https://www.kia.com/kr/vehicles/niro/features",
+          "image_path": "front/public/images/recommendations/cutouts/niro.webp",
+          "image_sha256": "c03c3b49e230b4af1ba61ccfcf9d98a2935c1ff5f65196f35c97bb655212deb6",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "높은 해치형 루프, 곡선 차체와 직선형 후면 장식 혼합",
+          "source_url": "https://www.kia.com/kr/vehicles/niro/features",
+          "image_path": "front/public/images/recommendations/cutouts/niro.webp",
+          "image_sha256": "c03c3b49e230b4af1ba61ccfcf9d98a2935c1ff5f65196f35c97bb655212deb6",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "레이",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "매우 높고 직립한 박스형 차체와 수직 면",
+          "source_url": "https://www.kia.com/kr/vehicles/ray/features",
+          "image_path": "front/public/images/recommendations/cutouts/ray.webp",
+          "image_sha256": "bd77e0f938ae7212345549356baf6632b3e4137a4cbc4c520baf84975f85850a",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "매우 높고 직립한 박스형 차체와 수직 면",
+          "source_url": "https://www.kia.com/kr/vehicles/ray/features",
+          "image_path": "front/public/images/recommendations/cutouts/ray.webp",
+          "image_sha256": "bd77e0f938ae7212345549356baf6632b3e4137a4cbc4c520baf84975f85850a",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "레이 EV",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "레이와 같은 박스형 차체, 네모난 전면",
+          "source_url": "https://www.kia.com/kr/vehicles/ray-ev/features",
+          "image_path": "front/public/images/recommendations/models/ray-ev.webp",
+          "image_sha256": "772da06e1361611c1adfcebafed5ddbc8ad7e65c97eb98483e5a9f048a4e1bb6",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "레이와 같은 박스형 차체, 네모난 전면",
+          "source_url": "https://www.kia.com/kr/vehicles/ray-ev/features",
+          "image_path": "front/public/images/recommendations/models/ray-ev.webp",
+          "image_sha256": "772da06e1361611c1adfcebafed5ddbc8ad7e65c97eb98483e5a9f048a4e1bb6",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "모닝",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "짧고 높은 해치백 비례, 둥근 패널과 각진 램프 혼합",
+          "source_url": "https://www.kia.com/kr/vehicles/morning/features",
+          "image_path": "front/public/images/recommendations/cutouts/morning.webp",
+          "image_sha256": "ab71617f1e1ced82b7fbff93751f0496b206e40674b8cf352bfb879d34527199",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "짧고 높은 해치백 비례, 둥근 패널과 각진 램프 혼합",
+          "source_url": "https://www.kia.com/kr/vehicles/morning/features",
+          "image_path": "front/public/images/recommendations/cutouts/morning.webp",
+          "image_sha256": "ab71617f1e1ced82b7fbff93751f0496b206e40674b8cf352bfb879d34527199",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "셀토스",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높고 직립한 SUV 비례, 네모난 그릴과 수평 면",
+          "source_url": "https://www.kia.com/kr/vehicles/seltos/features",
+          "image_path": "front/public/images/recommendations/cutouts/seltos.webp",
+          "image_sha256": "6a44b018a5a5ce27ee251b59c743abc1617113ba3219ce47563d03dec17f0287",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "높고 직립한 SUV 비례, 네모난 그릴과 수평 면",
+          "source_url": "https://www.kia.com/kr/vehicles/seltos/features",
+          "image_path": "front/public/images/recommendations/cutouts/seltos.webp",
+          "image_sha256": "6a44b018a5a5ce27ee251b59c743abc1617113ba3219ce47563d03dec17f0287",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "스포티지",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높은 SUV 루프, 직선 그릴과 둥근 차체 면 혼합",
+          "source_url": "https://www.kia.com/kr/vehicles/sportage/features",
+          "image_path": "front/public/images/recommendations/cutouts/sportage.webp",
+          "image_sha256": "29d40bd03f6555bd79b909eeed0346db64963e2eef404ee326be43cb43db25f2",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "높은 SUV 루프, 직선 그릴과 둥근 차체 면 혼합",
+          "source_url": "https://www.kia.com/kr/vehicles/sportage/features",
+          "image_path": "front/public/images/recommendations/cutouts/sportage.webp",
+          "image_sha256": "29d40bd03f6555bd79b909eeed0346db64963e2eef404ee326be43cb43db25f2",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "쏘렌토",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높고 직립한 SUV 지붕, 직선 전면과 각진 윤곽",
+          "source_url": "https://www.kia.com/kr/vehicles/sorento/features",
+          "image_path": "front/public/images/recommendations/models/sorento.webp",
+          "image_sha256": "4bf4bd56866a3648e2d7e73003719551fd38a4333fa51ba96c30145f0b77328a",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "높고 직립한 SUV 지붕, 직선 전면과 각진 윤곽",
+          "source_url": "https://www.kia.com/kr/vehicles/sorento/features",
+          "image_path": "front/public/images/recommendations/models/sorento.webp",
+          "image_sha256": "4bf4bd56866a3648e2d7e73003719551fd38a4333fa51ba96c30145f0b77328a",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "카니발",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높고 긴 미니밴 비례, 직선 지붕과 수평 면",
+          "source_url": "https://www.kia.com/kr/vehicles/carnival/features",
+          "image_path": "front/public/images/recommendations/models/carnival.webp",
+          "image_sha256": "2137c36b8b06ee21deeedb0cd3affb9f3fb79a580a9a4918b10f0990daa32a57",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "높고 긴 미니밴 비례, 직선 지붕과 수평 면",
+          "source_url": "https://www.kia.com/kr/vehicles/carnival/features",
+          "image_path": "front/public/images/recommendations/models/carnival.webp",
+          "image_sha256": "2137c36b8b06ee21deeedb0cd3affb9f3fb79a580a9a4918b10f0990daa32a57",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "카니발 하이리무진",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "더 높아진 미니밴 지붕과 직립한 긴 차체",
+          "source_url": "https://www.kia.com/kr/vehicles/carnival-hi-limousine/features",
+          "image_path": "front/public/images/recommendations/models/carnival-hi-limousine.webp",
+          "image_sha256": "71dc834949d7cd9a67cabbf8bc2b0dd6e49348d99b317407079a6269b3f23ae7",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "더 높아진 미니밴 지붕과 직립한 긴 차체",
+          "source_url": "https://www.kia.com/kr/vehicles/carnival-hi-limousine/features",
+          "image_path": "front/public/images/recommendations/models/carnival-hi-limousine.webp",
+          "image_sha256": "71dc834949d7cd9a67cabbf8bc2b0dd6e49348d99b317407079a6269b3f23ae7",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "렉서스",
+      "model": "ES",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 세단 루프, 각진 전면 그릴과 곡면 차체",
+          "source_url": "https://www.lexus.co.kr/models/ES-350h/",
+          "image_path": "front/public/images/recommendations/cutouts/lexus-es.webp",
+          "image_sha256": "f1816b89d591910e555951ee2a37801064327b6c87e4276f9b842e87625341fc",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮은 세단 루프, 각진 전면 그릴과 곡면 차체",
+          "source_url": "https://www.lexus.co.kr/models/ES-350h/",
+          "image_path": "front/public/images/recommendations/cutouts/lexus-es.webp",
+          "image_sha256": "f1816b89d591910e555951ee2a37801064327b6c87e4276f9b842e87625341fc",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "르노코리아",
+      "model": "그랑 콜레오스",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "높은 SUV 차체와 경사진 뒤 지붕, 직선과 곡선 혼합",
+          "source_url": "https://www.renault.co.kr/ko/vehicles/",
+          "image_path": "front/public/images/recommendations/models/grand-koleos.webp",
+          "image_sha256": "af607830fb6bc7a81c1148074db6bb18cf272f96a0bfc0732b090da71a6f6628",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "높은 SUV 차체와 경사진 뒤 지붕, 직선과 곡선 혼합",
+          "source_url": "https://www.renault.co.kr/ko/vehicles/",
+          "image_path": "front/public/images/recommendations/models/grand-koleos.webp",
+          "image_sha256": "af607830fb6bc7a81c1148074db6bb18cf272f96a0bfc0732b090da71a6f6628",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "르노코리아",
+      "model": "아르카나",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮게 떨어지는 쿠페형 루프, 곡면 차체와 직선 램프",
+          "source_url": "https://www.renault.co.kr/ko/model/arkana_overview.jsp",
+          "image_path": "front/public/images/recommendations/cutouts/arkana.webp",
+          "image_sha256": "bb57647229254db124bd4cf6c46971cedaea0fc6c73a49acd8f89e117d6eecd6",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮게 떨어지는 쿠페형 루프, 곡면 차체와 직선 램프",
+          "source_url": "https://www.renault.co.kr/ko/model/arkana_overview.jsp",
+          "image_path": "front/public/images/recommendations/cutouts/arkana.webp",
+          "image_sha256": "bb57647229254db124bd4cf6c46971cedaea0fc6c73a49acd8f89e117d6eecd6",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "르노코리아",
+      "model": "필랑트",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "중간 높이 SUV와 경사진 뒤 지붕, 직선과 곡면 혼합",
+          "source_url": "https://www.renault.co.kr/ko/vehicles/",
+          "image_path": "front/public/images/recommendations/models/filante.webp",
+          "image_sha256": "852c9232644739b366bb998008b2bd117c6486272d126145e6d889d30a750cea",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "중간 높이 SUV와 경사진 뒤 지붕, 직선과 곡면 혼합",
+          "source_url": "https://www.renault.co.kr/ko/vehicles/",
+          "image_path": "front/public/images/recommendations/models/filante.webp",
+          "image_sha256": "852c9232644739b366bb998008b2bd117c6486272d126145e6d889d30a750cea",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "마세라티",
+      "model": "GranCabrio",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮고 긴 오픈탑 비례, 타원형 그릴과 둥근 펜더",
+          "source_url": "https://www.maserati.com/kr/ko/models/grancabrio",
+          "image_path": "front/public/images/recommendations/new-models-20261028/maserati-grancabrio.webp",
+          "image_sha256": "616f487f0073254092b6df75ad43d0684415662da225020a2175b9d35e688dab",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "낮고 긴 오픈탑 비례, 타원형 그릴과 둥근 펜더",
+          "source_url": "https://www.maserati.com/kr/ko/models/grancabrio",
+          "image_path": "front/public/images/recommendations/new-models-20261028/maserati-grancabrio.webp",
+          "image_sha256": "616f487f0073254092b6df75ad43d0684415662da225020a2175b9d35e688dab",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "마세라티",
+      "model": "GranTurismo",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮고 긴 쿠페 루프, 둥근 그릴과 매끈한 곡면",
+          "source_url": "https://www.maserati.com/kr/ko/models/granturismo",
+          "image_path": "front/public/images/recommendations/new-models-20261028/maserati-granturismo.webp",
+          "image_sha256": "1d07e02b21f0999f5d10bd999370ef888ff10e25c5b60f4a4f9bd0f8f08b27a2",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "낮고 긴 쿠페 루프, 둥근 그릴과 매끈한 곡면",
+          "source_url": "https://www.maserati.com/kr/ko/models/granturismo",
+          "image_path": "front/public/images/recommendations/new-models-20261028/maserati-granturismo.webp",
+          "image_sha256": "1d07e02b21f0999f5d10bd999370ef888ff10e25c5b60f4a4f9bd0f8f08b27a2",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "메르세데스-벤츠",
+      "model": "E-Class",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 세단 루프, 곡선 차체와 직선 범퍼 혼합",
+          "source_url": "https://www.mercedes-benz.co.kr/passengercars/models/saloon/e-class/overview.html",
+          "image_path": "front/public/images/recommendations/cutouts/e-class.webp",
+          "image_sha256": "59baba2d839126a8bac850496933b29ec9894e7e7372202925f75e7fcdd28707",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮은 세단 루프, 곡선 차체와 직선 범퍼 혼합",
+          "source_url": "https://www.mercedes-benz.co.kr/passengercars/models/saloon/e-class/overview.html",
+          "image_path": "front/public/images/recommendations/cutouts/e-class.webp",
+          "image_sha256": "59baba2d839126a8bac850496933b29ec9894e7e7372202925f75e7fcdd28707",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "볼보",
+      "model": "XC60",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "중간 높이 SUV 루프, 수평 면과 둥근 아치 혼합",
+          "source_url": "https://www.volvocars.com/kr/cars/xc60/",
+          "image_path": "front/public/images/recommendations/cutouts/xc60.webp",
+          "image_sha256": "4a59f3d92718bfe47c4951b8d3e3dd27bf5a834f669146f056d13ec0e2ed7359",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "중간 높이 SUV 루프, 수평 면과 둥근 아치 혼합",
+          "source_url": "https://www.volvocars.com/kr/cars/xc60/",
+          "image_path": "front/public/images/recommendations/cutouts/xc60.webp",
+          "image_sha256": "4a59f3d92718bfe47c4951b8d3e3dd27bf5a834f669146f056d13ec0e2ed7359",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "쉐보레",
+      "model": "트랙스 크로스오버",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "완만한 크로스오버 지붕, 직선 램프와 곡면 펜더",
+          "source_url": "https://www.chevrolet.co.kr/cuvs/trax-crossover",
+          "image_path": "front/public/images/recommendations/models/trax-crossover.webp",
+          "image_sha256": "34286c4ea648be7660081d9ac3cbcc880c7a834c62cf4dec1485093b04b99d52",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "완만한 크로스오버 지붕, 직선 램프와 곡면 펜더",
+          "source_url": "https://www.chevrolet.co.kr/cuvs/trax-crossover",
+          "image_path": "front/public/images/recommendations/models/trax-crossover.webp",
+          "image_sha256": "34286c4ea648be7660081d9ac3cbcc880c7a834c62cf4dec1485093b04b99d52",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "제네시스",
+      "model": "Electrified G80",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮고 긴 세단 비례, 둥근 차체와 직선 램프 혼합",
+          "source_url": "https://www.genesis.com/kr/ko/models/electrified-g80",
+          "image_path": "front/public/images/recommendations/models/electrified-g80-front.webp",
+          "image_sha256": "e84ef77ebafeb01b7a09f9b95d42b65abe5d575e2f69f32b5a6096c7c05776d3",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮고 긴 세단 비례, 둥근 차체와 직선 램프 혼합",
+          "source_url": "https://www.genesis.com/kr/ko/models/electrified-g80",
+          "image_path": "front/public/images/recommendations/models/electrified-g80-front.webp",
+          "image_sha256": "e84ef77ebafeb01b7a09f9b95d42b65abe5d575e2f69f32b5a6096c7c05776d3",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "제네시스",
+      "model": "Electrified GV70",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "공식 교정 SUV 사진의 완만한 지붕, 둥근 펜더와 직선 램프",
+          "source_url": "https://www.genesis.com/kr/ko/models/electrified-gv70",
+          "image_path": "data/vehicles/full-trait-evidence-20261028/sources/electrified-gv70-side.png",
+          "image_sha256": "60de9cfe6a24e005decca0783cb666b62e160c4c7ad8dc6651ad15456fe9e1cd",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "공식 교정 SUV 사진의 완만한 지붕, 둥근 펜더와 직선 램프",
+          "source_url": "https://www.genesis.com/kr/ko/models/electrified-gv70",
+          "image_path": "data/vehicles/full-trait-evidence-20261028/sources/electrified-gv70-side.png",
+          "image_sha256": "60de9cfe6a24e005decca0783cb666b62e160c4c7ad8dc6651ad15456fe9e1cd",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "제네시스",
+      "model": "G70",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮고 긴 세단 비례, 날카로운 램프와 곡면 차체",
+          "source_url": "https://www.genesis.com/kr/ko/models/g70",
+          "image_path": "front/public/images/recommendations/models/g70-front.webp",
+          "image_sha256": "699a576091d1baef310f463933a1a0da8788697e8625a8bc10de4d49213227a2",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮고 긴 세단 비례, 날카로운 램프와 곡면 차체",
+          "source_url": "https://www.genesis.com/kr/ko/models/g70",
+          "image_path": "front/public/images/recommendations/models/g70-front.webp",
+          "image_sha256": "699a576091d1baef310f463933a1a0da8788697e8625a8bc10de4d49213227a2",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "제네시스",
+      "model": "G70 Shooting Brake",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 슈팅브레이크 지붕, 곡면과 직선 혼합",
+          "source_url": "https://www.genesis.com/kr/ko/models/g70-shooting-brake",
+          "image_path": "front/public/images/recommendations/models/g70-shooting-brake-front.webp",
+          "image_sha256": "5f66967818a56f6c1ef32a8808f960e038072400c79785bd412e336ce7c1f1bd",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮은 슈팅브레이크 지붕, 곡면과 직선 혼합",
+          "source_url": "https://www.genesis.com/kr/ko/models/g70-shooting-brake",
+          "image_path": "front/public/images/recommendations/models/g70-shooting-brake-front.webp",
+          "image_sha256": "5f66967818a56f6c1ef32a8808f960e038072400c79785bd412e336ce7c1f1bd",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "제네시스",
+      "model": "G80",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "길게 흐르는 낮은 세단 루프, 곡면과 직선 램프",
+          "source_url": "https://www.genesis.com/kr/ko/models/g80",
+          "image_path": "front/public/images/recommendations/models/g80-front.webp",
+          "image_sha256": "6171ae7dbecd6c5f5e9891ec2f135f86b79474f97c2c79f092fc88dcdc91cfb9",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "길게 흐르는 낮은 세단 루프, 곡면과 직선 램프",
+          "source_url": "https://www.genesis.com/kr/ko/models/g80",
+          "image_path": "front/public/images/recommendations/models/g80-front.webp",
+          "image_sha256": "6171ae7dbecd6c5f5e9891ec2f135f86b79474f97c2c79f092fc88dcdc91cfb9",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "제네시스",
+      "model": "G80 Black",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "G80와 같은 낮은 루프, 곡면과 직선 혼합",
+          "source_url": "https://www.genesis.com/kr/ko/models/g80",
+          "image_path": "front/public/images/recommendations/cutouts/g80-black-front.webp",
+          "image_sha256": "b72a7009d79c6d5a01e07884ac24e9940aea81bb6efb9e2c3514635b11a0f0a2",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "G80와 같은 낮은 루프, 곡면과 직선 혼합",
+          "source_url": "https://www.genesis.com/kr/ko/models/g80",
+          "image_path": "front/public/images/recommendations/cutouts/g80-black-front.webp",
+          "image_sha256": "b72a7009d79c6d5a01e07884ac24e9940aea81bb6efb9e2c3514635b11a0f0a2",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "길고 단정한 세단 비례, 수평 램프와 곡면 차체",
+          "source_url": "https://www.genesis.com/kr/ko/models/g90",
+          "image_path": "front/public/images/recommendations/models/g90-front.webp",
+          "image_sha256": "5f1ca3374ad882d9b651e2c5c50daf18f69bf9715574201cf5f0e19f78f30a8b",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "길고 단정한 세단 비례, 수평 램프와 곡면 차체",
+          "source_url": "https://www.genesis.com/kr/ko/models/g90",
+          "image_path": "front/public/images/recommendations/models/g90-front.webp",
+          "image_sha256": "5f1ca3374ad882d9b651e2c5c50daf18f69bf9715574201cf5f0e19f78f30a8b",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90 Long Wheel Base",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "길게 늘어난 세단 비례, 직선과 둥근 윤곽 혼합",
+          "source_url": "https://www.genesis.com/kr/ko/models/g90-long-wheel-base",
+          "image_path": "front/public/images/recommendations/cutouts/g90-long-wheel-base-front.webp",
+          "image_sha256": "7ea6e886cf0e9d51a136c2913815af6f9cd15e956a91ee5a3f7a91f9e1d7a06c",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "길게 늘어난 세단 비례, 직선과 둥근 윤곽 혼합",
+          "source_url": "https://www.genesis.com/kr/ko/models/g90-long-wheel-base",
+          "image_path": "front/public/images/recommendations/cutouts/g90-long-wheel-base-front.webp",
+          "image_sha256": "7ea6e886cf0e9d51a136c2913815af6f9cd15e956a91ee5a3f7a91f9e1d7a06c",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90 Long Wheel Base Black",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "G90 롱휠베이스와 같은 비례, 곡면과 직선 혼합",
+          "source_url": "https://www.genesis.com/kr/ko/models/g90-long-wheel-base",
+          "image_path": "front/public/images/recommendations/cutouts/g90-long-wheel-base-black-front.webp",
+          "image_sha256": "f134bb6392c2498d7bc2dea10caf3b7279dc1fd20e2ec735fe7051e34a85e391",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "G90 롱휠베이스와 같은 비례, 곡면과 직선 혼합",
+          "source_url": "https://www.genesis.com/kr/ko/models/g90-long-wheel-base",
+          "image_path": "front/public/images/recommendations/cutouts/g90-long-wheel-base-black-front.webp",
+          "image_sha256": "f134bb6392c2498d7bc2dea10caf3b7279dc1fd20e2ec735fe7051e34a85e391",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV70",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "SUV 높이와 뒤로 흐르는 루프, 둥근 펜더와 직선 램프",
+          "source_url": "https://www.genesis.com/kr/ko/models/gv70",
+          "image_path": "front/public/images/recommendations/models/gv70-front.webp",
+          "image_sha256": "feac2b0220805b4afaddd1b7b68fc3712f1b1f3069eeedda730778fab9696b41",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "SUV 높이와 뒤로 흐르는 루프, 둥근 펜더와 직선 램프",
+          "source_url": "https://www.genesis.com/kr/ko/models/gv70",
+          "image_path": "front/public/images/recommendations/models/gv70-front.webp",
+          "image_sha256": "feac2b0220805b4afaddd1b7b68fc3712f1b1f3069eeedda730778fab9696b41",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV80",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "높은 SUV에 완만한 지붕, 곡면 펜더와 직선 램프",
+          "source_url": "https://www.genesis.com/kr/ko/models/gv80",
+          "image_path": "front/public/images/recommendations/cutouts/gv80-front.webp",
+          "image_sha256": "ca7fb3d5961bf4258464f9675d5238118ed8a491cc42e5f3e669114c4db9bd20",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "높은 SUV에 완만한 지붕, 곡면 펜더와 직선 램프",
+          "source_url": "https://www.genesis.com/kr/ko/models/gv80",
+          "image_path": "front/public/images/recommendations/cutouts/gv80-front.webp",
+          "image_sha256": "ca7fb3d5961bf4258464f9675d5238118ed8a491cc42e5f3e669114c4db9bd20",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV80 Black Hybrid",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "GV80와 같은 SUV 실루엣, 곡면과 직선 혼합",
+          "source_url": "https://www.genesis.com/kr/ko/models/gv80",
+          "image_path": "front/public/images/recommendations/cutouts/gv80-black-front.webp",
+          "image_sha256": "8be4a0e63ae9a6ca614631888692d09fb5e0508b5ae30ee9f0aa6305835f8f23",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "GV80와 같은 SUV 실루엣, 곡면과 직선 혼합",
+          "source_url": "https://www.genesis.com/kr/ko/models/gv80",
+          "image_path": "front/public/images/recommendations/cutouts/gv80-black-front.webp",
+          "image_sha256": "8be4a0e63ae9a6ca614631888692d09fb5e0508b5ae30ee9f0aa6305835f8f23",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV80 Coupe",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "SUV 높이에 낮게 떨어지는 쿠페 루프, 둥근 펜더와 직선 램프",
+          "source_url": "https://www.genesis.com/kr/ko/models/gv80-coupe",
+          "image_path": "front/public/images/recommendations/cutouts/gv80-coupe-front.webp",
+          "image_sha256": "a9ed302c166ac2a12b155ba5fa7ae8bf7dc7dacccdbde66048c56d2b22716ebb",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "SUV 높이에 낮게 떨어지는 쿠페 루프, 둥근 펜더와 직선 램프",
+          "source_url": "https://www.genesis.com/kr/ko/models/gv80-coupe",
+          "image_path": "front/public/images/recommendations/cutouts/gv80-coupe-front.webp",
+          "image_sha256": "a9ed302c166ac2a12b155ba5fa7ae8bf7dc7dacccdbde66048c56d2b22716ebb",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV80 Hybrid",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "GV80와 같은 SUV 실루엣, 곡면과 직선 혼합",
+          "source_url": "https://www.genesis.com/kr/ko/models/gv80",
+          "image_path": "front/public/images/recommendations/cutouts/gv80-front.webp",
+          "image_sha256": "ca7fb3d5961bf4258464f9675d5238118ed8a491cc42e5f3e669114c4db9bd20",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "GV80와 같은 SUV 실루엣, 곡면과 직선 혼합",
+          "source_url": "https://www.genesis.com/kr/ko/models/gv80",
+          "image_path": "front/public/images/recommendations/cutouts/gv80-front.webp",
+          "image_sha256": "ca7fb3d5961bf4258464f9675d5238118ed8a491cc42e5f3e669114c4db9bd20",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "테슬라",
+      "model": "Model Y",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮게 흐르는 패스트백 지붕과 매끈한 곡면 중심 차체",
+          "source_url": "https://www.tesla.com/ko_kr/modely",
+          "image_path": "front/public/images/recommendations/cutouts/model-y.webp",
+          "image_sha256": "56a7f5fb1d0935792ef2d88c390ef8ebd27353c1975877d4c921adc481bf379a",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "낮게 흐르는 패스트백 지붕과 매끈한 곡면 중심 차체",
+          "source_url": "https://www.tesla.com/ko_kr/modely",
+          "image_path": "front/public/images/recommendations/cutouts/model-y.webp",
+          "image_sha256": "56a7f5fb1d0935792ef2d88c390ef8ebd27353c1975877d4c921adc481bf379a",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "토요타",
+      "model": "GR86",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 2도어 루프, 둥근 펜더와 직선형 흡기구",
+          "source_url": "https://www.toyota.co.kr/models/gr86/",
+          "image_path": "front/public/images/recommendations/new-models-20261028/toyota-gr86.webp",
+          "image_sha256": "f0b4a482984a76db8670f5227bb2d2bd34c9f6de5caa2e684b1b88556eac3fa7",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮은 2도어 루프, 둥근 펜더와 직선형 흡기구",
+          "source_url": "https://www.toyota.co.kr/models/gr86/",
+          "image_path": "front/public/images/recommendations/new-models-20261028/toyota-gr86.webp",
+          "image_sha256": "f0b4a482984a76db8670f5227bb2d2bd34c9f6de5caa2e684b1b88556eac3fa7",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 그랜저",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "길고 단정한 세단 비례, 수평 램프와 곡면 차체",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/the-new-grandeur/intro",
+          "image_path": "front/public/images/recommendations/cutouts/grandeur.webp",
+          "image_sha256": "9b08f59f9dce1403b05e9acb2f9e1834ab1df99daeaa84f1a91b9504c40e46b6",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "길고 단정한 세단 비례, 수평 램프와 곡면 차체",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/the-new-grandeur/intro",
+          "image_path": "front/public/images/recommendations/cutouts/grandeur.webp",
+          "image_sha256": "9b08f59f9dce1403b05e9acb2f9e1834ab1df99daeaa84f1a91b9504c40e46b6",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 그랜저 Hybrid",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "그랜저와 같은 긴 세단 비례, 직선과 곡면 혼합",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/the-new-grandeur/intro",
+          "image_path": "front/public/images/recommendations/cutouts/grandeur.webp",
+          "image_sha256": "9b08f59f9dce1403b05e9acb2f9e1834ab1df99daeaa84f1a91b9504c40e46b6",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "그랜저와 같은 긴 세단 비례, 직선과 곡면 혼합",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/the-new-grandeur/intro",
+          "image_path": "front/public/images/recommendations/cutouts/grandeur.webp",
+          "image_sha256": "9b08f59f9dce1403b05e9acb2f9e1834ab1df99daeaa84f1a91b9504c40e46b6",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 Electric",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높고 직립한 승합차 지붕, 둥근 전면과 직선 측면",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/staria-electric",
+          "image_path": "front/public/images/recommendations/models/staria-electric.webp",
+          "image_sha256": "3f68e596846674cbef11c9fc72c08ba9d23f780b853e18b4ab56fbbb376878c2",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "높고 직립한 승합차 지붕, 둥근 전면과 직선 측면",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/staria-electric",
+          "image_path": "front/public/images/recommendations/models/staria-electric.webp",
+          "image_sha256": "3f68e596846674cbef11c9fc72c08ba9d23f780b853e18b4ab56fbbb376878c2",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 Hybrid",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높고 직립한 승합차 차체, 곡면 전면과 수평 램프",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/staria-hybrid",
+          "image_path": "front/public/images/recommendations/models/staria-hybrid.webp",
+          "image_sha256": "69dab21486ec369b11af8ec4731c906c2f2f7312290bb6d7cc05b17a85ac566d",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "높고 직립한 승합차 차체, 곡면 전면과 수평 램프",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/staria-hybrid",
+          "image_path": "front/public/images/recommendations/models/staria-hybrid.webp",
+          "image_sha256": "69dab21486ec369b11af8ec4731c906c2f2f7312290bb6d7cc05b17a85ac566d",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높고 긴 승합차 비례, 둥근 전면과 직선 지붕",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/the-new-staria-lounge/intro",
+          "image_path": "front/public/images/recommendations/cutouts/staria-lounge.webp",
+          "image_sha256": "194458eebd5e960dafe9ddc58ae80fb44b22ce8e18bdb98a197575acce744add",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "높고 긴 승합차 비례, 둥근 전면과 직선 지붕",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/the-new-staria-lounge/intro",
+          "image_path": "front/public/images/recommendations/cutouts/staria-lounge.webp",
+          "image_sha256": "194458eebd5e960dafe9ddc58ae80fb44b22ce8e18bdb98a197575acce744add",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지 Electric",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높고 직립한 라운지 지붕, 곡면과 직선 혼합",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/staria-lounge-electric",
+          "image_path": "front/public/images/recommendations/models/staria-lounge-electric.webp",
+          "image_sha256": "d5fa52373b8c9f596561ad6d50bdfa8b7abf6183464a06c851120f07751f519b",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "높고 직립한 라운지 지붕, 곡면과 직선 혼합",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/staria-lounge-electric",
+          "image_path": "front/public/images/recommendations/models/staria-lounge-electric.webp",
+          "image_sha256": "d5fa52373b8c9f596561ad6d50bdfa8b7abf6183464a06c851120f07751f519b",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지 Hybrid",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높고 직립한 라운지 비례, 둥근 전면과 수평선",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/staria-lounge-hybrid",
+          "image_path": "front/public/images/recommendations/models/staria-lounge-hybrid.webp",
+          "image_sha256": "ed852c329d6ec83953ccc689a5e1a5fa9f7edf45542170f34e83e2a790a2081a",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "높고 직립한 라운지 비례, 둥근 전면과 수평선",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/staria-lounge-hybrid",
+          "image_path": "front/public/images/recommendations/models/staria-lounge-hybrid.webp",
+          "image_sha256": "ed852c329d6ec83953ccc689a5e1a5fa9f7edf45542170f34e83e2a790a2081a",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 리무진 Electric",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높고 긴 리무진 지붕, 곡면 전면과 직선 측면",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/staria-limousine-electric",
+          "image_path": "front/public/images/recommendations/models/staria-limousine-electric.webp",
+          "image_sha256": "ae093ae59b4e4c60deed335cfbbb17a9a0dd684aff44ae24f4b637ce93bc7213",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "높고 긴 리무진 지붕, 곡면 전면과 직선 측면",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/staria-limousine-electric",
+          "image_path": "front/public/images/recommendations/models/staria-limousine-electric.webp",
+          "image_sha256": "ae093ae59b4e4c60deed335cfbbb17a9a0dd684aff44ae24f4b637ce93bc7213",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 리무진 Hybrid",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높고 직립한 리무진 비례, 수평 램프와 둥근 차체",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/staria-limousine-hybrid",
+          "image_path": "front/public/images/recommendations/models/staria-limousine-hybrid.webp",
+          "image_sha256": "5ff24227f5ef297e3263b85974e47c16118f6efe04d27d42eca22f4f02f5eeea",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "높고 직립한 리무진 비례, 수평 램프와 둥근 차체",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/staria-limousine-hybrid",
+          "image_path": "front/public/images/recommendations/models/staria-limousine-hybrid.webp",
+          "image_sha256": "5ff24227f5ef297e3263b85974e47c16118f6efe04d27d42eca22f4f02f5eeea",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 아이오닉 6",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "아치형으로 낮게 흐르는 루프와 매끈한 곡면",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/ioniq6",
+          "image_path": "front/public/images/recommendations/models/ioniq6.webp",
+          "image_sha256": "61e9e8d2da6a29e4b0cc9f8b869a5881a089ad53ffcec1a3a3c5fe2b427673ec",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "아치형으로 낮게 흐르는 루프와 매끈한 곡면",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/ioniq6",
+          "image_path": "front/public/images/recommendations/models/ioniq6.webp",
+          "image_sha256": "61e9e8d2da6a29e4b0cc9f8b869a5881a089ad53ffcec1a3a3c5fe2b427673ec",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "디 올 뉴 아반떼",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 세단 루프, 삼각형 측면 면과 각진 전면",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/the-all-new-avante/intro",
+          "image_path": "front/public/images/recommendations/cutouts/avante.webp",
+          "image_sha256": "ba2f7a029ccc6a83cea814b22ed35acf28eaa303c16dd0f64d9310c6fa3b38cc",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮은 세단 루프, 삼각형 측면 면과 각진 전면",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/the-all-new-avante/intro",
+          "image_path": "front/public/images/recommendations/cutouts/avante.webp",
+          "image_sha256": "ba2f7a029ccc6a83cea814b22ed35acf28eaa303c16dd0f64d9310c6fa3b38cc",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "베뉴",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "짧고 높은 SUV 비례, 둥근 펜더와 직선 그릴",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/venue",
+          "image_path": "front/public/images/recommendations/models/venue.webp",
+          "image_sha256": "d0234ded742514eacc726eb4ce94c484e948b1e5401cd501c032690febf0e3d8",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "짧고 높은 SUV 비례, 둥근 펜더와 직선 그릴",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/venue",
+          "image_path": "front/public/images/recommendations/models/venue.webp",
+          "image_sha256": "d0234ded742514eacc726eb4ce94c484e948b1e5401cd501c032690febf0e3d8",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "싼타페",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높고 직립한 박스형 SUV 지붕, 네모난 면과 아치",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/santafe",
+          "image_path": "front/public/images/recommendations/models/santafe.webp",
+          "image_sha256": "ec91d684eafbf827125dd1b285c03e7eb3c7fc9b586d57dfa0d1a50209b07436",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "높고 직립한 박스형 SUV 지붕, 네모난 면과 아치",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/santafe",
+          "image_path": "front/public/images/recommendations/models/santafe.webp",
+          "image_sha256": "ec91d684eafbf827125dd1b285c03e7eb3c7fc9b586d57dfa0d1a50209b07436",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "싼타페 Hybrid",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "싼타페와 같은 박스형 지붕과 네모난 펜더",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/santafe-hybrid",
+          "image_path": "front/public/images/recommendations/models/santafe-hybrid.webp",
+          "image_sha256": "3dc9e3531b8a6b37d5ea34d23f2294bbf29691397cfd6c1f9c74802f115e1207",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "싼타페와 같은 박스형 지붕과 네모난 펜더",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/santafe-hybrid",
+          "image_path": "front/public/images/recommendations/models/santafe-hybrid.webp",
+          "image_sha256": "3dc9e3531b8a6b37d5ea34d23f2294bbf29691397cfd6c1f9c74802f115e1207",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "쏘나타 디 엣지",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "낮게 흐르는 세단 루프, 곡면 차체와 수평 램프",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/sonata-the-edge/intro",
+          "image_path": "front/public/images/recommendations/cutouts/sonata.webp",
+          "image_sha256": "4bfe25498a3cb04d06373fb1479960dffd9aaf52fdce880b3562f509aa66fd07",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "낮게 흐르는 세단 루프, 곡면 차체와 수평 램프",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/sonata-the-edge/intro",
+          "image_path": "front/public/images/recommendations/cutouts/sonata.webp",
+          "image_sha256": "4bfe25498a3cb04d06373fb1479960dffd9aaf52fdce880b3562f509aa66fd07",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "쏘나타 디 엣지 Hybrid",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "쏘나타와 같은 낮은 세단 루프, 곡면과 직선 혼합",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/sonata-the-edge/intro",
+          "image_path": "front/public/images/recommendations/cutouts/sonata.webp",
+          "image_sha256": "4bfe25498a3cb04d06373fb1479960dffd9aaf52fdce880b3562f509aa66fd07",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "쏘나타와 같은 낮은 세단 루프, 곡면과 직선 혼합",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/sonata-the-edge/intro",
+          "image_path": "front/public/images/recommendations/cutouts/sonata.webp",
+          "image_sha256": "4bfe25498a3cb04d06373fb1479960dffd9aaf52fdce880b3562f509aa66fd07",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "아이오닉 5",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "중간 높이 해치형 비례, 각진 패널과 네모난 램프",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/ioniq5",
+          "image_path": "front/public/images/recommendations/models/ioniq5.webp",
+          "image_sha256": "a16510cd929f2e20be62fcbff08b5cf9844cb86f3aacde9a92c11cbd6a4d5169",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "중간 높이 해치형 비례, 각진 패널과 네모난 램프",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/ioniq5",
+          "image_path": "front/public/images/recommendations/models/ioniq5.webp",
+          "image_sha256": "a16510cd929f2e20be62fcbff08b5cf9844cb86f3aacde9a92c11cbd6a4d5169",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "캐스퍼",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "짧고 높은 해치형 차체, 원형 램프와 각진 아치",
+          "source_url": "https://casper.hyundai.com",
+          "image_path": "front/public/images/recommendations/models/casper.webp",
+          "image_sha256": "5a8022445c54f4ddbf7ec61056b2c62bf2cd687545630a86c1b55d1e27cfeb84",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "짧고 높은 해치형 차체, 원형 램프와 각진 아치",
+          "source_url": "https://casper.hyundai.com",
+          "image_path": "front/public/images/recommendations/models/casper.webp",
+          "image_sha256": "5a8022445c54f4ddbf7ec61056b2c62bf2cd687545630a86c1b55d1e27cfeb84",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "캐스퍼 일렉트릭",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "짧고 높은 해치형 실루엣, 둥근 램프와 각진 패널",
+          "source_url": "https://casper.hyundai.com",
+          "image_path": "front/public/images/recommendations/models/casper-electric.webp",
+          "image_sha256": "8759d608cc1baf82b0ebe57803097fa992c2669ce2f0e3942ad66d037e08a456",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "짧고 높은 해치형 실루엣, 둥근 램프와 각진 패널",
+          "source_url": "https://casper.hyundai.com",
+          "image_path": "front/public/images/recommendations/models/casper-electric.webp",
+          "image_sha256": "8759d608cc1baf82b0ebe57803097fa992c2669ce2f0e3942ad66d037e08a456",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "코나",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "중간 높이 SUV 비례, 각진 측면 패널과 휠 아치",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/kona/intro",
+          "image_path": "front/public/images/recommendations/cutouts/kona.webp",
+          "image_sha256": "b439b40648b51ea74125e9ef22fbfcc528829641c58024e131a16581a1bbddf6",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "중간 높이 SUV 비례, 각진 측면 패널과 휠 아치",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/kona/intro",
+          "image_path": "front/public/images/recommendations/cutouts/kona.webp",
+          "image_sha256": "b439b40648b51ea74125e9ef22fbfcc528829641c58024e131a16581a1bbddf6",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "코나 Electric",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "중간 높이 SUV 비례, 둥근 전면과 직선형 측면",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/kona-electric",
+          "image_path": "front/public/images/recommendations/models/kona-electric.webp",
+          "image_sha256": "8a9d07e624a677c60d9c1924f11add88d3b3fe5abf6e10fb0f406378b6e52e87",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "중간 높이 SUV 비례, 둥근 전면과 직선형 측면",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/kona-electric",
+          "image_path": "front/public/images/recommendations/models/kona-electric.webp",
+          "image_sha256": "8a9d07e624a677c60d9c1924f11add88d3b3fe5abf6e10fb0f406378b6e52e87",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "코나 Hybrid",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "코나와 같은 SUV 비례, 각진 측면과 전면 면",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/kona/intro",
+          "image_path": "front/public/images/recommendations/cutouts/kona.webp",
+          "image_sha256": "b439b40648b51ea74125e9ef22fbfcc528829641c58024e131a16581a1bbddf6",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "코나와 같은 SUV 비례, 각진 측면과 전면 면",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/kona/intro",
+          "image_path": "front/public/images/recommendations/cutouts/kona.webp",
+          "image_sha256": "b439b40648b51ea74125e9ef22fbfcc528829641c58024e131a16581a1bbddf6",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "투싼",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "중간 높이 SUV에 경사진 지붕, 삼각형 패널과 각진 그릴",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/tucson",
+          "image_path": "front/public/images/recommendations/models/tucson.webp",
+          "image_sha256": "394a847f286609a731227bcb18658614dae83d0874453137d1252cbd97cf1c52",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "중간 높이 SUV에 경사진 지붕, 삼각형 패널과 각진 그릴",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/tucson",
+          "image_path": "front/public/images/recommendations/models/tucson.webp",
+          "image_sha256": "394a847f286609a731227bcb18658614dae83d0874453137d1252cbd97cf1c52",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "투싼 Hybrid",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0.5,
+          "basis": "투싼과 같은 SUV 윤곽, 각진 패널과 삼각 면",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/tucson-hybrid",
+          "image_path": "front/public/images/recommendations/models/tucson-hybrid.webp",
+          "image_sha256": "25402071fcda8fd907fb7948ffc337c79e967a74c951ea58eb24a7c7c6d955ae",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "투싼과 같은 SUV 윤곽, 각진 패널과 삼각 면",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/tucson-hybrid",
+          "image_path": "front/public/images/recommendations/models/tucson-hybrid.webp",
+          "image_sha256": "25402071fcda8fd907fb7948ffc337c79e967a74c951ea58eb24a7c7c6d955ae",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "팰리세이드",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "높고 직립한 대형 SUV 비례, 수직 램프와 네모난 면",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/palisade/intro",
+          "image_path": "front/public/images/recommendations/cutouts/palisade.webp",
+          "image_sha256": "ea025a5e730448ffd82ce2128b052f87aa494c6c6ff167e0479f33ab15df0bf3",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "높고 직립한 대형 SUV 비례, 수직 램프와 네모난 면",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/palisade/intro",
+          "image_path": "front/public/images/recommendations/cutouts/palisade.webp",
+          "image_sha256": "ea025a5e730448ffd82ce2128b052f87aa494c6c6ff167e0479f33ab15df0bf3",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "팰리세이드 Hybrid",
+      "scope": "representative-family-image; trim/generation differences possible",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "value": 0,
+          "basis": "팰리세이드와 같은 박스형 실루엣과 직선 면",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/palisade/intro",
+          "image_path": "front/public/images/recommendations/cutouts/palisade.webp",
+          "image_sha256": "ea025a5e730448ffd82ce2128b052f87aa494c6c6ff167e0479f33ab15df0bf3",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "value": 1,
+          "basis": "팰리세이드와 같은 박스형 실루엣과 직선 면",
+          "source_url": "https://www.hyundai.com/kr/ko/e/vehicles/palisade/intro",
+          "image_path": "front/public/images/recommendations/cutouts/palisade.webp",
+          "image_sha256": "ea025a5e730448ffd82ce2128b052f87aa494c6c6ff167e0479f33ab15df0bf3",
+          "checked_on": "2026-10-28",
+          "limitation": "대표 모델 사진의 주관적 3단계 평가. 트림·연식별 실물 검증이나 디자인 품질 점수가 아님."
+        }
+      }
+    }
+  ]
+}

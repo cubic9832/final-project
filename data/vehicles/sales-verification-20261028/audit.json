@@ -1,0 +1,20 @@
+{
+  "catalog_configurations": 323,
+  "research_configurations_reviewed": 19,
+  "placeholder_trims": 9,
+  "price_status_counts": {
+    "official-reference": 10,
+    "secondary-reference": 7,
+    "estimated-price": 1,
+    "reported-launch-price": 1
+  },
+  "missing_prices": 0,
+  "missing_domestic_information": 0,
+  "current_orders_confirmed": 0,
+  "financial_eligibility_promoted": 0,
+  "source_hashes": {
+    "ml\\outputs\\models\\preference-cohorts\\20261028-v6-web-recheck\\catalog.json": "b09bd733b7dd1d0585a432087e83dd4e314b7212ea12a1aa80bb84eeaa7a0b1b",
+    "data\\vehicles\\luxury-sports-review-20261028\\reviewed.json": "2eabc250f00e61a3d1fb402c784466fb7ffbb2c287e29bf9e25a3835e5a29679"
+  },
+  "registry_sha256": "30bfdb7b47204ea54b1a4cee6664e5d50439f627da92cabca450dfeb32ac1f6a"
+}

@@ -1,0 +1,448 @@
+{
+  "schema": "lifestyle-evidence-v2",
+  "checked_on": "2026-10-28",
+  "visual_rubric": {
+    "exterior_sportiness": {
+      "0": "높고 직립한 박스·해치형 비례",
+      "0.5": "중간 또는 혼합된 비례",
+      "1": "낮고 길며 뒤로 흐르는 루프의 비례"
+    },
+    "exterior_angularity": {
+      "0": "곡면과 둥근 윤곽 중심",
+      "0.5": "직선과 곡선 혼합",
+      "1": "각진 윤곽·면·캐릭터 라인 중심"
+    }
+  },
+  "reviews": [
+    {
+      "brand": "기아",
+      "model": "K5",
+      "years": null,
+      "scope": "representative-family-image; not exact-trim certification",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "source_url": "https://www.kia.com/kr/vehicles/k5/features",
+          "image_path": "data/vehicles/official-image-review/images/OWN001-k5.png",
+          "image_sha256": "b86bc90e568e5f08cb93ee25f61739e7727f51314c1e79297004e7355c1e97bf",
+          "basis": "낮게 흐르는 루프와 길게 뻗은 세단 비례; 직선과 곡선이 혼합됨",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 1
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "source_url": "https://www.kia.com/kr/vehicles/k5/features",
+          "image_path": "data/vehicles/official-image-review/images/OWN001-k5.png",
+          "image_sha256": "b86bc90e568e5f08cb93ee25f61739e7727f51314c1e79297004e7355c1e97bf",
+          "basis": "낮게 흐르는 루프와 길게 뻗은 세단 비례; 직선과 곡선이 혼합됨",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 0.5
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "K8",
+      "years": null,
+      "scope": "representative-family-image; not exact-trim certification",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "source_url": "https://www.kia.com/kr/vehicles/k8/features",
+          "image_path": "data/vehicles/official-image-review/images/OWN002-k8.png",
+          "image_sha256": "d715324398fbc5de8395bb41a6f4e2d9ae1c5ce1e0f4f6d94a5f9cda5787fbb0",
+          "basis": "긴 세단 비례이며 차체 면은 곡선과 직선이 혼합됨",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 0.5
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "source_url": "https://www.kia.com/kr/vehicles/k8/features",
+          "image_path": "data/vehicles/official-image-review/images/OWN002-k8.png",
+          "image_sha256": "d715324398fbc5de8395bb41a6f4e2d9ae1c5ce1e0f4f6d94a5f9cda5787fbb0",
+          "basis": "긴 세단 비례이며 차체 면은 곡선과 직선이 혼합됨",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 0.5
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "니로",
+      "years": null,
+      "scope": "representative-family-image; not exact-trim certification",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "source_url": "https://www.kia.com/kr/vehicles/niro/features",
+          "image_path": "data/vehicles/official-image-review/images/OWN003-niro.png",
+          "image_sha256": "5d29cce5ca078bdcf0ca30388fe60bd146b933b820304ec283d7021816d5af75",
+          "basis": "높은 해치형 루프; 곡선 차체와 직선형 후면 장식이 혼합됨",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 0
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "source_url": "https://www.kia.com/kr/vehicles/niro/features",
+          "image_path": "data/vehicles/official-image-review/images/OWN003-niro.png",
+          "image_sha256": "5d29cce5ca078bdcf0ca30388fe60bd146b933b820304ec283d7021816d5af75",
+          "basis": "높은 해치형 루프; 곡선 차체와 직선형 후면 장식이 혼합됨",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 0.5
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "레이",
+      "years": null,
+      "scope": "representative-family-image; not exact-trim certification",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "source_url": "https://www.kia.com/kr/vehicles/ray/features",
+          "image_path": "data/vehicles/official-image-review/images/OWN004-ray.png",
+          "image_sha256": "e79852a6060132505e860dca5dde74686ac24e028ece104a1984ea63ee7471cb",
+          "basis": "높고 수직에 가까운 루프·후면과 상자형 윤곽",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 0
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "source_url": "https://www.kia.com/kr/vehicles/ray/features",
+          "image_path": "data/vehicles/official-image-review/images/OWN004-ray.png",
+          "image_sha256": "e79852a6060132505e860dca5dde74686ac24e028ece104a1984ea63ee7471cb",
+          "basis": "높고 수직에 가까운 루프·후면과 상자형 윤곽",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 1
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "모닝",
+      "years": null,
+      "scope": "representative-family-image; not exact-trim certification",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "source_url": "https://www.kia.com/kr/vehicles/morning/features",
+          "image_path": "data/vehicles/official-image-review/images/OWN005-morning.png",
+          "image_sha256": "1f2fbc9191de8fad6d5e5143674ebf2cee04eb2f135cc6a1da02935302926f62",
+          "basis": "짧고 높은 해치형 윤곽; 전후면 직선과 루프 곡선 혼합",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 0
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "source_url": "https://www.kia.com/kr/vehicles/morning/features",
+          "image_path": "data/vehicles/official-image-review/images/OWN005-morning.png",
+          "image_sha256": "1f2fbc9191de8fad6d5e5143674ebf2cee04eb2f135cc6a1da02935302926f62",
+          "basis": "짧고 높은 해치형 윤곽; 전후면 직선과 루프 곡선 혼합",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 0.5
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "셀토스",
+      "years": null,
+      "scope": "representative-family-image; not exact-trim certification",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "source_url": "https://www.kia.com/kr/vehicles/seltos/features",
+          "image_path": "data/vehicles/official-image-review/images/OWN006-seltos.png",
+          "image_sha256": "802e12a0e221148f9a967711453a9d48fa94df0f5ff400311936d71cfd34a2d4",
+          "basis": "직선형 루프·필러와 각진 휠 아치가 뚜렷함",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 0.5
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "source_url": "https://www.kia.com/kr/vehicles/seltos/features",
+          "image_path": "data/vehicles/official-image-review/images/OWN006-seltos.png",
+          "image_sha256": "802e12a0e221148f9a967711453a9d48fa94df0f5ff400311936d71cfd34a2d4",
+          "basis": "직선형 루프·필러와 각진 휠 아치가 뚜렷함",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 1
+        }
+      }
+    },
+    {
+      "brand": "기아",
+      "model": "스포티지",
+      "years": null,
+      "scope": "representative-family-image; not exact-trim certification",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "source_url": "https://www.kia.com/kr/vehicles/sportage/features",
+          "image_path": "data/vehicles/official-image-review/images/OWN007-sportage.png",
+          "image_sha256": "c08d2025ecb449de74e3d92ece447e0f1bbabaefde566e7230c905006936a331",
+          "basis": "각진 휠 아치·램프 윤곽과 직선형 측면 장식",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 0.5
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "source_url": "https://www.kia.com/kr/vehicles/sportage/features",
+          "image_path": "data/vehicles/official-image-review/images/OWN007-sportage.png",
+          "image_sha256": "c08d2025ecb449de74e3d92ece447e0f1bbabaefde566e7230c905006936a331",
+          "basis": "각진 휠 아치·램프 윤곽과 직선형 측면 장식",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 1
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "디 올 뉴 아반떼",
+      "years": null,
+      "scope": "representative-family-image; not exact-trim certification",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "source_url": "https://www.hyundai.com/kr/ko/e/all-vehicles",
+          "image_path": "data/vehicles/official-image-review/images/OWN011-avante-27fc.png",
+          "image_sha256": "e7486e7c193af947f2ce549b308f3eeb2e7157d38c93f53090f2f072418793c6",
+          "basis": "낮고 경사진 루프와 삼각형·직선형 측면 캐릭터 라인",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 1
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "source_url": "https://www.hyundai.com/kr/ko/e/all-vehicles",
+          "image_path": "data/vehicles/official-image-review/images/OWN011-avante-27fc.png",
+          "image_sha256": "e7486e7c193af947f2ce549b308f3eeb2e7157d38c93f53090f2f072418793c6",
+          "basis": "낮고 경사진 루프와 삼각형·직선형 측면 캐릭터 라인",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 1
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "쏘나타 디 엣지",
+      "years": [
+        "2027"
+      ],
+      "scope": "representative-family-image; not exact-trim certification",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "source_url": "https://www.hyundai.com/kr/ko/e/all-vehicles",
+          "image_path": "data/vehicles/official-image-review/images/OWN012-sonata-the-edge-27my.png",
+          "image_sha256": "300a4b42c56c14bd3fc509fe4aceeb14e68d33ddf8066f9524c71f08aacc030c",
+          "basis": "낮게 경사진 루프; 직선형 램프와 곡선 차체 면 혼합",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 1
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "source_url": "https://www.hyundai.com/kr/ko/e/all-vehicles",
+          "image_path": "data/vehicles/official-image-review/images/OWN012-sonata-the-edge-27my.png",
+          "image_sha256": "300a4b42c56c14bd3fc509fe4aceeb14e68d33ddf8066f9524c71f08aacc030c",
+          "basis": "낮게 경사진 루프; 직선형 램프와 곡선 차체 면 혼합",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 0.5
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "코나",
+      "years": [
+        "2027"
+      ],
+      "scope": "representative-family-image; not exact-trim certification",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "source_url": "https://www.hyundai.com/kr/ko/e/all-vehicles",
+          "image_path": "data/vehicles/official-image-review/images/OWN013-kona-27my.png",
+          "image_sha256": "2ffd7759e504898b4bca3d625d12683083edd65d81508538129fca000d1285e6",
+          "basis": "비교적 높은 루프; 곡선 윤곽과 각진 휠 아치 혼합",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 0.5
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "source_url": "https://www.hyundai.com/kr/ko/e/all-vehicles",
+          "image_path": "data/vehicles/official-image-review/images/OWN013-kona-27my.png",
+          "image_sha256": "2ffd7759e504898b4bca3d625d12683083edd65d81508538129fca000d1285e6",
+          "basis": "비교적 높은 루프; 곡선 윤곽과 각진 휠 아치 혼합",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 0.5
+        }
+      }
+    },
+    {
+      "brand": "현대",
+      "model": "팰리세이드",
+      "years": [
+        "2027"
+      ],
+      "scope": "representative-family-image; not exact-trim certification",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "source_url": "https://www.hyundai.com/kr/ko/e/all-vehicles",
+          "image_path": "data/vehicles/official-image-review/images/OWN014-palisade-27my.png",
+          "image_sha256": "f5c3eb8ee09153c8aa44d38b03103c49477ad1abec9c845684c83df9c27d095a",
+          "basis": "높고 수직에 가까운 후면; 직선형 루프·차체 윤곽",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 0
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "source_url": "https://www.hyundai.com/kr/ko/e/all-vehicles",
+          "image_path": "data/vehicles/official-image-review/images/OWN014-palisade-27my.png",
+          "image_sha256": "f5c3eb8ee09153c8aa44d38b03103c49477ad1abec9c845684c83df9c27d095a",
+          "basis": "높고 수직에 가까운 후면; 직선형 루프·차체 윤곽",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 1
+        }
+      }
+    },
+    {
+      "brand": "테슬라",
+      "model": "Model Y",
+      "years": [
+        "2026"
+      ],
+      "scope": "representative-family-image; not exact-trim certification",
+      "traits": {
+        "exterior_sportiness": {
+          "kind": "visual-review",
+          "source_url": "https://www.tesla.com/ko_kr/modely",
+          "image_path": "data/vehicles/official-image-review/images/OWN015-model-y.png",
+          "image_sha256": "2cc23ae691b9bca874e326a4b144ed5a1290c58261749673b27a37959d424099",
+          "basis": "높은 차체에서 뒤로 흐르는 루프와 연속적인 곡면",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 0.5
+        },
+        "exterior_angularity": {
+          "kind": "visual-review",
+          "source_url": "https://www.tesla.com/ko_kr/modely",
+          "image_path": "data/vehicles/official-image-review/images/OWN015-model-y.png",
+          "image_sha256": "2cc23ae691b9bca874e326a4b144ed5a1290c58261749673b27a37959d424099",
+          "basis": "높은 차체에서 뒤로 흐르는 루프와 연속적인 곡면",
+          "reviewer": "Codex visual inspection",
+          "checked_on": "2026-10-28",
+          "confidence": "medium",
+          "limitation": "대표 사진의 모델군 외관 인상. 트림·휠·색상별 차이와 정확한 세대 일치는 추가 검수 필요.",
+          "value": 0
+        }
+      }
+    },
+    {
+      "brand": "Lamborghini",
+      "model": "Temerario",
+      "scope": "manufacturer global model specification; not Korean homologation or availability",
+      "traits": {
+        "acceleration_performance": {
+          "kind": "official-acceleration",
+          "seconds_0_100": 2.7,
+          "source_url": "https://www.lamborghini.com/en-en/models/temerario",
+          "basis": "Manufacturer technical specifications: acceleration 0-100 km/h",
+          "checked_on": "2026-10-28"
+        }
+      }
+    },
+    {
+      "brand": "Lamborghini",
+      "model": "Revuelto",
+      "scope": "manufacturer global model specification; not Korean homologation or availability",
+      "traits": {
+        "acceleration_performance": {
+          "kind": "official-acceleration",
+          "seconds_0_100": 2.5,
+          "source_url": "https://www.lamborghini.com/en-en/models/revuelto-models/revuelto",
+          "basis": "Manufacturer technical specifications: acceleration 0-100 km/h",
+          "checked_on": "2026-10-28"
+        }
+      }
+    }
+  ],
+  "body_reviews": [
+    {
+      "brand": "Ferrari",
+      "model": "12Cilindri Spider",
+      "body_type": "CONVERTIBLE",
+      "source_url": "https://www.ferrari.com/content/dam/ferrari-fcom/old/pdf/CS_Ferrari_12Cilindri_Spider_def_gbr.pdf",
+      "basis": "Manufacturer launch release identifies open-top Spider; no Korean price or orderability inferred.",
+      "checked_on": "2026-10-28"
+    }
+  ]
+}

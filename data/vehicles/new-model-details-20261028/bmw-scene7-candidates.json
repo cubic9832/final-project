@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "bmw-2-coupe",
+    "image_url": "https://bmw.scene7.com/is/image/BMW/g87_stage_dsk_fb?fmt=webp&qlt=80&wid=1024"
+  },
+  {
+    "slug": "bmw-2-gran-coupe",
+    "image_url": "https://bmw.scene7.com/is/image/BMW/f74_ice_stage_dsk_sl?fmt=webp&qlt=80&wid=1024"
+  },
+  {
+    "slug": "bmw-4-coupe",
+    "image_url": "https://bmw.scene7.com/is/image/BMW/g22_stage%3A16to7?fit=constrain%2C1&fmt=webp-alpha&wid=2560"
+  },
+  {
+    "slug": "bmw-4-gran-coupe",
+    "image_url": "https://bmw.scene7.com/is/image/BMW/g26_ice_stage_dsk_fb?fmt=webp&qlt=80&wid=1024"
+  },
+  {
+    "slug": "bmw-4-convertible",
+    "image_url": "https://bmw.scene7.com/is/image/BMW/g23_home-teaser%3A16to7?fit=constrain%2C1&fmt=webp-alpha&wid=2560"
+  },
+  {
+    "slug": "bmw-z4",
+    "image_url": "https://bmw.scene7.com/is/image/BMW/g29-roadster_stage%3A16to7?fit=constrain%2C1&fmt=webp-alpha&wid=2560"
+  }
+]

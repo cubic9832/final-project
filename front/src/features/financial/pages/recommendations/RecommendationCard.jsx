@@ -1,14 +1,13 @@
-import { useId, useState } from 'react';
-import { Car, ChevronDown } from 'lucide-react';
+import { useState } from 'react';
+import { Car } from 'lucide-react';
 import theme from '../../../../styles/theme.js';
 import { candidateImage, candidateMoney, fuelLabels } from './candidatePresentation.js';
+import VehiclePreferenceSummary from './VehiclePreferenceSummary.jsx';
 
 
 export default function RecommendationCard({ candidate, rank, view, comparisonSelected, comparisonFull, onToggleComparison }) {
   const [failedSrc, setFailedSrc] = useState(null);
-  const [expanded, setExpanded] = useState(false);
-  const detailsId = useId();
-  const { vehicle, cost, reasons } = candidate;
+  const { vehicle, cost } = candidate;
   const image = candidateImage(vehicle);
 
   return <li className="financial-recommendation-card">
@@ -38,36 +37,7 @@ export default function RecommendationCard({ candidate, rank, view, comparisonSe
         {!view.mismatches.length && !view.unknowns.length && view.evidence && <p>지정한 연료·크기·정원에서 확인된 불일치가 없어요.</p>}
       </section>
       </div></div>
-      <div className={`financial-recommendation-details${expanded ? ' is-expanded' : ''}`}>
-        <button type="button" className="financial-recommendation-details-toggle" aria-expanded={expanded} aria-controls={detailsId} onClick={() => setExpanded(previous => !previous)}>
-          <span>점수·차량 사양·계산 근거 보기</span><ChevronDown size={theme.iconSize.sm} aria-hidden="true" />
-        </button>
-        <div id={detailsId} className="financial-recommendation-details-panel" inert={!expanded} aria-hidden={!expanded}>
-        <div className="financial-recommendation-details-content"><div className="financial-recommendation-details-inner">
-      <div className="financial-recommendation-aligned-metadata"><div data-recommendation-measure="metadata">
-      <p>승차 정원 (운전자 포함): {vehicle.seats ? `${vehicle.seats}인승` : vehicle.seats_label || (vehicle.seat_options?.length ? `${vehicle.seat_options.join(' / ')}인승 사양` : '미확인')}</p>
-      </div></div>
-      {candidate.preferenceAssessment && <div className="financial-recommendation-aligned-score"><div data-recommendation-measure="score"><section className="candidate-score" aria-label="추천 점수와 조건 일치도">
-        <h3>ML 추천 점수 {candidate.rankingScore.toFixed(3)}</h3>
-        {candidate.preferenceCompromise && <p>선호 조건 일부를 조정한 절충 후보입니다. 아래 불일치 항목을 확인해 주세요.</p>}<p>{candidate.seatingVerificationRequired ? '최소 인원 충족 여부를 확인해야 하는 후보예요. 정원 확인 전에는 일반 추천에 포함하지 않아요.' : '재무 조건과 최소 인원을 충족한 차량 중 중요한 선호 조건을 먼저 비교하고, 같은 조건에서는 모델 점수로 정렬해요.'} 점수는 확률이나 100점 척도가 아니며 구매 만족도를 뜻하지 않아요.</p>
-        <dl>{candidate.preferenceAssessment.components.filter(item => ['body', 'fuel', 'space', 'seating'].includes(item.key)).map(item => <div key={item.key}><dt>{{body: '차체 형태 일치도', space: '희망 크기 일치도', fuel: '선호 연료 일치도', seating: '희망 인원 충족도'}[item.key]}</dt><dd>{item.verified === false ? '사양 미확인' : `${item.score.toFixed(0)} / 100`}</dd></div>)}</dl>
-        <p>조건별 일치도는 비교를 돕는 참고 정보이며 추천 점수에 합산하지 않아요.</p>
-      </section></div></div>}
-
-          <div className="financial-recommendation-aligned-conditions"><section data-recommendation-measure="conditions">
-          <h3>조건별 전체 평가</h3>
-          <ul className="financial-additional-reasons">{[...view.matches, ...view.mismatches, ...view.unknowns].map(item => <li key={item.key}>{item.text}</li>)}</ul>
-          </section></div>
-          <div className="financial-recommendation-aligned-cost"><section data-recommendation-measure="cost" className="candidate-cost-section">
-          <h3>비용 계산 기준</h3>
-          {candidate.preferenceAssessment && <p className="financial-recommendation-reason-note">5년 예상 비용 {candidateMoney(candidate.preferenceAssessment.estimatedOwnershipCost)} · 차량 가격과 60개월 유지비 합계이며 잔존가치·보조금·선택 옵션은 반영하지 않았어요.</p>}
-          <p className="financial-recommendation-reason-note">입력한 예금은 차량 구매와 구매 후 부족한 월 자금에 함께 사용하는 총액입니다. 차량값을 먼저 빼고, 남은 예금으로 부족액을 충당합니다. 대출·할부는 가정하지 않습니다.</p>
-          <ul className="financial-additional-reasons">{reasons.map(reason => <li key={reason}>{reason}</li>)}</ul>
-          {cost.efficiency_estimated && <p className="financial-recommendation-reason-note">{vehicle.efficiency_reference_only ? '정확한 기본 사양의 연비가 미확정되어 공개 인증 사양의 참조 연비로 계산했습니다.' : '연비 미확인: 연료별 가정 범위로 비용을 계산했습니다.'}</p>}
-          </section></div>
-        </div></div>
-        </div>
-      </div>
+      <VehiclePreferenceSummary vehicle={vehicle} specifications={candidate.lifestyleEvidence?.specifications} values={candidate.lifestyleEvidence?.values} evidence={candidate.lifestyleEvidence?.evidence} />
     </div>
   </li>;
 }

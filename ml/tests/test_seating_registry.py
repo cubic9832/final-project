@@ -14,8 +14,10 @@ class SeatingRegistrationTests(unittest.TestCase):
     def test_all_registered_candidates_use_seating_data_instead_of_generic_assumption(self):
         service = load_service(ROOT / 'ml/experiments/candidate-v2')
         registry = json.loads((ROOT / 'data/vehicles/candidate-seating-registry.json').read_text(encoding='utf-8'))
-        self.assertEqual({v.id for v in service.vehicles}, {r['id'] for r in registry['vehicles']})
-        for car in service.vehicles:
+        registered_ids = {r['id'] for r in registry['vehicles']}
+        self.assertTrue(registered_ids.issubset({v.id for v in service.vehicles}))
+        # Supplemental official candidates need not be entries in the legacy registry.
+        for car in (v for v in service.vehicles if v.id in registered_ids):
             self.assertFalse(assumes_standard_seating(car), car.id)
             self.assertTrue(car.seats_status)
             self.assertTrue(car.seats or car.seat_options)

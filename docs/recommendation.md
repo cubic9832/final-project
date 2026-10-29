@@ -1,5 +1,11 @@
 # 재무 진단 결과에서 클릭할 때만 차량 추천
 
+현재 기본 번들은 `preference-cohorts/20261028-v6-web-recheck`이다. 웹 재검토를 통과한 추정 항목만 교체했으며, UI는 `cross-site-reported`(3곳 이상 제원 교차 확인)와 `cross-site-measured`(3곳 이상 실측 교차 확인)를 공식/추정 상태와 구분한다. 항목별 출처 링크와 확인 범위를 표시한다. [웹 재검토 기록](../data/vehicles/web-recheck-20261028/README.md)에 근접성·중복 출처·측정 조건 기준을 기록했다. 아래 v4 기록은 이전 버전이다.
+
+현재 기본 번들은 `preference-cohorts/20261028-v4-complete`이다. 차량 상세에는 28개 공통 제원과 `estimated`/`official-reference`/`catalog-reference`/`visual-review` 상태를 함께 반환한다. 구매 추천의 `lifestyleEvidence.specifications`, 조사 차량의 `specifications`에서 확인한다. 전장 등 표시·취향용 추정값과 원본 재무·필수 정원 검증은 분리한다. [제원 보완 기록](../data/vehicles/complete-specifications-20261028/README.md)을 참고한다.
+
+`ml/test`의 현재 기본 모델은 `controlled-cohort-ranker-v1`이다. 같은 재무 조건에서 선호를 바꾼 합성 비교군으로 학습하며, [모델 교체 보고서](../ml/outputs/reports/preference-cohorts-20261028/README.md)에 적용 범위를 기록했다. `researchSuggestions`는 취향 전용 조사 차량이며 `financialEligible=null`이고 구매 비용·구매 가능 추천에 포함하지 않는다. 현재 UI는 브랜드 선호를 전송하지 않는다. API에서 이 모델에 브랜드 선호를 전달하면 400 Problem Details로 거절한다.
+
 > `ml/test` 브랜치는 [candidate-v2 실험](../ml/vehicle_matching/README.md)에 연결되어 있다. 이 브랜치에서는 재무 진단 4단계, 원 단위 v2 요청, 차량별 비용 검증과 추천 카드를 사용한다. 아래 5단계·20라벨·v1 관련 설명은 기존 hhc 구현 기록이다.
 
 ## 동작

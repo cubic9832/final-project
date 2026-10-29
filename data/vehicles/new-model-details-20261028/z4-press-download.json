@@ -1,0 +1,15 @@
+[
+  {
+    "slug": "bmw-z4-press",
+    "brand": "BMW",
+    "model": "Z4",
+    "source_url": "https://www.press.bmwgroup.com/belux/photo/detail/P90479451/BMW-Z4-M40i-09-2022?language=de",
+    "image_url": "https://mediapool.bmwgroup.com/download/edown/pressclub/publicq?dokNo=P90479451&attachment=1&actEvent=image",
+    "file": "data/vehicles/new-model-details-20261028/images/bmw-z4-press.jpg",
+    "status": "downloaded",
+    "width": 6000,
+    "height": 4000,
+    "transparent": false,
+    "sha256": "cc12807c08af11e13762f9f25e37d9a3c808434cc4a4a807804e2740e1b232a2"
+  }
+]

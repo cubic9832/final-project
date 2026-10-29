@@ -3,15 +3,19 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { sizeOptions, fuelOptions, bodyTypeOptions, bodyTypeLabel } from '../../vehiclePreferences.js';
 import useCandidateRecommendations from './useCandidateRecommendations.js';
 import BodyTypePreview from './BodyTypePreview.jsx';
+import LifestylePreferences from './LifestylePreferences.jsx';
+import ScenarioPreferences from './ScenarioPreferences.jsx';
+import useRecommendationOptions from './useRecommendationOptions.js';
+import { initialLifestylePreferences } from '../../lifestylePreferences.js';
 import FinancialBudgetSummary from '../../components/FinancialBudgetSummary.jsx';
 import FinancialFlowHeader from '../../components/FinancialFlowHeader.jsx';
 import '../../styles/FinancialPages.css';
 import './FinancialVehiclePage.css';
 
-const priorities = [['costImportance', '가성비'], ['bodyImportance', '차체 형태'], ['spaceImportance', '크기 일치'], ['fuelImportance', '선호 연료'], ['seatingImportance', '탑승 인원']];
+const priorities = [['bodyImportance', '차체 형태'], ['spaceImportance', '크기 일치'], ['fuelImportance', '선호 연료']];
 const priorityPresets = [{ value: '1', label: '우선도 낮음' }, { value: '3', label: '우선도 중간' }, { value: '5', label: '우선도 높음' }];
-const availableBodyTypeOptions = bodyTypeOptions.filter(item => item.value !== 'PICKUP');
 const initialVehicle = {
+  ...initialLifestylePreferences,
   purpose: '출퇴근', fuel: '상관없음',
   preferredBodyType: 'any', bodyImportance: '3',
   costImportance: '3', spaceImportance: '3', minimumSeats: '0', preferredSize: 'any',
@@ -21,10 +25,13 @@ export default function FinancialVehiclePage() {
   const { state } = useLocation();
   const navigate = useNavigate();
   const [vehicle, setVehicle] = useState(() => ({ ...initialVehicle, ...state?.vehicle,
-    preferredBodyType: state?.vehicle?.preferredBodyType === 'PICKUP' ? 'any' : (state?.vehicle?.preferredBodyType ?? initialVehicle.preferredBodyType),
+    preferredBodyType: state?.vehicle?.preferredBodyType ?? initialVehicle.preferredBodyType,
     ...Object.fromEntries(priorities.map(([name]) => { const value = Number(state?.vehicle?.[name] ?? initialVehicle[name]); return [name, String(value <= 2 ? 1 : value >= 4 ? 5 : 3)]; })) }));
 
-  const diagnosis = { ...state, vehicle };
+  const { options, error: optionsError } = useRecommendationOptions();
+  const scenarioMode = options?.scenarioSupported ?? false;
+  const availableBodyTypeOptions = scenarioMode ? bodyTypeOptions : bodyTypeOptions.filter(item => item.value !== 'PICKUP');
+  const diagnosis = { ...state, vehicle: { ...vehicle, scenarioMode } };
   const { notice, recommending, showRecommendations } = useCandidateRecommendations(diagnosis);
   const inactive = name => (name === 'bodyImportance' && vehicle.preferredBodyType === 'any') || (name === 'fuelImportance' && vehicle.fuel === '상관없음') || (name === 'spaceImportance' && vehicle.preferredSize === 'any') || (name === 'seatingImportance' && Number(vehicle.minimumSeats) === 0);
 
@@ -32,6 +39,7 @@ export default function FinancialVehiclePage() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    if (!options) return;
     showRecommendations();
   }
 
@@ -43,6 +51,9 @@ export default function FinancialVehiclePage() {
           <section className="financial-entry-card vehicle-entry-card" aria-labelledby="vehicle-title">
             <h2 id="vehicle-title">내 차량 취향</h2>
             <p>선택한 취향은 추천 순위에 반영됩니다.</p>
+            {!options && !optionsError && <p role="status">추천 입력 항목을 불러오고 있어요…</p>}
+            {optionsError && <p role="alert">{optionsError}</p>}
+            {options && (scenarioMode ? <ScenarioPreferences value={vehicle} onChange={setVehicle} options={options} /> : <LifestylePreferences value={vehicle} onChange={setVehicle} />)}
             <fieldset className="vehicle-purpose vehicle-fuel-preference" aria-describedby="vehicle-fuel-help">
               <legend>선호 연료</legend>
               <p id="vehicle-fuel-help">원하는 연료가 없다면 상관없음을 선택해 주세요.</p>
@@ -88,17 +99,17 @@ export default function FinancialVehiclePage() {
 
             </fieldset>
 
-            <p className="vehicle-field-help">가성비를 높게 선택하면 구매비·유지비 절약을 더 중요하게 반영해요. 낮게 선택하면 비용 차이의 영향이 줄고 다른 선호가 상대적으로 더 반영됩니다. 비싼 차량에 별도 가점은 주지 않아요.</p>
+            <p className="vehicle-field-help">{scenarioMode ? '구매비·유지비와 최소 탑승 인원을 먼저 확인하고, 비용 성향·차체·연료·크기·주행거리·충전 여건을 바탕으로 어울리는 차량을 추천합니다.' : '구매비·유지비와 최소 탑승 인원은 먼저 확인합니다. 디자인·차체·가속·목적은 비교군 학습 점수로, 연료와 크기 일치는 보조 기준으로 반영합니다. 취향 근거가 없으면 구매 후 남는 자금을 참고합니다.'}</p>
 
           </section>
           <FinancialBudgetSummary values={state.values} assets={state.assets} loans={state.loans} />
         </div>
         <section className="vehicle-final-check" aria-labelledby="final-check-title">
-          <div><h2 id="final-check-title">선택한 조건으로 차량을 찾아볼까요?</h2><p>{vehicle.fuel} · {bodyTypeLabel(vehicle.preferredBodyType)} · {Number(vehicle.minimumSeats) > 0 ? `${vehicle.minimumSeats}명 이상` : '탑승 인원 상관없음'}</p><p>구매 후 예금으로 부족한 월 자금을 최소 12개월 충당할 수 있는 차량도 비교합니다. 유지비는 공통 기준인 연 15,000km로 계산합니다.</p></div>
+          <div><h2 id="final-check-title">선택한 조건으로 차량을 찾아볼까요?</h2><p>{vehicle.fuel} · {bodyTypeLabel(vehicle.preferredBodyType)} · {Number(vehicle.minimumSeats) > 0 ? `${vehicle.minimumSeats}명 이상` : '탑승 인원 상관없음'}</p><p>구매 후 예금으로 부족한 월 자금을 최소 12개월 충당할 수 있는 차량도 비교합니다. {scenarioMode ? `유지비는 선택하신 연 ${Number(vehicle.annualDistanceKm ?? 15000).toLocaleString('ko-KR')}km 기준으로 계산합니다.` : '유지비는 공통 기준인 연 15,000km로 계산합니다.'}</p></div>
         </section>
           <div className="financial-next-row">
             <button type="button" className="financial-previous-button" disabled={recommending} onClick={() => navigate('/financial', { state: diagnosis })}>재무 정보 수정</button>
-            <button type="submit" className="financial-next-button" disabled={recommending} aria-busy={recommending}>{recommending ? '분석하고 있어요…' : '종합 분석 결과 보기'}</button>
+            <button type="submit" className="financial-next-button" disabled={recommending || !options} aria-busy={recommending}>{recommending ? '분석하고 있어요…' : '종합 분석 결과 보기'}</button>
           </div>
           {notice && <p className="vehicle-request-notice" role={recommending ? 'status' : 'alert'}>{notice}</p>}
 

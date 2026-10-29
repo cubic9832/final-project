@@ -1,0 +1,795 @@
+{
+  "checks": [
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/sonata-the-edge_catalog.pdf",
+      "expected_sha256": "5ac4420dd4d88b6ebc8e55e3d1ee30bd4649ad7b4ff4c1a2ead12f166bfedad3",
+      "actual_sha256": "5ac4420dd4d88b6ebc8e55e3d1ee30bd4649ad7b4ff4c1a2ead12f166bfedad3",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/sonata-the-edge-hybrid-catalog.pdf",
+      "expected_sha256": "4b525174febf4c72464b7e3768ffaa6333f11d240ad6c6cd16963852dafd48c6",
+      "actual_sha256": "4b525174febf4c72464b7e3768ffaa6333f11d240ad6c6cd16963852dafd48c6",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/the-all-new-avante-catalog.pdf",
+      "expected_sha256": "bde78c8e65667e073c0fd66f7cca7d00d72215745754fa6492fbbd488ef71d05",
+      "actual_sha256": "bde78c8e65667e073c0fd66f7cca7d00d72215745754fa6492fbbd488ef71d05",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-grandeur-catalog.pdf",
+      "expected_sha256": "cfd1907e5dd4a16ccaae561bca5a0e87015968d27d4eb07cecc4786680377c88",
+      "actual_sha256": "cfd1907e5dd4a16ccaae561bca5a0e87015968d27d4eb07cecc4786680377c88",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-grandeur-hybrid-catalog.pdf",
+      "expected_sha256": "cfd1907e5dd4a16ccaae561bca5a0e87015968d27d4eb07cecc4786680377c88",
+      "actual_sha256": "cfd1907e5dd4a16ccaae561bca5a0e87015968d27d4eb07cecc4786680377c88",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-catalog.pdf",
+      "expected_sha256": "01614b45bd10aff3280277f0ebd581dd4df6662d7851a14486ccf8105ac125bb",
+      "actual_sha256": "01614b45bd10aff3280277f0ebd581dd4df6662d7851a14486ccf8105ac125bb",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/palisade-hybrid-catalog.pdf",
+      "expected_sha256": "01614b45bd10aff3280277f0ebd581dd4df6662d7851a14486ccf8105ac125bb",
+      "actual_sha256": "01614b45bd10aff3280277f0ebd581dd4df6662d7851a14486ccf8105ac125bb",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/venue-catalog.pdf",
+      "expected_sha256": "c4c3ae42e1f38fd08ecc7646acffcc9700f99049ae35a1a1dfc6f1fc11982618",
+      "actual_sha256": "c4c3ae42e1f38fd08ecc7646acffcc9700f99049ae35a1a1dfc6f1fc11982618",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/kona-catalog.pdf",
+      "expected_sha256": "7ce6b4fadfca38a98e9e5a919b102e221024b6f3b195429fd2ed00c511df5258",
+      "actual_sha256": "7ce6b4fadfca38a98e9e5a919b102e221024b6f3b195429fd2ed00c511df5258",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/kona-hybrid-catalog.pdf",
+      "expected_sha256": "7ce6b4fadfca38a98e9e5a919b102e221024b6f3b195429fd2ed00c511df5258",
+      "actual_sha256": "7ce6b4fadfca38a98e9e5a919b102e221024b6f3b195429fd2ed00c511df5258",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/santafe-catalog.pdf",
+      "expected_sha256": "4cd9535be0fc3068f7d85595926b0119fa68c338856b691478d4b26e7bb40a24",
+      "actual_sha256": "4cd9535be0fc3068f7d85595926b0119fa68c338856b691478d4b26e7bb40a24",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/santafe-hybrid-catalog.pdf",
+      "expected_sha256": "4cd9535be0fc3068f7d85595926b0119fa68c338856b691478d4b26e7bb40a24",
+      "actual_sha256": "4cd9535be0fc3068f7d85595926b0119fa68c338856b691478d4b26e7bb40a24",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/tucson-catalog.pdf",
+      "expected_sha256": "2788c2f87c43b01553cf99a34dfc31dd1b891545d4e8cc32701232e6847295cf",
+      "actual_sha256": "2788c2f87c43b01553cf99a34dfc31dd1b891545d4e8cc32701232e6847295cf",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/tucson-hybrid-catalog.pdf",
+      "expected_sha256": "2788c2f87c43b01553cf99a34dfc31dd1b891545d4e8cc32701232e6847295cf",
+      "actual_sha256": "2788c2f87c43b01553cf99a34dfc31dd1b891545d4e8cc32701232e6847295cf",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-hybrid_catalog.pdf",
+      "expected_sha256": "ee386b6cdaf939220823b05ea7cc0be12dd9edf019df53701e58d6cd79be0fad",
+      "actual_sha256": "ee386b6cdaf939220823b05ea7cc0be12dd9edf019df53701e58d6cd79be0fad",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-catalog.pdf",
+      "expected_sha256": "ee386b6cdaf939220823b05ea7cc0be12dd9edf019df53701e58d6cd79be0fad",
+      "actual_sha256": "ee386b6cdaf939220823b05ea7cc0be12dd9edf019df53701e58d6cd79be0fad",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-hybrid-catalog.pdf",
+      "expected_sha256": "ee386b6cdaf939220823b05ea7cc0be12dd9edf019df53701e58d6cd79be0fad",
+      "actual_sha256": "ee386b6cdaf939220823b05ea7cc0be12dd9edf019df53701e58d6cd79be0fad",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-hybrid_catalog.pdf",
+      "expected_sha256": "ed50a4069e628f6bb05890a3be6047d91cdb4f2467dd72aae376bd3e6e617968",
+      "actual_sha256": "ed50a4069e628f6bb05890a3be6047d91cdb4f2467dd72aae376bd3e6e617968",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/kona-electric-catalog.pdf",
+      "expected_sha256": "8141c354e55070eb041c8fc5998190178b6ef1c4b7250bb7c713c542fa37fefa",
+      "actual_sha256": "8141c354e55070eb041c8fc5998190178b6ef1c4b7250bb7c713c542fa37fefa",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/ioniq5-catalog.pdf",
+      "expected_sha256": "52a0036f5d3eb57a4505c501ab39975aedff7fbb9f9b7993e3fbcf13f27b2ef7",
+      "actual_sha256": "52a0036f5d3eb57a4505c501ab39975aedff7fbb9f9b7993e3fbcf13f27b2ef7",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-eletric-catalog.pdf",
+      "expected_sha256": "ed50a4069e628f6bb05890a3be6047d91cdb4f2467dd72aae376bd3e6e617968",
+      "actual_sha256": "ed50a4069e628f6bb05890a3be6047d91cdb4f2467dd72aae376bd3e6e617968",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-electric-catalog.pdf",
+      "expected_sha256": "ee386b6cdaf939220823b05ea7cc0be12dd9edf019df53701e58d6cd79be0fad",
+      "actual_sha256": "ee386b6cdaf939220823b05ea7cc0be12dd9edf019df53701e58d6cd79be0fad",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-electric-catalog.pdf",
+      "expected_sha256": "ee386b6cdaf939220823b05ea7cc0be12dd9edf019df53701e58d6cd79be0fad",
+      "actual_sha256": "ee386b6cdaf939220823b05ea7cc0be12dd9edf019df53701e58d6cd79be0fad",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.hyundai.com/contents/repn-car/catalog/the-new-ioniq6-catalog.pdf",
+      "expected_sha256": "ffbda57c8954f68e33bf6ed6b75a11fc4330a3a4f6ea32aeba93f88791117bc2",
+      "actual_sha256": "ffbda57c8954f68e33bf6ed6b75a11fc4330a3a4f6ea32aeba93f88791117bc2",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_morning.pdf",
+      "expected_sha256": "afd5cdcc3575e1f65cb7faafe0af7e3c92eaaa3571ce7fad14362613ac48d26e",
+      "actual_sha256": "afd5cdcc3575e1f65cb7faafe0af7e3c92eaaa3571ce7fad14362613ac48d26e",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ray.pdf",
+      "expected_sha256": "d8863f038675f17d9dd8d8a94465da70e983c80b06ce7e2e23690998aebe2dd4",
+      "actual_sha256": "d8863f038675f17d9dd8d8a94465da70e983c80b06ce7e2e23690998aebe2dd4",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ray.pdf",
+      "expected_sha256": "0539b3a308c75209ca72f4aa467249af1c1d984ef79ea04cfc2ccd5fea0cd7f8",
+      "actual_sha256": "0539b3a308c75209ca72f4aa467249af1c1d984ef79ea04cfc2ccd5fea0cd7f8",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_k5.pdf",
+      "expected_sha256": "5dcfe84d9ffd46bcee8eb84073febbd95b1b53a4c828e8627338411a65cabe9a",
+      "actual_sha256": "5dcfe84d9ffd46bcee8eb84073febbd95b1b53a4c828e8627338411a65cabe9a",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_k8.pdf",
+      "expected_sha256": "8bb9d7c82375fc3aa44ddd5b3964fc74cec2649aad7bf9d0730001d32689e34a",
+      "actual_sha256": "8bb9d7c82375fc3aa44ddd5b3964fc74cec2649aad7bf9d0730001d32689e34a",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_k8.pdf",
+      "expected_sha256": "98996506e2e9cc1fd538f756df803d81c027d814ae41bc7f180d110ca5a53c0f",
+      "actual_sha256": "98996506e2e9cc1fd538f756df803d81c027d814ae41bc7f180d110ca5a53c0f",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_k9.pdf",
+      "expected_sha256": "b7f1fff6c521a388ea4160d6a3039d2c10ba1a4e7d48499e211eadd94dabe02d",
+      "actual_sha256": "b7f1fff6c521a388ea4160d6a3039d2c10ba1a4e7d48499e211eadd94dabe02d",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_seltos.pdf",
+      "expected_sha256": "e2204209649544c51bffe23f2e1c1202654490d9666dfb346d33f3812e3bafef",
+      "actual_sha256": "9a00be904a858375cdda0529c15cc7d393984340ecdb736130dd3020404cae18",
+      "status": "changed-or-not-pdf"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_seltos.pdf",
+      "expected_sha256": "218ee9338f3f7ccf222d1d86f678ac9380a9eddb3d1bd5133d18e3e4ec69f281",
+      "actual_sha256": "47b67e728854d836d0a45e8fc34ab4880fb1109befc69659ed39bdd80bc56fba",
+      "status": "changed-or-not-pdf"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_niro.pdf",
+      "expected_sha256": "40b16ef7504f380960058533444787782001e63bf0444b1930a5f18cb2ef4670",
+      "actual_sha256": "40b16ef7504f380960058533444787782001e63bf0444b1930a5f18cb2ef4670",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_niro.pdf",
+      "expected_sha256": "32097ff9f5819bdcff81c3052a29373573e65179dfab99741e95c15a54ecdada",
+      "actual_sha256": "32097ff9f5819bdcff81c3052a29373573e65179dfab99741e95c15a54ecdada",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_sportage.pdf",
+      "expected_sha256": "83e15fc5591eed4ad1f4343e96212ffd8a2f981e91fc3455b2b45551e31925e2",
+      "actual_sha256": "83e15fc5591eed4ad1f4343e96212ffd8a2f981e91fc3455b2b45551e31925e2",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_sportage.pdf",
+      "expected_sha256": "b7d09bbff7a3c8776ccc75318e0de17414a9c62c6ad86a40f18bc31954ed5cf6",
+      "actual_sha256": "b7d09bbff7a3c8776ccc75318e0de17414a9c62c6ad86a40f18bc31954ed5cf6",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_sorento.pdf",
+      "expected_sha256": "b7acb84201b0e31083cb043d689f6f786a1ae69d6cbb3c92f95579e246790929",
+      "actual_sha256": "b7acb84201b0e31083cb043d689f6f786a1ae69d6cbb3c92f95579e246790929",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_sorento.pdf",
+      "expected_sha256": "2c469e52c00b6f3c59ede57cc8d9507968f3a60e64761da9a380e615c57a44a4",
+      "actual_sha256": "2c469e52c00b6f3c59ede57cc8d9507968f3a60e64761da9a380e615c57a44a4",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_carnival.pdf",
+      "expected_sha256": "0b8a9cd0f0ed342e88144d28558e4ab76e96066cde048894681d4932d0ba2090",
+      "actual_sha256": "b10b288dd9b7271551ae5b62480b4afcb5c5825eb2a43213e16fd75be614103e",
+      "status": "changed-or-not-pdf"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_carnival.pdf",
+      "expected_sha256": "c20317509cde00d59aeca87a334a7912abcf480848935d0d119c717f5c0448ad",
+      "actual_sha256": "55e83e5018cb9fde3d82c87b477897c8561421e7c1dad06367ee1bcfdfda4fcb",
+      "status": "changed-or-not-pdf"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_carnival-hi-limousine.pdf",
+      "expected_sha256": "41184bdc06600b9c3abe037249b0f8c3b1b3fd264b9ba695ded841c420c87766",
+      "actual_sha256": "7aa73cdeba90193c520d2eecd6ee2d386c5e8cdc780289b330cd2ae65c4e9660",
+      "status": "changed-or-not-pdf"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ray-ev.pdf",
+      "expected_sha256": "4584e38618ec4dcf68bc8c38ecf99ee1f4c29897eaa114bc4ff9214f19624e8a",
+      "actual_sha256": "4584e38618ec4dcf68bc8c38ecf99ee1f4c29897eaa114bc4ff9214f19624e8a",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ray-ev.pdf",
+      "expected_sha256": "3b56773f5ea8a444958a4c14ecf037b9f7881ef8d54b23a0cd3e4d12b6f14c47",
+      "actual_sha256": "3b56773f5ea8a444958a4c14ecf037b9f7881ef8d54b23a0cd3e4d12b6f14c47",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev3.pdf",
+      "expected_sha256": "53575ff00371722d55c7256320ead85e5c245be11321a08b9e45e89b2e702bb7",
+      "actual_sha256": "53575ff00371722d55c7256320ead85e5c245be11321a08b9e45e89b2e702bb7",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev3.pdf",
+      "expected_sha256": "5da56f86e0499b9b0c0b9d57591f80a77a0cc86ce15f46413f54b124974be90c",
+      "actual_sha256": "5da56f86e0499b9b0c0b9d57591f80a77a0cc86ce15f46413f54b124974be90c",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev3-gt.pdf",
+      "expected_sha256": "405fa674b0fb3d052aaafac17829b9fa31c0f151178a69b7c9477b91af030092",
+      "actual_sha256": "405fa674b0fb3d052aaafac17829b9fa31c0f151178a69b7c9477b91af030092",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev3-gt.pdf",
+      "expected_sha256": "010008cd2a9e52a6e20737c827ea56d196abba159ac2b369d5723c75f24c20d3",
+      "actual_sha256": "010008cd2a9e52a6e20737c827ea56d196abba159ac2b369d5723c75f24c20d3",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev4.pdf",
+      "expected_sha256": "6a029bcd802adeeec9f7fe17da5357d2f97ec44219e12eba509b96c331aa4cf8",
+      "actual_sha256": "6a029bcd802adeeec9f7fe17da5357d2f97ec44219e12eba509b96c331aa4cf8",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev4.pdf",
+      "expected_sha256": "10e0c85ea2897e288bde0ca1f203f7d83d4a23f351bee20f6bd1a46c4fb3fe94",
+      "actual_sha256": "10e0c85ea2897e288bde0ca1f203f7d83d4a23f351bee20f6bd1a46c4fb3fe94",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev4-gt.pdf",
+      "expected_sha256": "c9de90628fa9872bcdac875850dccb604d3e974bffe426401f4bac87e393a3fc",
+      "actual_sha256": "c9de90628fa9872bcdac875850dccb604d3e974bffe426401f4bac87e393a3fc",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev4-gt.pdf",
+      "expected_sha256": "72ad17520654fd3b0fdaa00cedfe85f980d29735ca4f1d9d20f8957acc499f24",
+      "actual_sha256": "72ad17520654fd3b0fdaa00cedfe85f980d29735ca4f1d9d20f8957acc499f24",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev5.pdf",
+      "expected_sha256": "cac5a800a44dbbd647c5f834fe6e09400684857d69a59644d285ef51d9544b48",
+      "actual_sha256": "cac5a800a44dbbd647c5f834fe6e09400684857d69a59644d285ef51d9544b48",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev5.pdf",
+      "expected_sha256": "a9eff76211cfd07a58dc01e3b8c35bad60babcc075ce4fed01ada02b10fa83f9",
+      "actual_sha256": "a9eff76211cfd07a58dc01e3b8c35bad60babcc075ce4fed01ada02b10fa83f9",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev5-gt.pdf",
+      "expected_sha256": "b21edf7e4e0ce9fd6da7420b7d69675b0f936f713982a3574c411ffab7ee5de3",
+      "actual_sha256": "b21edf7e4e0ce9fd6da7420b7d69675b0f936f713982a3574c411ffab7ee5de3",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev5-gt.pdf",
+      "expected_sha256": "3094cbd09edcef7b91775e4ad0e0e4cde607ddd7c19473dabd36687cf6f89a8a",
+      "actual_sha256": "3094cbd09edcef7b91775e4ad0e0e4cde607ddd7c19473dabd36687cf6f89a8a",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev6.pdf",
+      "expected_sha256": "363b86e9310fc200e77e86f70a130d84b0e39ac578f451ba5b0942eb7eabae4b",
+      "actual_sha256": "363b86e9310fc200e77e86f70a130d84b0e39ac578f451ba5b0942eb7eabae4b",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev6.pdf",
+      "expected_sha256": "fdf1eebe07fefcddc35fc836ed502bff317fb2aa9d07c124cc81b699d898c774",
+      "actual_sha256": "fdf1eebe07fefcddc35fc836ed502bff317fb2aa9d07c124cc81b699d898c774",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev6-gt.pdf",
+      "expected_sha256": "1f0e278f329901f58a6e724fa40a4bb0ebba52ead79db4b013615c96ca1b82dc",
+      "actual_sha256": "1f0e278f329901f58a6e724fa40a4bb0ebba52ead79db4b013615c96ca1b82dc",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev6-gt.pdf",
+      "expected_sha256": "e34306d4374726db2a31458add00569099b7cacb6ca8e20e1da6892daa3526bc",
+      "actual_sha256": "e34306d4374726db2a31458add00569099b7cacb6ca8e20e1da6892daa3526bc",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev9.pdf",
+      "expected_sha256": "e3a6b88add2ab8f6e634c48171fe55913245d36c7a61c7c53de4fd78be6c5163",
+      "actual_sha256": "e3a6b88add2ab8f6e634c48171fe55913245d36c7a61c7c53de4fd78be6c5163",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev9-gt.pdf",
+      "expected_sha256": "307c24b8d8f680e3b023a028935f2e6fa92ca89ddabd2bcf22ecd0c2250dfc37",
+      "actual_sha256": "307c24b8d8f680e3b023a028935f2e6fa92ca89ddabd2bcf22ecd0c2250dfc37",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev9-gt.pdf",
+      "expected_sha256": "f6398c01aea9cfe42460dcf53548d90d0a11621213b977b2ec40735a6049bbf3",
+      "actual_sha256": "f6398c01aea9cfe42460dcf53548d90d0a11621213b977b2ec40735a6049bbf3",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "expected_sha256": "564e12d94b48b3d0a0a84a5d4759f5f0783d8c61ff8c2ebf135b6f2ba1d4b552",
+      "status": "unavailable",
+      "error": "HTTPError"
+    },
+    {
+      "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "expected_sha256": "ebe699fb5d4659689878efe4049a5974c3c8a8750631b514e57d0125780b0160",
+      "status": "unavailable",
+      "error": "HTTPError"
+    },
+    {
+      "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "expected_sha256": "e2b3cdfa55861c51b8736c61e398d0996949a2a275cf2f14a63799f5800ceec9",
+      "status": "unavailable",
+      "error": "HTTPError"
+    },
+    {
+      "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "expected_sha256": "b22c08f4368ed0c3ac9cfa52ea11efffc772a23bde166c19263b88022af9ccda",
+      "status": "unavailable",
+      "error": "HTTPError"
+    },
+    {
+      "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "expected_sha256": "e5c326cd37de63858b7496db82cc15f2b8acf02e01ad146284efd656a951670b",
+      "status": "unavailable",
+      "error": "HTTPError"
+    },
+    {
+      "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "expected_sha256": "c46a030adc3f81b34d77174894c26023d44ec9101d20a5d4916560be80804f8f",
+      "status": "unavailable",
+      "error": "HTTPError"
+    },
+    {
+      "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+      "expected_sha256": "72c91c61de5bcc77dddaf1e235c1a114092ede95010520be7bfc4dda63051617",
+      "status": "unavailable",
+      "error": "HTTPError"
+    },
+    {
+      "url": "https://www.renault.co.kr/upload/asset/ebrochure/eBrochure_koleos_202610.pdf",
+      "expected_sha256": "8029f6c02f99039a3449789f9a4061998bca7cf582d6d25667a0cc26190128d3",
+      "actual_sha256": "8d3f34eb6d656f49f559b3f3765380f8eeb9c6d72921900cced6d97b6a0fec35",
+      "status": "changed-or-not-pdf"
+    },
+    {
+      "url": "https://www.renault.co.kr/upload/asset/ebrochure/eBrochure_filante_202610.pdf",
+      "expected_sha256": "ad4c9fe1506fc8d1c29332a8ec82ce07386e67e134e6eeac984af4a75af2086f",
+      "actual_sha256": "fa76ff880b5c9825564cdb8b44520da399459b038f8ef72afc7dbe1213b9959e",
+      "status": "changed-or-not-pdf"
+    },
+    {
+      "url": "https://www.renault.co.kr/upload/asset/ebrochure/eBrochure_Arkana_202610.pdf",
+      "expected_sha256": "d6ee36e8fa158a486780fb9c9589c0fd8c1033d3668f0eeefb06cdbca3b9c434",
+      "actual_sha256": "d6ee36e8fa158a486780fb9c9589c0fd8c1033d3668f0eeefb06cdbca3b9c434",
+      "status": "unchanged"
+    },
+    {
+      "url": "https://www.chevrolet.co.kr/content/dam/chevrolet/as/kr/ko/index/e-catalogue-price-list/2026/oct/trax-crossover-catalog-202610-e-catalog.pdf",
+      "expected_sha256": "0c741eb4837e7dd057ea60f974baae9cb608557d03c8533bae34270f1ea1c0f5",
+      "actual_sha256": "0c741eb4837e7dd057ea60f974baae9cb608557d03c8533bae34270f1ea1c0f5",
+      "status": "unchanged"
+    }
+  ],
+  "families": [
+    {
+      "brand": "현대",
+      "model": "쏘나타 디 엣지",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "현대",
+      "model": "쏘나타 디 엣지 Hybrid",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "현대",
+      "model": "디 올 뉴 아반떼",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 그랜저",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 그랜저 Hybrid",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "현대",
+      "model": "팰리세이드",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "현대",
+      "model": "팰리세이드 Hybrid",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "현대",
+      "model": "베뉴",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "현대",
+      "model": "코나",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "현대",
+      "model": "코나 Hybrid",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "현대",
+      "model": "싼타페",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "현대",
+      "model": "싼타페 Hybrid",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "현대",
+      "model": "투싼",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "현대",
+      "model": "투싼 Hybrid",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 리무진 Hybrid",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지 Hybrid",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 Hybrid",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "현대",
+      "model": "코나 Electric",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "현대",
+      "model": "아이오닉 5",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 Electric",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지 Electric",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 리무진 Electric",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 아이오닉 6",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "기아",
+      "model": "모닝",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "기아",
+      "model": "레이",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "기아",
+      "model": "K5",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "기아",
+      "model": "K8",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "기아",
+      "model": "K9",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "기아",
+      "model": "셀토스",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "기아",
+      "model": "니로",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "기아",
+      "model": "스포티지",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "기아",
+      "model": "쏘렌토",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "기아",
+      "model": "카니발",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "기아",
+      "model": "카니발 하이리무진",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "기아",
+      "model": "레이 EV",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "기아",
+      "model": "EV3",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "기아",
+      "model": "EV3 GT",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "기아",
+      "model": "EV4",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "기아",
+      "model": "EV4 GT",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "기아",
+      "model": "EV5",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "기아",
+      "model": "EV5 GT",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "기아",
+      "model": "EV6",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "기아",
+      "model": "EV6 GT",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "기아",
+      "model": "EV9",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "기아",
+      "model": "EV9 GT",
+      "status": "matched-official-document"
+    },
+    {
+      "brand": "제네시스",
+      "model": "Electrified G80",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV80",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "제네시스",
+      "model": "G80",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "제네시스",
+      "model": "G70 Shooting Brake",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "제네시스",
+      "model": "Electrified GV70",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV70",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "제네시스",
+      "model": "G70",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90 Long Wheel Base",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "제네시스",
+      "model": "G80 Black",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV80 Coupe",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90 Long Wheel Base Black",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "액티언 하이브리드",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "토레스 하이브리드",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "토레스",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "토레스 EVX",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "액티언",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "렉스턴 뉴 아레나",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "티볼리",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "르노코리아",
+      "model": "그랑 콜레오스",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "르노코리아",
+      "model": "필랑트",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "르노코리아",
+      "model": "아르카나",
+      "status": "no-unchanged-compatible-document"
+    },
+    {
+      "brand": "쉐보레",
+      "model": "트랙스 크로스오버",
+      "status": "matched-official-document"
+    }
+  ]
+}

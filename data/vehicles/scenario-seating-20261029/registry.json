@@ -1,0 +1,13 @@
+{
+  "version": "scenario-seating-v1",
+  "checked_on": "2026-10-29",
+  "scope": "308-spec scenario experiment snapshot only; original catalogs and live service are unchanged",
+  "entries": [
+    {"brand":"GMC","model":"Sierra","seats":5,"status":"published-domestic-reference","source_url":"https://sinchaforum.co.kr/models/gmc-sierra","excerpt":"승차정원 5","scope":"2026 국내 Sierra 모델 제원. DENALI/SCARLET NIGHT 두 사양에 적용. 제조사 직접 검증 상태로 승격하지 않음."},
+    {"brand":"KG모빌리티","model":"무쏘","seats":5,"status":"published-domestic-reference","source_url":"https://www.car-flex.co.kr/car/kgm/musso/","excerpt":"가솔린 2.0 터보 스탠다드 데크 M5 2WD 5인승","corroborating_url":"https://car.naver.com/home?a=grade-trim&ncrId=car_169649","scope":"현행 2026 무쏘 더블캡 모델. 기존 카탈로그의 스탠다드 데크 M5/M7 가솔린/디젤 네 사양에 적용."},
+    {"brand":"KG모빌리티","model":"무쏘 EV","seats":5,"status":"published-domestic-reference","source_url":"https://cacacar.com/cars/kgm/musso-ev","excerpt":"2027년형 · 전기 · 2WD · 5인승","corroborating_url":"https://newcar.roadhub.kr/model/kgmobility/musso-ev/y/115","scope":"국내 2027 무쏘 EV 더블캡. MX/블랙엣지 2WD/AWD 네 사양에 적용. 구동방식별 국내 개별 인증값 확인을 뜻하지 않음."},
+    {"brand":"폭스바겐","model":"Golf","seats":5,"status":"published-domestic-reference","source_url":"https://web.getcha.kr/blog/community-vs-17604-vs-17645","excerpt":"승차정원 5","scope":"국내 Golf 2.0 TDI 프레스티지 비교 제원. 같은 차체의 Premium/Prestige 두 사양에 적용."},
+    {"brand":"폭스바겐","model":"Golf GTI","seats":5,"status":"manufacturer-family-reference","source_url":"https://www.vw.com.sa/idhub/content/dam/onehub_pkw/importers/vwme/brochures/2024/brochures/Golf-GTI-R-brochure-EN-2023.pdf","excerpt":"Number of seats 5","scope":"제조사 해외 Golf GTI 카탈로그의 차체 정원 참조. 국내 현행 트림 직접 인증값과 구분."},
+    {"brand":"푸조","model":"308 SMART HYBRID","seats":5,"status":"manufacturer-family-reference","source_url":"https://www.epeugeot.co.kr/new-cars/308hybrid.html","excerpt":"승차 정원 (1/2열) : 5인승","scope":"국내 308 SMART HYBRID GT 제원과 Allure 적용 사양/GT 추가 사양 목록을 함께 확인한 동일 차체 참조. ALLURE 직접 제원 검증 상태와 구분."}
+  ]
+}

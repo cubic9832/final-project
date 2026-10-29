@@ -1,0 +1,21 @@
+{
+  "profiles": {
+    "train": 686,
+    "validation": 153,
+    "test": 161
+  },
+  "files_sha256": {
+    "test_audit.jsonl": "155043fe387f0d6abc7e785496710ecb77d12938614626ff526fa4ad416f6919",
+    "test_choices.jsonl": "dc8f72f0d57d609870eb0d9d5e56275c07743c85308919071511109c6784236c",
+    "test_choices.npz": "bcac42d37cfbf428dc19fa1fd744432371225662585494032e297d1633b72d5d",
+    "test_profiles.jsonl": "34bd5062a0559db971dea0bccd21c26f1110b6ccb9aedb1da88d3049dce28d97",
+    "train_audit.jsonl": "af485e0661f67d2e17936a2b585468980a1a80d0c80e3a35d6c7126f7809df66",
+    "train_choices.jsonl": "c833d6d51521c04fbdda38e8f0fa2f86244e08117972ae34afb48515c3994461",
+    "train_choices.npz": "80007c66319351affbcd3168e1f5a6f350ef843ac4b1c0188a4b891624a6cf87",
+    "train_profiles.jsonl": "5266b524d76e0742d62d542799c66ca95975d44f60499dcef5f8b5077a1a835a",
+    "validation_audit.jsonl": "52c1a1355022276dd2386d32fbf90db00e2d01cfd562f1710fd0e674a79da89b",
+    "validation_choices.jsonl": "bd365c752bdc71210a49f75635e3233961a4271467fb4d8ba353e325d9ef315b",
+    "validation_choices.npz": "9e45969f421d0acf2a3dc15f6cc8ec1fe6df48edbd2d3536b5afce712f633354",
+    "validation_profiles.jsonl": "694bd1d768763b1874e518e51c2698a25836f302dfe36fcde79e0b84f52b5494"
+  }
+}

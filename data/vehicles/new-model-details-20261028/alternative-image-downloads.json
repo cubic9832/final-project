@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "porsche-911-coupe-full",
+    "brand": "포르쉐",
+    "model": "911 쿠페",
+    "source_url": "https://www.porsche.com/korea/ko/models/911/carrera-models/911-carrera-gts/",
+    "image_url": "https://a.storyblok.com/f/322327/1720x1210/260571d076/cz25w12ix0011-911-carrera-gts-front.png",
+    "file": "data/vehicles/new-model-details-20261028/images/porsche-911-coupe-full.png",
+    "status": "downloaded",
+    "width": 1720,
+    "height": 1210,
+    "transparent": true,
+    "sha256": "6cda1fcebe1b43b5c7a4c0466e052430bfa668db41db34dcc50a3e63ef38ee75"
+  },
+  {
+    "slug": "porsche-911-cabriolet-full",
+    "brand": "포르쉐",
+    "model": "911 카브리올레",
+    "source_url": "https://www.porsche.com/korea/ko/models/911/carrera-cabriolet-models/911-carrera-gts-cabriolet/",
+    "image_url": "https://a.storyblok.com/f/322327/1720x1210/00b18f3472/cz25w13ix0011-911-carrera-gts-cabrio-front.png",
+    "file": "data/vehicles/new-model-details-20261028/images/porsche-911-cabriolet-full.png",
+    "status": "downloaded",
+    "width": 1720,
+    "height": 1210,
+    "transparent": true,
+    "sha256": "59b70905fef52f6062de793e2e88c60739907e6b3b04ed410f993c47685f3637"
+  },
+  {
+    "slug": "porsche-911-targa-full",
+    "brand": "포르쉐",
+    "model": "911 타르가",
+    "source_url": "https://www.porsche.com/korea/ko/models/911/targa-models/911-targa-4-gts/",
+    "image_url": "https://a.storyblok.com/f/322327/1720x1210/4f744126bb/911-targa-4-gts-front.png",
+    "file": "data/vehicles/new-model-details-20261028/images/porsche-911-targa-full.png",
+    "status": "downloaded",
+    "width": 1720,
+    "height": 1210,
+    "transparent": true,
+    "sha256": "6c20bb29e9b718e4bc3ce633c412263c561aa0b2176a70cdf50dafe439d24b23"
+  },
+  {
+    "slug": "mini-convertible",
+    "brand": "MINI",
+    "model": "Cooper Convertible",
+    "source_url": "https://www.mini.co.kr/ko_KR/home/range/mini-cooper-convertible.html",
+    "image_url": "https://mini.co.kr/content/dam/MINI/common/Range/new-generation/cooper/convertible/bodytype-hub/mini-F67-stage-wide.webp.asset.1753881938875.webp",
+    "status": "failed",
+    "error": "The read operation timed out"
+  }
+]

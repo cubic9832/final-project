@@ -29,4 +29,15 @@ outputs/reports/*
 !outputs/models/candidate-preferences/20261027-seating-verified-v1/
 !outputs/reports/seating-retraining-20261027/
 !outputs/models/behavioral-choices/
+!outputs/models/lifestyle-choices/
+!outputs/models/preference-cohorts/
+!outputs/models/scenario-choices/
+outputs/models/scenario-choices/*
+!outputs/models/scenario-choices/20261029-v3-broad-taste-10k/
+outputs/models/behavioral-choices/
+outputs/models/candidate-preferences/
+outputs/models/lifestyle-choices/
+outputs/models/preference-cohorts/
+!outputs/reports/preference-cohorts-20261028/
+!outputs/reports/lifestyle-million-20261028/
 !outputs/reports/behavioral-million-20261028/

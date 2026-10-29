@@ -1,0 +1,28 @@
+{
+  "modelNames": 96,
+  "proxyUrl": "http://127.0.0.1:5174",
+  "identityPreferenceRejectionStatus": 400,
+  "status": "passed",
+  "brandOptions": [],
+  "scenarioModelOptionsExposed": false,
+  "featureCount": 68,
+  "modelBundle": "20261029-v3-broad-taste-10k",
+  "catalogCount": 308,
+  "recommendations": [
+    {
+      "eligible": true,
+      "model": "무쏘 EV",
+      "score": 5.666798114776611
+    },
+    {
+      "eligible": true,
+      "model": "무쏘",
+      "score": 2.8666672706604004
+    },
+    {
+      "eligible": true,
+      "model": "EV3",
+      "score": 2.800564765930176
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "vehicles": 323,
+  "fields": 28,
+  "missing_values": 0,
+  "families_with_recorded_web_review": 107,
+  "changed_fields": 651,
+  "changed_vehicles": 200,
+  "changed_families": 63,
+  "replacement_status_counts": {
+    "official-reference": 647,
+    "cross-site-reported": 4
+  },
+  "decisions": {
+    "accepted": 651
+  },
+  "remaining_estimated_fields": 5487,
+  "sources": {
+    "data/vehicles/web-recheck-20261028/reviewed-evidence.json": "24733b997ef0e60f8ded99c8ae907f09c2100bb7bfcae35e7d126a2356a5ae07",
+    "data/vehicles/web-recheck-20261028/additional-reviewed-evidence.json": "a530b53c065ab1d3e0a33597bf19d8a507f6e740510d3c60b0ead8ced1085bff",
+    "data/vehicles/web-recheck-20261028/luxury-reviewed-evidence.json": "2042263b87b19be378039616546ba8786feed79a0d3fee492fbadf846170f959",
+    "data/vehicles/web-recheck-20261028/final-reviewed-evidence.json": "bbe4f77a53b2aea73140c6c3c3c78d1ec940f99ade0a663b900fbc7cbd448eda",
+    "data/vehicles/web-recheck-20261028/official-dimension-reviews.json": "2e3088f5384c7cee7e764c8ad354134907d154c981d35f09d6892b688b130e20",
+    "data/vehicles/web-recheck-20261028/official-fetch-audit.json": "fb4c0b45375203bc7dec76ec2dadabfbbfed47b4c27e3b991f61c970ec26e5dd",
+    "data/vehicles/web-recheck-20261028/held-family-reviews.json": "7a8d9099fa82e0b809a1d942a25937d5d28e677e7a8190b6e090d711bd227651",
+    "data/vehicles/complete-specifications-20261028/vehicles.json": "2feed3c3d871b8c48afd7b993c35dec8dbaadc243d48abffbaedb2485e350979",
+    "data/vehicles/complete-specifications-20261028/vehicle_traits.json": "42515c1102d0bd323cf4b940bf8095ff6a4cbb5d46a01d4176c736f5a337ba80",
+    "tools/data/vehicles/recheck_vehicle_evidence.py": "7459e244d7b6f9eb4deff9637a05db41e0624043ff052f652c1f75d513402906",
+    "tools/data/vehicles/build_rechecked_specifications.py": "10ba9ea3e7bbaae878bcc7919d3c4d68c0795b89aad8f512e99377c4feb68b06"
+  },
+  "outputs": {
+    "vehicles.json": "a98e09ec6addee9a48f5aac25ee2e9f64412026e0cbeac23730d22f57cd1332f",
+    "vehicle_traits.json": "c2f3973c40183f33038d88a004b53634dba1f47cf758b42c200a3b3d56f0cf68",
+    "vehicles.csv": "3be7e296998b3ba95aca39d954307b445e3d1cebe6a8b579372c7610f998b609",
+    "changes.json": "a6c3b4950cebba7957c58df3a199289594bf34fbe33f3422a1270766b918cd9d",
+    "review-decisions.json": "59c295795189e6b5b51db9c338f899acd271760da3bbc411c6b1b0f585ac7b6c"
+  },
+  "scope": "Official scoped references or >=3 publication consensus replace only synthetic fields. Reported specs do not assert independent measurement. Unresolved estimates stay labelled; financial catalog unchanged."
+}

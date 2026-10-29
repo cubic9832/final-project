@@ -1,0 +1,161 @@
+{
+  "reviews": [
+    {
+      "selector": {
+        "brand": "BMW",
+        "model": "8시리즈 그란쿠페"
+      },
+      "scope": "G16 M850i xDrive common body/engine; 2019 initial generation checked against 2022 Taiwan sheet and 2026 reported body; weights not transferred",
+      "samples": [
+        {
+          "publisher": "BMW",
+          "origin_id": "BMW",
+          "url": "https://www.press.bmwgroup.com/bulgaria/article/attachment/T0297283BG/432966",
+          "values": {
+            "length_mm": 5082,
+            "width_mm": 1932,
+            "height_mm": 1407,
+            "wheelbase_mm": 3023,
+            "ground_clearance_mm": 128,
+            "cargo_litres": 440,
+            "displacement_cc": 4395
+          },
+          "conditions": "G16 M850i xDrive common body/engine; 2019 initial generation checked against 2022 Taiwan sheet and 2026 reported body; weights not transferred",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "BMW",
+        "model": "X4"
+      },
+      "scope": "G02 LCI xDrive20d M Sport 190PS AWD8AT; overseas factory reference; dubious Eco Sticker 5.6km/L not used",
+      "samples": [
+        {
+          "publisher": "BMW",
+          "origin_id": "BMW",
+          "url": "https://www.bmw.co.th/en/all-models/x-series/X4/bmw-X4-technical-data.html",
+          "values": {
+            "width_mm": 1918,
+            "height_mm": 1621,
+            "wheelbase_mm": 2864,
+            "power_ps": 190,
+            "torque_nm": 400,
+            "displacement_cc": 1995,
+            "top_speed_kmh": 213,
+            "cargo_litres": 525,
+            "seconds_0_100": 8
+          },
+          "conditions": "G02 LCI xDrive20d M Sport 190PS AWD8AT; overseas factory reference; dubious Eco Sticker 5.6km/L not used",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "렉서스",
+        "model": "ES"
+      },
+      "scope": "2026-10 KR ES350h eighth-generation common dimensions; not old ES300h; AWD-specific weight/output excluded",
+      "samples": [
+        {
+          "publisher": "렉서스",
+          "origin_id": "렉서스",
+          "url": "https://www.lexus.co.kr/models/ES-350h/",
+          "values": {
+            "width_mm": 1920,
+            "height_mm": 1555,
+            "wheelbase_mm": 2950,
+            "displacement_cc": 2487
+          },
+          "conditions": "2026-10 KR ES350h eighth-generation common dimensions; not old ES300h; AWD-specific weight/output excluded",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "제네시스",
+        "model": "GV80 Hybrid"
+      },
+      "scope": "KR 2.5T Hybrid shared body; Black styling body common, not coupe; 277PS engine not total hybrid output",
+      "samples": [
+        {
+          "publisher": "제네시스",
+          "origin_id": "제네시스",
+          "url": "https://www.genesis.com/kr/ko/models/gv80",
+          "values": {
+            "width_mm": 1975,
+            "height_mm": 1715,
+            "wheelbase_mm": 2955,
+            "displacement_cc": 2497
+          },
+          "conditions": "KR 2.5T Hybrid shared body; Black styling body common, not coupe; 277PS engine not total hybrid output",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "제네시스",
+        "model": "GV80 Black Hybrid"
+      },
+      "scope": "KR 2.5T Hybrid shared body; Black styling body common, not coupe; 277PS engine not total hybrid output",
+      "samples": [
+        {
+          "publisher": "제네시스",
+          "origin_id": "제네시스",
+          "url": "https://www.genesis.com/kr/ko/models/gv80",
+          "values": {
+            "width_mm": 1975,
+            "height_mm": 1715,
+            "wheelbase_mm": 2955,
+            "displacement_cc": 2497
+          },
+          "conditions": "KR 2.5T Hybrid shared body; Black styling body common, not coupe; 277PS engine not total hybrid output",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "selector": {
+        "brand": "현대",
+        "model": "캐스퍼"
+      },
+      "scope": "AX1 facelift petrol/turbo common body/engine size; roof-rack-dependent height excluded; not Casper Electric",
+      "samples": [
+        {
+          "publisher": "현대",
+          "origin_id": "현대",
+          "url": "https://casper.hyundai.com/wcontents/repn-car/catalog/AX04/AX_The_new_CASPER_catalog.pdf",
+          "values": {
+            "width_mm": 1595,
+            "wheelbase_mm": 2400,
+            "displacement_cc": 998
+          },
+          "conditions": "AX1 facelift petrol/turbo common body/engine size; roof-rack-dependent height excluded; not Casper Electric",
+          "official": true,
+          "evidence_type": "reported-specification",
+          "verification": "page-reviewed",
+          "compatible": true
+        }
+      ]
+    }
+  ]
+}

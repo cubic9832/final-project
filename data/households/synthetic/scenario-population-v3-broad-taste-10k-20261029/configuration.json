@@ -1,0 +1,40 @@
+{
+  "version": "scenario-population-v3",
+  "financial_log_sigma": 0.24,
+  "distance_log_sigma": 0.3,
+  "secondary_preference_probability": 0.3,
+  "secondary_mix_range": [
+    0.15,
+    0.4
+  ],
+  "temperature_range": [
+    0.035,
+    0.085
+  ],
+  "split_fractions": [
+    0.7,
+    0.15,
+    0.15
+  ],
+  "pool_models": 20,
+  "pair_modes": [
+    "random",
+    "near",
+    "tradeoff",
+    "similar"
+  ],
+  "minimum_buffer": 200000,
+  "identity_preferences": false,
+  "additional_personas": "data/households/synthetic/scenario-seeds-v2-20261029/additional_personas.json",
+  "seating_registry": "data/vehicles/scenario-seating-20261029/registry.json",
+  "minimum_model_comparisons": {
+    "train": 20,
+    "validation": 5,
+    "test": 5
+  },
+  "minimum_spec_comparisons": 1,
+  "profiles": 10000,
+  "pairs_per_user": 10,
+  "shard_size": 1000,
+  "seed": 20261029
+}

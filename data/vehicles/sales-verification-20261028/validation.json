@@ -1,0 +1,10 @@
+{
+  "checked_on": "2026-10-28",
+  "ml_tests": {"test_sales_evidence": 3, "test_web_rechecked_model": 1, "test_cohort_model": 3, "failed": 0},
+  "frontend_tests": {"passed": 48, "failed": 0},
+  "frontend_build": "passed; existing chunk size advisory",
+  "frontend_lint": "passed; 4 pre-existing warnings",
+  "browser": "Cached recommendation route now displays latest registry without resubmission. Confirmed Revuelto 784000000 KRW and 2023-06-23 Korea launch; Temerario 473000000 KRW and 2026-05 delivery commencement. ui-filled-prices.png saved.",
+  "model_changes": "none; display-only evidence overlay; frozen v6 inputs preserved",
+  "initial_test_environment_issue": "Windows sandbox temporary-directory write denied; identity mismatch test now uses the real checked registry without temporary file IO. Final tests passed."
+}

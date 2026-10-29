@@ -66,6 +66,13 @@
 @media (max-width: 480px) { .vehicle-body-preview { flex-direction: column; align-items: stretch; } .vehicle-body-preview-image { flex-basis: auto; height: 160px; } }
 
 .vehicle-priority-row:disabled { opacity: 0.55; }
+.vehicle-lifestyle { margin-top: var(--space-24); padding-top: var(--space-24); border-top: 1px solid var(--color-border); }
+.vehicle-lifestyle h3 { color: var(--color-primary); font-size: var(--font-subtitle); }
+.vehicle-lifestyle .financial-field { display: grid; gap: var(--space-8); margin-top: var(--space-16); }
+.vehicle-lifestyle .financial-field label { font-size: var(--font-caption); font-weight: 700; color: var(--color-primary); }
+.vehicle-lifestyle .financial-field select { width: 100%; min-height: 44px; padding: var(--space-8) var(--space-12); border: 1px solid var(--color-border-input); border-radius: var(--radius-sm); background: var(--color-surface); color: var(--color-text); font-size: var(--font-body); }
+.vehicle-lifestyle .financial-field select:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 2px; }
+.vehicle-lifestyle .financial-field p { font-size: var(--font-caption); color: var(--color-muted); line-height: 1.6; }
 .vehicle-priority-row:disabled .vehicle-purpose-options label { cursor: not-allowed; }
 .vehicle-priority-row:disabled .vehicle-purpose-options label:hover span { border-color: var(--color-border-input); }
 .vehicle-priority-row legend small { display: block; margin-top: var(--space-4); font-size: var(--font-caption); color: var(--color-muted); font-weight: 400; }

@@ -1,0 +1,1837 @@
+[
+  {
+    "orderNumber": 107,
+    "name": "Roma Spider",
+    "slug": "roma-spider",
+    "description": "Introducing the new Ferrari Roma Spider. The adoption of a soft-top takes the timeless and elegant design of the Ferrari Roma to new heights while retaining the same proportions, volumes, and specifications. It is a welcomed return of the front-engined soft-top car since the launch of the 1969 365 GTS4.",
+    "video": "https://www.youtube.com/watch?v=bVZRywGCaF4",
+    "slogan": "TIMELESS ELEGANCE",
+    "make": "Ferrari",
+    "model": "Roma Spider",
+    "year": 2023,
+    "createdAt": "2023-08-25T15:21:46.442Z",
+    "updatedAt": "2026-03-13T22:31:59.450Z",
+    "publishedAt": "2023-05-05T17:36:46.020Z",
+    "vehicleSection": "Past Models",
+    "mainImage": {
+      "data": {
+        "id": 419,
+        "attributes": {
+          "name": "Roma Spider main.jpg",
+          "alternativeText": "Roma Spider main.jpg",
+          "caption": "Roma Spider main.jpg",
+          "width": 1600,
+          "height": 900,
+          "formats": {
+            "large": {
+              "ext": ".jpg",
+              "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Roma_Spider_main_299b5db4e3.jpg",
+              "hash": "large_Roma_Spider_main_299b5db4e3",
+              "mime": "image/jpeg",
+              "name": "large_Roma Spider main.jpg",
+              "path": null,
+              "size": 113.65,
+              "width": 1000,
+              "height": 563
+            },
+            "small": {
+              "ext": ".jpg",
+              "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Roma_Spider_main_299b5db4e3.jpg",
+              "hash": "small_Roma_Spider_main_299b5db4e3",
+              "mime": "image/jpeg",
+              "name": "small_Roma Spider main.jpg",
+              "path": null,
+              "size": 30.18,
+              "width": 500,
+              "height": 281
+            },
+            "medium": {
+              "ext": ".jpg",
+              "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Roma_Spider_main_299b5db4e3.jpg",
+              "hash": "medium_Roma_Spider_main_299b5db4e3",
+              "mime": "image/jpeg",
+              "name": "medium_Roma Spider main.jpg",
+              "path": null,
+              "size": 64.91,
+              "width": 750,
+              "height": 422
+            },
+            "thumbnail": {
+              "ext": ".jpg",
+              "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Roma_Spider_main_299b5db4e3.jpg",
+              "hash": "thumbnail_Roma_Spider_main_299b5db4e3",
+              "mime": "image/jpeg",
+              "name": "thumbnail_Roma Spider main.jpg",
+              "path": null,
+              "size": 8.56,
+              "width": 245,
+              "height": 138
+            }
+          },
+          "hash": "Roma_Spider_main_299b5db4e3",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "size": 278.75,
+          "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Roma_Spider_main_299b5db4e3.jpg",
+          "previewUrl": null,
+          "provider": "aws-s3",
+          "provider_metadata": null,
+          "createdAt": "2023-08-28T11:23:37.236Z",
+          "updatedAt": "2023-08-28T11:23:37.236Z"
+        }
+      }
+    },
+    "modelIcon": {
+      "data": {
+        "id": 420,
+        "attributes": {
+          "name": "6409f42fe38d5e0023b8214e_ferrari_roma_spider_logo_header_5db85deb0c.png",
+          "alternativeText": "6409f42fe38d5e0023b8214e_ferrari_roma_spider_logo_header_5db85deb0c.png",
+          "caption": "6409f42fe38d5e0023b8214e_ferrari_roma_spider_logo_header_5db85deb0c.png",
+          "width": 220,
+          "height": 37,
+          "formats": null,
+          "hash": "6409f42fe38d5e0023b8214e_ferrari_roma_spider_logo_header_5db85deb0c_2c35d4b89d",
+          "ext": ".png",
+          "mime": "image/png",
+          "size": 6.38,
+          "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/6409f42fe38d5e0023b8214e_ferrari_roma_spider_logo_header_5db85deb0c_2c35d4b89d.png",
+          "previewUrl": null,
+          "provider": "aws-s3",
+          "provider_metadata": null,
+          "createdAt": "2023-08-28T11:25:26.523Z",
+          "updatedAt": "2023-08-28T11:25:26.523Z"
+        }
+      }
+    },
+    "gallery": {
+      "data": [
+        {
+          "id": 430,
+          "attributes": {
+            "name": "Roma Spider main sm.jpg",
+            "alternativeText": "Roma Spider main sm.jpg",
+            "caption": "Roma Spider main sm.jpg",
+            "width": 1000,
+            "height": 667,
+            "formats": {
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Roma_Spider_main_sm_366cbd801b.jpg",
+                "hash": "small_Roma_Spider_main_sm_366cbd801b",
+                "mime": "image/jpeg",
+                "name": "small_Roma Spider main sm.jpg",
+                "path": null,
+                "size": 38.06,
+                "width": 500,
+                "height": 334
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Roma_Spider_main_sm_366cbd801b.jpg",
+                "hash": "medium_Roma_Spider_main_sm_366cbd801b",
+                "mime": "image/jpeg",
+                "name": "medium_Roma Spider main sm.jpg",
+                "path": null,
+                "size": 81.14,
+                "width": 750,
+                "height": 500
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Roma_Spider_main_sm_366cbd801b.jpg",
+                "hash": "thumbnail_Roma_Spider_main_sm_366cbd801b",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Roma Spider main sm.jpg",
+                "path": null,
+                "size": 9.53,
+                "width": 234,
+                "height": 156
+              }
+            },
+            "hash": "Roma_Spider_main_sm_366cbd801b",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 135.31,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Roma_Spider_main_sm_366cbd801b.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:28:15.135Z",
+            "updatedAt": "2023-08-28T11:28:15.135Z"
+          }
+        },
+        {
+          "id": 434,
+          "attributes": {
+            "name": "Ferrari Roma Spider10.jpg",
+            "alternativeText": "Ferrari Roma Spider10.jpg",
+            "caption": "Ferrari Roma Spider10.jpg",
+            "width": 1461,
+            "height": 822,
+            "formats": {
+              "large": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider10_448e5244ac.jpg",
+                "hash": "large_Ferrari_Roma_Spider10_448e5244ac",
+                "mime": "image/jpeg",
+                "name": "large_Ferrari Roma Spider10.jpg",
+                "path": null,
+                "size": 104.6,
+                "width": 1000,
+                "height": 563
+              },
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider10_448e5244ac.jpg",
+                "hash": "small_Ferrari_Roma_Spider10_448e5244ac",
+                "mime": "image/jpeg",
+                "name": "small_Ferrari Roma Spider10.jpg",
+                "path": null,
+                "size": 30.11,
+                "width": 500,
+                "height": 281
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider10_448e5244ac.jpg",
+                "hash": "medium_Ferrari_Roma_Spider10_448e5244ac",
+                "mime": "image/jpeg",
+                "name": "medium_Ferrari Roma Spider10.jpg",
+                "path": null,
+                "size": 61.91,
+                "width": 750,
+                "height": 422
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider10_448e5244ac.jpg",
+                "hash": "thumbnail_Ferrari_Roma_Spider10_448e5244ac",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Ferrari Roma Spider10.jpg",
+                "path": null,
+                "size": 8.5,
+                "width": 245,
+                "height": 138
+              }
+            },
+            "hash": "Ferrari_Roma_Spider10_448e5244ac",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 208.58,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider10_448e5244ac.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:28:15.622Z",
+            "updatedAt": "2023-08-28T11:28:15.622Z"
+          }
+        },
+        {
+          "id": 435,
+          "attributes": {
+            "name": "Ferrari Roma Spider02.jpg",
+            "alternativeText": "Ferrari Roma Spider02.jpg",
+            "caption": "Ferrari Roma Spider02.jpg",
+            "width": 1424,
+            "height": 801,
+            "formats": {
+              "large": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider02_2e6d6b65c0.jpg",
+                "hash": "large_Ferrari_Roma_Spider02_2e6d6b65c0",
+                "mime": "image/jpeg",
+                "name": "large_Ferrari Roma Spider02.jpg",
+                "path": null,
+                "size": 120.31,
+                "width": 1000,
+                "height": 563
+              },
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider02_2e6d6b65c0.jpg",
+                "hash": "small_Ferrari_Roma_Spider02_2e6d6b65c0",
+                "mime": "image/jpeg",
+                "name": "small_Ferrari Roma Spider02.jpg",
+                "path": null,
+                "size": 32.44,
+                "width": 500,
+                "height": 281
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider02_2e6d6b65c0.jpg",
+                "hash": "medium_Ferrari_Roma_Spider02_2e6d6b65c0",
+                "mime": "image/jpeg",
+                "name": "medium_Ferrari Roma Spider02.jpg",
+                "path": null,
+                "size": 69.35,
+                "width": 750,
+                "height": 422
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider02_2e6d6b65c0.jpg",
+                "hash": "thumbnail_Ferrari_Roma_Spider02_2e6d6b65c0",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Ferrari Roma Spider02.jpg",
+                "path": null,
+                "size": 8.92,
+                "width": 245,
+                "height": 138
+              }
+            },
+            "hash": "Ferrari_Roma_Spider02_2e6d6b65c0",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 237.08,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider02_2e6d6b65c0.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:28:16.023Z",
+            "updatedAt": "2023-08-28T11:28:16.023Z"
+          }
+        },
+        {
+          "id": 433,
+          "attributes": {
+            "name": "Ferrari Roma Spider13.jpg",
+            "alternativeText": "Ferrari Roma Spider13.jpg",
+            "caption": "Ferrari Roma Spider13.jpg",
+            "width": 1657,
+            "height": 933,
+            "formats": {
+              "large": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider13_1da08de5ab.jpg",
+                "hash": "large_Ferrari_Roma_Spider13_1da08de5ab",
+                "mime": "image/jpeg",
+                "name": "large_Ferrari Roma Spider13.jpg",
+                "path": null,
+                "size": 76.95,
+                "width": 1000,
+                "height": 563
+              },
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider13_1da08de5ab.jpg",
+                "hash": "small_Ferrari_Roma_Spider13_1da08de5ab",
+                "mime": "image/jpeg",
+                "name": "small_Ferrari Roma Spider13.jpg",
+                "path": null,
+                "size": 25.51,
+                "width": 500,
+                "height": 281
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider13_1da08de5ab.jpg",
+                "hash": "medium_Ferrari_Roma_Spider13_1da08de5ab",
+                "mime": "image/jpeg",
+                "name": "medium_Ferrari Roma Spider13.jpg",
+                "path": null,
+                "size": 48.04,
+                "width": 750,
+                "height": 422
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider13_1da08de5ab.jpg",
+                "hash": "thumbnail_Ferrari_Roma_Spider13_1da08de5ab",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Ferrari Roma Spider13.jpg",
+                "path": null,
+                "size": 8.48,
+                "width": 245,
+                "height": 138
+              }
+            },
+            "hash": "Ferrari_Roma_Spider13_1da08de5ab",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 188.38,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider13_1da08de5ab.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:28:15.436Z",
+            "updatedAt": "2023-08-28T11:28:15.436Z"
+          }
+        },
+        {
+          "id": 432,
+          "attributes": {
+            "name": "Ferrari Roma Spider11.jpg",
+            "alternativeText": "Ferrari Roma Spider11.jpg",
+            "caption": "Ferrari Roma Spider11.jpg",
+            "width": 1362,
+            "height": 766,
+            "formats": {
+              "large": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider11_583febe079.jpg",
+                "hash": "large_Ferrari_Roma_Spider11_583febe079",
+                "mime": "image/jpeg",
+                "name": "large_Ferrari Roma Spider11.jpg",
+                "path": null,
+                "size": 82.96,
+                "width": 1000,
+                "height": 562
+              },
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider11_583febe079.jpg",
+                "hash": "small_Ferrari_Roma_Spider11_583febe079",
+                "mime": "image/jpeg",
+                "name": "small_Ferrari Roma Spider11.jpg",
+                "path": null,
+                "size": 24.4,
+                "width": 500,
+                "height": 281
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider11_583febe079.jpg",
+                "hash": "medium_Ferrari_Roma_Spider11_583febe079",
+                "mime": "image/jpeg",
+                "name": "medium_Ferrari Roma Spider11.jpg",
+                "path": null,
+                "size": 49.48,
+                "width": 750,
+                "height": 422
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider11_583febe079.jpg",
+                "hash": "thumbnail_Ferrari_Roma_Spider11_583febe079",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Ferrari Roma Spider11.jpg",
+                "path": null,
+                "size": 7.35,
+                "width": 245,
+                "height": 138
+              }
+            },
+            "hash": "Ferrari_Roma_Spider11_583febe079",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 143.66,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider11_583febe079.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:28:15.143Z",
+            "updatedAt": "2023-08-28T11:28:15.143Z"
+          }
+        },
+        {
+          "id": 429,
+          "attributes": {
+            "name": "Ferrari Roma Spider06.jpg",
+            "alternativeText": "Ferrari Roma Spider06.jpg",
+            "caption": "Ferrari Roma Spider06.jpg",
+            "width": 1086,
+            "height": 611,
+            "formats": {
+              "large": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider06_b6ca8fb648.jpg",
+                "hash": "large_Ferrari_Roma_Spider06_b6ca8fb648",
+                "mime": "image/jpeg",
+                "name": "large_Ferrari Roma Spider06.jpg",
+                "path": null,
+                "size": 89.06,
+                "width": 1000,
+                "height": 563
+              },
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider06_b6ca8fb648.jpg",
+                "hash": "small_Ferrari_Roma_Spider06_b6ca8fb648",
+                "mime": "image/jpeg",
+                "name": "small_Ferrari Roma Spider06.jpg",
+                "path": null,
+                "size": 25.9,
+                "width": 500,
+                "height": 281
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider06_b6ca8fb648.jpg",
+                "hash": "medium_Ferrari_Roma_Spider06_b6ca8fb648",
+                "mime": "image/jpeg",
+                "name": "medium_Ferrari Roma Spider06.jpg",
+                "path": null,
+                "size": 53.99,
+                "width": 750,
+                "height": 422
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider06_b6ca8fb648.jpg",
+                "hash": "thumbnail_Ferrari_Roma_Spider06_b6ca8fb648",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Ferrari Roma Spider06.jpg",
+                "path": null,
+                "size": 7.47,
+                "width": 245,
+                "height": 138
+              }
+            },
+            "hash": "Ferrari_Roma_Spider06_b6ca8fb648",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 103.38,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider06_b6ca8fb648.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:28:15.029Z",
+            "updatedAt": "2023-08-28T11:28:15.029Z"
+          }
+        },
+        {
+          "id": 421,
+          "attributes": {
+            "name": "Ferrari Roma Spider01.jpg",
+            "alternativeText": "Ferrari Roma Spider01.jpg",
+            "caption": "Ferrari Roma Spider01.jpg",
+            "width": 1077,
+            "height": 605,
+            "formats": {
+              "large": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider01_200e4b4a1a.jpg",
+                "hash": "large_Ferrari_Roma_Spider01_200e4b4a1a",
+                "mime": "image/jpeg",
+                "name": "large_Ferrari Roma Spider01.jpg",
+                "path": null,
+                "size": 72.18,
+                "width": 1000,
+                "height": 562
+              },
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider01_200e4b4a1a.jpg",
+                "hash": "small_Ferrari_Roma_Spider01_200e4b4a1a",
+                "mime": "image/jpeg",
+                "name": "small_Ferrari Roma Spider01.jpg",
+                "path": null,
+                "size": 17.43,
+                "width": 500,
+                "height": 281
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider01_200e4b4a1a.jpg",
+                "hash": "medium_Ferrari_Roma_Spider01_200e4b4a1a",
+                "mime": "image/jpeg",
+                "name": "medium_Ferrari Roma Spider01.jpg",
+                "path": null,
+                "size": 40.03,
+                "width": 750,
+                "height": 421
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider01_200e4b4a1a.jpg",
+                "hash": "thumbnail_Ferrari_Roma_Spider01_200e4b4a1a",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Ferrari Roma Spider01.jpg",
+                "path": null,
+                "size": 4.93,
+                "width": 245,
+                "height": 138
+              }
+            },
+            "hash": "Ferrari_Roma_Spider01_200e4b4a1a",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 84.89,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider01_200e4b4a1a.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:28:09.835Z",
+            "updatedAt": "2023-08-28T11:28:09.835Z"
+          }
+        },
+        {
+          "id": 422,
+          "attributes": {
+            "name": "Ferrari Roma Spider09.jpg",
+            "alternativeText": "Ferrari Roma Spider09.jpg",
+            "caption": "Ferrari Roma Spider09.jpg",
+            "width": 1077,
+            "height": 606,
+            "formats": {
+              "large": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider09_c448e9d4de.jpg",
+                "hash": "large_Ferrari_Roma_Spider09_c448e9d4de",
+                "mime": "image/jpeg",
+                "name": "large_Ferrari Roma Spider09.jpg",
+                "path": null,
+                "size": 74.28,
+                "width": 1000,
+                "height": 563
+              },
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider09_c448e9d4de.jpg",
+                "hash": "small_Ferrari_Roma_Spider09_c448e9d4de",
+                "mime": "image/jpeg",
+                "name": "small_Ferrari Roma Spider09.jpg",
+                "path": null,
+                "size": 17.56,
+                "width": 500,
+                "height": 281
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider09_c448e9d4de.jpg",
+                "hash": "medium_Ferrari_Roma_Spider09_c448e9d4de",
+                "mime": "image/jpeg",
+                "name": "medium_Ferrari Roma Spider09.jpg",
+                "path": null,
+                "size": 40.69,
+                "width": 750,
+                "height": 422
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider09_c448e9d4de.jpg",
+                "hash": "thumbnail_Ferrari_Roma_Spider09_c448e9d4de",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Ferrari Roma Spider09.jpg",
+                "path": null,
+                "size": 4.9,
+                "width": 245,
+                "height": 138
+              }
+            },
+            "hash": "Ferrari_Roma_Spider09_c448e9d4de",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 87.07,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider09_c448e9d4de.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:28:09.834Z",
+            "updatedAt": "2023-08-28T11:28:09.834Z"
+          }
+        },
+        {
+          "id": 423,
+          "attributes": {
+            "name": "Ferrari Roma Spider15.jpg",
+            "alternativeText": "Ferrari Roma Spider15.jpg",
+            "caption": "Ferrari Roma Spider15.jpg",
+            "width": 1086,
+            "height": 610,
+            "formats": {
+              "large": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider15_c6a4401ffd.jpg",
+                "hash": "large_Ferrari_Roma_Spider15_c6a4401ffd",
+                "mime": "image/jpeg",
+                "name": "large_Ferrari Roma Spider15.jpg",
+                "path": null,
+                "size": 74.37,
+                "width": 1000,
+                "height": 562
+              },
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider15_c6a4401ffd.jpg",
+                "hash": "small_Ferrari_Roma_Spider15_c6a4401ffd",
+                "mime": "image/jpeg",
+                "name": "small_Ferrari Roma Spider15.jpg",
+                "path": null,
+                "size": 17.1,
+                "width": 500,
+                "height": 281
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider15_c6a4401ffd.jpg",
+                "hash": "medium_Ferrari_Roma_Spider15_c6a4401ffd",
+                "mime": "image/jpeg",
+                "name": "medium_Ferrari Roma Spider15.jpg",
+                "path": null,
+                "size": 40.53,
+                "width": 750,
+                "height": 421
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider15_c6a4401ffd.jpg",
+                "hash": "thumbnail_Ferrari_Roma_Spider15_c6a4401ffd",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Ferrari Roma Spider15.jpg",
+                "path": null,
+                "size": 4.68,
+                "width": 245,
+                "height": 138
+              }
+            },
+            "hash": "Ferrari_Roma_Spider15_c6a4401ffd",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 89.96,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider15_c6a4401ffd.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:28:12.222Z",
+            "updatedAt": "2023-08-28T11:28:12.222Z"
+          }
+        },
+        {
+          "id": 424,
+          "attributes": {
+            "name": "Ferrari Roma Spider08.jpg",
+            "alternativeText": "Ferrari Roma Spider08.jpg",
+            "caption": "Ferrari Roma Spider08.jpg",
+            "width": 1078,
+            "height": 606,
+            "formats": {
+              "large": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider08_02596e742e.jpg",
+                "hash": "large_Ferrari_Roma_Spider08_02596e742e",
+                "mime": "image/jpeg",
+                "name": "large_Ferrari Roma Spider08.jpg",
+                "path": null,
+                "size": 93.56,
+                "width": 1000,
+                "height": 562
+              },
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider08_02596e742e.jpg",
+                "hash": "small_Ferrari_Roma_Spider08_02596e742e",
+                "mime": "image/jpeg",
+                "name": "small_Ferrari Roma Spider08.jpg",
+                "path": null,
+                "size": 19.29,
+                "width": 500,
+                "height": 281
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider08_02596e742e.jpg",
+                "hash": "medium_Ferrari_Roma_Spider08_02596e742e",
+                "mime": "image/jpeg",
+                "name": "medium_Ferrari Roma Spider08.jpg",
+                "path": null,
+                "size": 48.6,
+                "width": 750,
+                "height": 422
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider08_02596e742e.jpg",
+                "hash": "thumbnail_Ferrari_Roma_Spider08_02596e742e",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Ferrari Roma Spider08.jpg",
+                "path": null,
+                "size": 4.72,
+                "width": 245,
+                "height": 138
+              }
+            },
+            "hash": "Ferrari_Roma_Spider08_02596e742e",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 112.25,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider08_02596e742e.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:28:14.332Z",
+            "updatedAt": "2023-08-28T11:28:14.332Z"
+          }
+        },
+        {
+          "id": 425,
+          "attributes": {
+            "name": "Ferrari Roma Spider14.jpg",
+            "alternativeText": "Ferrari Roma Spider14.jpg",
+            "caption": "Ferrari Roma Spider14.jpg",
+            "width": 1094,
+            "height": 616,
+            "formats": {
+              "large": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider14_b8085300e8.jpg",
+                "hash": "large_Ferrari_Roma_Spider14_b8085300e8",
+                "mime": "image/jpeg",
+                "name": "large_Ferrari Roma Spider14.jpg",
+                "path": null,
+                "size": 74.13,
+                "width": 1000,
+                "height": 563
+              },
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider14_b8085300e8.jpg",
+                "hash": "small_Ferrari_Roma_Spider14_b8085300e8",
+                "mime": "image/jpeg",
+                "name": "small_Ferrari Roma Spider14.jpg",
+                "path": null,
+                "size": 16.12,
+                "width": 500,
+                "height": 282
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider14_b8085300e8.jpg",
+                "hash": "medium_Ferrari_Roma_Spider14_b8085300e8",
+                "mime": "image/jpeg",
+                "name": "medium_Ferrari Roma Spider14.jpg",
+                "path": null,
+                "size": 37.99,
+                "width": 750,
+                "height": 422
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider14_b8085300e8.jpg",
+                "hash": "thumbnail_Ferrari_Roma_Spider14_b8085300e8",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Ferrari Roma Spider14.jpg",
+                "path": null,
+                "size": 4.47,
+                "width": 245,
+                "height": 138
+              }
+            },
+            "hash": "Ferrari_Roma_Spider14_b8085300e8",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 91.55,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider14_b8085300e8.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:28:14.333Z",
+            "updatedAt": "2023-08-28T11:28:14.333Z"
+          }
+        },
+        {
+          "id": 426,
+          "attributes": {
+            "name": "Ferrari Roma Spider12.jpg",
+            "alternativeText": "Ferrari Roma Spider12.jpg",
+            "caption": "Ferrari Roma Spider12.jpg",
+            "width": 1081,
+            "height": 609,
+            "formats": {
+              "large": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider12_79bea733ab.jpg",
+                "hash": "large_Ferrari_Roma_Spider12_79bea733ab",
+                "mime": "image/jpeg",
+                "name": "large_Ferrari Roma Spider12.jpg",
+                "path": null,
+                "size": 129.9,
+                "width": 1000,
+                "height": 563
+              },
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider12_79bea733ab.jpg",
+                "hash": "small_Ferrari_Roma_Spider12_79bea733ab",
+                "mime": "image/jpeg",
+                "name": "small_Ferrari Roma Spider12.jpg",
+                "path": null,
+                "size": 23.66,
+                "width": 500,
+                "height": 282
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider12_79bea733ab.jpg",
+                "hash": "medium_Ferrari_Roma_Spider12_79bea733ab",
+                "mime": "image/jpeg",
+                "name": "medium_Ferrari Roma Spider12.jpg",
+                "path": null,
+                "size": 64.65,
+                "width": 750,
+                "height": 423
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider12_79bea733ab.jpg",
+                "hash": "thumbnail_Ferrari_Roma_Spider12_79bea733ab",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Ferrari Roma Spider12.jpg",
+                "path": null,
+                "size": 4.99,
+                "width": 245,
+                "height": 138
+              }
+            },
+            "hash": "Ferrari_Roma_Spider12_79bea733ab",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 161.03,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider12_79bea733ab.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:28:14.429Z",
+            "updatedAt": "2023-08-28T11:28:14.429Z"
+          }
+        },
+        {
+          "id": 428,
+          "attributes": {
+            "name": "Ferrari Roma Spider07.jpg",
+            "alternativeText": "Ferrari Roma Spider07.jpg",
+            "caption": "Ferrari Roma Spider07.jpg",
+            "width": 1443,
+            "height": 811,
+            "formats": {
+              "large": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider07_c688d0a10e.jpg",
+                "hash": "large_Ferrari_Roma_Spider07_c688d0a10e",
+                "mime": "image/jpeg",
+                "name": "large_Ferrari Roma Spider07.jpg",
+                "path": null,
+                "size": 65.92,
+                "width": 1000,
+                "height": 562
+              },
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider07_c688d0a10e.jpg",
+                "hash": "small_Ferrari_Roma_Spider07_c688d0a10e",
+                "mime": "image/jpeg",
+                "name": "small_Ferrari Roma Spider07.jpg",
+                "path": null,
+                "size": 19.7,
+                "width": 500,
+                "height": 281
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider07_c688d0a10e.jpg",
+                "hash": "medium_Ferrari_Roma_Spider07_c688d0a10e",
+                "mime": "image/jpeg",
+                "name": "medium_Ferrari Roma Spider07.jpg",
+                "path": null,
+                "size": 39.47,
+                "width": 750,
+                "height": 422
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider07_c688d0a10e.jpg",
+                "hash": "thumbnail_Ferrari_Roma_Spider07_c688d0a10e",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Ferrari Roma Spider07.jpg",
+                "path": null,
+                "size": 6.1,
+                "width": 245,
+                "height": 137
+              }
+            },
+            "hash": "Ferrari_Roma_Spider07_c688d0a10e",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 128.04,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider07_c688d0a10e.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:28:15.022Z",
+            "updatedAt": "2023-08-28T11:28:15.022Z"
+          }
+        },
+        {
+          "id": 427,
+          "attributes": {
+            "name": "Ferrari Roma Spider05.jpg",
+            "alternativeText": "Ferrari Roma Spider05.jpg",
+            "caption": "Ferrari Roma Spider05.jpg",
+            "width": 1089,
+            "height": 612,
+            "formats": {
+              "large": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider05_5a1ab4884c.jpg",
+                "hash": "large_Ferrari_Roma_Spider05_5a1ab4884c",
+                "mime": "image/jpeg",
+                "name": "large_Ferrari Roma Spider05.jpg",
+                "path": null,
+                "size": 61.69,
+                "width": 1000,
+                "height": 562
+              },
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider05_5a1ab4884c.jpg",
+                "hash": "small_Ferrari_Roma_Spider05_5a1ab4884c",
+                "mime": "image/jpeg",
+                "name": "small_Ferrari Roma Spider05.jpg",
+                "path": null,
+                "size": 14.65,
+                "width": 500,
+                "height": 281
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider05_5a1ab4884c.jpg",
+                "hash": "medium_Ferrari_Roma_Spider05_5a1ab4884c",
+                "mime": "image/jpeg",
+                "name": "medium_Ferrari Roma Spider05.jpg",
+                "path": null,
+                "size": 33.48,
+                "width": 750,
+                "height": 421
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider05_5a1ab4884c.jpg",
+                "hash": "thumbnail_Ferrari_Roma_Spider05_5a1ab4884c",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Ferrari Roma Spider05.jpg",
+                "path": null,
+                "size": 4.19,
+                "width": 245,
+                "height": 138
+              }
+            },
+            "hash": "Ferrari_Roma_Spider05_5a1ab4884c",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 75.21,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider05_5a1ab4884c.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:28:15.023Z",
+            "updatedAt": "2023-08-28T11:28:15.023Z"
+          }
+        },
+        {
+          "id": 431,
+          "attributes": {
+            "name": "Ferrari Roma Spider03.jpg",
+            "alternativeText": "Ferrari Roma Spider03.jpg",
+            "caption": "Ferrari Roma Spider03.jpg",
+            "width": 1620,
+            "height": 912,
+            "formats": {
+              "large": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider03_7f6b64f530.jpg",
+                "hash": "large_Ferrari_Roma_Spider03_7f6b64f530",
+                "mime": "image/jpeg",
+                "name": "large_Ferrari Roma Spider03.jpg",
+                "path": null,
+                "size": 58.24,
+                "width": 1000,
+                "height": 563
+              },
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider03_7f6b64f530.jpg",
+                "hash": "small_Ferrari_Roma_Spider03_7f6b64f530",
+                "mime": "image/jpeg",
+                "name": "small_Ferrari Roma Spider03.jpg",
+                "path": null,
+                "size": 20.57,
+                "width": 500,
+                "height": 281
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider03_7f6b64f530.jpg",
+                "hash": "medium_Ferrari_Roma_Spider03_7f6b64f530",
+                "mime": "image/jpeg",
+                "name": "medium_Ferrari Roma Spider03.jpg",
+                "path": null,
+                "size": 37.33,
+                "width": 750,
+                "height": 422
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider03_7f6b64f530.jpg",
+                "hash": "thumbnail_Ferrari_Roma_Spider03_7f6b64f530",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Ferrari Roma Spider03.jpg",
+                "path": null,
+                "size": 7.07,
+                "width": 245,
+                "height": 138
+              }
+            },
+            "hash": "Ferrari_Roma_Spider03_7f6b64f530",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 128.92,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider03_7f6b64f530.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:28:15.139Z",
+            "updatedAt": "2023-08-28T11:28:15.139Z"
+          }
+        }
+      ]
+    },
+    "technicalSpecificationGroups": [
+      {
+        "id": 47,
+        "name": "Engine",
+        "items": [
+          {
+            "id": 187,
+            "label": "Type",
+            "value": "V8 – 90°"
+          },
+          {
+            "id": 195,
+            "label": "Total displacement",
+            "value": "3855 CC"
+          },
+          {
+            "id": 186,
+            "label": "Max Power",
+            "value": "620 CV @ 5750 - 7500 RPM"
+          },
+          {
+            "id": 194,
+            "label": "Max Torque*",
+            "value": " 760 nm at 3000/5750 rpm"
+          },
+          {
+            "id": 193,
+            "label": "Max Engine Speed",
+            "value": "7500 RPM"
+          },
+          {
+            "id": 188,
+            "label": "Compression Ratio",
+            "value": "9.45:1"
+          }
+        ]
+      },
+      {
+        "id": 46,
+        "name": "Transmission and Gearbox",
+        "items": [
+          {
+            "id": 189,
+            "label": "Type",
+            "value": "8-speed F1 DCT"
+          }
+        ]
+      },
+      {
+        "id": 50,
+        "name": "Performance",
+        "items": [
+          {
+            "id": 192,
+            "label": "Max Speed",
+            "value": "> 320 km/h"
+          },
+          {
+            "id": 191,
+            "label": "0-100 km/h",
+            "value": "3.4s"
+          },
+          {
+            "id": 190,
+            "label": "0-200 km/h",
+            "value": "9.7s"
+          }
+        ]
+      },
+      {
+        "id": 49,
+        "name": "Dimensions and Weight",
+        "items": [
+          {
+            "id": 196,
+            "label": "Length",
+            "value": "4656mm"
+          },
+          {
+            "id": 197,
+            "label": "Width",
+            "value": "1974mm"
+          },
+          {
+            "id": 198,
+            "label": "Height",
+            "value": "1306mm"
+          },
+          {
+            "id": 200,
+            "label": "Wheelbase",
+            "value": "2670mm"
+          },
+          {
+            "id": 199,
+            "label": "Dry Weight",
+            "value": "1556kg"
+          }
+        ]
+      },
+      {
+        "id": 48,
+        "name": "Tires and Breaks",
+        "items": [
+          {
+            "id": 201,
+            "label": "Front",
+            "value": "245/35 ZR 20 J8"
+          },
+          {
+            "id": 202,
+            "label": "Rear",
+            "value": "285/35 ZR 20 J10"
+          }
+        ]
+      }
+    ],
+    "mainTechnicalSpecification": {
+      "id": 10,
+      "image": {
+        "data": {
+          "id": 436,
+          "attributes": {
+            "name": "Ferrari Roma Spider04.jpg",
+            "alternativeText": "Ferrari Roma Spider04.jpg",
+            "caption": "Ferrari Roma Spider04.jpg",
+            "width": 1500,
+            "height": 844,
+            "formats": {
+              "large": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider04_10e62dc968.jpg",
+                "hash": "large_Ferrari_Roma_Spider04_10e62dc968",
+                "mime": "image/jpeg",
+                "name": "large_Ferrari Roma Spider04.jpg",
+                "path": null,
+                "size": 94.7,
+                "width": 1000,
+                "height": 563
+              },
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider04_10e62dc968.jpg",
+                "hash": "small_Ferrari_Roma_Spider04_10e62dc968",
+                "mime": "image/jpeg",
+                "name": "small_Ferrari Roma Spider04.jpg",
+                "path": null,
+                "size": 29.14,
+                "width": 500,
+                "height": 281
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider04_10e62dc968.jpg",
+                "hash": "medium_Ferrari_Roma_Spider04_10e62dc968",
+                "mime": "image/jpeg",
+                "name": "medium_Ferrari Roma Spider04.jpg",
+                "path": null,
+                "size": 57.91,
+                "width": 750,
+                "height": 422
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider04_10e62dc968.jpg",
+                "hash": "thumbnail_Ferrari_Roma_Spider04_10e62dc968",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Ferrari Roma Spider04.jpg",
+                "path": null,
+                "size": 9.22,
+                "width": 245,
+                "height": 138
+              }
+            },
+            "hash": "Ferrari_Roma_Spider04_10e62dc968",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 182.41,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider04_10e62dc968.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:30:02.527Z",
+            "updatedAt": "2023-08-28T11:30:02.527Z"
+          }
+        }
+      },
+      "firstSpecification": {
+        "id": 64,
+        "label": "ENGINE",
+        "value": "V8",
+        "unit": "Turbo"
+      },
+      "secondSpecification": {
+        "id": 65,
+        "label": "GEARBOX",
+        "value": "8-Speed",
+        "unit": null
+      },
+      "thirdSpecification": {
+        "id": 66,
+        "label": "MAXIMUM POWER",
+        "value": "620",
+        "unit": "CV"
+      },
+      "fourthSpecification": {
+        "id": 67,
+        "label": "0-100 KM/H",
+        "value": "3.4",
+        "unit": "sec"
+      }
+    },
+    "informationBlock": {
+      "id": 10,
+      "title": "A Closer Look Into The Ferrari Roma",
+      "items": [
+        {
+          "id": 30,
+          "title": "Interior",
+          "description": "For the Ferrari Roma Spider’s cabin, the Ferrari Styling Center designers took the same approach to the volumes and forms introduced on the Ferrari Roma. Two distinct spaces were created for the driver and passenger, in an evolution of the dual cockpit concept, which has roots dating back to Ferrari models from the 1970s. While an innovative take was achieved by extending the philosophy applied to the dash to the entire cabin so that the two modules wrap around driver and passenger by extending and integrating with the two rear seats. ",
+          "image": {
+            "data": {
+              "id": 431,
+              "attributes": {
+                "name": "Ferrari Roma Spider03.jpg",
+                "alternativeText": "Ferrari Roma Spider03.jpg",
+                "caption": "Ferrari Roma Spider03.jpg",
+                "width": 1620,
+                "height": 912,
+                "formats": {
+                  "large": {
+                    "ext": ".jpg",
+                    "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider03_7f6b64f530.jpg",
+                    "hash": "large_Ferrari_Roma_Spider03_7f6b64f530",
+                    "mime": "image/jpeg",
+                    "name": "large_Ferrari Roma Spider03.jpg",
+                    "path": null,
+                    "size": 58.24,
+                    "width": 1000,
+                    "height": 563
+                  },
+                  "small": {
+                    "ext": ".jpg",
+                    "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider03_7f6b64f530.jpg",
+                    "hash": "small_Ferrari_Roma_Spider03_7f6b64f530",
+                    "mime": "image/jpeg",
+                    "name": "small_Ferrari Roma Spider03.jpg",
+                    "path": null,
+                    "size": 20.57,
+                    "width": 500,
+                    "height": 281
+                  },
+                  "medium": {
+                    "ext": ".jpg",
+                    "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider03_7f6b64f530.jpg",
+                    "hash": "medium_Ferrari_Roma_Spider03_7f6b64f530",
+                    "mime": "image/jpeg",
+                    "name": "medium_Ferrari Roma Spider03.jpg",
+                    "path": null,
+                    "size": 37.33,
+                    "width": 750,
+                    "height": 422
+                  },
+                  "thumbnail": {
+                    "ext": ".jpg",
+                    "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider03_7f6b64f530.jpg",
+                    "hash": "thumbnail_Ferrari_Roma_Spider03_7f6b64f530",
+                    "mime": "image/jpeg",
+                    "name": "thumbnail_Ferrari Roma Spider03.jpg",
+                    "path": null,
+                    "size": 7.07,
+                    "width": 245,
+                    "height": 138
+                  }
+                },
+                "hash": "Ferrari_Roma_Spider03_7f6b64f530",
+                "ext": ".jpg",
+                "mime": "image/jpeg",
+                "size": 128.92,
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider03_7f6b64f530.jpg",
+                "previewUrl": null,
+                "provider": "aws-s3",
+                "provider_metadata": null,
+                "createdAt": "2023-08-28T11:28:15.139Z",
+                "updatedAt": "2023-08-28T11:28:15.139Z"
+              }
+            }
+          }
+        },
+        {
+          "id": 28,
+          "title": "Exterior",
+          "description": "Designed by the Ferrari Styling Centre headed by Flavio Manzoni, the Ferrari Roma Spider is a 2+ spider which boasts a sophisticated fabric soft top, designed to enhance the flawless proportions of the Ferrari Roma without modifying that car's elegantly flowing silhouette.",
+          "image": {
+            "data": {
+              "id": 426,
+              "attributes": {
+                "name": "Ferrari Roma Spider12.jpg",
+                "alternativeText": "Ferrari Roma Spider12.jpg",
+                "caption": "Ferrari Roma Spider12.jpg",
+                "width": 1081,
+                "height": 609,
+                "formats": {
+                  "large": {
+                    "ext": ".jpg",
+                    "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider12_79bea733ab.jpg",
+                    "hash": "large_Ferrari_Roma_Spider12_79bea733ab",
+                    "mime": "image/jpeg",
+                    "name": "large_Ferrari Roma Spider12.jpg",
+                    "path": null,
+                    "size": 129.9,
+                    "width": 1000,
+                    "height": 563
+                  },
+                  "small": {
+                    "ext": ".jpg",
+                    "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider12_79bea733ab.jpg",
+                    "hash": "small_Ferrari_Roma_Spider12_79bea733ab",
+                    "mime": "image/jpeg",
+                    "name": "small_Ferrari Roma Spider12.jpg",
+                    "path": null,
+                    "size": 23.66,
+                    "width": 500,
+                    "height": 282
+                  },
+                  "medium": {
+                    "ext": ".jpg",
+                    "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider12_79bea733ab.jpg",
+                    "hash": "medium_Ferrari_Roma_Spider12_79bea733ab",
+                    "mime": "image/jpeg",
+                    "name": "medium_Ferrari Roma Spider12.jpg",
+                    "path": null,
+                    "size": 64.65,
+                    "width": 750,
+                    "height": 423
+                  },
+                  "thumbnail": {
+                    "ext": ".jpg",
+                    "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider12_79bea733ab.jpg",
+                    "hash": "thumbnail_Ferrari_Roma_Spider12_79bea733ab",
+                    "mime": "image/jpeg",
+                    "name": "thumbnail_Ferrari Roma Spider12.jpg",
+                    "path": null,
+                    "size": 4.99,
+                    "width": 245,
+                    "height": 138
+                  }
+                },
+                "hash": "Ferrari_Roma_Spider12_79bea733ab",
+                "ext": ".jpg",
+                "mime": "image/jpeg",
+                "size": 161.03,
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider12_79bea733ab.jpg",
+                "previewUrl": null,
+                "provider": "aws-s3",
+                "provider_metadata": null,
+                "createdAt": "2023-08-28T11:28:14.429Z",
+                "updatedAt": "2023-08-28T11:28:14.429Z"
+              }
+            }
+          }
+        },
+        {
+          "id": 29,
+          "title": "Powertrain",
+          "description": "Under the hood of the Ferrari Roma, lies a 3.9-liter twin-turbocharged V8 Engine, which has won International Engine of the Year the last 4-years running. While the base remains the same, it has been tuned to produce an enhanced 612 horsepower from 5,750 to 7,000 rpm, with about 560 lb-ft of torque from 3,00 to 5,750 rpm. It directs power to the rear wheels through a brand new eight-speed dual-clutch transmission, clocking in a 0-62 mph in 3.4 seconds. With an overall speed of 199 mph,.",
+          "image": {
+            "data": {
+              "id": 376,
+              "attributes": {
+                "name": "Ferrari_Roma_motore.jpg",
+                "alternativeText": "Ferrari_Roma_motore.jpg",
+                "caption": "Ferrari_Roma_motore.jpg",
+                "width": 1000,
+                "height": 800,
+                "formats": {
+                  "small": {
+                    "ext": ".jpg",
+                    "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_motore_b6e4108a96.jpg",
+                    "hash": "small_Ferrari_Roma_motore_b6e4108a96",
+                    "mime": "image/jpeg",
+                    "name": "small_Ferrari_Roma_motore.jpg",
+                    "path": null,
+                    "size": 44.68,
+                    "width": 500,
+                    "height": 400
+                  },
+                  "medium": {
+                    "ext": ".jpg",
+                    "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_motore_b6e4108a96.jpg",
+                    "hash": "medium_Ferrari_Roma_motore_b6e4108a96",
+                    "mime": "image/jpeg",
+                    "name": "medium_Ferrari_Roma_motore.jpg",
+                    "path": null,
+                    "size": 87.55,
+                    "width": 750,
+                    "height": 600
+                  },
+                  "thumbnail": {
+                    "ext": ".jpg",
+                    "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_motore_b6e4108a96.jpg",
+                    "hash": "thumbnail_Ferrari_Roma_motore_b6e4108a96",
+                    "mime": "image/jpeg",
+                    "name": "thumbnail_Ferrari_Roma_motore.jpg",
+                    "path": null,
+                    "size": 9.62,
+                    "width": 195,
+                    "height": 156
+                  }
+                },
+                "hash": "Ferrari_Roma_motore_b6e4108a96",
+                "ext": ".jpg",
+                "mime": "image/jpeg",
+                "size": 141.89,
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_motore_b6e4108a96.jpg",
+                "previewUrl": null,
+                "provider": "aws-s3",
+                "provider_metadata": null,
+                "createdAt": "2023-08-28T10:54:53.923Z",
+                "updatedAt": "2023-08-28T10:54:53.923Z"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "quoteBlock": {
+      "id": 11,
+      "image": {
+        "data": {
+          "id": 432,
+          "attributes": {
+            "name": "Ferrari Roma Spider11.jpg",
+            "alternativeText": "Ferrari Roma Spider11.jpg",
+            "caption": "Ferrari Roma Spider11.jpg",
+            "width": 1362,
+            "height": 766,
+            "formats": {
+              "large": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider11_583febe079.jpg",
+                "hash": "large_Ferrari_Roma_Spider11_583febe079",
+                "mime": "image/jpeg",
+                "name": "large_Ferrari Roma Spider11.jpg",
+                "path": null,
+                "size": 82.96,
+                "width": 1000,
+                "height": 562
+              },
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider11_583febe079.jpg",
+                "hash": "small_Ferrari_Roma_Spider11_583febe079",
+                "mime": "image/jpeg",
+                "name": "small_Ferrari Roma Spider11.jpg",
+                "path": null,
+                "size": 24.4,
+                "width": 500,
+                "height": 281
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider11_583febe079.jpg",
+                "hash": "medium_Ferrari_Roma_Spider11_583febe079",
+                "mime": "image/jpeg",
+                "name": "medium_Ferrari Roma Spider11.jpg",
+                "path": null,
+                "size": 49.48,
+                "width": 750,
+                "height": 422
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider11_583febe079.jpg",
+                "hash": "thumbnail_Ferrari_Roma_Spider11_583febe079",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Ferrari Roma Spider11.jpg",
+                "path": null,
+                "size": 7.35,
+                "width": 245,
+                "height": 138
+              }
+            },
+            "hash": "Ferrari_Roma_Spider11_583febe079",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 143.66,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider11_583febe079.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:28:15.143Z",
+            "updatedAt": "2023-08-28T11:28:15.143Z"
+          }
+        }
+      },
+      "quote": {
+        "id": 11,
+        "content": "Ferrari paid special attention to keeping the goosebump-inducing looks of the Roma when developing the convertible, and we think it's worked.",
+        "personFirstLastName": "Carr Buzz",
+        "date": "2023-03-16",
+        "image": {
+          "data": {
+            "id": 193,
+            "attributes": {
+              "name": "carbuzz logo.png",
+              "alternativeText": "carbuzz logo.png",
+              "caption": "carbuzz logo.png",
+              "width": 225,
+              "height": 225,
+              "formats": {
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_carbuzz_logo_b32aa883ef.png",
+                  "hash": "thumbnail_carbuzz_logo_b32aa883ef",
+                  "mime": "image/png",
+                  "name": "thumbnail_carbuzz logo.png",
+                  "path": null,
+                  "size": 11.12,
+                  "width": 156,
+                  "height": 156
+                }
+              },
+              "hash": "carbuzz_logo_b32aa883ef",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 4.03,
+              "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/carbuzz_logo_b32aa883ef.png",
+              "previewUrl": null,
+              "provider": "aws-s3",
+              "provider_metadata": null,
+              "createdAt": "2023-08-28T09:44:29.122Z",
+              "updatedAt": "2023-08-28T09:44:29.122Z"
+            }
+          }
+        }
+      }
+    },
+    "design": {
+      "id": 13,
+      "title": "EN PLEIN AIR",
+      "description": "The Ferrari Roma Spider takes “La Nuova Dolce Vita” concept beyond city limits for elegant, carefree driving ‘en plein air’.",
+      "image": {
+        "data": {
+          "id": 429,
+          "attributes": {
+            "name": "Ferrari Roma Spider06.jpg",
+            "alternativeText": "Ferrari Roma Spider06.jpg",
+            "caption": "Ferrari Roma Spider06.jpg",
+            "width": 1086,
+            "height": 611,
+            "formats": {
+              "large": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/large_Ferrari_Roma_Spider06_b6ca8fb648.jpg",
+                "hash": "large_Ferrari_Roma_Spider06_b6ca8fb648",
+                "mime": "image/jpeg",
+                "name": "large_Ferrari Roma Spider06.jpg",
+                "path": null,
+                "size": 89.06,
+                "width": 1000,
+                "height": 563
+              },
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Ferrari_Roma_Spider06_b6ca8fb648.jpg",
+                "hash": "small_Ferrari_Roma_Spider06_b6ca8fb648",
+                "mime": "image/jpeg",
+                "name": "small_Ferrari Roma Spider06.jpg",
+                "path": null,
+                "size": 25.9,
+                "width": 500,
+                "height": 281
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Ferrari_Roma_Spider06_b6ca8fb648.jpg",
+                "hash": "medium_Ferrari_Roma_Spider06_b6ca8fb648",
+                "mime": "image/jpeg",
+                "name": "medium_Ferrari Roma Spider06.jpg",
+                "path": null,
+                "size": 53.99,
+                "width": 750,
+                "height": 422
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Ferrari_Roma_Spider06_b6ca8fb648.jpg",
+                "hash": "thumbnail_Ferrari_Roma_Spider06_b6ca8fb648",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Ferrari Roma Spider06.jpg",
+                "path": null,
+                "size": 7.47,
+                "width": 245,
+                "height": 138
+              }
+            },
+            "hash": "Ferrari_Roma_Spider06_b6ca8fb648",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 103.38,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Ferrari_Roma_Spider06_b6ca8fb648.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:28:15.029Z",
+            "updatedAt": "2023-08-28T11:28:15.029Z"
+          }
+        }
+      }
+    },
+    "listDisplay": {
+      "id": 12,
+      "image": {
+        "data": {
+          "id": 437,
+          "attributes": {
+            "name": "Roma Spider Thumb.png",
+            "alternativeText": "Roma Spider Thumb.png",
+            "caption": "Roma Spider Thumb.png",
+            "width": 718,
+            "height": 479,
+            "formats": {
+              "small": {
+                "ext": ".png",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Roma_Spider_Thumb_3e6c68b4e8.png",
+                "hash": "small_Roma_Spider_Thumb_3e6c68b4e8",
+                "mime": "image/png",
+                "name": "small_Roma Spider Thumb.png",
+                "path": null,
+                "size": 182.76,
+                "width": 500,
+                "height": 334
+              },
+              "thumbnail": {
+                "ext": ".png",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Roma_Spider_Thumb_3e6c68b4e8.png",
+                "hash": "thumbnail_Roma_Spider_Thumb_3e6c68b4e8",
+                "mime": "image/png",
+                "name": "thumbnail_Roma Spider Thumb.png",
+                "path": null,
+                "size": 47.52,
+                "width": 234,
+                "height": 156
+              }
+            },
+            "hash": "Roma_Spider_Thumb_3e6c68b4e8",
+            "ext": ".png",
+            "mime": "image/png",
+            "size": 255.92,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Roma_Spider_Thumb_3e6c68b4e8.png",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:33:22.950Z",
+            "updatedAt": "2023-08-28T11:33:22.950Z"
+          }
+        }
+      },
+      "firstSpecification": {
+        "id": 68,
+        "label": "TYPE:",
+        "value": "V8",
+        "unit": "Turbo"
+      },
+      "secondSpecification": {
+        "id": 69,
+        "label": "0-100 km/h:",
+        "value": "3.4",
+        "unit": "sec"
+      },
+      "thirdSpecification": {
+        "id": 70,
+        "label": "MAX SPEED:",
+        "value": "> 320",
+        "unit": "km/h"
+      }
+    },
+    "seo": {
+      "id": 27,
+      "metaTitle": "Ferrari Roma Spider",
+      "metaDescription": "Explore the Ferrari Roma Spider with Ferrari South Bay",
+      "keywords": "Ferrari Roma Spider",
+      "metaRobots": "index",
+      "structuredData": null,
+      "metaViewport": null,
+      "canonicalURL": null,
+      "metaImage": {
+        "data": {
+          "id": 430,
+          "attributes": {
+            "name": "Roma Spider main sm.jpg",
+            "alternativeText": "Roma Spider main sm.jpg",
+            "caption": "Roma Spider main sm.jpg",
+            "width": 1000,
+            "height": 667,
+            "formats": {
+              "small": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/small_Roma_Spider_main_sm_366cbd801b.jpg",
+                "hash": "small_Roma_Spider_main_sm_366cbd801b",
+                "mime": "image/jpeg",
+                "name": "small_Roma Spider main sm.jpg",
+                "path": null,
+                "size": 38.06,
+                "width": 500,
+                "height": 334
+              },
+              "medium": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/medium_Roma_Spider_main_sm_366cbd801b.jpg",
+                "hash": "medium_Roma_Spider_main_sm_366cbd801b",
+                "mime": "image/jpeg",
+                "name": "medium_Roma Spider main sm.jpg",
+                "path": null,
+                "size": 81.14,
+                "width": 750,
+                "height": 500
+              },
+              "thumbnail": {
+                "ext": ".jpg",
+                "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/thumbnail_Roma_Spider_main_sm_366cbd801b.jpg",
+                "hash": "thumbnail_Roma_Spider_main_sm_366cbd801b",
+                "mime": "image/jpeg",
+                "name": "thumbnail_Roma Spider main sm.jpg",
+                "path": null,
+                "size": 9.53,
+                "width": 234,
+                "height": 156
+              }
+            },
+            "hash": "Roma_Spider_main_sm_366cbd801b",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "size": 135.31,
+            "url": "https://vrrb-fsb-prod-backend.s3.us-west-1.amazonaws.com/strapi/Roma_Spider_main_sm_366cbd801b.jpg",
+            "previewUrl": null,
+            "provider": "aws-s3",
+            "provider_metadata": null,
+            "createdAt": "2023-08-28T11:28:15.135Z",
+            "updatedAt": "2023-08-28T11:28:15.135Z"
+          }
+        }
+      },
+      "metaSocial": []
+    }
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "families": [
+    {
+      "brand": "Lamborghini",
+      "model": "Revuelto",
+      "url": "https://www.lamborghini.com/en-en/models/revuelto-models/revuelto",
+      "reason": "현재 페이지 추출 본문에는 확인 가능한 mm 치수 표가 없으며 공개 마케팅 설명을 제원으로 대체하지 않음.",
+      "status": "reviewed-no-additional-compatible-evidence",
+      "checked_on": "2026-10-28"
+    },
+    {
+      "brand": "Lamborghini",
+      "model": "Temerario",
+      "url": "https://www.lamborghini.com/en-en/models/temerario",
+      "reason": "현재 페이지 추출 본문에는 확인 가능한 mm 치수 표가 없으며 공개 마케팅 설명을 제원으로 대체하지 않음.",
+      "status": "reviewed-no-additional-compatible-evidence",
+      "checked_on": "2026-10-28"
+    },
+    {
+      "brand": "Porsche",
+      "model": "911 쿠페",
+      "url": "https://www.porsche.com/korea/ko/models/911/configure/",
+      "reason": "현재 구성기 제원은 MY2027로 표기되어 기존 MY2026 사양에 그대로 전이하지 않음.",
+      "status": "reviewed-no-additional-compatible-evidence",
+      "checked_on": "2026-10-28"
+    },
+    {
+      "brand": "Porsche",
+      "model": "911 카브리올레",
+      "url": "https://www.porsche.com/korea/ko/models/911/configure/",
+      "reason": "현재 구성기 제원은 MY2027로 표기되어 기존 MY2026 사양에 그대로 전이하지 않음.",
+      "status": "reviewed-no-additional-compatible-evidence",
+      "checked_on": "2026-10-28"
+    },
+    {
+      "brand": "Porsche",
+      "model": "911 타르가",
+      "url": "https://www.porsche.com/korea/ko/models/911/configure/",
+      "reason": "현재 구성기 제원은 MY2027로 표기되어 기존 MY2026 사양에 그대로 전이하지 않음.",
+      "status": "reviewed-no-additional-compatible-evidence",
+      "checked_on": "2026-10-28"
+    },
+    {
+      "brand": "마세라티",
+      "model": "GranTurismo",
+      "url": "https://www.media.stellantis.com/us-en/maserati/press/new-maserati-granturismo-grancabrio-and-grecale",
+      "reason": "2026-06 개편 Trofeo 582hp와 원장 550PS/490PS 사양이 달라 최신 출력·성능을 전이하지 않음.",
+      "status": "reviewed-no-additional-compatible-evidence",
+      "checked_on": "2026-10-28"
+    },
+    {
+      "brand": "볼보",
+      "model": "XC60",
+      "url": "https://www.volvocars.com/en-ca/support/car/xc60/article/0ed816eed33d98cac0a8cc377bc12bc7-e6a7973b2bf222b2c0a8b09757c97ec8-8664b2fa77a7e089c0a8296870d1a409/",
+      "reason": "지원 페이지는 XC60 2027로 표시되어 원장의 2026 사양과 구분함. 기존 2026 공식 가속은 유지.",
+      "status": "reviewed-no-additional-compatible-evidence",
+      "checked_on": "2026-10-28"
+    },
+    {
+      "brand": "현대",
+      "model": "캐스퍼 일렉트릭",
+      "url": "https://org-m.casper.hyundai.com/vehicles/electric/highlight",
+      "reason": "현재 페이지는 2027 CASPER Electric으로 표시되어 원장의 연식과 구분함. 서로 다른 배터리/트림 성능을 합치지 않음.",
+      "status": "reviewed-no-additional-compatible-evidence",
+      "checked_on": "2026-10-28"
+    }
+  ]
+}

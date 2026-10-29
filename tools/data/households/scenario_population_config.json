@@ -1,0 +1,12 @@
+{
+  "version": "scenario-population-v1",
+  "financial_log_sigma": 0.24,
+  "distance_log_sigma": 0.30,
+  "secondary_preference_probability": 0.30,
+  "secondary_mix_range": [0.15, 0.40],
+  "temperature_range": [0.035, 0.085],
+  "split_fractions": [0.70, 0.15, 0.15],
+  "pool_models": 20,
+  "pair_modes": ["random", "near", "tradeoff", "similar"],
+  "minimum_buffer": 200000
+}
