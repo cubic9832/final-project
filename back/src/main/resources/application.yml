@@ -36,6 +36,9 @@ spring:
     username: server
     password: server
     driver-class-name: com.mysql.cj.jdbc.Driver
+  # 검색 서버 (docker-compose 의 elasticsearch). 보안을 끈 개발용이라 계정 없이 접속한다
+  elasticsearch:
+    uris: http://localhost:${ES_PORT:9200}
   # 서버 시작 시 classpath:db/migration 의 SQL 을 버전 순서대로 적용
   # 보완 7: 인증 메일 발송 (Gmail SMTP)
   # 계정 · 앱 비밀번호는 코드 · git 에 넣지 않고 환경변수 MAIL_USERNAME · MAIL_PASSWORD 로만 넣는다.

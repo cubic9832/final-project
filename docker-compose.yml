@@ -1,7 +1,7 @@
 # 개발용 MySQL. 접속 정보는 back/src/main/resources/application.yml 과 같아야 한다.
 # 테이블은 여기서 만들지 않고 Spring Boot 시작 시 Flyway(back/src/main/resources/db/migration)가 적용한다.
 # 개발용 Elasticsearch(한국어 분석기 nori 포함)와 Kibana. 첫 실행 때 docker/elasticsearch 이미지를 빌드한다.
-# 보안을 끈 단일 노드라 인증 없이 http://localhost:9200 으로 접속한다. ES 와 Kibana 버전은 같아야 한다.
+# 보안을 끈 단일 노드라 인증 없이 http://localhost:9200 으로 접속한다. ES 와 Kibana 버전은 같아야 하고, 메이저 버전은 Spring Boot 가 쓰는 elasticsearch-java(9.x)와 같아야 한다.
 services:
   db:
     image: mysql:8.0
@@ -28,8 +28,8 @@ services:
     build:
       context: docker/elasticsearch
       args:
-        ES_VERSION: 8.19.2
-    image: final-project-elasticsearch:8.19.2
+        ES_VERSION: 9.2.8
+    image: final-project-elasticsearch:9.2.8
     environment:
       discovery.type: single-node
       xpack.security.enabled: "false"
@@ -46,7 +46,7 @@ services:
       retries: 40
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:8.19.2
+    image: docker.elastic.co/kibana/kibana:9.2.8
     environment:
       ELASTICSEARCH_HOSTS: http://elasticsearch:9200
       I18N_LOCALE: ko-KR
