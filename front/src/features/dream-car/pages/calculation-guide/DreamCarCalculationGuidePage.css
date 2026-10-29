@@ -1,0 +1,13 @@
+.dream-guide { max-width:880px; margin:var(--space-24) auto var(--space-48); }
+.dream-guide header { margin-bottom:var(--space-32); }
+.dream-guide header>span { color:var(--color-blue-strong); font-size:var(--font-caption); font-weight:700; }
+.dream-guide h1 { font-size:var(--font-page-title); margin:var(--space-8) 0 var(--space-16); }
+.dream-guide section { padding:var(--space-24); border:1px solid var(--color-border); border-radius:var(--radius-lg); background:var(--color-surface); margin-bottom:var(--space-24); }
+.dream-guide h2 { font-size:var(--font-card-title); margin-bottom:var(--space-16); }
+.dream-guide p { margin:var(--space-12) 0; color:var(--color-text-sub); line-height:1.8; }
+.dream-guide .dream-guide-formula { padding:var(--space-16); background:var(--color-blue-tint); border-radius:var(--radius-sm); color:var(--color-primary); overflow-wrap:anywhere; }
+.dream-guide dl>div { padding:var(--space-12) 0; border-bottom:1px solid var(--color-border); }
+.dream-guide dt { font-weight:700; color:var(--color-primary); }
+.dream-guide dd { margin-top:var(--space-8); color:var(--color-text-sub); }
+.dream-guide a { color:var(--color-blue-strong); text-decoration:underline; }
+.dream-guide-back { display:inline-flex; align-items:center; min-height:48px; }
