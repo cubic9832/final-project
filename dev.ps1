@@ -17,6 +17,12 @@ if (-not $PSBoundParameters.ContainsKey('DatabasePort') -and -not [string]::IsNu
     }
     $DatabasePort = $parsedPort
 }
+$searchPort = 9200
+if (-not [string]::IsNullOrWhiteSpace($env:ES_PORT)) {
+    if (-not [int]::TryParse($env:ES_PORT, [ref]$searchPort) -or $searchPort -lt 1 -or $searchPort -gt 65535) {
+        throw 'ES_PORT must be a number between 1 and 65535.'
+    }
+}
 if ($Check -and $Command -ne 'up') { throw '-Check can only be used with up.' }
 $projectRoot = $PSScriptRoot
 $appProcesses = [System.Collections.Generic.List[object]]::new()
@@ -94,7 +100,7 @@ try {
         $previousDbPort = $env:DB_PORT
         try {
             $env:DB_PORT = [string]$DatabasePort
-            if ($Command -eq 'down') { & docker compose stop db }
+            if ($Command -eq 'down') { & docker compose stop db elasticsearch kibana }
             else { & docker compose down -v }
             if ($LASTEXITCODE -ne 0) { throw "Database command failed: $Command" }
         } finally {
@@ -108,14 +114,14 @@ try {
     if (-not (Test-Path -LiteralPath $mlPython)) {
         throw 'ML environment is missing. Follow ml/README.md to create ml/.venv and install dependencies.'
     }
-    foreach ($port in @($DatabasePort, 8080, 8001, 5173)) {
+    foreach ($port in @($DatabasePort, $searchPort, 5601, 8080, 8001, 5173)) {
         $state = if (Test-LocalPort $port) { 'in use (reuse)' } else { 'available' }
         Write-Host "Port ${port}: $state"
     }
-    if (-not (Test-LocalPort $DatabasePort)) {
+    if (-not (Test-LocalPort $DatabasePort) -or -not (Test-LocalPort $searchPort)) {
         Require-Command 'docker.exe'
         & docker info *> $null
-        if ($LASTEXITCODE -ne 0) { throw 'Start Docker Desktop, or start your local MySQL server, then retry.' }
+        if ($LASTEXITCODE -ne 0) { throw 'Start Docker Desktop, or start your local MySQL and Elasticsearch servers, then retry.' }
     }
     if ($Check) {
         Write-Host 'Prerequisite check complete. No servers were started.'
@@ -134,6 +140,16 @@ try {
     } else {
         Write-Host '[MySQL] Reusing the existing database. Expected: final_sample, user server.'
     }
+    # First run builds the Elasticsearch image with the nori plugin. Kibana starts slowly, so do not wait for it.
+    if (-not (Test-LocalPort $searchPort)) {
+        & docker compose up -d --wait elasticsearch
+        if ($LASTEXITCODE -ne 0) { throw 'Elasticsearch startup failed. Check Docker Desktop memory and the ES_PORT port.' }
+        & docker compose up -d kibana
+        if ($LASTEXITCODE -ne 0) { throw 'Kibana startup failed. Check Docker Desktop and port 5601.' }
+    } else {
+        Write-Host "[Elasticsearch] Reusing the existing server on port $searchPort."
+    }
+    Write-Host "[Elasticsearch] http://localhost:$searchPort  /  [Kibana] http://localhost:5601"
     $lanIp = Get-LanIPv4
     Write-LanAccess $lanIp $DatabasePort
     if (-not (Test-Path -LiteralPath (Join-Path $projectRoot 'front/node_modules'))) {

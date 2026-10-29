@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "id": { "type": "long" },
+    "brand": {
+      "type": "text",
+      "analyzer": "korean",
+      "fields": { "prefix": { "type": "text", "analyzer": "korean_prefix", "search_analyzer": "korean_prefix_search" } }
+    },
+    "name": {
+      "type": "text",
+      "analyzer": "korean",
+      "fields": { "prefix": { "type": "text", "analyzer": "korean_prefix", "search_analyzer": "korean_prefix_search" } }
+    },
+    "trimName": { "type": "text", "analyzer": "korean" },
+    "powertrain": { "type": "text", "analyzer": "korean" },
+    "classLabel": { "type": "text", "analyzer": "korean" },
+    "fuelLabel": { "type": "text", "analyzer": "korean" },
+    "conditionLabel": { "type": "text", "analyzer": "korean" }
+  }
+}

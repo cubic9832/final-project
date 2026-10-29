@@ -6,6 +6,10 @@
 
 ## 실행
 
+### Elasticsearch·Kibana (Docker 자동 실행)
+
+`dev.ps1`·`dev.cmd`·`dev.sh` 실행 시 MySQL과 함께 Elasticsearch(9200, 한국어 분석기 nori 포함)와 Kibana(5601)도 Docker로 자동 실행됩니다. 첫 실행 때 nori 를 설치한 이미지를 빌드하므로 몇 분 걸릴 수 있으며, Docker Desktop 메모리는 4GB 이상을 권장합니다. 개발용이라 보안을 끈 단일 노드이며 인증 없이 http://localhost:9200 으로 접속합니다. 9200 포트를 이미 쓰고 있으면 `ES_PORT=9201` 환경변수로 바꿉니다. 직접 띄울 때는 `docker compose up -d` 로 MySQL·Elasticsearch·Kibana를 모두 시작합니다.
+
 ### Windows PowerShell에서 전체 실행
 
 프로젝트 루트에서 실행합니다. Node.js, Java, ML 가상환경·패키지·학습 모델([초기 준비](ml/README.md))이 필요합니다.
