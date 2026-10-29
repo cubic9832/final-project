@@ -144,6 +144,7 @@ export default function Header() {
               <NavLink to="/search">차량 찾기</NavLink>
             </li>
             <li><NavLink to="/vehicles/compare">차량 비교</NavLink></li>
+            <li><NavLink to="/dream-car">드림카 플래너</NavLink></li>
           </ul>
         </Navigation>
         <Side $end>

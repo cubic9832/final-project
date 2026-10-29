@@ -35,6 +35,8 @@ import VehicleComparePage from './features/vehicle/pages/compare/VehicleCompareP
 import VehicleSimulationPage from './features/vehicle/pages/simulation/VehicleSimulationPage';
 import TasteTestPage from './features/taste-test/pages/test/TasteTestPage';
 import useAuthStore from './stores/useAuthStore';
+import DreamCarPlannerPage from './features/dream-car/pages/planner/DreamCarPlannerPage';
+import DreamCarCalculationGuidePage from './features/dream-car/pages/calculation-guide/DreamCarCalculationGuidePage';
 
 function App() {
   // 앱이 처음 열릴 때 한 번: refresh token 쿠키가 있으면 로그인 상태를 되살린다 (새로고침 · 브라우저 재시작 후 로그인 유지)
@@ -50,6 +52,8 @@ function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/dream-car" element={<DreamCarPlannerPage />} />
+        <Route path="/dream-car/calculation-guide" element={<DreamCarCalculationGuidePage />} />
         {/* 보완 1 추가: 로그인 · 회원가입은 로그인 전에만 — 이미 로그인했으면 GuestOnly 가 메인으로 보낸다 */}
         <Route element={<GuestOnly />}>
           <Route path="/login" element={<LoginPage />} />
