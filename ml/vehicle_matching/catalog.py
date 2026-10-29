@@ -36,9 +36,21 @@ class Vehicle:
     seats_note: str | None = None
     default_configuration: str | None = None
     efficiency_reference_only: bool = False
+    body_type: str | None = None
+    body_source_urls: tuple[str, ...] = ()
+    image_url: str | None = None
+    image_removed: bool = False
+    monthly_insurance: int | None = None
+    monthly_tax: int | None = None
+    monthly_maintenance: int | None = None
 
     def __post_init__(self):
         import math
+        for cost in (self.monthly_insurance, self.monthly_tax, self.monthly_maintenance):
+            if cost is not None and (type(cost) is not int or not 0 <= cost <= 10000000):
+                raise ValueError('Invalid monthly vehicle cost')
+        if self.body_type not in (None, 'SEDAN', 'SUV', 'HATCHBACK', 'WAGON', 'MPV', 'BOX', 'PICKUP'):
+            raise ValueError('Unknown vehicle body type')
         if not all((self.id, self.brand, self.model, self.trim, self.source_url, self.checked_on)):
             raise ValueError('Vehicle identity and provenance are required')
         if self.fuel not in FUELS or not math.isfinite(self.price) or self.price <= 0:

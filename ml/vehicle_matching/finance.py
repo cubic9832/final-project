@@ -32,6 +32,8 @@ class Profile:
     seating_importance: int = 3
     purpose_importance: int = 1
     purchase_price_ceiling: float = 0
+    preferred_body_type: str = 'any'
+    body_importance: int = 3
 
     def __post_init__(self):
         if self.financing_mode not in ('fixed', 'automatic', 'recommendation'):
@@ -52,7 +54,7 @@ class Profile:
             raise ValueError('charging_available must be boolean')
         if self.emergency_reserve > self.liquid_assets or self.down_payment > self.liquid_assets - self.emergency_reserve:
             raise ValueError('down_payment + emergency_reserve exceeds liquid_assets')
-        for weight in (self.cost_importance, self.space_importance, self.fuel_importance,
+        for weight in (self.body_importance, self.cost_importance, self.space_importance, self.fuel_importance,
                        self.seating_importance, self.purpose_importance):
             if type(weight) is not int or not 1 <= weight <= 5:
                 raise ValueError('Importance must be an integer from 1 to 5')
@@ -60,6 +62,8 @@ class Profile:
             raise ValueError('Invalid minimum seating capacity')
         if self.preferred_size not in ('any', 'small', 'medium', 'large'):
             raise ValueError('Unknown preferred size')
+        if self.preferred_body_type not in ('any', 'SEDAN', 'SUV', 'HATCHBACK', 'WAGON', 'MPV', 'BOX', 'PICKUP', 'OTHER'):
+            raise ValueError('Unknown preferred body type')
 
 
 @dataclass(frozen=True)
@@ -113,7 +117,7 @@ def assess(profile: Profile, vehicle: Vehicle, assumptions=Assumptions()):
     efficiency = vehicle.efficiency or (low + high) / 2
     energy = assumptions.energy_prices[fuel_index]
     running = profile.annual_distance / 12 / efficiency * energy
-    fixed = assumptions.monthly_insurance + assumptions.monthly_maintenance + assumptions.monthly_tax
+    fixed = sum(getattr(vehicle, key) if getattr(vehicle, key) is not None else getattr(assumptions, key) for key in ("monthly_insurance", "monthly_maintenance", "monthly_tax"))
     total_price = round(vehicle.price, 2)
     principal = max(0, round(total_price - profile.down_payment, 2))
     payment = 0.0 if recommendation else installment(principal, profile.annual_rate, profile.months)

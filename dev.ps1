@@ -1,8 +1,8 @@
-﻿# Windows development launcher. Keep this terminal open; Ctrl+C stops owned app processes.
+# Windows development launcher. Keep this terminal open; Ctrl+C stops owned app processes.
 [CmdletBinding()]
 param(
     [Parameter(Position = 0)][ValidateSet('up', 'down', 'reset')][string]$Command = 'up',
-    [ValidateRange(1, 65535)][int]$DatabasePort = 3306,
+    [ValidateRange(1, 65535)][int]$DatabasePort = 3307,
     [switch]$Check
 )
 
@@ -39,6 +39,33 @@ function Require-Command([string]$Name) {
     if (-not (Get-Command $Name -ErrorAction SilentlyContinue)) {
         throw "Required command not found: $Name. Install it and reopen the terminal."
     }
+}
+
+function Get-LanIPv4 {
+    $addresses = @(Get-NetIPAddress -AddressFamily IPv4 -ErrorAction SilentlyContinue | Where-Object {
+        $_.IPAddress -notlike '127.*' -and
+        $_.IPAddress -notlike '169.254.*' -and
+        $_.InterfaceAlias -notmatch 'vEthernet|WSL|Hyper-V|Loopback|Bluetooth|Virtual|Docker|Default Switch'
+    })
+    $ethernet = @($addresses | Where-Object { $_.InterfaceAlias -match 'Ethernet|이더넷' })
+    if ($ethernet.Count -gt 0) { return $ethernet[0].IPAddress }
+    $wifi = @($addresses | Where-Object { $_.InterfaceAlias -match 'Wi-Fi|WiFi|Wireless|WLAN|무선' })
+    if ($wifi.Count -gt 0) { return $wifi[0].IPAddress }
+    if ($addresses.Count -gt 0) { return $addresses[0].IPAddress }
+    return $null
+}
+
+function Write-LanAccess([string]$Ip, [int]$Port) {
+    if ([string]::IsNullOrWhiteSpace($Ip)) {
+        Write-Host '같은 네트워크 IP를 찾지 못했습니다. ipconfig에서 이더넷 IPv4를 확인하세요.'
+        return
+    }
+    $check = "mysql -h $Ip -P $Port -u server -pserver final_sample -e `"SELECT MAX(version) v, MIN(success) ok FROM flyway_schema_history; SELECT status, COUNT(*) c FROM managed_vehicles GROUP BY status;`""
+    Write-Host "같은 네트워크 IPv4: $Ip"
+    Write-Host "다른 PC 프론트: http://${Ip}:5173"
+    Write-Host '다른 PC DB 확인 (cmd, mysql 클라이언트 필요):'
+    Write-Host $check
+    Write-Host '기대값: v=20, ok=1, PUBLISHED=308, REVIEW=3'
 }
 
 function Start-App([string]$Name, [int]$Port, [string]$Directory, [string]$Command) {
@@ -107,6 +134,8 @@ try {
     } else {
         Write-Host '[MySQL] Reusing the existing database. Expected: final_sample, user server.'
     }
+    $lanIp = Get-LanIPv4
+    Write-LanAccess $lanIp $DatabasePort
     if (-not (Test-Path -LiteralPath (Join-Path $projectRoot 'front/node_modules'))) {
         & npm.cmd --prefix front ci
         if ($LASTEXITCODE -ne 0) { throw 'Frontend dependency installation failed.' }
@@ -119,7 +148,7 @@ try {
     }
     Start-App 'spring' 8080 (Join-Path $projectRoot 'back') "`$env:SPRING_DATASOURCE_URL = '$dbUrl'; & .\gradlew.bat --no-daemon bootRun"
     Start-App 'ml' 8001 $projectRoot '& .\ml\serve.ps1'
-    Start-App 'react' 5173 (Join-Path $projectRoot 'front') '& npm.cmd run dev -- --host 127.0.0.1 --port 5173 --strictPort'
+    Start-App 'react' 5173 (Join-Path $projectRoot 'front') '& npm.cmd run dev -- --host 0.0.0.0 --port 5173 --strictPort'
 
     Write-Host "Logs: $logDirectory"
     Write-Host 'Waiting for servers. First Spring startup may take a few minutes. Ctrl+C to stop.'

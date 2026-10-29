@@ -1,6 +1,20 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { buildRecommendationView, conditionSummary, rankingNarrative, selectComparisonViews } from './pages/recommendations/buildRecommendationView.js';
+import { buildRecommendationView, conditionSummary, describePreference, rankingNarrative, selectComparisonViews } from './pages/recommendations/buildRecommendationView.js';
+
+test('차체와 연료 불일치 설명은 한글 받침과 영문 약어 발음에 맞는 어미를 사용한다', () => {
+  for (const [requested, actual, expected] of [
+    ['WAGON', 'SUV', '선호하신 형태는 왜건이지만, 이 차량은 SUV예요.'],
+    ['WAGON', 'SEDAN', '선호하신 형태는 왜건이지만, 이 차량은 세단이에요.'],
+    ['SUV', 'BOX', '선호하신 형태는 SUV지만, 이 차량은 박스카예요.'],
+    ['MPV', 'HATCHBACK', '선호하신 형태는 미니밴·승합이지만, 이 차량은 해치백이에요.'],
+  ]) {
+    assert.equal(describePreference({ key: 'body', status: 'mismatch', requested, actual }).text, expected);
+  }
+  for (const [requested, ending] of [['GASOLINE', '가솔린이지만'], ['DIESEL', '디젤이지만'], ['HYBRID', '하이브리드지만'], ['ELECTRIC', '전기지만'], ['LPG', 'LPG지만']]) {
+    assert.equal(describePreference({ key: 'fuel', status: 'mismatch', requested, actual: 'ELECTRIC' }).text, `선호하신 연료는 ${ending}, 이 차량은 전기 모델이에요.`);
+  }
+});
 
 function candidate(id, preferences = []) {
   return { vehicle: { id, model: id, fuel: 'ELECTRIC', length_mm: 3830, seats: 4 }, cost: { total_purchase_cost: 28470000, monthly_running_cost: 260000, remaining_monthly: 1240000 }, decisionEvidence: { vehicleId: id, preferences, financial: { eligible: true, cashAfterPurchase: 1530000 } } };
@@ -38,4 +52,13 @@ test('존재하지 않거나 중복된 차량 ID는 다른 모델로 대체해 �
   assert.equal(selectComparisonViews(views, ['a', 'unknown']), null);
   assert.equal(selectComparisonViews(views, ['a', 'a']), null);
   assert.equal(selectComparisonViews(views, ['a']), null);
+});
+
+test('ML 순위를 규칙 기여도나 100점 가중합으로 설명하지 않는다', () => {
+  const candidates = [candidate('a'), candidate('b')];
+  const text = rankingNarrative({ higherVehicleId: 'a', lowerVehicleId: 'b', status: 'ml-ranked', scoreType: 'ml-raw', scoreDifference: 20 }, candidates);
+  assert.match(text, /원본 점수순/);
+  assert.match(text, /참고 정보/);
+  assert.ok(!text.includes('가중합'));
+  assert.ok(!text.includes('+20'));
 });

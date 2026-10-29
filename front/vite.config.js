@@ -8,6 +8,8 @@ const API_TARGET = 'http://localhost:8080';
 export default defineConfig({
   plugins: [react(), babel({ presets: [reactCompilerPreset()] })],
   server: {
+    // 같은 네트워크의 다른 PC에서도 개발 서버에 접속한다. 기본값은 localhost뿐이라 끈다.
+    host: true,
     port: 5173,
     proxy: {
       '/api/v2': {

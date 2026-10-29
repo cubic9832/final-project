@@ -23,15 +23,22 @@ class PairRanker:
         self.minimum, self.maximum = np.asarray(minimum), np.asarray(maximum)
         self.assumptions = assumptions
 
-    def predict(self, profile, vehicles):
+    def score_candidates(self, profile, vehicles):
         if not vehicles:
             return [], []
         features = np.stack([encode(profile, v, self.assumptions) for v in vehicles])
         values = ((features - self.mean) / self.scale).astype(np.float32)
         with torch.no_grad():
-            scores = torch.sigmoid(self.net(torch.from_numpy(values)).flatten()).numpy().tolist()
+            scores = self.net(torch.from_numpy(values)).flatten().numpy().tolist()
         outside = np.any((features < self.minimum - 1e-5) | (features > self.maximum + 1e-5), axis=1)
         return scores, outside.tolist()
+
+    def ranking_scores(self, profile, vehicles):
+        return self.score_candidates(profile, vehicles)[0]
+
+    def predict(self, profile, vehicles):
+        scores, outside = self.score_candidates(profile, vehicles)
+        return torch.tensor(scores, dtype=torch.float32).sigmoid().tolist(), outside
 
     def save(self, directory, provenance):
         directory = Path(directory)

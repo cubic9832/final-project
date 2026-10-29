@@ -25,3 +25,6 @@ outputs/reports/*
 !outputs/reports/score-conversion-20261026/
 !outputs/reports/score-transforms-20261026/
 !outputs/reports/preference-reversals-20261026/
+
+!outputs/models/candidate-preferences/20261027-seating-verified-v1/
+!outputs/reports/seating-retraining-20261027/

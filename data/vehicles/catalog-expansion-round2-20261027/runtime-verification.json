@@ -1,0 +1,141 @@
+{
+  "catalog_count": 308,
+  "funding_cases": [
+    {
+      "assets": 30000000,
+      "lower": 24000000,
+      "upper": 30000000,
+      "status": "recommended",
+      "models": [
+        "KG모빌리티 티볼리",
+        "현대 코나",
+        "기아 셀토스",
+        "쉐보레 트랙스 크로스오버",
+        "르노코리아 아르카나",
+        "현대 캐스퍼 일렉트릭",
+        "기아 니로",
+        "현대 투싼",
+        "현대 코나 Hybrid",
+        "기아 스포티지",
+        "KG모빌리티 토레스",
+        "기아 K5",
+        "기아 레이 EV",
+        "현대 디 올 뉴 아반떼",
+        "현대 쏘나타 디 엣지"
+      ],
+      "outside_training_range": []
+    },
+    {
+      "assets": 50000000,
+      "lower": 40000000,
+      "upper": 50000000,
+      "status": "recommended",
+      "models": [
+        "현대 싼타페 Hybrid",
+        "기아 스포티지",
+        "기아 EV5",
+        "르노코리아 그랑 콜레오스",
+        "기아 쏘렌토",
+        "기아 EV6",
+        "현대 코나 Electric",
+        "기아 EV3",
+        "르노코리아 필랑트",
+        "현대 싼타페",
+        "KG모빌리티 토레스 EVX",
+        "KG모빌리티 렉스턴 뉴 아레나",
+        "현대 팰리세이드",
+        "테슬라 Model Y",
+        "현대 쏘나타 디 엣지 Hybrid",
+        "기아 PV5 패신저",
+        "기아 EV4",
+        "기아 K8",
+        "현대 더 뉴 그랜저",
+        "폭스바겐 Golf"
+      ],
+      "outside_training_range": [
+        "Golf"
+      ]
+    },
+    {
+      "assets": 100000000,
+      "lower": 80000000,
+      "upper": 100000000,
+      "status": "recommended",
+      "models": [
+        "BMW X3",
+        "기아 EV9 GT",
+        "BMW X4",
+        "볼보 XC60",
+        "제네시스 GV80 Coupe",
+        "토요타 알파드",
+        "렉서스 ES",
+        "제네시스 Electrified G80",
+        "현대 더 뉴 스타리아 리무진 Electric",
+        "제네시스 G80 Black",
+        "BMW 5시리즈",
+        "제네시스 G90",
+        "GMC Sierra"
+      ],
+      "outside_training_range": [
+        "Sierra"
+      ]
+    },
+    {
+      "assets": 150000000,
+      "lower": 120000000,
+      "upper": 150000000,
+      "status": "recommended",
+      "models": [
+        "포르쉐 Cayenne"
+      ],
+      "outside_training_range": [
+        "Cayenne"
+      ]
+    },
+    {
+      "assets": 200000000,
+      "lower": 160000000,
+      "upper": 200000000,
+      "status": "recommended",
+      "models": [
+        "포르쉐 Cayenne",
+        "제네시스 G90 Long Wheel Base",
+        "제네시스 G90 Long Wheel Base Black"
+      ],
+      "outside_training_range": [
+        "Cayenne"
+      ]
+    },
+    {
+      "assets": 300000000,
+      "lower": 240000000,
+      "upper": 300000000,
+      "status": "recommended",
+      "models": [
+        "GMC HUMMER EV SUV"
+      ],
+      "outside_training_range": [
+        "HUMMER EV SUV"
+      ]
+    }
+  ],
+  "pv5_7_seat_recommended": true,
+  "review_rows_excluded": true,
+  "related_regression_tests": {
+    "run": 52,
+    "passed": 52
+  },
+  "existing_rows_preserved": 297,
+  "new_published": 11,
+  "new_review": 3,
+  "migration_versions": [
+    19,
+    20
+  ],
+  "report_price_boundaries_checked": [
+    100000000,
+    150000000,
+    200000000,
+    1000000000
+  ]
+}

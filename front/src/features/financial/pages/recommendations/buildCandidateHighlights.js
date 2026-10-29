@@ -1,15 +1,18 @@
 import { candidateMoney, fuelLabels } from './candidatePresentation.js';
 
+import { bodyTypeLabel } from '../../vehiclePreferences.js';
+
 // Describe observed specifications and user priorities, not inferred satisfaction.
 export function buildCandidateHighlights(candidate, preferences = {}) {
   const { vehicle, cost } = candidate;
-  const components = candidate.integratedScore?.components ?? [];
+  const components = candidate.preferenceAssessment?.components ?? [];
   const descriptions = [];
   const add = (key, text) => {
     const component = components.find(item => item.key === key);
     if (component?.weight > 0) descriptions.push({ key, text, weight: component.weight });
   };
   const match = key => components.some(item => item.key === key && item.score === 100);
+  if (match('body') && vehicle.body_type) add('body', `${bodyTypeLabel(vehicle.body_type)} 모델로, 선호하신 차체 형태에 맞아요.`);
   if (match('fuel')) {
     const fuel = { PHEV: '플러그인 하이브리드', MILD_HYBRID: '마일드 하이브리드' }[vehicle.original_fuel] || fuelLabels[vehicle.fuel];
     if (fuel) add('fuel', `${fuel} 모델로, 선호하신 연료 조건에 맞아요.`);

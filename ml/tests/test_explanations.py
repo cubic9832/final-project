@@ -3,10 +3,9 @@ from dataclasses import replace
 
 from test_preferences import FixedRanker
 from test_vehicle_matching import person, vehicle
-from vehicle_matching.budget import apply_budget_preference, budget_order, recommendation_budget
 from vehicle_matching.explanations import ranking_comparison
 from vehicle_matching.finance import assess
-from vehicle_matching.preferences import integrated_score
+from vehicle_matching.preferences import preference_assessment
 from vehicle_matching.service import CandidateService
 
 
@@ -16,7 +15,7 @@ class ExplanationTests(unittest.TestCase):
                         length_mm=4400, seats=5) for i in range(14)]
         cars += [replace(cars[0], id='other-trim'), vehicle(id='unaffordable', model='Too expensive', price=90000000)]
         service = CandidateService(FixedRanker(), cars)
-        profile = person(financing_mode='recommendation')
+        profile = person(financing_mode='recommendation', purchase_price_ceiling=28000000)
         first = service.recommend(profile, k=3)['recommendations']
         expanded = service.recommend(profile, k=9)['recommendations']
         self.assertEqual(len(expanded), 9)
@@ -41,7 +40,7 @@ class ExplanationTests(unittest.TestCase):
         summary = result['evaluationSummary']
         self.assertEqual(summary['confirmedMatchingConfigurations'], 0)
         self.assertEqual(summary['unresolvedConfigurations'], 1)
-        items = result['recommendations'][0]['decisionEvidence']['preferences']
+        items = result['conditionalRecommendations'][0]['decisionEvidence']['preferences']
         self.assertEqual(next(item for item in items if item['key'] == 'space')['status'], 'unknown')
         self.assertEqual(next(item for item in items if item['key'] == 'seating')['status'], 'unknown')
 
@@ -49,19 +48,19 @@ class ExplanationTests(unittest.TestCase):
         cars = [vehicle(id='small', model='Small', fuel='ELECTRIC', length_mm=3800, seats=4, price=20000000),
                 vehicle(id='large', model='Large', fuel='LPG', length_mm=4900, seats=5, price=28000000)]
         p = replace(person(preferred_fuel='ELECTRIC', preferred_size='large', minimum_seats=2),
-                    down_payment=0, months=0, annual_rate=0, financing_mode='recommendation')
+                    down_payment=0, months=0, annual_rate=0, financing_mode='recommendation', purchase_price_ceiling=28000000)
         ranker = FixedRanker()
         costs = {car.id: assess(p, car, ranker.assumptions) for car in cars}
-        band = recommendation_budget(p, cars, costs)
-        scores = {car.id: apply_budget_preference(integrated_score(p, car, costs[car.id], .5), car, band) for car in cars}
-        expected = sorted(cars, key=lambda car: budget_order(car, scores[car.id]['total'], band))
+        scores = {car.id: preference_assessment(p, car, costs[car.id]) for car in cars}
+        expected = sorted(cars, key=lambda car: car.id)
         result = CandidateService(ranker, cars).recommend(p)
         self.assertEqual([item['vehicle']['id'] for item in result['recommendations']], [car.id for car in expected])
         for item in result['recommendations']:
-            self.assertEqual(item['integratedScore'], scores[item['vehicle']['id']])
+            self.assertEqual(item['preferenceAssessment'], scores[item['vehicle']['id']])
             self.assertTrue(item['decisionEvidence']['financial']['eligible'])
         comparison = result['recommendations'][0]['rankingComparison']
-        self.assertAlmostEqual(sum(item['difference'] for item in comparison['contributionDifferences']), comparison['scoreDifference'])
+        self.assertEqual(comparison['status'], 'preference-priority')
+        self.assertFalse(comparison['featureAttributionAvailable'])
 
     def test_ranking_missing_evidence_and_near_ties_are_not_invented(self):
         def item(identity, value):

@@ -5,7 +5,7 @@ import { buildCandidateHighlights } from './pages/recommendations/buildCandidate
 const candidate = (components, vehicle = {}) => ({
   vehicle: { fuel: 'ELECTRIC', length_mm: 4500, seats: 5, ...vehicle },
   cost: { monthly_running_cost: 250000, remaining_monthly: 750000 },
-  integratedScore: { components },
+  preferenceAssessment: { components },
 });
 
 test('중요한 연료 조건을 구체적인 연료명으로 먼저 설명한다', () => {

@@ -1,7 +1,9 @@
 """Read-only decision evidence. Never changes candidate eligibility or ranking."""
+from vehicle_matching.body_types import matches_body_preference
 import math
 
 from vehicle_matching.preferences import SIZE_BANDS
+from vehicle_matching.recommendation_policy import POLICY
 
 NEAR_TIE_POINTS = 1.0  # Display rule, not a statistical confidence interval.
 
@@ -22,6 +24,9 @@ def preference_evidence(profile, vehicle, components):
         add('fuel', 'match' if evaluated == profile.preferred_fuel else 'mismatch',
             requested=profile.preferred_fuel, actual=vehicle.original_fuel or vehicle.fuel,
             evaluatedFuel=evaluated)
+    if profile.preferred_body_type != 'any':
+        add('body', 'unknown' if vehicle.body_type is None else 'match' if matches_body_preference(profile.preferred_body_type, vehicle.body_type) else 'mismatch',
+            requested=profile.preferred_body_type, actual=vehicle.body_type, sourceUrls=list(vehicle.body_source_urls))
     if profile.preferred_size != 'any':
         lower, upper = SIZE_BANDS[profile.preferred_size]
         length = vehicle.length_mm
@@ -32,7 +37,7 @@ def preference_evidence(profile, vehicle, components):
             direction=None if length is None else 'shorter' if length < lower else 'longer' if length > upper else 'within')
     if profile.minimum_seats:
         capacity = vehicle.seats if vehicle.seats is not None else min(vehicle.seat_options) if vehicle.seat_options else None
-        add('seating', 'unknown' if capacity is None else 'match' if capacity >= profile.minimum_seats else 'mismatch',
+        add('seating', 'unknown' if vehicle.seats is None or vehicle.seats_status == 'official-reference-conflict' else 'match' if capacity >= profile.minimum_seats else 'mismatch',
             requested=profile.minimum_seats, actual=capacity,
             difference=None if capacity is None else max(0, profile.minimum_seats - capacity),
             dataStatus=vehicle.seats_status, seatOptions=list(vehicle.seat_options))
@@ -64,6 +69,8 @@ def candidate_evidence(profile, vehicle, cost, score):
 def evaluation_summary(profile, catalog, eligible, costs, combined):
     matches = unknown = 0
     keys = []
+    if profile.preferred_body_type != 'any':
+        keys.append('body')
     if profile.preferred_fuel:
         keys.append('fuel')
     if profile.preferred_size != 'any':
@@ -97,6 +104,14 @@ def evaluation_summary(profile, catalog, eligible, costs, combined):
 
 
 def ranking_comparison(higher, lower):
+    if higher.get('rankingPolicy') == POLICY:
+        return {'status':'preference-priority','higherVehicleId':higher['vehicle']['id'], 'lowerVehicleId':lower['vehicle']['id'], 'scoreDifference':higher['rankingScore']-lower['rankingScore'], 'featureAttributionAvailable':False}
+    if higher.get('rankingScoreType') == lower.get('rankingScoreType') == 'ml-raw':
+        gap = higher['rankingScore'] - lower['rankingScore']
+        return {'higherVehicleId': higher['vehicle']['id'], 'lowerVehicleId': lower['vehicle']['id'],
+                'status': 'ml-ranked' if math.isfinite(gap) and gap >= 0 else 'unavailable',
+                'scoreType': 'ml-raw', 'scoreDifference': gap,
+                'featureAttributionAvailable': False}
     result = {'higherVehicleId': higher['vehicle']['id'], 'lowerVehicleId': lower['vehicle']['id'],
               'nearTieThreshold': NEAR_TIE_POINTS, 'status': 'unavailable'}
     try:

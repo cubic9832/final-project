@@ -1,8 +1,10 @@
+최신 정원 수정·재학습 및 실행 명령은 [ML 안내](../README.md)를 따른다.
+
 # 현재 정책 및 정제 데이터
 
-현재 정책은 cash-preference-weighted-v9이며 현금 구매와 구매 후 12개월 유지비 여력을 확인한다. 연료·차체 크기·정원은 가중치 선호이며 가성비를 낮춰도 고가 보너스를 주지 않는다. 이전 80~100% 가격대 우선 정책은 사용하지 않는다.
+현재 정책은 required-seats-preference-priority-price-band-v2다. 가성비 중요도 낮음·보통·높음에 따라 가용 구매 자금의 80%·70%·60% 하한을 먼저 적용한다. 재무 조건과 최소 인원을 먼저 확인하고, 선호 중요도순·동률 시 ML 원본 점수로 정렬한다. 정원 미확인·충돌·선택 사양은 별도 확인 후보로 분리한다.
 
-학습 자료와 생성·분류 규칙은 `data/households/synthetic/curated-current-v2-20261026`의 README.md와 rules.txt를 따른다. 원본 합성 자료는 정제 후 삭제했고 출처 해시와 Git 커밋을 보고서에 기록했다. 실행 모델은 기존 20261026-100k-v1을 유지하며 통합 데이터 모델은 평가용 20261026-refined-v1에 저장했다.
+학습 자료와 생성·분류 규칙은 `data/households/synthetic/curated-current-v2-20261026`의 README.md와 rules.txt를 따른다. 원본 합성 자료는 정제 후 삭제했고 출처 해시와 Git 커밋을 보고서에 기록했다. 실행 모델은 20261027-seating-verified-v1이며 통합 데이터 모델은 평가용 20261026-refined-v1에 저장했다.
 
 아래는 과거 실험 기록으로 현재 데이터 경로·입력·정책의 기준이 아니다.
 
@@ -99,7 +101,15 @@ Pop-Location
 
 현실 검증을 하려면 실제 사용자의 후보 간 선호, 구매 후 월 지출과 만족도를 수집하고, 사용자 단위·시간 기준 평가로 교체해야 한다. 그 전에는 계산식만 쓰는 방식보다 ML이 실제로 더 유용하다는 근거가 없다. 이 브랜치는 후보 확장과 목표·검증 구조를 개선한 **실험 가능한 출발점**이다.
 
-## 사용자 중요도 통합 점수 — weighted-preferences-v1
+## 현재 추천 정책 — financial-filter-ml-raw-v1 (2026-10-27)
+
+재무 적격 필터 이후 ML 원본 출력만으로 내림차순 정렬한다. 동점은 차량 ID 오름차순이며 차종별로 가장 높은 사양 하나만 반환한다. 선호는 모델 입력으로 전달하며, 별도 규칙 점수를 최종 순위에 합산하지 않는다. sigmoid는 과거 실험·학습 호환용 predict에 남지만 서비스 정렬에는 사용하지 않는다.
+
+응답 rankingScore는 음수도 가능한 원본 출력이며 확률·100점 척도가 아니다. rankingScoreType은 ml-raw, scorePolicy는 financial-filter-ml-raw-v1이다. 기존 integratedScore 대신 preferenceAssessment를 반환한다. 이 객체의 components는 조건별 설명용 점수·중요도이며 total·contribution 없이 rankingApplied=false를 명시한다. rankingComparison은 ml-ranked 상태와 원본 점수 차이를 제공하며 항목별 인과 기여도는 제공하지 않는다. 웹 카드와 전체 후보 조건 집계도 이 계약을 사용한다. 모델 재학습은 하지 않았다.
+
+선호 민감도 실험은 outputs/reports/preference-sensitivity-20261027/README.md를 참고한다. 과거 가중합 비교 스크립트·보고서는 당시 정책의 실험 기록이며 현재 서비스 결과와 구분한다.
+
+## 과거 사용자 중요도 통합 점수 — weighted-preferences-v1 (서비스 적용 종료)
 
 기존 candidate-v2 신경망 가중치는 그대로 유지하며 **후처리 정책**으로 중요도를 통합한다. 사용자 중요도 자체를 새로 학습했다고 주장하지 않는다. 기존 report.json의 NDCG는 원래 합성 효용 모델의 평가이며 새 통합 점수의 품질 평가가 아니다.
 
@@ -158,3 +168,25 @@ MILD_HYBRID와 PHEV는 원래 연료 표기를 보존하고, 연비·전기 주�
 기본 k=3으로 서로 다른 모델을 최대 3개 반환하며 점수·확률이 낮다는 이유로 제외하지 않는다. 재무 적격 모델이 1~2개면 그 수만, 0개면 빈 `recommendations`와 `status=no-financially-eligible-vehicle`을 반환한다. `conditionalRecommendations`는 호환용 빈 배열로 남긴다. API의 기존 pair ranker 가중치를 이 작업에서 교체하지 않았으며 아래 새 MLP와는 별개다.
 
 새 데이터: `data/households/synthetic/preference-financial-v4` (306,429행). 결정적 가중 상위 3개는 `recommendations_top3.csv`, 학습용 확률 선택은 `combined_training.csv`다. 별도 MLP 재학습과 결과는 `ml/outputs/models/preference-financial-v4/20261022T120014`에 저장했다. 실행 중인 서버 재시작·배포는 수행하지 않았다.
+
+## 2026-10-26 차체 형태 확장 (현재 작업)
+
+새 재학습용 데이터: `data/households/synthetic/body-preference-v1-20261026`.
+차량 281개 사양·84개 모델의 형태 및 출처는 `data/vehicles/body-type-registry-v1.json`에서 정확한 브랜드·모델 키로 연결한다. 기존 체크포인트 카탈로그와 해시는 변경하지 않는다.
+화면의 차체 선호는 any/SEDAN/SUV/OTHER로 제공한다. OTHER는 HATCHBACK/WAGON/MPV/BOX/PICKUP을 함께 평가하며 차량 원본 차체는 유지한다. 기존 세부 차체 API 입력도 호환한다. `body_importance`는 1~5이며 일치 100·불일치 0·미확인 50, any 제외. 형태는 재무 필터가 아닌 선호 평가다. 예금·월 유지비 적격 계산은 유지한다.
+기존 29개 특징에 차체 관련 17개 특징을 추가한 46개 특징과 정답·비교 쌍을 재생성했다. 기존 재무 그룹/분할을 보존한다. 204개 사례는 새 점수 기준으로 비교 차이가 부족해 별도 재무 검증 JSONL에 보존했다. 세부 규칙은 데이터 폴더의 rules.txt 참조.
+기존 29입력 모델은 호환 로딩하며, 아직 차체를 학습한 모델이 아니다. 재학습 전에는 서비스의 명시적 차체 가중치만 작동한다. 후속 요청으로 20261026-body-v1 모델 재학습을 완료했다(12 epochs 중 검증 최선 11 epoch). 후속 교체 요청으로 기본 실행 경로 및 8002 서버에 적용했다. 실서버 검증은 serving_verification.json에 보존한다. holdout_report.json에 비교 평가를 보존한다.
+
+재생성 (저장 위치가 존재하지 않아야 함):
+`python -m vehicle_matching.extend_body_population --source ../data/households/synthetic/curated-current-v2-20261026 --output ../data/households/synthetic/body-preference-v1-20261026`
+
+후속 재학습 명령 (ml 폴더에서):
+`python -m vehicle_matching.train_curated_population --data-dir ../data/households/synthetic/body-preference-v1-20261026 --output outputs/models/candidate-preferences/body-v1 --epochs 12`
+
+## 추천 조건 개선 — required-seats-preference-priority-ml-v1 (2026-10-27)
+
+기존 `20261026-body-v1` 가중치는 유지한다. 재무 필터 다음에 최소 인원을 필수 검사한다. 기본 정원 부족은 제외하고, 정원 미확인·공식 자료 충돌·선택 좌석 업그레이드는 일반 추천 대신 conditionalRecommendations로 반환한다. 최소 인원 0은 정원 제한 없음이다.
+
+남은 후보는 연료·차체·전장 크기 선호를 중요도 5부터 1까지 차례로 비교한다. 같은 중요도는 불일치 정도를 합산한다. 연료·차체 불일치는 1, 크기는 선호 전장 범위를 벗어난 거리/1000으로 계산하고, 전장 미확인은 알려진 길이보다 뒤로 둔다. 조건이 같으면 기존 ML 원본 점수와 ID로 정렬한다. 비용 중요도는 기존 모델 입력으로 유지하고 재무 적격 조건은 완화하지 않는다. 선호 불일치는 preferenceCompromise와 preferencePriority로 명시한다. rankingScore는 계속 원본 ML 값이므로 최종 순서가 점수 내림차순과 다를 수 있다. 최종 정책은 scorePolicy/rankingPolicy로 확인한다. rankingComparison은 preference-priority 상태를 사용한다.
+
+동일 모델·카탈로그·240개 조건 평가와 정원 필터만 적용한 대조군 결과는 outputs/reports/policy-improvement-20261027/에 보관한다.

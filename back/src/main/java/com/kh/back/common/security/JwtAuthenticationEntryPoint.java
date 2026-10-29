@@ -34,6 +34,12 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
                 : ApiResponse.fail("AUTH_REQUIRED", "로그인이 필요합니다.");
 
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
+        if(request.getRequestURI().startsWith("/api/v1/admin/")){
+            var problem=org.springframework.http.ProblemDetail.forStatusAndDetail(HttpStatus.UNAUTHORIZED,body.getError().getMessage());
+            problem.setProperty("error",body.getError());
+            response.setContentType(MediaType.APPLICATION_PROBLEM_JSON_VALUE);response.setCharacterEncoding("UTF-8");
+            objectMapper.writeValue(response.getWriter(),problem);return;
+        }
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setCharacterEncoding("UTF-8");
         objectMapper.writeValue(response.getWriter(), body);

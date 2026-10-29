@@ -1,0 +1,854 @@
+{
+  "version": "body-type-v1",
+  "checked_on": "2026-10-26",
+  "models": [
+    {
+      "brand": "BMW",
+      "model": "3시리즈",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.press.bmwgroup.com/united-kingdom/article/attachment/T0442576EN_GB/624814"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "BMW",
+      "model": "3시리즈 투어링",
+      "body_type": "WAGON",
+      "source_urls": [
+        "https://www.press.bmwgroup.com/united-kingdom/article/attachment/T0442576EN_GB/624814"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "BMW",
+      "model": "5시리즈",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.press.bmwgroup.com/asia/article/attachment/T0437083EN/607282"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "BMW",
+      "model": "X1",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.press.bmwgroup.com/korea/article/detail/T0412647KO/bmw-코리아-프리미엄-소형-sav-뉴-x1-및-뉴-ix1-공식-출시?language=ko"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "BMW",
+      "model": "X3",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.press.bmwgroup.com/korea/article/detail/T0453922KO"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "BMW",
+      "model": "X4",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.press.bmwgroup.com/korea/article/detail/T0354632KO/bmw-코리아-뉴-x3-및-뉴-x4-국내-공식-출시"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "BMW",
+      "model": "X5",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.bmw.co.il/content/dam/bmw/marketIL/bmw_co_il/all_models/bmw-x5-g05/39251_Mifrat_BMW_X5.pdf.asset.1752060008798.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "렉스턴 뉴 아레나",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "액티언",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "액티언 하이브리드",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "토레스",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "토레스 EVX",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "토레스 하이브리드",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "KG모빌리티",
+      "model": "티볼리",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kg-mobility.com/attached/contents/display/file/100007900020010/20261001173015926_01kFqB.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "EV3",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev3.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "EV3 GT",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev3-gt.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "EV4",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://cpo.kia.com/news/detail/?id=305",
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev4.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "EV4 GT",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://worldwide.kia.com/ko/newsroom-korea/view/?id=1488",
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev4-gt.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "EV5",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev5.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "EV5 GT",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_ev5-gt.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "EV6",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev6.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "EV6 GT",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev6-gt.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "EV9",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev9.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "EV9 GT",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_ev9-gt.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "K5",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_k5.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "K8",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_k8.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "K9",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_k9.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "니로",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_niro.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "레이",
+      "body_type": "BOX",
+      "source_urls": [
+        "https://www.hyundaimotorgroup.com/ko/story/CONT0000000000057297",
+        "https://ownersmanual.kia.com/full_webhelp/TAM/2023/ko_KR/topics/t00712.html"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "레이 EV",
+      "body_type": "BOX",
+      "source_urls": [
+        "https://www.kia.com/kr/vehicles/ray-ev/features",
+        "https://www.kia.com/kr/vehicles/ray-ev/specification"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "모닝",
+      "body_type": "HATCHBACK",
+      "source_urls": [
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_morning.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "셀토스",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_seltos.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "스포티지",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_sportage.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "쏘렌토",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_sorento.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "카니발",
+      "body_type": "MPV",
+      "source_urls": [
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_carnival.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "기아",
+      "model": "카니발 하이리무진",
+      "body_type": "MPV",
+      "source_urls": [
+        "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_carnival-hi-limousine.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "렉서스",
+      "model": "ES",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.lexus.ca/content/lexus/en/build-price.generate.summaries.series-ESE.year-2026.province-MB.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "르노코리아",
+      "model": "그랑 콜레오스",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.renault.co.kr/upload/asset/ebrochure/eBrochure_koleos_202610.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "르노코리아",
+      "model": "아르카나",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.renault.co.kr/upload/asset/price/price_Arkana_202610.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "르노코리아",
+      "model": "필랑트",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.renault.co.kr/upload/asset/price/price_filante_202610.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "메르세데스-벤츠",
+      "model": "E-Class",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.mercedes-benz.co.kr/passengercars/brand/news-events/news-story/2026/news-20260424.html"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "볼보",
+      "model": "XC60",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.volvocars.com/static/support/pdf/kr_ko-KR_xc60_2026_UM_e1d7a702164366477dae26056cf1b844.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "쉐보레",
+      "model": "트랙스 크로스오버",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.chevrolet.co.kr/content/dam/chevrolet/as/kr/ko/index/e-catalogue-price-list/2026/oct/trax-crossover-catalog-202610-e-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "제네시스",
+      "model": "Electrified G80",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "제네시스",
+      "model": "Electrified GV70",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "제네시스",
+      "model": "G70",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "제네시스",
+      "model": "G70 Shooting Brake",
+      "body_type": "WAGON",
+      "source_urls": [
+        "https://www.genesis.com/kr/en/models/g70-shooting-brake",
+        "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "제네시스",
+      "model": "G80",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "제네시스",
+      "model": "G80 Black",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90 Long Wheel Base",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "제네시스",
+      "model": "G90 Long Wheel Base Black",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV70",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV80",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV80 Black Hybrid",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV80 Coupe",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.genesis.com/kr/ko/models/luxury-suv-genesis/gv80-coupe/highlights.html",
+        "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "제네시스",
+      "model": "GV80 Hybrid",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "테슬라",
+      "model": "Model Y",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.tesla.com/en_ca/modely"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 그랜저",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/the-new-grandeur-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 그랜저 Hybrid",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/the-new-grandeur-hybrid-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 Electric",
+      "body_type": "MPV",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-eletric-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 Hybrid",
+      "body_type": "MPV",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-hybrid_catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지",
+      "body_type": "MPV",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지 Electric",
+      "body_type": "MPV",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-electric-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 라운지 Hybrid",
+      "body_type": "MPV",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-lounge-hybrid-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 리무진 Electric",
+      "body_type": "MPV",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-electric-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 스타리아 리무진 Hybrid",
+      "body_type": "MPV",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/the-new-staria-limousine-hybrid_catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "더 뉴 아이오닉 6",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/the-new-ioniq6-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "디 올 뉴 아반떼",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/the-all-new-avante-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "베뉴",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/venue-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "싼타페",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/santafe-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "싼타페 Hybrid",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/santafe-hybrid-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "쏘나타 디 엣지",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/sonata-the-edge_catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "쏘나타 디 엣지 Hybrid",
+      "body_type": "SEDAN",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/sonata-the-edge-hybrid-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "아이오닉 5",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/ioniq5-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "캐스퍼",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.hyundaimotorgroup.com/ko/amp/CONT0000000000002560",
+        "https://casper.hyundai.com/wcontents/repn-car/catalog/AX06/AX_CASPER_price.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "캐스퍼 일렉트릭",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.hyundaimotorgroup.com/ko/amp/CONT0000000000180743",
+        "https://casper.hyundai.com/vehicles/electric/spec"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "코나",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/kona-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "코나 Electric",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/kona-electric-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "코나 Hybrid",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/kona-hybrid-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "투싼",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/tucson-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "투싼 Hybrid",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/tucson-hybrid-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "팰리세이드",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/palisade-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    },
+    {
+      "brand": "현대",
+      "model": "팰리세이드 Hybrid",
+      "body_type": "SUV",
+      "source_urls": [
+        "https://www.hyundai.com/contents/repn-car/catalog/palisade-hybrid-catalog.pdf"
+      ],
+      "classification_basis": "제조사 모델·카탈로그 기준의 추천용 차체 대분류. 법정 차종/크기/실내 공간과 구분.",
+      "note": "쿠페형 SUV도 SUV에 포함. 국내 EV4는 세단. 레이는 박스카로 별도 분류."
+    }
+  ]
+}

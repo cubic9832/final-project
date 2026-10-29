@@ -1,0 +1,54 @@
+{
+  "seed": 20261027,
+  "policy": "required-seats-preference-priority-ml-v1",
+  "catalog_mode": "verified-runtime-snapshot",
+  "source": "C:\\workspace\\final-project\\data\\households\\synthetic\\body-preference-v1-20261026",
+  "source_hashes": {
+    "train_profiles.jsonl": "0f4e37af6c31f57147413747c1b9f5cf9a19ff5c1d0fdc67d9a89aa2356d8b73",
+    "train_pairs.npz": "3cabba892e06a6fa6f2802f2453da249230278d05b75c4e4d94e0dcad5a665ca",
+    "validation_profiles.jsonl": "59f8324b3df10a1b3b9fd3226b94a9760acac5ea3c5d530a6e1be4e532c9c1bc",
+    "validation_pairs.npz": "8c9222b08f935748377d9c1c2869c05e771e86435ca9ce2f106e181614d18a3f",
+    "test_profiles.jsonl": "595a37d2dc6465688f4bd7a81473bca04fdb207d23043b2daa9d7e776173cfc0",
+    "test_pairs.npz": "6cc55a60e6c6a9c64e9dfb7ccdf9111cc26b42937e657fa117261dc656af9780"
+  },
+  "partitions": {
+    "train": {
+      "profiles": 148194,
+      "candidates": 1421353,
+      "pairs": 1115055,
+      "excluded": {
+        "fewer-than-two-required-seat-safe-candidates": 6853,
+        "equal-policy-and-economy": 451
+      }
+    },
+    "validation": {
+      "profiles": 26464,
+      "candidates": 250784,
+      "pairs": 197241,
+      "excluded": {
+        "equal-policy-and-economy": 113,
+        "fewer-than-two-required-seat-safe-candidates": 1417
+      }
+    },
+    "test": {
+      "profiles": 45695,
+      "candidates": 441258,
+      "pairs": 346799,
+      "excluded": {
+        "fewer-than-two-required-seat-safe-candidates": 1863,
+        "equal-policy-and-economy": 90
+      }
+    }
+  },
+  "group_split_leakage": 0,
+  "teacher": "Within each financially eligible, required-seat-safe pool: importance-group preference penalties; economy breaks ties. Ordinal targets; never old ML predictions.",
+  "output_hashes": {
+    "catalog.json": "14845af9a9a7589fb77157d8bb7fa369eeebb94efea24b1f527ef56d67529bb6",
+    "test_pairs.npz": "5f72b1a008e7929f9aa7d535c7360b0b5265255064f4b1bc1856c15d85ce6839",
+    "test_profiles.jsonl": "e9fc8535731a651949a48a87b4b95e57a84dacca70c1883f07e14fbcd5ff7a72",
+    "train_pairs.npz": "08588ad9ed2a4befd90404dee9220e4afdbca8ddcd92c1fd973009454942ccd0",
+    "train_profiles.jsonl": "bbba5bf191640856eeb3a521d0d38162cab1ec9d9d13ac7737c4eeba9453dea7",
+    "validation_pairs.npz": "dfb455c143a2262144c2cd10bc8feb8b3de81b3de33353c87523ac6d802f6047",
+    "validation_profiles.jsonl": "8c13d92731fc299080a8e51ea8afa53c7d2261af609b5ab1b5e1242cc94bb9f8"
+  }
+}

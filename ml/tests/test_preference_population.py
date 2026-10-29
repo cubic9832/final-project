@@ -23,7 +23,7 @@ class PreferencePopulationTests(unittest.TestCase):
         self.assertFalse(np.array_equal(base,encode_preference(replace(p,minimum_seats=7,seating_importance=5),car)))
 
     def test_generator_separates_groups_preserves_unaffordable_cases_and_pair_direction(self):
-        cars=[vehicle(id=str(i),model=str(i),price=20000000+i*1000000,length_mm=4000+i*50,seats=5) for i in range(10)]
+        cars=[vehicle(id=str(i),brand='현대',model=('코나','베뉴','투싼','싼타페','팰리세이드','캐스퍼','쏘나타 디 엣지','디 올 뉴 아반떼','더 뉴 그랜저','아이오닉 5')[i],price=20000000+i*1000000,length_mm=4000+i*50,seats=5) for i in range(10)]
         with tempfile.TemporaryDirectory(dir=ROOT/'tmp') as temp:
             x,y,pairs,splits,records,report=generate(Path(temp)/'data',cars,42,count=80)
         self.assertEqual(len(records),80)

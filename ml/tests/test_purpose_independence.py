@@ -20,9 +20,9 @@ class PurposeIndependenceTests(unittest.TestCase):
             self.assertEqual(result['evaluationSummary']['purposeAssessment'], 'not-evaluated')
             self.assertNotIn('purpose', result['appliedPreferences'])
             for row in result['recommendations']:
-                self.assertNotIn('purpose', {item['key'] for item in row['integratedScore']['components']})
+                self.assertNotIn('purpose', {item['key'] for item in row['preferenceAssessment']['components']})
 
-    def test_explicit_size_still_changes_ranking(self):
+    def test_explicit_size_orders_equal_ml_scores(self):
         service = CandidateService(FixedRanker(), [vehicle(id='small', model='Small', length_mm=3900), vehicle(id='large', model='Large', length_mm=4900)])
         profile = person(space_importance=5)
         self.assertEqual(service.recommend(replace(profile, preferred_size='small'))['recommendations'][0]['vehicle']['id'], 'small')

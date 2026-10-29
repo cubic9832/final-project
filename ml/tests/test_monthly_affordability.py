@@ -9,7 +9,7 @@ from vehicle_matching.service import CandidateService
 
 
 class MonthlyAffordabilityTests(unittest.TestCase):
-    def test_income_changes_monthly_pressure_and_preference_ranking_without_raising_cash_budget(self):
+    def test_income_does_not_reorder_equal_ml_scores_or_raise_cash_budget(self):
         gas=vehicle(id='gas',model='Gas',price=40000000,efficiency=4,fuel='GASOLINE',length_mm=4500)
         electric=vehicle(id='electric',model='Electric',price=40000000,efficiency=5,fuel='ELECTRIC',length_mm=4500)
         service=CandidateService(FixedRanker(),[gas,electric])
@@ -17,7 +17,7 @@ class MonthlyAffordabilityTests(unittest.TestCase):
                    monthly_savings=0,preferred_fuel='GASOLINE',cost_importance=5,fuel_importance=1)
         high=replace(low,monthly_income=7500000)
         a,b=service.recommend(low),service.recommend(high)
-        self.assertEqual(a['recommendations'][0]['vehicle']['id'],'electric')
+        self.assertEqual(a['recommendations'][0]['vehicle']['id'],'gas')
         self.assertEqual(b['recommendations'][0]['vehicle']['id'],'gas')
         self.assertEqual(a['budgetPolicy']['financialUpper'],b['budgetPolicy']['financialUpper'])
         self.assertTrue(all(r['cost']['eligible'] for result in (a,b) for r in result['recommendations']))
@@ -35,6 +35,7 @@ class MonthlyAffordabilityTests(unittest.TestCase):
     def test_monthly_boundary_remains_hard_and_zero_capacity_has_no_recommendation(self):
         p=person(financing_mode='recommendation')
         v=vehicle()
+        p=replace(p,liquid_assets=v.price+p.emergency_reserve,down_payment=0)
         cost=assess(p,v)
         exact=replace(p,minimum_buffer=cost['remaining_monthly'])
         score=integrated_score(exact,v,assess(exact,v),.5)['monthlyAffordability']

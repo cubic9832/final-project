@@ -18,6 +18,7 @@ from vehicle_matching.catalog_merge import expand_catalog
 from vehicle_matching.finance import Profile
 from vehicle_matching.model import PairRanker
 from vehicle_matching.service import CandidateService
+from vehicle_matching.recommendation_policy import POLICY
 from vehicle_matching.seating import apply_seating_registry
 from vehicle_matching.specifications import apply_base_specifications, apply_specifications
 
@@ -48,6 +49,8 @@ class ProfileRequest(BaseModel):
     purchase_price_ceiling: float = Field(default=0, ge=0, le=1e12)
     minimum_seats: int = Field(default=0, ge=0, le=9, strict=True)
     preferred_size: Literal['any', 'small', 'medium', 'large'] = 'any'
+    preferred_body_type: Literal['any', 'SEDAN', 'SUV', 'HATCHBACK', 'WAGON', 'MPV', 'BOX', 'PICKUP', 'OTHER'] = 'any'
+    body_importance: int = Field(default=3, ge=1, le=5, strict=True)
     financing_mode: Literal['fixed', 'automatic', 'recommendation'] = Field(default='recommendation', exclude=True, deprecated=True)
 
 
@@ -66,6 +69,9 @@ def load_service(directory, *, apply_specification_updates=True):
     if override:
         from vehicle_matching.catalog import load_csv
         vehicles = load_csv(Path(override))[0] if Path(override).suffix.lower() == '.csv' else read_catalog(override)
+    elif meta['training'].get('catalog_mode') == 'verified-runtime-snapshot':
+        # Audited snapshots must not be overwritten by legacy seating registries.
+        vehicles = read_catalog(path / 'catalog.json')
     else:
         vehicles = read_catalog(path / 'catalog.json')
         vehicles, _ = expand_catalog(vehicles)
@@ -76,16 +82,30 @@ def load_service(directory, *, apply_specification_updates=True):
     ranker = PairRanker.load(path)
     ranker.assumptions = replace(ranker.assumptions, acquisition_ratio=0, stress_rate_addition=0,
                                  stress_running_multiplier=1, version='cost-utility-v2.3-base-cost-only')
-    return CandidateService(ranker, vehicles)
+    from vehicle_matching.body_types import apply_body_types
+    current = CandidateService(ranker, apply_body_types(vehicles, strict=False))
+    current.model_bundle = path.name
+    return current
 
 
 def create_app(service=None):
     @asynccontextmanager
     async def lifespan(application):
-        application.state.candidates = service or load_service(os.environ.get('ML_CANDIDATE_RUN', str(ROOT / 'ml/experiments/candidate-v2')))
+        application.state.candidates = service or load_service(os.environ.get('ML_CANDIDATE_RUN', str(ROOT / 'ml/outputs/models/candidate-preferences/20261027-seating-verified-v1')))
+        from vehicle_matching.managed_catalog import ManagedCatalog
+        url=os.environ.get('ML_MANAGED_CATALOG_URL','http://127.0.0.1:8080/api/v1/vehicles/recommendation-catalog')
+        application.state.managed_catalog = ManagedCatalog(url) if service is None and url else None
         yield
 
     application = FastAPI(title='Experimental user–vehicle ranking', lifespan=lifespan)
+
+    def current_service(request):
+        current=request.app.state.candidates
+        provider=request.app.state.managed_catalog
+        if provider is None:return current
+        updated=CandidateService(current.ranker,provider.read())
+        updated.model_bundle=current.model_bundle
+        return updated
 
     @application.exception_handler(RequestValidationError)
     async def validation_error(request: Request, error):
@@ -103,8 +123,12 @@ def create_app(service=None):
 
     @application.get('/api/v2/recommendation-options')
     def options(request: Request):
-        current = request.app.state.candidates
+        current = current_service(request)
         return {'success': True, 'data': {'modelVersion': 'candidate-v2', 'catalogCount': len(current.vehicles),
+                'modelBundle': getattr(current, 'model_bundle', None),
+                'scorePolicy': POLICY,
+                'catalogSource': 'managed-database' if request.app.state.managed_catalog is not None else 'model-snapshot',
+                'featureCount': len(current.ranker.mean) if hasattr(current.ranker, 'mean') else None,
                 'rankerSchema': getattr(current.ranker, 'schema', 'candidate-v2'),
                 'modelNames': len({(v.brand, v.model) for v in current.vehicles}),
                 'verifiedLengthCount': sum(v.length_mm is not None for v in current.vehicles),
@@ -119,7 +143,7 @@ def create_app(service=None):
     def recommendations(payload: RecommendationRequest, request: Request):
         try:
             profile = Profile(**payload.profile.model_dump(), down_payment=0, months=0, annual_rate=0, financing_mode='recommendation')
-            return {'success': True, 'data': request.app.state.candidates.recommend(profile, payload.k)}
+            return {'success': True, 'data': current_service(request).recommend(profile, payload.k)}
         except ValueError as error:
             return problem(request, 400, '입력 오류', str(error))
 

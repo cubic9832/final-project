@@ -1,6 +1,8 @@
 import catalog from '../../../../../data/households/synthetic/curated-current-v2-20261026/catalog.json';
 import { resolveVehicleImage } from '../../../features/vehicle/resolveVehicleImage.js';
 import { emptyVehicle } from './vehicleManagementExamples.js';
+import bodyRegistry from '../../../../../data/vehicles/body-type-registry-v1.json';
+import { bodyTypeLabel } from '../../../features/financial/vehiclePreferences.js';
 
 const fuelLabels = { GASOLINE: '가솔린', HYBRID: '하이브리드', DIESEL: '경유', ELECTRIC: '전기', LPG: 'LPG' };
 const domesticBrands = new Set(['현대', '기아', '제네시스', 'KG모빌리티', '르노코리아', '쉐보레']);
@@ -14,7 +16,7 @@ export const catalogVehicles = catalog.map(vehicle => ({
   year: vehicle.year || '',
   trim: vehicle.trim,
   fuel: fuelLabels[vehicle.fuel] || vehicle.fuel,
-  body: '미확인',
+  body: bodyTypeLabel(bodyRegistry.models.find(row => row.brand === vehicle.brand && row.model === vehicle.model)?.body_type),
   origin: domesticBrands.has(vehicle.brand) ? '국산' : '수입',
   price: String(vehicle.price / 10000),
   efficiency: String(vehicle.efficiency ?? ''),

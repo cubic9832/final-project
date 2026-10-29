@@ -23,6 +23,10 @@ import org.springframework.web.servlet.resource.NoResourceFoundException;
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+    @ExceptionHandler(org.springframework.web.multipart.MaxUploadSizeExceededException.class)
+    public ResponseEntity<org.springframework.http.ProblemDetail> uploadTooLarge(org.springframework.web.multipart.MaxUploadSizeExceededException error){
+        return ResponseEntity.status(HttpStatus.PAYLOAD_TOO_LARGE).body(org.springframework.http.ProblemDetail.forStatusAndDetail(HttpStatus.PAYLOAD_TOO_LARGE,"업로드 가능한 이미지 크기는 최대 5MB입니다."));
+    }
 
     // Service 에서 직접 던진 예외 (예: 없는 종목코드 → 404)
     @ExceptionHandler(ApiException.class)
