@@ -1,3 +1,9 @@
+chatbot:
+  gemini:
+    api-key: ${GEMINI_API_KEY:}
+    model: ${GEMINI_MODEL:gemini-3.5-flash-lite}
+  knowledge-location: ${CHATBOT_KNOWLEDGE_LOCATION:classpath:chatbot/knowledge/*.md}
+
 spring:
   servlet:
     multipart:
@@ -78,6 +84,9 @@ recaptcha:
 # 또는 환경변수 ADMIN_SEED_EMAIL · ADMIN_SEED_PASSWORD 로 만든다 (AdminAccountSeeder).
 # 여기에 빈 기본값을 적으면 import 한 파일 값을 빈 문자열로 덮어써서 시드가 건너뛰어지므로 키를 두지 않는다.
 # 환경변수는 설정 파일보다 우선한다. 배포 서버에서는 파일·환경변수를 넣지 않거나, 첫 실행 뒤 지운다.
+admin:
+  # 7단계: 관리자 모델 관리 탭이 읽는 학습 결과 폴더 (추천 서버 ml/serve-candidates.ps1 의 기본 폴더와 같게, 읽기만)
+  model-run-dir: ${ML_MODEL_RUN_DIR:ml/outputs/models/candidate-preferences/20261026-100k-v1}
 
 logging:
   level:

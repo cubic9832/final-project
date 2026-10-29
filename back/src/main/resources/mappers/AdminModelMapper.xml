@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 7단계: 관리자 모델 관리 — 모델 버전 기록. 표는 Flyway V1 -->
+<mapper namespace="com.kh.back.admin.mapper.AdminModelMapper">
+
+    <select id="findVersions" resultType="com.kh.back.admin.dto.ModelVersionRow">
+        SELECT m.version_label, m.execution_type, m.created_at, COUNT(a.analysis_id) AS diagnoses
+        FROM model_versions m
+        LEFT JOIN analysis_runs a ON a.model_version_id = m.model_version_id AND a.status_code = 'COMPLETED'
+        GROUP BY m.model_version_id, m.version_label, m.execution_type, m.created_at
+        ORDER BY m.created_at DESC
+    </select>
+</mapper>

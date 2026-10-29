@@ -19,7 +19,6 @@ import FinancialReviewPage from './features/financial/pages/review/FinancialRevi
 import FinancialResultPage from './features/financial/pages/result/FinancialResultPage';
 import FinancialRecommendationsPage from './features/financial/pages/recommendations/FinancialRecommendationsPage';
 import AdminPage from './pages/admin/AdminPage';
-import AdminLoginPage from './pages/admin/login/AdminLoginPage';
 import MyPage from './pages/mypage/MyPage';
 import ProfilePage from './pages/mypage/ProfilePage';
 import NotFound from './pages/not-found/NotFound';
@@ -64,11 +63,6 @@ function App() {
           {/* 6단계: 개인정보 · 계정 관리 */}
           <Route path="/mypage/profile" element={<ProfilePage />} />
         </Route>
-        {/* 7단계: 관리자 로그인은 누구나 열 수 있고(일반 회원이면 안내), 관리자 화면은 ADMIN 만 — 나머지는 RequireAdmin 이 돌려보낸다 */}
-        <Route path="/admin/login" element={<AdminLoginPage />} />
-        <Route element={<RequireAdmin />}>
-          <Route path="/admin" element={<AdminPage />} />
-        </Route>
         <Route path="/financial" element={<FinancialPage />} />
         <Route path="/financial/assets" element={<FinancialAssetsPage />} />
         <Route path="/financial/credit" element={<FinancialCreditPage />} />
@@ -84,8 +78,14 @@ function App() {
         <Route path="/vehicles/:id" element={<VehicleCatalogGate><VehicleDetailPage /></VehicleCatalogGate>} />
         <Route path="/vehicles/:id/simulation" element={<VehicleCatalogGate><VehicleSimulationPage /></VehicleCatalogGate>} />
         <Route path="/predict" element={<PredictPage />} />
+        {/* 보완 11: 없는 주소 — 헤더가 있는 404 화면 (관리자가 아닌 사람이 /console 에 들어와도 똑같이 보인다) */}
+        <Route path="*" element={<NotFound />} />
       </Route>
-      <Route path="*" element={<NotFound />} />
+      {/* 7단계 · 보완 11: 관리자 화면은 /console (예전 /admin). 공통 헤더 없이 관리자 화면만 — 관리자가 아니면 RequireAdmin 이 404 화면 */}
+      {/* 관리자 로그인 화면은 없앴다: 관리자도 일반 로그인(/login) 후 헤더 · 마이페이지의 "관리자 대시보드" 로 들어온다 */}
+      <Route path="/console" element={<RequireAdmin />}>
+        <Route index element={<AdminPage />} />
+      </Route>
     </Routes>
     </VehicleProvider>
   );

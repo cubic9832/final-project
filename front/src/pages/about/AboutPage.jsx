@@ -192,10 +192,10 @@ export default function AboutPage() {
             내 자동차 예산 확인하기 <ArrowUpRight size={theme.iconSize.sm} aria-hidden="true" />
           </a>
           <div className="footer-bottom">
-            <strong>CreditComPass Auto</strong>
+            <strong>CreditComPass</strong>
             <p>재무 데이터로 더 나은 자동차 구매를 제안합니다.</p>
             <small>
-              © {currentYear} CreditComPass Auto. · 본 화면의 수치는 예시이며 실제 분석 결과가 아닙니다.
+              © {currentYear} CreditComPass. · 본 화면의 수치는 예시이며 실제 분석 결과가 아닙니다.
             </small>
           </div>
         </div>

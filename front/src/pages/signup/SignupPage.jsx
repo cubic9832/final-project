@@ -71,7 +71,7 @@ function validateSignup(form, agreements) {
   else if (form.passwordConfirm !== form.password) errors.passwordConfirm = '비밀번호가 일치하지 않습니다.';
 
   // 개인 정보 (보완 5) — 생년월일은 만 18세 이상인지도 확인한다
-  const phoneError = validatePhone(form.phone);
+  const phoneError = validatePhone(form.phone, { required: true });
   if (phoneError) errors.phone = phoneError;
   const birthDateError = validateBirthDate(form.birthDate);
   if (birthDateError) errors.birthDate = birthDateError;
@@ -397,7 +397,7 @@ export default function SignupPage() {
             <div className="signup-fields">
               <h3 className="signup-column-title">계정 정보</h3>
               <div className="signup-field">
-                <label htmlFor="signup-nickname">이름 또는 닉네임</label>
+                <label htmlFor="signup-nickname">이름 또는 닉네임<span className="form-required" aria-hidden="true"> *</span></label>
                 <div className="signup-input-wrap">
                   <div className="signup-input-row">
                     <input
@@ -422,7 +422,7 @@ export default function SignupPage() {
               </div>
 
               <div className="signup-field">
-                <label htmlFor="signup-email">이메일</label>
+                <label htmlFor="signup-email">이메일<span className="form-required" aria-hidden="true"> *</span></label>
                 <div className="signup-input-wrap">
                   <div className="signup-input-row">
                     <input
@@ -504,7 +504,7 @@ export default function SignupPage() {
               </div>
 
               <div className="signup-field">
-                <label htmlFor="signup-password">비밀번호</label>
+                <label htmlFor="signup-password">비밀번호<span className="form-required" aria-hidden="true"> *</span></label>
                 <div className="signup-input-wrap">
                   <PasswordInput
                     id="signup-password"
@@ -527,7 +527,7 @@ export default function SignupPage() {
 
               {/* 비밀번호 확인 (보완 2 · 보완 목록 ④) — 서버로는 보내지 않고 화면에서만 비교 */}
               <div className="signup-field">
-                <label htmlFor="signup-password-confirm">비밀번호 확인</label>
+                <label htmlFor="signup-password-confirm">비밀번호 확인<span className="form-required" aria-hidden="true"> *</span></label>
                 <div className="signup-input-wrap">
                   <PasswordInput
                     id="signup-password-confirm"
@@ -541,11 +541,11 @@ export default function SignupPage() {
               </div>
             </div>
 
-            {/* 보완 5: 개인 정보 — 저장은 user_profiles(V8). 전화번호는 선택 항목(10-22)이라 맨 아래, 인증하지 않고 형식만 확인 */}
+            {/* 보완 5: 개인 정보 — 저장은 user_profiles(V8). 전화번호는 필수(보완 11), 인증하지 않고 형식만 확인 */}
             <div className="signup-fields">
               <h3 className="signup-column-title">개인 정보</h3>
               <div className="signup-field">
-                <label htmlFor="signup-birth-date">생년월일</label>
+                <label htmlFor="signup-birth-date">생년월일<span className="form-required" aria-hidden="true"> *</span></label>
                 <div className="signup-input-wrap">
                   <BirthDateInput id="signup-birth-date" {...fieldProps('birthDate')} />
                   {renderError('birthDate')}
@@ -554,7 +554,7 @@ export default function SignupPage() {
 
               <div className="signup-field">
                 <span className="signup-field-label" id="signup-gender-label">
-                  성별
+                  성별<span className="form-required" aria-hidden="true"> *</span>
                 </span>
                 <div className="signup-input-wrap">
                   <div
@@ -582,7 +582,7 @@ export default function SignupPage() {
 
               <div className="signup-field">
                 <label htmlFor="signup-phone">
-                  전화번호 <span className="signup-optional">(선택)</span>
+                  전화번호<span className="form-required" aria-hidden="true"> *</span>
                 </label>
                 <div className="signup-input-wrap">
                   <input
@@ -599,7 +599,7 @@ export default function SignupPage() {
               </div>
 
               <p className="signup-privacy-note">
-                생년월일 · 성별은 연령대별 차량 추천과 통계에 사용합니다. 전화번호는 선택이며, 입력하면 서비스 관련 연락에만 사용합니다.
+                생년월일 · 성별은 연령대별 차량 추천과 통계에 사용합니다. 전화번호는 서비스 관련 연락에만 사용합니다.
                 <br />
                 차량 추천 서비스라 운전면허를 딸 수 있는 <strong>만 {MIN_SIGNUP_AGE}세 이상</strong>부터 가입할 수
                 있습니다.

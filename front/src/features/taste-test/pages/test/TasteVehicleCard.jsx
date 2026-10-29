@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { CarFront } from 'lucide-react';
 import theme from '../../../../styles/theme';
 import { getTasteVehicleImages } from './tasteVehicleImages';
+import ExplainTerm from '../../../chatbot/ExplainTerm';
 
 function VehicleImage({ name, sources }) {
   const [sourceIndex, setSourceIndex] = useState(0);
@@ -24,7 +25,7 @@ export default function TasteVehicleCard({ vehicle }) {
       <div className="taste-vehicle-image">
         <VehicleImage key={`${vehicle.name}:${sources.join('|')}`} name={vehicle.name} sources={sources} />
       </div>
-      <div className="taste-vehicle-info"><p className="taste-caption">{vehicle.category}</p><h3>{vehicle.name}</h3></div>
+      <div className="taste-vehicle-info"><p className="taste-caption"><ExplainTerm term={vehicle.category} context={`취향 테스트 결과의 대표 차량 ${vehicle.name}, 분류 ${vehicle.category}`} /></p><h3>{vehicle.name}</h3></div>
     </li>
   );
 }

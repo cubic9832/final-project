@@ -2,6 +2,9 @@ import { useCallback, useState } from 'react';
 import { Car } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { googleLogin, login } from '../../features/auth/authApi';
+import { afterLoginPath } from '../../features/taste-test/tastePrompt';
+import { isAdminRole } from '../../features/auth/roles';
+import useAuthStore from '../../stores/useAuthStore';
 import PasswordInput from '../../features/auth/components/PasswordInput';
 import PasswordResetModal from './PasswordResetModal';
 import RecaptchaBox from './RecaptchaBox';
@@ -69,6 +72,14 @@ export default function LoginPage() {
     }
   }, []);
 
+  // 로그인 성공 후 갈 곳: 가려던 화면(from) 또는 메인 — 보완 11: 취향 테스트를 안 했고 "나중에 하기"도 안 눌렀으면 취향 테스트
+  // 보완 12: 관리자는 가려던 화면 · 취향 테스트와 상관없이 항상 관리자 화면(/console)으로 (관리자는 서비스 이용자가 아니므로)
+  const nextPath = useCallback(() => {
+    const member = useAuthStore.getState().member;
+    if (isAdminRole(member?.role)) return Promise.resolve('/console');
+    return afterLoginPath(member?.id, location.state?.from ?? '/');
+  }, [location.state]);
+
   // 보완 8: 구글 계정을 고르면 서버에 확인 → 연결된 회원이면 로그인, 처음 온 사람이면 구글 가입 화면으로
   // (동의 · 생년월일 · 성별은 그 화면에서 받는다)
   const handleGoogleCredential = useCallback(
@@ -80,12 +91,12 @@ export default function LoginPage() {
           navigate('/signup/google', { state: signup });
           return;
         }
-        navigate(location.state?.from ?? '/', { replace: true });
+        navigate(await nextPath(), { replace: true });
       } catch (error) {
         setLoginError(error.response?.data?.error?.message ?? '구글 로그인에 실패했습니다. 잠시 후 다시 시도해 주세요.');
       }
     },
-    [navigate, location.state],
+    [navigate, nextPath],
   );
 
   // 입력할 때마다 값을 저장하고, 그 칸의 오류와 실패 문구는 지운다
@@ -120,8 +131,8 @@ export default function LoginPage() {
       // 성공하면 토큰 · 회원 정보가 스토어에 저장된다
       await login({ email, password: form.password, recaptchaToken: captchaToken || undefined });
       writeSavedEmail(rememberEmail ? email : '');
-      // 로그인이 필요한 화면에서 넘어왔으면 그 화면으로, 아니면 메인으로 이동한다
-      navigate(location.state?.from ?? '/', { replace: true });
+      // 로그인이 필요한 화면에서 넘어왔으면 그 화면으로, 아니면 메인으로 이동한다 (보완 11: 취향 테스트 안 한 회원은 테스트로)
+      navigate(await nextPath(), { replace: true });
     } catch (error) {
       // 실패해도 이메일은 그대로 두고 비밀번호만 비운다
       const { code, message } = error.response?.data?.error ?? {};
@@ -169,7 +180,7 @@ export default function LoginPage() {
 
           <form onSubmit={handleSubmit} noValidate>
             <div className="login-field">
-              <label htmlFor="login-email">이메일</label>
+              <label htmlFor="login-email">이메일<span className="form-required" aria-hidden="true"> *</span></label>
               <div className="login-input-wrap">
                 <input
                   id="login-email"
@@ -182,7 +193,7 @@ export default function LoginPage() {
               </div>
             </div>
             <div className="login-field">
-              <label htmlFor="login-password">비밀번호</label>
+              <label htmlFor="login-password">비밀번호<span className="form-required" aria-hidden="true"> *</span></label>
               <div className="login-input-wrap">
                 {/* 보완 2: "비밀번호 표시" 체크박스 대신 입력칸 안 눈 아이콘 (회원가입과 같은 PasswordInput) */}
                 <PasswordInput

@@ -4,35 +4,21 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getSessions } from '../../features/auth/authApi';
-import { getMe } from '../../features/auth/memberApi';
+import { getMe, getRecentDiagnoses } from '../../features/auth/memberApi';
+import { isAdminRole, ROLE_LABELS } from '../../features/auth/roles';
 import { getCurrentTaste, getTasteCatalog } from '../../features/taste-test/tasteApi';
 import { getVehicles } from '../../features/vehicle/vehicleApi';
 import { CardError, CardLoading } from './CardStatus';
 import { deviceName, drivingTag, formatDate, formatDateTime, genderLabel, purchaseTag } from './profileOptions';
 import './MyPage.css';
 
-// 서버의 role 값 → 화면에 보여 줄 이름
-const ROLE_LABELS = { USER: '사용자', ADMIN: '관리자' };
+// 서버의 role 값 → 화면에 보여 줄 이름 (7단계 공용 이름표: 일반 회원 · 관리자 · 총관리자)
 
 // 차량 화면(조원 VehicleContext)이 관심차량을 저장하는 브라우저 저장소 키 — 회원별 DB 저장은 아직 없음
 const FAVORITES_KEY = 'vehicle-favorites';
 
-// ── 예시 데이터 ── 재무 진단 결과 · 구매계획은 아직 저장하는 곳이 없어 화면 확인용 값만 둔다 (실제 회원 정보가 아님)
-const exampleDiagnosis = {
-  date: '2026.10.21',
-  figures: [
-    { label: '월 가용자금', value: '62만 원' },
-    { label: '차량 선수금', value: '800만 원' },
-    { label: '최소 월 여유자금', value: '35만 원', good: true },
-    { label: '추천 차량', value: '3대' },
-  ],
-  history: [
-    { id: 1, title: '선수금 800만 원 조건', detail: '2026.10.21 · 위험 낮음' },
-    { id: 2, title: '취업 2년 차 기본 진단', detail: '2026.10.01 · 위험 보통' },
-  ],
-};
-
-const examplePlan = { title: '아반떼 하이브리드 · 2027년 3월', dDay: 'D-180', saved: 500, goal: 800, monthlySaving: '50만 원', shortage: '300만 원' };
+// 원 단위 금액 → "62만 원" (마이너스면 "-12만 원")
+const formatManwon = (won) => `${Math.round(won / 10000).toLocaleString('ko-KR')}만 원`;
 
 function readFavoriteIds() {
   try {
@@ -76,6 +62,9 @@ const loadTaste = async () => {
   return { type: catalog.types[current.primary], savedAt: current.savedAt };
 };
 
+// 최근 재무 진단 3건 (재무 진단 결과 화면에서 저장한 기록, 최신 순). 없으면 []
+const loadDiagnoses = () => getRecentDiagnoses(3);
+
 const loadFavorites = async () => {
   const ids = readFavoriteIds();
   if (!ids.length) return [];
@@ -87,6 +76,7 @@ export default function MyPage() {
   const profile = useCardData(loadProfile);
   const taste = useCardData(loadTaste);
   const favorites = useCardData(loadFavorites);
+  const diagnoses = useCardData(loadDiagnoses);
 
   return (
     <div className="my-page">
@@ -100,53 +90,19 @@ export default function MyPage() {
       <div className="my-row-top">
         <ProfileCard state={profile} />
 
-        <section className="my-card my-insight-card" aria-labelledby="my-diagnosis-title">
-          <div className="my-insight-head">
-            <div>
-              <h2 id="my-diagnosis-title">최근 재무 진단</h2>
-              <p>{exampleDiagnosis.date} · 진단 결과 저장은 준비 중입니다</p>
-            </div>
-            <span className="my-example-badge">예시 데이터</span>
-          </div>
-          <div className="my-finance-grid">
-            {exampleDiagnosis.figures.map((figure) => (
-              <div key={figure.label}>
-                <span>{figure.label}</span>
-                <strong className={figure.good ? 'is-good' : undefined}>{figure.value}</strong>
-              </div>
-            ))}
-          </div>
-          <ul className="my-mini-history" aria-label="이전 재무 진단">
-            {exampleDiagnosis.history.map((record) => (
-              <li key={record.id}><strong>{record.title}</strong><span>{record.detail}</span></li>
-            ))}
-          </ul>
-          <div className="my-insight-actions">
-            <Link className="my-plan-button my-inline-button" to="/financial">새로 진단하기</Link>
-          </div>
-        </section>
+        <DiagnosisCard state={diagnoses} />
       </div>
 
       <div className="my-row-three">
         <FavoritesCard state={favorites} />
 
+        {/* 구매계획: 저장 기능이 아직 없어 계획 전(빈 상태)으로 보여 준다 — 기능이 생기면 저장한 계획으로 */}
         <section className="my-plan my-card-fill" aria-labelledby="my-plan-title">
           <div className="my-plan-heading">
-            <div><span>저장한 구매계획 · 예시 데이터</span><h2 id="my-plan-title">{examplePlan.title}</h2></div>
-            <span className="my-plan-dday">{examplePlan.dDay}</span>
+            <div><span>저장한 구매계획</span><h2 id="my-plan-title">아직 구매계획이 없어요</h2></div>
           </div>
-          <div className="my-plan-progress">
-            <div className="my-plan-progress-labels"><span>선수금 준비</span><strong>{examplePlan.saved} / {examplePlan.goal}만 원</strong></div>
-            <div className="my-plan-track" role="progressbar" aria-label="선수금 준비율" aria-valuemin={0} aria-valuemax={100}
-              aria-valuenow={Math.round((examplePlan.saved / examplePlan.goal) * 100)}>
-              <span style={{ width: `${Math.round((examplePlan.saved / examplePlan.goal) * 100)}%` }} />
-            </div>
-          </div>
-          <div className="my-plan-summary">
-            <div><span>월 저축</span><strong>{examplePlan.monthlySaving}</strong></div>
-            <div><span>부족 금액</span><strong>{examplePlan.shortage}</strong></div>
-          </div>
-          <p className="my-plan-note">구매계획 저장은 준비 중입니다.</p>
+          <p className="my-plan-note">재무 진단으로 구매 여력과 추천 차량을 먼저 확인해 보세요.</p>
+          <Link className="my-plan-button my-inline-button" to="/financial">재무 진단 하러 가기</Link>
         </section>
 
         <TasteCard state={taste} />
@@ -186,7 +142,7 @@ function ProfileCard({ state }) {
       <dl className="my-profile-meta">
         <dt>생년월일</dt><dd className={me.birthDate ? undefined : 'is-empty'}>{formatDate(me.birthDate) ?? '입력 전'}</dd>
         <dt>성별</dt><dd className={me.gender ? undefined : 'is-empty'}>{genderLabel(me.gender) ?? '입력 전'}</dd>
-        <dt>전화번호</dt><dd>{me.phoneMasked ?? '— (선택)'}</dd>
+        <dt>전화번호</dt><dd className={me.phoneMasked ? undefined : 'is-none'}>{me.phoneMasked ?? '없음'}</dd>
         {current && (<><dt>최근 로그인</dt><dd>{formatDateTime(current.loggedInAt)} · {deviceName(current.device)}</dd></>)}
       </dl>
       {missing && (
@@ -195,7 +151,11 @@ function ProfileCard({ state }) {
           연령대별 차량 추천과 통계에 쓰입니다.
         </p>
       )}
-      <Link className="my-outline-button" to="/mypage/profile">개인정보 · 계정 관리</Link>
+      <div className="my-profile-actions">
+        <Link className="my-outline-button" to="/mypage/profile">개인정보 · 계정 관리</Link>
+        {/* 7단계: 관리자 · 총관리자는 일반 로그인 후 여기서도 관리자 대시보드로 */}
+        {isAdminRole(me.role) && <Link className="my-plan-button my-inline-button" to="/console">관리자 대시보드</Link>}
+      </div>
     </section>
   );
 }
@@ -239,6 +199,50 @@ function FavoritesCard({ state }) {
 }
 
 // 내 취향 — 첫 차 취향 테스트 결과 (조원 기능, GET /members/me/current-taste)
+// 최근 재무 진단 — 재무 진단 결과 화면에서 저장한 기록 (GET /members/me/diagnoses). 맨 위 = 가장 최근
+function DiagnosisCard({ state }) {
+  const [latest, ...older] = state.status === 'done' ? state.data : [];
+  return (
+    <section className="my-card my-insight-card" aria-labelledby="my-diagnosis-title">
+      <div className="my-insight-head">
+        <div>
+          <h2 id="my-diagnosis-title">최근 재무 진단</h2>
+          <p>{latest ? `${formatDate(latest.completedAt?.slice(0, 10))} 진단` : '재무 진단을 마치면 결과가 여기에 저장돼요'}</p>
+        </div>
+      </div>
+      {state.status === 'loading' && <CardLoading />}
+      {state.status === 'error' && <CardError message="재무 진단 기록을 불러오지 못했어요." onRetry={state.reload} />}
+      {state.status === 'done' && !latest && <p className="my-empty">아직 저장된 재무 진단이 없어요.</p>}
+      {latest && (
+        <>
+          <div className="my-finance-grid">
+            <div><span>월 실수령액</span><strong>{formatManwon(latest.monthlyIncome)}</strong></div>
+            <div>
+              <span>구매 전 월 여유금</span>
+              <strong className={latest.monthlyAvailable > 0 ? 'is-good' : undefined}>{formatManwon(latest.monthlyAvailable)}</strong>
+            </div>
+            <div><span>사용 가능 예금</span><strong>{formatManwon(latest.purchaseFunds)}</strong></div>
+            <div><span>구매 가격 상한</span><strong>{latest.priceUpper != null ? formatManwon(latest.priceUpper) : '산정 정보 없음'}</strong></div>
+          </div>
+          {older.length > 0 && (
+            <ul className="my-mini-history" aria-label="이전 재무 진단">
+              {older.map((record) => (
+                <li key={record.analysisId}>
+                  <strong>{formatDate(record.completedAt?.slice(0, 10))} 진단</strong>
+                  <span>월 여유금 {formatManwon(record.monthlyAvailable)} · 가격 상한 {record.priceUpper != null ? formatManwon(record.priceUpper) : '없음'}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </>
+      )}
+      <div className="my-insight-actions">
+        <Link className="my-plan-button my-inline-button" to="/financial">{latest ? '새로 진단하기' : '재무 진단 하기'}</Link>
+      </div>
+    </section>
+  );
+}
+
 function TasteCard({ state }) {
   return (
     <section className="my-card my-card-fill" aria-labelledby="my-taste-title">

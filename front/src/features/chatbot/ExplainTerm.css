@@ -1,0 +1,7 @@
+.explain-term { position: relative; display: inline-block; vertical-align: baseline; max-width: 100%; }
+.explain-term > .explain-term-button { display: inline-flex; align-items: center; justify-content: flex-start; gap: var(--space-4); max-width: 100%; min-height: 32px; padding: var(--space-4) 0; border: 0; border-radius: var(--radius-sm); background: transparent; color: var(--color-blue-strong); font: inherit; line-height: inherit; text-align: left; text-decoration: underline dotted; text-underline-offset: 4px; cursor: pointer; }
+.explain-term-button > svg { flex-shrink: 0; }
+.explain-term > .explain-term-button:hover { background: var(--color-blue-tint); color: var(--color-primary); }
+.explain-term > .explain-term-button:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 3px; }
+.explain-term-tooltip { position: absolute; z-index: 10; bottom: calc(100% + var(--space-4)); left: 0; width: max-content; max-width: 200px; padding: var(--space-8) var(--space-12); border-radius: var(--radius-sm); background: var(--color-primary); color: var(--color-surface); font-size: var(--font-caption); font-weight: 400; white-space: normal; pointer-events: none; visibility: hidden; opacity: 0; }
+.explain-term:hover .explain-term-tooltip, .explain-term:focus-within .explain-term-tooltip { visibility: visible; opacity: 1; }

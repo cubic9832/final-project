@@ -7,7 +7,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-// 7단계: 관리자 회원 관리 · 회원 현황 SQL (권한 바꾸기 updateRole 말고는 읽기만 한다)
+// 7단계: 관리자 회원 관리 · 회원 현황 SQL (권한 주기 · 빼기 grantAdmin · revokeAdmin 말고는 읽기만 한다)
 @Mapper
 public interface AdminMemberMapper {
 
@@ -23,7 +23,10 @@ public interface AdminMemberMapper {
 
     String findEmail(Long id); // 로그인 잠금 해제용 (없으면 null)
 
-    int updateRole(@Param("id") Long id, @Param("role") String role);
+    // 보완 11: 권한은 admin_accounts(V21) — 지정은 넣기(있으면 바꾸기), 해제는 지우기
+    int grantAdmin(@Param("id") Long id, @Param("role") String role, @Param("grantedBy") Long grantedBy);
+
+    int revokeAdmin(Long id);
 
     int countJoinedSince(LocalDateTime since);
 

@@ -10,24 +10,28 @@
             <if test="keyword != null">
                 (u.nick_name LIKE CONCAT('%', #{keyword}, '%') OR u.email LIKE CONCAT('%', #{keyword}, '%'))
             </if>
-            <!-- "관리자" 로 거르면 총관리자도 함께 보인다 -->
+            <!-- 보완 11: 권한은 admin_accounts(V21). "관리자" 로 거르면 총관리자도 함께 보인다, "일반 회원" = 표에 없는 회원 -->
             <if test="role == 'ADMIN'">
-                AND u.role IN ('ADMIN', 'SUPER_ADMIN')
+                AND a.role IS NOT NULL
             </if>
-            <if test="role != null and role != 'ADMIN'">
-                AND u.role = #{role}
+            <if test="role == 'SUPER_ADMIN'">
+                AND a.role = 'SUPER_ADMIN'
+            </if>
+            <if test="role == 'USER'">
+                AND a.role IS NULL
             </if>
         </where>
     </sql>
 
     <select id="findMembers" resultType="com.kh.back.admin.dto.AdminMemberRow">
-        SELECT u.id, u.email, u.nick_name, u.role, u.created_at,
+        SELECT u.id, u.email, u.nick_name, COALESCE(a.role, 'USER') AS role, u.created_at,
                u.password_hash &lt;&gt; 'SOCIAL_ONLY' AS has_password,
                EXISTS (SELECT 1 FROM social_accounts s WHERE s.user_id = u.id) AS has_google,
                p.birth_date, p.gender,
                (SELECT COUNT(*) FROM refresh_token r WHERE r.user_id = u.id AND r.expires_at &gt; NOW()) AS active_sessions,
                (SELECT MAX(r.created_at) FROM refresh_token r WHERE r.user_id = u.id AND r.expires_at &gt; NOW()) AS last_used_at
         FROM users u
+        LEFT JOIN admin_accounts a ON a.user_id = u.id
         LEFT JOIN user_profiles p ON p.user_id = u.id
         <include refid="memberFilter"/>
         ORDER BY u.id DESC
@@ -36,16 +40,17 @@
 
     <select id="countMembers" resultType="int">
         SELECT COUNT(*) FROM users u
+        LEFT JOIN admin_accounts a ON a.user_id = u.id
         <include refid="memberFilter"/>
     </select>
 
     <select id="countAdmins" resultType="int">
-        SELECT COUNT(*) FROM users WHERE role IN ('ADMIN', 'SUPER_ADMIN')
+        SELECT COUNT(*) FROM admin_accounts
     </select>
 
     <!-- 7단계: 총관리자가 관리자 권한을 주고 뺀다 (USER ↔ ADMIN). 회원이 없으면 null -->
     <select id="findRole" resultType="string">
-        SELECT role FROM users WHERE id = #{id}
+        SELECT COALESCE(a.role, 'USER') FROM users u LEFT JOIN admin_accounts a ON a.user_id = u.id WHERE u.id = #{id}
     </select>
 
     <!-- 7단계: 로그인 잠금 해제 — 잠금은 이메일로 세므로(보완 6) 이메일을 찾는다 -->
@@ -53,9 +58,16 @@
         SELECT email FROM users WHERE id = #{id}
     </select>
 
-    <update id="updateRole">
-        UPDATE users SET role = #{role} WHERE id = #{id}
-    </update>
+    <!-- 보완 11: 관리자 · 총관리자로 지정 (이미 있으면 권한 · 지정한 사람만 바꾼다) -->
+    <insert id="grantAdmin">
+        INSERT INTO admin_accounts (user_id, role, granted_by) VALUES (#{id}, #{role}, #{grantedBy})
+        ON DUPLICATE KEY UPDATE role = VALUES(role), granted_by = VALUES(granted_by)
+    </insert>
+
+    <!-- 보완 11: 관리자 해제 = 표에서 지운다 → 일반 회원(USER) -->
+    <delete id="revokeAdmin">
+        DELETE FROM admin_accounts WHERE user_id = #{id}
+    </delete>
 
     <select id="countJoinedSince" resultType="int">
         SELECT COUNT(*) FROM users WHERE created_at &gt;= #{since}
