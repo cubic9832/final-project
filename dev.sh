@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-# 개발 환경 한 번에 실행: MySQL(Docker) + Spring Boot + Vite
-#   ./dev.sh         전체 실행 (Ctrl+C 로 back/front 종료, DB 컨테이너는 유지)
-#   ./dev.sh down    DB 컨테이너 중지 (데이터 유지)
-#   ./dev.sh reset   DB 컨테이너와 데이터 삭제 (다음 실행 때 Flyway 가 처음부터 적용)
+# 개발 환경 한 번에 실행: MySQL·Elasticsearch·Kibana(Docker) + Spring Boot + Vite
+#   ./dev.sh         전체 실행 (Ctrl+C 로 back/front 종료, Docker 컨테이너는 유지)
+#   ./dev.sh down    Docker 컨테이너 중지 (데이터 유지)
+#   ./dev.sh reset   Docker 컨테이너와 데이터 삭제 (다음 실행 때 Flyway 가 처음부터 적용)
 #   DB_PORT=3308 ./dev.sh   기본 3307 대신 다른 포트를 쓸 때
+#   ES_PORT=9201 ./dev.sh   Elasticsearch 기본 9200 대신 다른 포트를 쓸 때
 # Windows 는 Git Bash 없이 dev.cmd 를 사용한다.
 set -euo pipefail
 
@@ -12,6 +13,7 @@ cd "$ROOT_DIR"
 
 DEFAULT_DB_PORT=3307
 export DB_PORT="${DB_PORT:-$DEFAULT_DB_PORT}"
+export ES_PORT="${ES_PORT:-9200}"
 
 require_docker() {
   if ! docker info >/dev/null 2>&1; then
@@ -24,6 +26,10 @@ is_db_running() {
   [ -n "$(docker compose ps -q --status running db 2>/dev/null)" ]
 }
 
+is_search_running() {
+  [ -n "$(docker compose ps -q --status running elasticsearch 2>/dev/null)" ]
+}
+
 is_port_in_use() {
   (exec 3<>"/dev/tcp/127.0.0.1/$1") 2>/dev/null
 }
@@ -34,6 +40,16 @@ start_db() {
     exit 1
   fi
   docker compose up -d --wait db
+}
+
+# 첫 실행 때 nori 가 설치된 ES 이미지를 빌드한다. Kibana 는 기동이 느려 기다리지 않는다.
+start_search() {
+  if ! is_search_running && is_port_in_use "$ES_PORT"; then
+    echo "$ES_PORT 포트를 다른 프로세스가 사용 중입니다. 예: ES_PORT=9201 ./dev.sh" >&2
+    exit 1
+  fi
+  docker compose up -d --wait elasticsearch
+  docker compose up -d kibana
 }
 
 lan_ipv4_windows() {
@@ -115,7 +131,7 @@ APP_PIDS=()
 stop_apps() {
   trap - INT TERM EXIT
   echo
-  echo "back/front 를 종료합니다. (DB 컨테이너는 유지: ./dev.sh down 으로 중지)"
+  echo "back/front 를 종료합니다. (Docker 컨테이너는 유지: ./dev.sh down 으로 중지)"
   kill "${APP_PIDS[@]}" 2>/dev/null || true
   wait 2>/dev/null || true
 }
@@ -142,6 +158,7 @@ start_apps() {
   APP_PIDS+=($!)
 
   echo "front: http://localhost:5173  /  back: http://localhost:8080"
+  echo "elasticsearch: http://localhost:$ES_PORT  /  kibana: http://localhost:${KIBANA_PORT:-5601}"
   wait
 }
 
@@ -149,11 +166,12 @@ case "${1:-up}" in
   up)
     require_docker
     start_db
+    start_search
     start_apps
     ;;
   down)
     require_docker
-    docker compose stop db
+    docker compose stop db elasticsearch kibana
     ;;
   reset)
     require_docker
