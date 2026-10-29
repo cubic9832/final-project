@@ -1,0 +1,10 @@
+import { useState } from 'react';
+import { Pencil, Trash2 } from 'lucide-react';
+import { formatMoney, getSavingRecords } from '../../savingsProgress';
+import theme from '../../../../styles/theme';
+
+export default function SavingsRecordHistory({ plan, onEdit, onDelete }) {
+  const [confirmId, setConfirmId] = useState(null);
+  const records = getSavingRecords(plan);
+  return <section className="savings-card savings-history"><div className="savings-section-heading"><h2>날짜별 저축 내역</h2><span className="savings-caption">{records.length}건 · 최근 날짜부터</span></div>{records.length ? <div className="savings-table-scroll"><table><caption className="savings-sr-only">날짜별 저축 기록과 수정</caption><thead><tr><th scope="col">기록 날짜</th><th scope="col">저축액</th><th scope="col">메모</th><th scope="col">관리</th></tr></thead><tbody>{records.map(record => <tr key={record.id}><th scope="row">{record.date || record.month}{record.legacyMonth && <span className="savings-legacy-tag">기존 월별</span>}{record.scheduleId && <span className="savings-legacy-tag">정기 기록</span>}</th><td>{formatMoney(record.amount)}</td><td>{record.memo || '—'}</td><td><div className="savings-record-actions">{confirmId === record.id ? <><span>이 기록을 삭제할까요?</span><button type="button" className="savings-edit-record savings-delete-record" onClick={() => { if (onDelete(record.id)) setConfirmId(null); }}>삭제 확인</button><button type="button" className="savings-edit-record" onClick={() => setConfirmId(null)}>취소</button></> : <><button type="button" className="savings-edit-record" aria-label={`${record.date || record.month} ${formatMoney(record.amount)} 기록 수정`} onClick={() => onEdit(record.id)}><Pencil size={theme.iconSize.sm} aria-hidden />수정</button><button type="button" className="savings-edit-record savings-delete-record" aria-label={`${record.date || record.month} ${formatMoney(record.amount)} 기록 삭제`} onClick={() => setConfirmId(record.id)}><Trash2 size={theme.iconSize.sm} aria-hidden />삭제</button></>}</div></td></tr>)}</tbody></table></div> : <p className="savings-caption">아직 저축 기록이 없습니다. 날짜와 금액을 입력해 첫 기록을 남겨 보세요.</p>}</section>;
+}

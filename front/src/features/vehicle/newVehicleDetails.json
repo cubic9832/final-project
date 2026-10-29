@@ -1,0 +1,2899 @@
+{
+  "checked_on": "2026-10-28",
+  "purpose": "display-only-source-backed-specifications",
+  "vehicles": [
+    {
+      "id": "SPORT-0313da36e7595ef7",
+      "brand": "토요타",
+      "model": "GR86",
+      "trim": "STANDARD 6MT",
+      "year": "",
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.toyota.co.kr/download/model/GR86_spec.pdf",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "배기량",
+          "value": "2,387 cc"
+        },
+        {
+          "label": "엔진",
+          "value": "수평대향 4기통 가솔린"
+        },
+        {
+          "label": "최고 출력",
+          "value": "231 PS"
+        },
+        {
+          "label": "최대 토크",
+          "value": "25.5 kg·m"
+        },
+        {
+          "label": "변속기",
+          "value": "6단 수동"
+        },
+        {
+          "label": "구동",
+          "value": "후륜구동"
+        },
+        {
+          "label": "전장",
+          "value": "4,265 mm"
+        },
+        {
+          "label": "정원",
+          "value": "4명"
+        },
+        {
+          "label": "국내 복합연비",
+          "value": "9.5 km/L"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "SPORT-03970cd84d30d96f",
+      "brand": "BMW",
+      "model": "Z4",
+      "trim": "sDrive20i M 스포츠",
+      "year": "",
+      "body_type": "ROADSTER",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.bmw.co.kr/ko/all-models/z-series/z4-roadster/bmw-z4-roadster.html",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "엔진",
+          "value": "직렬 4기통 가솔린 터보"
+        },
+        {
+          "label": "최고 출력",
+          "value": "197 PS / 145 kW"
+        },
+        {
+          "label": "최대 토크",
+          "value": "320 Nm"
+        },
+        {
+          "label": "0–100 km/h",
+          "value": "6.8 s"
+        },
+        {
+          "label": "최고 속도",
+          "value": "241 km/h"
+        },
+        {
+          "label": "국내 복합연비",
+          "value": "10.7 km/L"
+        }
+      ],
+      "notes": [
+        "공식 한국 페이지에 공개된 해당 엔진·트림 사양입니다. 미확인 차체 치수·정원은 다른 트림에서 복사하지 않습니다.",
+        "0–100 km/h는 모델 제원 표 6.8초와 FAQ 6.6초가 달라 제원 표를 표시합니다."
+      ]
+    },
+    {
+      "id": "SPORT-0aa5ec06e05bfbfe",
+      "brand": "MINI",
+      "model": "Cooper Convertible",
+      "trim": "C Classic",
+      "year": "",
+      "body_type": "CONVERTIBLE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Specification.pdf",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "배기량",
+          "value": "1,998 cc"
+        },
+        {
+          "label": "최고 출력",
+          "value": "163 PS / 120 kW"
+        },
+        {
+          "label": "최대 토크",
+          "value": "25.5 kg·m"
+        },
+        {
+          "label": "변속기",
+          "value": "7단 스텝트로닉 더블 클러치"
+        },
+        {
+          "label": "0–100 km/h",
+          "value": "8.2 s"
+        },
+        {
+          "label": "최고 속도",
+          "value": "220 km/h"
+        },
+        {
+          "label": "전장 / 전폭 / 전고",
+          "value": "3,880 / 1,745 / 1,430 mm"
+        },
+        {
+          "label": "휠베이스",
+          "value": "2,495 mm"
+        },
+        {
+          "label": "정원",
+          "value": "4명"
+        },
+        {
+          "label": "트렁크 용량",
+          "value": "160–215 L"
+        },
+        {
+          "label": "공차중량",
+          "value": "1,410 kg"
+        },
+        {
+          "label": "국내 복합연비",
+          "value": "12.0 km/L"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "SPORT-0c45e6ba03b35c07",
+      "brand": "BMW",
+      "model": "4시리즈 쿠페",
+      "trim": "M4 컴페티션 M xDrive",
+      "year": "",
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.bmw.co.kr/ko/all-models/m-series/bmw-4-series-m-models/bmw-m4-coupe.html",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "엔진",
+          "value": "직렬 6기통 가솔린 터보"
+        },
+        {
+          "label": "최고 출력",
+          "value": "530 PS / 390 kW"
+        },
+        {
+          "label": "최대 토크",
+          "value": "650 Nm"
+        },
+        {
+          "label": "0–100 km/h",
+          "value": "3.5 s"
+        },
+        {
+          "label": "최고 속도",
+          "value": "250 km/h"
+        },
+        {
+          "label": "국내 복합연비",
+          "value": "8.1 km/L"
+        }
+      ],
+      "notes": [
+        "공식 한국 페이지에 공개된 해당 엔진·트림 사양입니다. 미확인 차체 치수·정원은 다른 트림에서 복사하지 않습니다."
+      ]
+    },
+    {
+      "id": "SPORT-0eb9f32638b38d6b",
+      "brand": "MINI",
+      "model": "Cooper Convertible",
+      "trim": "JCW",
+      "year": "",
+      "body_type": "CONVERTIBLE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Specification.pdf",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "배기량",
+          "value": "1,998 cc"
+        },
+        {
+          "label": "최고 출력",
+          "value": "231 PS / 170 kW"
+        },
+        {
+          "label": "최대 토크",
+          "value": "38.8 kg·m"
+        },
+        {
+          "label": "변속기",
+          "value": "7단 스텝트로닉 더블 클러치 스포츠"
+        },
+        {
+          "label": "0–100 km/h",
+          "value": "6.4 s"
+        },
+        {
+          "label": "최고 속도",
+          "value": "245 km/h"
+        },
+        {
+          "label": "전장 / 전폭 / 전고",
+          "value": "3,880 / 1,745 / 1,430 mm"
+        },
+        {
+          "label": "휠베이스",
+          "value": "2,495 mm"
+        },
+        {
+          "label": "정원",
+          "value": "4명"
+        },
+        {
+          "label": "트렁크 용량",
+          "value": "160–215 L"
+        },
+        {
+          "label": "공차중량",
+          "value": "1,445 kg"
+        },
+        {
+          "label": "국내 복합연비",
+          "value": "11.8 km/L"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "SPORT-107f17bb620ba8cd",
+      "brand": "BMW",
+      "model": "4시리즈 쿠페",
+      "trim": "420i 쿠페 M 스포츠 프로",
+      "year": "",
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.press.bmwgroup.com/korea/article/detail/T0444401KO/",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "최고 출력",
+          "value": "190 PS / 140 kW"
+        }
+      ],
+      "notes": [
+        "공식 한국 페이지에 공개된 해당 엔진·트림 사양입니다. 미확인 차체 치수·정원은 다른 트림에서 복사하지 않습니다.",
+        "출력은 부분변경 국내 출시 공식 보도자료로 교차 확인했습니다."
+      ]
+    },
+    {
+      "id": "SPORT-4bb264913759e74b",
+      "brand": "BMW",
+      "model": "4시리즈 쿠페",
+      "trim": "M440i xDrive 쿠페 프로",
+      "year": "",
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.bmw.co.kr/ko/all-models/4-series/4-series-coupe/bmw-4-series-coupe.html",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "최고 출력",
+          "value": "392 PS / 288 kW"
+        },
+        {
+          "label": "최대 토크",
+          "value": "520 Nm"
+        },
+        {
+          "label": "0–100 km/h",
+          "value": "4.5 s"
+        },
+        {
+          "label": "최고 속도",
+          "value": "250 km/h"
+        },
+        {
+          "label": "국내 복합연비",
+          "value": "11.4 km/L"
+        }
+      ],
+      "notes": [
+        "공식 한국 페이지에 공개된 해당 엔진·트림 사양입니다. 미확인 차체 치수·정원은 다른 트림에서 복사하지 않습니다.",
+        "원문 토크 520 Nm와 괄호의 55.1 kg·m가 서로 환산되지 않아 Nm 원문만 표시합니다."
+      ]
+    },
+    {
+      "id": "SPORT-4f6544766d9ec799",
+      "brand": "BMW",
+      "model": "4시리즈 그란쿠페",
+      "trim": "i4 eDrive40 그란 쿠페 M 스포츠",
+      "year": "",
+      "body_type": "COUPE",
+      "fuel": "ELECTRIC",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.bmw.co.kr/ko/all-models/bmw-i/i4/bmw-i4-gran-coupe.html",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "최고 출력",
+          "value": "340 PS / 250 kW"
+        },
+        {
+          "label": "0–100 km/h",
+          "value": "5.6 s"
+        },
+        {
+          "label": "최고 속도",
+          "value": "190 km/h"
+        },
+        {
+          "label": "국내 인증 주행거리",
+          "value": "432 km"
+        },
+        {
+          "label": "국내 복합전비",
+          "value": "4.7 km/kWh"
+        }
+      ],
+      "notes": [
+        "공식 한국 페이지에 공개된 해당 엔진·트림 사양입니다. 미확인 차체 치수·정원은 다른 트림에서 복사하지 않습니다."
+      ]
+    },
+    {
+      "id": "SPORT-5ea71e4b2e97abc7",
+      "brand": "BMW",
+      "model": "2시리즈 쿠페",
+      "trim": "M240i xDrive 쿠페 프로",
+      "year": "",
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.bmw.co.kr/ko/all-models/m-series/bmw-2-series-m-models/bmw-m2-coupe.html",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "엔진",
+          "value": "직렬 6기통 가솔린 터보"
+        },
+        {
+          "label": "최고 출력",
+          "value": "387 PS / 285 kW"
+        },
+        {
+          "label": "0–100 km/h",
+          "value": "4.3 s"
+        },
+        {
+          "label": "변속기",
+          "value": "8단 스텝트로닉 스포츠"
+        },
+        {
+          "label": "구동",
+          "value": "xDrive 사륜구동"
+        },
+        {
+          "label": "국내 복합연비",
+          "value": "9.6 km/L"
+        }
+      ],
+      "notes": [
+        "공식 한국 페이지에 공개된 해당 엔진·트림 사양입니다. 미확인 차체 치수·정원은 다른 트림에서 복사하지 않습니다."
+      ]
+    },
+    {
+      "id": "SPORT-6a007c7fea67dfbc",
+      "brand": "마세라티",
+      "model": "GranCabrio",
+      "trim": "2026 Trofeo V6 550PS",
+      "year": "2026",
+      "body_type": "CONVERTIBLE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.maserati.com/kr/ko/models/grancabrio",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "전장",
+          "value": "4965 MM"
+        },
+        {
+          "label": "미러 포함 전폭",
+          "value": "2113 MM"
+        },
+        {
+          "label": "미러 제외 전폭",
+          "value": "1960 MM"
+        },
+        {
+          "label": "높이",
+          "value": "1380 MM"
+        },
+        {
+          "label": "휠베이스",
+          "value": "2929 MM"
+        },
+        {
+          "label": "프런트 트랙",
+          "value": "1646 MM"
+        },
+        {
+          "label": "리어 트랙",
+          "value": "1660 MM"
+        },
+        {
+          "label": "타이어 사이즈(전)",
+          "value": "265/30 ZR20"
+        },
+        {
+          "label": "타이어 사이즈(후)",
+          "value": "295/30 ZR21"
+        },
+        {
+          "label": "배기량",
+          "value": "2992 CC"
+        },
+        {
+          "label": "엔진 타입",
+          "value": "V6"
+        },
+        {
+          "label": "최대 출력",
+          "value": "550 PS"
+        },
+        {
+          "label": "최대 속도",
+          "value": "316 KM/H"
+        },
+        {
+          "label": "가속",
+          "value": "3.6 SEC"
+        }
+      ],
+      "notes": [
+        "공식 한국 페이지의 2026년형 490PS/550PS 사양을 각각 확인했습니다. 유럽 효율 등급을 국내 공인 연비로 쓰지 않습니다."
+      ]
+    },
+    {
+      "id": "SPORT-6fd53300ad6c5cfb",
+      "brand": "BMW",
+      "model": "4시리즈 컨버터블",
+      "trim": "420i 컨버터블 M 스포츠",
+      "year": "",
+      "body_type": "CONVERTIBLE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.bmw.co.kr/ko/all-models/4-series/4-series-cabrio/bmw-4-series-convertible.html",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "최고 출력",
+          "value": "190 PS / 140 kW"
+        },
+        {
+          "label": "최대 토크",
+          "value": "31.6 kg·m"
+        },
+        {
+          "label": "0–100 km/h",
+          "value": "8.2 s"
+        },
+        {
+          "label": "최고 속도",
+          "value": "236 km/h"
+        },
+        {
+          "label": "국내 복합연비",
+          "value": "12.3 km/L"
+        }
+      ],
+      "notes": [
+        "공식 한국 페이지에 공개된 해당 엔진·트림 사양입니다. 미확인 차체 치수·정원은 다른 트림에서 복사하지 않습니다."
+      ]
+    },
+    {
+      "id": "SPORT-839c9159aedb4458",
+      "brand": "BMW",
+      "model": "2시리즈 쿠페",
+      "trim": "M2 쿠페",
+      "year": "",
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.bmw.co.kr/ko/all-models/m-series/bmw-2-series-m-models/bmw-m2-coupe.html",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "엔진",
+          "value": "직렬 6기통 가솔린 터보"
+        },
+        {
+          "label": "최고 출력",
+          "value": "480 PS / 353 kW"
+        },
+        {
+          "label": "최대 토크",
+          "value": "61.2 kg·m"
+        },
+        {
+          "label": "0–100 km/h",
+          "value": "4.0 s"
+        },
+        {
+          "label": "최고 속도",
+          "value": "250 km/h"
+        },
+        {
+          "label": "변속기",
+          "value": "8단 M 스텝트로닉 스포츠"
+        },
+        {
+          "label": "구동",
+          "value": "후륜구동"
+        },
+        {
+          "label": "국내 복합연비",
+          "value": "8.5 km/L"
+        }
+      ],
+      "notes": [
+        "공식 한국 페이지에 공개된 해당 엔진·트림 사양입니다. 미확인 차체 치수·정원은 다른 트림에서 복사하지 않습니다."
+      ]
+    },
+    {
+      "id": "SPORT-9b8a152a6b916393",
+      "brand": "BMW",
+      "model": "Z4",
+      "trim": "M40i",
+      "year": "",
+      "body_type": "ROADSTER",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.bmw.co.kr/ko/all-models/z-series/z4-roadster/bmw-z4-roadster.html",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "엔진",
+          "value": "직렬 6기통 가솔린 터보"
+        },
+        {
+          "label": "최고 출력",
+          "value": "387 PS / 285 kW"
+        },
+        {
+          "label": "0–100 km/h",
+          "value": "4.1 s"
+        }
+      ],
+      "notes": [
+        "공식 한국 페이지에 공개된 해당 엔진·트림 사양입니다. 미확인 차체 치수·정원은 다른 트림에서 복사하지 않습니다."
+      ]
+    },
+    {
+      "id": "SPORT-9ffbe45a9fd7cad6",
+      "brand": "마세라티",
+      "model": "GranCabrio",
+      "trim": "2026 V6 490PS",
+      "year": "2026",
+      "body_type": "CONVERTIBLE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.maserati.com/kr/ko/models/grancabrio",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "전장",
+          "value": "4965 MM"
+        },
+        {
+          "label": "미러 포함 전폭",
+          "value": "2113 MM"
+        },
+        {
+          "label": "미러 제외 전폭",
+          "value": "1960 MM"
+        },
+        {
+          "label": "높이",
+          "value": "1380 MM"
+        },
+        {
+          "label": "휠베이스",
+          "value": "2929 MM"
+        },
+        {
+          "label": "프런트 트랙",
+          "value": "1647 MM"
+        },
+        {
+          "label": "리어 트랙",
+          "value": "1660 MM"
+        },
+        {
+          "label": "타이어 사이즈(전)",
+          "value": "265/35 ZR20"
+        },
+        {
+          "label": "타이어 사이즈(후)",
+          "value": "295/30 ZR21"
+        },
+        {
+          "label": "배기량",
+          "value": "2992 CC"
+        },
+        {
+          "label": "엔진 타입",
+          "value": "V6"
+        },
+        {
+          "label": "최대 출력",
+          "value": "490 PS"
+        },
+        {
+          "label": "최대 속도",
+          "value": "300 KM/H"
+        },
+        {
+          "label": "가속",
+          "value": "4.0 SEC"
+        }
+      ],
+      "notes": [
+        "공식 한국 페이지의 2026년형 490PS/550PS 사양을 각각 확인했습니다. 유럽 효율 등급을 국내 공인 연비로 쓰지 않습니다."
+      ]
+    },
+    {
+      "id": "SPORT-aaacde75ec1de4df",
+      "brand": "BMW",
+      "model": "2시리즈 그란쿠페",
+      "trim": "220 그란 쿠페 M 스포츠 디자인",
+      "year": "",
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.bmw.co.kr/ko/all-models/2-series/gran-coupe/bmw-2-series-gran-coupe.html",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "최고 출력",
+          "value": "204 PS / 150 kW"
+        },
+        {
+          "label": "0–100 km/h",
+          "value": "7.3 s"
+        },
+        {
+          "label": "최고 속도",
+          "value": "250 km/h"
+        },
+        {
+          "label": "국내 복합연비",
+          "value": "12.3 km/L"
+        }
+      ],
+      "notes": [
+        "공식 한국 페이지에 공개된 해당 엔진·트림 사양입니다. 미확인 차체 치수·정원은 다른 트림에서 복사하지 않습니다."
+      ]
+    },
+    {
+      "id": "SPORT-bf59f2a2a3aaea76",
+      "brand": "마세라티",
+      "model": "GranTurismo",
+      "trim": "2026 V6 490PS",
+      "year": "2026",
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.maserati.com/kr/ko/models/granturismo",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "전장",
+          "value": "4960 MM"
+        },
+        {
+          "label": "미러 포함 전폭",
+          "value": "2113 MM"
+        },
+        {
+          "label": "미러 제외 전폭",
+          "value": "1960 MM"
+        },
+        {
+          "label": "높이",
+          "value": "1370 MM"
+        },
+        {
+          "label": "휠베이스",
+          "value": "2929 MM"
+        },
+        {
+          "label": "프런트 트랙",
+          "value": "1647 MM"
+        },
+        {
+          "label": "리어 트랙",
+          "value": "1660 MM"
+        },
+        {
+          "label": "타이어 사이즈(전)",
+          "value": "265/35 ZR20"
+        },
+        {
+          "label": "타이어 사이즈(후)",
+          "value": "295/30 ZR21"
+        },
+        {
+          "label": "배기량",
+          "value": "2992 CC"
+        },
+        {
+          "label": "엔진 타입",
+          "value": "V6"
+        },
+        {
+          "label": "최대 출력",
+          "value": "490 PS"
+        },
+        {
+          "label": "최대 속도",
+          "value": "302 KM/H"
+        },
+        {
+          "label": "가속",
+          "value": "3.9 SEC"
+        }
+      ],
+      "notes": [
+        "공식 한국 페이지의 2026년형 490PS/550PS 사양을 각각 확인했습니다. 유럽 효율 등급을 국내 공인 연비로 쓰지 않습니다."
+      ]
+    },
+    {
+      "id": "SPORT-e57a272b0b2fca6e",
+      "brand": "BMW",
+      "model": "4시리즈 컨버터블",
+      "trim": "M4 컴페티션 M xDrive 컨버터블",
+      "year": "",
+      "body_type": "CONVERTIBLE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.bmw.co.kr/ko/all-models/m-series/bmw-4-series-m-models/bmw-m4-convertible.html",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "최고 출력",
+          "value": "530 PS / 390 kW"
+        },
+        {
+          "label": "최대 토크",
+          "value": "650 Nm"
+        }
+      ],
+      "notes": [
+        "공식 한국 페이지에 공개된 해당 엔진·트림 사양입니다. 미확인 차체 치수·정원은 다른 트림에서 복사하지 않습니다."
+      ]
+    },
+    {
+      "id": "SPORT-e767c60466be92fc",
+      "brand": "BMW",
+      "model": "4시리즈 그란쿠페",
+      "trim": "420i 그란 쿠페 M 스포츠 프로",
+      "year": "",
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.bmw.co.kr/ko/all-models/4-series/4-series-gran-coupe/bmw-4-series-gran-coupe.html",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "최고 출력",
+          "value": "190 PS / 140 kW"
+        },
+        {
+          "label": "최대 토크",
+          "value": "31.6 kg·m"
+        },
+        {
+          "label": "0–100 km/h",
+          "value": "7.9 s"
+        },
+        {
+          "label": "최고 속도",
+          "value": "235 km/h"
+        },
+        {
+          "label": "국내 복합연비",
+          "value": "11.8 km/L"
+        }
+      ],
+      "notes": [
+        "공식 한국 페이지에 공개된 해당 엔진·트림 사양입니다. 미확인 차체 치수·정원은 다른 트림에서 복사하지 않습니다."
+      ]
+    },
+    {
+      "id": "SPORT-ed9f1e3b6a60f706",
+      "brand": "마세라티",
+      "model": "GranTurismo",
+      "trim": "2026 Trofeo V6 550PS",
+      "year": "2026",
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.maserati.com/kr/ko/models/granturismo",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "전장",
+          "value": "4966 MM"
+        },
+        {
+          "label": "미러 포함 전폭",
+          "value": "2113 MM"
+        },
+        {
+          "label": "미러 제외 전폭",
+          "value": "1957 MM"
+        },
+        {
+          "label": "높이",
+          "value": "1353 MM"
+        },
+        {
+          "label": "휠베이스",
+          "value": "2929 MM"
+        },
+        {
+          "label": "프런트 트랙",
+          "value": "1647 MM"
+        },
+        {
+          "label": "리어 트랙",
+          "value": "1660 MM"
+        },
+        {
+          "label": "타이어 사이즈(전)",
+          "value": "265/30 ZR20"
+        },
+        {
+          "label": "타이어 사이즈(후)",
+          "value": "295/30 ZR21"
+        },
+        {
+          "label": "배기량",
+          "value": "2992 CC"
+        },
+        {
+          "label": "엔진 타입",
+          "value": "V6"
+        },
+        {
+          "label": "최대 출력",
+          "value": "550 PS"
+        },
+        {
+          "label": "최대 속도",
+          "value": "320 KM/H"
+        },
+        {
+          "label": "가속",
+          "value": "3.5 SEC"
+        }
+      ],
+      "notes": [
+        "공식 한국 페이지의 2026년형 490PS/550PS 사양을 각각 확인했습니다. 유럽 효율 등급을 국내 공인 연비로 쓰지 않습니다."
+      ]
+    },
+    {
+      "id": "SPORT-eea982011b1ca734",
+      "brand": "토요타",
+      "model": "GR86",
+      "trim": "PREMIUM 6MT",
+      "year": "",
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.toyota.co.kr/download/model/GR86_spec.pdf",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "배기량",
+          "value": "2,387 cc"
+        },
+        {
+          "label": "엔진",
+          "value": "수평대향 4기통 가솔린"
+        },
+        {
+          "label": "최고 출력",
+          "value": "231 PS"
+        },
+        {
+          "label": "최대 토크",
+          "value": "25.5 kg·m"
+        },
+        {
+          "label": "변속기",
+          "value": "6단 수동"
+        },
+        {
+          "label": "구동",
+          "value": "후륜구동"
+        },
+        {
+          "label": "전장",
+          "value": "4,265 mm"
+        },
+        {
+          "label": "정원",
+          "value": "4명"
+        },
+        {
+          "label": "국내 복합연비",
+          "value": "9.5 km/L"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "SPORT-f3297d0c4ea75370",
+      "brand": "BMW",
+      "model": "8시리즈 그란쿠페",
+      "trim": "M850i xDrive 그란 쿠페 M 퍼포먼스",
+      "year": "",
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.press.bmwgroup.com/korea/article/detail/T0457775KO/",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "엔진",
+          "value": "V8 가솔린 터보"
+        },
+        {
+          "label": "최고 출력",
+          "value": "530 PS"
+        },
+        {
+          "label": "최대 토크",
+          "value": "76.5 kg·m"
+        },
+        {
+          "label": "0–100 km/h",
+          "value": "3.9 s"
+        },
+        {
+          "label": "변속기",
+          "value": "8단 스텝트로닉 스포츠 자동"
+        }
+      ],
+      "notes": [
+        "공식 한국 페이지에 공개된 해당 엔진·트림 사양입니다. 미확인 차체 치수·정원은 다른 트림에서 복사하지 않습니다."
+      ]
+    },
+    {
+      "id": "SPORT-f5326c56ad8df80e",
+      "brand": "MINI",
+      "model": "Cooper Convertible",
+      "trim": "S Favoured",
+      "year": "",
+      "body_type": "CONVERTIBLE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Specification.pdf",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "배기량",
+          "value": "1,998 cc"
+        },
+        {
+          "label": "최고 출력",
+          "value": "204 PS / 150 kW"
+        },
+        {
+          "label": "최대 토크",
+          "value": "30.6 kg·m"
+        },
+        {
+          "label": "변속기",
+          "value": "7단 스텝트로닉 더블 클러치"
+        },
+        {
+          "label": "0–100 km/h",
+          "value": "6.9 s"
+        },
+        {
+          "label": "최고 속도",
+          "value": "237 km/h"
+        },
+        {
+          "label": "전장 / 전폭 / 전고",
+          "value": "3,880 / 1,745 / 1,430 mm"
+        },
+        {
+          "label": "휠베이스",
+          "value": "2,495 mm"
+        },
+        {
+          "label": "정원",
+          "value": "4명"
+        },
+        {
+          "label": "트렁크 용량",
+          "value": "160–215 L"
+        },
+        {
+          "label": "공차중량",
+          "value": "1,425 kg"
+        },
+        {
+          "label": "국내 복합연비",
+          "value": "12.2 km/L"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "research-09ba848c424f73d6",
+      "brand": "Porsche",
+      "model": "911 카브리올레",
+      "trim": "Carrera 4 GTS Cabriolet",
+      "year": "2027",
+      "body_type": "CONVERTIBLE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.porsche.com/korea/ko/models/911/configure/#technical-data-992642",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "Length",
+          "value": "4,553 mm"
+        },
+        {
+          "label": "Width",
+          "value": "1,852 mm"
+        },
+        {
+          "label": "Width (with mirrors)",
+          "value": "2,033 mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "2,450 mm"
+        },
+        {
+          "label": "Height (PASM)",
+          "value": "1,304 mm"
+        },
+        {
+          "label": "Height (PASM Sport Suspension)",
+          "value": "1,292 mm"
+        },
+        {
+          "label": "Displacement",
+          "value": "3,591 cm³"
+        },
+        {
+          "label": "Number of cylinders",
+          "value": "6"
+        },
+        {
+          "label": "Power combined (PS)",
+          "value": "541 PS"
+        },
+        {
+          "label": "Power combined (kW)",
+          "value": "398 kW"
+        },
+        {
+          "label": "Power (PS)",
+          "value": "495 PS"
+        },
+        {
+          "label": "Power (kW)",
+          "value": "364 kW"
+        },
+        {
+          "label": "Max. torque",
+          "value": "570 Nm"
+        },
+        {
+          "label": "Torque combined",
+          "value": "610 Nm"
+        },
+        {
+          "label": "Transmission",
+          "value": "8-speed Porsche Doppelkupplung transmission (PDK) with integrated electric motor"
+        },
+        {
+          "label": "Top speed",
+          "value": "312 km/h"
+        },
+        {
+          "label": "Acceleration 0 - 100 km/h with Sport Chrono Package",
+          "value": "3.1 s"
+        },
+        {
+          "label": "Luggage compartment volume, front",
+          "value": "135 l"
+        },
+        {
+          "label": "Open luggage compartment volume (behind front seats)",
+          "value": "163 l"
+        },
+        {
+          "label": "Maximum load",
+          "value": "390 kg"
+        },
+        {
+          "label": "Turning circle",
+          "value": "10.9 m"
+        }
+      ],
+      "notes": [
+        "한국 공식 구성기의 EU/WLTP 참조 제원입니다. 국내 공인 연비나 기본 정원으로 대입하지 않습니다.",
+        "PASM 높이와 Sport Chrono 가속 조건을 원문대로 구분합니다. 출력이 중복·충돌하면 해당 항목을 확정값으로 쓰지 않습니다."
+      ]
+    },
+    {
+      "id": "research-2252ddfcfaf4f93d",
+      "brand": "Lamborghini",
+      "model": "Revuelto",
+      "trim": "research-candidate",
+      "year": null,
+      "body_type": "COUPE",
+      "fuel": "HYBRID",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.lamborghini.com/en-en/models/revuelto-models/revuelto",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "엔진",
+          "value": "V12 NA 6.5 L"
+        },
+        {
+          "label": "배기량",
+          "value": "6498.5 CM³ (396.6 CU IN)"
+        },
+        {
+          "label": "엔진 최고 출력",
+          "value": "825 CV (607 KW) @ 9250 RPM"
+        },
+        {
+          "label": "시스템 합산 출력",
+          "value": "1015 CV/ 747 KW"
+        },
+        {
+          "label": "엔진 최대 토크",
+          "value": "725 NM @ 6750 RPM"
+        },
+        {
+          "label": "엔진",
+          "value": "MANAGEMENT SYSTEM PFI - BOSCH"
+        },
+        {
+          "label": "변속기 방식",
+          "value": "TRANSVERSAL E-DCT"
+        },
+        {
+          "label": "기어 단수",
+          "value": "8 GEARS"
+        },
+        {
+          "label": "클러치",
+          "value": "DUAL CLUTCH"
+        },
+        {
+          "label": "최고 속도",
+          "value": ">350 KM/H"
+        },
+        {
+          "label": "0–100 km/h",
+          "value": "2.5 S"
+        },
+        {
+          "label": "전장",
+          "value": "4947 MM"
+        },
+        {
+          "label": "전폭 (미러 제외)",
+          "value": "2038 MM"
+        },
+        {
+          "label": "전폭 (미러 포함)",
+          "value": "2266 MM"
+        },
+        {
+          "label": "전고",
+          "value": "1161 MM"
+        },
+        {
+          "label": "휠베이스",
+          "value": "2779 MM"
+        },
+        {
+          "label": "건조중량",
+          "value": "MY26: 1780 KG / MY27: 1795 KG"
+        }
+      ],
+      "notes": [
+        "제조사 국제 제원입니다. 연료 소비량은 접속 지역별로 달라 국내 공인 연비로 사용하지 않습니다.",
+        "건조중량·배터리에 MY26/MY27 차이가 있어 원문을 함께 보존했습니다."
+      ]
+    },
+    {
+      "id": "research-2f7d8729da556495",
+      "brand": "Ferrari",
+      "model": "Amalfi Spider",
+      "trim": "research-candidate",
+      "year": null,
+      "body_type": "CONVERTIBLE",
+      "fuel": null,
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.ferrarisouthbay.com/new-vehicles/amalfi-spider",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "Engine · Type",
+          "value": "V8 Twin-Turbo"
+        },
+        {
+          "label": "Engine · Total displacement",
+          "value": "3855 CC"
+        },
+        {
+          "label": "Engine · Max Power",
+          "value": "640 CV @ 5750 - 7500 RPM"
+        },
+        {
+          "label": "Engine · Max Torque*",
+          "value": " 760 nm at 3000/5750 rpm"
+        },
+        {
+          "label": "Engine · Max Engine Speed",
+          "value": "7600 RPM"
+        },
+        {
+          "label": "Engine · Compression Ratio",
+          "value": "9.4:1"
+        },
+        {
+          "label": "Transmission and Gearbox · Type",
+          "value": "8-speed F1 DCT"
+        },
+        {
+          "label": "Performance · Max Speed",
+          "value": "320 km/h"
+        },
+        {
+          "label": "Performance · 0-100 km/h",
+          "value": "3.3s"
+        },
+        {
+          "label": "Performance · 0-200 km/h",
+          "value": "9.4s"
+        },
+        {
+          "label": "Dimensions and Weight · Length",
+          "value": "4660mm"
+        },
+        {
+          "label": "Dimensions and Weight · Width",
+          "value": "1974mm"
+        },
+        {
+          "label": "Dimensions and Weight · Height",
+          "value": "1301mm"
+        },
+        {
+          "label": "Dimensions and Weight · Wheelbase",
+          "value": "2670mm"
+        },
+        {
+          "label": "Dimensions and Weight · Dry Weight",
+          "value": "1556kg"
+        },
+        {
+          "label": "Tires and Breaks · Front",
+          "value": "245/35 R 20” J8.0"
+        },
+        {
+          "label": "Tires and Breaks · Rear",
+          "value": "285/35 R20” J10.0"
+        }
+      ],
+      "notes": [
+        "제조사 공식 딜러의 국제 사양 참조입니다. 국내 주문 가능 여부·공식 신차 가격·공인 연비 확인과는 별개입니다.",
+        "요약 카드와 기술 제원 표가 다를 때 기술 제원 표를 보존합니다."
+      ]
+    },
+    {
+      "id": "research-325b63506b5cf709",
+      "brand": "Ferrari",
+      "model": "Amalfi",
+      "trim": "research-candidate",
+      "year": null,
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.ferrarisouthbay.com/new-vehicles/amalfi",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "Engine · Type",
+          "value": "V8 Twin-Turbo"
+        },
+        {
+          "label": "Engine · Total displacement",
+          "value": "3855 CC"
+        },
+        {
+          "label": "Engine · Max Power",
+          "value": "640 CV @ 5750 - 7500 RPM"
+        },
+        {
+          "label": "Engine · Max Torque*",
+          "value": " 760 nm at 3000/5750 rpm"
+        },
+        {
+          "label": "Engine · Max Engine Speed",
+          "value": "7600 RPM"
+        },
+        {
+          "label": "Engine · Compression Ratio",
+          "value": "9.4:1"
+        },
+        {
+          "label": "Transmission and Gearbox · Type",
+          "value": "8-speed F1 DCT"
+        },
+        {
+          "label": "Performance · Max Speed",
+          "value": "320 km/h"
+        },
+        {
+          "label": "Performance · 0-100 km/h",
+          "value": "3.3s"
+        },
+        {
+          "label": "Performance · 0-200 km/h",
+          "value": "9.0s"
+        },
+        {
+          "label": "Dimensions and Weight · Length",
+          "value": "4660mm"
+        },
+        {
+          "label": "Dimensions and Weight · Width",
+          "value": "1974mm"
+        },
+        {
+          "label": "Dimensions and Weight · Height",
+          "value": "1301mm"
+        },
+        {
+          "label": "Dimensions and Weight · Wheelbase",
+          "value": "2670mm"
+        },
+        {
+          "label": "Dimensions and Weight · Dry Weight",
+          "value": "1470kg"
+        },
+        {
+          "label": "Tires and Breaks · Front",
+          "value": "245/35 R 20” J8.0"
+        },
+        {
+          "label": "Tires and Breaks · Rear",
+          "value": "285/35 R20” J10.0"
+        }
+      ],
+      "notes": [
+        "제조사 공식 딜러의 국제 사양 참조입니다. 국내 주문 가능 여부·공식 신차 가격·공인 연비 확인과는 별개입니다.",
+        "요약 카드와 기술 제원 표가 다를 때 기술 제원 표를 보존합니다."
+      ]
+    },
+    {
+      "id": "research-39295d8e95003284",
+      "brand": "Porsche",
+      "model": "911 쿠페",
+      "trim": "Turbo S",
+      "year": "2027",
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.porsche.com/korea/ko/models/911/configure/#technical-data-992452",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "Length",
+          "value": "4,551 mm"
+        },
+        {
+          "label": "Width",
+          "value": "1,900 mm"
+        },
+        {
+          "label": "Width (with mirrors)",
+          "value": "2,033 mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "2,450 mm"
+        },
+        {
+          "label": "Height (PASM)",
+          "value": "1,305 mm"
+        },
+        {
+          "label": "Height (PASM Sport Suspension)",
+          "value": "1,295 mm"
+        },
+        {
+          "label": "Displacement",
+          "value": "3,591 cm³"
+        },
+        {
+          "label": "Number of cylinders",
+          "value": "6"
+        },
+        {
+          "label": "Power combined (PS)",
+          "value": "711 PS"
+        },
+        {
+          "label": "Power combined (kW)",
+          "value": "523 kW"
+        },
+        {
+          "label": "Power (PS)",
+          "value": "652 PS"
+        },
+        {
+          "label": "Power (kW)",
+          "value": "480 kW"
+        },
+        {
+          "label": "Max. torque",
+          "value": "760 Nm"
+        },
+        {
+          "label": "Torque combined",
+          "value": "800 Nm"
+        },
+        {
+          "label": "Transmission",
+          "value": "8-speed Porsche Doppelkupplung transmission (PDK) with integrated electric motor"
+        },
+        {
+          "label": "Top speed",
+          "value": "322 km/h"
+        },
+        {
+          "label": "Acceleration 0 - 100 km/h with Sport Chrono Package",
+          "value": "2.5 s"
+        },
+        {
+          "label": "Luggage compartment volume, front",
+          "value": "128 l"
+        },
+        {
+          "label": "Maximum load",
+          "value": "400 kg"
+        },
+        {
+          "label": "Turning circle",
+          "value": "10.9 m"
+        }
+      ],
+      "notes": [
+        "한국 공식 구성기의 EU/WLTP 참조 제원입니다. 국내 공인 연비나 기본 정원으로 대입하지 않습니다.",
+        "PASM 높이와 Sport Chrono 가속 조건을 원문대로 구분합니다. 출력이 중복·충돌하면 해당 항목을 확정값으로 쓰지 않습니다."
+      ]
+    },
+    {
+      "id": "research-3be8660b2daab103",
+      "brand": "Porsche",
+      "model": "911 쿠페",
+      "trim": "GT3 with Touring Package",
+      "year": "2027",
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.porsche.com/korea/ko/models/911/configure/#technical-data-992822",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "Length",
+          "value": "4,570 mm"
+        },
+        {
+          "label": "Width",
+          "value": "1,852 mm"
+        },
+        {
+          "label": "Width (with mirrors)",
+          "value": "2,033 mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "2,457 mm"
+        },
+        {
+          "label": "Height, steel suspension (PASM DIN)",
+          "value": "1,279 mm"
+        },
+        {
+          "label": "Displacement",
+          "value": "3,996 cm³"
+        },
+        {
+          "label": "Number of cylinders",
+          "value": "6"
+        },
+        {
+          "label": "Power (PS)",
+          "value": "510 PS"
+        },
+        {
+          "label": "Power (kW)",
+          "value": "375 kW"
+        },
+        {
+          "label": "Max. torque",
+          "value": "450 Nm"
+        },
+        {
+          "label": "Transmission",
+          "value": "7-speed PDK with PTV Plus"
+        },
+        {
+          "label": "Top speed",
+          "value": "311 km/h"
+        },
+        {
+          "label": "Acceleration 0 - 100 km/h",
+          "value": "3.4 s"
+        },
+        {
+          "label": "Luggage compartment volume, front",
+          "value": "135 l"
+        },
+        {
+          "label": "Open luggage compartment volume (behind front seats)",
+          "value": "373 l"
+        },
+        {
+          "label": "Maximum load",
+          "value": "383 kg"
+        },
+        {
+          "label": "Turning circle",
+          "value": "10.9 m"
+        }
+      ],
+      "notes": [
+        "한국 공식 구성기의 EU/WLTP 참조 제원입니다. 국내 공인 연비나 기본 정원으로 대입하지 않습니다.",
+        "PASM 높이와 Sport Chrono 가속 조건을 원문대로 구분합니다. 출력이 중복·충돌하면 해당 항목을 확정값으로 쓰지 않습니다."
+      ]
+    },
+    {
+      "id": "research-41dbe8464511fe28",
+      "brand": "Porsche",
+      "model": "911 타르가",
+      "trim": "Targa 4 GTS",
+      "year": "2027",
+      "body_type": "CONVERTIBLE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.porsche.com/korea/ko/models/911/configure/#technical-data-992542",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "Length",
+          "value": "4,553 mm"
+        },
+        {
+          "label": "Width",
+          "value": "1,852 mm"
+        },
+        {
+          "label": "Width (with mirrors)",
+          "value": "2,033 mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "2,450 mm"
+        },
+        {
+          "label": "Height (PASM)",
+          "value": "1,302 mm"
+        },
+        {
+          "label": "Displacement",
+          "value": "3,591 cm³"
+        },
+        {
+          "label": "Number of cylinders",
+          "value": "6"
+        },
+        {
+          "label": "Power combined (PS)",
+          "value": "541 PS"
+        },
+        {
+          "label": "Power combined (kW)",
+          "value": "398 kW"
+        },
+        {
+          "label": "Power (PS)",
+          "value": "495 PS"
+        },
+        {
+          "label": "Power (kW)",
+          "value": "364 kW"
+        },
+        {
+          "label": "Max. torque",
+          "value": "570 Nm"
+        },
+        {
+          "label": "Torque combined",
+          "value": "610 Nm"
+        },
+        {
+          "label": "Transmission",
+          "value": "8-speed Porsche Doppelkupplung transmission (PDK) with integrated electric motor"
+        },
+        {
+          "label": "Top speed",
+          "value": "312 km/h"
+        },
+        {
+          "label": "Acceleration 0 - 100 km/h with Sport Chrono Package",
+          "value": "3.1 s"
+        },
+        {
+          "label": "Luggage compartment volume, front",
+          "value": "135 l"
+        },
+        {
+          "label": "Open luggage compartment volume (behind front seats)",
+          "value": "163 l"
+        },
+        {
+          "label": "Maximum load",
+          "value": "390 kg"
+        },
+        {
+          "label": "Turning circle",
+          "value": "10.9 m"
+        }
+      ],
+      "notes": [
+        "한국 공식 구성기의 EU/WLTP 참조 제원입니다. 국내 공인 연비나 기본 정원으로 대입하지 않습니다.",
+        "PASM 높이와 Sport Chrono 가속 조건을 원문대로 구분합니다. 출력이 중복·충돌하면 해당 항목을 확정값으로 쓰지 않습니다."
+      ]
+    },
+    {
+      "id": "research-4ee3df1a41b7dede",
+      "brand": "Porsche",
+      "model": "911 카브리올레",
+      "trim": "Turbo S Cabriolet",
+      "year": "2027",
+      "body_type": "CONVERTIBLE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.porsche.com/korea/ko/models/911/configure/#technical-data-992652",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "Length",
+          "value": "4,551 mm"
+        },
+        {
+          "label": "Width",
+          "value": "1,900 mm"
+        },
+        {
+          "label": "Width (with mirrors)",
+          "value": "2,033 mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "2,450 mm"
+        },
+        {
+          "label": "Height (PASM)",
+          "value": "1,304 mm"
+        },
+        {
+          "label": "Height (PASM Sport Suspension)",
+          "value": "1,294 mm"
+        },
+        {
+          "label": "Displacement",
+          "value": "3,591 cm³"
+        },
+        {
+          "label": "Number of cylinders",
+          "value": "6"
+        },
+        {
+          "label": "Power combined (PS)",
+          "value": "711 PS"
+        },
+        {
+          "label": "Power combined (kW)",
+          "value": "523 kW"
+        },
+        {
+          "label": "Power (PS)",
+          "value": "652 PS"
+        },
+        {
+          "label": "Power (kW)",
+          "value": "480 kW"
+        },
+        {
+          "label": "Max. torque",
+          "value": "760 Nm"
+        },
+        {
+          "label": "Torque combined",
+          "value": "800 Nm"
+        },
+        {
+          "label": "Transmission",
+          "value": "8-speed Porsche Doppelkupplung transmission (PDK) with integrated electric motor"
+        },
+        {
+          "label": "Top speed",
+          "value": "322 km/h"
+        },
+        {
+          "label": "Acceleration 0 - 100 km/h with Sport Chrono Package",
+          "value": "2.6 s"
+        },
+        {
+          "label": "Luggage compartment volume, front",
+          "value": "128 l"
+        },
+        {
+          "label": "Open luggage compartment volume (behind front seats)",
+          "value": "163 l"
+        },
+        {
+          "label": "Maximum load",
+          "value": "365 kg"
+        },
+        {
+          "label": "Turning circle",
+          "value": "10.9 m"
+        }
+      ],
+      "notes": [
+        "한국 공식 구성기의 EU/WLTP 참조 제원입니다. 국내 공인 연비나 기본 정원으로 대입하지 않습니다.",
+        "PASM 높이와 Sport Chrono 가속 조건을 원문대로 구분합니다. 출력이 중복·충돌하면 해당 항목을 확정값으로 쓰지 않습니다."
+      ]
+    },
+    {
+      "id": "research-6140c12787f85049",
+      "brand": "Ferrari",
+      "model": "12Cilindri Spider",
+      "trim": "research-candidate",
+      "year": null,
+      "body_type": "CONVERTIBLE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.ferrarisouthbay.com/new-vehicles/12-cilindri-spider",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "Engine · Type",
+          "value": "V12 "
+        },
+        {
+          "label": "Engine · Total displacement",
+          "value": "6493 cm3"
+        },
+        {
+          "label": "Engine · Max Power*",
+          "value": "830 CV"
+        },
+        {
+          "label": "Engine · Max Torque*",
+          "value": "678 Nm"
+        },
+        {
+          "label": "Engine · Max Engine Speed",
+          "value": "9500 RPM"
+        },
+        {
+          "label": "Engine · Compression Ratio",
+          "value": "13.5:1"
+        },
+        {
+          "label": "Transmission and Gearbox · Type",
+          "value": "8-speed DCT"
+        },
+        {
+          "label": "Dimensions and Weight · Length",
+          "value": " 4733 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Width",
+          "value": "2176 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Height",
+          "value": "1292 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Wheelbase",
+          "value": " 2700 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Front Track",
+          "value": "11686 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Rear Track",
+          "value": "1645 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Dry Weight***",
+          "value": "1620 kg"
+        },
+        {
+          "label": "Tires and Breaks · Front",
+          "value": "275/35 R21 J10.0"
+        },
+        {
+          "label": "Tires and Breaks · Rear",
+          "value": "315/35 R21 J11.5"
+        }
+      ],
+      "notes": [
+        "제조사 공식 딜러의 국제 사양 참조입니다. 국내 주문 가능 여부·공식 신차 가격·공인 연비 확인과는 별개입니다.",
+        "요약 카드와 기술 제원 표가 다를 때 기술 제원 표를 보존합니다."
+      ]
+    },
+    {
+      "id": "research-6cd54995b2928c34",
+      "brand": "Ferrari",
+      "model": "296 GTS",
+      "trim": "research-candidate",
+      "year": null,
+      "body_type": "CONVERTIBLE",
+      "fuel": "HYBRID",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.ferrarisouthbay.com/new-vehicles/296-gts",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "Engine · Type",
+          "value": "V6 - 120° Turbo"
+        },
+        {
+          "label": "Engine · Total displacement",
+          "value": "2992cc"
+        },
+        {
+          "label": "Engine · Max Power (Hybrid)",
+          "value": "830cv"
+        },
+        {
+          "label": "Engine · Max Power* (ICE)",
+          "value": "663 CV"
+        },
+        {
+          "label": "Engine · Max Torque*",
+          "value": "610Nm"
+        },
+        {
+          "label": "Engine · Max Engine Speed",
+          "value": "8500 RPM"
+        },
+        {
+          "label": "Engine · Compression Ratio",
+          "value": "9.4:1"
+        },
+        {
+          "label": "Engine · Battery Capacity",
+          "value": "7.45kWh"
+        },
+        {
+          "label": "Transmission and Gearbox · Type",
+          "value": "8-speed F1 DCT"
+        },
+        {
+          "label": "Performance · Max Speed",
+          "value": "> 330 km/h"
+        },
+        {
+          "label": "Performance · 0-100 km/h",
+          "value": "2.9 s"
+        },
+        {
+          "label": "Performance · 0-200 km/h",
+          "value": "7.6s"
+        },
+        {
+          "label": "Performance · 200-0 km/h",
+          "value": "107 m"
+        },
+        {
+          "label": "Performance · Fiorno lap time",
+          "value": "1' 21\""
+        },
+        {
+          "label": "Dimensions and Weight · Length",
+          "value": " 4565 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Width",
+          "value": "1958 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Height",
+          "value": "1187 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Wheelbase",
+          "value": " 2600 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Front Track",
+          "value": "1665 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Rear Track",
+          "value": "1632 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Dry Weight***",
+          "value": "1470 kg"
+        },
+        {
+          "label": "Dimensions and Weight · Dry Weight/Power Ratio",
+          "value": "1.77 kg/cv"
+        },
+        {
+          "label": "Tires and Breaks · Front",
+          "value": "245/35 ZR 20 J9.0"
+        },
+        {
+          "label": "Tires and Breaks · Rear",
+          "value": "305/35 ZR 20 J11.0"
+        }
+      ],
+      "notes": [
+        "제조사 공식 딜러의 국제 사양 참조입니다. 국내 주문 가능 여부·공식 신차 가격·공인 연비 확인과는 별개입니다.",
+        "요약 카드와 기술 제원 표가 다를 때 기술 제원 표를 보존합니다."
+      ]
+    },
+    {
+      "id": "research-81f001cd557917d0",
+      "brand": "Lamborghini",
+      "model": "Temerario",
+      "trim": "research-candidate",
+      "year": null,
+      "body_type": "COUPE",
+      "fuel": "HYBRID",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.lamborghini.com/en-en/models/temerario",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "엔진",
+          "value": "V8 BI-TURBO - HOT-V 4.0L"
+        },
+        {
+          "label": "배기량",
+          "value": "3,995.2 CM3 (243.8 CU IN)"
+        },
+        {
+          "label": "엔진 최고 출력",
+          "value": "800 CV @ 9000-9750 RPM"
+        },
+        {
+          "label": "시스템 합산 출력",
+          "value": "677KW / 920 CV"
+        },
+        {
+          "label": "엔진 최대 토크",
+          "value": "730 NM @ 4000-7000 RPM"
+        },
+        {
+          "label": "엔진",
+          "value": "MANAGEMENT SYSTEM CENTRAL DI - BOSCH"
+        },
+        {
+          "label": "변속기 방식",
+          "value": "AMT"
+        },
+        {
+          "label": "기어 단수",
+          "value": "8 GEARS"
+        },
+        {
+          "label": "클러치",
+          "value": "DUAL CLUTCH"
+        },
+        {
+          "label": "최고 속도",
+          "value": "343 KM/H"
+        },
+        {
+          "label": "0–100 km/h",
+          "value": "2.7 S"
+        },
+        {
+          "label": "휠베이스",
+          "value": "2,658 MM (104.6457 IN.)"
+        },
+        {
+          "label": "전장",
+          "value": "4,706 MM (185.2756 IN.)"
+        },
+        {
+          "label": "전폭 (미러 제외)",
+          "value": "1,996 MM (78.5826 IN.)"
+        },
+        {
+          "label": "전폭 (미러 포함)",
+          "value": "2,246 MM (88.4252 IN.)"
+        },
+        {
+          "label": "전고",
+          "value": "1,201 MM (47.2834 IN.)"
+        },
+        {
+          "label": "건조중량",
+          "value": "1,705 KG (3,758.9 LB)"
+        }
+      ],
+      "notes": [
+        "제조사 국제 제원입니다. 연료 소비량은 접속 지역별로 달라 국내 공인 연비로 사용하지 않습니다.",
+        "건조중량·배터리에 MY26/MY27 차이가 있어 원문을 함께 보존했습니다."
+      ]
+    },
+    {
+      "id": "research-901d5a74773caa55",
+      "brand": "Porsche",
+      "model": "911 쿠페",
+      "trim": "Carrera GTS",
+      "year": "2027",
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.porsche.com/korea/ko/models/911/configure/#technical-data-992142",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "Length",
+          "value": "4,553 mm"
+        },
+        {
+          "label": "Width",
+          "value": "1,852 mm"
+        },
+        {
+          "label": "Width (with mirrors)",
+          "value": "2,033 mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "2,450 mm"
+        },
+        {
+          "label": "Height (PASM)",
+          "value": "1,306 mm"
+        },
+        {
+          "label": "Height (PASM Sport Suspension)",
+          "value": "1,296 mm"
+        },
+        {
+          "label": "Displacement",
+          "value": "3,591 cm³"
+        },
+        {
+          "label": "Number of cylinders",
+          "value": "6"
+        },
+        {
+          "label": "Power combined (PS)",
+          "value": "541 PS"
+        },
+        {
+          "label": "Power combined (kW)",
+          "value": "398 kW"
+        },
+        {
+          "label": "Power (PS)",
+          "value": "495 PS"
+        },
+        {
+          "label": "Power (kW)",
+          "value": "364 kW"
+        },
+        {
+          "label": "Max. torque",
+          "value": "570 Nm"
+        },
+        {
+          "label": "Torque combined",
+          "value": "610 Nm"
+        },
+        {
+          "label": "Transmission",
+          "value": "8-speed Porsche Doppelkupplung transmission (PDK) with integrated electric motor"
+        },
+        {
+          "label": "Top speed",
+          "value": "312 km/h"
+        },
+        {
+          "label": "Acceleration 0 - 100 km/h with Sport Chrono Package",
+          "value": "3.0 s"
+        },
+        {
+          "label": "Luggage compartment volume, front",
+          "value": "135 l"
+        },
+        {
+          "label": "Open luggage compartment volume (behind front seats)",
+          "value": "261 l"
+        },
+        {
+          "label": "Maximum load",
+          "value": "450 kg"
+        },
+        {
+          "label": "Turning circle",
+          "value": "10.9 m"
+        }
+      ],
+      "notes": [
+        "한국 공식 구성기의 EU/WLTP 참조 제원입니다. 국내 공인 연비나 기본 정원으로 대입하지 않습니다.",
+        "PASM 높이와 Sport Chrono 가속 조건을 원문대로 구분합니다. 출력이 중복·충돌하면 해당 항목을 확정값으로 쓰지 않습니다."
+      ]
+    },
+    {
+      "id": "research-90fba97cde44e041",
+      "brand": "Porsche",
+      "model": "911 카브리올레",
+      "trim": "Carrera GTS Cabriolet",
+      "year": "2027",
+      "body_type": "CONVERTIBLE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.porsche.com/korea/ko/models/911/configure/#technical-data-992342",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "Length",
+          "value": "4,553 mm"
+        },
+        {
+          "label": "Width",
+          "value": "1,852 mm"
+        },
+        {
+          "label": "Width (with mirrors)",
+          "value": "2,033 mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "2,450 mm"
+        },
+        {
+          "label": "Height (PASM)",
+          "value": "1,302 mm"
+        },
+        {
+          "label": "Height (PASM Sport Suspension)",
+          "value": "1,293 mm"
+        },
+        {
+          "label": "Displacement",
+          "value": "3,591 cm³"
+        },
+        {
+          "label": "Number of cylinders",
+          "value": "6"
+        },
+        {
+          "label": "Power combined (PS)",
+          "value": "541 PS"
+        },
+        {
+          "label": "Power combined (kW)",
+          "value": "398 kW"
+        },
+        {
+          "label": "Power (PS)",
+          "value": "485 PS / 495 PS",
+          "status": "source-conflict"
+        },
+        {
+          "label": "Power (kW)",
+          "value": "364 kW"
+        },
+        {
+          "label": "Max. torque",
+          "value": "570 Nm"
+        },
+        {
+          "label": "Torque combined",
+          "value": "610 Nm"
+        },
+        {
+          "label": "Transmission",
+          "value": "8-speed Porsche Doppelkupplung transmission (PDK) with integrated electric motor"
+        },
+        {
+          "label": "Top speed",
+          "value": "312 km/h"
+        },
+        {
+          "label": "Acceleration 0 - 100 km/h with Sport Chrono Package",
+          "value": "3.1 s"
+        },
+        {
+          "label": "Luggage compartment volume, front",
+          "value": "135 l"
+        },
+        {
+          "label": "Open luggage compartment volume (behind front seats)",
+          "value": "163 l"
+        },
+        {
+          "label": "Maximum load",
+          "value": "420 kg"
+        },
+        {
+          "label": "Turning circle",
+          "value": "10.9 m"
+        }
+      ],
+      "notes": [
+        "한국 공식 구성기의 EU/WLTP 참조 제원입니다. 국내 공인 연비나 기본 정원으로 대입하지 않습니다.",
+        "PASM 높이와 Sport Chrono 가속 조건을 원문대로 구분합니다. 출력이 중복·충돌하면 해당 항목을 확정값으로 쓰지 않습니다."
+      ]
+    },
+    {
+      "id": "research-94eaa971ad63e86a",
+      "brand": "Ferrari",
+      "model": "Roma Spider",
+      "trim": "research-candidate",
+      "year": null,
+      "body_type": "CONVERTIBLE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.ferrarisouthbay.com/new-vehicles/roma-spider",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "Engine · Type",
+          "value": "V8 – 90°"
+        },
+        {
+          "label": "Engine · Total displacement",
+          "value": "3855 CC"
+        },
+        {
+          "label": "Engine · Max Power",
+          "value": "620 CV @ 5750 - 7500 RPM"
+        },
+        {
+          "label": "Engine · Max Torque*",
+          "value": " 760 nm at 3000/5750 rpm"
+        },
+        {
+          "label": "Engine · Max Engine Speed",
+          "value": "7500 RPM"
+        },
+        {
+          "label": "Engine · Compression Ratio",
+          "value": "9.45:1"
+        },
+        {
+          "label": "Transmission and Gearbox · Type",
+          "value": "8-speed F1 DCT"
+        },
+        {
+          "label": "Performance · Max Speed",
+          "value": "> 320 km/h"
+        },
+        {
+          "label": "Performance · 0-100 km/h",
+          "value": "3.4s"
+        },
+        {
+          "label": "Performance · 0-200 km/h",
+          "value": "9.7s"
+        },
+        {
+          "label": "Dimensions and Weight · Length",
+          "value": "4656mm"
+        },
+        {
+          "label": "Dimensions and Weight · Width",
+          "value": "1974mm"
+        },
+        {
+          "label": "Dimensions and Weight · Height",
+          "value": "1306mm"
+        },
+        {
+          "label": "Dimensions and Weight · Wheelbase",
+          "value": "2670mm"
+        },
+        {
+          "label": "Dimensions and Weight · Dry Weight",
+          "value": "1556kg"
+        },
+        {
+          "label": "Tires and Breaks · Front",
+          "value": "245/35 ZR 20 J8"
+        },
+        {
+          "label": "Tires and Breaks · Rear",
+          "value": "285/35 ZR 20 J10"
+        }
+      ],
+      "notes": [
+        "제조사 공식 딜러의 국제 사양 참조입니다. 국내 주문 가능 여부·공식 신차 가격·공인 연비 확인과는 별개입니다.",
+        "요약 카드와 기술 제원 표가 다를 때 기술 제원 표를 보존합니다.",
+        "공식 딜러에서 Past Models로 분류되어 있어 현행 국내 신차 주문 가능으로 표시하지 않습니다."
+      ]
+    },
+    {
+      "id": "research-b2432b18494d0213",
+      "brand": "Ferrari",
+      "model": "296 GTB",
+      "trim": "research-candidate",
+      "year": null,
+      "body_type": "COUPE",
+      "fuel": "HYBRID",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.ferrarisouthbay.com/new-vehicles/296-gtb",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "Engine · Type",
+          "value": "V6 - 120° Turbo"
+        },
+        {
+          "label": "Engine · Total displacement",
+          "value": "2992cc"
+        },
+        {
+          "label": "Engine · Max Power (Hybrid)",
+          "value": "830cv"
+        },
+        {
+          "label": "Engine · Max Power* (ICE)",
+          "value": "663 CV"
+        },
+        {
+          "label": "Engine · Max Torque*",
+          "value": "610Nm"
+        },
+        {
+          "label": "Engine · Max Engine Speed",
+          "value": "8500 RPM"
+        },
+        {
+          "label": "Engine · Compression Ratio",
+          "value": "9.4:1"
+        },
+        {
+          "label": "Engine · Battery Capacity",
+          "value": "7.45kWh"
+        },
+        {
+          "label": "Transmission and Gearbox · Type",
+          "value": "8-speed F1 DCT"
+        },
+        {
+          "label": "Performance · Max Speed",
+          "value": "> 330 km/h"
+        },
+        {
+          "label": "Performance · 0-100 km/h",
+          "value": "2.9 s"
+        },
+        {
+          "label": "Performance · 0-200 km/h",
+          "value": "7.6s"
+        },
+        {
+          "label": "Performance · 200-0 km/h",
+          "value": "107 m"
+        },
+        {
+          "label": "Performance · Fiorno lap time",
+          "value": "1' 21\""
+        },
+        {
+          "label": "Dimensions and Weight · Length",
+          "value": " 4565 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Width",
+          "value": "1958 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Height",
+          "value": "1187 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Wheelbase",
+          "value": " 2600 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Front Track",
+          "value": "1665 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Rear Track",
+          "value": "1632 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Dry Weight***",
+          "value": "1470 kg"
+        },
+        {
+          "label": "Dimensions and Weight · Dry Weight/Power Ratio",
+          "value": "1.77 kg/cv"
+        },
+        {
+          "label": "Tires and Breaks · Front",
+          "value": "245/35 ZR 20 J9.0"
+        },
+        {
+          "label": "Tires and Breaks · Rear",
+          "value": "305/35 ZR 20 J11.0"
+        }
+      ],
+      "notes": [
+        "제조사 공식 딜러의 국제 사양 참조입니다. 국내 주문 가능 여부·공식 신차 가격·공인 연비 확인과는 별개입니다.",
+        "요약 카드와 기술 제원 표가 다를 때 기술 제원 표를 보존합니다."
+      ]
+    },
+    {
+      "id": "research-c096cac3883cc344",
+      "brand": "Porsche",
+      "model": "911 쿠페",
+      "trim": "GT3",
+      "year": "2027",
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.porsche.com/korea/ko/models/911/configure/#technical-data-992812",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "Length",
+          "value": "4,570 mm"
+        },
+        {
+          "label": "Width",
+          "value": "1,852 mm"
+        },
+        {
+          "label": "Width (with mirrors)",
+          "value": "2,033 mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "2,457 mm"
+        },
+        {
+          "label": "Height, steel suspension (PASM DIN)",
+          "value": "1,279 mm"
+        },
+        {
+          "label": "Displacement",
+          "value": "3,996 cm³"
+        },
+        {
+          "label": "Number of cylinders",
+          "value": "6"
+        },
+        {
+          "label": "Power (PS)",
+          "value": "510 PS"
+        },
+        {
+          "label": "Power (kW)",
+          "value": "375 kW"
+        },
+        {
+          "label": "Max. torque",
+          "value": "450 Nm"
+        },
+        {
+          "label": "Transmission",
+          "value": "7-speed PDK with PTV Plus"
+        },
+        {
+          "label": "Top speed",
+          "value": "311 km/h"
+        },
+        {
+          "label": "Acceleration 0 - 100 km/h",
+          "value": "3.4 s"
+        },
+        {
+          "label": "Luggage compartment volume, front",
+          "value": "135 l"
+        },
+        {
+          "label": "Open luggage compartment volume (behind front seats)",
+          "value": "373 l"
+        },
+        {
+          "label": "Maximum load",
+          "value": "303 kg"
+        },
+        {
+          "label": "Turning circle",
+          "value": "10.9 m"
+        }
+      ],
+      "notes": [
+        "한국 공식 구성기의 EU/WLTP 참조 제원입니다. 국내 공인 연비나 기본 정원으로 대입하지 않습니다.",
+        "PASM 높이와 Sport Chrono 가속 조건을 원문대로 구분합니다. 출력이 중복·충돌하면 해당 항목을 확정값으로 쓰지 않습니다."
+      ]
+    },
+    {
+      "id": "research-d386d919e490ca62",
+      "brand": "Porsche",
+      "model": "911 카브리올레",
+      "trim": "Spirit 70",
+      "year": "2026",
+      "body_type": "CONVERTIBLE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.porsche.com/korea/ko/models/911/configure/#technical-data-992352",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "Length",
+          "value": "4,553 mm"
+        },
+        {
+          "label": "Width",
+          "value": "1,852 mm"
+        },
+        {
+          "label": "Width (with mirrors)",
+          "value": "2,033 mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "2,450 mm"
+        },
+        {
+          "label": "Height (PASM -10 DIN)",
+          "value": "1,302 mm"
+        },
+        {
+          "label": "Height (PASM -20 DIN)",
+          "value": "1,293 mm"
+        },
+        {
+          "label": "Displacement",
+          "value": "3,591 cc"
+        },
+        {
+          "label": "Number of cylinders",
+          "value": "6"
+        },
+        {
+          "label": "Power combined (PS)",
+          "value": "541 PS"
+        },
+        {
+          "label": "Power combined (kW)",
+          "value": "398 kW"
+        },
+        {
+          "label": "Power (PS)",
+          "value": "495 PS"
+        },
+        {
+          "label": "Power (kW)",
+          "value": "364 kW"
+        },
+        {
+          "label": "Max. torque",
+          "value": "58.1 kg·m"
+        },
+        {
+          "label": "Torque combined",
+          "value": "62.2 kg·m"
+        },
+        {
+          "label": "Transmission",
+          "value": "8-speed Porsche Doppelkupplung transmission (PDK) with integrated electric motor"
+        },
+        {
+          "label": "Top speed",
+          "value": "312 km/h"
+        },
+        {
+          "label": "Acceleration 0 - 100 km/h with Sport Chrono Package",
+          "value": "3.1 s"
+        },
+        {
+          "label": "Luggage compartment volume, front",
+          "value": "135 ℓ"
+        },
+        {
+          "label": "Open luggage compartment volume (behind front seats)",
+          "value": "163 ℓ"
+        },
+        {
+          "label": "Maximum load",
+          "value": "420 kg"
+        }
+      ],
+      "notes": [
+        "한국 공식 구성기의 EU/WLTP 참조 제원입니다. 국내 공인 연비나 기본 정원으로 대입하지 않습니다.",
+        "PASM 높이와 Sport Chrono 가속 조건을 원문대로 구분합니다. 출력이 중복·충돌하면 해당 항목을 확정값으로 쓰지 않습니다."
+      ]
+    },
+    {
+      "id": "research-d40dc69716d07f60",
+      "brand": "Ferrari",
+      "model": "12Cilindri",
+      "trim": "research-candidate",
+      "year": null,
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.ferrarisouthbay.com/new-vehicles/12-cilindri",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "Engine · Type",
+          "value": "V12 "
+        },
+        {
+          "label": "Engine · Total displacement",
+          "value": "6493 cm3"
+        },
+        {
+          "label": "Engine · Max Power*",
+          "value": "830 CV"
+        },
+        {
+          "label": "Engine · Max Torque*",
+          "value": "678 Nm"
+        },
+        {
+          "label": "Engine · Max Engine Speed",
+          "value": "9500 RPM"
+        },
+        {
+          "label": "Engine · Compression Ratio",
+          "value": "13.5:1"
+        },
+        {
+          "label": "Transmission and Gearbox · Type",
+          "value": "8-speed DCT"
+        },
+        {
+          "label": "Dimensions and Weight · Length",
+          "value": " 4733 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Width",
+          "value": "2176 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Height",
+          "value": "1292 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Wheelbase",
+          "value": " 2700 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Front Track",
+          "value": "11686 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Rear Track",
+          "value": "1645 mm"
+        },
+        {
+          "label": "Dimensions and Weight · Dry Weight***",
+          "value": "1560 kg"
+        },
+        {
+          "label": "Tires and Breaks · Front",
+          "value": "275/35 R21 J10.0"
+        },
+        {
+          "label": "Tires and Breaks · Rear",
+          "value": "315/35 R21 J11.5"
+        }
+      ],
+      "notes": [
+        "제조사 공식 딜러의 국제 사양 참조입니다. 국내 주문 가능 여부·공식 신차 가격·공인 연비 확인과는 별개입니다.",
+        "요약 카드와 기술 제원 표가 다를 때 기술 제원 표를 보존합니다."
+      ]
+    },
+    {
+      "id": "research-f4a205961e52ed2b",
+      "brand": "Porsche",
+      "model": "911 쿠페",
+      "trim": "Carrera 4 GTS",
+      "year": "2027",
+      "body_type": "COUPE",
+      "fuel": "GASOLINE",
+      "checked_on": "2026-10-28",
+      "display_only": true,
+      "source_url": "https://www.porsche.com/korea/ko/models/911/configure/#technical-data-992442",
+      "scope": "트림별 공개 제원; 국제 참조 사양과 국내 인증 사양은 각 항목·주석 참조",
+      "fields": [
+        {
+          "label": "Length",
+          "value": "4,553 mm"
+        },
+        {
+          "label": "Width",
+          "value": "1,852 mm"
+        },
+        {
+          "label": "Width (with mirrors)",
+          "value": "2,033 mm"
+        },
+        {
+          "label": "Wheelbase",
+          "value": "2,450 mm"
+        },
+        {
+          "label": "Height (PASM)",
+          "value": "1,306 mm"
+        },
+        {
+          "label": "Height (PASM Sport Suspension)",
+          "value": "1,294 mm"
+        },
+        {
+          "label": "Displacement",
+          "value": "3,591 cm³"
+        },
+        {
+          "label": "Number of cylinders",
+          "value": "6"
+        },
+        {
+          "label": "Power combined (PS)",
+          "value": "541 PS"
+        },
+        {
+          "label": "Power combined (kW)",
+          "value": "398 kW"
+        },
+        {
+          "label": "Power (PS)",
+          "value": "485 PS / 495 PS",
+          "status": "source-conflict"
+        },
+        {
+          "label": "Power (kW)",
+          "value": "364 kW"
+        },
+        {
+          "label": "Max. torque",
+          "value": "570 Nm"
+        },
+        {
+          "label": "Torque combined",
+          "value": "610 Nm"
+        },
+        {
+          "label": "Transmission",
+          "value": "8-speed Porsche Doppelkupplung transmission (PDK) with integrated electric motor"
+        },
+        {
+          "label": "Top speed",
+          "value": "312 km/h"
+        },
+        {
+          "label": "Acceleration 0 - 100 km/h with Sport Chrono Package",
+          "value": "3.0 s"
+        },
+        {
+          "label": "Luggage compartment volume, front",
+          "value": "135 l"
+        },
+        {
+          "label": "Open luggage compartment volume (behind front seats)",
+          "value": "261 l"
+        },
+        {
+          "label": "Maximum load",
+          "value": "420 kg"
+        },
+        {
+          "label": "Turning circle",
+          "value": "10.9 m"
+        }
+      ],
+      "notes": [
+        "한국 공식 구성기의 EU/WLTP 참조 제원입니다. 국내 공인 연비나 기본 정원으로 대입하지 않습니다.",
+        "PASM 높이와 Sport Chrono 가속 조건을 원문대로 구분합니다. 출력이 중복·충돌하면 해당 항목을 확정값으로 쓰지 않습니다."
+      ]
+    }
+  ]
+}
