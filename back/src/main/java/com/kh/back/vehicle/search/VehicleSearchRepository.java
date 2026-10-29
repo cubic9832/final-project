@@ -18,7 +18,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 @RequiredArgsConstructor
 public class VehicleSearchRepository {
-    private static final int MAX_RESULTS = 100;
+    // 화면이 사용자 조건으로 다시 거르므로, 전체 차량보다 넉넉하게 잡아 맞는 차는 모두 돌려준다
+    private static final int MAX_RESULTS = 1000;
     private final ElasticsearchOperations operations;
 
     public void reindex(List<VehicleDocument> documents) {
