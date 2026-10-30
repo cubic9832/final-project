@@ -9,6 +9,7 @@ import com.kh.back.admin.mapper.AdminAuditLogMapper;
 import com.kh.back.admin.mapper.AdminMemberMapper;
 import com.kh.back.auth.mapper.RefreshTokenMapper;
 import com.kh.back.auth.service.LoginAttemptLimiter;
+import com.kh.back.chat.service.ChatRoomService;
 import com.kh.back.common.exception.ApiException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public class AdminMemberServiceImpl implements AdminMemberService {
     private final LoginAttemptLimiter loginAttemptLimiter; // 보완 6: 로그인 5번 실패 잠금 (서버 메모리)
     private final RefreshTokenMapper refreshTokenMapper;
     private final AdminAuditLogMapper adminAuditLogMapper; // V13: 운영 로그
+    private final ChatRoomService chatRoomService; // 8단계: 관리자에서 해제되면 맡던 상담을 대기로
 
     @Override
     @Transactional(readOnly = true)
@@ -96,6 +98,7 @@ public class AdminMemberServiceImpl implements AdminMemberService {
         // 보완 11: 권한은 admin_accounts 표 — 일반 회원으로 되돌리면 표에서 지우고, 관리자로 지정하면 넣는다 (지정한 총관리자도 남긴다)
         if ("USER".equals(role)) {
             adminMemberMapper.revokeAdmin(targetId);
+            chatRoomService.releaseRoomsOf(targetId); // 8단계: 맡던 진행 중 상담 → 대기 (다른 관리자가 다시 맡는다)
         } else {
             adminMemberMapper.grantAdmin(targetId, role, actorId);
         }

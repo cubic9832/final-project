@@ -3,6 +3,7 @@ import { Compass, Car, ClipboardList, BookOpen, ChevronRight, Info, X, Send, Rot
 import theme from '../../styles/theme';
 import { sendChatMessage, sendChatGuide, getChatHistory, clearChatHistory } from './chatApi';
 import useChatStore from './useChatStore';
+import ConsultationLink from '../chat/components/ConsultationLink';
 import './ChatWidget.css';
 
 const categories = [
@@ -210,6 +211,8 @@ export default function ChatWidget() {
           </header>
           <div className="chat-messages" role="log" aria-label="콤파와의 대화" aria-live="polite" aria-relevant="additions text">
             <p className="chat-conversation-note">AI가 안내한 내용은 참고하시고,<br />중요한 정보는 한 번 더 확인해 주세요.</p>
+            {/* 8단계(류상민): 상담원 1:1 상담으로 이동하는 버튼만 추가 — 콤파 기능은 그대로 */}
+            <ConsultationLink onNavigate={close} />
             {messages.length === 0 && !pending ? (
               <div className="chat-welcome">
                 <span className="chat-welcome-label">서비스 이용부터 자동차 용어까지</span>

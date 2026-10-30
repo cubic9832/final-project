@@ -19,6 +19,7 @@ import FinancialReviewPage from './features/financial/pages/review/FinancialRevi
 import FinancialResultPage from './features/financial/pages/result/FinancialResultPage';
 import FinancialRecommendationsPage from './features/financial/pages/recommendations/FinancialRecommendationsPage';
 import AdminPage from './pages/admin/AdminPage';
+import ConsultationPage from './pages/consultation/ConsultationPage';
 import MyPage from './pages/mypage/MyPage';
 import ProfilePage from './pages/mypage/ProfilePage';
 import NotFound from './pages/not-found/NotFound';
@@ -68,6 +69,8 @@ function App() {
           <Route path="/mypage" element={<MyPage />} />
           {/* 6단계: 개인정보 · 계정 관리 */}
           <Route path="/mypage/profile" element={<ProfilePage />} />
+          {/* 8단계: 1:1 상담 (마이페이지 · 콤파의 [1:1 상담] 버튼) */}
+          <Route path="/consultation" element={<ConsultationPage />} />
         </Route>
         <Route path="/financial" element={<FinancialPage />} />
         <Route path="/financial/assets" element={<FinancialAssetsPage />} />

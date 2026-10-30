@@ -36,6 +36,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
 	// 검색: docker-compose 의 Elasticsearch(nori) 연결
 	implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
+	// 8단계: 1:1 상담 채팅 (WebSocket + STOMP)
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.mysql:mysql-connector-j'

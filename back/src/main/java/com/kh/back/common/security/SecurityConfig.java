@@ -48,6 +48,9 @@ public class SecurityConfig {
                         // 6단계: 로그인된 기기 보기 · 로그아웃도 /auth 아래(쿠키 경로)지만 로그인 필요
                         .requestMatchers("/api/v1/auth/sessions", "/api/v1/auth/sessions/**").authenticated()
                         .requestMatchers("/api/v1/auth/**").permitAll()                    // 회원가입 · 로그인
+                        // 8단계: 채팅 WebSocket 연결 주소. 브라우저 WebSocket 은 Authorization 헤더를 실을 수 없어서 열어 두고,
+                        //        토큰 검사는 연결 직후 STOMP CONNECT 에서 StompAuthInterceptor 가 한다 (강의 샘플 step4 와 같음)
+                        .requestMatchers("/ws/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/vehicles/**").permitAll() // 차량 조회는 누구나 (비회원 차량 찾기)
                         .requestMatchers(HttpMethod.GET, "/api/v1/companies/**").permitAll() // 종목 조회 예제
                         // 7단계: 관리자 권한 주기 · 빼기는 총관리자(SUPER_ADMIN)만 — 아래 관리자 규칙보다 먼저 적는다

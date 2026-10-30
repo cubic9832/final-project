@@ -12,6 +12,7 @@
     "test": "node --test src/features/vehicle/*.test.js src/features/financial/*.test.js src/features/dream-car/*.test.js src/pages/admin/vehicles/*.test.js"
   },
   "dependencies": {
+    "@stomp/stompjs": "^7.5.0",
     "axios": "^1.20.0",
     "lucide-react": "^1.55.0",
     "react": "^19.2.8",

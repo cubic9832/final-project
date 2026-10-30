@@ -1,0 +1,134 @@
+/* 8단계: 1:1 상담 대화 (회원 상담 화면 · 관리자 상담 탭 공용) */
+.chat-thread {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.chat-connection {
+  margin: 0;
+  font-size: var(--font-caption);
+  color: var(--color-danger);
+}
+
+.chat-connection.is-on {
+  color: var(--color-mint-strong);
+}
+
+.chat-board {
+  height: 52vh;
+  min-height: 280px;
+  margin: 0;
+  padding: var(--space-16);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  list-style: none;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.chat-empty,
+.chat-system {
+  align-self: center;
+  font-size: var(--font-caption);
+  color: var(--color-muted);
+}
+
+.chat-system {
+  padding: var(--space-4) var(--space-12);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+}
+
+/* 상대 메시지는 왼쪽, 내 메시지는 오른쪽 */
+.chat-bubble {
+  max-width: 72%;
+  align-self: flex-start;
+}
+
+.chat-bubble.is-mine {
+  align-self: flex-end;
+  text-align: right;
+}
+
+.chat-bubble small {
+  display: block;
+  margin-bottom: var(--space-4);
+  font-size: var(--font-caption);
+  color: var(--color-muted);
+}
+
+.chat-bubble p {
+  display: inline-block;
+  margin: 0;
+  padding: var(--space-8) var(--space-12);
+  text-align: left;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.chat-bubble.is-mine p {
+  color: #fff;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.chat-error {
+  margin: 0;
+  font-size: var(--font-body);
+  color: var(--color-danger);
+}
+
+.chat-send {
+  display: flex;
+  gap: var(--space-8);
+}
+
+.chat-send input {
+  flex: 1;
+  min-width: 0;
+  height: var(--layout-control-height);
+  padding: 0 var(--space-12);
+  font-size: var(--font-body);
+  border: 1px solid var(--color-border-input);
+  border-radius: var(--radius-sm);
+}
+
+.chat-send input:focus {
+  outline: none;
+  border-color: var(--color-blue);
+}
+
+.chat-send button {
+  min-width: 88px;
+  padding: 0 var(--space-16);
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-primary);
+  border: 0;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.chat-send button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.chat-disabled {
+  margin: 0;
+  padding: var(--space-12);
+  font-size: var(--font-body);
+  color: var(--color-text-sub);
+  text-align: center;
+  background: var(--color-background);
+  border-radius: var(--radius-sm);
+}

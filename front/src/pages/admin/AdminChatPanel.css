@@ -1,0 +1,181 @@
+/* 8단계: 관리자 [1:1 상담] 탭 — 왼쪽 목록 · 오른쪽 대화 */
+.admin-chat {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+  gap: var(--space-16);
+  align-items: start;
+}
+
+.admin-chat-list ul {
+  margin: var(--space-12) 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.admin-chat-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.admin-chat-filters button {
+  padding: var(--space-4) var(--space-12);
+  font-size: var(--font-caption);
+  font-weight: 600;
+  color: var(--color-text-sub);
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+}
+
+.admin-chat-filters button.is-active {
+  color: var(--color-surface);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.admin-chat-list li > button {
+  width: 100%;
+  padding: var(--space-12);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  text-align: left;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.admin-chat-list li > button.is-selected {
+  border-color: var(--color-blue);
+  background: var(--color-blue-tint);
+}
+
+.admin-chat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+
+.admin-chat-preview {
+  overflow: hidden;
+  font-size: var(--font-body);
+  color: var(--color-text-sub);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.admin-chat-meta {
+  font-size: var(--font-caption);
+  color: var(--color-muted);
+}
+
+.admin-chat-badge {
+  flex-shrink: 0;
+  padding: 2px var(--space-8);
+  font-size: var(--font-caption);
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+}
+
+.admin-chat-badge.is-waiting {
+  color: var(--color-blue-strong);
+  background: var(--color-blue-tint);
+}
+
+.admin-chat-badge.is-active {
+  color: var(--color-mint-strong);
+  background: var(--color-mint-tint);
+}
+
+.admin-chat-badge.is-closed {
+  color: var(--color-muted);
+  background: var(--color-background);
+}
+
+.admin-chat-note {
+  margin: var(--space-16) 0;
+  font-size: var(--font-body);
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.admin-chat-note.is-error {
+  color: var(--color-danger);
+}
+
+.admin-chat-detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.admin-chat-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+}
+
+.admin-chat-head h3 {
+  margin: 0;
+  font-size: var(--font-card-title);
+}
+
+.admin-chat-head p {
+  margin: var(--space-4) 0 0;
+  font-size: var(--font-body);
+  color: var(--color-text-sub);
+}
+
+.admin-chat-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.admin-chat-transfer {
+  padding: var(--space-16);
+  display: grid;
+  gap: var(--space-12);
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+}
+
+.admin-chat-transfer label {
+  display: grid;
+  gap: var(--space-4);
+  font-size: var(--font-body);
+  font-weight: 600;
+}
+
+.admin-chat-transfer select,
+.admin-chat-transfer input {
+  height: 40px;
+  padding: 0 var(--space-12);
+  font-size: var(--font-body);
+  border: 1px solid var(--color-border-input);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.admin-chat-transfer-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-8);
+}
+
+@media (max-width: 900px) {
+  .admin-chat {
+    grid-template-columns: 1fr;
+  }
+}

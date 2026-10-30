@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 8단계: 1:1 상담 채팅. chat_room · chat_message (V22). 샘플 step4 의 ChatMapper.xml 을 1:1 상담에 맞게 바꿨다 -->
+<mapper namespace="com.kh.back.chat.mapper.ChatMapper">
+
+    <!-- 방 + 회원 · 담당 관리자 닉네임 + 마지막 메시지 미리보기 -->
+    <sql id="roomColumns">
+        r.id, r.user_id, u.nick_name AS user_nick_name, r.status,
+        r.assigned_admin_id, a.nick_name AS assigned_admin_nick_name,
+        (SELECT LEFT(m.content, 60) FROM chat_message m WHERE m.room_id = r.id ORDER BY m.id DESC LIMIT 1) AS last_message,
+        r.last_message_at, r.created_at
+    </sql>
+    <sql id="roomFrom">
+        FROM chat_room r
+        JOIN users u ON u.id = r.user_id
+        LEFT JOIN users a ON a.id = r.assigned_admin_id
+    </sql>
+
+    <select id="findRoomById" resultType="com.kh.back.chat.dto.ChatRoomDto">
+        SELECT <include refid="roomColumns"/> <include refid="roomFrom"/>
+        WHERE r.id = #{roomId}
+    </select>
+
+    <select id="findRoomByUserId" resultType="com.kh.back.chat.dto.ChatRoomDto">
+        SELECT <include refid="roomColumns"/> <include refid="roomFrom"/>
+        WHERE r.user_id = #{userId}
+    </select>
+
+    <!-- 처음 상담: 대기로 만든다 (회원 1명당 1개 — user_id UNIQUE) -->
+    <insert id="insertRoom" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        INSERT INTO chat_room (user_id, status) VALUES (#{userId}, 'WAITING')
+    </insert>
+
+    <!-- 종료된 상담을 다시: 대기로, 담당자는 비운다 -->
+    <update id="reopen">
+        UPDATE chat_room SET status = 'WAITING', assigned_admin_id = NULL
+        WHERE id = #{roomId} AND status = 'CLOSED'
+    </update>
+
+    <!-- 맡기: 대기일 때만 → 먼저 누른 관리자만 1줄이 바뀐다 -->
+    <update id="assign">
+        UPDATE chat_room SET status = 'ACTIVE', assigned_admin_id = #{adminId}
+        WHERE id = #{roomId} AND status = 'WAITING'
+    </update>
+
+    <!-- 넘기기: 진행 중이고 담당자가 그대로일 때만 (그 사이 다른 사람이 넘겼으면 0줄)
+         <=> : NULL 끼리도 같다고 보는 비교 — 담당자가 탈퇴해 비어 있는 상담도 총관리자가 넘길 수 있게 -->
+    <update id="transfer">
+        UPDATE chat_room SET assigned_admin_id = #{toAdminId}
+        WHERE id = #{roomId} AND status = 'ACTIVE' AND assigned_admin_id &lt;=&gt; #{fromAdminId}
+    </update>
+
+    <update id="close">
+        UPDATE chat_room SET status = 'CLOSED'
+        WHERE id = #{roomId} AND status IN ('WAITING', 'ACTIVE')
+    </update>
+
+    <!-- 관리자 해제: 그 사람이 맡던 진행 중 상담을 대기로 되돌린다 -->
+    <select id="findActiveRoomIdsByAdmin" resultType="long">
+        SELECT id FROM chat_room WHERE assigned_admin_id = #{adminId} AND status = 'ACTIVE'
+    </select>
+
+    <update id="releaseByAdmin">
+        UPDATE chat_room SET status = 'WAITING', assigned_admin_id = NULL
+        WHERE assigned_admin_id = #{adminId} AND status = 'ACTIVE'
+    </update>
+
+    <!-- 관리자 목록: 상태별(없으면 전체), 최근 메시지 순 -->
+    <select id="findRooms" resultType="com.kh.back.chat.dto.ChatRoomDto">
+        SELECT <include refid="roomColumns"/> <include refid="roomFrom"/>
+        <where>
+            <if test="status != null">r.status = #{status}</if>
+        </where>
+        ORDER BY COALESCE(r.last_message_at, r.created_at) DESC
+        LIMIT 100
+    </select>
+
+    <insert id="insertMessage" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        INSERT INTO chat_message (room_id, sender_type, sender_id, content)
+        VALUES (#{roomId}, #{senderType}, #{senderId}, #{content})
+    </insert>
+
+    <update id="touchLastMessage">
+        UPDATE chat_room SET last_message_at = NOW() WHERE id = #{roomId}
+    </update>
+
+    <select id="findMessageById" resultType="com.kh.back.chat.dto.ChatMessageDto">
+        SELECT id, room_id, sender_type, sender_id, content, created_at
+        FROM chat_message WHERE id = #{messageId}
+    </select>
+
+    <!-- 최근 size 개를 고른 뒤, 화면에 그릴 순서(오래된 → 최근)로 다시 정렬 (샘플과 같음) -->
+    <select id="findMessages" resultType="com.kh.back.chat.dto.ChatMessageDto">
+        SELECT * FROM (
+            SELECT id, room_id, sender_type, sender_id, content, created_at
+            FROM chat_message
+            WHERE room_id = #{roomId}
+            <if test="beforeId != null">
+                AND id &lt; #{beforeId}
+            </if>
+            ORDER BY id DESC
+            LIMIT #{size}
+        ) recent
+        ORDER BY id
+    </select>
+
+    <!-- 넘겨받을 수 있는 사람: 관리자 · 총관리자 (admin_accounts, V21) -->
+    <select id="findAdmins" resultType="com.kh.back.chat.dto.ChatAdminOption">
+        SELECT u.id, u.nick_name, aa.role
+        FROM admin_accounts aa
+        JOIN users u ON u.id = aa.user_id
+        ORDER BY aa.role DESC, u.nick_name
+    </select>
+
+</mapper>

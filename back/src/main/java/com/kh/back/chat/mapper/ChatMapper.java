@@ -1,0 +1,46 @@
+package com.kh.back.chat.mapper;
+
+import com.kh.back.chat.dto.ChatAdminOption;
+import com.kh.back.chat.dto.ChatMessageDto;
+import com.kh.back.chat.dto.ChatRoomDto;
+import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+/**
+ * 8단계: 1:1 상담 채팅 DB 창구 (SQL 은 resources/mappers/ChatMapper.xml).
+ */
+@Mapper
+public interface ChatMapper {
+
+    ChatRoomDto findRoomById(@Param("roomId") Long roomId);
+
+    ChatRoomDto findRoomByUserId(@Param("userId") Long userId);
+
+    void insertRoom(ChatRoomDto room);
+
+    // 상태 바꾸기는 "지금 상태" 를 조건으로 건다 → 두 관리자가 동시에 눌러도 한 명만 성공 (바뀐 줄 수로 판단)
+    int reopen(@Param("roomId") Long roomId);
+
+    int assign(@Param("roomId") Long roomId, @Param("adminId") Long adminId);
+
+    int transfer(@Param("roomId") Long roomId, @Param("fromAdminId") Long fromAdminId, @Param("toAdminId") Long toAdminId);
+
+    int close(@Param("roomId") Long roomId);
+
+    List<Long> findActiveRoomIdsByAdmin(@Param("adminId") Long adminId);
+
+    int releaseByAdmin(@Param("adminId") Long adminId);
+
+    List<ChatRoomDto> findRooms(@Param("status") String status);
+
+    void insertMessage(ChatMessageDto message);
+
+    void touchLastMessage(@Param("roomId") Long roomId);
+
+    ChatMessageDto findMessageById(@Param("messageId") Long messageId);
+
+    List<ChatMessageDto> findMessages(@Param("roomId") Long roomId, @Param("beforeId") Long beforeId, @Param("size") int size);
+
+    List<ChatAdminOption> findAdmins();
+}

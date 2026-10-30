@@ -3,6 +3,7 @@
 // 아래: 회원 목록 (검색 · 권한 · 페이지) + 상세. 이메일은 서버가 가려서 보낸다.
 // 총관리자(SUPER_ADMIN)만 상세에서 관리자 권한을 주고 뺄 수 있다. 잠금 해제는 아직 없음
 import { Fragment, useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Search, ShieldCheck, X } from 'lucide-react';
 import theme from '../../styles/theme';
 import { changeMemberRole, getAdminMembers, getMemberSummary, unlockMemberLogin } from '../../features/admin/adminApi';
@@ -131,8 +132,10 @@ function GroupBars({ title, groups, total }) {
 
 // ② 회원 목록 — 검색어는 [검색] 을 눌렀을 때, 권한 · 페이지는 바꾸는 즉시 다시 불러온다
 function MemberList({ version, onChanged }) {
-  const [draft, setDraft] = useState(''); // 입력 중인 검색어
-  const [query, setQuery] = useState({ keyword: '', role: '', page: 1 }); // 실제로 요청한 조건
+  // 8단계: 1:1 상담 탭의 [회원 정보] 로 오면 그 회원 닉네임으로 검색한 채 연다 (주소가 아니라 화면 이동 상태로 받는다)
+  const initialKeyword = useLocation().state?.memberKeyword ?? '';
+  const [draft, setDraft] = useState(initialKeyword); // 입력 중인 검색어
+  const [query, setQuery] = useState({ keyword: initialKeyword, role: '', page: 1 }); // 실제로 요청한 조건
   const [state, setState] = useState({ status: 'loading', members: [], meta: null, error: '' });
   const [selectedId, setSelectedId] = useState(null);
   const [reloadKey, setReloadKey] = useState(0);

@@ -1,0 +1,20 @@
+/* 8단계: 콤파 안의 1:1 상담 버튼 */
+.consultation-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  align-self: center;
+  margin: var(--space-8) auto;
+  padding: var(--space-4) var(--space-12);
+  font-size: var(--font-caption);
+  font-weight: 600;
+  color: var(--color-blue-strong);
+  background: var(--color-blue-tint);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+}
+
+.consultation-link:hover {
+  border-color: var(--color-blue);
+}

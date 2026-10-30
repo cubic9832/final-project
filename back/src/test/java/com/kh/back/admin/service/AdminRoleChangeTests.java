@@ -12,6 +12,7 @@ import com.kh.back.admin.mapper.AdminAuditLogMapper;
 import com.kh.back.admin.mapper.AdminMemberMapper;
 import com.kh.back.auth.mapper.RefreshTokenMapper;
 import com.kh.back.auth.service.LoginAttemptLimiter;
+import com.kh.back.chat.service.ChatRoomService;
 import com.kh.back.common.exception.ApiException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -27,6 +28,7 @@ class AdminRoleChangeTests {
     @Mock LoginAttemptLimiter loginAttemptLimiter;
     @Mock RefreshTokenMapper refreshTokenMapper;
     @Mock AdminAuditLogMapper adminAuditLogMapper;
+    @Mock ChatRoomService chatRoomService;
     @InjectMocks AdminMemberServiceImpl service;
 
     private static final Long SUPER_ADMIN_ID = 1L;
@@ -82,6 +84,7 @@ class AdminRoleChangeTests {
         service.changeRole(SUPER_ADMIN_ID, 7L, "USER");
 
         verify(adminMemberMapper).revokeAdmin(7L);
+        verify(chatRoomService).releaseRoomsOf(7L); // 8단계: 맡던 상담은 대기로
         verify(adminAuditLogMapper).insert(SUPER_ADMIN_ID, "ROLE_CHANGE", "MEMBER", 7L, "ADMIN → USER");
     }
 
