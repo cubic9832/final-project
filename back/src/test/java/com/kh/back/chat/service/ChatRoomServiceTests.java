@@ -220,6 +220,20 @@ class ChatRoomServiceTests {
     }
 
     @Test
+    void 영구_제한은_총관리자만_할_수_있다() {
+        ChatRoomDto room = room(ChatRoomDto.ACTIVE, ADMIN);
+        assertCode(() -> service.restrict(ADMIN, ROOM, 0, "성희롱 · 음란"), "CHAT_FORBIDDEN"); // 담당자여도 영구는 안 됨
+        verify(chatMapper, never()).restrict(anyLong(), org.mockito.ArgumentMatchers.anyInt());
+
+        room.setRestrictedUntil(java.time.LocalDateTime.of(9999, 12, 31, 23, 59, 59));
+        service.restrict(SUPER, ROOM, 0, "성희롱 · 음란");
+        verify(adminAuditLogMapper).insert(SUPER, "CHAT_RESTRICT", "MEMBER", MEMBER, "상담 제한 영구 (성희롱 · 음란)");
+        ArgumentCaptor<ChatMessageDto> notice = ArgumentCaptor.forClass(ChatMessageDto.class);
+        verify(chatMapper).insertMessage(notice.capture());
+        assertThat(notice.getValue().getContent()).doesNotContain("9999").contains("더 이상 새 상담을 시작할 수 없습니다");
+    }
+
+    @Test
     void 일반_관리자는_남의_상담을_제한하거나_풀_수_없다() {
         room(ChatRoomDto.ACTIVE, OTHER_ADMIN);
         assertCode(() -> service.restrict(ADMIN, ROOM, 3, null), "CHAT_FORBIDDEN");

@@ -3,10 +3,12 @@ package com.kh.back.chat.service;
 import com.kh.back.admin.mapper.AdminAuditLogMapper;
 import com.kh.back.chat.dto.ChatAdminOption;
 import com.kh.back.chat.dto.ChatMessageDto;
+import com.kh.back.chat.dto.ChatRestrictRequest;
 import com.kh.back.chat.dto.ChatRoomDto;
 import com.kh.back.chat.mapper.ChatMapper;
 import com.kh.back.common.exception.ApiException;
 import com.kh.back.common.security.CurrentRoleLookup;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Set;
@@ -56,8 +58,7 @@ public class ChatRoomServiceImpl implements ChatRoomService {
         ChatRoomDto room = chatMapper.findRoomByUserId(userId);
         if (room != null && ChatRoomDto.CLOSED.equals(room.getStatus()) && room.isRestricted()) {
             // 욕설 등으로 관리자가 제한한 회원: 기간이 끝날 때까지 새 상담 불가
-            throw new ApiException(HttpStatus.FORBIDDEN, "CHAT_RESTRICTED",
-                    room.getRestrictedUntil().format(UNTIL_FORMAT) + "까지 새 상담을 시작할 수 없습니다.");
+            throw new ApiException(HttpStatus.FORBIDDEN, "CHAT_RESTRICTED", restrictionText(room.getRestrictedUntil()));
         }
         if (room == null) {
             room = new ChatRoomDto();
@@ -203,21 +204,32 @@ public class ChatRoomServiceImpl implements ChatRoomService {
         closeRoom(roomId, "상담원이 상담을 종료했습니다.");
     }
 
-    // [상담 제한]: 욕설 등 → 진행 중이면 종료하고, days 일 동안 새 상담 불가. 담당 관리자 또는 총관리자
+    // [상담 제한]: 욕설 등 → 진행 중이면 종료하고, days 일 동안 새 상담 불가 (0 = 영구, 총관리자만). 담당 관리자 또는 총관리자
     // 이유는 운영 로그에만 (회원에게는 기간만 안내)
     @Override
     @Transactional
     public void restrict(Long actorId, Long roomId, int days, String reason) {
         ChatRoomDto room = requireRoom(roomId);
         requireOwnerOrSuper(actorId, room, "담당 상담원 또는 총관리자만 제한할 수 있습니다.");
+        boolean permanent = days == ChatRestrictRequest.PERMANENT;
+        if (permanent && !"SUPER_ADMIN".equals(currentRoleLookup.currentRole(actorId))) {
+            throw forbidden("영구 제한은 총관리자만 할 수 있습니다.");
+        }
         chatMapper.restrict(roomId, days);
         chatMapper.close(roomId); // 이미 종료된 상담이면 0줄 — 그대로 둔다
         ChatRoomDto restricted = chatMapper.findRoomById(roomId);
         String memo = reason == null || reason.isBlank() ? "" : " (" + reason.strip() + ")";
-        adminAuditLogMapper.insert(actorId, "CHAT_RESTRICT", "MEMBER", room.getUserId(), "상담 제한 " + days + "일" + memo);
-        system(roomId, "운영 정책 위반으로 상담이 종료되었습니다. "
-                + restricted.getRestrictedUntil().format(UNTIL_FORMAT) + "까지 새 상담을 시작할 수 없습니다.");
+        adminAuditLogMapper.insert(actorId, "CHAT_RESTRICT", "MEMBER", room.getUserId(),
+                "상담 제한 " + (permanent ? "영구" : days + "일") + memo);
+        system(roomId, "운영 정책 위반으로 상담이 종료되었습니다. " + restrictionText(restricted.getRestrictedUntil()));
         broadcaster.roomChanged(roomId, ChatRoomDto.CLOSED);
+    }
+
+    // 회원에게 보이는 제한 안내: 영구(9999년)면 기간 없이, 아니면 "11월 2일 15:00까지"
+    private static String restrictionText(LocalDateTime until) {
+        return until.getYear() >= ChatRoomDto.PERMANENT_YEAR
+                ? "더 이상 새 상담을 시작할 수 없습니다."
+                : until.format(UNTIL_FORMAT) + "까지 새 상담을 시작할 수 없습니다.";
     }
 
     // [제한 풀기]: 잘못 제한했을 때. 담당 관리자 또는 총관리자

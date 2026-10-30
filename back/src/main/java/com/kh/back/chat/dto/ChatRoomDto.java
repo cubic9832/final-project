@@ -19,6 +19,7 @@ public class ChatRoomDto {
     public static final String WAITING = "WAITING";
     public static final String ACTIVE = "ACTIVE";
     public static final String CLOSED = "CLOSED";
+    public static final int PERMANENT_YEAR = 9999; // 영구 제한 = restricted_until 9999-12-31 (ChatMapper.xml restrict)
 
     private Long id;
     private Long userId;

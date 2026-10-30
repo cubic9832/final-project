@@ -48,9 +48,13 @@ export const unrestrictRoom = async (roomId) => {
   await client.post(`/admin/chat/rooms/${roomId}/unrestrict`);
 };
 
-// 제한 끝나는 시각 "2026-11-02T15:00:00" → "11월 2일 15:00" (서버 안내 문구와 같은 모양)
-export const formatRestrictedUntil = (value) =>
-  (value ? `${Number(value.slice(5, 7))}월 ${Number(value.slice(8, 10))}일 ${value.slice(11, 16)}` : '');
+// 제한 끝나는 시각 "2026-11-02T15:00:00" → "11월 2일 15:00까지 상담 제한" (서버 안내 문구와 같은 모양)
+// 영구 제한은 서버가 9999년으로 저장한다 → "영구 상담 제한"
+export const restrictionLabel = (value) => {
+  if (!value) return '';
+  if (value.startsWith('9999')) return '영구 상담 제한';
+  return `${Number(value.slice(5, 7))}월 ${Number(value.slice(8, 10))}일 ${value.slice(11, 16)}까지 상담 제한`;
+};
 
 // 서버 실패 봉투의 안내 문구 (없으면 fallback)
 export const chatErrorMessage = (error, fallback) => error?.response?.data?.error?.message ?? fallback;

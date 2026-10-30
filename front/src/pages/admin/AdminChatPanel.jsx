@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ChatThread from '../../features/chat/components/ChatThread';
 import {
-  assignRoom, chatErrorMessage, closeRoom, formatRestrictedUntil, getAdminRooms, getChatAdmins, restrictRoom,
+  assignRoom, chatErrorMessage, closeRoom, getAdminRooms, getChatAdmins, restrictionLabel, restrictRoom,
   transferRoom, unrestrictRoom,
 } from '../../features/chat/chatApi';
 import { createStompClient } from '../../features/chat/stompClient';
@@ -141,7 +141,7 @@ function RoomDetail({ room, meId, isSuper, onChanged }) {
           <h3>{room.userNickName}</h3>
           <p>
             {STATUS_LABELS[room.status]} · 담당 {room.assignedAdminNickName ? (mine ? '나' : room.assignedAdminNickName) : '없음'}
-            {room.restricted && ` · ${formatRestrictedUntil(room.restrictedUntil)}까지 상담 제한`}
+            {room.restricted && ` · ${restrictionLabel(room.restrictedUntil)}`}
           </p>
         </div>
         <div className="admin-chat-actions">
@@ -181,8 +181,9 @@ function RoomDetail({ room, meId, isSuper, onChanged }) {
       {openForm === 'restrict' && (
         <RestrictForm
           busy={busy}
+          isSuper={isSuper}
           onCancel={() => setOpenForm('')}
-          onSubmit={(days, reason) => run(() => restrictRoom(room.id, days, reason), `${days}일 동안 상담을 제한했습니다.`).then(() => setOpenForm(''))}
+          onSubmit={(days, reason) => run(() => restrictRoom(room.id, days, reason), days === 0 ? '상담을 영구 제한했습니다.' : `${days}일 동안 상담을 제한했습니다.`).then(() => setOpenForm(''))}
         />
       )}
 
@@ -200,16 +201,51 @@ function RoomDetail({ room, meId, isSuper, onChanged }) {
   );
 }
 
-// 상담 제한: 기간 + 이유(선택, 운영 로그에만 남는다). 진행 중이면 종료되고, 회원은 기간이 끝날 때까지 새 상담을 못 한다
-const RESTRICT_DAYS = [1, 3, 7, 30];
+// 사유: 자주 있는 것을 고르고, 없으면 [기타] → 직접 쓰기 (운영 로그에만 남는다)
+const OTHER = '기타';
+const RESTRICT_REASONS = ['욕설 · 비속어', '부모 · 가족 비하', '성희롱 · 음란', '상담원 인격 모독 · 협박', '같은 말 반복 · 도배', '상담과 무관한 내용 반복', OTHER];
+const TRANSFER_REASONS = ['휴가', '퇴근 · 교대', '퇴사 · 업무 변경', '상담이 몰림', '다른 상담원이 더 잘 아는 내용', OTHER];
 
-function RestrictForm({ busy, onCancel, onSubmit }) {
+// 고른 사유 → 서버로 보낼 글 ("기타" 면 직접 쓴 글, 비었으면 null = 아직 못 고름)
+const reasonText = (choice, other) => (choice === OTHER ? other.trim() || null : choice || null);
+
+function ReasonField({ label, options, choice, other, onChoice, onOther }) {
+  return (
+    <>
+      <label>
+        {label} (운영 로그에만 남아요)
+        <select value={choice} onChange={(event) => onChoice(event.target.value)} required>
+          <option value="">선택하세요</option>
+          {options.map((option) => <option key={option} value={option}>{option}</option>)}
+        </select>
+      </label>
+      {choice === OTHER && (
+        <label>
+          기타 사유
+          <input value={other} onChange={(event) => onOther(event.target.value)} maxLength={100} required placeholder="사유를 직접 적어 주세요" />
+        </label>
+      )}
+    </>
+  );
+}
+
+// 상담 제한: 기간 + 사유. 진행 중이면 종료되고, 회원은 기간이 끝날 때까지 새 상담을 못 한다
+// 영구(0)는 총관리자만 — 서버도 한 번 더 확인한다
+const RESTRICT_DAYS = [
+  { value: 1, label: '1일' }, { value: 3, label: '3일' }, { value: 7, label: '7일' }, { value: 30, label: '30일' },
+  { value: 0, label: '영구 (총관리자)', superOnly: true },
+];
+
+function RestrictForm({ busy, isSuper, onCancel, onSubmit }) {
   const [days, setDays] = useState(3);
-  const [reason, setReason] = useState('');
+  const [choice, setChoice] = useState('');
+  const [other, setOther] = useState('');
+  const reason = reasonText(choice, other);
+  const periodText = days === 0 ? '영구적으로' : `${days}일 동안`;
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (window.confirm(`${days}일 동안 이 회원의 상담을 제한할까요? 진행 중인 상담은 종료됩니다.`)) onSubmit(days, reason.trim());
+    if (reason && window.confirm(`${periodText} 이 회원의 상담을 제한할까요? 진행 중인 상담은 종료됩니다.`)) onSubmit(days, reason);
   }
 
   return (
@@ -217,26 +253,26 @@ function RestrictForm({ busy, onCancel, onSubmit }) {
       <label>
         제한 기간
         <select value={days} onChange={(event) => setDays(Number(event.target.value))}>
-          {RESTRICT_DAYS.map((value) => <option key={value} value={value}>{value}일</option>)}
+          {RESTRICT_DAYS.filter((option) => isSuper || !option.superOnly)
+            .map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
         </select>
       </label>
-      <label>
-        이유 (선택 · 운영 로그에만 남아요)
-        <input value={reason} onChange={(event) => setReason(event.target.value)} maxLength={100} placeholder="예: 욕설 반복" />
-      </label>
+      <ReasonField label="제한 사유" options={RESTRICT_REASONS} choice={choice} other={other} onChoice={setChoice} onOther={setOther} />
       <div className="admin-chat-transfer-actions">
         <button type="button" className="admin-outline-button" onClick={onCancel}>취소</button>
-        <button type="submit" className="admin-outline-button admin-chat-danger" disabled={busy}>제한하기</button>
+        <button type="submit" className="admin-outline-button admin-chat-danger" disabled={busy || !reason}>제한하기</button>
       </div>
     </form>
   );
 }
 
-// 넘기기: 받을 관리자 + 이유(선택, 운영 로그에만 남는다). 받는 사람의 수락 없이 바로 넘어간다
+// 넘기기: 받을 관리자 + 사유(운영 로그에만 남는다). 받는 사람의 수락 없이 바로 넘어간다
 function TransferForm({ room, busy, onCancel, onSubmit }) {
   const [admins, setAdmins] = useState([]);
   const [adminId, setAdminId] = useState('');
-  const [reason, setReason] = useState('');
+  const [choice, setChoice] = useState('');
+  const [other, setOther] = useState('');
+  const reason = reasonText(choice, other);
 
   useEffect(() => {
     getChatAdmins()
@@ -246,7 +282,7 @@ function TransferForm({ room, busy, onCancel, onSubmit }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (adminId) onSubmit(Number(adminId), reason.trim());
+    if (adminId && reason) onSubmit(Number(adminId), reason);
   }
 
   return (
@@ -260,13 +296,10 @@ function TransferForm({ room, busy, onCancel, onSubmit }) {
           ))}
         </select>
       </label>
-      <label>
-        이유 (선택 · 운영 로그에만 남아요)
-        <input value={reason} onChange={(event) => setReason(event.target.value)} maxLength={100} placeholder="예: 휴가" />
-      </label>
+      <ReasonField label="넘기는 사유" options={TRANSFER_REASONS} choice={choice} other={other} onChoice={setChoice} onOther={setOther} />
       <div className="admin-chat-transfer-actions">
         <button type="button" className="admin-outline-button" onClick={onCancel}>취소</button>
-        <button type="submit" className="admin-primary-button" disabled={busy || !adminId}>넘기기</button>
+        <button type="submit" className="admin-primary-button" disabled={busy || !adminId || !reason}>넘기기</button>
       </div>
     </form>
   );

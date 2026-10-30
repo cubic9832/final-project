@@ -40,9 +40,14 @@
           AND (restricted_until IS NULL OR restricted_until &lt;= NOW())
     </update>
 
-    <!-- 상담 제한: 지금부터 days 일 뒤까지 새 상담 불가 -->
+    <!-- 상담 제한: 지금부터 days 일 뒤까지 새 상담 불가. days = 0 이면 영구 (끝나지 않는 날짜로) -->
     <update id="restrict">
-        UPDATE chat_room SET restricted_until = NOW() + INTERVAL #{days} DAY WHERE id = #{roomId}
+        UPDATE chat_room SET restricted_until =
+        <choose>
+            <when test="days == 0">'9999-12-31 23:59:59'</when>
+            <otherwise>NOW() + INTERVAL #{days} DAY</otherwise>
+        </choose>
+        WHERE id = #{roomId}
     </update>
 
     <update id="unrestrict">

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ChatThread from '../../features/chat/components/ChatThread';
 import {
-  chatErrorMessage, closeMyConsultation, formatRestrictedUntil, getMyRoom, startConsultation,
+  chatErrorMessage, closeMyConsultation, getMyRoom, restrictionLabel, startConsultation,
 } from '../../features/chat/chatApi';
 import useChatRoom from '../../features/chat/useChatRoom';
 import useAuthStore from '../../stores/useAuthStore';
@@ -107,7 +107,7 @@ export default function ConsultationPage() {
               error={chat.error}
               canSend={room.status !== 'CLOSED'}
               disabledText={room.restricted
-                ? `운영 정책 위반으로 ${formatRestrictedUntil(room.restrictedUntil)}까지 새 상담을 시작할 수 없습니다.`
+                ? `운영 정책 위반으로 ${restrictionLabel(room.restrictedUntil)} 중입니다. 새 상담을 시작할 수 없습니다.`
                 : '종료된 상담입니다. 더 궁금한 점이 있으면 [새로 상담하기]를 눌러 주세요.'}
               onSend={chat.send}
             />
