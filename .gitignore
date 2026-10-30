@@ -18,6 +18,9 @@ __pycache__/
 /data/households/synthetic/behavioral-million-*/shard-*/catalog.json
 
 # Scenario population: keep configuration, manifest, summaries and preview in Git.
+/data/households/synthetic/ui-scenario-population-*/shard-*/*_choices.npz
+/data/households/synthetic/ui-scenario-population-*/shard-*/*_profiles.jsonl
+/data/households/synthetic/ui-scenario-population-*/shard-*/*_choices.jsonl
 /data/households/synthetic/scenario-population-*/shard-*/*_choices.npz
 /data/households/synthetic/scenario-population-*/shard-*/*_profiles.jsonl
 /data/households/synthetic/scenario-population-*/shard-*/*_choices.jsonl

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getRecommendationOptions } from '../../financialRecommendationApi.js';
+import { getRecommendationOptions } from './financialRecommendationApi.js';
 
 export default function useRecommendationOptions() {
   const [options, setOptions] = useState(null);

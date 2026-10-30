@@ -34,6 +34,7 @@ outputs/reports/*
 !outputs/models/scenario-choices/
 outputs/models/scenario-choices/*
 !outputs/models/scenario-choices/20261029-v3-broad-taste-10k/
+!outputs/models/scenario-choices/20261030-ui-v1-10k/
 outputs/models/behavioral-choices/
 outputs/models/candidate-preferences/
 outputs/models/lifestyle-choices/

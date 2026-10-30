@@ -1,4 +1,4 @@
-param([int]$Port = 8003, [string]$Run = 'outputs/models/scenario-choices/20261029-v3-broad-taste-10k', [string]$Python = '')
+param([int]$Port = 8002, [string]$Run = 'outputs/models/scenario-choices/20261030-ui-v1-10k', [string]$Python = '')
 
 $ErrorActionPreference = 'Stop'
 $candidatePython = if ($Python) { $Python } else { Join-Path $PSScriptRoot '.venv/Scripts/python.exe' }

@@ -1,0 +1,9 @@
+.environment-sections { display: grid; gap: var(--space-24); min-width: 0; }
+.environment-fields { margin-top: var(--space-24); }
+.environment-group-heading { margin-top: var(--space-24); color: var(--color-primary); font-size: var(--font-subtitle); }
+.environment-priorities { display: grid; grid-template-columns: 1fr; gap: var(--space-24); margin-top: var(--space-16); }
+.environment-priorities .vehicle-priority-row legend { font-weight: 700; color: var(--color-primary); }
+.environment-priorities .vehicle-purpose-options span { height: 100%; text-align: center; overflow-wrap: anywhere; }
+.environment-page .financial-field select { width: 100%; min-height: 44px; padding: var(--space-8) var(--space-12); border: 1px solid var(--color-border-input); border-radius: var(--radius-sm); background: var(--color-surface); color: var(--color-text); font-size: var(--font-body); }
+.environment-page .financial-field select:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 2px; }
+@media (max-width: 480px) { .environment-priorities { grid-template-columns: 1fr; } }

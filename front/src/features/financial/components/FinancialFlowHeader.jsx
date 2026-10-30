@@ -1,6 +1,6 @@
 import '../styles/FinancialPages.css';
 
-const steps = ['재무 정보', '차량 취향', '종합 분석', '추천 차량'];
+const steps = ['재무 정보', '이용 환경·중요도', '차량 취향', '종합 분석', '추천 차량'];
 
 export default function FinancialFlowHeader({ current, title, description }) {
   return <>

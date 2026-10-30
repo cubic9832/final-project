@@ -1,0 +1,23 @@
+{
+  "version": "ui-scenario-population-v1",
+  "seed": 20261030,
+  "profiles": 10000,
+  "pairs_per_user_max": 10,
+  "source_personas": 39,
+  "optional_probability": 0.35,
+  "temperature": 0.25,
+  "split": [
+    0.7,
+    0.15,
+    0.15
+  ],
+  "distance": 15000,
+  "retired_body_preference": "any",
+  "unknown_charging": "neutral",
+  "model_minimum": {
+    "train": 20,
+    "validation": 5,
+    "test": 5
+  },
+  "spec_minimum": 1
+}

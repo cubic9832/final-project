@@ -58,11 +58,41 @@ class ScenarioServingTests(unittest.TestCase):
             self.assertEqual(client.post('/api/v2/recommendations',json=alternate).status_code,200)
             repeated = client.post('/api/v2/recommendations',json=request).json()['data']
             self.assertEqual(first,repeated)
-            for patch in [{'model_affinities':{'Sierra':1.}}, {'preferred_brands':['GMC']}, {'brand_importance':3}, {'design_importance':3}]:
+            for patch in [{'model_affinities':{'Sierra':1.}}, {'preferred_brands':['GMC']}, {'brand_importance':3}, {'design_importance':6},
+                          {'sportiness': 1.1}, {'acceleration': -1.}, {'running_cost_importance': 0}]:
                 invalid = deepcopy(request); invalid['scenario'] = patch
                 response = client.post('/api/v2/recommendations',json=invalid)
                 self.assertEqual(response.status_code,400,response.text)
                 self.assertIn('application/problem+json',response.headers['content-type'])
+
+    def test_all_saved_specifications_have_traits_and_explicit_taste_changes_selection(self):
+        for vehicle in self.service.vehicles:
+            row = self.service.traits[vehicle.id]
+            for dimension in ('exterior_sportiness', 'exterior_angularity', 'acceleration_performance'):
+                self.assertTrue(0 <= row['values'][dimension] <= 1)
+                self.assertTrue(row['evidence'][dimension]['kind'])
+            self.assertGreater(row['evidence']['acceleration_performance']['seconds_0_100'], 0)
+        request = self.request()
+        request['profile']['minimum_seats'] = 0
+        request['profile']['preferred_body_type'] = 'any'
+        with TestClient(create_app(self.service)) as client:
+            results = []
+            for sportiness in (0., 1.):
+                request['scenario'] = {'sportiness': sportiness, 'design_importance': 5,
+                                       'asset_retention_importance': 1, 'running_cost_importance': 5}
+                response = client.post('/api/v2/recommendations', json=request)
+                self.assertEqual(response.status_code, 200, response.text)
+                result = response.json()['data']
+                items = result['recommendations']
+                self.assertTrue(items)
+                self.assertEqual(result['rankingPolicy'], 'explicit-trait-match-then-scenario-ml')
+                self.assertTrue(all(item['cost']['eligible'] for item in items))
+                matching = [item['tasteMatches'][0]['match'] for item in items]
+                self.assertEqual(matching, sorted(matching, reverse=True))
+                self.assertEqual(matching[0], 1.)
+                self.assertTrue(all(item['lifestyleEvidence']['evidence'] for item in items))
+                results.append(items[0]['vehicle']['id'])
+            self.assertNotEqual(*results)
 
     def test_infeasible_request_returns_empty_and_unsupported_lifestyle_is_explicit(self):
         request = self.request()
@@ -74,6 +104,25 @@ class ScenarioServingTests(unittest.TestCase):
             self.assertEqual(response.json()['data']['recommendations'],[])
             request.pop('scenario'); request['lifestyle']={'acceleration':1.}
             self.assertEqual(client.post('/api/v2/recommendations',json=request).status_code,409)
+
+    def test_seven_seat_request_keeps_optional_seating_out_of_strict_model(self):
+        request = self.request()
+        request['profile'].update(minimum_seats=7, preferred_body_type='COUPE')
+        request['scenario'] = {'angularity': .5, 'acceleration': .5}
+        with TestClient(create_app(self.service)) as client:
+            response = client.post('/api/v2/recommendations', json=request)
+            self.assertEqual(response.status_code, 200, response.text)
+            result = response.json()['data']
+            for item in result['recommendations']:
+                self.assertGreaterEqual(item['vehicle']['seats'], 7)
+                self.assertTrue(item['cost']['eligible'])
+            conditional = result['conditionalRecommendations']
+            self.assertTrue(conditional)
+            self.assertTrue(any(item['vehicle']['model'] == '싼타페' for item in conditional))
+            for item in conditional:
+                self.assertTrue(item['seatingVerificationRequired'])
+                self.assertIsNone(item['rankingScore'])
+                self.assertEqual(item['rankingScoreType'], 'not-scored')
 
 
 if __name__=='__main__':

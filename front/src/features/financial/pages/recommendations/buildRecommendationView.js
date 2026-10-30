@@ -29,6 +29,7 @@ export function describePreference(item) {
 }
 
 export function rankingNarrative(comparison, candidates) {
+  if (comparison?.status === 'explicit-trait-match') return '외관·윤곽·가속 선호의 중요도별 일치도를 먼저 비교하고, 동률이면 학습 모델 점수로 정렬했어요.';
   if (!comparison || comparison.status === 'unavailable') return '항목별 순위 근거가 제공되지 않아 후보 간 순위 차이를 설명할 수 없어요.';
   if (comparison.status === 'only-candidate') return '현재 표시된 후보가 한 대여서 차량 간 순위 비교는 제공하지 않아요.';
   const higher = candidates.find(item => item.vehicle.id === comparison.higherVehicleId);
@@ -50,7 +51,11 @@ export function buildRecommendationView(result) {
   const candidates = result.recommendations ?? [];
   return candidates.map(candidate => {
     const evidence = candidate.decisionEvidence;
-    const items = (evidence?.preferences ?? []).map(describePreference).filter(Boolean)
+    const tasteItems = (candidate.tasteMatches ?? []).map(item => ({
+      ...item, status: item.match >= .75 ? 'match' : 'mismatch',
+      text: `${item.label}은 선택한 성향과 ${item.match >= .75 ? '가까워요' : '차이가 있어요'}.`,
+    }));
+    const items = [...(evidence?.preferences ?? []).map(describePreference).filter(Boolean), ...tasteItems]
       .sort((a, b) => (b.weight ?? 0) - (a.weight ?? 0));
     const financial = evidence?.financial;
     return {

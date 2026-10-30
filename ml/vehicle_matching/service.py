@@ -20,6 +20,9 @@ class CandidateService:
     def ranking_key(self, profile, vehicle, score):
         return (-score, vehicle.id) if self.ml_only else ranking_key(profile, vehicle, score)
 
+    def score_conditional_candidates(self, profile, vehicles):
+        return self.ranker.score_candidates(profile, vehicles)
+
     def recommend(self, profile, k=3):
         if not 1 <= k <= 20:
             raise ValueError('k must be between 1 and 20')
@@ -93,7 +96,7 @@ class CandidateService:
             else:
                 item['rankingComparison'] = {'status': 'only-candidate'}
         conditional = []
-        unknown_scores, unknown_outside = self.ranker.score_candidates(profile,seating_unknown)
+        unknown_scores, unknown_outside = self.score_conditional_candidates(profile,seating_unknown)
         if len(unknown_scores) != len(seating_unknown) or len(unknown_outside) != len(seating_unknown) or not all(math.isfinite(s) for s in unknown_scores):
             raise ValueError('Invalid conditional ML ranking scores')
         unknown_rows = sorted(zip(seating_unknown,unknown_scores,unknown_outside), key=lambda row: self.ranking_key(profile,row[0],row[1]))

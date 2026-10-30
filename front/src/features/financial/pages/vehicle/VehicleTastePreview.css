@@ -1,0 +1,7 @@
+.vehicle-taste-preview { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: var(--space-16); margin: var(--space-16) 0 0; padding: var(--space-16); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-background); }
+.vehicle-taste-preview-image { height: 160px; min-width: 0; overflow: hidden; border-radius: var(--radius-sm); background: var(--color-surface); }
+.vehicle-taste-preview-image img { width: 100%; height: 100%; }
+.vehicle-taste-preview h3 { color: var(--color-primary); font-size: var(--font-subtitle); }
+.vehicle-taste-preview p { margin-top: var(--space-8); color: var(--color-text-sub); font-size: var(--font-body); line-height: 1.7; }
+.vehicle-taste-preview figcaption > span { display: block; margin-top: var(--space-8); color: var(--color-muted); font-size: var(--font-caption); }
+@media (max-width: 480px) { .vehicle-taste-preview { grid-template-columns: 1fr; } .vehicle-taste-preview-image { height: 176px; } }

@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "golf-gti",
+    "brand": "폭스바겐",
+    "model": "Golf GTI",
+    "image_url": "https://assets.volkswagen.com/is/image/volkswagenag/Golf%20GTI%20Black%20Edition_KV?Zml0PWNyb3AsMSZmbXQ9cG5nLWFscGhhJndpZD0xNjAwJmhlaT05MDAmYmZjPW9mZiY5YWYy",
+    "source_page": "https://www.volkswagen.co.kr/ko/models/golf_gti.html"
+  },
+  {
+    "slug": "golf",
+    "brand": "폭스바겐",
+    "model": "Golf",
+    "image_url": "https://assets.volkswagen.com/is/image/volkswagenag/ex_im?Zm10PXdlYnAmcWx0PTc5JndpZD0xMjgwJmJmYz1vZmYmODcxNQ==",
+    "source_page": "https://www.volkswagen.co.kr/ko/models/golf.html"
+  },
+  {
+    "slug": "sienna",
+    "brand": "토요타",
+    "model": "시에나",
+    "image_url": "https://www.toyota.co.kr/files/car/GNB-sienna_WHITE.png",
+    "source_page": "https://www.toyota.co.kr/models/sienna/"
+  },
+  {
+    "slug": "alphard",
+    "brand": "토요타",
+    "model": "알파드",
+    "image_url": "https://www.toyota.co.kr/files/car/thumbnail-alphard_3.png",
+    "source_page": "https://www.toyota.co.kr/models/alphard/"
+  },
+  {
+    "slug": "musso-ev",
+    "brand": "KG모빌리티",
+    "model": "무쏘 EV",
+    "image_url": "https://www.kg-mobility.com/attached/contents/display/image/200000100030003/20250304093959205_CZWAVZ.png",
+    "source_page": "https://en.kg-mobility.com/pr/model/show-room/200000300020003"
+  },
+  {
+    "slug": "musso",
+    "brand": "KG모빌리티",
+    "model": "무쏘",
+    "image_url": "https://www.kg-mobility.com/images/od/musso_2026.png",
+    "source_page": "https://www.kg-mobility.com/"
+  },
+  {
+    "slug": "cayenne",
+    "brand": "포르쉐",
+    "model": "Cayenne",
+    "image_url": "https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/teaser_720x406x2/dam/US-local/Vehicles/Cayenne/E3II/Cayenne/In-the-studio/S23_0406_fine.jpg/jcr:content/S23_0406_fine.jpg",
+    "source_page": "https://newsroom.porsche.com/en_US/model-range/cayenne/cayenne.html"
+  },
+  {
+    "slug": "hummer",
+    "brand": "GMC",
+    "model": "HUMMER EV SUV",
+    "image_url": "https://www.gmckorea.co.kr/content/dam/gmc/asia/kr/ko/index/suv/2026-hummer-ev-suv-v2/jellys/01-images/explore-hummer-GNO-01.png?imwidth=1920",
+    "source_page": "https://www.gmckorea.co.kr/electric/hummer-ev/suv"
+  },
+  {
+    "slug": "pv5",
+    "brand": "기아",
+    "model": "PV5 패신저",
+    "image_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/represent/krw1313/pv5-passenger_s_sml.png",
+    "source_page": "https://www.kia.com/kr/vehicles/pv5-passenger/features"
+  },
+  {
+    "slug": "canyon",
+    "brand": "GMC",
+    "model": "Canyon",
+    "image_url": "https://www.gmckorea.co.kr/httpobject/gmc_images/onlineShop/model/T4/T4M43600_GBA_F.png",
+    "source_page": "https://www.gmckorea.co.kr/purchase/onlineshop/car-configuration.gm?dmsModelCd=T4&salesSection=offline"
+  },
+  {
+    "slug": "sierra",
+    "brand": "GMC",
+    "model": "Sierra",
+    "image_url": "https://sierra.gmckorea.co.kr/httpobject/sgmc_images/onlineShop/model/T1/T1543600_GBA_F.png",
+    "source_page": "https://sierra.gmckorea.co.kr/purchase/onlineshop/car-configuration.gm?dmsModelCd=T1&salesSection=online"
+  },
+  {
+    "slug": "peugeot-308",
+    "brand": "푸조",
+    "model": "308 SMART HYBRID",
+    "image_url": "https://base.epeugeot.co.kr/Data/250408/308newsletter_250408163659.jpg",
+    "source_page": "https://www.epeugeot.co.kr/new-cars/308hybrid.html"
+  }
+]

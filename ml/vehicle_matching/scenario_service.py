@@ -8,7 +8,7 @@ from vehicle_matching.catalog import read_catalog
 from vehicle_matching.finance import Assumptions, assess
 from vehicle_matching.scenario_features import encode_scenario
 from vehicle_matching.scenario_model import ScenarioRanker
-from vehicle_matching.service import CandidateService
+from vehicle_matching.scenario_traits import ScenarioCandidateService, load_traits, taste_matches
 
 POLICY = 'required-eligibility-then-scenario-ml'
 
@@ -19,6 +19,10 @@ def scenario_user(profile, preferences):
                profile.fuel_importance/5,profile.space_importance/5,
                0.,0.,
                .15 if profile.charging_available else .7]
+    if preferences.get('asset_retention_importance') is not None:
+        weights[0] = preferences['asset_retention_importance'] / 5
+    if preferences.get('running_cost_importance') is not None:
+        weights[1] = preferences['running_cost_importance'] / 5 * min(1.5,max(.4,profile.annual_distance/15000))
     return {'profile':asdict(profile),'preferred_brands':[],
             'model_affinities':{},'channel_weights':weights}
 
@@ -48,6 +52,7 @@ class ScenarioService:
         self.brands = sorted({v.brand for v in vehicles})
         self.models = sorted({v.model for v in vehicles})
         self.ranker.assumptions = Assumptions()
+        self.traits = load_traits(vehicles)
 
     @classmethod
     def load(cls,directory):
@@ -60,13 +65,33 @@ class ScenarioService:
 
     def recommend(self,profile,k=3,preferences=None):
         preferences = preferences or {}
-        if preferences:
-            raise ValueError('브랜드나 차량 모델을 지정하는 선호 입력은 받지 않습니다.')
+        allowed = {'sportiness', 'angularity', 'acceleration', 'design_importance', 'performance_importance',
+                   'asset_retention_importance', 'running_cost_importance'}
+        if set(preferences) - allowed:
+            raise ValueError('지원하지 않는 성향 입력입니다.')
         bound = BoundScenarioRanker(self.ranker,preferences)
-        result = CandidateService(bound,self.vehicles,ml_only=True).recommend(profile,k)
+        result = ScenarioCandidateService(bound,self.vehicles,self.traits,preferences).recommend(profile,k)
+        explicit = any(preferences.get(key) is not None for key in ('sportiness', 'angularity', 'acceleration'))
+        policy = 'explicit-trait-match-then-scenario-ml' if explicit else self.policy
         result.update(modelVersion='scenario-v1',modelBundle=self.model_bundle,scorePolicy=self.policy,
-                      trainingCatalogCount=len(self.vehicles),appliedScenario=preferences)
+                      trainingCatalogCount=len(self.vehicles),appliedScenario=preferences, rankingPolicy=policy,
+                      traitCoverage={key: len(self.vehicles) for key in ('exterior_sportiness', 'exterior_angularity', 'acceleration_performance')})
         for key in ('recommendations','conditionalRecommendations'):
             for item in result[key]:
-                item['rankingPolicy'] = self.policy
+                item['rankingPolicy'] = policy
+                traits = self.traits[item['vehicle']['id']]
+                item['lifestyleEvidence'] = {'values': traits['values'], 'evidence': traits['evidence']}
+                item['tasteMatches'] = taste_matches(preferences, traits)
+                if explicit:
+                    item['rankingComparison'] = {'status': 'explicit-trait-match'}
+                    item['reasons'] = [reason for reason in item['reasons'] if '학습한 모델 점수순' not in reason]
+                    item['reasons'].append('외관·윤곽·가속 성향의 중요도별 일치도를 먼저 비교하고 동률이면 학습 모델 점수로 정렬했습니다.')
+        for item in result['conditionalRecommendations']:
+            item.update(rankingScore=None, rankingScoreType='not-scored',
+                        rankingPolicy='seating-verification-required', rankingComparison={'status': 'unavailable'})
+            item['reasons'].append('필수 좌석 사양을 확인해야 하므로 학습 모델 점수는 계산하지 않았습니다.')
+        result['limitations'].append('외관·윤곽은 주관적 평가 또는 차체별 자체 기준값이며 가속은 공식 수치와 미검증 추정값을 구분합니다.')
+        if explicit:
+            result['limitations'] = [text for text in result['limitations'] if '선호 간 절충은 학습된 모델 점수' not in text]
+            result['limitations'].append('외관·윤곽·가속 선호는 기존 모델이 학습하지 않은 명시적 일치도 정렬입니다. rankingScore는 이 항목들을 학습한 점수가 아닙니다.')
         return result

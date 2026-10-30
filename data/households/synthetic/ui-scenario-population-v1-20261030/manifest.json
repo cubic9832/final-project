@@ -1,0 +1,193 @@
+{
+  "version": "ui-scenario-population-v1",
+  "feature_names": [
+    "log_income",
+    "log_expenses",
+    "log_debt",
+    "log_assets",
+    "log_price",
+    "log_running",
+    "length",
+    "seats",
+    "retention",
+    "affordability",
+    "fuel_match",
+    "fuel_specified",
+    "size_match",
+    "size_specified",
+    "angularity_match",
+    "angularity_specified",
+    "acceleration_match",
+    "acceleration_specified",
+    "charging",
+    "charging_known",
+    "cost_weight",
+    "retention_weight",
+    "running_weight",
+    "fuel_weight",
+    "size_weight",
+    "design_weight",
+    "performance_weight",
+    "weighted_retention",
+    "weighted_running",
+    "weighted_fuel",
+    "weighted_size",
+    "weighted_angularity",
+    "weighted_acceleration",
+    "fuel_GASOLINE",
+    "fuel_HYBRID",
+    "fuel_DIESEL",
+    "fuel_LPG",
+    "fuel_ELECTRIC"
+  ],
+  "profiles": 10000,
+  "comparisons": 99442,
+  "partitions": {
+    "train": {
+      "profiles": 7039,
+      "comparisons": 69975
+    },
+    "validation": {
+      "profiles": 1453,
+      "comparisons": 14428
+    },
+    "test": {
+      "profiles": 1508,
+      "comparisons": 15039
+    }
+  },
+  "shards": [
+    {
+      "directory": "shard-0000"
+    },
+    {
+      "directory": "shard-0001"
+    },
+    {
+      "directory": "shard-0002"
+    },
+    {
+      "directory": "shard-0003"
+    },
+    {
+      "directory": "shard-0004"
+    },
+    {
+      "directory": "shard-0005"
+    },
+    {
+      "directory": "shard-0006"
+    },
+    {
+      "directory": "shard-0007"
+    },
+    {
+      "directory": "shard-0008"
+    },
+    {
+      "directory": "shard-0009"
+    }
+  ],
+  "files_sha256": {
+    "catalog.json": "cc80cb30b0dc87f1bdebdd6bdd5d350b778aa77c6a49cb436cdaa44ab6f092bf",
+    "configuration.json": "ddef9e822f814b10622e1b10294d70c2897f230e4959662b56c9d4657b73a00a",
+    "coverage_report.json": "fee33a27ce796157109d8a99aa754c7aa0062c9be561f83321a87b7272e27362",
+    "vehicle_traits.json": "193b614254a8bef7c632dc2f1559224d4bb056c867354f372c233c07ebe27b5b",
+    "shard-0000\\test_choices.jsonl": "3cdef8a35c877ba075646f8c262fec7fe1695b15f50cd025fa3c4401bc3507e8",
+    "shard-0000\\test_choices.npz": "060da3241490259f50d34693836425e1b0c6edd21f9473c8280dc92c46a172b4",
+    "shard-0000\\test_profiles.jsonl": "00805581bd3d9f9acfb9db0c1e7aa500f8a8f4d4e75a8407ca7ea576eb6bf27c",
+    "shard-0000\\train_choices.jsonl": "acbbe035191a790c761fe0e2bee7944a75496019a265b271cedcde607226f983",
+    "shard-0000\\train_choices.npz": "af995fba6bd5021370573a591aae75f7f81f5cf37c0ef2db0759829538e38e3f",
+    "shard-0000\\train_profiles.jsonl": "a35b7560ef9042c29150b189f0fb0b9cb4eb8002b3dcd0fe88fb967380233219",
+    "shard-0000\\validation_choices.jsonl": "b0b160b07ef33b1807c1dcf594d9a393662b893ced65b7a41e71033d85bf2f12",
+    "shard-0000\\validation_choices.npz": "ccdbe37df1f7c5dfc11df0009606bc12137faf4814af8659a9e58b33cebb8430",
+    "shard-0000\\validation_profiles.jsonl": "ffab37da28fe8f62a82a68ed261583dfd3490c29d22cac993986cfe56955d6d8",
+    "shard-0001\\test_choices.jsonl": "1e84e0241d85aa4311e578b311712dc079879ec8df60aa1a39e80bafcc93c387",
+    "shard-0001\\test_choices.npz": "290f9eda548c6d869b91b4d7fa98196423d93506c2cc6139cb208ae2ce36f838",
+    "shard-0001\\test_profiles.jsonl": "3a297aa0bf95ca6421d114da746669e0edcfc0531e4f5cedf574727c9116259c",
+    "shard-0001\\train_choices.jsonl": "831bf578fd25ee37046e37badf1fa177c33811c111b461555a27454346414a7d",
+    "shard-0001\\train_choices.npz": "f4032e2b7bcdd66d9975ec08dd3b8092a8d595e40339ea7ea1c720db7f416a88",
+    "shard-0001\\train_profiles.jsonl": "1f61c63af1140c65efda3f70360b8c91b098786379adfadde4e7c2412aeda980",
+    "shard-0001\\validation_choices.jsonl": "4eb1b2dc2114a45ebca06dc789af4b37545fe792bb6bee7c7a99af6b6d02a18e",
+    "shard-0001\\validation_choices.npz": "a52df9b659ba92805b4adc9beacb963a736595a0848eef02f3256179675d6159",
+    "shard-0001\\validation_profiles.jsonl": "6f1f987d1983ef27b59231961c2a831f0f9362f3cc055ca788c8e4d93dc70453",
+    "shard-0002\\test_choices.jsonl": "aed19138e1eea9dec0587a39165cb0993eb6dcc2f68382b69dfd162891517131",
+    "shard-0002\\test_choices.npz": "f8ccfac7044cb4c32f24c0fc3ffa4d73c3f9075b3c73f626c063f05225b51a64",
+    "shard-0002\\test_profiles.jsonl": "755f856760edf6a50ccd190211d2275566c6af71ab097f6fb1d59e46ab23922a",
+    "shard-0002\\train_choices.jsonl": "8b32bc277843c5209722a887359b277078a72614decf4b0e5a4d217a92a98b7f",
+    "shard-0002\\train_choices.npz": "5cb71765b84e023eef61556dc915deedf651f0277ba8e21825491757570ba028",
+    "shard-0002\\train_profiles.jsonl": "dcb766092a54c12f19bc42e64699150803ae792246e8a30cf66de94ac4aece39",
+    "shard-0002\\validation_choices.jsonl": "ba818c03e3afaf8043e551e70f37c4b3e720d89bfaa5594d9f55cab83dce292d",
+    "shard-0002\\validation_choices.npz": "1388b632c54201f6cf8ed05509be865a2a36c8c55c7fc5f279c923656cdb9d1d",
+    "shard-0002\\validation_profiles.jsonl": "7741644bc8eccc332eb3e203b9e3b7c3f9fc9359aa7f9ecb386be52f0c5e229f",
+    "shard-0003\\test_choices.jsonl": "1e3dc850065b6f52263da659a2dc35e4669b61ef8fa41a52924be0e27633a34e",
+    "shard-0003\\test_choices.npz": "e23b7ae1c0624bcc511d480c15a772d526698be3f0e970c50af6fc510d474508",
+    "shard-0003\\test_profiles.jsonl": "fe0c03af7262646dd4ef4ca089cdeb271ad0059ebffa0eabf43553bb6d9deedf",
+    "shard-0003\\train_choices.jsonl": "5f8c0adf4bd95856243b7bf8a50eac6a0066ac3e390ee3d77f3084249e59e38c",
+    "shard-0003\\train_choices.npz": "3ab1f741cf58b9233a9a451591465efddaa3812967956129e76514d0603c4bff",
+    "shard-0003\\train_profiles.jsonl": "a08e9e29405e02e86a265b2f412cf428ac8b782754d1a21ad5ad4de7796f9d85",
+    "shard-0003\\validation_choices.jsonl": "8348dde47b6dc5a079da9ab2d12c3887a8085e49262cfd88e1b599cad5c71861",
+    "shard-0003\\validation_choices.npz": "a65a9d051edb12367a0b69db39e477108d3c45da83be2a5f058725e13f96c409",
+    "shard-0003\\validation_profiles.jsonl": "bff827f466f869bef8b203ba4297c106553dcffd704998c97bcbf25f955ef041",
+    "shard-0004\\test_choices.jsonl": "382469caed85f1af3938eb93e53d309f35b140b14b7008bfcd19076fdbf0fe4e",
+    "shard-0004\\test_choices.npz": "a0dbfc8829d9d862c747477fb137c9bcb22dc08ad610378d07fc902669eb0eb8",
+    "shard-0004\\test_profiles.jsonl": "a247d6403cd9afbaf0d8ce644c8102e671a9094a6176420c528ed9caaaaf4255",
+    "shard-0004\\train_choices.jsonl": "21997aa5cc7c643d234474e0591c01f117df26573bcfc3205ca768489208f7fe",
+    "shard-0004\\train_choices.npz": "f8deb479b36b0f0e2a7a4f33ec2493f994191e1601433245c198ca8e3a9d821b",
+    "shard-0004\\train_profiles.jsonl": "18eca898457bb50239c87b45dec47224b1a58f6e38c2bcd4912e47f6ffa8a8e1",
+    "shard-0004\\validation_choices.jsonl": "23aceccd7ebd9121dae42dd8e05846a73a53b3170260348a32d9f78567dfb43b",
+    "shard-0004\\validation_choices.npz": "094c24e81515a2c5a571af1c827045cd6a0253857d0ac9c28e476b62560268d5",
+    "shard-0004\\validation_profiles.jsonl": "e3e611a9b5516880f896786f8b6cf7781ada8a2454f1f106c942f1300f7ca5d4",
+    "shard-0005\\test_choices.jsonl": "65aec2d8cbd7e30da7f457969bdc5e2a8d4f2177d9cef0f891ae433a2d45dcd8",
+    "shard-0005\\test_choices.npz": "6b5d27544105b1cd37a0afeb96f849bb2cbd359f0ba4dd0eb4d3a3f1fb511806",
+    "shard-0005\\test_profiles.jsonl": "436a1a4e080ded63ff7d9773393b58cf2257c352b9c18534a88316bacf43a560",
+    "shard-0005\\train_choices.jsonl": "5df827a5fdfef706c2d89f2dbcaa22db8afcd83b19e6ba53b2cba7a78bae1eb8",
+    "shard-0005\\train_choices.npz": "13bc464101ef14259f36157f3f7b62966fcc815800a629db8b47b739c6ba1d4a",
+    "shard-0005\\train_profiles.jsonl": "2bdce298a501f40cb413ed9ea3f7e34154802c5ef0a719a3930b425e97eb6fff",
+    "shard-0005\\validation_choices.jsonl": "7c2111675e3be24c431547b09c3be72842c2aa5d1120aed255d04fb2d2f2566f",
+    "shard-0005\\validation_choices.npz": "32ec0a13e285a70e50f8ce53b78a7a0b8ca4001e55752b6303df790e6b25e516",
+    "shard-0005\\validation_profiles.jsonl": "1e44216299a96b66eed757c919b6d8230ba7e605418a57dd9de39d76c6a68696",
+    "shard-0006\\test_choices.jsonl": "f9b8aec4847f302db390a6049f9a4ec2785a95d4d24d0a8fb8a471df99830f5f",
+    "shard-0006\\test_choices.npz": "94682de12f5e2495d4da26cf75d844710b6e0512e2b4e8d3cc4a676aeee2aea3",
+    "shard-0006\\test_profiles.jsonl": "8ba772f27ec7309a883bf34e4ed9e1c08c0fe6686e25ff44ddb56f99f4aa6405",
+    "shard-0006\\train_choices.jsonl": "09666f8ad70e1c9bb3dd3f4ffafc2b1151ab30ed77a4a52b99fd08a1741b0a50",
+    "shard-0006\\train_choices.npz": "ce30a074d38372008c17fc1b39ca0bdb84b25b8165b0b9194cd37337e12fda47",
+    "shard-0006\\train_profiles.jsonl": "2fe786db9765968160335aa207c2a34c2781fe3658f581344b9583558edcdc02",
+    "shard-0006\\validation_choices.jsonl": "a8294556b3420be8b3875dc3dc047099b28a0984626cc1b9bffc9f5e4b1d75f0",
+    "shard-0006\\validation_choices.npz": "57f9c25697afc64972ad5e34794f2c7f9dd0b6508ecd396d53e3fd6b106e75ac",
+    "shard-0006\\validation_profiles.jsonl": "8d69570b7c1fa4a28c98a5471977b7bba9b9ac7b64b7c3f2e374b4527ff260fa",
+    "shard-0007\\test_choices.jsonl": "2afef2e3feade0dd99a586ee00b847dccc266d39957967ace74bc67155d43ec1",
+    "shard-0007\\test_choices.npz": "60cd35b923ba8aa0fdc347ecdd20beddb54fac0919f8875cd40bf419abf0df23",
+    "shard-0007\\test_profiles.jsonl": "1b501acb1ab5ecfe6f57908492387b9619de8ea6d0db68113f5e5548bf2f6351",
+    "shard-0007\\train_choices.jsonl": "706eca558315983801bcbda1cf1aa8b8ab941eff4bc563f63a42f89aedadf565",
+    "shard-0007\\train_choices.npz": "9a8d414c8642dd21390b6813acc07f153a43a36fccee9aa428d51f750c82c59d",
+    "shard-0007\\train_profiles.jsonl": "7c07bcfd3957366807b212404241534d78d8eaebcf381e6f6300a9b997b2737d",
+    "shard-0007\\validation_choices.jsonl": "b3f6639b409b0df2bc678ea00ecf2dc6db57cce0f09e1208e90c0cf8a9334c2a",
+    "shard-0007\\validation_choices.npz": "80ccc83a2a4bdc49fd3f442898cc1c675eb9d2917bca664d500b23e0b266847d",
+    "shard-0007\\validation_profiles.jsonl": "2de6015316addd4bd3d7b5ef88204ec1454c44cd6d4d027eac06ff6c5a54ed11",
+    "shard-0008\\test_choices.jsonl": "b3be76c1a5d673a8552d94e0febc827ecb97364eb831a63ed73b28847d9fbe93",
+    "shard-0008\\test_choices.npz": "1fa273c2b1749f0551759ead4b2e1169435a7b6c7ac34a50bc12311f4d2c3310",
+    "shard-0008\\test_profiles.jsonl": "887ddfd8876d7410190573f4d791ad13e5b7c18351dd64341276cd5d4f3051fd",
+    "shard-0008\\train_choices.jsonl": "6cf69291d00fadc10fee6b12c60500cbd518354a9d3861ed977bad987310c9fc",
+    "shard-0008\\train_choices.npz": "4998664d467593b4851470feab557f92b370db9b06e8ecfe0384f7a9797bb5a6",
+    "shard-0008\\train_profiles.jsonl": "1f5199036a5bbbadf800f4ed0f94a2f190527a34fc2fde6f0c3700ceb66508fc",
+    "shard-0008\\validation_choices.jsonl": "47ae281ec8d1183b8e09e6ef95c6c49c8a49f7f56757f684107281dd1ad9e037",
+    "shard-0008\\validation_choices.npz": "0f090aa78097329e5a705b7b1de5ad1d23690cc5f45277396d272d6d4a840646",
+    "shard-0008\\validation_profiles.jsonl": "ac69cab2a2575ec37b9c325f20fe5efae3c210354837d8473db2fb883997cf1f",
+    "shard-0009\\test_choices.jsonl": "e5158b60b30a6b79fc192efb62bd18ffdc8b84f0675b6ebba5eef9bba76d7b4c",
+    "shard-0009\\test_choices.npz": "e4fc11f63ee8ba8bd29eb577fa95303d2ebd51aba71ae238ef0c6d2153ae016f",
+    "shard-0009\\test_profiles.jsonl": "d73bfabaa8522b126ac3cdd958f2f53b609491e3ec33544b0553a3a43c398f3e",
+    "shard-0009\\train_choices.jsonl": "d2d3d072c27eadf4dfb808a62b150b346b5da25159583ed78a559e946dbcbb41",
+    "shard-0009\\train_choices.npz": "30f4b19371d36a9e0bfaf6863084e7f4032b220dc4806c84e317d6309bbc3bb7",
+    "shard-0009\\train_profiles.jsonl": "a1c4d3b96d8296484f7ef7c1c8cae7387efd458dc0c57b2d037a506af0b6032c",
+    "shard-0009\\validation_choices.jsonl": "288855a87a3a27d826c44c944906e24baa30d15b121dfc994791322663af67f8",
+    "shard-0009\\validation_choices.npz": "1f9a7901f207690ed001065047d21dbf499c80ea7d3885599050ab48aff83c1b",
+    "shard-0009\\validation_profiles.jsonl": "19fdd34da573f9d89563ba6335caf67c6b58c83dcae37da6a60d1de2605b681a"
+  },
+  "source_sha256": {
+    "tools\\data\\households\\generate_ui_scenario_population.py": "6e03a99c2df08aba5fd2e5c20e91892aa2c0091d2f44f5acd3c142c7da024aeb",
+    "ml\\vehicle_matching\\ui_scenario_features.py": "1509c6a2c604a8f8feaf6930e04622fc9fdec29ddd41d63c6b314480b4826415",
+    "data\\households\\synthetic\\scenario-population-v3-broad-taste-10k-20261029\\seed_personas.json": "aea868a147cfd3f67acf7857623a19104ad1e34d5b29db237e606d32939fb3ef",
+    "data\\vehicles\\scenario-traits-20261030\\vehicle_traits.json": "193b614254a8bef7c632dc2f1559224d4bb056c867354f372c233c07ebe27b5b"
+  }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "golf-gti",
+    "original_src": "/images/recommendations/scenario-models-20261030/golf-gti.webp",
+    "output_src": "/images/recommendations/white-backgrounds-20261030/golf-gti.webp",
+    "original_sha256": "b6d22d5d48b4a7b9c557f93c0630d5ace4ae999176fde9efd1e52223319c8afe",
+    "output_sha256": "ef8af2e30919359b81cbcf718d184a82d100d20c29babe23de68b6fe529918c7",
+    "processing": "imagegen-background-replacement-white",
+    "reviewed": "2026-10-30"
+  },
+  {
+    "slug": "golf",
+    "original_src": "/images/recommendations/scenario-models-20261030/golf.webp",
+    "output_src": "/images/recommendations/white-backgrounds-20261030/golf.webp",
+    "original_sha256": "24cff6e6eab3bc257737bafe54863c857525e507bc703cfb386360ea1e50b698",
+    "output_sha256": "7e390f2904ed22618928000e3fd767e129c94356d126ed379c9669b061b75202",
+    "processing": "imagegen-background-replacement-white",
+    "reviewed": "2026-10-30"
+  },
+  {
+    "slug": "cayenne",
+    "original_src": "/images/recommendations/scenario-models-20261030/cayenne.webp",
+    "output_src": "/images/recommendations/white-backgrounds-20261030/cayenne.webp",
+    "original_sha256": "e8c0e7029ca6f409d58a131d422a43971a6386aae86057534e6319054ebc02fc",
+    "output_sha256": "442dfba6b5106ab680d2f53b91032474bff740fd71b2828f0e92b29b258e83c4",
+    "processing": "imagegen-background-replacement-white",
+    "reviewed": "2026-10-30"
+  },
+  {
+    "slug": "peugeot-308",
+    "original_src": "/images/recommendations/scenario-models-20261030/peugeot-308.webp",
+    "output_src": "/images/recommendations/white-backgrounds-20261030/peugeot-308.webp",
+    "original_sha256": "407685cb0065fc3baa06dc88db36a9f34b981349fa421471791e88d63c94f9fa",
+    "output_sha256": "c6d0bc7353fe5d1b97215130f2a64cfdfca41b7bf9e1c041358d800ec522b1b1",
+    "processing": "imagegen-background-replacement-white",
+    "reviewed": "2026-10-30"
+  }
+]

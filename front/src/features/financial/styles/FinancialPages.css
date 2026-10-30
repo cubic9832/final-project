@@ -38,7 +38,7 @@
 
 .financial-progress ol {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: var(--space-4);
 }
 
@@ -440,7 +440,7 @@
 .financial-next-button { font-size:var(--font-body); }
 .financial-next-button:focus-visible,.financial-previous-button:focus-visible { outline:2px solid var(--color-blue); outline-offset:4px; }
 .financial-progress .completed { background:var(--color-mint-tint); color:var(--color-primary); }
-@media(max-width:480px) { .financial-progress ol { grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-8); } .financial-page-heading { align-items:flex-start; flex-direction:column; gap:var(--space-16); } .financial-next-row { flex-wrap:wrap; gap:var(--space-12); } .financial-next-row>button { flex:1 1 100%; } }
+@media(max-width:480px) { .financial-progress ol { grid-template-columns:repeat(3,minmax(0,1fr)); gap:var(--space-8); } .financial-page-heading { align-items:flex-start; flex-direction:column; gap:var(--space-16); } .financial-next-row { flex-wrap:wrap; gap:var(--space-12); } .financial-next-row>button { flex:1 1 100%; } }
 @media (max-width: 1024px) { .financial-entry-grid { grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr); } .financial-fields { column-gap: var(--space-24); } }
 @media (max-width: 768px) { .financial-entry-grid { grid-template-columns: 1fr; } .financial-budget-summary { position: static; } .financial-extra { margin-top: var(--space-24); } }
 @media (max-width: 480px) { .financial-page-heading h1 { font-size: var(--font-page-title); } .financial-entry-card, .financial-budget-summary { padding: var(--space-24); } .financial-next-row { width: 100%; } .financial-next-row > .financial-next-button { flex: 1; min-width: 0; } }

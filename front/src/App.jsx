@@ -14,6 +14,7 @@ import LoginPage from './pages/login/LoginPage';
 import FinancialPage from './features/financial/pages/overview/FinancialPage';
 import FinancialAssetsPage from './features/financial/pages/assets/FinancialAssetsPage';
 import FinancialCreditPage from './features/financial/pages/credit/FinancialCreditPage';
+import FinancialEnvironmentPage from './features/financial/pages/environment/FinancialEnvironmentPage';
 import FinancialVehiclePage from './features/financial/pages/vehicle/FinancialVehiclePage';
 import FinancialReviewPage from './features/financial/pages/review/FinancialReviewPage';
 import FinancialResultPage from './features/financial/pages/result/FinancialResultPage';
@@ -78,6 +79,7 @@ function App() {
         <Route path="/financial" element={<FinancialPage />} />
         <Route path="/financial/assets" element={<FinancialAssetsPage />} />
         <Route path="/financial/credit" element={<FinancialCreditPage />} />
+        <Route path="/financial/environment" element={<FinancialEnvironmentPage />} />
         <Route path="/financial/vehicle" element={<FinancialVehiclePage />} />
         <Route path="/financial/review" element={<FinancialReviewPage />} />
         <Route path="/financial/result" element={<FinancialResultPage />} />

@@ -3,6 +3,7 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import theme from '../../../../styles/theme.js';
 import { calculateFinancialSummary } from '../../calculateFinancialSummary.js';
+import { isFinancialRecommendationResult } from '../../isFinancialRecommendationResult.js';
 import { lifestyleSummary } from '../../lifestylePreferences.js';
 import { candidateMoney } from './candidatePresentation.js';
 import FinancialFlowHeader from '../../components/FinancialFlowHeader.jsx';
@@ -19,7 +20,7 @@ export default function FinancialRecommendationsPage() {
   const result = state?.result;
   const [comparisonIds, setComparisonIds] = useState(() => (state?.comparisonIds ?? []).slice(0, 3));
   const [visibleCount, setVisibleCount] = useState(3);
-  if (!diagnosis?.values || result?.modelVersion !== 'candidate-v2' || !Array.isArray(result?.recommendations)) return <Navigate to="/financial" replace />;
+  if (!diagnosis?.values || !isFinancialRecommendationResult(result)) return <Navigate to="/financial" replace />;
   const totals = calculateFinancialSummary(diagnosis.values, diagnosis.loans ?? []);
   const candidates = result.recommendations.slice(0, 9);
   const views = buildRecommendationView({ ...result, recommendations: candidates });
@@ -36,7 +37,7 @@ export default function FinancialRecommendationsPage() {
   }
 
   return <div className={`financial-recommendations-page${views.length > 1 ? ' has-comparison-tray' : ''}`}>
-    <FinancialFlowHeader current={4} title="내 예산에 맞는 추천 차량" description="예산과 취향에 맞는 차량을 비교해 보세요." />
+    <FinancialFlowHeader current={5} title="내 예산에 맞는 추천 차량" description="예산과 취향에 맞는 차량을 비교해 보세요." />
     <button type="button" className="financial-recommendations-back" onClick={() => navigate('/financial/result', { state: { diagnosis, result, comparisonIds } })}>종합 분석 결과 보기</button>
     <section className="financial-recommendations-summary" aria-label="진단 결과 요약">
       <dl>
@@ -54,12 +55,12 @@ export default function FinancialRecommendationsPage() {
 
     <section className="candidate-decision-summary" aria-labelledby="decision-summary-title">
       <h2 id="decision-summary-title">선택하신 조건으로 비교했어요</h2>
-      <p>{diagnosis.vehicle?.scenarioMode ? '예산과 탑승 인원을 먼저 확인하고, 비용 성향·차체·연료·크기와 주행·충전 여건을 반영했습니다.' : '예산과 탑승 인원을 먼저 확인하고, 선택하신 디자인·가속·차체·연료·크기 선호를 반영했습니다.'}</p>
+      <p>예산과 탑승 인원을 먼저 확인하고, 비용과 연료·크기·윤곽·가속 취향 및 항목별 중요도를 반영했습니다.</p>
       {conditionMessage && <p className="candidate-condition-summary">{conditionMessage}</p>}
     </section>
     <section id="recommended-vehicles" aria-label="추천 차량 목록">
       <div className="financial-recommendations-list-heading"><h2>상위 추천 차량</h2><span>추천 후보 총 {candidates.length}대 · 최대 9대</span></div>
-      {candidates.length ? <RecommendationGrid candidates={candidates.slice(0, 3)} preferences={diagnosis.vehicle} views={views} comparisonIds={comparisonIds} onToggleComparison={toggleComparison} /> : <div className="financial-recommendations-empty"><h2>추천 가능한 차량이 없습니다.</h2><p>구매 예산·월 유지비와 최소 탑승 인원을 충족하는 차량이 없습니다. 조건을 조정하거나 아래 사양 확인 필요 후보를 확인해 주세요.</p></div>}
+      {candidates.length ? <RecommendationGrid candidates={candidates.slice(0, 3)} preferences={diagnosis.vehicle} views={views} comparisonIds={comparisonIds} onToggleComparison={toggleComparison} /> : <div className="financial-recommendations-empty"><h2>추천 가능한 차량이 없습니다.</h2><p>구매 예산·월 유지비와 최소 탑승 인원을 충족하는 차량이 없습니다. 예산이나 이용 조건을 조정해 다시 추천받아 주세요.</p></div>}
     </section>
     {candidates.length > 3 && <section aria-labelledby="additional-candidates-title">
       <div className="financial-recommendations-list-heading"><h2 id="additional-candidates-title">다른 추천 후보</h2><span>4위부터 최대 9위까지</span></div>
@@ -68,11 +69,6 @@ export default function FinancialRecommendationsPage() {
       {visibleCount < candidates.length && <button type="button" className="candidate-open-comparison" aria-controls="additional-candidates" aria-expanded={visibleCount > 3} onClick={() => setVisibleCount(count => Math.min(9, count + 3))}>다른 추천 후보 {Math.min(3, candidates.length - visibleCount)}대 더 보기 ({Math.min(visibleCount, candidates.length)}/{candidates.length})</button>}
       {visibleCount >= candidates.length && <p role="status">추천 후보 {candidates.length}대를 모두 표시했어요.{candidates.length === 9 ? ' 화면에는 최대 9대까지 제공합니다.' : ' 현재 재무 조건과 최소 인원을 충족하는 다른 모델은 없어요.'}</p>}
       {visibleCount > 3 && <button type="button" className="financial-recommendations-back" onClick={() => setVisibleCount(3)}>추가 후보 접기</button>}
-    </section>}
-    {result.conditionalRecommendations?.length > 0 && <section aria-label="사양 확인 필요 후보">
-      <div className="financial-recommendations-list-heading"><h2>사양 확인 필요 후보</h2><span>총 {result.conditionalRecommendations.length}대</span></div>
-      <p>재무 조건을 충족한 차량입니다. 승차 정원·전장이 미확인이거나 좌석 사양 선택이 필요해 일반 추천 목록에는 포함하지 않았습니다.</p>
-      <RecommendationGrid candidates={result.conditionalRecommendations} preferences={diagnosis.vehicle} />
     </section>}
     {views.length > 1 && <section className="candidate-comparison-section" aria-labelledby="candidate-comparison-title">
       <div className="financial-recommendations-list-heading"><h2 id="candidate-comparison-title">무엇을 얻고, 무엇을 조정할까요?</h2><span>{comparisonIds.length}대 선택</span></div>

@@ -59,7 +59,7 @@ export default function FinancialPage() {
     event.preventDefault();
     if (!event.currentTarget.reportValidity()) return;
     if (detailedLoans && loanDetails.some(loan => loan.payment === '')) { setErrors(previous => ({ ...previous, loanPayment: '등록한 대출의 월 상환액을 계산하거나 직접 입력해 주세요.' })); return; }
-    navigate('/financial/vehicle', { state: { values, assets: { deposit }, loans, detailedLoans, vehicle: state?.vehicle, expenseBreakdown: breakdown } });
+    navigate('/financial/environment', { state: { values, assets: { deposit }, loans, detailedLoans, vehicle: state?.vehicle, expenseBreakdown: breakdown } });
   }
 
   return <div className="financial-page">
@@ -81,6 +81,6 @@ export default function FinancialPage() {
         {detailedLoans && <LoanCalculator loans={loanDetails} onChange={next => { setLoanDetails(next); setErrors(previous => ({ ...previous, loanPayment: '' })); }} />}
       </section>
       <FinancialBudgetSummary values={values} assets={{ deposit }} loans={loans} />
-    </div><div className="financial-next-row"><button type="submit" className="financial-next-button">차량 취향 선택하기</button></div></form>
+    </div><div className="financial-next-row"><button type="submit" className="financial-next-button">이용 환경 설정하기</button></div></form>
   </div>;
 }

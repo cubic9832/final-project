@@ -1,39 +1,25 @@
 import { useState } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
-import { sizeOptions, fuelOptions, bodyTypeOptions, bodyTypeLabel } from '../../vehiclePreferences.js';
+import { sizeOptions, fuelOptions } from '../../vehiclePreferences.js';
 import useCandidateRecommendations from './useCandidateRecommendations.js';
-import BodyTypePreview from './BodyTypePreview.jsx';
 import LifestylePreferences from './LifestylePreferences.jsx';
-import ScenarioPreferences from './ScenarioPreferences.jsx';
-import useRecommendationOptions from './useRecommendationOptions.js';
-import { initialLifestylePreferences } from '../../lifestylePreferences.js';
+import useRecommendationOptions from '../../useRecommendationOptions.js';
+import { createVehiclePreferences } from '../../createVehiclePreferences.js';
 import FinancialBudgetSummary from '../../components/FinancialBudgetSummary.jsx';
 import FinancialFlowHeader from '../../components/FinancialFlowHeader.jsx';
 import '../../styles/FinancialPages.css';
-import './FinancialVehiclePage.css';
+import '../../styles/VehicleInputs.css';
 
-const priorities = [['bodyImportance', '차체 형태'], ['spaceImportance', '크기 일치'], ['fuelImportance', '선호 연료']];
-const priorityPresets = [{ value: '1', label: '우선도 낮음' }, { value: '3', label: '우선도 중간' }, { value: '5', label: '우선도 높음' }];
-const initialVehicle = {
-  ...initialLifestylePreferences,
-  purpose: '출퇴근', fuel: '상관없음',
-  preferredBodyType: 'any', bodyImportance: '3',
-  costImportance: '3', spaceImportance: '3', minimumSeats: '0', preferredSize: 'any',
-  fuelImportance: '3', seatingImportance: '3', purposeImportance: '1',
-};
 export default function FinancialVehiclePage() {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const [vehicle, setVehicle] = useState(() => ({ ...initialVehicle, ...state?.vehicle,
-    preferredBodyType: state?.vehicle?.preferredBodyType ?? initialVehicle.preferredBodyType,
-    ...Object.fromEntries(priorities.map(([name]) => { const value = Number(state?.vehicle?.[name] ?? initialVehicle[name]); return [name, String(value <= 2 ? 1 : value >= 4 ? 5 : 3)]; })) }));
+  const [vehicle, setVehicle] = useState(() => createVehiclePreferences(state?.vehicle));
 
   const { options, error: optionsError } = useRecommendationOptions();
   const scenarioMode = options?.scenarioSupported ?? false;
-  const availableBodyTypeOptions = scenarioMode ? bodyTypeOptions : bodyTypeOptions.filter(item => item.value !== 'PICKUP');
   const diagnosis = { ...state, vehicle: { ...vehicle, scenarioMode } };
   const { notice, recommending, showRecommendations } = useCandidateRecommendations(diagnosis);
-  const inactive = name => (name === 'bodyImportance' && vehicle.preferredBodyType === 'any') || (name === 'fuelImportance' && vehicle.fuel === '상관없음') || (name === 'spaceImportance' && vehicle.preferredSize === 'any') || (name === 'seatingImportance' && Number(vehicle.minimumSeats) === 0);
+
 
   if (!state?.values) return <Navigate to="/financial" replace />;
 
@@ -44,16 +30,19 @@ export default function FinancialVehiclePage() {
   }
 
   return (
-    <div className="financial-page vehicle-page">
-      <FinancialFlowHeader current={2} title="어떤 차를 타고 싶으세요?" description="원하는 차체 형태와 연료, 크기를 골라 주세요. 다음 화면에서 종합 분석 결과를 확인할 수 있어요." />
+    <div className="financial-page vehicle-input-page">
+      <FinancialFlowHeader current={3} title="어떤 차를 타고 싶으세요?" description="마음에 드는 윤곽과 가속 성향, 연료와 크기를 골라 주세요. 다음 화면에서 종합 분석 결과를 확인할 수 있어요." />
       <form onSubmit={handleSubmit}>
         <div className="financial-entry-grid">
+          <div className="vehicle-section-stack">
+          <section className="financial-entry-card vehicle-entry-card">
+            <LifestylePreferences value={vehicle} onChange={setVehicle} includePurpose={!scenarioMode} />
+          </section>
           <section className="financial-entry-card vehicle-entry-card" aria-labelledby="vehicle-title">
-            <h2 id="vehicle-title">내 차량 취향</h2>
+            <h2 id="vehicle-title">연료와 크기</h2>
             <p>선택한 취향은 추천 순위에 반영됩니다.</p>
             {!options && !optionsError && <p role="status">추천 입력 항목을 불러오고 있어요…</p>}
             {optionsError && <p role="alert">{optionsError}</p>}
-            {options && (scenarioMode ? <ScenarioPreferences value={vehicle} onChange={setVehicle} options={options} /> : <LifestylePreferences value={vehicle} onChange={setVehicle} />)}
             <fieldset className="vehicle-purpose vehicle-fuel-preference" aria-describedby="vehicle-fuel-help">
               <legend>선호 연료</legend>
               <p id="vehicle-fuel-help">원하는 연료가 없다면 상관없음을 선택해 주세요.</p>
@@ -64,14 +53,10 @@ export default function FinancialVehiclePage() {
                 </label>)}
               </div>
             </fieldset>
-            <fieldset className="vehicle-purpose">
-              <legend>선호 차체 형태</legend>
-              <div className="vehicle-purpose-options">
-                {availableBodyTypeOptions.map(item => <label key={item.value}><input type="radio" name="preferredBodyType" value={item.value} checked={vehicle.preferredBodyType === item.value} onChange={() => setVehicle(previous => ({ ...previous, preferredBodyType: item.value }))} /><span>{item.label}</span></label>)}
-              </div>
-              <BodyTypePreview value={vehicle.preferredBodyType} label={bodyTypeLabel(vehicle.preferredBodyType)} />
-              <p className="vehicle-field-help">차체 형태와 크기는 별도 조건이에요. 쿠페형 SUV는 SUV에 포함해요.</p>
-            </fieldset>
+            {scenarioMode && vehicle.fuel === '전기' && <fieldset className="vehicle-purpose">
+              <legend>집이나 직장에서 전기차를 충전할 수 있나요?</legend>
+              <div className="vehicle-purpose-options">{[[false, '충전할 곳이 없어요'], [true, '충전할 수 있어요']].map(([available, label]) => <label key={String(available)}><input type="radio" name="chargingAvailable" checked={(vehicle.chargingAvailable ?? false) === available} onChange={() => setVehicle(previous => ({ ...previous, chargingAvailable: available }))} /><span>{label}</span></label>)}</div>
+            </fieldset>}
             <fieldset className="vehicle-purpose vehicle-size-preference">
               <legend>선호 크기</legend>
               <div className="vehicle-purpose-options vehicle-size-options">
@@ -82,33 +67,17 @@ export default function FinancialVehiclePage() {
               </div>
               <p className="vehicle-field-help">크기는 차량 전체 길이 기준이며, 실내 공간과는 다를 수 있습니다.</p>
             </fieldset>
-            <div className="vehicle-fields">
-              <div className="financial-field"><label htmlFor="vehicle-minimumSeats">최소 탑승 인원 · 운전자 포함</label><select id="vehicle-minimumSeats" value={vehicle.minimumSeats} onChange={event => setVehicle(previous => ({ ...previous, minimumSeats: event.target.value }))}><option value="0">상관없음</option>{[2, 3, 4, 5, 6, 7, 8, 9].map(value => <option key={value} value={value}>{value}명 이상</option>)}</select><p>최소 인원은 중요도와 관계없이 필수로 적용해요. 정원이 부족한 차량은 추천에서 제외해요.</p></div>
-            </div>
-            <fieldset className="vehicle-preferences">
-              <legend>어떤 점이 중요한가요?</legend>
-              <p>중요할수록 추천 순위에 더 크게 반영합니다.</p>
-              <div className="vehicle-priority-list">
-                {priorities.map(([name, label]) => <fieldset className="vehicle-priority-row" key={name} disabled={inactive(name)}>
-                  <legend>{label}{inactive(name) && <small>조건을 선택하면 설정할 수 있어요</small>}</legend>
-                  <div className="vehicle-purpose-options">
-                    {priorityPresets.map(item => <label key={item.value}><input type="radio" name={name} value={item.value} checked={vehicle[name] === item.value} onChange={() => setVehicle(previous => ({ ...previous, [name]: item.value }))} /><span>{item.label}</span></label>)}
-                  </div>
-                </fieldset>)}
-              </div>
-
-            </fieldset>
-
-            <p className="vehicle-field-help">{scenarioMode ? '구매비·유지비와 최소 탑승 인원을 먼저 확인하고, 비용 성향·차체·연료·크기·주행거리·충전 여건을 바탕으로 어울리는 차량을 추천합니다.' : '구매비·유지비와 최소 탑승 인원은 먼저 확인합니다. 디자인·차체·가속·목적은 비교군 학습 점수로, 연료와 크기 일치는 보조 기준으로 반영합니다. 취향 근거가 없으면 구매 후 남는 자금을 참고합니다.'}</p>
+            <p className="vehicle-field-help">{scenarioMode ? '구매비·유지비와 최소 탑승 인원을 먼저 확인하고, 비용 성향·연료·크기·주행거리·충전 여건을 바탕으로 어울리는 차량을 추천합니다.' : '구매비·유지비와 최소 탑승 인원은 먼저 확인합니다. 디자인·가속·목적은 비교군 학습 점수로, 연료와 크기 일치는 보조 기준으로 반영합니다. 취향 근거가 없으면 구매 후 남는 자금을 참고합니다.'}</p>
 
           </section>
+          </div>
           <FinancialBudgetSummary values={state.values} assets={state.assets} loans={state.loans} />
         </div>
         <section className="vehicle-final-check" aria-labelledby="final-check-title">
-          <div><h2 id="final-check-title">선택한 조건으로 차량을 찾아볼까요?</h2><p>{vehicle.fuel} · {bodyTypeLabel(vehicle.preferredBodyType)} · {Number(vehicle.minimumSeats) > 0 ? `${vehicle.minimumSeats}명 이상` : '탑승 인원 상관없음'}</p><p>구매 후 예금으로 부족한 월 자금을 최소 12개월 충당할 수 있는 차량도 비교합니다. {scenarioMode ? `유지비는 선택하신 연 ${Number(vehicle.annualDistanceKm ?? 15000).toLocaleString('ko-KR')}km 기준으로 계산합니다.` : '유지비는 공통 기준인 연 15,000km로 계산합니다.'}</p></div>
+          <div><h2 id="final-check-title">선택한 조건으로 차량을 찾아볼까요?</h2><p>{vehicle.fuel} · {Number(vehicle.minimumSeats) > 0 ? `${vehicle.minimumSeats}명 이상` : '탑승 인원 상관없음'}</p><p>구매 후 예금으로 부족한 월 자금을 최소 12개월 충당할 수 있는 차량도 비교합니다. 유지비는 공통 기준인 연 15,000km로 계산합니다.</p></div>
         </section>
           <div className="financial-next-row">
-            <button type="button" className="financial-previous-button" disabled={recommending} onClick={() => navigate('/financial', { state: diagnosis })}>재무 정보 수정</button>
+            <button type="button" className="financial-previous-button" disabled={recommending} onClick={() => navigate('/financial/environment', { state: diagnosis })}>이용 환경·중요도 수정</button>
             <button type="submit" className="financial-next-button" disabled={recommending || !options} aria-busy={recommending}>{recommending ? '분석하고 있어요…' : '종합 분석 결과 보기'}</button>
           </div>
           {notice && <p className="vehicle-request-notice" role={recommending ? 'status' : 'alert'}>{notice}</p>}
