@@ -19,8 +19,30 @@ public class ChatQuickReplyServiceImpl implements ChatQuickReplyService {
 
     static final int MAX_COUNT = 20; // 상담원 1명당
 
+    // [기본 문구 넣기] 로 한 번에 넣는 문구 — 넣은 뒤에는 내 문구라 고르거나 지울 수 있다
+    static final List<String> DEFAULTS = List.of(
+            "안녕하세요, 상담원입니다. 무엇을 도와드릴까요?",
+            "확인 후 바로 안내해 드리겠습니다. 잠시만 기다려 주세요.",
+            "더 궁금하신 점이 있으신가요?",
+            "원활한 상담을 위해 바른 언어 사용을 부탁드립니다.",
+            "상담과 관련 없는 내용은 답변드리기 어렵습니다.",
+            "이용해 주셔서 감사합니다. 상담을 종료하겠습니다.");
+
     private final ChatMapper chatMapper;
     private final ChatContentFilter contentFilter;
+
+    // 기본 문구 중 아직 없는 것만 넣는다 (20개를 넘으면 넣을 수 있는 만큼만)
+    @Override
+    @Transactional
+    public List<ChatQuickReply> addDefaults(Long adminId) {
+        List<String> existing = getMine(adminId).stream().map(ChatQuickReply::content).toList();
+        int room = MAX_COUNT - existing.size();
+        DEFAULTS.stream()
+                .filter(text -> !existing.contains(text))
+                .limit(Math.max(room, 0))
+                .forEach(text -> chatMapper.insertQuickReply(adminId, text));
+        return getMine(adminId);
+    }
 
     @Override
     public List<ChatQuickReply> getMine(Long adminId) {

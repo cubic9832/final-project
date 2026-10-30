@@ -54,4 +54,13 @@ class ChatQuickReplyServiceTests {
         when(chatMapper.deleteQuickReply(99L, ADMIN)).thenReturn(0); // admin_id 조건에 안 맞아 0줄
         assertCode(() -> service.delete(ADMIN, 99L), "CHAT_QUICK_REPLY_NOT_FOUND");
     }
+
+    @Test
+    void 기본_문구는_없는_것만_넣는다() {
+        when(chatMapper.findQuickReplies(ADMIN)).thenReturn(java.util.List.of(
+                new com.kh.back.chat.dto.ChatQuickReply(1L, ChatQuickReplyServiceImpl.DEFAULTS.get(0))));
+        service.addDefaults(ADMIN);
+        verify(chatMapper, never()).insertQuickReply(ADMIN, ChatQuickReplyServiceImpl.DEFAULTS.get(0)); // 이미 있음
+        verify(chatMapper).insertQuickReply(ADMIN, ChatQuickReplyServiceImpl.DEFAULTS.get(1));
+    }
 }

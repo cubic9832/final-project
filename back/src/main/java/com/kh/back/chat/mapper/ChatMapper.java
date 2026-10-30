@@ -51,6 +51,8 @@ public interface ChatMapper {
 
     List<ChatFeedbackSummary> findFeedbackSummary();
 
+    List<ChatFeedbackDto> findFeedback(@Param("sort") String sort, @Param("reportedOnly") boolean reportedOnly);
+
     // 자주 쓰는 문구 (상담원마다)
     List<ChatQuickReply> findQuickReplies(@Param("adminId") Long adminId);
 

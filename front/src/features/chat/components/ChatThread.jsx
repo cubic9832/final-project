@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import QuickReplyPicker from './QuickReplyPicker';
 import './ChatThread.css';
 
 // "2026-10-30T13:05:12" → "13:05"
@@ -7,10 +8,11 @@ const timeOf = (value) => value?.slice(11, 16) ?? '';
 // 8단계: 대화 목록 + 입력칸 (회원 상담 화면 · 관리자 상담 탭이 같이 쓴다)
 // viewer: 'member' 면 내 말 = USER, 'admin' 이면 내 말 = ADMIN. 상대 이름: 회원 화면은 "상담원", 관리자 화면은 회원 닉네임
 // canSend 가 false 면 입력칸을 막고 disabledText 를 보여 준다 (종료된 상담 · 담당이 아닌 관리자)
-// quickReplies: 상담원의 자주 쓰는 문구 — 누르면 입력칸에 넣는다 (바로 보내지 않고 고쳐 보낼 수 있게). 회원 화면은 없음
-export default function ChatThread({ messages, viewer, memberName, connected, error, canSend, disabledText, onSend, quickReplies = [] }) {
+// quickReplies: true 면 입력칸 왼쪽에 [자주 쓰는 문구 ▾] (상담원만) — 고르면 입력칸에 넣고 커서를 옮긴다 (고쳐 보낼 수 있게)
+export default function ChatThread({ messages, viewer, memberName, connected, error, canSend, disabledText, onSend, quickReplies = false }) {
   const [text, setText] = useState('');
   const boardRef = useRef(null);
+  const inputRef = useRef(null);
   const mineType = viewer === 'member' ? 'USER' : 'ADMIN';
 
   // 새 메시지가 오면 맨 아래로 스크롤
@@ -46,16 +48,13 @@ export default function ChatThread({ messages, viewer, memberName, connected, er
           )))}
       </ul>
       {error && <p className="chat-error" role="alert">{error}</p>}
-      {canSend && quickReplies.length > 0 && (
-        <div className="chat-quick" aria-label="자주 쓰는 문구">
-          {quickReplies.map((reply) => (
-            <button key={reply} type="button" title={reply} onClick={() => setText(reply)}>{reply}</button>
-          ))}
-        </div>
-      )}
       {canSend ? (
         <form className="chat-send" onSubmit={handleSubmit}>
+          {quickReplies && (
+            <QuickReplyPicker disabled={!connected} onPick={(reply) => { setText(reply); inputRef.current?.focus(); }} />
+          )}
           <input
+            ref={inputRef}
             value={text}
             onChange={(event) => setText(event.target.value)}
             placeholder={connected ? '메시지를 입력하세요 (최대 1000자)' : '연결 중…'}

@@ -72,6 +72,13 @@ public class ChatFeedbackServiceImpl implements ChatFeedbackService {
         return chatMapper.findFeedbackSummary();
     }
 
+    // 전체 평가 목록: sort = low(평점 낮은순) · high(높은순) · latest(최신순, 모르는 값도 최신순)
+    @Override
+    public List<ChatFeedbackDto> getFeedback(Long actorId, String sort, boolean reportedOnly) {
+        requireSuper(actorId);
+        return chatMapper.findFeedback(sort, reportedOnly);
+    }
+
     private void requireSuper(Long actorId) {
         if (!"SUPER_ADMIN".equals(currentRoleLookup.currentRole(actorId))) {
             throw new ApiException(HttpStatus.FORBIDDEN, "CHAT_FORBIDDEN", "만족도 · 신고는 총관리자만 볼 수 있습니다.");

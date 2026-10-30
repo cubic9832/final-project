@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ChevronDown } from 'lucide-react';
 import ChatThread from '../../features/chat/components/ChatThread';
 import ChoiceWithOther from '../../features/chat/components/ChoiceWithOther';
 import { choiceText, OTHER } from '../../features/chat/choice';
 import {
-  addQuickReply, assignRoom, chatErrorMessage, closeRoom, deleteQuickReply, getAdminRooms, getChatAdmins, getFeedbackSummary,
-  getQuickReplies, getRoomFeedback,
+  assignRoom, chatErrorMessage, closeRoom, getAdminRooms, getAllFeedback, getChatAdmins, getFeedbackSummary, getRoomFeedback,
   restrictionLabel, restrictRoom, transferRoom, unrestrictRoom, warnRoom,
 } from '../../features/chat/chatApi';
 import { createStompClient } from '../../features/chat/stompClient';
@@ -22,16 +22,6 @@ const FILTERS = [
   { value: '', label: '전체' },
 ];
 const STATUS_LABELS = { WAITING: '대기', ACTIVE: '진행 중', CLOSED: '종료' };
-
-// 모든 상담원이 같이 쓰는 기본 문구 (내가 등록한 문구는 이 뒤에 붙는다)
-const DEFAULT_QUICK_REPLIES = [
-  '안녕하세요, 상담원입니다. 무엇을 도와드릴까요?',
-  '확인 후 바로 안내해 드리겠습니다. 잠시만 기다려 주세요.',
-  '더 궁금하신 점이 있으신가요?',
-  '원활한 상담을 위해 바른 언어 사용을 부탁드립니다.',
-  '상담과 관련 없는 내용은 답변드리기 어렵습니다.',
-  '이용해 주셔서 감사합니다. 상담을 종료하겠습니다.',
-];
 
 // "2026-10-30T13:05:12" → "10.30 13:05"
 const shortTime = (value) => (value ? `${value.slice(5, 10).replace('-', '.')} ${value.slice(11, 16)}` : '');
@@ -66,12 +56,6 @@ export default function AdminChatPanel() {
   }, []);
 
   const reload = useCallback(() => setVersion((v) => v + 1), []);
-
-  // 내가 등록한 자주 쓰는 문구 (상담을 바꿔도 그대로라 여기서 한 번만 읽는다)
-  const [myReplies, setMyReplies] = useState([]);
-  useEffect(() => {
-    getQuickReplies().then(setMyReplies).catch(() => setMyReplies([]));
-  }, []);
 
   // 선택한 상담은 지금 필터 목록에 없을 수 있어서(예: 맡으면 대기 → 진행 중) 전체 목록에서 다시 찾는다
   const [selected, setSelected] = useState(null);
@@ -120,8 +104,7 @@ export default function AdminChatPanel() {
 
       <section className="admin-card admin-chat-detail" aria-label="상담 대화">
         {selected
-          ? <RoomDetail key={selected.id} room={selected} meId={me?.id} isSuper={isSuper} onChanged={reload}
-              myReplies={myReplies} onRepliesChange={setMyReplies} />
+          ? <RoomDetail key={selected.id} room={selected} meId={me?.id} isSuper={isSuper} onChanged={reload} />
           : <p className="admin-chat-note">왼쪽 목록에서 상담을 고르세요.</p>}
       </section>
     </div>
@@ -129,11 +112,11 @@ export default function AdminChatPanel() {
 }
 
 // 오른쪽: 선택한 상담 — 회원 정보 · [맡기] · [넘기기] · [상담 종료] · [경고] · [상담 제한] + 대화
-function RoomDetail({ room, meId, isSuper, onChanged, myReplies, onRepliesChange }) {
+function RoomDetail({ room, meId, isSuper, onChanged }) {
   const navigate = useNavigate();
   const chat = useChatRoom(room.id, onChanged);
   const [busy, setBusy] = useState(false);
-  const [openForm, setOpenForm] = useState(''); // 'transfer' · 'warn' · 'restrict' · 'replies' · '' (한 번에 하나만 펼친다)
+  const [openForm, setOpenForm] = useState(''); // 'transfer' · 'warn' · 'restrict' · '' (한 번에 하나만 펼친다)
   const mine = room.assignedAdminId === meId;
   const canManage = mine || isSuper; // 넘기기 · 종료 · 상담 제한
   const toggleForm = (name) => setOpenForm((open) => (open === name ? '' : name));
@@ -216,9 +199,6 @@ function RoomDetail({ room, meId, isSuper, onChanged, myReplies, onRepliesChange
           onSubmit={(reason) => run(() => warnRoom(room.id, reason), '경고를 보냈습니다.').then(() => setOpenForm(''))}
         />
       )}
-      {openForm === 'replies' && (
-        <QuickReplyForm replies={myReplies} onChange={onRepliesChange} onClose={() => setOpenForm('')} />
-      )}
       {openForm === 'restrict' && (
         <RestrictForm
           busy={busy}
@@ -237,13 +217,8 @@ function RoomDetail({ room, meId, isSuper, onChanged, myReplies, onRepliesChange
         canSend={room.status === 'ACTIVE' && mine}
         disabledText={disabledText}
         onSend={chat.send}
-        quickReplies={[...DEFAULT_QUICK_REPLIES, ...myReplies.map((reply) => reply.content)]}
+        quickReplies
       />
-      {room.status === 'ACTIVE' && mine && (
-        <button type="button" className="admin-text-button admin-chat-replies-toggle" onClick={() => toggleForm('replies')}>
-          {openForm === 'replies' ? '문구 관리 닫기' : '자주 쓰는 문구 관리'}
-        </button>
-      )}
       {isSuper && <RoomFeedback roomId={room.id} reportCount={room.reportCount} />}
     </>
   );
@@ -252,38 +227,101 @@ function RoomDetail({ room, meId, isSuper, onChanged, myReplies, onRepliesChange
 const stars = (rating) => '★'.repeat(rating) + '☆'.repeat(5 - rating);
 const shortDate = (value) => (value ? value.slice(0, 10).replaceAll('-', '.') : '');
 
-// 상담원별 만족도 표 (총관리자). 신고가 많은 상담원 → 평균이 낮은 상담원 순
+const FEEDBACK_SORTS = [
+  { value: 'latest', label: '최신순' },
+  { value: 'low', label: '평점 낮은순' },
+  { value: 'high', label: '평점 높은순' },
+];
+
+// 평가 1건 한 줄 (전체 목록 · 회원별 목록이 같이 쓴다)
+function FeedbackItem({ item, showMember }) {
+  return (
+    <li>
+      <span className="admin-chat-stars" aria-label={`${item.rating}점`}>{stars(item.rating)}</span>
+      {' '}{item.comment ?? '의견 없음'}
+      <span className="admin-chat-feedback-meta">
+        {showMember && `${item.memberNickName} → `}상담원 {item.adminNickName ?? '(탈퇴)'} · {shortDate(item.createdAt)}
+      </span>
+      {item.reported && <span className="admin-chat-report">신고: {item.reportReason}</span>}
+    </li>
+  );
+}
+
+// 상담원 만족도 · 신고 (총관리자) — 평소엔 접어 두고 한 줄 요약만. 펼치면 상담원별 표 + 전체 평가(정렬 · 신고만 · 스크롤)
 function FeedbackSummary({ version }) {
+  const [open, setOpen] = useState(false);
   const [rows, setRows] = useState(null);
+  const [sort, setSort] = useState('latest');
+  const [reportedOnly, setReportedOnly] = useState(false);
+  const [items, setItems] = useState(null);
+
   useEffect(() => {
     getFeedbackSummary().then(setRows).catch(() => setRows([]));
   }, [version]);
 
+  // 펼쳤을 때만 전체 평가를 읽는다 (정렬 · 신고만 을 바꾸면 다시)
+  useEffect(() => {
+    if (!open) return;
+    getAllFeedback(sort, reportedOnly).then(setItems).catch(() => setItems([]));
+  }, [open, sort, reportedOnly, version]);
+
+  const total = rows?.reduce((sum, row) => sum + row.count, 0) ?? 0;
+  const reports = rows?.reduce((sum, row) => sum + row.reportCount, 0) ?? 0;
+
   return (
     <section className="admin-card admin-chat-summary" aria-label="상담원 만족도">
-      <h3>상담원 만족도 · 신고 <small>총관리자만 볼 수 있어요</small></h3>
-      {rows === null && <p className="admin-chat-note">불러오는 중…</p>}
-      {rows?.length === 0 && <p className="admin-chat-note">아직 받은 평가가 없습니다.</p>}
-      {rows?.length > 0 && (
-        <table>
-          <thead><tr><th>상담원</th><th>평가 수</th><th>평균 별점</th><th>신고</th></tr></thead>
-          <tbody>
-            {rows.map((row) => (
-              <tr key={row.adminId ?? 'none'}>
-                <td>{row.nickName}</td>
-                <td>{row.count}</td>
-                <td>★ {row.averageRating}</td>
-                <td className={row.reportCount > 0 ? 'is-reported' : undefined}>{row.reportCount}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <button type="button" className="admin-chat-summary-toggle" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
+        <span>
+          <strong>상담원 만족도 · 신고</strong>
+          <small>평가 {total}건 · 신고 <b className={reports > 0 ? 'is-reported' : undefined}>{reports}건</b> · 총관리자만</small>
+        </span>
+        <ChevronDown size={18} aria-hidden="true" className={open ? 'is-open' : undefined} />
+      </button>
+
+      {open && (
+        <div className="admin-chat-summary-body">
+          {total === 0 ? <p className="admin-chat-note">아직 받은 평가가 없습니다.</p> : (
+            <>
+              <table>
+                <thead><tr><th>상담원</th><th>평가 수</th><th>평균 별점</th><th>신고</th></tr></thead>
+                <tbody>
+                  {rows.map((row) => (
+                    <tr key={row.adminId ?? 'none'}>
+                      <td>{row.nickName}</td>
+                      <td>{row.count}</td>
+                      <td>★ {row.averageRating}</td>
+                      <td className={row.reportCount > 0 ? 'is-reported' : undefined}>{row.reportCount}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+
+              <div className="admin-chat-feedback-tools">
+                <strong>전체 평가</strong>
+                <select value={sort} onChange={(event) => setSort(event.target.value)} aria-label="정렬">
+                  {FEEDBACK_SORTS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+                </select>
+                <label>
+                  <input type="checkbox" checked={reportedOnly} onChange={(event) => setReportedOnly(event.target.checked)} />
+                  신고만
+                </label>
+              </div>
+              {items === null && <p className="admin-chat-note">불러오는 중…</p>}
+              {items?.length === 0 && <p className="admin-chat-note">조건에 맞는 평가가 없습니다.</p>}
+              {items?.length > 0 && (
+                <ul className="admin-chat-feedback-list">
+                  {items.map((item) => <FeedbackItem key={item.id} item={item} showMember />)}
+                </ul>
+              )}
+            </>
+          )}
+        </div>
       )}
     </section>
   );
 }
 
-// 이 회원이 남긴 만족도 · 신고 (총관리자). 신고 수가 바뀌면 다시 읽는다
+// 이 회원이 남긴 만족도 · 신고 (총관리자) — 접어 두고 "n건" 만. 신고 수가 바뀌면 다시 읽는다
 function RoomFeedback({ roomId, reportCount }) {
   const [list, setList] = useState([]);
   useEffect(() => {
@@ -292,18 +330,12 @@ function RoomFeedback({ roomId, reportCount }) {
 
   if (list.length === 0) return null;
   return (
-    <div className="admin-chat-feedback">
-      <strong>이 회원이 남긴 평가 (총관리자만)</strong>
-      <ul>
-        {list.map((item) => (
-          <li key={item.id}>
-            <span className="admin-chat-stars">{stars(item.rating)}</span>
-            {' '}{item.comment ?? '의견 없음'} · 상담원 {item.adminNickName ?? '(탈퇴)'} · {shortDate(item.createdAt)}
-            {item.reported && <span className="admin-chat-report">신고: {item.reportReason}</span>}
-          </li>
-        ))}
+    <details className="admin-chat-feedback">
+      <summary>이 회원이 남긴 평가 {list.length}건{reportCount > 0 && ` · 신고 ${reportCount}건`} (총관리자만)</summary>
+      <ul className="admin-chat-feedback-list">
+        {list.map((item) => <FeedbackItem key={item.id} item={item} />)}
       </ul>
-    </div>
+    </details>
   );
 }
 
@@ -327,58 +359,6 @@ function WarnForm({ busy, count, onCancel, onSubmit }) {
       <div className="admin-chat-transfer-actions">
         <button type="button" className="admin-outline-button" onClick={onCancel}>취소</button>
         <button type="submit" className="admin-outline-button admin-chat-danger" disabled={busy || !reason}>경고 보내기</button>
-      </div>
-    </form>
-  );
-}
-
-// 자주 쓰는 문구 관리: 내 문구 등록 · 삭제 (기본 문구는 모두가 같이 쓰고 고칠 수 없다). 서버가 바뀐 목록을 돌려준다
-function QuickReplyForm({ replies, onChange, onClose }) {
-  const [text, setText] = useState('');
-  const [saving, setSaving] = useState(false);
-
-  async function save(action, done) {
-    setSaving(true);
-    try {
-      onChange(await action());
-      showToast(done);
-      return true;
-    } catch (error) {
-      showToast(chatErrorMessage(error, '저장하지 못했습니다.'));
-      return false;
-    } finally {
-      setSaving(false);
-    }
-  }
-
-  async function handleAdd(event) {
-    event.preventDefault();
-    if (text.trim() && await save(() => addQuickReply(text.trim()), '문구를 등록했습니다.')) setText('');
-  }
-
-  return (
-    <form className="admin-chat-transfer" onSubmit={handleAdd}>
-      <p className="admin-chat-form-note">기본 문구 {DEFAULT_QUICK_REPLIES.length}개는 모두 같이 써요. 내 문구는 20개까지 등록할 수 있어요.</p>
-      {replies.length === 0
-        ? <p className="admin-chat-form-note">아직 등록한 문구가 없습니다.</p>
-        : (
-          <ul className="admin-chat-replies">
-            {replies.map((reply) => (
-              <li key={reply.id}>
-                <span>{reply.content}</span>
-                <button type="button" className="admin-text-button" disabled={saving}
-                  onClick={() => save(() => deleteQuickReply(reply.id), '문구를 지웠습니다.')}>삭제</button>
-              </li>
-            ))}
-          </ul>
-        )}
-      <label>
-        새 문구
-        <input value={text} onChange={(event) => setText(event.target.value)} maxLength={200} placeholder="예: 서류 확인 후 다시 연락드리겠습니다." />
-      </label>
-      <div className="admin-chat-transfer-actions">
-        <button type="button" className="admin-outline-button" onClick={onClose}>닫기</button>
-        <button type="submit" className="admin-primary-button" disabled={saving || !text.trim()}>등록</button>
       </div>
     </form>
   );

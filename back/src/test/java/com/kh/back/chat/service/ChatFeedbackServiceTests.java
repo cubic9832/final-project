@@ -112,6 +112,7 @@ class ChatFeedbackServiceTests {
     void 만족도와_신고는_총관리자만_본다() {
         assertCode(() -> service.getSummary(ADMIN), "CHAT_FORBIDDEN");
         assertCode(() -> service.getRoomFeedback(ADMIN, ROOM), "CHAT_FORBIDDEN");
+        assertCode(() -> service.getFeedback(ADMIN, "low", false), "CHAT_FORBIDDEN");
         service.getSummary(SUPER);
         verify(chatMapper).findFeedbackSummary();
     }

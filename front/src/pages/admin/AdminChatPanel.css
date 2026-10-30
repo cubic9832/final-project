@@ -126,15 +126,86 @@
   grid-column: 1 / -1;
 }
 
-.admin-chat-summary h3 {
-  margin: 0 0 var(--space-12);
+/* 접힌 상태: 한 줄 요약 + 화살표 */
+.admin-chat-summary-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+  padding: 0;
+  text-align: left;
+  color: var(--color-primary);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.admin-chat-summary-toggle strong {
   font-size: var(--font-card-title);
 }
 
-.admin-chat-summary h3 small {
-  margin-left: var(--space-8);
+.admin-chat-summary-toggle small {
+  margin-left: var(--space-12);
   font-size: var(--font-caption);
-  font-weight: 400;
+  color: var(--color-muted);
+}
+
+.admin-chat-summary-toggle svg.is-open {
+  transform: rotate(180deg);
+}
+
+.admin-chat-summary-body {
+  margin-top: var(--space-16);
+  display: grid;
+  gap: var(--space-12);
+}
+
+.admin-chat-feedback-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+  font-size: var(--font-body);
+}
+
+.admin-chat-feedback-tools select {
+  height: 36px;
+  padding: 0 var(--space-8);
+  font-size: var(--font-body);
+  border: 1px solid var(--color-border-input);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.admin-chat-feedback-tools label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* 평가가 쌓여도 화면을 밀지 않게 정해진 높이 안에서 스크롤 */
+.admin-chat-feedback-list {
+  margin: 0;
+  padding: 0 var(--space-4) 0 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-8);
+  max-height: 280px;
+  overflow-y: auto;
+  font-size: var(--font-body);
+}
+
+.admin-chat-feedback-list li {
+  padding: var(--space-8) var(--space-12);
+  background: var(--color-background);
+  border-radius: var(--radius-sm);
+}
+
+.admin-chat-feedback-meta {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--font-caption);
   color: var(--color-muted);
 }
 
@@ -161,20 +232,27 @@
   color: var(--color-danger);
 }
 
-/* 이 회원이 남긴 평가 (총관리자) */
+/* 이 회원이 남긴 평가 (총관리자) — 접어 두고 "n건" 만 */
 .admin-chat-feedback {
-  padding: var(--space-12) var(--space-16);
+  padding: var(--space-8) var(--space-12);
   font-size: var(--font-body);
-  background: var(--color-background);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
 }
 
-.admin-chat-feedback ul {
-  margin: var(--space-8) 0 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: var(--space-8);
+.admin-chat-feedback summary {
+  font-weight: 600;
+  color: var(--color-text-sub);
+  cursor: pointer;
+}
+
+.admin-chat-feedback .admin-chat-feedback-list {
+  margin-top: var(--space-8);
+  max-height: 200px;
+}
+
+.admin-chat-feedback .admin-chat-feedback-list li {
+  background: var(--color-background);
 }
 
 .admin-chat-stars {
@@ -192,37 +270,6 @@
   margin: 0;
   font-size: var(--font-caption);
   color: var(--color-text-sub);
-}
-
-.admin-chat-replies-toggle {
-  align-self: flex-start;
-  min-height: auto;
-}
-
-/* 내가 등록한 자주 쓰는 문구 목록 */
-.admin-chat-replies {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: var(--space-4);
-}
-
-.admin-chat-replies li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-8);
-  padding: var(--space-4) var(--space-12);
-  font-size: var(--font-body);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-}
-
-.admin-chat-replies li .admin-text-button {
-  min-height: 32px;
-  color: var(--color-danger);
 }
 
 .admin-chat-note {

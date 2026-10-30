@@ -12,5 +12,7 @@ public interface ChatQuickReplyService {
 
     List<ChatQuickReply> add(Long adminId, String content);
 
+    List<ChatQuickReply> addDefaults(Long adminId);
+
     List<ChatQuickReply> delete(Long adminId, Long id);
 }

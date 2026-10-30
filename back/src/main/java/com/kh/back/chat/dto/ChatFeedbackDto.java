@@ -19,6 +19,7 @@ public class ChatFeedbackDto {
     private Long roomId;
     private Long adminId;
     private String adminNickName;
+    private String memberNickName; // 평가한 회원 (전체 평가 목록에서만 채운다)
     private Integer rating;        // 1~5
     private String comment;        // 의견 (선택지 또는 기타에 쓴 글, 없으면 null)
     private boolean reported;      // 상담원 응대 신고

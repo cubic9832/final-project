@@ -52,6 +52,14 @@ public class AdminChatApiController {
         return ApiResponse.ok(chatFeedbackService.getSummary(userId));
     }
 
+    // GET /api/v1/admin/chat/feedback?sort=low&reportedOnly=true — 전체 평가 목록 (총관리자만, 최근 200개)
+    @GetMapping("/feedback")
+    public ApiResponse<List<ChatFeedbackDto>> feedback(@AuthenticationPrincipal Long userId,
+                                                       @RequestParam(defaultValue = "latest") String sort,
+                                                       @RequestParam(defaultValue = "false") boolean reportedOnly) {
+        return ApiResponse.ok(chatFeedbackService.getFeedback(userId, sort, reportedOnly));
+    }
+
     // GET /api/v1/admin/chat/rooms/{id}/feedback — 이 회원이 남긴 만족도 · 신고 (총관리자만)
     @GetMapping("/rooms/{id}/feedback")
     public ApiResponse<List<ChatFeedbackDto>> roomFeedback(@AuthenticationPrincipal Long userId, @PathVariable Long id) {
@@ -106,6 +114,12 @@ public class AdminChatApiController {
     public ApiResponse<List<ChatQuickReply>> addQuickReply(@AuthenticationPrincipal Long userId,
                                                            @Valid @RequestBody ChatQuickReplyRequest request) {
         return ApiResponse.ok(chatQuickReplyService.add(userId, request.getContent()));
+    }
+
+    // POST /api/v1/admin/chat/quick-replies/defaults — [기본 문구 넣기] (없는 것만) → 바뀐 목록
+    @PostMapping("/quick-replies/defaults")
+    public ApiResponse<List<ChatQuickReply>> addDefaultQuickReplies(@AuthenticationPrincipal Long userId) {
+        return ApiResponse.ok(chatQuickReplyService.addDefaults(userId));
     }
 
     // DELETE /api/v1/admin/chat/quick-replies/{id} — 내 문구 삭제 → 바뀐 목록

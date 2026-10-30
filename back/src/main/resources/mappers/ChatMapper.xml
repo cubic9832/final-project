@@ -100,6 +100,25 @@
         ORDER BY f.id DESC
     </select>
 
+    <!-- 전체 평가 목록 — 총관리자 (정렬: low 평점 낮은순 · high 높은순 · 그 밖은 최신순, reportedOnly 면 신고만), 최근 200개까지 -->
+    <select id="findFeedback" resultType="com.kh.back.chat.dto.ChatFeedbackDto">
+        SELECT f.id, f.room_id, f.admin_id, a.nick_name AS admin_nick_name, u.nick_name AS member_nick_name,
+               f.rating, f.comment, f.reported, f.report_reason, f.created_at
+        FROM chat_feedback f
+        JOIN chat_room r ON r.id = f.room_id
+        JOIN users u ON u.id = r.user_id
+        LEFT JOIN users a ON a.id = f.admin_id
+        <where>
+            <if test="reportedOnly">f.reported</if>
+        </where>
+        <choose>
+            <when test="sort == 'low'">ORDER BY f.rating, f.id DESC</when>
+            <when test="sort == 'high'">ORDER BY f.rating DESC, f.id DESC</when>
+            <otherwise>ORDER BY f.id DESC</otherwise>
+        </choose>
+        LIMIT 200
+    </select>
+
     <!-- 상담원별 만족도 평균 · 신고 수 — 총관리자 상담 탭 위 표 -->
     <select id="findFeedbackSummary" resultType="com.kh.back.chat.dto.ChatFeedbackSummary">
         SELECT f.admin_id, COALESCE(a.nick_name, '(탈퇴한 상담원)') AS nick_name, COUNT(*) AS count,

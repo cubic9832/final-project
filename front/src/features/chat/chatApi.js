@@ -57,6 +57,10 @@ export const warnRoom = async (roomId, reason) => {
 // 만족도 · 신고 (총관리자만): 상담원별 평균 → [{ adminId, nickName, count, averageRating, reportCount }]
 export const getFeedbackSummary = async () => (await client.get('/admin/chat/feedback/summary')).data.data;
 
+// 전체 평가 목록 (최근 200개). sort: low 평점 낮은순 · high 높은순 · latest 최신순, reportedOnly: 신고만
+export const getAllFeedback = async (sort, reportedOnly) =>
+  (await client.get('/admin/chat/feedback', { params: { sort, reportedOnly } })).data.data;
+
 // 이 회원이 남긴 만족도 · 신고 → [{ rating, comment, reported, reportReason, adminNickName, createdAt }]
 export const getRoomFeedback = async (roomId) => (await client.get(`/admin/chat/rooms/${roomId}/feedback`)).data.data;
 
@@ -64,6 +68,9 @@ export const getRoomFeedback = async (roomId) => (await client.get(`/admin/chat/
 export const getQuickReplies = async () => (await client.get('/admin/chat/quick-replies')).data.data;
 
 export const addQuickReply = async (content) => (await client.post('/admin/chat/quick-replies', { content })).data.data;
+
+// [기본 문구 넣기] — 기본 6개 중 없는 것만
+export const addDefaultQuickReplies = async () => (await client.post('/admin/chat/quick-replies/defaults')).data.data;
 
 export const deleteQuickReply = async (id) => (await client.delete(`/admin/chat/quick-replies/${id}`)).data.data;
 

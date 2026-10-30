@@ -15,4 +15,6 @@ public interface ChatFeedbackService {
     List<ChatFeedbackDto> getRoomFeedback(Long actorId, Long roomId);
 
     List<ChatFeedbackSummary> getSummary(Long actorId);
+
+    List<ChatFeedbackDto> getFeedback(Long actorId, String sort, boolean reportedOnly);
 }
