@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ChatThread from '../../features/chat/components/ChatThread';
+import ChatConfirmModal from '../../features/chat/components/ChatConfirmModal';
 import ChoiceWithOther from '../../features/chat/components/ChoiceWithOther';
 import { choiceText, OTHER } from '../../features/chat/choice';
 import {
@@ -20,6 +21,7 @@ export default function ConsultationPage() {
   const [state, setState] = useState({ status: 'loading', room: null, error: '' });
   const [busy, setBusy] = useState(false);
   const [actionError, setActionError] = useState('');
+  const [confirmingClose, setConfirmingClose] = useState(false); // [상담 종료] 확인 팝업
 
   // 방 상태 다시 읽기 — 처음 열 때 · 연결 / 넘김 / 종료 안내(SYSTEM)를 받을 때
   const loadRoom = useCallback(() => {
@@ -49,8 +51,8 @@ export default function ConsultationPage() {
     }
   }
 
+  // [상담 종료] → 확인 팝업(confirmingClose) → [종료하기] 를 누르면 여기
   async function handleClose() {
-    if (!window.confirm('상담을 종료할까요? 나중에 [새로 상담하기]로 다시 물어볼 수 있어요.')) return;
     setBusy(true);
     setActionError('');
     try {
@@ -101,7 +103,7 @@ export default function ConsultationPage() {
               <span className={`consult-badge is-${room.status.toLowerCase()}`}>{STATUS_LABELS[room.status]}</span>
               {room.status === 'CLOSED'
                 ? <button type="button" className="consult-button" onClick={handleStart} disabled={busy || room.restricted}>새로 상담하기</button>
-                : <button type="button" className="consult-outline" onClick={handleClose} disabled={busy}>상담 종료</button>}
+                : <button type="button" className="consult-outline" onClick={() => setConfirmingClose(true)} disabled={busy}>상담 종료</button>}
             </div>
             {/* 상담원이 맡았던 상담이 끝나면 한 번 — 남기면 서버가 닫고(feedbackOpen=false) 다시 읽는다 */}
             {room.status === 'CLOSED' && room.feedbackOpen && <FeedbackForm onDone={loadRoom} />}
@@ -120,6 +122,15 @@ export default function ConsultationPage() {
         )}
         {actionError && <p className="consult-error" role="alert">{actionError}</p>}
       </section>
+      {confirmingClose && (
+        <ChatConfirmModal
+          title="상담 종료"
+          message="상담을 종료할까요? 나중에 [새로 상담하기]로 다시 물어볼 수 있어요."
+          confirmLabel="종료하기"
+          onConfirm={handleClose}
+          onClose={() => setConfirmingClose(false)}
+        />
+      )}
     </div>
   );
 }

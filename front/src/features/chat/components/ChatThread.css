@@ -44,6 +44,26 @@
   border-radius: var(--radius-pill);
 }
 
+/* 날짜 구분선: ──── 2026년 10월 30일 (금) ──── */
+.chat-date {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  margin: var(--space-8) 0;
+  font-size: var(--font-caption);
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.chat-date::before,
+.chat-date::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
 /* 상대 메시지는 왼쪽, 내 메시지는 오른쪽 */
 .chat-bubble {
   max-width: 72%;

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
+import ChatConfirmModal from '../../features/chat/components/ChatConfirmModal';
 import ChatThread from '../../features/chat/components/ChatThread';
 import ChoiceWithOther from '../../features/chat/components/ChoiceWithOther';
 import { choiceText, OTHER } from '../../features/chat/choice';
@@ -120,6 +121,8 @@ function RoomDetail({ room, meId, isSuper, onChanged }) {
   const mine = room.assignedAdminId === meId;
   const canManage = mine || isSuper; // 넘기기 · 종료 · 상담 제한
   const toggleForm = (name) => setOpenForm((open) => (open === name ? '' : name));
+  // 확인 팝업 (상담 종료 · 제한 · 제한 풀기) — { title, message, confirmLabel, danger, onConfirm } 또는 null
+  const [confirm, setConfirm] = useState(null);
 
   async function run(action, done) {
     setBusy(true);
@@ -165,7 +168,12 @@ function RoomDetail({ room, meId, isSuper, onChanged }) {
           )}
           {room.status !== 'CLOSED' && (room.status === 'ACTIVE' ? canManage : isSuper) && (
             <button type="button" className="admin-outline-button" disabled={busy}
-              onClick={() => window.confirm('이 상담을 종료할까요?') && run(() => closeRoom(room.id), '상담을 종료했습니다.')}>상담 종료</button>
+              onClick={() => setConfirm({
+                title: '상담 종료',
+                message: `${room.userNickName}님과의 상담을 종료할까요?`,
+                confirmLabel: '종료하기',
+                onConfirm: () => run(() => closeRoom(room.id), '상담을 종료했습니다.'),
+              })}>상담 종료</button>
           )}
           {/* 경고 → 그래도 반복되면 상담 제한 */}
           {room.status === 'ACTIVE' && canManage && (
@@ -178,7 +186,12 @@ function RoomDetail({ room, meId, isSuper, onChanged }) {
           {/* 제한 풀기는 총관리자만 (채팅 기록을 보고 판단) */}
           {isSuper && room.restricted && (
             <button type="button" className="admin-outline-button" disabled={busy}
-              onClick={() => window.confirm('상담 제한을 풀까요?') && run(() => unrestrictRoom(room.id), '상담 제한을 풀었습니다.')}>제한 풀기</button>
+              onClick={() => setConfirm({
+                title: '상담 제한 풀기',
+                message: `${room.userNickName}님의 상담 제한을 풀까요? 바로 새 상담을 시작할 수 있게 됩니다.`,
+                confirmLabel: '제한 풀기',
+                onConfirm: () => run(() => unrestrictRoom(room.id), '상담 제한을 풀었습니다.'),
+              })}>제한 풀기</button>
           )}
         </div>
       </div>
@@ -204,9 +217,17 @@ function RoomDetail({ room, meId, isSuper, onChanged }) {
           busy={busy}
           isSuper={isSuper}
           onCancel={() => setOpenForm('')}
-          onSubmit={(days, reason) => run(() => restrictRoom(room.id, days, reason), days === 0 ? '상담을 영구 제한했습니다.' : `${days}일 동안 상담을 제한했습니다.`).then(() => setOpenForm(''))}
+          onSubmit={(days, reason) => setConfirm({
+            title: '상담 제한',
+            message: `${days === 0 ? '영구적으로' : `${days}일 동안`} ${room.userNickName}님의 상담을 제한할까요? 진행 중인 상담은 종료됩니다.`,
+            confirmLabel: '제한하기',
+            danger: true,
+            onConfirm: () => run(() => restrictRoom(room.id, days, reason), days === 0 ? '상담을 영구 제한했습니다.' : `${days}일 동안 상담을 제한했습니다.`)
+              .then(() => setOpenForm('')),
+          })}
         />
       )}
+      {confirm && <ChatConfirmModal {...confirm} onClose={() => setConfirm(null)} />}
 
       <ChatThread
         messages={chat.messages}
@@ -385,11 +406,10 @@ function RestrictForm({ busy, isSuper, onCancel, onSubmit }) {
   const [choice, setChoice] = useState('');
   const [other, setOther] = useState('');
   const reason = reasonText(choice, other);
-  const periodText = days === 0 ? '영구적으로' : `${days}일 동안`;
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (reason && window.confirm(`${periodText} 이 회원의 상담을 제한할까요? 진행 중인 상담은 종료됩니다.`)) onSubmit(days, reason);
+    if (reason) onSubmit(days, reason); // 확인 팝업은 RoomDetail 이 띄운다
   }
 
   return (
