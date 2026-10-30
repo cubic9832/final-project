@@ -87,6 +87,32 @@
   color: var(--color-danger);
 }
 
+/* 상담원의 자주 쓰는 문구 — 누르면 입력칸에 들어간다 */
+.chat-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.chat-quick button {
+  max-width: 260px;
+  overflow: hidden;
+  padding: var(--space-4) var(--space-12);
+  font-size: var(--font-caption);
+  color: var(--color-text-sub);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+}
+
+.chat-quick button:hover {
+  color: var(--color-primary);
+  border-color: var(--color-blue);
+}
+
 .chat-send {
   display: flex;
   gap: var(--space-8);

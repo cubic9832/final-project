@@ -44,6 +44,18 @@ export const restrictRoom = async (roomId, days, reason) => {
   await client.post(`/admin/chat/rooms/${roomId}/restrict`, { days, reason: reason || undefined });
 };
 
+// [경고]: 제한 전 단계. 회원에게 사유 · 횟수가 안내된다
+export const warnRoom = async (roomId, reason) => {
+  await client.post(`/admin/chat/rooms/${roomId}/warn`, { reason });
+};
+
+// 자주 쓰는 문구 (내 것만) → [{ id, content }]. 등록 · 삭제는 바뀐 목록을 돌려준다
+export const getQuickReplies = async () => (await client.get('/admin/chat/quick-replies')).data.data;
+
+export const addQuickReply = async (content) => (await client.post('/admin/chat/quick-replies', { content })).data.data;
+
+export const deleteQuickReply = async (id) => (await client.delete(`/admin/chat/quick-replies/${id}`)).data.data;
+
 export const unrestrictRoom = async (roomId) => {
   await client.post(`/admin/chat/rooms/${roomId}/unrestrict`);
 };

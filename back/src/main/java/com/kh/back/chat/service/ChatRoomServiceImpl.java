@@ -232,12 +232,33 @@ public class ChatRoomServiceImpl implements ChatRoomService {
                 : until.format(UNTIL_FORMAT) + "까지 새 상담을 시작할 수 없습니다.";
     }
 
-    // [제한 풀기]: 잘못 제한했을 때. 담당 관리자 또는 총관리자
+    // [경고]: 제한하기 전 단계. 진행 중인 상담에서 담당 관리자 또는 총관리자
+    // 회원에게 사유와 횟수를 안내하고(SYSTEM), 횟수는 방에 쌓인다 → 관리자가 제한할지 판단하는 근거
+    @Override
+    @Transactional
+    public void warn(Long actorId, Long roomId, String reason) {
+        ChatRoomDto room = requireRoom(roomId);
+        if (!ChatRoomDto.ACTIVE.equals(room.getStatus())) {
+            throw new ApiException(HttpStatus.CONFLICT, "CHAT_NOT_ACTIVE", "진행 중인 상담에만 경고할 수 있습니다.");
+        }
+        requireOwnerOrSuper(actorId, room, "담당 상담원 또는 총관리자만 경고할 수 있습니다.");
+        chatMapper.warn(roomId);
+        int count = room.getWarningCount() + 1;
+        adminAuditLogMapper.insert(actorId, "CHAT_WARN", "MEMBER", room.getUserId(), "상담 경고 " + count + "회 (" + reason.strip() + ")");
+        system(roomId, "운영 정책 위반 경고 " + count + "회: " + reason.strip()
+                + ". 반복되면 상담이 종료되고 일정 기간 제한될 수 있습니다.");
+        broadcaster.roomChanged(roomId, ChatRoomDto.ACTIVE);
+    }
+
+    // [제한 풀기]: 잘못 제한했을 때. 총관리자만
     @Override
     @Transactional
     public void unrestrict(Long actorId, Long roomId) {
         ChatRoomDto room = requireRoom(roomId);
-        requireOwnerOrSuper(actorId, room, "담당 상담원 또는 총관리자만 제한을 풀 수 있습니다.");
+        // 푸는 것은 기간과 관계없이 총관리자만 (제한을 건 상담원이 혼자 되돌리지 않게, 채팅 기록을 보고 판단)
+        if (!"SUPER_ADMIN".equals(currentRoleLookup.currentRole(actorId))) {
+            throw forbidden("상담 제한은 총관리자만 풀 수 있습니다.");
+        }
         if (!room.isRestricted()) {
             throw new ApiException(HttpStatus.CONFLICT, "CHAT_NOT_RESTRICTED", "제한 중인 상담이 아닙니다.");
         }

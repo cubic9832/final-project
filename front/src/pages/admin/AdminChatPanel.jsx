@@ -2,8 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ChatThread from '../../features/chat/components/ChatThread';
 import {
-  assignRoom, chatErrorMessage, closeRoom, getAdminRooms, getChatAdmins, restrictionLabel, restrictRoom,
-  transferRoom, unrestrictRoom,
+  addQuickReply, assignRoom, chatErrorMessage, closeRoom, deleteQuickReply, getAdminRooms, getChatAdmins, getQuickReplies,
+  restrictionLabel, restrictRoom, transferRoom, unrestrictRoom, warnRoom,
 } from '../../features/chat/chatApi';
 import { createStompClient } from '../../features/chat/stompClient';
 import useChatRoom from '../../features/chat/useChatRoom';
@@ -19,6 +19,16 @@ const FILTERS = [
   { value: '', label: '전체' },
 ];
 const STATUS_LABELS = { WAITING: '대기', ACTIVE: '진행 중', CLOSED: '종료' };
+
+// 모든 상담원이 같이 쓰는 기본 문구 (내가 등록한 문구는 이 뒤에 붙는다)
+const DEFAULT_QUICK_REPLIES = [
+  '안녕하세요, 상담원입니다. 무엇을 도와드릴까요?',
+  '확인 후 바로 안내해 드리겠습니다. 잠시만 기다려 주세요.',
+  '더 궁금하신 점이 있으신가요?',
+  '원활한 상담을 위해 바른 언어 사용을 부탁드립니다.',
+  '상담과 관련 없는 내용은 답변드리기 어렵습니다.',
+  '이용해 주셔서 감사합니다. 상담을 종료하겠습니다.',
+];
 
 // "2026-10-30T13:05:12" → "10.30 13:05"
 const shortTime = (value) => (value ? `${value.slice(5, 10).replace('-', '.')} ${value.slice(11, 16)}` : '');
@@ -54,6 +64,12 @@ export default function AdminChatPanel() {
 
   const reload = useCallback(() => setVersion((v) => v + 1), []);
 
+  // 내가 등록한 자주 쓰는 문구 (상담을 바꿔도 그대로라 여기서 한 번만 읽는다)
+  const [myReplies, setMyReplies] = useState([]);
+  useEffect(() => {
+    getQuickReplies().then(setMyReplies).catch(() => setMyReplies([]));
+  }, []);
+
   // 선택한 상담은 지금 필터 목록에 없을 수 있어서(예: 맡으면 대기 → 진행 중) 전체 목록에서 다시 찾는다
   const [selected, setSelected] = useState(null);
   useEffect(() => {
@@ -80,6 +96,7 @@ export default function AdminChatPanel() {
                 <span className="admin-chat-row">
                   <strong>{room.userNickName}</strong>
                   <span className="admin-chat-badges">
+                    {room.warningCount > 0 && <span className="admin-chat-badge is-warned">경고 {room.warningCount}</span>}
                     {room.restricted && <span className="admin-chat-badge is-restricted">제한</span>}
                     <span className={`admin-chat-badge is-${room.status.toLowerCase()}`}>{STATUS_LABELS[room.status]}</span>
                   </span>
@@ -97,19 +114,20 @@ export default function AdminChatPanel() {
 
       <section className="admin-card admin-chat-detail" aria-label="상담 대화">
         {selected
-          ? <RoomDetail key={selected.id} room={selected} meId={me?.id} isSuper={isSuper} onChanged={reload} />
+          ? <RoomDetail key={selected.id} room={selected} meId={me?.id} isSuper={isSuper} onChanged={reload}
+              myReplies={myReplies} onRepliesChange={setMyReplies} />
           : <p className="admin-chat-note">왼쪽 목록에서 상담을 고르세요.</p>}
       </section>
     </div>
   );
 }
 
-// 오른쪽: 선택한 상담 — 회원 정보 · [맡기] · [넘기기] · [상담 종료] + 대화
-function RoomDetail({ room, meId, isSuper, onChanged }) {
+// 오른쪽: 선택한 상담 — 회원 정보 · [맡기] · [넘기기] · [상담 종료] · [경고] · [상담 제한] + 대화
+function RoomDetail({ room, meId, isSuper, onChanged, myReplies, onRepliesChange }) {
   const navigate = useNavigate();
   const chat = useChatRoom(room.id, onChanged);
   const [busy, setBusy] = useState(false);
-  const [openForm, setOpenForm] = useState(''); // 'transfer' · 'restrict' · '' (한 번에 하나만 펼친다)
+  const [openForm, setOpenForm] = useState(''); // 'transfer' · 'warn' · 'restrict' · 'replies' · '' (한 번에 하나만 펼친다)
   const mine = room.assignedAdminId === meId;
   const canManage = mine || isSuper; // 넘기기 · 종료 · 상담 제한
   const toggleForm = (name) => setOpenForm((open) => (open === name ? '' : name));
@@ -141,6 +159,7 @@ function RoomDetail({ room, meId, isSuper, onChanged }) {
           <h3>{room.userNickName}</h3>
           <p>
             {STATUS_LABELS[room.status]} · 담당 {room.assignedAdminNickName ? (mine ? '나' : room.assignedAdminNickName) : '없음'}
+            {room.warningCount > 0 && ` · 경고 ${room.warningCount}회`}
             {room.restricted && ` · ${restrictionLabel(room.restrictedUntil)}`}
           </p>
         </div>
@@ -159,11 +178,16 @@ function RoomDetail({ room, meId, isSuper, onChanged }) {
             <button type="button" className="admin-outline-button" disabled={busy}
               onClick={() => window.confirm('이 상담을 종료할까요?') && run(() => closeRoom(room.id), '상담을 종료했습니다.')}>상담 종료</button>
           )}
+          {/* 경고 → 그래도 반복되면 상담 제한 */}
+          {room.status === 'ACTIVE' && canManage && (
+            <button type="button" className="admin-outline-button admin-chat-danger" disabled={busy} onClick={() => toggleForm('warn')}>경고</button>
+          )}
           {/* 욕설 · 성희롱 등: 상담을 끝내고 며칠간 새 상담을 막는다 (잘못 눌렀으면 [제한 풀기]) */}
           {canManage && !room.restricted && (
             <button type="button" className="admin-outline-button admin-chat-danger" disabled={busy} onClick={() => toggleForm('restrict')}>상담 제한</button>
           )}
-          {canManage && room.restricted && (
+          {/* 제한 풀기는 총관리자만 (채팅 기록을 보고 판단) */}
+          {isSuper && room.restricted && (
             <button type="button" className="admin-outline-button" disabled={busy}
               onClick={() => window.confirm('상담 제한을 풀까요?') && run(() => unrestrictRoom(room.id), '상담 제한을 풀었습니다.')}>제한 풀기</button>
           )}
@@ -177,6 +201,17 @@ function RoomDetail({ room, meId, isSuper, onChanged }) {
           onCancel={() => setOpenForm('')}
           onSubmit={(adminId, reason) => run(() => transferRoom(room.id, adminId, reason), '상담을 넘겼습니다.').then(() => setOpenForm(''))}
         />
+      )}
+      {openForm === 'warn' && (
+        <WarnForm
+          busy={busy}
+          count={room.warningCount}
+          onCancel={() => setOpenForm('')}
+          onSubmit={(reason) => run(() => warnRoom(room.id, reason), '경고를 보냈습니다.').then(() => setOpenForm(''))}
+        />
+      )}
+      {openForm === 'replies' && (
+        <QuickReplyForm replies={myReplies} onChange={onRepliesChange} onClose={() => setOpenForm('')} />
       )}
       {openForm === 'restrict' && (
         <RestrictForm
@@ -196,12 +231,95 @@ function RoomDetail({ room, meId, isSuper, onChanged }) {
         canSend={room.status === 'ACTIVE' && mine}
         disabledText={disabledText}
         onSend={chat.send}
+        quickReplies={[...DEFAULT_QUICK_REPLIES, ...myReplies.map((reply) => reply.content)]}
       />
+      {room.status === 'ACTIVE' && mine && (
+        <button type="button" className="admin-text-button admin-chat-replies-toggle" onClick={() => toggleForm('replies')}>
+          {openForm === 'replies' ? '문구 관리 닫기' : '자주 쓰는 문구 관리'}
+        </button>
+      )}
     </>
   );
 }
 
-// 사유: 자주 있는 것을 고르고, 없으면 [기타] → 직접 쓰기 (운영 로그에만 남는다)
+// 경고: 사유를 골라 보내면 회원에게 "운영 정책 위반 경고 n회: 사유" 가 안내된다 (제한 전 단계)
+function WarnForm({ busy, count, onCancel, onSubmit }) {
+  const [choice, setChoice] = useState('');
+  const [other, setOther] = useState('');
+  const reason = reasonText(choice, other);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (reason) onSubmit(reason);
+  }
+
+  return (
+    <form className="admin-chat-transfer" onSubmit={handleSubmit}>
+      <p className="admin-chat-form-note">
+        회원에게 <strong>경고 {count + 1}회</strong>와 사유가 안내됩니다. 계속 반복되면 [상담 제한]을 쓰세요.
+      </p>
+      <ReasonField label="경고 사유" note="회원에게도 보여요" options={RESTRICT_REASONS} choice={choice} other={other} onChoice={setChoice} onOther={setOther} />
+      <div className="admin-chat-transfer-actions">
+        <button type="button" className="admin-outline-button" onClick={onCancel}>취소</button>
+        <button type="submit" className="admin-outline-button admin-chat-danger" disabled={busy || !reason}>경고 보내기</button>
+      </div>
+    </form>
+  );
+}
+
+// 자주 쓰는 문구 관리: 내 문구 등록 · 삭제 (기본 문구는 모두가 같이 쓰고 고칠 수 없다). 서버가 바뀐 목록을 돌려준다
+function QuickReplyForm({ replies, onChange, onClose }) {
+  const [text, setText] = useState('');
+  const [saving, setSaving] = useState(false);
+
+  async function save(action, done) {
+    setSaving(true);
+    try {
+      onChange(await action());
+      showToast(done);
+      return true;
+    } catch (error) {
+      showToast(chatErrorMessage(error, '저장하지 못했습니다.'));
+      return false;
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  async function handleAdd(event) {
+    event.preventDefault();
+    if (text.trim() && await save(() => addQuickReply(text.trim()), '문구를 등록했습니다.')) setText('');
+  }
+
+  return (
+    <form className="admin-chat-transfer" onSubmit={handleAdd}>
+      <p className="admin-chat-form-note">기본 문구 {DEFAULT_QUICK_REPLIES.length}개는 모두 같이 써요. 내 문구는 20개까지 등록할 수 있어요.</p>
+      {replies.length === 0
+        ? <p className="admin-chat-form-note">아직 등록한 문구가 없습니다.</p>
+        : (
+          <ul className="admin-chat-replies">
+            {replies.map((reply) => (
+              <li key={reply.id}>
+                <span>{reply.content}</span>
+                <button type="button" className="admin-text-button" disabled={saving}
+                  onClick={() => save(() => deleteQuickReply(reply.id), '문구를 지웠습니다.')}>삭제</button>
+              </li>
+            ))}
+          </ul>
+        )}
+      <label>
+        새 문구
+        <input value={text} onChange={(event) => setText(event.target.value)} maxLength={200} placeholder="예: 서류 확인 후 다시 연락드리겠습니다." />
+      </label>
+      <div className="admin-chat-transfer-actions">
+        <button type="button" className="admin-outline-button" onClick={onClose}>닫기</button>
+        <button type="submit" className="admin-primary-button" disabled={saving || !text.trim()}>등록</button>
+      </div>
+    </form>
+  );
+}
+
+// 사유: 자주 있는 것을 고르고, 없으면 [기타] → 직접 쓰기 (제한 · 넘기기는 운영 로그에만, 경고는 회원에게도)
 const OTHER = '기타';
 const RESTRICT_REASONS = ['욕설 · 비속어', '부모 · 가족 비하', '성희롱 · 음란', '상담원 인격 모독 · 협박', '같은 말 반복 · 도배', '상담과 무관한 내용 반복', OTHER];
 const TRANSFER_REASONS = ['휴가', '퇴근 · 교대', '퇴사 · 업무 변경', '상담이 몰림', '다른 상담원이 더 잘 아는 내용', OTHER];
@@ -209,11 +327,11 @@ const TRANSFER_REASONS = ['휴가', '퇴근 · 교대', '퇴사 · 업무 변경
 // 고른 사유 → 서버로 보낼 글 ("기타" 면 직접 쓴 글, 비었으면 null = 아직 못 고름)
 const reasonText = (choice, other) => (choice === OTHER ? other.trim() || null : choice || null);
 
-function ReasonField({ label, options, choice, other, onChoice, onOther }) {
+function ReasonField({ label, note = '운영 로그에만 남아요', options, choice, other, onChoice, onOther }) {
   return (
     <>
       <label>
-        {label} (운영 로그에만 남아요)
+        {label} ({note})
         <select value={choice} onChange={(event) => onChoice(event.target.value)} required>
           <option value="">선택하세요</option>
           {options.map((option) => <option key={option} value={option}>{option}</option>)}

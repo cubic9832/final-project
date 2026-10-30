@@ -10,7 +10,7 @@
         r.assigned_admin_id, a.nick_name AS assigned_admin_nick_name,
         (SELECT LEFT(m.content, 60) FROM chat_message m WHERE m.room_id = r.id ORDER BY m.id DESC LIMIT 1) AS last_message,
         r.last_message_at, r.created_at,
-        r.restricted_until, COALESCE(r.restricted_until &gt; NOW(), FALSE) AS restricted
+        r.restricted_until, COALESCE(r.restricted_until &gt; NOW(), FALSE) AS restricted, r.warning_count
     </sql>
     <sql id="roomFrom">
         FROM chat_room r
@@ -48,6 +48,11 @@
             <otherwise>NOW() + INTERVAL #{days} DAY</otherwise>
         </choose>
         WHERE id = #{roomId}
+    </update>
+
+    <!-- 경고: 횟수 +1 -->
+    <update id="warn">
+        UPDATE chat_room SET warning_count = warning_count + 1 WHERE id = #{roomId}
     </update>
 
     <update id="unrestrict">
@@ -120,6 +125,24 @@
         ) recent
         ORDER BY id
     </select>
+
+    <!-- 자주 쓰는 문구: 상담원마다 따로, 등록한 순서대로 -->
+    <select id="findQuickReplies" resultType="com.kh.back.chat.dto.ChatQuickReply">
+        SELECT id, content FROM chat_quick_reply WHERE admin_id = #{adminId} ORDER BY id
+    </select>
+
+    <select id="countQuickReplies" resultType="int">
+        SELECT COUNT(*) FROM chat_quick_reply WHERE admin_id = #{adminId}
+    </select>
+
+    <insert id="insertQuickReply">
+        INSERT INTO chat_quick_reply (admin_id, content) VALUES (#{adminId}, #{content})
+    </insert>
+
+    <!-- 내 문구만 지운다 (남의 문구 번호를 넣으면 0줄) -->
+    <delete id="deleteQuickReply">
+        DELETE FROM chat_quick_reply WHERE id = #{id} AND admin_id = #{adminId}
+    </delete>
 
     <!-- 넘겨받을 수 있는 사람: 관리자 · 총관리자 (admin_accounts, V21) -->
     <select id="findAdmins" resultType="com.kh.back.chat.dto.ChatAdminOption">

@@ -2,6 +2,7 @@ package com.kh.back.chat.mapper;
 
 import com.kh.back.chat.dto.ChatAdminOption;
 import com.kh.back.chat.dto.ChatMessageDto;
+import com.kh.back.chat.dto.ChatQuickReply;
 import com.kh.back.chat.dto.ChatRoomDto;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
@@ -36,6 +37,17 @@ public interface ChatMapper {
     void restrict(@Param("roomId") Long roomId, @Param("days") int days);
 
     void unrestrict(@Param("roomId") Long roomId);
+
+    void warn(@Param("roomId") Long roomId);
+
+    // 자주 쓰는 문구 (상담원마다)
+    List<ChatQuickReply> findQuickReplies(@Param("adminId") Long adminId);
+
+    int countQuickReplies(@Param("adminId") Long adminId);
+
+    void insertQuickReply(@Param("adminId") Long adminId, @Param("content") String content);
+
+    int deleteQuickReply(@Param("id") Long id, @Param("adminId") Long adminId);
 
     List<ChatRoomDto> findRooms(@Param("status") String status);
 

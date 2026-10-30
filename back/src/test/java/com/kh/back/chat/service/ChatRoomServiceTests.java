@@ -220,6 +220,28 @@ class ChatRoomServiceTests {
     }
 
     @Test
+    void 경고하면_횟수가_쌓이고_회원에게_사유와_횟수를_안내한다() {
+        ChatRoomDto room = room(ChatRoomDto.ACTIVE, ADMIN);
+        room.setWarningCount(1);
+        service.warn(ADMIN, ROOM, "욕설 · 비속어");
+        verify(chatMapper).warn(ROOM);
+        verify(adminAuditLogMapper).insert(ADMIN, "CHAT_WARN", "MEMBER", MEMBER, "상담 경고 2회 (욕설 · 비속어)");
+        ArgumentCaptor<ChatMessageDto> notice = ArgumentCaptor.forClass(ChatMessageDto.class);
+        verify(chatMapper).insertMessage(notice.capture());
+        assertThat(notice.getValue().getSenderType()).isEqualTo(ChatMessageDto.SYSTEM);
+        assertThat(notice.getValue().getContent()).startsWith("운영 정책 위반 경고 2회: 욕설 · 비속어");
+    }
+
+    @Test
+    void 경고는_진행_중인_상담에서_담당자만() {
+        room(ChatRoomDto.ACTIVE, OTHER_ADMIN);
+        assertCode(() -> service.warn(ADMIN, ROOM, "욕설 · 비속어"), "CHAT_FORBIDDEN");
+        room(ChatRoomDto.CLOSED, ADMIN);
+        assertCode(() -> service.warn(ADMIN, ROOM, "욕설 · 비속어"), "CHAT_NOT_ACTIVE");
+        verify(chatMapper, never()).warn(anyLong());
+    }
+
+    @Test
     void 영구_제한은_총관리자만_할_수_있다() {
         ChatRoomDto room = room(ChatRoomDto.ACTIVE, ADMIN);
         assertCode(() -> service.restrict(ADMIN, ROOM, 0, "성희롱 · 음란"), "CHAT_FORBIDDEN"); // 담당자여도 영구는 안 됨
@@ -234,10 +256,19 @@ class ChatRoomServiceTests {
     }
 
     @Test
+    void 제한을_푸는_것은_총관리자만() {
+        ChatRoomDto room = room(ChatRoomDto.CLOSED, ADMIN);
+        room.setRestricted(true);
+        room.setRestrictedUntil(java.time.LocalDateTime.of(2026, 11, 2, 15, 0));
+        assertCode(() -> service.unrestrict(ADMIN, ROOM), "CHAT_FORBIDDEN"); // 제한을 건 담당자여도 안 됨
+        service.unrestrict(SUPER, ROOM);
+        verify(chatMapper).unrestrict(ROOM);
+    }
+
+    @Test
     void 일반_관리자는_남의_상담을_제한하거나_풀_수_없다() {
         room(ChatRoomDto.ACTIVE, OTHER_ADMIN);
         assertCode(() -> service.restrict(ADMIN, ROOM, 3, null), "CHAT_FORBIDDEN");
-        assertCode(() -> service.unrestrict(ADMIN, ROOM), "CHAT_FORBIDDEN");
         verify(chatMapper, never()).restrict(anyLong(), org.mockito.ArgumentMatchers.anyInt());
     }
 

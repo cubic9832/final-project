@@ -1,15 +1,20 @@
 package com.kh.back.chat.controller;
 
 import com.kh.back.chat.dto.ChatAdminOption;
+import com.kh.back.chat.dto.ChatQuickReply;
+import com.kh.back.chat.dto.ChatQuickReplyRequest;
 import com.kh.back.chat.dto.ChatRestrictRequest;
 import com.kh.back.chat.dto.ChatRoomDto;
 import com.kh.back.chat.dto.ChatTransferRequest;
+import com.kh.back.chat.dto.ChatWarnRequest;
+import com.kh.back.chat.service.ChatQuickReplyService;
 import com.kh.back.chat.service.ChatRoomService;
 import com.kh.back.common.dto.ApiResponse;
 import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AdminChatApiController {
 
     private final ChatRoomService chatRoomService;
+    private final ChatQuickReplyService chatQuickReplyService;
 
     // GET /api/v1/admin/chat/rooms?status=WAITING — 상담 목록 (없으면 전체, 최근 메시지 순)
     // 호출: AdminChatPanel.jsx 화면이 열릴 때 · /topic/admin/chat 알림을 받을 때 → chatApi.getAdminRooms
@@ -63,6 +69,33 @@ public class AdminChatApiController {
                                       @Valid @RequestBody ChatRestrictRequest request) {
         chatRoomService.restrict(userId, id, request.getDays(), request.getReason());
         return ApiResponse.ok(null);
+    }
+
+    // POST /api/v1/admin/chat/rooms/{id}/warn — 본문 { reason } [경고] (제한 전 단계, 회원에게 사유 · 횟수 안내)
+    @PostMapping("/rooms/{id}/warn")
+    public ApiResponse<Void> warn(@AuthenticationPrincipal Long userId, @PathVariable Long id,
+                                  @Valid @RequestBody ChatWarnRequest request) {
+        chatRoomService.warn(userId, id, request.getReason());
+        return ApiResponse.ok(null);
+    }
+
+    // GET /api/v1/admin/chat/quick-replies — 내 자주 쓰는 문구
+    @GetMapping("/quick-replies")
+    public ApiResponse<List<ChatQuickReply>> quickReplies(@AuthenticationPrincipal Long userId) {
+        return ApiResponse.ok(chatQuickReplyService.getMine(userId));
+    }
+
+    // POST /api/v1/admin/chat/quick-replies — 본문 { content } 문구 등록 → 바뀐 목록
+    @PostMapping("/quick-replies")
+    public ApiResponse<List<ChatQuickReply>> addQuickReply(@AuthenticationPrincipal Long userId,
+                                                           @Valid @RequestBody ChatQuickReplyRequest request) {
+        return ApiResponse.ok(chatQuickReplyService.add(userId, request.getContent()));
+    }
+
+    // DELETE /api/v1/admin/chat/quick-replies/{id} — 내 문구 삭제 → 바뀐 목록
+    @DeleteMapping("/quick-replies/{id}")
+    public ApiResponse<List<ChatQuickReply>> deleteQuickReply(@AuthenticationPrincipal Long userId, @PathVariable Long id) {
+        return ApiResponse.ok(chatQuickReplyService.delete(userId, id));
     }
 
     // POST /api/v1/admin/chat/rooms/{id}/unrestrict — [제한 풀기]

@@ -40,5 +40,7 @@ public interface ChatRoomService {
 
     void unrestrict(Long actorId, Long roomId);
 
+    void warn(Long actorId, Long roomId, String reason);
+
     void releaseRoomsOf(Long adminId);
 }

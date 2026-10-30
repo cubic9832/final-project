@@ -32,4 +32,5 @@ public class ChatRoomDto {
     private LocalDateTime createdAt;
     private LocalDateTime restrictedUntil; // 상담 제한이 끝나는 시각 (제한한 적 없으면 null)
     private boolean restricted;            // 지금 제한 중인가 (DB 시각 기준으로 SQL 에서 계산)
+    private int warningCount;              // 상담원이 준 경고 횟수
 }

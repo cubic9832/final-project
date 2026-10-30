@@ -15,6 +15,8 @@ CREATE TABLE chat_room (
     last_message_at DATETIME NULL,
     -- 상담 제한이 끝나는 시각 (욕설 등으로 관리자가 제한하면 이때까지 새 상담 불가, 제한한 적 없으면 NULL)
     restricted_until DATETIME NULL,
+    -- 상담원이 준 경고 횟수 (제한하기 전 단계, 회원 1명 기준으로 계속 쌓인다)
+    warning_count INT NOT NULL DEFAULT 0,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     CONSTRAINT uk_chat_room_user UNIQUE (user_id),
@@ -39,4 +41,14 @@ CREATE TABLE chat_message (
     CONSTRAINT fk_chat_message_sender FOREIGN KEY (sender_id) REFERENCES users (id) ON DELETE SET NULL,
     -- "이 방의 최근 메시지" 를 빠르게 (샘플과 같음)
     INDEX idx_chat_message_room (room_id, id)
+);
+
+-- 상담원이 등록한 자주 쓰는 문구 (상담원마다 따로, 기본 문구는 화면에 들어 있다)
+CREATE TABLE chat_quick_reply (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    admin_id BIGINT NOT NULL,
+    content VARCHAR(200) NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_chat_quick_reply_admin FOREIGN KEY (admin_id) REFERENCES users (id) ON DELETE CASCADE,
+    INDEX idx_chat_quick_reply_admin (admin_id, id)
 );
