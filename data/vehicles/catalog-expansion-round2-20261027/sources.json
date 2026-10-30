@@ -1,0 +1,91 @@
+{
+  "checked_on": "2026-10-27",
+  "documents": [
+    {
+      "name": "pv5",
+      "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_pv5-passenger.pdf",
+      "sha256": "b7c024659c6be5252f64c1b9a96a44e965df62c9ead884bcb8e78a31f06e87c4",
+      "reviewed_pages": [
+        1,
+        2,
+        10,
+        11
+      ]
+    },
+    {
+      "name": "canyon",
+      "url": "https://www.gmckorea.co.kr/content/dam/gmc/asia/kr/ko/index/catalog-and-price-list/2026/01-pdfs/canyon.pdf",
+      "sha256": "2bbe20aa15770a502a3bcab7b14e808f2dc10aed273d60146ab64e7b2414cf9d",
+      "reviewed_pages": [
+        3
+      ]
+    },
+    {
+      "name": "hummer",
+      "url": "https://www.gmckorea.co.kr/content/dam/gmc/asia/kr/ko/index/catalog-and-price-list/2026/01-images/hummer-ev-suv.pdf",
+      "sha256": "c8a72f17dbea8982d22704fe6c4b477dffe5eb790aeaefdc094505a32fab5118",
+      "reviewed_pages": [
+        3
+      ]
+    },
+    {
+      "name": "sierra",
+      "url": "https://sierra.gmckorea.co.kr/content/dam/gmc/asia/kr/ko/index/catalog-and-price-list/2026/08-pdfs/gmc-sierra-mini-catalog-202610-e-catalog.pdf",
+      "sha256": "04d563b8abf1b3e46e30573c3c3e7b3c66e9f4809b688f6c0a33e8c566c1e2d9",
+      "reviewed_pages": [
+        4,
+        5,
+        6
+      ]
+    }
+  ],
+  "non_pdf_sources": [
+    {
+      "models": [
+        "Cayenne"
+      ],
+      "url": "https://www.porsche.com/korea/ko/models/cayenne/",
+      "verified_fields": [
+        "MSRP",
+        "model_year",
+        "fuel",
+        "drive",
+        "seats",
+        "body_type"
+      ],
+      "unverified_fields": [
+        "efficiency",
+        "length_mm"
+      ],
+      "note": "Coupé·전기·PHEV 사양 제외. 가솔린 SUV 기본형·Black Edition만 반영."
+    },
+    {
+      "models": [
+        "308 SMART HYBRID"
+      ],
+      "url": "https://www.epeugeot.co.kr/new-cars/308hybrid.html",
+      "verified_fields": [
+        "starting_price",
+        "body_type",
+        "fuel"
+      ],
+      "note": "공식 출시 자료로 ALLURE 가격 39,900,000원 대조. 현행 GT 전용 제원은 복사하지 않음."
+    },
+    {
+      "models": [
+        "LM 500h"
+      ],
+      "url": "https://www.lexus.co.kr/build-your-car/?model=es500e",
+      "status": "REVIEW",
+      "note": "응답은 LM 500h 가격을 표시하나 쿼리 모델과 불일치. 현재 트림 제원 결합 전 비공개."
+    },
+    {
+      "models": [
+        "V60 Cross Country"
+      ],
+      "url": "https://www.volvocars.com/kr/cars/v60-cross-country//",
+      "status": "REVIEW",
+      "note": "공식 시작가·차체 확인. 현재 세부 등급 제원 미확정."
+    }
+  ]
+}

@@ -1,0 +1,1042 @@
+{
+  "before": [
+    {
+      "body_type": "SEDAN",
+      "label": "세단",
+      "configurations": 91,
+      "catalog_model_names": 22,
+      "families": 15,
+      "bins": [
+        {
+          "price_band": "2천만 미만",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2천–4천만",
+          "configurations": 42,
+          "families": 4,
+          "models": [
+            "기아 K5",
+            "기아 K8",
+            "현대 디 올 뉴 아반떼",
+            "현대 쏘나타 디 엣지"
+          ]
+        },
+        {
+          "price_band": "4천–6천만",
+          "configurations": 28,
+          "families": 6,
+          "models": [
+            "기아 EV4",
+            "기아 K8",
+            "제네시스 G70",
+            "현대 더 뉴 그랜저",
+            "현대 더 뉴 아이오닉 6",
+            "현대 쏘나타 디 엣지"
+          ]
+        },
+        {
+          "price_band": "6천–8천만",
+          "configurations": 13,
+          "families": 6,
+          "models": [
+            "BMW 3시리즈",
+            "BMW 5시리즈",
+            "기아 K9",
+            "렉서스 ES",
+            "메르세데스-벤츠 E-Class",
+            "제네시스 G80"
+          ]
+        },
+        {
+          "price_band": "8천만–1억",
+          "configurations": 6,
+          "families": 4,
+          "models": [
+            "BMW 5시리즈",
+            "렉서스 ES",
+            "제네시스 G80",
+            "제네시스 G90"
+          ]
+        },
+        {
+          "price_band": "1억–1.5억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "1.5억–2억",
+          "configurations": 2,
+          "families": 1,
+          "models": [
+            "제네시스 G90"
+          ]
+        },
+        {
+          "price_band": "2억 이상",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        }
+      ]
+    },
+    {
+      "body_type": "SUV",
+      "label": "SUV",
+      "configurations": 163,
+      "catalog_model_names": 48,
+      "families": 31,
+      "bins": [
+        {
+          "price_band": "2천만 미만",
+          "configurations": 3,
+          "families": 2,
+          "models": [
+            "현대 베뉴",
+            "현대 캐스퍼"
+          ]
+        },
+        {
+          "price_band": "2천–4천만",
+          "configurations": 81,
+          "families": 16,
+          "models": [
+            "KG모빌리티 액티언",
+            "KG모빌리티 토레스",
+            "KG모빌리티 티볼리",
+            "기아 EV3",
+            "기아 니로",
+            "기아 셀토스",
+            "기아 스포티지",
+            "기아 쏘렌토",
+            "르노코리아 그랑 콜레오스",
+            "르노코리아 아르카나",
+            "쉐보레 트랙스 크로스오버",
+            "현대 베뉴",
+            "현대 싼타페",
+            "현대 캐스퍼",
+            "현대 코나",
+            "현대 투싼"
+          ]
+        },
+        {
+          "price_band": "4천–6천만",
+          "configurations": 57,
+          "families": 15,
+          "models": [
+            "KG모빌리티 렉스턴 뉴 아레나",
+            "KG모빌리티 토레스",
+            "기아 EV3",
+            "기아 EV5",
+            "기아 EV6",
+            "기아 스포티지",
+            "기아 쏘렌토",
+            "르노코리아 그랑 콜레오스",
+            "르노코리아 필랑트",
+            "제네시스 GV70",
+            "테슬라 Model Y",
+            "현대 싼타페",
+            "현대 아이오닉 5",
+            "현대 코나",
+            "현대 팰리세이드"
+          ]
+        },
+        {
+          "price_band": "6천–8천만",
+          "configurations": 14,
+          "families": 9,
+          "models": [
+            "BMW X1",
+            "BMW X3",
+            "기아 EV6",
+            "기아 EV9",
+            "볼보 XC60",
+            "제네시스 GV70",
+            "제네시스 GV80",
+            "테슬라 Model Y",
+            "현대 아이오닉 5"
+          ]
+        },
+        {
+          "price_band": "8천만–1억",
+          "configurations": 6,
+          "families": 5,
+          "models": [
+            "BMW X3",
+            "BMW X4",
+            "기아 EV9",
+            "볼보 XC60",
+            "제네시스 GV80"
+          ]
+        },
+        {
+          "price_band": "1억–1.5억",
+          "configurations": 2,
+          "families": 2,
+          "models": [
+            "BMW X5",
+            "제네시스 GV80"
+          ]
+        },
+        {
+          "price_band": "1.5억–2억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2억 이상",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        }
+      ]
+    },
+    {
+      "body_type": "HATCHBACK",
+      "label": "해치백",
+      "configurations": 9,
+      "catalog_model_names": 3,
+      "families": 2,
+      "bins": [
+        {
+          "price_band": "2천만 미만",
+          "configurations": 6,
+          "families": 1,
+          "models": [
+            "기아 모닝"
+          ]
+        },
+        {
+          "price_band": "2천–4천만",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "4천–6천만",
+          "configurations": 3,
+          "families": 1,
+          "models": [
+            "폭스바겐 Golf"
+          ]
+        },
+        {
+          "price_band": "6천–8천만",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "8천만–1억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "1억–1.5억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "1.5억–2억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2억 이상",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        }
+      ]
+    },
+    {
+      "body_type": "WAGON",
+      "label": "왜건",
+      "configurations": 2,
+      "catalog_model_names": 2,
+      "families": 2,
+      "bins": [
+        {
+          "price_band": "2천만 미만",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2천–4천만",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "4천–6천만",
+          "configurations": 1,
+          "families": 1,
+          "models": [
+            "제네시스 G70 Shooting Brake"
+          ]
+        },
+        {
+          "price_band": "6천–8천만",
+          "configurations": 1,
+          "families": 1,
+          "models": [
+            "BMW 3시리즈 투어링"
+          ]
+        },
+        {
+          "price_band": "8천만–1억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "1억–1.5억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "1.5억–2억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2억 이상",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        }
+      ]
+    },
+    {
+      "body_type": "MPV",
+      "label": "MPV",
+      "configurations": 18,
+      "catalog_model_names": 11,
+      "families": 4,
+      "bins": [
+        {
+          "price_band": "2천만 미만",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2천–4천만",
+          "configurations": 3,
+          "families": 2,
+          "models": [
+            "기아 카니발",
+            "현대 스타리아"
+          ]
+        },
+        {
+          "price_band": "4천–6천만",
+          "configurations": 6,
+          "families": 2,
+          "models": [
+            "기아 카니발",
+            "현대 스타리아"
+          ]
+        },
+        {
+          "price_band": "6천–8천만",
+          "configurations": 6,
+          "families": 3,
+          "models": [
+            "기아 카니발",
+            "토요타 시에나",
+            "현대 스타리아"
+          ]
+        },
+        {
+          "price_band": "8천만–1억",
+          "configurations": 2,
+          "families": 2,
+          "models": [
+            "토요타 알파드",
+            "현대 스타리아"
+          ]
+        },
+        {
+          "price_band": "1억–1.5억",
+          "configurations": 1,
+          "families": 1,
+          "models": [
+            "토요타 알파드"
+          ]
+        },
+        {
+          "price_band": "1.5억–2억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2억 이상",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        }
+      ]
+    },
+    {
+      "body_type": "BOX",
+      "label": "박스형",
+      "configurations": 6,
+      "catalog_model_names": 2,
+      "families": 1,
+      "bins": [
+        {
+          "price_band": "2천만 미만",
+          "configurations": 3,
+          "families": 1,
+          "models": [
+            "기아 레이"
+          ]
+        },
+        {
+          "price_band": "2천–4천만",
+          "configurations": 3,
+          "families": 1,
+          "models": [
+            "기아 레이"
+          ]
+        },
+        {
+          "price_band": "4천–6천만",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "6천–8천만",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "8천만–1억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "1억–1.5억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "1.5억–2억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2억 이상",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        }
+      ]
+    },
+    {
+      "body_type": "PICKUP",
+      "label": "픽업",
+      "configurations": 8,
+      "catalog_model_names": 2,
+      "families": 2,
+      "bins": [
+        {
+          "price_band": "2천만 미만",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2천–4천만",
+          "configurations": 3,
+          "families": 1,
+          "models": [
+            "KG모빌리티 무쏘"
+          ]
+        },
+        {
+          "price_band": "4천–6천만",
+          "configurations": 5,
+          "families": 2,
+          "models": [
+            "KG모빌리티 무쏘",
+            "KG모빌리티 무쏘 EV"
+          ]
+        },
+        {
+          "price_band": "6천–8천만",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "8천만–1억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "1억–1.5억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "1.5억–2억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2억 이상",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        }
+      ]
+    }
+  ],
+  "after": [
+    {
+      "body_type": "SEDAN",
+      "label": "세단",
+      "configurations": 91,
+      "catalog_model_names": 22,
+      "families": 15,
+      "bins": [
+        {
+          "price_band": "2천만 미만",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2천–4천만",
+          "configurations": 42,
+          "families": 4,
+          "models": [
+            "기아 K5",
+            "기아 K8",
+            "현대 디 올 뉴 아반떼",
+            "현대 쏘나타 디 엣지"
+          ]
+        },
+        {
+          "price_band": "4천–6천만",
+          "configurations": 28,
+          "families": 6,
+          "models": [
+            "기아 EV4",
+            "기아 K8",
+            "제네시스 G70",
+            "현대 더 뉴 그랜저",
+            "현대 더 뉴 아이오닉 6",
+            "현대 쏘나타 디 엣지"
+          ]
+        },
+        {
+          "price_band": "6천–8천만",
+          "configurations": 13,
+          "families": 6,
+          "models": [
+            "BMW 3시리즈",
+            "BMW 5시리즈",
+            "기아 K9",
+            "렉서스 ES",
+            "메르세데스-벤츠 E-Class",
+            "제네시스 G80"
+          ]
+        },
+        {
+          "price_band": "8천만–1억",
+          "configurations": 6,
+          "families": 4,
+          "models": [
+            "BMW 5시리즈",
+            "렉서스 ES",
+            "제네시스 G80",
+            "제네시스 G90"
+          ]
+        },
+        {
+          "price_band": "1억–1.5억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "1.5억–2억",
+          "configurations": 2,
+          "families": 1,
+          "models": [
+            "제네시스 G90"
+          ]
+        },
+        {
+          "price_band": "2억 이상",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        }
+      ]
+    },
+    {
+      "body_type": "SUV",
+      "label": "SUV",
+      "configurations": 166,
+      "catalog_model_names": 50,
+      "families": 33,
+      "bins": [
+        {
+          "price_band": "2천만 미만",
+          "configurations": 3,
+          "families": 2,
+          "models": [
+            "현대 베뉴",
+            "현대 캐스퍼"
+          ]
+        },
+        {
+          "price_band": "2천–4천만",
+          "configurations": 81,
+          "families": 16,
+          "models": [
+            "KG모빌리티 액티언",
+            "KG모빌리티 토레스",
+            "KG모빌리티 티볼리",
+            "기아 EV3",
+            "기아 니로",
+            "기아 셀토스",
+            "기아 스포티지",
+            "기아 쏘렌토",
+            "르노코리아 그랑 콜레오스",
+            "르노코리아 아르카나",
+            "쉐보레 트랙스 크로스오버",
+            "현대 베뉴",
+            "현대 싼타페",
+            "현대 캐스퍼",
+            "현대 코나",
+            "현대 투싼"
+          ]
+        },
+        {
+          "price_band": "4천–6천만",
+          "configurations": 57,
+          "families": 15,
+          "models": [
+            "KG모빌리티 렉스턴 뉴 아레나",
+            "KG모빌리티 토레스",
+            "기아 EV3",
+            "기아 EV5",
+            "기아 EV6",
+            "기아 스포티지",
+            "기아 쏘렌토",
+            "르노코리아 그랑 콜레오스",
+            "르노코리아 필랑트",
+            "제네시스 GV70",
+            "테슬라 Model Y",
+            "현대 싼타페",
+            "현대 아이오닉 5",
+            "현대 코나",
+            "현대 팰리세이드"
+          ]
+        },
+        {
+          "price_band": "6천–8천만",
+          "configurations": 14,
+          "families": 9,
+          "models": [
+            "BMW X1",
+            "BMW X3",
+            "기아 EV6",
+            "기아 EV9",
+            "볼보 XC60",
+            "제네시스 GV70",
+            "제네시스 GV80",
+            "테슬라 Model Y",
+            "현대 아이오닉 5"
+          ]
+        },
+        {
+          "price_band": "8천만–1억",
+          "configurations": 6,
+          "families": 5,
+          "models": [
+            "BMW X3",
+            "BMW X4",
+            "기아 EV9",
+            "볼보 XC60",
+            "제네시스 GV80"
+          ]
+        },
+        {
+          "price_band": "1억–1.5억",
+          "configurations": 3,
+          "families": 3,
+          "models": [
+            "BMW X5",
+            "제네시스 GV80",
+            "포르쉐 Cayenne"
+          ]
+        },
+        {
+          "price_band": "1.5억–2억",
+          "configurations": 1,
+          "families": 1,
+          "models": [
+            "포르쉐 Cayenne"
+          ]
+        },
+        {
+          "price_band": "2억 이상",
+          "configurations": 1,
+          "families": 1,
+          "models": [
+            "GMC HUMMER EV SUV"
+          ]
+        }
+      ]
+    },
+    {
+      "body_type": "HATCHBACK",
+      "label": "해치백",
+      "configurations": 10,
+      "catalog_model_names": 4,
+      "families": 3,
+      "bins": [
+        {
+          "price_band": "2천만 미만",
+          "configurations": 6,
+          "families": 1,
+          "models": [
+            "기아 모닝"
+          ]
+        },
+        {
+          "price_band": "2천–4천만",
+          "configurations": 1,
+          "families": 1,
+          "models": [
+            "푸조 308"
+          ]
+        },
+        {
+          "price_band": "4천–6천만",
+          "configurations": 3,
+          "families": 1,
+          "models": [
+            "폭스바겐 Golf"
+          ]
+        },
+        {
+          "price_band": "6천–8천만",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "8천만–1억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "1억–1.5억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "1.5억–2억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2억 이상",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        }
+      ]
+    },
+    {
+      "body_type": "WAGON",
+      "label": "왜건",
+      "configurations": 2,
+      "catalog_model_names": 2,
+      "families": 2,
+      "bins": [
+        {
+          "price_band": "2천만 미만",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2천–4천만",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "4천–6천만",
+          "configurations": 1,
+          "families": 1,
+          "models": [
+            "제네시스 G70 Shooting Brake"
+          ]
+        },
+        {
+          "price_band": "6천–8천만",
+          "configurations": 1,
+          "families": 1,
+          "models": [
+            "BMW 3시리즈 투어링"
+          ]
+        },
+        {
+          "price_band": "8천만–1억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "1억–1.5억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "1.5억–2억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2억 이상",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        }
+      ]
+    },
+    {
+      "body_type": "MPV",
+      "label": "MPV",
+      "configurations": 22,
+      "catalog_model_names": 12,
+      "families": 5,
+      "bins": [
+        {
+          "price_band": "2천만 미만",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2천–4천만",
+          "configurations": 3,
+          "families": 2,
+          "models": [
+            "기아 카니발",
+            "현대 스타리아"
+          ]
+        },
+        {
+          "price_band": "4천–6천만",
+          "configurations": 10,
+          "families": 3,
+          "models": [
+            "기아 PV5 패신저",
+            "기아 카니발",
+            "현대 스타리아"
+          ]
+        },
+        {
+          "price_band": "6천–8천만",
+          "configurations": 6,
+          "families": 3,
+          "models": [
+            "기아 카니발",
+            "토요타 시에나",
+            "현대 스타리아"
+          ]
+        },
+        {
+          "price_band": "8천만–1억",
+          "configurations": 2,
+          "families": 2,
+          "models": [
+            "토요타 알파드",
+            "현대 스타리아"
+          ]
+        },
+        {
+          "price_band": "1억–1.5억",
+          "configurations": 1,
+          "families": 1,
+          "models": [
+            "토요타 알파드"
+          ]
+        },
+        {
+          "price_band": "1.5억–2억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2억 이상",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        }
+      ]
+    },
+    {
+      "body_type": "BOX",
+      "label": "박스형",
+      "configurations": 6,
+      "catalog_model_names": 2,
+      "families": 1,
+      "bins": [
+        {
+          "price_band": "2천만 미만",
+          "configurations": 3,
+          "families": 1,
+          "models": [
+            "기아 레이"
+          ]
+        },
+        {
+          "price_band": "2천–4천만",
+          "configurations": 3,
+          "families": 1,
+          "models": [
+            "기아 레이"
+          ]
+        },
+        {
+          "price_band": "4천–6천만",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "6천–8천만",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "8천만–1억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "1억–1.5억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "1.5억–2억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2억 이상",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        }
+      ]
+    },
+    {
+      "body_type": "PICKUP",
+      "label": "픽업",
+      "configurations": 11,
+      "catalog_model_names": 4,
+      "families": 4,
+      "bins": [
+        {
+          "price_band": "2천만 미만",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2천–4천만",
+          "configurations": 3,
+          "families": 1,
+          "models": [
+            "KG모빌리티 무쏘"
+          ]
+        },
+        {
+          "price_band": "4천–6천만",
+          "configurations": 5,
+          "families": 2,
+          "models": [
+            "KG모빌리티 무쏘",
+            "KG모빌리티 무쏘 EV"
+          ]
+        },
+        {
+          "price_band": "6천–8천만",
+          "configurations": 1,
+          "families": 1,
+          "models": [
+            "GMC Canyon"
+          ]
+        },
+        {
+          "price_band": "8천만–1억",
+          "configurations": 2,
+          "families": 1,
+          "models": [
+            "GMC Sierra"
+          ]
+        },
+        {
+          "price_band": "1억–1.5억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "1.5억–2억",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        },
+        {
+          "price_band": "2억 이상",
+          "configurations": 0,
+          "families": 0,
+          "models": []
+        }
+      ]
+    }
+  ]
+}

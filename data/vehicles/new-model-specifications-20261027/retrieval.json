@@ -1,0 +1,1198 @@
+[
+  {
+    "id": "0419ee01e13200698490",
+    "url": "https://www.volvocars.com/kr/cars/xc90/",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "08e4c462c7f7605944d9",
+    "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+    "checked_on": "2026-10-27",
+    "post_file_key": "1187BE66779654341C",
+    "final_url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+    "sha256": "117f0e689adf16d09f28b67b31b9477346a39e42f01619cd36a794b550c39396",
+    "bytes": 17725493,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "0a14b9453b5ecbd6151a",
+    "url": "https://www.volvocar.co.kr/l/volvo-brochure/pdf/MY26-V60CC.pdf?ver=20260209",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.volvocar.co.kr/l/volvo-brochure/pdf/MY26-V60CC.pdf?ver=20260209",
+    "sha256": "fc063f35ea9b7a9d75abb202ac1822e9bf49614279e0a68931308e79d1d21bd8",
+    "bytes": 8261742,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "0c61d9e348b6a6e5abf4",
+    "url": "https://www.hyundai.com/contents/repn-car/catalog/nexo-catalog.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.hyundai.com/contents/repn-car/catalog/nexo-catalog.pdf",
+    "sha256": "28dbbb5a8f35ff63df814cdcf108ee448f24d100dfb7d44b74ec06dcca8e59d1",
+    "bytes": 14666537,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "0e22000eee5a1958e879",
+    "url": "https://www.volvocar.co.kr/l/volvo-brochure/pdf/MY27-ES90.pdf?ver=20260917",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.volvocar.co.kr/l/volvo-brochure/pdf/MY27-ES90.pdf?ver=20260917",
+    "sha256": "b0299b82b2d64c2ec0bcbcb3e972d2479a947a7435eb4bc95d68bac5389af99f",
+    "bytes": 13427279,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "105eae53426960bd2034",
+    "url": "https://www.volvocars.com/kr/cars/ex90-electric/specifications/",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "176cd7075e936b20a7d7",
+    "url": "https://www.jeep.co.kr/gladiator.html",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.jeep.co.kr/gladiator.html",
+    "sha256": "08dac1aeee3d72d55a649047b92aaa0051291fb9499a96e49bc7a5943aae3c04",
+    "bytes": 297393,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "188c745901f6730f7bf4",
+    "url": "https://www.volkswagen.co.kr/idhub/content/dam/onehub_pkw/importers/kr/models/atlas/leaflet/Atlas_Price%20List_260209.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.volkswagen.co.kr/idhub/content/dam/onehub_pkw/importers/kr/models/atlas/leaflet/Atlas_Price%20List_260209.pdf",
+    "sha256": "c99280305315483b4590a55652b6dd0a162cac6c7be6d2b12a433abb54da4bd2",
+    "bytes": 2497168,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "190918409f4731353154",
+    "url": "https://www.chevrolet.co.kr/suvs/trailblazer",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.chevrolet.co.kr/suvs/trailblazer",
+    "sha256": "719ee9d14ff3b92a6ce4644418bb95ac6cff5c715265914cbac686416220d520",
+    "bytes": 622057,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "198c3531157763414182",
+    "url": "https://www.jeep.co.kr/",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.jeep.co.kr/",
+    "sha256": "5d4d942a2691e8a754333e72055cf521db98a945faed75d0a53cbf64da6fbfbf",
+    "bytes": 275024,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "19a1b18ec23bb80da3b9",
+    "url": "https://www.bydauto.kr/car/byd-sealion6",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.bydauto.kr/car/byd-sealion6",
+    "sha256": "a2844eca96ce2af51878c7b6b9b4a1743a5d2f2d04c13e575d18aa6cf400c378",
+    "bytes": 159588,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "1d7a0c5ce7063208c2d5",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models.html",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 000: curl: (28) Operation timed out after 22007 milliseconds with 0 bytes received\n"
+  },
+  {
+    "id": "1dab48181a5689e475c7",
+    "url": "https://www.hyundai.com/kr/ko/e/api/product/car/catalog-price",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.hyundai.com/kr/ko/e/api/product/car/catalog-price",
+    "sha256": "5b0b8923dd91908b632d425531d9c16384d87c75ac6e814fff2151f97a51b4f8",
+    "bytes": 35057,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "1e1172b84457ecfd8b67",
+    "url": "https://www.volvocar.co.kr/l/volvo-brochure/pdf/MY27-XC90.pdf?ver=20261020",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.volvocar.co.kr/l/volvo-brochure/pdf/MY27-XC90.pdf?ver=20261020",
+    "sha256": "93e7905e88a362fb744499dcf724fe04f367f256bbbba731a13d97d0508de4d1",
+    "bytes": 12492091,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "21c35002737a2f3861d0",
+    "url": "https://www.bydauto.kr/purchase/build-my-car/seal",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.bydauto.kr/purchase/build-my-car/seal",
+    "sha256": "63b80c6f51d0bb2c824fff63d7df31bff8b1fd42073cfdfc96721cea041945d9",
+    "bytes": 23543,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "244cdab158fe3f7cc19f",
+    "url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Price-Option-List.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Price-Option-List.pdf",
+    "sha256": "eca510574a310f9f8f0e92da017a09bf573befafaf4cf6121d359ed7626d7a91",
+    "bytes": 192083,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "24a570d1e8974c34b12d",
+    "url": "https://www.genesis.com/kr/ko/models/luxury-suv-genesis/gv60/specs.html",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.genesis.com/kr/ko/models/luxury-suv-genesis/gv60/specs.html",
+    "sha256": "67df3bc97b1e88098e0538081e6faaa5fdff6b9be97b92af244df251daea0990",
+    "bytes": 783024,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "29eaab04970f6a7b2180",
+    "url": "https://www.bydauto.kr/static/file/seal_catalog.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.bydauto.kr/static/file/seal_catalog.pdf",
+    "sha256": "b11ccd9a124f6068545ae6b6ac603261a6e8093ce03afa66c00b13ce35b9b4f5",
+    "bytes": 46538348,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "2b23a600209eaf6909d2",
+    "url": "https://www.kia.com/kr/vehicles/tasman/features",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.kia.com/kr/vehicles/tasman/features",
+    "sha256": "f2c16aa6d7825a724d2dc91e5c4842efd8bab1dc3f940ccdb749a0e216e086e4",
+    "bytes": 323200,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "2b5862db30a41b39916b",
+    "url": "https://www.volvocars.com/kr/v/cars/xc40/specifications/",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "2c3ba595bbaa3a856db8",
+    "url": "https://www.gmckorea.co.kr/e-catalog-price-list",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.gmckorea.co.kr/e-catalog-price-list",
+    "sha256": "969debbb54a896f4d2dc8b89bdef2a6b94a770b096533590dde0b097f7f76227",
+    "bytes": 179847,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "2d05409bef58ee535b83",
+    "url": "https://www.bydauto.kr/purchase/build-my-car/atto3",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.bydauto.kr/purchase/build-my-car/atto3",
+    "sha256": "dbf9a8d7b1c4edc0a62c6891ac4d3e7cbca291659c0b02d6bfbe2d7ab91160d0",
+    "bytes": 22778,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "2d965944b2b349d7a6d7",
+    "url": "https://www.gmckorea.co.kr/suvs/acadia",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.gmckorea.co.kr/suvs/acadia",
+    "sha256": "0c4bb4072fa3919b4312dd1fcc97870c6497dbb428864680fa57f8769d881468",
+    "bytes": 351576,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "2ed013c6193905e45ebb",
+    "url": "https://www.volvocars.com/kr/cars/ex30-electric/specifications/",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "315d9ccb9897a6a8b012",
+    "url": "https://www.lotuscars.com/ko-KR/eletre",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.lotuscars.com/ko-KR/eletre",
+    "sha256": "fefbf883ba83bf7e5412a971bbb214eb81052c9bbfb9fc3a233978e499e0fe75",
+    "bytes": 437042,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "34158194c15765a59af2",
+    "url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COUNTRYMAN-Specification.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COUNTRYMAN-Specification.pdf",
+    "sha256": "11661e4910954bf1f468fe5cd5d5854aa1c37521e8099a3b99eaa43865e06e16",
+    "bytes": 262773,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "36fd42d4b476e4150029",
+    "url": "https://www.kia.com/kr/vehicles/tasman/specification",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.kia.com/kr/vehicles/tasman/specification",
+    "sha256": "20ba035ac8271e4e09c10f73f958445c55f11c86baf642173eb372a0fa8e593f",
+    "bytes": 128921,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "3777001a09f8607b2fff",
+    "url": "https://www.bydauto.kr/static/file/BYD_SEALION_6_DM-i_Catalog.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.bydauto.kr/static/file/BYD_SEALION_6_DM-i_Catalog.pdf",
+    "sha256": "f906fdfd690b9c8552a8fe3cc90ffca63ef0ad6030408e5457daea3b5432a5d3",
+    "bytes": 5945577,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "3a9471eb4fede4049fad",
+    "url": "https://www.genesis.com/kr/ko/models.html",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.genesis.com/kr/ko/models/gv80",
+    "sha256": "4a72827aea5253b77b0054b58570893bacdbfef0b0e8be24483fe7e46da94d8d",
+    "bytes": 661468,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "3b13ad6a73e4a4ee8c06",
+    "url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COUNTRYMAN-Price-Option-List.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COUNTRYMAN-Price-Option-List.pdf",
+    "sha256": "4c37ae9768ea4129e7ed27cd8aa8107c836a0f01597d1f3c7aa5bf6d17512575",
+    "bytes": 9385140,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "3b723460786317c68683",
+    "url": "https://www.bydauto.kr/static/file/BYD_DOLPHIN_Catalog.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.bydauto.kr/static/file/BYD_DOLPHIN_Catalog.pdf",
+    "sha256": "ccc84d909cce170343947de1bef818372689e0d1a821731131dad8d2838e64fb",
+    "bytes": 1230469,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "3f9e1fdeb4b8d6693e65",
+    "url": "https://www.bydauto.kr/car/byd-dolphin",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.bydauto.kr/car/byd-dolphin",
+    "sha256": "32cbd7710a0d9f8d4a2447d44b9423b8ef668277404598ab773919ea91ef0750",
+    "bytes": 147901,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "41039637a91cc502b663",
+    "url": "https://www.volvocars.com/kr/cars/es90-electric/",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "440e9c4e815dd2655eb4",
+    "url": "https://www.volvocars.com/kr/v/cars/s90-hybrid",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "49141fe1e54a36c4183f",
+    "url": "https://www.volvocars.com/kr/cars/s90/",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "49bf11520bb57a0c5b7a",
+    "url": "https://www.bydauto.kr/car/byd-sealion7",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.bydauto.kr/car/byd-sealion7",
+    "sha256": "d08422dd5a8cdca7e4e4f73ae18d298e36a1b1efac4c78bcd5bd15c8088f5467",
+    "bytes": 181865,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "4bb5a68c6effaca2f743",
+    "url": "https://minikr.co.kr/2023/pdf-cta/images/ALL-ELECTRIC-MINI-ACEMAN-Specification.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://minikr.co.kr/2023/pdf-cta/images/ALL-ELECTRIC-MINI-ACEMAN-Specification.pdf",
+    "sha256": "1ff48481362536cb21f4fdd27583cc8a3044dd8b791af7bba31d3ce846ab188b",
+    "bytes": 119868,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "4c8308014cde4e96e73d",
+    "url": "https://www.volvocars.com/kr/cars/ex90-electric/",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "4ff0c81e3680cc926ef7",
+    "url": "https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 000: curl: (56) Recv failure: Connection was reset\n"
+  },
+  {
+    "id": "5129df292a1dfd53f3ea",
+    "url": "https://www.volvocars.com/kr/v/cars/v60-cross-country",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "539f84da877bae3b5f4c",
+    "url": "https://www.zeekrlife.com/ko-kr/models/zeekr-7x",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.zeekrlife.com/ko-kr/models/zeekr-7x/",
+    "sha256": "6976f070b3bed758d3c96a39a9995ed1bf9f780814f71e726184a51feae828f3",
+    "bytes": 861932,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "5430eba977508d810a0c",
+    "url": "https://www.bydauto.kr/purchase/build-my-car/dolphin",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.bydauto.kr/purchase/build-my-car/dolphin",
+    "sha256": "39459fefe8c6112c7651033bb0e283356b27ea947f47c056950bc882378b4ccc",
+    "bytes": 23172,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "55afdccc089c4be3654f",
+    "url": "https://www.volvocar.co.kr/l/volvo-brochure/pdf/MY27-EX90.pdf?ver=20260914",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.volvocar.co.kr/l/volvo-brochure/pdf/MY27-EX90.pdf?ver=20260914",
+    "sha256": "3d53b99078eabef053b7f2da216d4fb0c595f57c6a3748a6201c9b83f1bb7a1f",
+    "bytes": 15874970,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "567af18ed06e896a65da",
+    "url": "https://www.volkswagen.co.kr/ko/models/atlas.html",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.volkswagen.co.kr/ko/models/atlas.html",
+    "sha256": "9f931bd6c46cc4a4152e69a4e184b349e6cbc003b4697251cc1e2432a74243f7",
+    "bytes": 899052,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "5704f33f6e1e27d5fc0d",
+    "url": "https://www.bydauto.kr/index",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.bydauto.kr/index",
+    "sha256": "da0f6bce5bd5af7468ff848f44b4db3d94588d15882be695220faa865a7da378",
+    "bytes": 73880,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "5769ad0e5b042cc3fd72",
+    "url": "https://www.audi.co.kr/ko/customer-area/download-center/",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "5878a718d6d329eb7b40",
+    "url": "https://www.volkswagen.co.kr/ko/models/id5.html",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.volkswagen.co.kr/ko/models/id5.html",
+    "sha256": "8b219662f83a9f62d9f356cf783dc047add7b4dec2cbc34cd4303172a6213c65",
+    "bytes": 848727,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "59267239fd0d196122df",
+    "url": "https://www.lotuscars.com/ko-KR/emeya",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.lotuscars.com/ko-KR/emeya",
+    "sha256": "2f0d4bdfa76eb6919c59d8d4fb81d01771205475668e07ac042af40bab57d29e",
+    "bytes": 400412,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "5a38bc8ce95dd1de6232",
+    "url": "https://www.volvocars.com/kr/v/cars/v60-cross-country/specifications/",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "5e0bd00f37bc08868149",
+    "url": "https://www.hyundai.com/contents/repn-car/catalog/nexo-2027_price.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.hyundai.com/contents/repn-car/catalog/nexo-2027_price.pdf",
+    "sha256": "841144af5d76316a3ca34f53ffa59af581c757aff1b9ade39e807a15e1b4ae42",
+    "bytes": 372836,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "616be6ff42bf6a594221",
+    "url": "https://www.bentleymotors.com/kr/ko/models.html",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "62e33af558d79edd08e3",
+    "url": "https://www.bydauto.kr/car/byd-seal",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.bydauto.kr/car/byd-seal",
+    "sha256": "c373e95e7d1000243742b4bf3cc3edfc50535625f9859adbd93f79b4e0416259",
+    "bytes": 181898,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "63106effb5f76183c47b",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/price-list.html",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "Command '['curl.exe', '--location', '--max-time', '22', '--silent', '--show-error', '--user-agent', 'Mozilla/5.0', '--output', 'C:\\\\workspace\\\\final-project\\\\data\\\\vehicles\\\\new-model-specifications-20261027\\\\sources\\\\63106effb5f76183c47b.raw', '--write-out', '%{http_code}\\n%{url_effective}', 'https://www.mercedes-benz.co.kr/passengercars/models/price-list.html']' timed out after 27 seconds"
+  },
+  {
+    "id": "6a30e8223004747d5dbb",
+    "url": "https://www.lotuscars.com/ko-KR/emira",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.lotuscars.com/ko-KR/emira",
+    "sha256": "653b4130c156dd018d0acc52786b41b6a475a1c931b82a469f17a76331a9bd26",
+    "bytes": 401589,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "6c6983b5c9f28d80f7a0",
+    "url": "https://www.lamborghini.com/ko-en",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.lamborghini.com/ko-en",
+    "sha256": "161e99ec81a464a0fb733e0d40b2db71aa3bfdd7fa90ac94e7579eba415f2a7c",
+    "bytes": 475290,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "7320d269ec1ad5dad0c6",
+    "url": "https://www.volkswagen.co.kr/ko/models.html",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.volkswagen.co.kr/ko/models.html",
+    "sha256": "d0cd2368dfd5eaa959074980b0f2ecf46824b592f87830fd47d49420ab4a1278",
+    "bytes": 394020,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "77b592e84ed82944982b",
+    "url": "https://minikr.co.kr/2023/pdf-cta/images/ALL-ELECTRIC-MINI-COOPER-Price-Option-List.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://minikr.co.kr/2023/pdf-cta/images/ALL-ELECTRIC-MINI-COOPER-Price-Option-List.pdf",
+    "sha256": "8874cf26ba2d0a345d9aa174d73de587f4fcd0baea0c06fe64f4f23c35e81a52",
+    "bytes": 206234,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "7e897f94bcf458cfe658",
+    "url": "https://www.volvocar.co.kr/l/volvo-brochure/pdf/MY26-S90.pdf?ver=20260224",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.volvocar.co.kr/l/volvo-brochure/pdf/MY26-S90.pdf?ver=20260224",
+    "sha256": "0ba7773232fc78acc4e50f1aed7706eea9d5ef1b0c515989ca4fa7e6c55f6855",
+    "bytes": 10962404,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "7f94abf9cff4e5306859",
+    "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_tasman.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_tasman.pdf",
+    "sha256": "fc24383959c69be590598d441e6e11f3b98bb66123f228215d56ac7c912d14cd",
+    "bytes": 2482551,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "821e5640c695d34e997e",
+    "url": "https://www.mini.co.kr/ko_KR/home/Product-Information-KR.html",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "Command '['curl.exe', '--location', '--max-time', '22', '--silent', '--show-error', '--user-agent', 'Mozilla/5.0', '--output', 'C:\\\\workspace\\\\final-project\\\\data\\\\vehicles\\\\new-model-specifications-20261027\\\\sources\\\\821e5640c695d34e997e.raw', '--write-out', '%{http_code}\\n%{url_effective}', 'https://www.mini.co.kr/ko_KR/home/Product-Information-KR.html']' timed out after 27 seconds"
+  },
+  {
+    "id": "83f67a7a39caced84469",
+    "url": "https://www.bmw.co.kr/ko/all-models.html",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 000: curl: (28) Operation timed out after 22010 milliseconds with 0 bytes received\n"
+  },
+  {
+    "id": "846ead57d9def4d955bb",
+    "url": "https://www.gmckorea.co.kr/",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.gmckorea.co.kr/",
+    "sha256": "fb2fae172aca557c6aad3541ea0143c3037d23c8aaf5960b8b8c09753d9b69c7",
+    "bytes": 291778,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "86736d1134bc88aaa614",
+    "url": "https://www.bydauto.kr/static/file/BYD_ATTO_3_Catalog.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.bydauto.kr/static/file/BYD_ATTO_3_Catalog.pdf",
+    "sha256": "cb3947bd3cfd3029a792a11a546d9aeba1bf87a36e02f5e628c6bda76a1f820f",
+    "bytes": 2265066,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "8943c39c4551e7d949a9",
+    "url": "https://www.hyundai.com/contents/repn-car/catalog/ioniq9-catalog.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.hyundai.com/contents/repn-car/catalog/ioniq9-catalog.pdf",
+    "sha256": "ace0ec3c6e28bf485faf5d787338d6e271f8e2eb615f267dd32e0f408345ff8a",
+    "bytes": 12384035,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "8a2dcf07550ff888f789",
+    "url": "https://minikr.co.kr/2023/pdf-cta/images/ALL-ELECTRIC-MINI-COUNTRYMAN-Price-Option-List.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://minikr.co.kr/2023/pdf-cta/images/ALL-ELECTRIC-MINI-COUNTRYMAN-Price-Option-List.pdf",
+    "sha256": "f362411042afaf2780309f41905f021c583853031abce91d3246b885e48b9fe4",
+    "bytes": 5677614,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "8bbb797008f085e4b59f",
+    "url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-Specification.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-Specification.pdf",
+    "sha256": "52ffdb5e98755544fc8e0eb6213b3b390baa8e5dd581ddfc05fca95cdd232099",
+    "bytes": 62995,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "8c74a6924040c8ca5382",
+    "url": "https://www.volvocars.com/kr/cars/s90/specifications/",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "8e6372692b38685a587c",
+    "url": "https://www.maserati.com/kr/ko/models",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "8f16f232024dd40eaa0d",
+    "url": "https://www.volkswagen.co.kr/ko/models/id4.html",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.volkswagen.co.kr/ko/models/id4.html",
+    "sha256": "b38bce95470a9784e9aa36f162724c71f27416d5dafabf1056434a9bed27addb",
+    "bytes": 894598,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "93b1c7503f9c43f6e852",
+    "url": "https://www.toyota.co.kr/build-my-car/",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.toyota.co.kr/build-my-car/",
+    "sha256": "9da5f97e6b9ca7b8072d79763c900085d988f34812f5bc8fd37bee582b617b97",
+    "bytes": 54338,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "9466f935048aa978efee",
+    "url": "https://www.bydauto.kr/purchase/build-my-car/sealion6",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.bydauto.kr/purchase/build-my-car/sealion6",
+    "sha256": "cd63e078a437c60f3763b1d9ff7ea360070a6ebf1ba504d279232b2cfdb1fa59",
+    "bytes": 23193,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "9643de6b45fdcf61db32",
+    "url": "https://www.volvocars.com/kr/cars/xc90/specifications/",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "9709e9deb07c4f68a7e7",
+    "url": "https://www.gmckorea.co.kr/content/dam/gmc/asia/kr/ko/index/catalog-and-price-list/2026/01-pdfs/acadia.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.gmckorea.co.kr/content/dam/gmc/asia/kr/ko/index/catalog-and-price-list/2026/01-pdfs/acadia.pdf",
+    "sha256": "7f4e49afa945b450b7cc6d765dadcee92bd387ea9a7db0af220cbbc007cfccda",
+    "bytes": 9458854,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "97672f38515f642ed55f",
+    "url": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.genesis.com/kr/ko/support/download-center/genesis-models.html",
+    "sha256": "74bc656aeedf1587e41f2706800c97ced49eb6c0513390f9a4fe727ced0dc465",
+    "bytes": 425212,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "9a4006b005101177630c",
+    "url": "https://www.zeekrlife.com/ko-kr/",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.zeekrlife.com/ko-kr/",
+    "sha256": "d6752e1ae2a8468677c3b72c6288e042dba10dc7db514d3d965265c2921896ff",
+    "bytes": 679152,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "9b87e3b3f1a9b0e389e3",
+    "url": "https://minikr.co.kr/2023/pdf-cta/images/ALL-ELECTRIC-MINI-COOPER-Specification.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://minikr.co.kr/2023/pdf-cta/images/ALL-ELECTRIC-MINI-COOPER-Specification.pdf",
+    "sha256": "7b9831cb7b1b4a55d84da7742e9881f0e9b155d31e771b1690f53527ec1106fa",
+    "bytes": 113639,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "9c2fa525f32be8ac745e",
+    "url": "https://www.epeugeot.co.kr/car-selector/peugeot-range.html",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "9e17591e9a4f2b6e8308",
+    "url": "https://www.bydauto.kr/purchase/build-my-car/sealion7",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.bydauto.kr/purchase/build-my-car/sealion7",
+    "sha256": "4385cb20483a643db189d61a77510eefd5b6b063c19cba28b84f33db788934bd",
+    "bytes": 23578,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "9f7d2991423c79142e6d",
+    "url": "https://www.volvocars.com/kr/cars/ex30-electric/",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "9fc18b8765ca62330a9c",
+    "url": "https://www.volvocars.com/kr/v/cars/s90-hybrid/specifications/",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "a0b6b685856ab3dcc3f3",
+    "url": "https://www.volvocars.com/kr/cars/xc90-hybrid/specifications/",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "a2fdf2f017acd8186f05",
+    "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_tasman.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_tasman.pdf",
+    "sha256": "acaa488091096ddda6d74b34aacce06d2993cf4a4a3ed5c937e25d4565c9e4d7",
+    "bytes": 7769355,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "ababa6087c965123ab8d",
+    "url": "https://minikr.co.kr/2023/pdf-cta/images/ALL-ELECTRIC-MINI-COUNTRYMAN-Specification.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://minikr.co.kr/2023/pdf-cta/images/ALL-ELECTRIC-MINI-COUNTRYMAN-Specification.pdf",
+    "sha256": "d56909b566474f8d4fecfa171d8f35532ce64f1eccaef0727ed644862c510ee2",
+    "bytes": 266336,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "ad0441af01809444671b",
+    "url": "https://www.audi.co.kr/ko/models/",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "ad13851518e23d3f226d",
+    "url": "https://www.bydauto.kr/car/byd-atto3",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.bydauto.kr/car/byd-atto3",
+    "sha256": "80272a7406ce7ca92d0dd036b25d1957e2987e250ea46c55ef9de228b3111d22",
+    "bytes": 142576,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "b6522dc4039727c4d1dc",
+    "url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_tasman.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_tasman.pdf",
+    "sha256": "d64c5bddf4e3de1bcfa16a245d850174cebe6c45f0320dfe3b7601eff953da7a",
+    "bytes": 10127991,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "b81d7285229f00cc32f2",
+    "url": "https://www.volkswagen.co.kr/idhub/content/dam/onehub_pkw/importers/kr/models/touareg_final-edition/The%20new%20Touareg_Price%20List_260414_web.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.volkswagen.co.kr/idhub/content/dam/onehub_pkw/importers/kr/models/touareg_final-edition/The%20new%20Touareg_Price%20List_260414_web.pdf",
+    "sha256": "bcb89354f9329f6f504d465cd9e3b1d634c29744cc20a6a271dc4d7e299791ac",
+    "bytes": 2593384,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "ba5dce89b354908edf86",
+    "url": "https://www.datocms-assets.com/168778/1780558108-zeekr-7x.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.datocms-assets.com/168778/1780558108-zeekr-7x.pdf",
+    "sha256": "2add76fb9b37b57338156bc2d2a16f80f89560a9e2b8b21043f213d9d1a7c345",
+    "bytes": 1578270,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "bb2b106cc3f0b826ad89",
+    "url": "https://www.kia.com/kr/vehicles/tasman/price",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.kia.com/kr/vehicles/tasman/price",
+    "sha256": "165d42ac0150cb40951a1e8e505feaa4ec2c4ed53fa1c188e3fc0cd6285cee37",
+    "bytes": 453215,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "bdd17d994a2b80edeb16",
+    "url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-5-DOOR-Specification.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-5-DOOR-Specification.pdf",
+    "sha256": "30c370641d5a59a9f255c7ae26de477fb01a6588ab34b3d03c051b4d7f9c2a51",
+    "bytes": 103172,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "be3c597c9c5e369aad38",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/catalogue.html",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 000: curl: (28) Operation timed out after 22008 milliseconds with 0 bytes received\n"
+  },
+  {
+    "id": "c6c7cee44591e570a829",
+    "url": "https://www.volkswagen.co.kr/idhub/content/dam/onehub_pkw/importers/kr/models/id4/leaflet/ID4_Price%20List_260105_web.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.volkswagen.co.kr/idhub/content/dam/onehub_pkw/importers/kr/models/id4/leaflet/ID4_Price%20List_260105_web.pdf",
+    "sha256": "84e052900868bf54db31b8bda335d30dc77199ca5b6d9b677e857aa0fa0dd4ec",
+    "bytes": 3164513,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "cb4603e48f71c4dae05f",
+    "url": "https://www.jeep.co.kr/grand-cherokee-l.html",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.jeep.co.kr/grand-cherokee-l.html",
+    "sha256": "138b839c7c6cae58d0f07750c679fb40f67fe3b151a2303cf43b8c5ac0a9a8da",
+    "bytes": 329135,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "cc697c54fd8b7a61fa7a",
+    "url": "https://www.volvocars.com/kr/v/cars/xc40",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "ccb478c21ab3b9cf8960",
+    "url": "https://www.cadillac.co.kr/purchase/onlineshop/index.gm",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.cadillac.co.kr/purchase/onlineshop/index.gm",
+    "sha256": "22ef2d52482f66f3578d35dedd5b75bf0b02b1a6993acc2d54f4c09a986a056b",
+    "bytes": 17919,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "cdbdaa1665c46142732b",
+    "url": "https://www.volkswagen.co.kr/ko/models/touareg.html",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.volkswagen.co.kr/ko/models/touareg.html",
+    "sha256": "ee0dd915502ab35c0f2266be754dab198cb64a6d70ceee364d11abc5f2acd639",
+    "bytes": 904652,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "ce96562a7e3298ab99f1",
+    "url": "https://www.rolls-roycemotorcars.com/seoul/ko_KR/showroom.html",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 000: curl: (28) Operation timed out after 22001 milliseconds with 0 bytes received\n"
+  },
+  {
+    "id": "ced4f6c04f924af143ca",
+    "url": "https://www.volvocar.co.kr/l/volvo-brochure/",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.volvocar.co.kr/l/volvo-brochure/",
+    "sha256": "1cca9b9a4e72e55eadb324f8f6aa614496045779862fafd1fbd45a1042d5e296",
+    "bytes": 63852,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "d71a06fcb5bb4861aad6",
+    "url": "https://www.lotuscars.com/ko-KR",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.lotuscars.com/ko-KR",
+    "sha256": "ef63af0ed9558db41597d4c9516500cee3c7f52ec38973b9b205ed3f747f49d4",
+    "bytes": 303527,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "da9247a875d05d142645",
+    "url": "https://minikr.co.kr/2023/pdf-cta/images/ALL-ELECTRIC-MINI-ACEMAN-Price-Option-List.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://minikr.co.kr/2023/pdf-cta/images/ALL-ELECTRIC-MINI-ACEMAN-Price-Option-List.pdf",
+    "sha256": "bb28991c07c54d0195b66b38f45b33d2ff628ede9e6292feb81aca6e87765ac0",
+    "bytes": 165571,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "dbf736e83254f6bf07dc",
+    "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+    "checked_on": "2026-10-27",
+    "post_file_key": "1187BE6677965542F3",
+    "final_url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+    "sha256": "4e00f6f2e0270ef98a8b6d22f25dedb7fe3f42767487e7fb4e5972bb3e0ca5b8",
+    "bytes": 3558387,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "dc8888786f98b303cfa7",
+    "url": "https://www.volvocar.co.kr/l/volvo-brochure/pdf/MY26-XC40.pdf?ver=20251208",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.volvocar.co.kr/l/volvo-brochure/pdf/MY26-XC40.pdf?ver=20251208",
+    "sha256": "86093e8b11219bf4a5b5529dd94035fbc2523ff28d524777c6de941b0ac90652",
+    "bytes": 10699279,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "e071906a6694a4ea5ec0",
+    "url": "https://www.volvocars.com/kr/cars/xc90-hybrid/",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "e131f31b397f6de8098e",
+    "url": "https://www.chevrolet.co.kr/",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.chevrolet.co.kr/",
+    "sha256": "e54b9238d3978e87daee7d19ba971de54dcda8c35968776d3c1afd665d852a00",
+    "bytes": 295418,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "e615b54574c89e6dab95",
+    "url": "https://www.jeep.co.kr/2026/wrangler.html",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.jeep.co.kr/2026/wrangler.html",
+    "sha256": "7f36100aae4cdaab2e1edfe2bda734742a4086ce6fe23db4b9c1b5ffcc1a78b4",
+    "bytes": 469397,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "eb1d123b30f681f91276",
+    "url": "https://www.bydauto.kr/static/file/BYD_SEALION_7_Catalog.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.bydauto.kr/static/file/BYD_SEALION_7_Catalog.pdf",
+    "sha256": "ddd1420306754c4aa6436e43061c048683f413085ca11abec6be9351e60a7901",
+    "bytes": 10272888,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "ed0f7d5076bf1a0b90ea",
+    "url": "https://www.genesis.com/kr/ko/models/gv60",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.genesis.com/kr/ko/models/gv60",
+    "sha256": "c83621a47fdc57c0a00907c07235f1618dd99498c5229253040ec8b13aea0529",
+    "bytes": 657478,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "eee385a2a3c9a3c97d48",
+    "url": "https://www.volvocar.co.kr/l/volvo-brochure/pdf/MY27-EX30.pdf?ver=20261019",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.volvocar.co.kr/l/volvo-brochure/pdf/MY27-EX30.pdf?ver=20261019",
+    "sha256": "bafe1e50454afcaac0ebd545d5640dd52848d52aeeaa5eb885f3c85df5abbb99",
+    "bytes": 10022101,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "f16cd86ad8e714b78a45",
+    "url": "https://www.volvocars.com/kr/cars/es90-electric/specifications/",
+    "checked_on": "2026-10-27",
+    "status": "FETCH_FAILED",
+    "error": "HTTP 403: "
+  },
+  {
+    "id": "f28606c317c9ff311a76",
+    "url": "https://www.volkswagen.co.kr/idhub/content/dam/onehub_pkw/importers/kr/models/id5/leaflet/ID5_Price%20List_260519_web.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.volkswagen.co.kr/idhub/content/dam/onehub_pkw/importers/kr/models/id5/leaflet/ID5_Price%20List_260519_web.pdf",
+    "sha256": "7c73ca95d4df1a1314d19a7fc2640370ebd44151c6017f443243f0c9c60a8f70",
+    "bytes": 3117718,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "f94f0943ddbd89136c5a",
+    "url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Specification.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://minikr.co.kr/2023/pdf-cta/images/MINI-COOPER-CONVERTIBLE-Specification.pdf",
+    "sha256": "cf664059f1e26e97b1dd387a54270ccda3235dea6970f9840599f0cd4bc6e53f",
+    "bytes": 64775,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "ff15f8b0e287a3118186",
+    "url": "https://www.kia.com/kr/vehicles/rv",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.kia.com/kr/vehicles/rv",
+    "sha256": "cbfca789cf5f4836dd680380a35b4fa7a921ddaa7591ac8eafe023557cf8fdc4",
+    "bytes": 90187,
+    "kind": "HTML",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "ff6b67cdb01ecfd1c7fe",
+    "url": "https://www.hyundai.com/contents/repn-car/catalog/ioniq9-2027-price.pdf",
+    "checked_on": "2026-10-27",
+    "final_url": "https://www.hyundai.com/contents/repn-car/catalog/ioniq9-2027-price.pdf",
+    "sha256": "8f5bdbb6da6d87d5e834ec49a43b6253e8a0c2b57a848e89c1893474493fd125",
+    "bytes": 854046,
+    "kind": "PDF",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-0",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/saloon/cla/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-1",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/saloon/c-class/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-10",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/suv/gle/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-11",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/suv/gle-coupe/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-12",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/suv/gls/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-13",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/suv/g-class-electric/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-14",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/suv/g-class/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-15",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/hatchback/a-class/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-16",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/coupe/cla/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-17",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/coupe/cle/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-18",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/coupe/amg-gt-2-door/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-19",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/coupe/amg-gt/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-2",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/saloon/eqe/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-20",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/cabriolet-roadster/cle/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-21",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/cabriolet-roadster/sl/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-3",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/saloon/s-class/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-4",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/suv/eqe/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-5",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/suv/eqs/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-6",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/suv/gla/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-7",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/suv/glb/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-8",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/suv/glc/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  },
+  {
+    "id": "web-mercedes-9",
+    "url": "https://www.mercedes-benz.co.kr/passengercars/models/suv/glc-coupe/overview.html",
+    "kind": "WEB_EXTRACT",
+    "checked_on": "2026-10-27",
+    "status": "EXTRACTED"
+  }
+]

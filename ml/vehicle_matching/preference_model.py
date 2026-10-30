@@ -31,10 +31,15 @@ FEATURE_NAMES = (*PREVIOUS_FEATURE_NAMES,
 def encode_body(profile, vehicle):
     return np.asarray([float(matches_body_preference(profile.preferred_body_type, vehicle.body_type)) if profile.preferred_body_type != 'any' else .5,
                        float(profile.preferred_body_type != 'any'), profile.body_importance / 5,
+<<<<<<< HEAD
                        *(float(vehicle.body_type == value) for value in LEGACY_BODY_TYPES),
                        *(float((vehicle.body_type if profile.preferred_body_type == 'OTHER' else profile.preferred_body_type) == value) for value in LEGACY_BODY_TYPES),
                        *(float(vehicle.body_type == value) for value in SPORTS_BODY_TYPES),
                        *(float((vehicle.body_type if profile.preferred_body_type == 'OTHER' else profile.preferred_body_type) == value) for value in SPORTS_BODY_TYPES)], dtype=np.float32)
+=======
+                       *(float(vehicle.body_type == value) for value in BODY_TYPES),
+                       *(float((vehicle.body_type if profile.preferred_body_type == 'OTHER' else profile.preferred_body_type) == value) for value in BODY_TYPES)], dtype=np.float32)
+>>>>>>> fe943476966c5a3cb271518b545315571ab574d3
 
 
 def encode_preference(profile, vehicle, assumptions=Assumptions(), cost=None):

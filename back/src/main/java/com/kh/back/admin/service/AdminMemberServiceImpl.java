@@ -85,7 +85,7 @@ public class AdminMemberServiceImpl implements AdminMemberService {
         }
         String current = adminMemberMapper.findRole(targetId);
         if (current == null) {
-            throw new ApiException(HttpStatus.NOT_FOUND, "MEMBER_NOT_FOUND", "회원을 찾을 수 없습니다.");
+            throw targetNotFound();
         }
         if ("SUPER_ADMIN".equals(current)) {
             throw new ApiException(HttpStatus.FORBIDDEN, "SUPER_ADMIN_PROTECTED", "총관리자의 권한은 바꿀 수 없습니다.");
@@ -93,7 +93,12 @@ public class AdminMemberServiceImpl implements AdminMemberService {
         if (current.equals(role)) {
             return; // 이미 그 권한이면 아무것도 하지 않는다
         }
-        adminMemberMapper.updateRole(targetId, role);
+        // 보완 11: 권한은 admin_accounts 표 — 일반 회원으로 되돌리면 표에서 지우고, 관리자로 지정하면 넣는다 (지정한 총관리자도 남긴다)
+        if ("USER".equals(role)) {
+            adminMemberMapper.revokeAdmin(targetId);
+        } else {
+            adminMemberMapper.grantAdmin(targetId, role, actorId);
+        }
         // 운영 로그: 누가 누구를 무엇으로 바꿨는지 (같은 트랜잭션 → 기록이 실패하면 권한 변경도 취소)
         adminAuditLogMapper.insert(actorId, "ROLE_CHANGE", "MEMBER", targetId, current + " → " + role);
         refreshTokenMapper.deleteByUserId(targetId);
@@ -106,10 +111,16 @@ public class AdminMemberServiceImpl implements AdminMemberService {
     public void unlockLogin(Long actorId, Long targetId) {
         String email = adminMemberMapper.findEmail(targetId);
         if (email == null) {
-            throw new ApiException(HttpStatus.NOT_FOUND, "MEMBER_NOT_FOUND", "회원을 찾을 수 없습니다.");
+            throw targetNotFound();
         }
         loginAttemptLimiter.reset(email);
         adminAuditLogMapper.insert(actorId, "LOGIN_UNLOCK", "MEMBER", targetId, "로그인 잠금 해제");
+    }
+
+    // 대상 회원이 없을 때 (관리자 화면을 열어 둔 사이 탈퇴 등)
+    // MEMBER_NOT_FOUND 는 "로그인한 내 계정이 없다" 는 뜻이라 화면(client.js)이 로그아웃시킨다 → 관리자 본인이 로그아웃되지 않게 다른 코드를 쓴다
+    private static ApiException targetNotFound() {
+        return new ApiException(HttpStatus.NOT_FOUND, "TARGET_MEMBER_NOT_FOUND", "대상 회원을 찾을 수 없습니다. 이미 탈퇴했을 수 있어요.");
     }
 
     private static Map<String, Integer> toMap(List<GroupCountRow> rows) {

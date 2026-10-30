@@ -13,7 +13,7 @@ class FinancialSoftPolicyTests(unittest.TestCase):
             def predict(self,profile,vehicles): return [1e-30]*len(vehicles),[False]*len(vehicles)
         cars=[vehicle(id=str(i),model=str(i),price=10000000+i*100000, fuel='ELECTRIC',seats=2) for i in range(4)]
         cars.append(replace(cars[0],id='another-trim'))
-        result=CandidateService(LowRanker(),cars).recommend(person(minimum_seats=7,preferred_size='large',charging_available=False))
+        result=CandidateService(LowRanker(),cars).recommend(person(minimum_seats=7,preferred_size='large',charging_available=False,purchase_price_ceiling=11000000))
         self.assertEqual(result['recommendations'],[])
         self.assertEqual(result['seatingExcludedCount'],5)
 
@@ -35,7 +35,7 @@ class FinancialSoftPolicyTests(unittest.TestCase):
         gas=vehicle(id='gas',model='gas',seats=7,fuel='GASOLINE',price=20000000)
         hybrid=vehicle(id='hybrid',model='hybrid',seats=2,fuel='HYBRID',price=20000000)
         service=CandidateService(FixedRanker(),[gas,hybrid])
-        p=person(minimum_seats=7,fuel_importance=5,seating_importance=1)
+        p=person(minimum_seats=7,fuel_importance=5,seating_importance=1,purchase_price_ceiling=20000000)
         self.assertEqual(service.recommend(p)['recommendations'][0]['vehicle']['id'],'gas')
         self.assertEqual(service.recommend(replace(p,fuel_importance=1,seating_importance=5))['recommendations'][0]['vehicle']['id'],'gas')
 

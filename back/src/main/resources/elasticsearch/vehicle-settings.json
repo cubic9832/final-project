@@ -1,0 +1,41 @@
+{
+  "analysis": {
+    "tokenizer": {
+      "korean_tokenizer": {
+        "type": "nori_tokenizer",
+        "decompound_mode": "mixed"
+      }
+    },
+    "filter": {
+      "prefix_filter": {
+        "type": "edge_ngram",
+        "min_gram": 1,
+        "max_gram": 10
+      }
+    },
+    "analyzer": {
+      "korean": {
+        "type": "custom",
+        "tokenizer": "korean_tokenizer",
+        "filter": [
+          "lowercase"
+        ]
+      },
+      "korean_prefix": {
+        "type": "custom",
+        "tokenizer": "standard",
+        "filter": [
+          "lowercase",
+          "prefix_filter"
+        ]
+      },
+      "korean_prefix_search": {
+        "type": "custom",
+        "tokenizer": "standard",
+        "filter": [
+          "lowercase"
+        ]
+      }
+    }
+  }
+}

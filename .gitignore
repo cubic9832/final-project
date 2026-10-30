@@ -15,5 +15,3 @@ out/
 # Runtime uploaded vehicle images
 /uploads/
 /back/uploads/
-# 7단계: 총관리자 시드 계정 (각자 만드는 파일, 비밀번호가 들어 있어 올리지 않는다)
-admin-seed.local.properties

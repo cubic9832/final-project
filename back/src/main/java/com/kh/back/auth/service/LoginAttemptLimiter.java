@@ -56,6 +56,14 @@ public class LoginAttemptLimiter {
         return Math.max(1, (seconds + 59) / 60);
     }
 
+    // 7단계: 지금 로그인이 잠긴 이메일 수 (관리자 운영 현황 "먼저 확인할 작업")
+    public long lockedCount() {
+        Instant now = Instant.now();
+        return attempts.values().stream()
+                .filter(attempt -> attempt.lockedUntil() != null && now.isBefore(attempt.lockedUntil()))
+                .count();
+    }
+
     // compute: 같은 이메일로 동시에 실패해도 숫자가 빠지지 않게 한 번에 계산한다
     public void recordFailure(String email) {
         cleanUpIfLarge();

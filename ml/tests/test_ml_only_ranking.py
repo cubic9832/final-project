@@ -24,7 +24,7 @@ class MlOnlyRankingTests(unittest.TestCase):
     def test_preferences_override_raw_order_without_losing_raw_score_precision(self):
         small = vehicle(id='a-small', model='Small', price=20000000, length_mm=3900, seats=5)
         large = replace(small, id='z-large', model='Large', price=30000000, length_mm=5000)
-        p = person(preferred_size='small', space_importance=5, cost_importance=5)
+        p = person(preferred_size='small', space_importance=5, cost_importance=5, liquid_assets=30000000, emergency_reserve=0, down_payment=0)
         ranker = self.ranker()
         self.assertEqual(ranker.predict(p, [small, large])[0], [1., 1.])
         result = CandidateService(ranker, [small, large]).recommend(p)
@@ -43,7 +43,7 @@ class MlOnlyRankingTests(unittest.TestCase):
         small = vehicle(id='small', model='Same', price=20000000, length_mm=3900, seats=5)
         best_trim = replace(small, id='best', length_mm=4900)
         unaffordable = replace(small, id='too-expensive', model='Unaffordable', price=1e10, length_mm=6000)
-        result = CandidateService(self.ranker(), [small, best_trim, unaffordable]).recommend(person(), k=9)
+        result = CandidateService(self.ranker(), [small, best_trim, unaffordable]).recommend(person(purchase_price_ceiling=20000000), k=9)
         self.assertEqual([r['vehicle']['id'] for r in result['recommendations']], ['best'])
         self.assertTrue(result['recommendations'][0]['cost']['eligible'])
 

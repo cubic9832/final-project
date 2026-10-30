@@ -2,7 +2,7 @@
 from vehicle_matching.body_types import matches_body_preference
 from vehicle_matching.preferences import SIZE_BANDS
 
-POLICY = 'required-seats-preference-priority-ml-v1'
+POLICY = 'required-seats-preference-priority-price-band-v2'
 
 def seating_status(profile, vehicle):
     if not profile.minimum_seats:

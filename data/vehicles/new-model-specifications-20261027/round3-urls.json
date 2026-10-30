@@ -1,0 +1,26 @@
+[
+  "https://www.bydauto.kr/static/file/BYD_ATTO_3_Catalog.pdf",
+  "https://www.bydauto.kr/static/file/BYD_DOLPHIN_Catalog.pdf",
+  "https://www.bydauto.kr/static/file/BYD_SEALION_6_DM-i_Catalog.pdf",
+  "https://www.bydauto.kr/static/file/BYD_SEALION_7_Catalog.pdf",
+  "https://www.bydauto.kr/static/file/seal_catalog.pdf",
+  "https://www.datocms-assets.com/168778/1780558108-zeekr-7x.pdf",
+  "https://www.gmckorea.co.kr/content/dam/gmc/asia/kr/ko/index/catalog-and-price-list/2026/01-pdfs/acadia.pdf",
+  "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_mo_tasman.pdf",
+  "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/catalog/catalog_tasman.pdf",
+  "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/price/price_tasman.pdf",
+  "https://www.volkswagen.co.kr/idhub/content/dam/onehub_pkw/importers/kr/models/atlas/leaflet/Atlas_Price%20List_260209.pdf",
+  "https://www.volkswagen.co.kr/idhub/content/dam/onehub_pkw/importers/kr/models/id4/leaflet/ID4_Price%20List_260105_web.pdf",
+  "https://www.volkswagen.co.kr/idhub/content/dam/onehub_pkw/importers/kr/models/id5/leaflet/ID5_Price%20List_260519_web.pdf",
+  "https://www.volkswagen.co.kr/idhub/content/dam/onehub_pkw/importers/kr/models/touareg_final-edition/The%20new%20Touareg_Price%20List_260414_web.pdf",
+  {
+    "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+    "post_file_key": "1187BE66779654341C"
+  },
+  {
+    "url": "https://www.genesis.com/wsvc/kr/api/v2/download-center/pdfview",
+    "post_file_key": "1187BE6677965542F3"
+  },
+  "https://www.genesis.com/kr/ko/models/gv60",
+  "https://www.genesis.com/kr/ko/models/luxury-suv-genesis/gv60/specs.html"
+]

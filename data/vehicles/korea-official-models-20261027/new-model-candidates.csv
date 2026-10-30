@@ -1,0 +1,109 @@
+﻿brand,model_family,verification,catalog_match,catalog_family,match_method,source_url,evidence_basis,checked_on
+현대,넥쏘,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.hyundai.com/kr/ko/e/api/product/car/catalog-price,국내 카탈로그·가격표 API,2026-10-27
+현대,아이오닉 9,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.hyundai.com/kr/ko/e/api/product/car/catalog-price,국내 카탈로그·가격표 API,2026-10-27
+기아,타스만,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.kia.com/kr/vehicles/rv,국내 차종별 라인업,2026-10-27
+제네시스,GV60,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.genesis.com/kr/ko/models.html,국내 모델 메뉴 및 가격 안내,2026-10-27
+쉐보레,트레일블레이저,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.chevrolet.co.kr/,국내 현재 모델 메뉴,2026-10-27
+GMC,ACADIA,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.gmckorea.co.kr/,국내 모델 메뉴 및 시에라 별도 사이트,2026-10-27
+캐딜락,ESCALADE,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.cadillac.co.kr/purchase/onlineshop/index.gm,국내 온라인 구매 모델 선택; ESV와 IQL은 각각 기본 모델군에 통합,2026-10-27
+캐딜락,ESCALADE IQ,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.cadillac.co.kr/purchase/onlineshop/index.gm,국내 온라인 구매 모델 선택; ESV와 IQL은 각각 기본 모델군에 통합,2026-10-27
+BMW,1시리즈,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,2시리즈 쿠페,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,2시리즈 그란쿠페,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,2시리즈 액티브 투어러,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,4시리즈 쿠페,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,4시리즈 그란쿠페,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,4시리즈 컨버터블,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,5시리즈 투어링,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,7시리즈,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,8시리즈 그란쿠페,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,Z4,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,X2,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,X6,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,X7,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,XM,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,iX,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,iX3,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+메르세데스-벤츠,A-Class Hatch,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,CLA Sedan,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,CLA Coupe,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,C-Class,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,EQE,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,S-Class,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,GLA,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,GLB,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,GLC,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,GLC Coupe,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,GLE,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,GLE Coupe,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,GLS,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,EQE SUV,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,EQS SUV,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,G-Class,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,CLE Coupe,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,CLE Cabriolet,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,AMG GT Coupe,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,AMG GT 4-Door Coupe,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+메르세데스-벤츠,SL Roadster,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+아우디,A3,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.audi.co.kr/ko/models/,국내 최상위 모델군; 하위 차체·S/RS 파생형 전수 추출은 미완료,2026-10-27
+아우디,A5,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.audi.co.kr/ko/models/,국내 최상위 모델군; 하위 차체·S/RS 파생형 전수 추출은 미완료,2026-10-27
+아우디,A6,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.audi.co.kr/ko/models/,국내 최상위 모델군; 하위 차체·S/RS 파생형 전수 추출은 미완료,2026-10-27
+아우디,A8,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.audi.co.kr/ko/models/,국내 최상위 모델군; 하위 차체·S/RS 파생형 전수 추출은 미완료,2026-10-27
+아우디,Q3,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.audi.co.kr/ko/models/,국내 최상위 모델군; 하위 차체·S/RS 파생형 전수 추출은 미완료,2026-10-27
+아우디,Q5,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.audi.co.kr/ko/models/,국내 최상위 모델군; 하위 차체·S/RS 파생형 전수 추출은 미완료,2026-10-27
+아우디,Q7,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.audi.co.kr/ko/models/,국내 최상위 모델군; 하위 차체·S/RS 파생형 전수 추출은 미완료,2026-10-27
+아우디,Q8,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.audi.co.kr/ko/models/,국내 최상위 모델군; 하위 차체·S/RS 파생형 전수 추출은 미완료,2026-10-27
+아우디,Q4 e-tron,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.audi.co.kr/ko/models/,국내 최상위 모델군; 하위 차체·S/RS 파생형 전수 추출은 미완료,2026-10-27
+아우디,A6 e-tron,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.audi.co.kr/ko/models/,국내 최상위 모델군; 하위 차체·S/RS 파생형 전수 추출은 미완료,2026-10-27
+아우디,e-tron GT,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.audi.co.kr/ko/models/,국내 최상위 모델군; 하위 차체·S/RS 파생형 전수 추출은 미완료,2026-10-27
+폭스바겐,Atlas,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.volkswagen.co.kr/ko/models.html,국내 모델 카드; Golf GTI 및 한정판은 Golf에 통합,2026-10-27
+폭스바겐,Touareg,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.volkswagen.co.kr/ko/models.html,국내 모델 카드; Golf GTI 및 한정판은 Golf에 통합,2026-10-27
+폭스바겐,ID.4,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.volkswagen.co.kr/ko/models.html,국내 모델 카드; Golf GTI 및 한정판은 Golf에 통합,2026-10-27
+폭스바겐,ID.5,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.volkswagen.co.kr/ko/models.html,국내 모델 카드; Golf GTI 및 한정판은 Golf에 통합,2026-10-27
+MINI,Cooper,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mini.co.kr/ko_KR/home/Product-Information-KR.html,국내 현재 가격·제원 다운로드 목록; Clubman 잔존 메뉴 제외,2026-10-27
+MINI,Cooper Convertible,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mini.co.kr/ko_KR/home/Product-Information-KR.html,국내 현재 가격·제원 다운로드 목록; Clubman 잔존 메뉴 제외,2026-10-27
+MINI,Countryman,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mini.co.kr/ko_KR/home/Product-Information-KR.html,국내 현재 가격·제원 다운로드 목록; Clubman 잔존 메뉴 제외,2026-10-27
+MINI,Aceman,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.mini.co.kr/ko_KR/home/Product-Information-KR.html,국내 현재 가격·제원 다운로드 목록; Clubman 잔존 메뉴 제외,2026-10-27
+볼보,EX30,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.volvocar.co.kr/l/volvo-brochure/,국내 카탈로그 및 구성기 메뉴; PHEV/MHEV 통합,2026-10-27
+볼보,EX90,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.volvocar.co.kr/l/volvo-brochure/,국내 카탈로그 및 구성기 메뉴; PHEV/MHEV 통합,2026-10-27
+볼보,ES90,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.volvocar.co.kr/l/volvo-brochure/,국내 카탈로그 및 구성기 메뉴; PHEV/MHEV 통합,2026-10-27
+볼보,XC40,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.volvocar.co.kr/l/volvo-brochure/,국내 카탈로그 및 구성기 메뉴; PHEV/MHEV 통합,2026-10-27
+볼보,XC90,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.volvocar.co.kr/l/volvo-brochure/,국내 카탈로그 및 구성기 메뉴; PHEV/MHEV 통합,2026-10-27
+볼보,S90,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.volvocar.co.kr/l/volvo-brochure/,국내 카탈로그 및 구성기 메뉴; PHEV/MHEV 통합,2026-10-27
+볼보,V60 Cross Country,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.volvocar.co.kr/l/volvo-brochure/,국내 카탈로그 및 구성기 메뉴; PHEV/MHEV 통합,2026-10-27
+토요타,RAV4,INDEX_ONLY,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.toyota.co.kr/build-my-car/,국내 Build My Car 검색 색인에서 확인; 직접 본문 추출 제한으로 후속 구성기 재검증 필요,2026-10-27
+토요타,CAMRY,INDEX_ONLY,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.toyota.co.kr/build-my-car/,국내 Build My Car 검색 색인에서 확인; 직접 본문 추출 제한으로 후속 구성기 재검증 필요,2026-10-27
+토요타,CROWN,INDEX_ONLY,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.toyota.co.kr/build-my-car/,국내 Build My Car 검색 색인에서 확인; 직접 본문 추출 제한으로 후속 구성기 재검증 필요,2026-10-27
+토요타,HIGHLANDER,INDEX_ONLY,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.toyota.co.kr/build-my-car/,국내 Build My Car 검색 색인에서 확인; 직접 본문 추출 제한으로 후속 구성기 재검증 필요,2026-10-27
+토요타,GR86,INDEX_ONLY,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.toyota.co.kr/build-my-car/,국내 Build My Car 검색 색인에서 확인; 직접 본문 추출 제한으로 후속 구성기 재검증 필요,2026-10-27
+BYD,DOLPHIN,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bydauto.kr/index,국내 모델 메뉴 및 견적·시승 연결,2026-10-27
+BYD,ATTO 3,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bydauto.kr/index,국내 모델 메뉴 및 견적·시승 연결,2026-10-27
+BYD,SEAL,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bydauto.kr/index,국내 모델 메뉴 및 견적·시승 연결,2026-10-27
+BYD,SEALION 7,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bydauto.kr/index,국내 모델 메뉴 및 견적·시승 연결,2026-10-27
+BYD,SEALION 6 DM-i,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bydauto.kr/index,국내 모델 메뉴 및 견적·시승 연결,2026-10-27
+지커,7X,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.zeekrlife.com/ko-kr/,국내 모델 및 인도 소식,2026-10-27
+푸조,408,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.epeugeot.co.kr/car-selector/peugeot-range.html,국내 SMART HYBRID 라인업; 408 차체 매핑은 별도 검수 필요,2026-10-27
+푸조,3008,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.epeugeot.co.kr/car-selector/peugeot-range.html,국내 SMART HYBRID 라인업; 408 차체 매핑은 별도 검수 필요,2026-10-27
+푸조,5008,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.epeugeot.co.kr/car-selector/peugeot-range.html,국내 SMART HYBRID 라인업; 408 차체 매핑은 별도 검수 필요,2026-10-27
+지프,GRAND CHEROKEE L,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.jeep.co.kr/,국내 모델 메뉴; 특별판은 통합,2026-10-27
+지프,WRANGLER,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.jeep.co.kr/,국내 모델 메뉴; 특별판은 통합,2026-10-27
+지프,GLADIATOR,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.jeep.co.kr/,국내 모델 메뉴; 특별판은 통합,2026-10-27
+로터스,Eletre,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.lotuscars.com/ko-KR,한국어 모델별 구성·시승 연결; Evija 및 트랙 전용차 제외,2026-10-27
+로터스,Emira,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.lotuscars.com/ko-KR,한국어 모델별 구성·시승 연결; Evija 및 트랙 전용차 제외,2026-10-27
+로터스,Emeya,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.lotuscars.com/ko-KR,한국어 모델별 구성·시승 연결; Evija 및 트랙 전용차 제외,2026-10-27
+벤틀리,Bentayga,LOCALIZED_LINEUP,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bentleymotors.com/kr/ko/models.html,국내 현지화 모델 메뉴; 실제 국내 계약·납기 재확인 필요,2026-10-27
+벤틀리,Flying Spur,LOCALIZED_LINEUP,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bentleymotors.com/kr/ko/models.html,국내 현지화 모델 메뉴; 실제 국내 계약·납기 재확인 필요,2026-10-27
+벤틀리,Continental GT,LOCALIZED_LINEUP,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bentleymotors.com/kr/ko/models.html,국내 현지화 모델 메뉴; 실제 국내 계약·납기 재확인 필요,2026-10-27
+벤틀리,Continental GTC,LOCALIZED_LINEUP,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.bentleymotors.com/kr/ko/models.html,국내 현지화 모델 메뉴; 실제 국내 계약·납기 재확인 필요,2026-10-27
+롤스로이스,Phantom,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.rolls-roycemotorcars.com/seoul/ko_KR/showroom.html,서울 공식 딜러 모델 메뉴·구매 문의; Extended/Black Badge 통합,2026-10-27
+롤스로이스,Ghost,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.rolls-roycemotorcars.com/seoul/ko_KR/showroom.html,서울 공식 딜러 모델 메뉴·구매 문의; Extended/Black Badge 통합,2026-10-27
+롤스로이스,Cullinan,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.rolls-roycemotorcars.com/seoul/ko_KR/showroom.html,서울 공식 딜러 모델 메뉴·구매 문의; Extended/Black Badge 통합,2026-10-27
+롤스로이스,Spectre,OFFICIAL_KOREAN_LISTING,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.rolls-roycemotorcars.com/seoul/ko_KR/showroom.html,서울 공식 딜러 모델 메뉴·구매 문의; Extended/Black Badge 통합,2026-10-27
+마세라티,Grecale,LOCALIZED_LINEUP,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.maserati.com/kr/ko/models,국내 현지화 모델 메뉴; 실제 국내 계약·납기 재확인 필요,2026-10-27
+마세라티,GranTurismo,LOCALIZED_LINEUP,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.maserati.com/kr/ko/models,국내 현지화 모델 메뉴; 실제 국내 계약·납기 재확인 필요,2026-10-27
+마세라티,GranCabrio,LOCALIZED_LINEUP,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.maserati.com/kr/ko/models,국내 현지화 모델 메뉴; 실제 국내 계약·납기 재확인 필요,2026-10-27
+마세라티,MCPURA,LOCALIZED_LINEUP,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.maserati.com/kr/ko/models,국내 현지화 모델 메뉴; 실제 국내 계약·납기 재확인 필요,2026-10-27
+마세라티,GT2 Stradale,LOCALIZED_LINEUP,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.maserati.com/kr/ko/models,국내 현지화 모델 메뉴; 실제 국내 계약·납기 재확인 필요,2026-10-27
+람보르기니,Revuelto,LOCALIZED_LINEUP,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.lamborghini.com/ko-en,한국어 현지화 모델 메뉴; 국내 판매사 계약 가능 여부 미확인,2026-10-27
+람보르기니,Urus,LOCALIZED_LINEUP,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.lamborghini.com/ko-en,한국어 현지화 모델 메뉴; 국내 판매사 계약 가능 여부 미확인,2026-10-27
+람보르기니,Temerario,LOCALIZED_LINEUP,NEW_FAMILY_CANDIDATE,,NO_CATALOG_EQUIVALENT,https://www.lamborghini.com/ko-en,한국어 현지화 모델 메뉴; 국내 판매사 계약 가능 여부 미확인,2026-10-27

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 재무 진단 기록. 표는 모두 Flyway V1__create_schema.sql 에 이미 있다 (새 DB 변경 없음) -->
+<mapper namespace="com.kh.back.diagnosis.mapper.DiagnosisMapper">
+
+    <select id="findModelVersionId" resultType="long">
+        SELECT model_version_id FROM model_versions
+        WHERE model_name = #{modelName} AND version_label = #{versionLabel}
+    </select>
+
+    <insert id="insertModelVersion">
+        INSERT IGNORE INTO model_versions (model_name, version_label, execution_type, description)
+        VALUES (#{modelName}, #{versionLabel}, 'ML', '재무 진단 추천 서버 (FastAPI)')
+    </insert>
+
+    <!-- 입력 버전: 누가 · 언제 제출했는지 -->
+    <insert id="insertSnapshot" useGeneratedKeys="true" keyProperty="snapshotId" keyColumn="snapshot_id">
+        INSERT INTO input_snapshots (user_id, status_code, submitted_at)
+        VALUES (#{userId}, 'SUBMITTED', NOW())
+    </insert>
+
+    <!-- 소득 · 지출 · 예금 (기타 칸은 지금 화면에서 받지 않아 비워 둔다) -->
+    <insert id="insertFinancialProfile">
+        INSERT INTO financial_profiles (snapshot_id, monthly_net_income, monthly_living_expense, available_cash)
+        VALUES (#{snapshotId}, #{monthlyIncome}, #{monthlyExpense}, #{purchaseFunds})
+    </insert>
+
+    <!-- 분석 결과: 월 여유금 · 구매 가격 상한 -->
+    <insert id="insertAnalysisRun" useGeneratedKeys="true" keyProperty="analysisId" keyColumn="analysis_id">
+        INSERT INTO analysis_runs (snapshot_id, model_version_id, status_code, monthly_available_amount,
+                                   recommended_price_max, completed_at)
+        VALUES (#{snapshotId}, #{modelVersionId}, 'COMPLETED', #{monthlyAvailable}, #{priceUpper}, NOW())
+    </insert>
+
+    <select id="findRecent" resultType="com.kh.back.diagnosis.dto.DiagnosisSummary">
+        SELECT a.analysis_id, a.completed_at, f.monthly_net_income AS monthly_income,
+               a.monthly_available_amount AS monthly_available, f.available_cash AS purchase_funds,
+               a.recommended_price_max AS price_upper
+        FROM analysis_runs a
+        JOIN input_snapshots s ON s.snapshot_id = a.snapshot_id
+        LEFT JOIN financial_profiles f ON f.snapshot_id = a.snapshot_id
+        WHERE s.user_id = #{userId} AND a.status_code = 'COMPLETED'
+        ORDER BY a.completed_at DESC, a.analysis_id DESC
+        LIMIT #{size}
+    </select>
+</mapper>

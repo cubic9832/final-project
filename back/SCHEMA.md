@@ -1,6 +1,6 @@
 # 실제 DB 스키마
 
-`src/main/resources/db/migration/V1__create_schema.sql`은 제공된 CreditCompass Auto ERD의 15개 테이블을 MySQL 8.0용으로 작성한 파일입니다.
+`src/main/resources/db/migration/V1__create_schema.sql`은 제공된 CreditComPass ERD의 15개 테이블을 MySQL 8.0용으로 작성한 파일입니다.
 
 ## 적용
 

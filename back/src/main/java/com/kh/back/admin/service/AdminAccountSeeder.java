@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
  * 각자 컴퓨터 DB 에는 관리자가 없어서, back/admin-seed.local.properties(git 제외, admin-seed.example.properties 를 복사)
  * 또는 환경변수 ADMIN_SEED_EMAIL · ADMIN_SEED_PASSWORD 에 이메일 · 비밀번호를 넣고 서버를 켜면
  * 그 계정을 총관리자(SUPER_ADMIN)로 만든다. 이미 가입한 이메일이면 권한만 총관리자로 올린다 (비밀번호는 그대로).
+ * 보완 11: 권한은 admin_accounts(V21) 표에 넣는다 — 회원(users)은 일반 회원과 똑같이 만든다.
  * 비밀번호는 코드 · git 에 넣지 않는다. 파일 · 환경변수가 없으면 아무것도 하지 않는다 → 배포 서버에 계정이 몰래 생기지 않는다.
  */
 @Slf4j
@@ -53,7 +54,7 @@ public class AdminAccountSeeder {
         if (existing != null) {
             // 이미 가입한 회원: 권한만 총관리자로 (로그 · 비밀번호는 찍지 않는다)
             if (!"SUPER_ADMIN".equals(existing.getRole())) {
-                adminMemberMapper.updateRole(existing.getId(), "SUPER_ADMIN");
+                adminMemberMapper.grantAdmin(existing.getId(), "SUPER_ADMIN", null);
                 log.info("admin seed: existing member {} promoted to SUPER_ADMIN", existing.getId());
             }
             return;
@@ -72,8 +73,9 @@ public class AdminAccountSeeder {
         member.setEmail(email);
         member.setPasswordHash(passwordEncoder.encode(password));
         member.setNickName(memberMapper.countByNickName(SEED_NICKNAME) == 0 ? SEED_NICKNAME : SEED_NICKNAME + System.currentTimeMillis() % 10000);
-        member.setRole("SUPER_ADMIN");
+        member.setRole("USER");
         memberMapper.insert(member);
+        adminMemberMapper.grantAdmin(member.getId(), "SUPER_ADMIN", null);
         log.info("admin seed: SUPER_ADMIN account created (id {})", member.getId());
     }
 }

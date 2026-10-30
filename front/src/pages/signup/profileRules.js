@@ -20,9 +20,10 @@ export function formatPhone(value) {
   return `${digits.slice(0, 3)}-${digits.slice(3, 7)}-${digits.slice(7)}`;
 }
 
-// 전화번호는 선택 항목 (10-22: 문자 인증은 비용이 들어 하지 않으므로 필수에서 뺌) — 비워 두면 통과
-export function validatePhone(value) {
-  if (!value) return '';
+// 보완 11: 가입할 때 전화번호는 필수 (10-22 에 선택으로 뺐다가 다시 필수로). 문자 인증은 비용이 들어 하지 않고 형식만 확인
+// required = false 는 개인정보 수정 — 비워 두면 "바꾸지 않음" 이라 통과
+export function validatePhone(value, { required = false } = {}) {
+  if (!value) return required ? '전화번호를 입력해 주세요.' : '';
   if (!PHONE_PATTERN.test(value)) return '전화번호는 010-1234-5678 형식으로 입력해 주세요.';
   return '';
 }

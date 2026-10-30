@@ -19,7 +19,6 @@ import FinancialReviewPage from './features/financial/pages/review/FinancialRevi
 import FinancialResultPage from './features/financial/pages/result/FinancialResultPage';
 import FinancialRecommendationsPage from './features/financial/pages/recommendations/FinancialRecommendationsPage';
 import AdminPage from './pages/admin/AdminPage';
-import AdminLoginPage from './pages/admin/login/AdminLoginPage';
 import MyPage from './pages/mypage/MyPage';
 import ProfilePage from './pages/mypage/ProfilePage';
 import NotFound from './pages/not-found/NotFound';
@@ -35,6 +34,9 @@ import VehicleComparePage from './features/vehicle/pages/compare/VehicleCompareP
 import VehicleSimulationPage from './features/vehicle/pages/simulation/VehicleSimulationPage';
 import TasteTestPage from './features/taste-test/pages/test/TasteTestPage';
 import useAuthStore from './stores/useAuthStore';
+import DreamCarPlannerPage from './features/dream-car/pages/planner/DreamCarPlannerPage';
+import DreamCarCalculationGuidePage from './features/dream-car/pages/calculation-guide/DreamCarCalculationGuidePage';
+import SavingsProgressPage from './features/dream-car/pages/progress/SavingsProgressPage';
 
 function App() {
   // 앱이 처음 열릴 때 한 번: refresh token 쿠키가 있으면 로그인 상태를 되살린다 (새로고침 · 브라우저 재시작 후 로그인 유지)
@@ -50,6 +52,9 @@ function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/dream-car" element={<DreamCarPlannerPage />} />
+        <Route path="/dream-car/calculation-guide" element={<DreamCarCalculationGuidePage />} />
+        <Route path="/dream-car/progress" element={<SavingsProgressPage />} />
         {/* 보완 1 추가: 로그인 · 회원가입은 로그인 전에만 — 이미 로그인했으면 GuestOnly 가 메인으로 보낸다 */}
         <Route element={<GuestOnly />}>
           <Route path="/login" element={<LoginPage />} />
@@ -63,11 +68,6 @@ function App() {
           <Route path="/mypage" element={<MyPage />} />
           {/* 6단계: 개인정보 · 계정 관리 */}
           <Route path="/mypage/profile" element={<ProfilePage />} />
-        </Route>
-        {/* 7단계: 관리자 로그인은 누구나 열 수 있고(일반 회원이면 안내), 관리자 화면은 ADMIN 만 — 나머지는 RequireAdmin 이 돌려보낸다 */}
-        <Route path="/admin/login" element={<AdminLoginPage />} />
-        <Route element={<RequireAdmin />}>
-          <Route path="/admin" element={<AdminPage />} />
         </Route>
         <Route path="/financial" element={<FinancialPage />} />
         <Route path="/financial/assets" element={<FinancialAssetsPage />} />
@@ -84,8 +84,14 @@ function App() {
         <Route path="/vehicles/:id" element={<VehicleCatalogGate><VehicleDetailPage /></VehicleCatalogGate>} />
         <Route path="/vehicles/:id/simulation" element={<VehicleCatalogGate><VehicleSimulationPage /></VehicleCatalogGate>} />
         <Route path="/predict" element={<PredictPage />} />
+        {/* 보완 11: 없는 주소 — 헤더가 있는 404 화면 (관리자가 아닌 사람이 /console 에 들어와도 똑같이 보인다) */}
+        <Route path="*" element={<NotFound />} />
       </Route>
-      <Route path="*" element={<NotFound />} />
+      {/* 7단계 · 보완 11: 관리자 화면은 /console (예전 /admin). 공통 헤더 없이 관리자 화면만 — 관리자가 아니면 RequireAdmin 이 404 화면 */}
+      {/* 관리자 로그인 화면은 없앴다: 관리자도 일반 로그인(/login) 후 헤더 · 마이페이지의 "관리자 대시보드" 로 들어온다 */}
+      <Route path="/console" element={<RequireAdmin />}>
+        <Route index element={<AdminPage />} />
+      </Route>
     </Routes>
     </VehicleProvider>
   );

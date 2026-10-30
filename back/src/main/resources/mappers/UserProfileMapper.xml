@@ -15,16 +15,19 @@
         VALUES (#{userId}, #{phone}, #{birthDate}, #{gender})
     </insert>
 
-    <!-- 6단계: user_id 가 기본키라, 이미 있으면 ON DUPLICATE KEY UPDATE 로 바꾼다 -->
+    <!-- 6단계: user_id 가 기본키라, 이미 있으면 ON DUPLICATE KEY UPDATE 로 바꾼다
+         10-27: 이미 있는 행은 이번에 바꾼 칸(fields)만 고친다 → 두 기기에서 동시에 다른 칸을 저장해도 서로 덮어쓰지 않는다 -->
     <insert id="upsert">
         INSERT INTO user_profiles (user_id, phone, birth_date, gender, driving_experience, purchase_timing)
-        VALUES (#{userId}, #{phone}, #{birthDate}, #{gender}, #{drivingExperience}, #{purchaseTiming})
+        VALUES (#{p.userId}, #{p.phone}, #{p.birthDate}, #{p.gender}, #{p.drivingExperience}, #{p.purchaseTiming})
         ON DUPLICATE KEY UPDATE
-            phone = VALUES(phone),
-            birth_date = VALUES(birth_date),
-            gender = VALUES(gender),
-            driving_experience = VALUES(driving_experience),
-            purchase_timing = VALUES(purchase_timing)
+        <trim suffixOverrides=",">
+            <if test="fields.contains('phone')">phone = VALUES(phone),</if>
+            <if test="fields.contains('birthDate')">birth_date = VALUES(birth_date),</if>
+            <if test="fields.contains('gender')">gender = VALUES(gender),</if>
+            <if test="fields.contains('drivingExperience')">driving_experience = VALUES(driving_experience),</if>
+            <if test="fields.contains('purchaseTiming')">purchase_timing = VALUES(purchase_timing),</if>
+        </trim>
     </insert>
 
 </mapper>

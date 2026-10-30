@@ -45,6 +45,12 @@ export async function getVehicles(signal) {
   return response.data.data.map(toVehicle).filter(Boolean);
 }
 
+// Elasticsearch 가 관련도 순으로 찾은 차량 id. 화면 목록과 맞추기 위해 문자열로 돌려준다.
+export async function searchVehicleIds(keyword, signal) {
+  const response = await client.get('/vehicles', { params: { q: keyword }, signal });
+  return response.data.data.map((row) => String(row.id));
+}
+
 export function selectPresetVehicles(ids, vehicles) {
   const models = { avante: '아반떼', ray: '레이', morning: '모닝', k5: 'K5' };
   const selected = [];

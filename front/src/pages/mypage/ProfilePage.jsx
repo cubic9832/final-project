@@ -23,6 +23,7 @@ import { CardError, CardLoading } from './CardStatus';
 import EmailNotificationModal from './EmailNotificationModal';
 import { NOTIFICATION_OPTIONS } from './notificationOptions';
 import PasswordChangeModal from './PasswordChangeModal';
+import PasswordResetModal from '../login/PasswordResetModal'; // 보완 10: mode="setup" = 비밀번호 만들기
 import { deviceName, DRIVING_OPTIONS, formatDate, formatDateTime, PURCHASE_OPTIONS } from './profileOptions';
 import './MyPage.css';
 import './ProfilePage.css';
@@ -52,18 +53,13 @@ const toForm = (me) => ({
 });
 
 // 처음 값(서버)과 지금 입력을 비교해 바뀐 항목 목록을 만든다
-function changedFields(form, me, clearPhone) {
+function changedFields(form, me) {
   const original = toForm(me);
   return Object.keys(FIELD_LABELS).filter((key) => {
-    if (key === 'phone') return form.phone !== '' || clearPhone; // 전화번호는 새로 입력했거나 지우기를 눌렀을 때만
+    if (key === 'phone') return form.phone !== ''; // 전화번호는 새로 입력했을 때만 (보완 11: 필수 항목이라 지우기는 없앴다)
     if (key === 'nickname') return form.nickname.trim() !== original.nickname;
     return form[key] !== original[key];
   });
-}
-
-// 바뀐 칸 라벨 옆 작은 점
-function ChangedDot({ on }) {
-  return on ? <span className="profile-changed-dot" title="바뀐 항목">•</span> : null;
 }
 
 export default function ProfilePage() {
@@ -76,7 +72,6 @@ export default function ProfilePage() {
   const [errors, setErrors] = useState({});
   const [checkedNickname, setCheckedNickname] = useState(''); // [중복 확인] 으로 사용 가능하다고 확인한 닉네임
   const [checking, setChecking] = useState(false);
-  const [clearPhone, setClearPhone] = useState(false);  // 저장된 전화번호 지우기
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState('');
 
@@ -139,7 +134,6 @@ export default function ProfilePage() {
     setForm((prev) => ({ ...prev, [name]: name === 'phone' ? formatPhone(value) : value }));
     setErrors((prev) => ({ ...prev, [name]: undefined }));
     if (name === 'nickname') setCheckedNickname(''); // 닉네임을 바꾸면 다시 확인해야 한다
-    if (name === 'phone') setClearPhone(false);
     setSaveError('');
   }
 
@@ -199,7 +193,7 @@ export default function ProfilePage() {
   async function handleSave(event) {
     event.preventDefault();
     if (saving) return;
-    const changedNow = changedFields(form, me, clearPhone);
+    const changedNow = changedFields(form, me);
     if (changedNow.length === 0) return; // 바뀐 게 없으면 보내지 않는다
     const found = validate();
     setErrors(found);
@@ -214,7 +208,7 @@ export default function ProfilePage() {
       if (changedNow.includes('nickname')) changes.nickName = form.nickname.trim();
       if (changedNow.includes('birthDate') && form.birthDate) changes.birthDate = form.birthDate; // 비우면 그대로 (지우지 않음)
       if (changedNow.includes('gender') && form.gender) changes.gender = form.gender;
-      if (changedNow.includes('phone')) changes.phone = clearPhone ? '' : form.phone; // '' = 지우기
+      if (changedNow.includes('phone')) changes.phone = form.phone;
       if (changedNow.includes('drivingExperience')) changes.drivingExperience = form.drivingExperience; // '' = 지우기
       if (changedNow.includes('purchaseTiming')) changes.purchaseTiming = form.purchaseTiming;
       const saved = await updateProfile(changes);
@@ -222,7 +216,6 @@ export default function ProfilePage() {
       setMe(saved);
       setForm(toForm(saved));
       setCheckedNickname('');
-      setClearPhone(false);
       showToast(`${changedNow.map((key) => FIELD_LABELS[key]).join(' · ')}을(를) 저장했어요.`);
     } catch (error) {
       const { code, message } = error.response?.data?.error ?? {};
@@ -286,6 +279,14 @@ export default function ProfilePage() {
     showToast('비밀번호를 변경했어요. 다른 기기는 로그인을 이어 갈 수 없어요.');
   }
 
+  // 보완 10: 구글 전용 회원이 비밀번호를 만듦 → 이제 이메일 로그인도 됨 (이 기기는 새 토큰으로 로그인 유지)
+  function handlePasswordCreated() {
+    setModal(null);
+    setMe((prev) => ({ ...prev, socialOnly: false })); // 비밀번호 줄이 [변경] 으로, 탈퇴도 비밀번호 확인으로
+    loadSessions(); // 다른 기기 로그인이 끊겼으니 목록도 새로
+    showToast('비밀번호를 만들었어요. 이제 이메일 · 비밀번호로도 로그인할 수 있어요.');
+  }
+
   // 회원 탈퇴: 서버 탈퇴 → 메인으로 먼저 이동 → 로그아웃 처리 → 공용 알림
   async function handleWithdraw(confirmation) {
     try {
@@ -320,7 +321,7 @@ export default function ProfilePage() {
     );
   }
 
-  const changed = changedFields(form, me, clearPhone);
+  const changed = changedFields(form, me);
   const ageError = errors.birthDate && form.birthDate && getAge(form.birthDate) < MIN_SIGNUP_AGE;
   const otherSessions = sessions.filter((session) => !session.current);
   const notification = agreement ? agreement.emailNotification : 'IMPORTANT';
@@ -369,7 +370,7 @@ export default function ProfilePage() {
           <div className="profile-edit-buttons">
             <Link className="my-outline-button profile-small-button" to="/mypage">취소</Link>
             <button className="profile-dark-button" type="submit" disabled={saving || changed.length === 0}>
-              {saving ? '저장 중…' : changed.length ? `저장 (${changed.length})` : '저장'}
+              {saving ? '저장 중…' : '저장'}
             </button>
           </div>
         </div>
@@ -380,7 +381,7 @@ export default function ProfilePage() {
             <p className="profile-card-desc">다른 회원에게 보이는 이름입니다.</p>
 
             <div className="profile-field">
-              <label htmlFor="profile-nickname">닉네임<ChangedDot on={changed.includes('nickname')} /></label>
+              <label htmlFor="profile-nickname">닉네임<span className="form-required" aria-hidden="true"> *</span></label>
               <div>
                 <div className="profile-input-row">
                   <input id="profile-nickname" name="nickname" value={form.nickname} onChange={handleChange}
@@ -411,13 +412,13 @@ export default function ProfilePage() {
             <p className="profile-card-desc">보험료 · 구매계획 같은 비용 계산에 쓸 수 있는 정보입니다. (선택)</p>
 
             <div className="profile-field">
-              <span className="profile-label" id="profile-driving-label">운전 경력<ChangedDot on={changed.includes('drivingExperience')} /></span>
+              <span className="profile-label" id="profile-driving-label">운전 경력</span>
               <ChoiceGroup name="drivingExperience" labelledBy="profile-driving-label" options={DRIVING_OPTIONS}
                 value={form.drivingExperience} onChange={handleChange} />
             </div>
 
             <div className="profile-field">
-              <span className="profile-label" id="profile-purchase-label">구매 예정<ChangedDot on={changed.includes('purchaseTiming')} /></span>
+              <span className="profile-label" id="profile-purchase-label">구매 예정</span>
               <ChoiceGroup name="purchaseTiming" labelledBy="profile-purchase-label" options={PURCHASE_OPTIONS}
                 value={form.purchaseTiming} onChange={handleChange} />
             </div>
@@ -428,7 +429,7 @@ export default function ProfilePage() {
             <p className="profile-card-desc">연령대별 추천 · 통계에 사용합니다. 다른 회원에게 보이지 않습니다.</p>
 
             <div className="profile-field">
-              <label htmlFor="profile-birth">생년월일<ChangedDot on={changed.includes('birthDate')} /></label>
+              <label htmlFor="profile-birth">생년월일<span className="form-required" aria-hidden="true"> *</span></label>
               <div>
                 <BirthDateInput id="profile-birth" name="birthDate" value={form.birthDate} onChange={handleChange}
                   className={errors.birthDate ? 'has-error' : undefined} aria-invalid={Boolean(errors.birthDate)} />
@@ -448,7 +449,7 @@ export default function ProfilePage() {
             </div>
 
             <div className="profile-field">
-              <span className="profile-label" id="profile-gender-label">성별<ChangedDot on={changed.includes('gender')} /></span>
+              <span className="profile-label" id="profile-gender-label">성별<span className="form-required" aria-hidden="true"> *</span></span>
               <div className="profile-choices is-three" role="radiogroup" aria-labelledby="profile-gender-label">
                 {GENDER_OPTIONS.map((option) => (
                   <label key={option.value}>
@@ -460,22 +461,17 @@ export default function ProfilePage() {
             </div>
 
             <div className="profile-field">
-              <label htmlFor="profile-phone">전화번호<ChangedDot on={changed.includes('phone')} /> <small>(선택)</small></label>
+              <label htmlFor="profile-phone">전화번호<span className="form-required" aria-hidden="true"> *</span></label>
               <div>
                 <input id="profile-phone" name="phone" type="tel" inputMode="numeric" maxLength={13}
-                  placeholder={me.phoneMasked && !clearPhone ? '새 번호 입력' : '010-1234-5678'}
+                  placeholder={me.phoneMasked ? '새 번호 입력' : '010-1234-5678'}
                   value={form.phone} onChange={handleChange} className={errors.phone ? 'has-error' : undefined} />
                 {errors.phone ? (
                   <p className="profile-error">{errors.phone}</p>
                 ) : me.phoneMasked ? (
-                  <p className="profile-hint">
-                    {clearPhone ? '저장하면 전화번호를 지웁니다. ' : `현재 ${me.phoneMasked} · `}
-                    <button className="profile-text-button" type="button" onClick={() => setClearPhone((value) => !value)}>
-                      {clearPhone ? '지우지 않기' : '전화번호 지우기'}
-                    </button>
-                  </p>
+                  <p className="profile-hint">현재 {me.phoneMasked} · 바꾸려면 새 번호를 입력하세요.</p>
                 ) : (
-                  <p className="profile-hint">입력하면 서비스 관련 연락에만 사용합니다.</p>
+                  <p className="profile-hint">아직 없습니다. 입력하면 서비스 관련 연락에만 사용합니다.</p>
                 )}
               </div>
             </div>
@@ -534,7 +530,17 @@ export default function ProfilePage() {
               다른 기기 모두 로그아웃
             </button>
           </li>
-          {!me.socialOnly && (
+          {me.socialOnly ? (
+            // 보완 10: 구글로만 가입 → 비밀번호를 만들어 두면 구글 계정을 쓸 수 없을 때도 이메일로 로그인
+            <li>
+              <strong>비밀번호</strong>
+              <div>
+                <span>아직 없음 (구글 계정으로만 로그인)</span>
+                <small>만들어 두면 구글 계정을 쓸 수 없을 때도 이메일 · 비밀번호로 로그인할 수 있어요</small>
+              </div>
+              <button className="my-outline-button" type="button" onClick={() => setModal('password-setup')}>만들기</button>
+            </li>
+          ) : (
             <li>
               <strong>비밀번호</strong>
               <div>
@@ -568,6 +574,9 @@ export default function ProfilePage() {
 
       {/* 팝업은 열 때마다 새로 만들어서 입력값이 남지 않게 한다 */}
       {modal === 'password' && <PasswordChangeModal email={me.email} onChange={handleChangePassword} onClose={() => setModal(null)} />}
+      {modal === 'password-setup' && (
+        <PasswordResetModal mode="setup" initialEmail={me.email} onDone={handlePasswordCreated} onClose={() => setModal(null)} />
+      )}
       {modal === 'notification' && (
         <EmailNotificationModal currentValue={notification} onSave={handleSaveNotification} onClose={() => setModal(null)} />
       )}

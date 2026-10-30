@@ -10,6 +10,7 @@ from urllib.request import urlopen
 import numpy as np
 from vehicle_matching.catalog import Vehicle, read_catalog, save_catalog, catalog_fingerprint
 from vehicle_matching.finance import Profile, assess
+from vehicle_matching.budget import recommendation_budget
 from vehicle_matching.partition_preference_population import digest
 from vehicle_matching.preference_model import encode_preference, PreferenceRanker
 from vehicle_matching.preferences import preference_assessment
@@ -59,9 +60,10 @@ def rebuild(source, output, cars, seed):
                 if original in by_id and by_id[original] in indices:
                     indices.add(by_id[original+'-11seat'])
                 candidates=[];costs=[];kept=[]
+                band=recommendation_budget(profile,cars,{})
                 for index in sorted(indices):
                     car=cars[index];cost=assess(profile,car)
-                    if not cost['eligible'] or seating_status(profile,car)!='match':continue
+                    if not cost['eligible'] or seating_status(profile,car)!='match' or not band['lower'] <= car.price <= band['upper']:continue
                     candidates.append(car);costs.append(cost);kept.append(index)
                 if len(candidates)<2:
                     excluded['fewer-than-two-required-seat-safe-candidates']+=1;continue

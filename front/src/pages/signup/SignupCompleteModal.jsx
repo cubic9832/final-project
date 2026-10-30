@@ -11,12 +11,15 @@ export default function SignupCompleteModal({ email, onClose }) {
 
   return (
     <AuthModal title="회원가입이 완료됐어요" onClose={() => { onClose(); navigate('/'); }} size="sm">
-      <div className="signup-complete-icon" aria-hidden="true">
-        <CircleCheck size={theme.iconSize.lg} strokeWidth={1.5} />
+      {/* 보완 11: 체크 아이콘이 한 줄을 통째로 차지하지 않게 안내 문구 왼쪽에 나란히 둔다 */}
+      <div className="signup-complete-head">
+        <span className="signup-complete-icon" aria-hidden="true">
+          <CircleCheck size={theme.iconSize.md} strokeWidth={1.75} />
+        </span>
+        <p className="signup-complete-text">
+          내 첫 차 취향을 알아볼까요? 로그인 후 8가지 질문으로 확인할 수 있어요. 지금 하지 않아도 괜찮아요.
+        </p>
       </div>
-      <p className="signup-complete-text">
-        내 첫 차 취향을 알아볼까요? 로그인 후 8가지 질문으로 확인할 수 있어요. 지금 하지 않아도 괜찮아요.
-      </p>
       <p className="signup-complete-account">
         <strong>{email}</strong> 계정으로 가입되었습니다.
       </p>

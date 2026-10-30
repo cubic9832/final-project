@@ -1,0 +1,61 @@
+﻿brand,model_family,verification,catalog_match,catalog_family,match_method,source_url,evidence_basis,checked_on
+현대,아반떼,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,현대 디 올 뉴 아반떼,EXPLICIT_ALIAS,https://www.hyundai.com/kr/ko/e/api/product/car/catalog-price,국내 카탈로그·가격표 API,2026-10-27
+현대,쏘나타,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,현대 쏘나타 디 엣지,EXPLICIT_ALIAS,https://www.hyundai.com/kr/ko/e/api/product/car/catalog-price,국내 카탈로그·가격표 API,2026-10-27
+현대,그랜저,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,현대 더 뉴 그랜저,EXPLICIT_ALIAS,https://www.hyundai.com/kr/ko/e/api/product/car/catalog-price,국내 카탈로그·가격표 API,2026-10-27
+현대,베뉴,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,현대 베뉴,EXACT,https://www.hyundai.com/kr/ko/e/api/product/car/catalog-price,국내 카탈로그·가격표 API,2026-10-27
+현대,코나,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,현대 코나,EXACT,https://www.hyundai.com/kr/ko/e/api/product/car/catalog-price,국내 카탈로그·가격표 API,2026-10-27
+현대,투싼,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,현대 투싼,EXACT,https://www.hyundai.com/kr/ko/e/api/product/car/catalog-price,국내 카탈로그·가격표 API,2026-10-27
+현대,싼타페,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,현대 싼타페,EXACT,https://www.hyundai.com/kr/ko/e/api/product/car/catalog-price,국내 카탈로그·가격표 API,2026-10-27
+현대,팰리세이드,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,현대 팰리세이드,EXACT,https://www.hyundai.com/kr/ko/e/api/product/car/catalog-price,국내 카탈로그·가격표 API,2026-10-27
+현대,캐스퍼,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,현대 캐스퍼,EXACT,https://www.hyundai.com/kr/ko/e/api/product/car/catalog-price,국내 카탈로그·가격표 API,2026-10-27
+현대,스타리아,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,현대 스타리아,EXACT,https://www.hyundai.com/kr/ko/e/api/product/car/catalog-price,국내 카탈로그·가격표 API,2026-10-27
+현대,아이오닉 5,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,현대 아이오닉 5,EXACT,https://www.hyundai.com/kr/ko/e/api/product/car/catalog-price,국내 카탈로그·가격표 API,2026-10-27
+현대,아이오닉 6,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,현대 더 뉴 아이오닉 6,EXPLICIT_ALIAS,https://www.hyundai.com/kr/ko/e/api/product/car/catalog-price,국내 카탈로그·가격표 API,2026-10-27
+기아,모닝,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,기아 모닝,EXACT,https://www.kia.com/kr/vehicles/rv,국내 차종별 라인업,2026-10-27
+기아,레이,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,기아 레이,EXACT,https://www.kia.com/kr/vehicles/rv,국내 차종별 라인업,2026-10-27
+기아,K5,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,기아 K5,EXACT,https://www.kia.com/kr/vehicles/rv,국내 차종별 라인업,2026-10-27
+기아,K8,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,기아 K8,EXACT,https://www.kia.com/kr/vehicles/rv,국내 차종별 라인업,2026-10-27
+기아,K9,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,기아 K9,EXACT,https://www.kia.com/kr/vehicles/rv,국내 차종별 라인업,2026-10-27
+기아,니로,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,기아 니로,EXACT,https://www.kia.com/kr/vehicles/rv,국내 차종별 라인업,2026-10-27
+기아,셀토스,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,기아 셀토스,EXACT,https://www.kia.com/kr/vehicles/rv,국내 차종별 라인업,2026-10-27
+기아,스포티지,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,기아 스포티지,EXACT,https://www.kia.com/kr/vehicles/rv,국내 차종별 라인업,2026-10-27
+기아,쏘렌토,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,기아 쏘렌토,EXACT,https://www.kia.com/kr/vehicles/rv,국내 차종별 라인업,2026-10-27
+기아,카니발,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,기아 카니발,EXACT,https://www.kia.com/kr/vehicles/rv,국내 차종별 라인업,2026-10-27
+기아,EV3,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,기아 EV3,EXACT,https://www.kia.com/kr/vehicles/rv,국내 차종별 라인업,2026-10-27
+기아,EV4,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,기아 EV4,EXACT,https://www.kia.com/kr/vehicles/rv,국내 차종별 라인업,2026-10-27
+기아,EV5,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,기아 EV5,EXACT,https://www.kia.com/kr/vehicles/rv,국내 차종별 라인업,2026-10-27
+기아,EV6,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,기아 EV6,EXACT,https://www.kia.com/kr/vehicles/rv,국내 차종별 라인업,2026-10-27
+기아,EV9,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,기아 EV9,EXACT,https://www.kia.com/kr/vehicles/rv,국내 차종별 라인업,2026-10-27
+기아,PV5 패신저,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,기아 PV5 패신저,EXACT,https://www.kia.com/kr/vehicles/rv,국내 차종별 라인업,2026-10-27
+제네시스,G70,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,제네시스 G70,EXACT,https://www.genesis.com/kr/ko/models.html,국내 모델 메뉴 및 가격 안내,2026-10-27
+제네시스,G70 Shooting Brake,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,제네시스 G70 Shooting Brake,EXACT,https://www.genesis.com/kr/ko/models.html,국내 모델 메뉴 및 가격 안내,2026-10-27
+제네시스,G80,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,제네시스 G80,EXACT,https://www.genesis.com/kr/ko/models.html,국내 모델 메뉴 및 가격 안내,2026-10-27
+제네시스,G90,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,제네시스 G90,EXACT,https://www.genesis.com/kr/ko/models.html,국내 모델 메뉴 및 가격 안내,2026-10-27
+제네시스,GV70,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,제네시스 GV70,EXACT,https://www.genesis.com/kr/ko/models.html,국내 모델 메뉴 및 가격 안내,2026-10-27
+제네시스,GV80,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,제네시스 GV80,EXACT,https://www.genesis.com/kr/ko/models.html,국내 모델 메뉴 및 가격 안내,2026-10-27
+KG모빌리티,티볼리,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,KG모빌리티 티볼리,EXACT,https://web.kg-mobility.com/app/estimate/getCarTopModelList.do,국내 견적 모델 API,2026-10-27
+KG모빌리티,토레스,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,KG모빌리티 토레스,EXACT,https://web.kg-mobility.com/app/estimate/getCarTopModelList.do,국내 견적 모델 API,2026-10-27
+KG모빌리티,액티언,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,KG모빌리티 액티언,EXACT,https://web.kg-mobility.com/app/estimate/getCarTopModelList.do,국내 견적 모델 API,2026-10-27
+KG모빌리티,렉스턴 뉴 아레나,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,KG모빌리티 렉스턴 뉴 아레나,EXACT,https://web.kg-mobility.com/app/estimate/getCarTopModelList.do,국내 견적 모델 API,2026-10-27
+KG모빌리티,무쏘,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,KG모빌리티 무쏘,EXACT,https://web.kg-mobility.com/app/estimate/getCarTopModelList.do,국내 견적 모델 API,2026-10-27
+KG모빌리티,무쏘 EV,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,KG모빌리티 무쏘 EV,EXACT,https://web.kg-mobility.com/app/estimate/getCarTopModelList.do,국내 견적 모델 API,2026-10-27
+르노코리아,아르카나,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,르노코리아 아르카나,EXACT,https://www.renault.co.kr/ko/model/model_list.jsp,국내 모델 목록,2026-10-27
+르노코리아,그랑 콜레오스,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,르노코리아 그랑 콜레오스,EXACT,https://www.renault.co.kr/ko/model/model_list.jsp,국내 모델 목록,2026-10-27
+르노코리아,필랑트,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,르노코리아 필랑트,EXACT,https://www.renault.co.kr/ko/model/model_list.jsp,국내 모델 목록,2026-10-27
+쉐보레,트랙스 크로스오버,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,쉐보레 트랙스 크로스오버,EXACT,https://www.chevrolet.co.kr/,국내 현재 모델 메뉴,2026-10-27
+GMC,CANYON,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,GMC Canyon,CASE_SPACE_NORMALIZED,https://www.gmckorea.co.kr/,국내 모델 메뉴 및 시에라 별도 사이트,2026-10-27
+GMC,HUMMER EV SUV,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,GMC HUMMER EV SUV,EXACT,https://www.gmckorea.co.kr/,국내 모델 메뉴 및 시에라 별도 사이트,2026-10-27
+GMC,SIERRA,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,GMC Sierra,CASE_SPACE_NORMALIZED,https://www.gmckorea.co.kr/,국내 모델 메뉴 및 시에라 별도 사이트,2026-10-27
+BMW,3시리즈,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,BMW 3시리즈,EXACT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,3시리즈 투어링,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,BMW 3시리즈 투어링,EXACT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,5시리즈,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,BMW 5시리즈,EXACT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,X1,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,BMW X1,EXACT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,X3,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,BMW X3,EXACT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,X4,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,BMW X4,EXACT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+BMW,X5,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,BMW X5,EXACT,https://www.bmw.co.kr/content/dam/bmw/marketKR/bmw_co_kr/Pricelist/pricelist_oct2026.pdf.asset.1792129034710.pdf,국내 2026년 10월 공식 가격표; M과 전동화 파생형은 아래 주석 기준 통합,2026-10-27
+메르세데스-벤츠,E-Class,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,메르세데스-벤츠 E-Class,EXACT,https://www.mercedes-benz.co.kr/passengercars/models.html,국내 전체 모델 메뉴; CLA Sedan과 CLA Coupe 표기를 그대로 구분,2026-10-27
+폭스바겐,Golf,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,폭스바겐 Golf,EXACT,https://www.volkswagen.co.kr/ko/models.html,국내 모델 카드; Golf GTI 및 한정판은 Golf에 통합,2026-10-27
+볼보,XC60,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,볼보 XC60,EXACT,https://www.volvocar.co.kr/l/volvo-brochure/,국내 카탈로그 및 구성기 메뉴; PHEV/MHEV 통합,2026-10-27
+토요타,ALPHARD,INDEX_ONLY,FAMILY_PRESENT,토요타 알파드,EXPLICIT_ALIAS,https://www.toyota.co.kr/build-my-car/,국내 Build My Car 검색 색인에서 확인; 직접 본문 추출 제한으로 후속 구성기 재검증 필요,2026-10-27
+토요타,SIENNA,INDEX_ONLY,FAMILY_PRESENT,토요타 시에나,EXPLICIT_ALIAS,https://www.toyota.co.kr/build-my-car/,국내 Build My Car 검색 색인에서 확인; 직접 본문 추출 제한으로 후속 구성기 재검증 필요,2026-10-27
+푸조,308,OFFICIAL_KOREAN_LISTING,FAMILY_PRESENT,푸조 308,EXACT,https://www.epeugeot.co.kr/car-selector/peugeot-range.html,국내 SMART HYBRID 라인업; 408 차체 매핑은 별도 검수 필요,2026-10-27

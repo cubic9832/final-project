@@ -33,3 +33,38 @@ export const getAuditLogs = async ({ action, page = 1, size = 20 } = {}, signal)
   const res = await client.get('/admin/audit-logs', { params: { action: action || undefined, page, size }, signal });
   return { logs: res.data.data, meta: res.data.meta };
 };
+
+// 서비스 연결 상태 → { apiStartedAt, databaseUp, databaseMillis, databaseVersion }
+export const getSystemStatus = async (signal) => {
+  const res = await client.get('/admin/system-status', { signal });
+  return res.data.data;
+};
+
+// 추천 서버(FastAPI) 상태 · 정보: 화면이 추천을 받을 때와 같은 길(Vite proxy /api/v2)로 선택지 정보를 불러 본다
+// → { ms: 응답 시간, info: { modelVersion, catalogCount, modelNames, rankerSchema, ... } }. 3초 안에 응답이 없거나 실패하면 오류
+export const getModelServerInfo = async (signal) => {
+  const start = performance.now();
+  const res = await client.get('/recommendation-options', { baseURL: '/api/v2', timeout: 3000, signal });
+  return { ms: Math.round(performance.now() - start), info: res.data.data };
+};
+
+// 운영 현황: 먼저 확인할 작업(개인정보 미입력 · 로그인 잠금 회원 수) · 재무 진단 이용 현황
+// → { profileMissing, lockedMembers, diagnoses: { total, last7Days, members, avgMonthlyAvailable, daily: [{ date, count }] } }
+export const getAdminOverview = async (signal) => {
+  const res = await client.get('/admin/overview', { signal });
+  return res.data.data;
+};
+
+// 모델 관리: 학습 · 평가 결과(ml 학습 결과 파일) + 모델 버전 기록(DB)
+// → { available, runName, schema, trainedAt, testPairAccuracy, metrics: [{ name, previous, current }], history, versions, ... }
+export const getModelReport = async (signal) => {
+  const res = await client.get('/admin/model-report', { signal });
+  return res.data.data;
+};
+
+// 추천 관리: 추천 서버가 쓰는 후보 차량 전체 (학습 결과 폴더의 catalog.json)
+// → [{ id, brand, model, trim, year, price, fuel, efficiency, lengthMm, seatsLabel, seatsStatus, seatsNote, sourceUrl, checkedOn, quality }]
+export const getRecommendationCandidates = async (signal) => {
+  const res = await client.get('/admin/recommendation-candidates', { signal });
+  return res.data.data;
+};

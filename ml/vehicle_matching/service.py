@@ -29,11 +29,12 @@ class CandidateService:
                 costs[vehicle.id] = cost
             else:
                 excluded.update(cost['exclusions'])
-        seating_unknown = [v for v in eligible if seating_status(profile,v) == 'unknown']
-        seating_rejected = [v for v in eligible if seating_status(profile,v) == 'insufficient']
-        candidates = [v for v in eligible if seating_status(profile,v) == 'match']
         band = recommendation_budget(profile,eligible,costs)
-        candidates = [v for v in candidates if v.price<=band['upper']]
+        in_band = [v for v in eligible if band['lower'] <= v.price <= band['upper']]
+        excluded['below-preferred-price-band'] += sum(v.price < band['lower'] for v in eligible)
+        seating_unknown = [v for v in in_band if seating_status(profile,v) == 'unknown']
+        seating_rejected = [v for v in in_band if seating_status(profile,v) == 'insufficient']
+        candidates = [v for v in in_band if seating_status(profile,v) == 'match']
         scores, outside = self.ranker.score_candidates(profile, candidates)
         if len(scores) != len(candidates) or len(outside) != len(candidates) or not all(math.isfinite(s) for s in scores):
             raise ValueError('Invalid ML ranking scores')
@@ -78,7 +79,7 @@ class CandidateService:
                            'seatingVerificationRequired': 'seats-unverified' in gaps,
                            'lengthVerificationRequired': 'length-unverified' in gaps,
                            'preferenceGaps': gaps,
-                           'budgetTier': 'within-financial-ceiling',
+                           'budgetTier': 'within-importance-price-band',
                            'reasons': reasons, 'outsideTrainingRange': out_of_range})
         for index, item in enumerate(chosen):
             if len(chosen) > 1:
@@ -114,17 +115,19 @@ class CandidateService:
                 'appliedPreferences': {name: getattr(profile, name) for name in ('preferred_body_type', 'body_importance', 'preferred_fuel', 'preferred_size', 'minimum_seats', 'cost_importance', 'space_importance', 'fuel_importance', 'seating_importance')},
                 'budgetPolicy': band,
                 'catalogCount': len(self.vehicles), 'eligibleCount': len(eligible),
-                'excludedReasons': dict(excluded), 'recommendations': chosen,
+                'excludedReasons': {key:value for key,value in excluded.items() if value}, 'recommendations': chosen,
                 'conditionalRecommendations': conditional,
                 'seatingUnverifiedCount': sum('seats-unverified' in exclusions(profile,v) or
                                              bool(profile.minimum_seats and v.seats is None and not v.seat_options) for v in eligible),
                 'financialEligibleModelCount': len({(v.brand,v.model) for v in eligible}),
                 'seatingExcludedCount': len(seating_rejected), 'seatingUnverifiedCandidatesCount': len(seating_unknown),
-                'status': 'recommended' if chosen else 'no-required-seating-match' if eligible else 'no-financially-eligible-vehicle',
+                'priceBandEligibleCount':len(in_band),
+                'status': 'recommended' if chosen else 'no-price-band-match' if eligible and not in_band else 'no-required-seating-match' if eligible else 'no-financially-eligible-vehicle',
                 'assumptions': {**self.ranker.assumptions.to_dict(), 'recommendation_financing':'cash-only',
                                 'recommendation_months':0,'recommendation_annual_rate':0},
                 'limitations': ['가정 기반 합성 효용을 학습한 실험 점수이며 만족도·구매 확률이 아닙니다.',
                                 '가격은 수집 시점의 자동 추출 스냅샷이며 현재 판매·최종 견적 확인이 필요합니다.',
                                 '연비 미확인 후보는 명시한 연료별 범위로 비용을 추정합니다.',
                                 '크기는 전장 기준의 선호 일치도이며 실내 공간·안전 평가는 아닙니다.',
+                                '가성비 중요도에 따라 구매 상한의 60·70·80% 하한을 적용하며, 가격대 밖 차량으로 빈자리를 채우지 않습니다.',
                                 '최소 정원은 필수 조건입니다. 선호는 중요도순으로 비교하며 같은 중요도에서는 불일치 정도를 합산하고 동률일 때 ML 원본 점수로 정렬합니다.']}

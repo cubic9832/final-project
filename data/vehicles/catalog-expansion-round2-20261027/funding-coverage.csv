@@ -1,0 +1,253 @@
+﻿stage,assets,cost_importance,body_type,lower,upper,catalog_families,price_match_families,eligible_families,eligible_model_names,known_seating_families,same_body_in_top3,returned,outside_training_range_in_top3,status,gap_reason
+before,30000000,1,SEDAN,24000000,30000000,15,3,3,기아 K5; 현대 디 올 뉴 아반떼; 현대 쏘나타 디 엣지,3,3,기아 K5; 현대 디 올 뉴 아반떼; 현대 쏘나타 디 엣지,0,recommended,available
+before,30000000,1,SUV,24000000,30000000,31,10,10,KG모빌리티 토레스; KG모빌리티 티볼리; 기아 니로; 기아 셀토스; 기아 스포티지; 르노코리아 아르카나; 쉐보레 트랙스 크로스오버; 현대 캐스퍼; 현대 코나; 현대 투싼,10,3,KG모빌리티 티볼리; 현대 코나; 기아 셀토스,0,recommended,available
+before,30000000,1,HATCHBACK,24000000,30000000,2,0,0,,0,0,KG모빌리티 티볼리; 현대 코나; 기아 K5,0,recommended,catalog-price-gap
+before,30000000,1,WAGON,24000000,30000000,2,0,0,,0,0,KG모빌리티 티볼리; 현대 코나; 기아 셀토스,0,recommended,catalog-price-gap
+before,30000000,1,MPV,24000000,30000000,4,0,0,,0,0,KG모빌리티 티볼리; 현대 코나; 기아 셀토스,0,recommended,catalog-price-gap
+before,30000000,1,BOX,24000000,30000000,1,1,1,기아 레이,1,1,기아 레이 EV; KG모빌리티 티볼리; 현대 코나,0,recommended,available
+before,30000000,1,PICKUP,24000000,30000000,2,0,0,,0,0,KG모빌리티 티볼리; 현대 코나; 기아 셀토스,0,recommended,catalog-price-gap
+before,30000000,3,SEDAN,21000000,30000000,15,3,3,기아 K5; 현대 디 올 뉴 아반떼; 현대 쏘나타 디 엣지,3,3,현대 디 올 뉴 아반떼; 기아 K5; 현대 쏘나타 디 엣지,0,recommended,available
+before,30000000,3,SUV,21000000,30000000,31,11,11,KG모빌리티 토레스; KG모빌리티 티볼리; 기아 니로; 기아 셀토스; 기아 스포티지; 르노코리아 아르카나; 쉐보레 트랙스 크로스오버; 현대 베뉴; 현대 캐스퍼; 현대 코나; 현대 투싼,11,3,쉐보레 트랙스 크로스오버; 현대 베뉴; 현대 코나,0,recommended,available
+before,30000000,3,HATCHBACK,21000000,30000000,2,0,0,,0,0,쉐보레 트랙스 크로스오버; 현대 베뉴; 현대 코나,0,recommended,catalog-price-gap
+before,30000000,3,WAGON,21000000,30000000,2,0,0,,0,0,쉐보레 트랙스 크로스오버; 현대 베뉴; 현대 코나,0,recommended,catalog-price-gap
+before,30000000,3,MPV,21000000,30000000,4,0,0,,0,0,쉐보레 트랙스 크로스오버; 현대 베뉴; 현대 코나,0,recommended,catalog-price-gap
+before,30000000,3,BOX,21000000,30000000,1,1,1,기아 레이,1,1,기아 레이 EV; 쉐보레 트랙스 크로스오버; 현대 베뉴,0,recommended,available
+before,30000000,3,PICKUP,21000000,30000000,2,0,0,,0,0,쉐보레 트랙스 크로스오버; 현대 베뉴; 현대 코나,0,recommended,catalog-price-gap
+before,30000000,5,SEDAN,18000000,30000000,15,3,3,기아 K5; 현대 디 올 뉴 아반떼; 현대 쏘나타 디 엣지,3,3,현대 디 올 뉴 아반떼; 기아 K5; 현대 쏘나타 디 엣지,0,recommended,available
+before,30000000,5,SUV,18000000,30000000,31,11,11,KG모빌리티 토레스; KG모빌리티 티볼리; 기아 니로; 기아 셀토스; 기아 스포티지; 르노코리아 아르카나; 쉐보레 트랙스 크로스오버; 현대 베뉴; 현대 캐스퍼; 현대 코나; 현대 투싼,11,3,현대 베뉴; 현대 캐스퍼; KG모빌리티 티볼리,0,recommended,available
+before,30000000,5,HATCHBACK,18000000,30000000,2,1,1,기아 모닝,1,1,기아 모닝; 기아 레이; 현대 베뉴,1,recommended,available
+before,30000000,5,WAGON,18000000,30000000,2,0,0,,0,0,기아 레이; 현대 베뉴; 현대 캐스퍼,0,recommended,catalog-price-gap
+before,30000000,5,MPV,18000000,30000000,4,0,0,,0,0,기아 레이; 현대 베뉴; 현대 캐스퍼,0,recommended,catalog-price-gap
+before,30000000,5,BOX,18000000,30000000,1,1,1,기아 레이,1,2,기아 레이; 기아 레이 EV; 현대 베뉴,0,recommended,available
+before,30000000,5,PICKUP,18000000,30000000,2,0,0,,0,0,기아 레이; 현대 베뉴; 현대 캐스퍼,0,recommended,catalog-price-gap
+before,50000000,1,SEDAN,40000000,50000000,15,6,6,기아 EV4; 기아 K8; 제네시스 G70; 현대 더 뉴 그랜저; 현대 더 뉴 아이오닉 6; 현대 쏘나타 디 엣지,6,3,현대 쏘나타 디 엣지 Hybrid; 기아 EV4; 기아 K8,0,recommended,available
+before,50000000,1,SUV,40000000,50000000,31,13,13,KG모빌리티 렉스턴 뉴 아레나; KG모빌리티 토레스; 기아 EV3; 기아 EV5; 기아 EV6; 기아 스포티지; 기아 쏘렌토; 르노코리아 그랑 콜레오스; 르노코리아 필랑트; 테슬라 Model Y; 현대 싼타페; 현대 코나; 현대 팰리세이드,13,3,현대 싼타페 Hybrid; 기아 스포티지; 기아 EV5,0,recommended,available
+before,50000000,1,HATCHBACK,40000000,50000000,2,1,1,폭스바겐 Golf,0,1,폭스바겐 Golf; 현대 싼타페 Hybrid; 기아 스포티지,1,recommended,available
+before,50000000,1,WAGON,40000000,50000000,2,1,1,제네시스 G70 Shooting Brake,1,1,제네시스 G70 Shooting Brake; 현대 싼타페 Hybrid; 기아 스포티지,0,recommended,available
+before,50000000,1,MPV,40000000,50000000,4,2,2,기아 카니발; 현대 스타리아,2,3,현대 더 뉴 스타리아 라운지 Hybrid; 기아 카니발; 현대 더 뉴 스타리아 라운지,0,recommended,available
+before,50000000,1,BOX,40000000,50000000,1,0,0,,0,0,현대 싼타페 Hybrid; 기아 스포티지; 현대 쏘나타 디 엣지 Hybrid,0,recommended,catalog-price-gap
+before,50000000,1,PICKUP,40000000,50000000,2,2,2,KG모빌리티 무쏘; KG모빌리티 무쏘 EV,0,2,KG모빌리티 무쏘; KG모빌리티 무쏘 EV; 현대 싼타페 Hybrid,2,recommended,available
+before,50000000,3,SEDAN,35000000,50000000,15,7,7,기아 EV4; 기아 K5; 기아 K8; 제네시스 G70; 현대 더 뉴 그랜저; 현대 더 뉴 아이오닉 6; 현대 쏘나타 디 엣지,7,3,기아 K5; 현대 쏘나타 디 엣지; 현대 쏘나타 디 엣지 Hybrid,0,recommended,available
+before,50000000,3,SUV,35000000,50000000,31,17,17,KG모빌리티 렉스턴 뉴 아레나; KG모빌리티 액티언; KG모빌리티 토레스; 기아 EV3; 기아 EV5; 기아 EV6; 기아 니로; 기아 셀토스; 기아 스포티지; 기아 쏘렌토; 르노코리아 그랑 콜레오스; 르노코리아 필랑트; 테슬라 Model Y; 현대 싼타페; 현대 코나; 현대 투싼; 현대 팰리세이드,17,3,기아 니로; 기아 셀토스; 현대 투싼 Hybrid,0,recommended,available
+before,50000000,3,HATCHBACK,35000000,50000000,2,1,1,폭스바겐 Golf,0,1,폭스바겐 Golf; 기아 니로; 기아 셀토스,1,recommended,available
+before,50000000,3,WAGON,35000000,50000000,2,1,1,제네시스 G70 Shooting Brake,1,1,제네시스 G70 Shooting Brake; 기아 니로; 기아 셀토스,0,recommended,available
+before,50000000,3,MPV,35000000,50000000,4,2,2,기아 카니발; 현대 스타리아,2,3,기아 카니발; 현대 더 뉴 스타리아 Hybrid; 현대 더 뉴 스타리아 라운지 Hybrid,0,recommended,available
+before,50000000,3,BOX,35000000,50000000,1,0,0,,0,0,기아 니로; 기아 셀토스; 현대 투싼 Hybrid,0,recommended,catalog-price-gap
+before,50000000,3,PICKUP,35000000,50000000,2,2,2,KG모빌리티 무쏘; KG모빌리티 무쏘 EV,0,2,KG모빌리티 무쏘; KG모빌리티 무쏘 EV; 기아 니로,2,recommended,available
+before,50000000,5,SEDAN,30000000,50000000,15,8,8,기아 EV4; 기아 K5; 기아 K8; 제네시스 G70; 현대 더 뉴 그랜저; 현대 더 뉴 아이오닉 6; 현대 디 올 뉴 아반떼; 현대 쏘나타 디 엣지,8,3,기아 K5; 현대 쏘나타 디 엣지; 현대 디 올 뉴 아반떼,0,recommended,available
+before,50000000,5,SUV,30000000,50000000,31,19,19,KG모빌리티 렉스턴 뉴 아레나; KG모빌리티 액티언; KG모빌리티 토레스; 기아 EV3; 기아 EV5; 기아 EV6; 기아 니로; 기아 셀토스; 기아 스포티지; 기아 쏘렌토; 르노코리아 그랑 콜레오스; 르노코리아 아르카나; 르노코리아 필랑트; 테슬라 Model Y; 현대 싼타페; 현대 캐스퍼; 현대 코나; 현대 투싼; 현대 팰리세이드,19,3,기아 스포티지; 현대 코나 Hybrid; 기아 니로,0,recommended,available
+before,50000000,5,HATCHBACK,30000000,50000000,2,1,1,폭스바겐 Golf,0,1,폭스바겐 Golf; 기아 레이 EV; 기아 스포티지,1,recommended,available
+before,50000000,5,WAGON,30000000,50000000,2,1,1,제네시스 G70 Shooting Brake,1,1,제네시스 G70 Shooting Brake; 기아 레이 EV; 기아 스포티지,0,recommended,available
+before,50000000,5,MPV,30000000,50000000,4,2,2,기아 카니발; 현대 스타리아,2,3,기아 카니발; 현대 더 뉴 스타리아 Hybrid; 현대 더 뉴 스타리아 라운지 Hybrid,0,recommended,available
+before,50000000,5,BOX,30000000,50000000,1,1,1,기아 레이,1,1,기아 레이 EV; 기아 스포티지; 현대 코나 Hybrid,0,recommended,available
+before,50000000,5,PICKUP,30000000,50000000,2,2,2,KG모빌리티 무쏘; KG모빌리티 무쏘 EV,0,2,KG모빌리티 무쏘; KG모빌리티 무쏘 EV; 기아 레이 EV,2,recommended,available
+before,100000000,1,SEDAN,80000000,100000000,15,4,4,BMW 5시리즈; 렉서스 ES; 제네시스 G80; 제네시스 G90,4,3,렉서스 ES; 제네시스 Electrified G80; 제네시스 G80 Black,0,recommended,available
+before,100000000,1,SUV,80000000,100000000,31,5,5,BMW X3; BMW X4; 기아 EV9; 볼보 XC60; 제네시스 GV80,5,3,BMW X3; 기아 EV9 GT; BMW X4,0,recommended,available
+before,100000000,1,HATCHBACK,80000000,100000000,2,0,0,,0,0,렉서스 ES; 토요타 알파드; 현대 더 뉴 스타리아 리무진 Electric,0,recommended,catalog-price-gap
+before,100000000,1,WAGON,80000000,100000000,2,0,0,,0,0,렉서스 ES; 토요타 알파드; 현대 더 뉴 스타리아 리무진 Electric,0,recommended,catalog-price-gap
+before,100000000,1,MPV,80000000,100000000,4,2,2,토요타 알파드; 현대 스타리아,2,2,토요타 알파드; 현대 더 뉴 스타리아 리무진 Electric; 렉서스 ES,0,recommended,available
+before,100000000,1,BOX,80000000,100000000,1,0,0,,0,0,렉서스 ES; 토요타 알파드; 현대 더 뉴 스타리아 리무진 Electric,0,recommended,catalog-price-gap
+before,100000000,1,PICKUP,80000000,100000000,2,0,0,,0,0,렉서스 ES; 토요타 알파드; 현대 더 뉴 스타리아 리무진 Electric,0,recommended,catalog-price-gap
+before,100000000,3,SEDAN,70000000,100000000,15,6,6,BMW 5시리즈; 기아 K9; 렉서스 ES; 메르세데스-벤츠 E-Class; 제네시스 G80; 제네시스 G90,6,3,렉서스 ES; BMW 5시리즈; 메르세데스-벤츠 E-Class,0,recommended,available
+before,100000000,3,SUV,70000000,100000000,31,7,7,BMW X3; BMW X4; 기아 EV6; 기아 EV9; 볼보 XC60; 제네시스 GV70; 제네시스 GV80,7,3,기아 EV6 GT; 제네시스 Electrified GV70; BMW X3,0,recommended,available
+before,100000000,3,HATCHBACK,70000000,100000000,2,0,0,,0,0,기아 EV6 GT; 렉서스 ES; 현대 더 뉴 스타리아 리무진 Hybrid,0,recommended,catalog-price-gap
+before,100000000,3,WAGON,70000000,100000000,2,0,0,,0,0,현대 더 뉴 스타리아 리무진 Hybrid; 기아 EV6 GT; 렉서스 ES,0,recommended,catalog-price-gap
+before,100000000,3,MPV,70000000,100000000,4,3,3,토요타 시에나; 토요타 알파드; 현대 스타리아,3,3,현대 더 뉴 스타리아 리무진 Hybrid; 토요타 시에나; 토요타 알파드,0,recommended,available
+before,100000000,3,BOX,70000000,100000000,1,0,0,,0,0,기아 EV6 GT; 렉서스 ES; 현대 더 뉴 스타리아 리무진 Hybrid,0,recommended,catalog-price-gap
+before,100000000,3,PICKUP,70000000,100000000,2,0,0,,0,0,기아 EV6 GT; 현대 더 뉴 스타리아 리무진 Hybrid; 렉서스 ES,0,recommended,catalog-price-gap
+before,100000000,5,SEDAN,60000000,100000000,15,7,7,BMW 3시리즈; BMW 5시리즈; 기아 K9; 렉서스 ES; 메르세데스-벤츠 E-Class; 제네시스 G80; 제네시스 G90,7,3,제네시스 G80; BMW 3시리즈; 기아 K9,0,recommended,available
+before,100000000,5,SUV,60000000,100000000,31,10,10,BMW X1; BMW X3; BMW X4; 기아 EV6; 기아 EV9; 볼보 XC60; 제네시스 GV70; 제네시스 GV80; 테슬라 Model Y; 현대 아이오닉 5,10,3,현대 아이오닉 5; 기아 EV9; 테슬라 Model Y,0,recommended,available
+before,100000000,5,HATCHBACK,60000000,100000000,2,0,0,,0,0,현대 더 뉴 스타리아 Electric; 현대 아이오닉 5; 기아 EV9,0,recommended,catalog-price-gap
+before,100000000,5,WAGON,60000000,100000000,2,1,1,BMW 3시리즈 투어링,1,1,BMW 3시리즈 투어링; 현대 더 뉴 스타리아 Electric; 현대 아이오닉 5,0,recommended,available
+before,100000000,5,MPV,60000000,100000000,4,4,4,기아 카니발; 토요타 시에나; 토요타 알파드; 현대 스타리아,4,3,현대 더 뉴 스타리아 Electric; 현대 더 뉴 스타리아 라운지 Electric; 기아 카니발 하이리무진,0,recommended,available
+before,100000000,5,BOX,60000000,100000000,1,0,0,,0,0,현대 더 뉴 스타리아 Electric; 현대 아이오닉 5; 기아 EV9,0,recommended,catalog-price-gap
+before,100000000,5,PICKUP,60000000,100000000,2,0,0,,0,0,현대 더 뉴 스타리아 Electric; 현대 아이오닉 5; BMW X1,0,recommended,catalog-price-gap
+before,150000000,1,SEDAN,120000000,150000000,15,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,150000000,1,SUV,120000000,150000000,31,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,150000000,1,HATCHBACK,120000000,150000000,2,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,150000000,1,WAGON,120000000,150000000,2,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,150000000,1,MPV,120000000,150000000,4,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,150000000,1,BOX,120000000,150000000,1,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,150000000,1,PICKUP,120000000,150000000,2,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,150000000,3,SEDAN,105000000,150000000,15,0,0,,0,0,BMW X5,0,recommended,catalog-price-gap
+before,150000000,3,SUV,105000000,150000000,31,1,1,BMW X5,1,1,BMW X5,0,recommended,available
+before,150000000,3,HATCHBACK,105000000,150000000,2,0,0,,0,0,BMW X5,0,recommended,catalog-price-gap
+before,150000000,3,WAGON,105000000,150000000,2,0,0,,0,0,BMW X5,0,recommended,catalog-price-gap
+before,150000000,3,MPV,105000000,150000000,4,0,0,,0,0,BMW X5,0,recommended,catalog-price-gap
+before,150000000,3,BOX,105000000,150000000,1,0,0,,0,0,BMW X5,0,recommended,catalog-price-gap
+before,150000000,3,PICKUP,105000000,150000000,2,0,0,,0,0,BMW X5,0,recommended,catalog-price-gap
+before,150000000,5,SEDAN,90000000,150000000,15,2,2,BMW 5시리즈; 제네시스 G90,2,2,BMW 5시리즈; 제네시스 G90; 토요타 알파드,0,recommended,available
+before,150000000,5,SUV,90000000,150000000,31,3,3,BMW X5; 볼보 XC60; 제네시스 GV80,3,3,볼보 XC60; 제네시스 GV80 Black Hybrid; BMW X5,0,recommended,available
+before,150000000,5,HATCHBACK,90000000,150000000,2,0,0,,0,0,토요타 알파드; 볼보 XC60; BMW 5시리즈,0,recommended,catalog-price-gap
+before,150000000,5,WAGON,90000000,150000000,2,0,0,,0,0,토요타 알파드; 볼보 XC60; BMW 5시리즈,0,recommended,catalog-price-gap
+before,150000000,5,MPV,90000000,150000000,4,1,1,토요타 알파드,1,1,토요타 알파드; 볼보 XC60; BMW 5시리즈,0,recommended,available
+before,150000000,5,BOX,90000000,150000000,1,0,0,,0,0,볼보 XC60; 토요타 알파드; BMW 5시리즈,0,recommended,catalog-price-gap
+before,150000000,5,PICKUP,90000000,150000000,2,0,0,,0,0,볼보 XC60; 토요타 알파드; BMW 5시리즈,0,recommended,catalog-price-gap
+before,200000000,1,SEDAN,160000000,200000000,15,1,1,제네시스 G90,1,2,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,available
+before,200000000,1,SUV,160000000,200000000,31,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,catalog-price-gap
+before,200000000,1,HATCHBACK,160000000,200000000,2,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,catalog-price-gap
+before,200000000,1,WAGON,160000000,200000000,2,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,catalog-price-gap
+before,200000000,1,MPV,160000000,200000000,4,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,catalog-price-gap
+before,200000000,1,BOX,160000000,200000000,1,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,catalog-price-gap
+before,200000000,1,PICKUP,160000000,200000000,2,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,catalog-price-gap
+before,200000000,3,SEDAN,140000000,200000000,15,1,1,제네시스 G90,1,2,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,available
+before,200000000,3,SUV,140000000,200000000,31,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,catalog-price-gap
+before,200000000,3,HATCHBACK,140000000,200000000,2,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,catalog-price-gap
+before,200000000,3,WAGON,140000000,200000000,2,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,catalog-price-gap
+before,200000000,3,MPV,140000000,200000000,4,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,catalog-price-gap
+before,200000000,3,BOX,140000000,200000000,1,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,catalog-price-gap
+before,200000000,3,PICKUP,140000000,200000000,2,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,catalog-price-gap
+before,200000000,5,SEDAN,120000000,200000000,15,1,1,제네시스 G90,1,2,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,available
+before,200000000,5,SUV,120000000,200000000,31,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,catalog-price-gap
+before,200000000,5,HATCHBACK,120000000,200000000,2,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,catalog-price-gap
+before,200000000,5,WAGON,120000000,200000000,2,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,catalog-price-gap
+before,200000000,5,MPV,120000000,200000000,4,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,catalog-price-gap
+before,200000000,5,BOX,120000000,200000000,1,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,catalog-price-gap
+before,200000000,5,PICKUP,120000000,200000000,2,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,0,recommended,catalog-price-gap
+before,300000000,1,SEDAN,240000000,300000000,15,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,1,SUV,240000000,300000000,31,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,1,HATCHBACK,240000000,300000000,2,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,1,WAGON,240000000,300000000,2,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,1,MPV,240000000,300000000,4,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,1,BOX,240000000,300000000,1,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,1,PICKUP,240000000,300000000,2,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,3,SEDAN,210000000,300000000,15,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,3,SUV,210000000,300000000,31,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,3,HATCHBACK,210000000,300000000,2,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,3,WAGON,210000000,300000000,2,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,3,MPV,210000000,300000000,4,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,3,BOX,210000000,300000000,1,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,3,PICKUP,210000000,300000000,2,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,5,SEDAN,180000000,300000000,15,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,5,SUV,180000000,300000000,31,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,5,HATCHBACK,180000000,300000000,2,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,5,WAGON,180000000,300000000,2,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,5,MPV,180000000,300000000,4,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,5,BOX,180000000,300000000,1,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+before,300000000,5,PICKUP,180000000,300000000,2,0,0,,0,0,,0,no-price-band-match,catalog-price-gap
+after,30000000,1,SEDAN,24000000,30000000,15,3,3,기아 K5; 현대 디 올 뉴 아반떼; 현대 쏘나타 디 엣지,3,3,기아 K5; 현대 디 올 뉴 아반떼; 현대 쏘나타 디 엣지,0,recommended,available
+after,30000000,1,SUV,24000000,30000000,33,10,10,KG모빌리티 토레스; KG모빌리티 티볼리; 기아 니로; 기아 셀토스; 기아 스포티지; 르노코리아 아르카나; 쉐보레 트랙스 크로스오버; 현대 캐스퍼; 현대 코나; 현대 투싼,10,3,KG모빌리티 티볼리; 현대 코나; 기아 셀토스,0,recommended,available
+after,30000000,1,HATCHBACK,24000000,30000000,3,0,0,,0,0,KG모빌리티 티볼리; 현대 코나; 기아 K5,0,recommended,catalog-price-gap
+after,30000000,1,WAGON,24000000,30000000,2,0,0,,0,0,KG모빌리티 티볼리; 현대 코나; 기아 셀토스,0,recommended,catalog-price-gap
+after,30000000,1,MPV,24000000,30000000,5,0,0,,0,0,KG모빌리티 티볼리; 현대 코나; 기아 셀토스,0,recommended,catalog-price-gap
+after,30000000,1,BOX,24000000,30000000,1,1,1,기아 레이,1,1,기아 레이 EV; KG모빌리티 티볼리; 현대 코나,0,recommended,available
+after,30000000,1,PICKUP,24000000,30000000,4,0,0,,0,0,KG모빌리티 티볼리; 현대 코나; 기아 셀토스,0,recommended,catalog-price-gap
+after,30000000,3,SEDAN,21000000,30000000,15,3,3,기아 K5; 현대 디 올 뉴 아반떼; 현대 쏘나타 디 엣지,3,3,현대 디 올 뉴 아반떼; 기아 K5; 현대 쏘나타 디 엣지,0,recommended,available
+after,30000000,3,SUV,21000000,30000000,33,11,11,KG모빌리티 토레스; KG모빌리티 티볼리; 기아 니로; 기아 셀토스; 기아 스포티지; 르노코리아 아르카나; 쉐보레 트랙스 크로스오버; 현대 베뉴; 현대 캐스퍼; 현대 코나; 현대 투싼,11,3,쉐보레 트랙스 크로스오버; 현대 베뉴; 현대 코나,0,recommended,available
+after,30000000,3,HATCHBACK,21000000,30000000,3,0,0,,0,0,쉐보레 트랙스 크로스오버; 현대 베뉴; 현대 코나,0,recommended,catalog-price-gap
+after,30000000,3,WAGON,21000000,30000000,2,0,0,,0,0,쉐보레 트랙스 크로스오버; 현대 베뉴; 현대 코나,0,recommended,catalog-price-gap
+after,30000000,3,MPV,21000000,30000000,5,0,0,,0,0,쉐보레 트랙스 크로스오버; 현대 베뉴; 현대 코나,0,recommended,catalog-price-gap
+after,30000000,3,BOX,21000000,30000000,1,1,1,기아 레이,1,1,기아 레이 EV; 쉐보레 트랙스 크로스오버; 현대 베뉴,0,recommended,available
+after,30000000,3,PICKUP,21000000,30000000,4,0,0,,0,0,쉐보레 트랙스 크로스오버; 현대 베뉴; 현대 코나,0,recommended,catalog-price-gap
+after,30000000,5,SEDAN,18000000,30000000,15,3,3,기아 K5; 현대 디 올 뉴 아반떼; 현대 쏘나타 디 엣지,3,3,현대 디 올 뉴 아반떼; 기아 K5; 현대 쏘나타 디 엣지,0,recommended,available
+after,30000000,5,SUV,18000000,30000000,33,11,11,KG모빌리티 토레스; KG모빌리티 티볼리; 기아 니로; 기아 셀토스; 기아 스포티지; 르노코리아 아르카나; 쉐보레 트랙스 크로스오버; 현대 베뉴; 현대 캐스퍼; 현대 코나; 현대 투싼,11,3,현대 베뉴; 현대 캐스퍼; KG모빌리티 티볼리,0,recommended,available
+after,30000000,5,HATCHBACK,18000000,30000000,3,1,1,기아 모닝,1,1,기아 모닝; 기아 레이; 현대 베뉴,1,recommended,available
+after,30000000,5,WAGON,18000000,30000000,2,0,0,,0,0,기아 레이; 현대 베뉴; 현대 캐스퍼,0,recommended,catalog-price-gap
+after,30000000,5,MPV,18000000,30000000,5,0,0,,0,0,기아 레이; 현대 베뉴; 현대 캐스퍼,0,recommended,catalog-price-gap
+after,30000000,5,BOX,18000000,30000000,1,1,1,기아 레이,1,2,기아 레이; 기아 레이 EV; 현대 베뉴,0,recommended,available
+after,30000000,5,PICKUP,18000000,30000000,4,0,0,,0,0,기아 레이; 현대 베뉴; 현대 캐스퍼,0,recommended,catalog-price-gap
+after,50000000,1,SEDAN,40000000,50000000,15,6,6,기아 EV4; 기아 K8; 제네시스 G70; 현대 더 뉴 그랜저; 현대 더 뉴 아이오닉 6; 현대 쏘나타 디 엣지,6,3,현대 쏘나타 디 엣지 Hybrid; 기아 EV4; 기아 K8,0,recommended,available
+after,50000000,1,SUV,40000000,50000000,33,13,13,KG모빌리티 렉스턴 뉴 아레나; KG모빌리티 토레스; 기아 EV3; 기아 EV5; 기아 EV6; 기아 스포티지; 기아 쏘렌토; 르노코리아 그랑 콜레오스; 르노코리아 필랑트; 테슬라 Model Y; 현대 싼타페; 현대 코나; 현대 팰리세이드,13,3,현대 싼타페 Hybrid; 기아 스포티지; 기아 EV5,0,recommended,available
+after,50000000,1,HATCHBACK,40000000,50000000,3,1,1,폭스바겐 Golf,0,1,폭스바겐 Golf; 현대 싼타페 Hybrid; 기아 스포티지,1,recommended,available
+after,50000000,1,WAGON,40000000,50000000,2,1,1,제네시스 G70 Shooting Brake,1,1,제네시스 G70 Shooting Brake; 현대 싼타페 Hybrid; 기아 스포티지,0,recommended,available
+after,50000000,1,MPV,40000000,50000000,5,3,3,기아 PV5 패신저; 기아 카니발; 현대 스타리아,3,3,기아 PV5 패신저; 현대 더 뉴 스타리아 라운지 Hybrid; 기아 카니발,0,recommended,available
+after,50000000,1,BOX,40000000,50000000,1,0,0,,0,0,현대 싼타페 Hybrid; 기아 스포티지; 현대 쏘나타 디 엣지 Hybrid,0,recommended,catalog-price-gap
+after,50000000,1,PICKUP,40000000,50000000,4,2,2,KG모빌리티 무쏘; KG모빌리티 무쏘 EV,0,2,KG모빌리티 무쏘; KG모빌리티 무쏘 EV; 현대 싼타페 Hybrid,2,recommended,available
+after,50000000,3,SEDAN,35000000,50000000,15,7,7,기아 EV4; 기아 K5; 기아 K8; 제네시스 G70; 현대 더 뉴 그랜저; 현대 더 뉴 아이오닉 6; 현대 쏘나타 디 엣지,7,3,기아 K5; 현대 쏘나타 디 엣지; 현대 쏘나타 디 엣지 Hybrid,0,recommended,available
+after,50000000,3,SUV,35000000,50000000,33,17,17,KG모빌리티 렉스턴 뉴 아레나; KG모빌리티 액티언; KG모빌리티 토레스; 기아 EV3; 기아 EV5; 기아 EV6; 기아 니로; 기아 셀토스; 기아 스포티지; 기아 쏘렌토; 르노코리아 그랑 콜레오스; 르노코리아 필랑트; 테슬라 Model Y; 현대 싼타페; 현대 코나; 현대 투싼; 현대 팰리세이드,17,3,기아 니로; 기아 셀토스; 현대 투싼 Hybrid,0,recommended,available
+after,50000000,3,HATCHBACK,35000000,50000000,3,2,2,폭스바겐 Golf; 푸조 308,0,2,폭스바겐 Golf; 푸조 308 SMART HYBRID; 기아 니로,2,recommended,available
+after,50000000,3,WAGON,35000000,50000000,2,1,1,제네시스 G70 Shooting Brake,1,1,제네시스 G70 Shooting Brake; 기아 니로; 기아 셀토스,0,recommended,available
+after,50000000,3,MPV,35000000,50000000,5,3,3,기아 PV5 패신저; 기아 카니발; 현대 스타리아,3,3,기아 카니발; 현대 더 뉴 스타리아 Hybrid; 기아 PV5 패신저,0,recommended,available
+after,50000000,3,BOX,35000000,50000000,1,0,0,,0,0,기아 니로; 기아 셀토스; 현대 투싼 Hybrid,0,recommended,catalog-price-gap
+after,50000000,3,PICKUP,35000000,50000000,4,2,2,KG모빌리티 무쏘; KG모빌리티 무쏘 EV,0,2,KG모빌리티 무쏘; KG모빌리티 무쏘 EV; 기아 니로,2,recommended,available
+after,50000000,5,SEDAN,30000000,50000000,15,8,8,기아 EV4; 기아 K5; 기아 K8; 제네시스 G70; 현대 더 뉴 그랜저; 현대 더 뉴 아이오닉 6; 현대 디 올 뉴 아반떼; 현대 쏘나타 디 엣지,8,3,기아 K5; 현대 쏘나타 디 엣지; 현대 디 올 뉴 아반떼,0,recommended,available
+after,50000000,5,SUV,30000000,50000000,33,19,19,KG모빌리티 렉스턴 뉴 아레나; KG모빌리티 액티언; KG모빌리티 토레스; 기아 EV3; 기아 EV5; 기아 EV6; 기아 니로; 기아 셀토스; 기아 스포티지; 기아 쏘렌토; 르노코리아 그랑 콜레오스; 르노코리아 아르카나; 르노코리아 필랑트; 테슬라 Model Y; 현대 싼타페; 현대 캐스퍼; 현대 코나; 현대 투싼; 현대 팰리세이드,19,3,기아 스포티지; 현대 코나 Hybrid; 기아 니로,0,recommended,available
+after,50000000,5,HATCHBACK,30000000,50000000,3,2,2,폭스바겐 Golf; 푸조 308,0,2,폭스바겐 Golf; 푸조 308 SMART HYBRID; 기아 레이 EV,2,recommended,available
+after,50000000,5,WAGON,30000000,50000000,2,1,1,제네시스 G70 Shooting Brake,1,1,제네시스 G70 Shooting Brake; 기아 레이 EV; 기아 스포티지,0,recommended,available
+after,50000000,5,MPV,30000000,50000000,5,3,3,기아 PV5 패신저; 기아 카니발; 현대 스타리아,3,3,기아 카니발; 현대 더 뉴 스타리아 Hybrid; 기아 PV5 패신저,0,recommended,available
+after,50000000,5,BOX,30000000,50000000,1,1,1,기아 레이,1,1,기아 레이 EV; 기아 스포티지; 현대 코나 Hybrid,0,recommended,available
+after,50000000,5,PICKUP,30000000,50000000,4,2,2,KG모빌리티 무쏘; KG모빌리티 무쏘 EV,0,2,KG모빌리티 무쏘; KG모빌리티 무쏘 EV; 기아 레이 EV,2,recommended,available
+after,100000000,1,SEDAN,80000000,100000000,15,4,4,BMW 5시리즈; 렉서스 ES; 제네시스 G80; 제네시스 G90,4,3,렉서스 ES; 제네시스 Electrified G80; 제네시스 G80 Black,0,recommended,available
+after,100000000,1,SUV,80000000,100000000,33,5,5,BMW X3; BMW X4; 기아 EV9; 볼보 XC60; 제네시스 GV80,5,3,BMW X3; 기아 EV9 GT; BMW X4,0,recommended,available
+after,100000000,1,HATCHBACK,80000000,100000000,3,0,0,,0,0,렉서스 ES; 토요타 알파드; 현대 더 뉴 스타리아 리무진 Electric,0,recommended,catalog-price-gap
+after,100000000,1,WAGON,80000000,100000000,2,0,0,,0,0,렉서스 ES; 토요타 알파드; 현대 더 뉴 스타리아 리무진 Electric,0,recommended,catalog-price-gap
+after,100000000,1,MPV,80000000,100000000,5,2,2,토요타 알파드; 현대 스타리아,2,2,토요타 알파드; 현대 더 뉴 스타리아 리무진 Electric; 렉서스 ES,0,recommended,available
+after,100000000,1,BOX,80000000,100000000,1,0,0,,0,0,렉서스 ES; 토요타 알파드; 현대 더 뉴 스타리아 리무진 Electric,0,recommended,catalog-price-gap
+after,100000000,1,PICKUP,80000000,100000000,4,1,1,GMC Sierra,0,1,GMC Sierra; 렉서스 ES; 토요타 알파드,1,recommended,available
+after,100000000,3,SEDAN,70000000,100000000,15,6,6,BMW 5시리즈; 기아 K9; 렉서스 ES; 메르세데스-벤츠 E-Class; 제네시스 G80; 제네시스 G90,6,3,렉서스 ES; BMW 5시리즈; 메르세데스-벤츠 E-Class,0,recommended,available
+after,100000000,3,SUV,70000000,100000000,33,7,7,BMW X3; BMW X4; 기아 EV6; 기아 EV9; 볼보 XC60; 제네시스 GV70; 제네시스 GV80,7,3,기아 EV6 GT; 제네시스 Electrified GV70; BMW X3,0,recommended,available
+after,100000000,3,HATCHBACK,70000000,100000000,3,0,0,,0,0,기아 EV6 GT; 렉서스 ES; 현대 더 뉴 스타리아 리무진 Hybrid,0,recommended,catalog-price-gap
+after,100000000,3,WAGON,70000000,100000000,2,0,0,,0,0,현대 더 뉴 스타리아 리무진 Hybrid; 기아 EV6 GT; 렉서스 ES,0,recommended,catalog-price-gap
+after,100000000,3,MPV,70000000,100000000,5,3,3,토요타 시에나; 토요타 알파드; 현대 스타리아,3,3,현대 더 뉴 스타리아 리무진 Hybrid; 토요타 시에나; 토요타 알파드,0,recommended,available
+after,100000000,3,BOX,70000000,100000000,1,0,0,,0,0,기아 EV6 GT; 렉서스 ES; 현대 더 뉴 스타리아 리무진 Hybrid,0,recommended,catalog-price-gap
+after,100000000,3,PICKUP,70000000,100000000,4,2,2,GMC Canyon; GMC Sierra,1,2,GMC Canyon; GMC Sierra; 기아 EV6 GT,2,recommended,available
+after,100000000,5,SEDAN,60000000,100000000,15,7,7,BMW 3시리즈; BMW 5시리즈; 기아 K9; 렉서스 ES; 메르세데스-벤츠 E-Class; 제네시스 G80; 제네시스 G90,7,3,제네시스 G80; BMW 3시리즈; 기아 K9,0,recommended,available
+after,100000000,5,SUV,60000000,100000000,33,10,10,BMW X1; BMW X3; BMW X4; 기아 EV6; 기아 EV9; 볼보 XC60; 제네시스 GV70; 제네시스 GV80; 테슬라 Model Y; 현대 아이오닉 5,10,3,현대 아이오닉 5; 기아 EV9; 테슬라 Model Y,0,recommended,available
+after,100000000,5,HATCHBACK,60000000,100000000,3,0,0,,0,0,현대 더 뉴 스타리아 Electric; 현대 아이오닉 5; 기아 EV9,0,recommended,catalog-price-gap
+after,100000000,5,WAGON,60000000,100000000,2,1,1,BMW 3시리즈 투어링,1,1,BMW 3시리즈 투어링; 현대 더 뉴 스타리아 Electric; 현대 아이오닉 5,0,recommended,available
+after,100000000,5,MPV,60000000,100000000,5,4,4,기아 카니발; 토요타 시에나; 토요타 알파드; 현대 스타리아,4,3,현대 더 뉴 스타리아 Electric; 현대 더 뉴 스타리아 라운지 Electric; 기아 카니발 하이리무진,0,recommended,available
+after,100000000,5,BOX,60000000,100000000,1,0,0,,0,0,현대 더 뉴 스타리아 Electric; 현대 아이오닉 5; 기아 EV9,0,recommended,catalog-price-gap
+after,100000000,5,PICKUP,60000000,100000000,4,2,2,GMC Canyon; GMC Sierra,1,2,GMC Canyon; GMC Sierra; 현대 더 뉴 스타리아 Electric,2,recommended,available
+after,150000000,1,SEDAN,120000000,150000000,15,0,0,,0,0,포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,150000000,1,SUV,120000000,150000000,33,1,1,포르쉐 Cayenne,1,1,포르쉐 Cayenne,1,recommended,available
+after,150000000,1,HATCHBACK,120000000,150000000,3,0,0,,0,0,포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,150000000,1,WAGON,120000000,150000000,2,0,0,,0,0,포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,150000000,1,MPV,120000000,150000000,5,0,0,,0,0,포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,150000000,1,BOX,120000000,150000000,1,0,0,,0,0,포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,150000000,1,PICKUP,120000000,150000000,4,0,0,,0,0,포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,150000000,3,SEDAN,105000000,150000000,15,0,0,,0,0,BMW X5; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,150000000,3,SUV,105000000,150000000,33,2,2,BMW X5; 포르쉐 Cayenne,2,2,BMW X5; 포르쉐 Cayenne,1,recommended,available
+after,150000000,3,HATCHBACK,105000000,150000000,3,0,0,,0,0,BMW X5; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,150000000,3,WAGON,105000000,150000000,2,0,0,,0,0,BMW X5; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,150000000,3,MPV,105000000,150000000,5,0,0,,0,0,BMW X5; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,150000000,3,BOX,105000000,150000000,1,0,0,,0,0,BMW X5; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,150000000,3,PICKUP,105000000,150000000,4,0,0,,0,0,BMW X5; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,150000000,5,SEDAN,90000000,150000000,15,2,2,BMW 5시리즈; 제네시스 G90,2,2,BMW 5시리즈; 제네시스 G90; 토요타 알파드,0,recommended,available
+after,150000000,5,SUV,90000000,150000000,33,4,4,BMW X5; 볼보 XC60; 제네시스 GV80; 포르쉐 Cayenne,4,3,볼보 XC60; 제네시스 GV80 Black Hybrid; BMW X5,0,recommended,available
+after,150000000,5,HATCHBACK,90000000,150000000,3,0,0,,0,0,토요타 알파드; 볼보 XC60; BMW 5시리즈,0,recommended,catalog-price-gap
+after,150000000,5,WAGON,90000000,150000000,2,0,0,,0,0,토요타 알파드; 볼보 XC60; BMW 5시리즈,0,recommended,catalog-price-gap
+after,150000000,5,MPV,90000000,150000000,5,1,1,토요타 알파드,1,1,토요타 알파드; 볼보 XC60; BMW 5시리즈,0,recommended,available
+after,150000000,5,BOX,90000000,150000000,1,0,0,,0,0,볼보 XC60; 토요타 알파드; BMW 5시리즈,0,recommended,catalog-price-gap
+after,150000000,5,PICKUP,90000000,150000000,4,1,1,GMC Sierra,0,1,GMC Sierra; 볼보 XC60; 토요타 알파드,1,recommended,available
+after,200000000,1,SEDAN,160000000,200000000,15,1,1,제네시스 G90,1,2,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black; 포르쉐 Cayenne,1,recommended,available
+after,200000000,1,SUV,160000000,200000000,33,1,1,포르쉐 Cayenne,1,1,포르쉐 Cayenne; 제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,1,recommended,available
+after,200000000,1,HATCHBACK,160000000,200000000,3,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,200000000,1,WAGON,160000000,200000000,2,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,200000000,1,MPV,160000000,200000000,5,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,200000000,1,BOX,160000000,200000000,1,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,200000000,1,PICKUP,160000000,200000000,4,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,200000000,3,SEDAN,140000000,200000000,15,1,1,제네시스 G90,1,2,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black; 포르쉐 Cayenne,1,recommended,available
+after,200000000,3,SUV,140000000,200000000,33,1,1,포르쉐 Cayenne,1,1,포르쉐 Cayenne; 제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,1,recommended,available
+after,200000000,3,HATCHBACK,140000000,200000000,3,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,200000000,3,WAGON,140000000,200000000,2,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,200000000,3,MPV,140000000,200000000,5,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,200000000,3,BOX,140000000,200000000,1,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,200000000,3,PICKUP,140000000,200000000,4,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,200000000,5,SEDAN,120000000,200000000,15,1,1,제네시스 G90,1,2,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black; 포르쉐 Cayenne,1,recommended,available
+after,200000000,5,SUV,120000000,200000000,33,1,1,포르쉐 Cayenne,1,1,포르쉐 Cayenne; 제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black,1,recommended,available
+after,200000000,5,HATCHBACK,120000000,200000000,3,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,200000000,5,WAGON,120000000,200000000,2,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,200000000,5,MPV,120000000,200000000,5,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,200000000,5,BOX,120000000,200000000,1,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,200000000,5,PICKUP,120000000,200000000,4,0,0,,0,0,제네시스 G90 Long Wheel Base; 제네시스 G90 Long Wheel Base Black; 포르쉐 Cayenne,1,recommended,catalog-price-gap
+after,300000000,1,SEDAN,240000000,300000000,15,0,0,,0,0,GMC HUMMER EV SUV,1,recommended,catalog-price-gap
+after,300000000,1,SUV,240000000,300000000,33,1,1,GMC HUMMER EV SUV,1,1,GMC HUMMER EV SUV,1,recommended,available
+after,300000000,1,HATCHBACK,240000000,300000000,3,0,0,,0,0,GMC HUMMER EV SUV,1,recommended,catalog-price-gap
+after,300000000,1,WAGON,240000000,300000000,2,0,0,,0,0,GMC HUMMER EV SUV,1,recommended,catalog-price-gap
+after,300000000,1,MPV,240000000,300000000,5,0,0,,0,0,GMC HUMMER EV SUV,1,recommended,catalog-price-gap
+after,300000000,1,BOX,240000000,300000000,1,0,0,,0,0,GMC HUMMER EV SUV,1,recommended,catalog-price-gap
+after,300000000,1,PICKUP,240000000,300000000,4,0,0,,0,0,GMC HUMMER EV SUV,1,recommended,catalog-price-gap
+after,300000000,3,SEDAN,210000000,300000000,15,0,0,,0,0,GMC HUMMER EV SUV,1,recommended,catalog-price-gap
+after,300000000,3,SUV,210000000,300000000,33,1,1,GMC HUMMER EV SUV,1,1,GMC HUMMER EV SUV,1,recommended,available
+after,300000000,3,HATCHBACK,210000000,300000000,3,0,0,,0,0,GMC HUMMER EV SUV,1,recommended,catalog-price-gap
+after,300000000,3,WAGON,210000000,300000000,2,0,0,,0,0,GMC HUMMER EV SUV,1,recommended,catalog-price-gap
+after,300000000,3,MPV,210000000,300000000,5,0,0,,0,0,GMC HUMMER EV SUV,1,recommended,catalog-price-gap
+after,300000000,3,BOX,210000000,300000000,1,0,0,,0,0,GMC HUMMER EV SUV,1,recommended,catalog-price-gap
+after,300000000,3,PICKUP,210000000,300000000,4,0,0,,0,0,GMC HUMMER EV SUV,1,recommended,catalog-price-gap
+after,300000000,5,SEDAN,180000000,300000000,15,0,0,,0,0,GMC HUMMER EV SUV,1,recommended,catalog-price-gap
+after,300000000,5,SUV,180000000,300000000,33,1,1,GMC HUMMER EV SUV,1,1,GMC HUMMER EV SUV,1,recommended,available
+after,300000000,5,HATCHBACK,180000000,300000000,3,0,0,,0,0,GMC HUMMER EV SUV,1,recommended,catalog-price-gap
+after,300000000,5,WAGON,180000000,300000000,2,0,0,,0,0,GMC HUMMER EV SUV,1,recommended,catalog-price-gap
+after,300000000,5,MPV,180000000,300000000,5,0,0,,0,0,GMC HUMMER EV SUV,1,recommended,catalog-price-gap
+after,300000000,5,BOX,180000000,300000000,1,0,0,,0,0,GMC HUMMER EV SUV,1,recommended,catalog-price-gap
+after,300000000,5,PICKUP,180000000,300000000,4,0,0,,0,0,GMC HUMMER EV SUV,1,recommended,catalog-price-gap

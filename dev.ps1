@@ -22,6 +22,12 @@ if (-not $PSBoundParameters.ContainsKey('DatabasePort') -and -not [string]::IsNu
     }
     $DatabasePort = $parsedPort
 }
+$searchPort = 9200
+if (-not [string]::IsNullOrWhiteSpace($env:ES_PORT)) {
+    if (-not [int]::TryParse($env:ES_PORT, [ref]$searchPort) -or $searchPort -lt 1 -or $searchPort -gt 65535) {
+        throw 'ES_PORT must be a number between 1 and 65535.'
+    }
+}
 if ($Check -and $Command -ne 'up') { throw '-Check can only be used with up.' }
 $projectRoot = $PSScriptRoot
 $appProcesses = [System.Collections.Generic.List[object]]::new()
@@ -44,6 +50,33 @@ function Require-Command([string]$Name) {
     if (-not (Get-Command $Name -ErrorAction SilentlyContinue)) {
         throw "Required command not found: $Name. Install it and reopen the terminal."
     }
+}
+
+function Get-LanIPv4 {
+    $addresses = @(Get-NetIPAddress -AddressFamily IPv4 -ErrorAction SilentlyContinue | Where-Object {
+        $_.IPAddress -notlike '127.*' -and
+        $_.IPAddress -notlike '169.254.*' -and
+        $_.InterfaceAlias -notmatch 'vEthernet|WSL|Hyper-V|Loopback|Bluetooth|Virtual|Docker|Default Switch'
+    })
+    $ethernet = @($addresses | Where-Object { $_.InterfaceAlias -match 'Ethernet|이더넷' })
+    if ($ethernet.Count -gt 0) { return $ethernet[0].IPAddress }
+    $wifi = @($addresses | Where-Object { $_.InterfaceAlias -match 'Wi-Fi|WiFi|Wireless|WLAN|무선' })
+    if ($wifi.Count -gt 0) { return $wifi[0].IPAddress }
+    if ($addresses.Count -gt 0) { return $addresses[0].IPAddress }
+    return $null
+}
+
+function Write-LanAccess([string]$Ip, [int]$Port) {
+    if ([string]::IsNullOrWhiteSpace($Ip)) {
+        Write-Host '같은 네트워크 IP를 찾지 못했습니다. ipconfig에서 이더넷 IPv4를 확인하세요.'
+        return
+    }
+    $check = "mysql -h $Ip -P $Port -u server -pserver final_sample -e `"SELECT MAX(version) v, MIN(success) ok FROM flyway_schema_history; SELECT status, COUNT(*) c FROM managed_vehicles GROUP BY status;`""
+    Write-Host "같은 네트워크 IPv4: $Ip"
+    Write-Host "다른 PC 프론트: http://${Ip}:5173"
+    Write-Host '다른 PC DB 확인 (cmd, mysql 클라이언트 필요):'
+    Write-Host $check
+    Write-Host '기대값: v=20, ok=1, PUBLISHED=308, REVIEW=3'
 }
 
 function Start-App([string]$Name, [int]$Port, [string]$Directory, [string]$Command) {
@@ -72,7 +105,7 @@ try {
         $previousDbPort = $env:DB_PORT
         try {
             $env:DB_PORT = [string]$DatabasePort
-            if ($Command -eq 'down') { & docker compose stop db }
+            if ($Command -eq 'down') { & docker compose stop db elasticsearch kibana }
             else { & docker compose down -v }
             if ($LASTEXITCODE -ne 0) { throw "Database command failed: $Command" }
         } finally {
@@ -86,14 +119,22 @@ try {
     if (-not (Test-Path -LiteralPath $mlPython)) {
         throw 'ML environment is missing. Follow ml/README.md to create ml/.venv and install dependencies.'
     }
+<<<<<<< HEAD
     foreach ($port in @(8080, 8002, 5173)) {
         $state = if (Test-LocalPort $port) { 'in use (reuse)' } else { 'available' }
         Write-Host "Port ${port}: $state"
     }
     if ($isLocalDatabase -and -not (Test-LocalPort $DatabasePort)) {
+=======
+    foreach ($port in @($DatabasePort, $searchPort, 5601, 8080, 8001, 5173)) {
+        $state = if (Test-LocalPort $port) { 'in use (reuse)' } else { 'available' }
+        Write-Host "Port ${port}: $state"
+    }
+    if (-not (Test-LocalPort $DatabasePort) -or -not (Test-LocalPort $searchPort)) {
+>>>>>>> fe943476966c5a3cb271518b545315571ab574d3
         Require-Command 'docker.exe'
         & docker info *> $null
-        if ($LASTEXITCODE -ne 0) { throw 'Start Docker Desktop, or start your local MySQL server, then retry.' }
+        if ($LASTEXITCODE -ne 0) { throw 'Start Docker Desktop, or start your local MySQL and Elasticsearch servers, then retry.' }
     }
     if ($Check) {
         Write-Host 'Prerequisite check complete. No servers were started.'
@@ -112,6 +153,18 @@ try {
     } else {
         Write-Host "[MySQL] Using ${DatabaseHost}:$DatabasePort, database final_sample, user server."
     }
+    # First run builds the Elasticsearch image with the nori plugin. Kibana starts slowly, so do not wait for it.
+    if (-not (Test-LocalPort $searchPort)) {
+        & docker compose up -d --wait elasticsearch
+        if ($LASTEXITCODE -ne 0) { throw 'Elasticsearch startup failed. Check Docker Desktop memory and the ES_PORT port.' }
+        & docker compose up -d kibana
+        if ($LASTEXITCODE -ne 0) { throw 'Kibana startup failed. Check Docker Desktop and port 5601.' }
+    } else {
+        Write-Host "[Elasticsearch] Reusing the existing server on port $searchPort."
+    }
+    Write-Host "[Elasticsearch] http://localhost:$searchPort  /  [Kibana] http://localhost:5601"
+    $lanIp = Get-LanIPv4
+    Write-LanAccess $lanIp $DatabasePort
     if (-not (Test-Path -LiteralPath (Join-Path $projectRoot 'front/node_modules'))) {
         & npm.cmd --prefix front ci
         if ($LASTEXITCODE -ne 0) { throw 'Frontend dependency installation failed.' }
@@ -123,8 +176,13 @@ try {
         Start-App 'spring-compile' 0 (Join-Path $projectRoot 'back') '& .\gradlew.bat --no-daemon classes --continuous --quiet'
     }
     Start-App 'spring' 8080 (Join-Path $projectRoot 'back') "`$env:SPRING_DATASOURCE_URL = '$dbUrl'; & .\gradlew.bat --no-daemon bootRun"
+<<<<<<< HEAD
     Start-App 'ml' 8002 $projectRoot '& .\ml\serve-candidates.ps1'
     Start-App 'react' 5173 (Join-Path $projectRoot 'front') '& npm.cmd run dev -- --host 127.0.0.1 --port 5173 --strictPort'
+=======
+    Start-App 'ml' 8001 $projectRoot '& .\ml\serve.ps1'
+    Start-App 'react' 5173 (Join-Path $projectRoot 'front') '& npm.cmd run dev -- --host 0.0.0.0 --port 5173 --strictPort'
+>>>>>>> fe943476966c5a3cb271518b545315571ab574d3
 
     Write-Host "Logs: $logDirectory"
     Write-Host 'Waiting for servers. First Spring startup may take a few minutes. Ctrl+C to stop.'

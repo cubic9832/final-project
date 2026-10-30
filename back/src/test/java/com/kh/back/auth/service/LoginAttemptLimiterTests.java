@@ -29,6 +29,14 @@ class LoginAttemptLimiterTests {
         assertThat(limiter.lockedMinutesLeft("a@example.com")).isZero();
     }
 
+    // 7단계: 관리자 운영 현황 "로그인이 잠긴 회원" 수
+    @Test
+    void 잠긴_이메일_수를_센다() {
+        fail("a@example.com", 5);
+        fail("b@example.com", 3); // 아직 잠기지 않음
+        assertThat(limiter.lockedCount()).isEqualTo(1);
+    }
+
     @Test
     void 다섯번이면_10분_잠금() {
         fail("a@example.com", 5);

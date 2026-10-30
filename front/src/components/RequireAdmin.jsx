@@ -1,35 +1,27 @@
-import { useEffect } from 'react';
-import { Navigate, Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { isAdminRole } from '../features/auth/roles';
 import useAuthStore from '../stores/useAuthStore';
-import { showToast } from '../stores/useToastStore';
+import Layout from './Layout';
+import NotFound from '../pages/not-found/NotFound';
 
-// 7단계: 관리자만 들어갈 수 있는 화면(/admin)을 감싸는 레이아웃 라우트 (App.jsx 에서 사용).
-// RequireAuth 와 같은 방식에 "role 이 관리자(ADMIN) · 총관리자(SUPER_ADMIN)인지" 를 더 본다.
-// - 로그인 전: 관리자 로그인 화면(/admin/login)으로 (로그인 후 돌아올 수 있게 from 을 넘긴다)
-// - 일반 회원: 메인으로 보내고 알림
-// 화면에서 막는 것은 길 안내일 뿐이고, 실제 데이터는 서버가 /api/v1/admin/** 를 관리자 · 총관리자에게만 준다 (SecurityConfig)
+// 7단계: 관리자만 들어갈 수 있는 화면(/console)을 감싸는 레이아웃 라우트 (App.jsx 에서 사용).
+// 보완 11: 관리자가 아니면(비회원 · 일반 회원) 안내 · 이동 없이 "없는 주소"와 똑같은 404 화면을 보여 준다
+//   → 관리자 화면이 있다는 것 자체를 알 수 없게 (관리자 로그인 화면은 없앴고, 관리자도 일반 로그인 후 들어온다)
+// 화면에서 막는 것은 길 안내일 뿐이고, 실제 데이터는 서버가 /api/v1/admin/** 를 관리자 · 총관리자에게만 준다
+// (SecurityConfig — 일반 회원에게도 404)
 export default function RequireAdmin() {
   const accessToken = useAuthStore((state) => state.accessToken);
   const initialized = useAuthStore((state) => state.initialized);
   const role = useAuthStore((state) => state.member?.role);
-  const location = useLocation();
-  const blocked = initialized && Boolean(accessToken) && !isAdminRole(role);
 
-  // 일반 회원이 주소로 들어오면 메인으로 보내면서 이유를 알려 준다
-  useEffect(() => {
-    if (blocked) showToast('관리자만 들어갈 수 있는 화면입니다.');
-  }, [blocked]);
-
-  // 새로고침 직후에는 refresh token 으로 로그인을 복원하는 중이다 → 결과가 나올 때까지 기다린다
+  // 새로고침 직후에는 refresh token 으로 로그인을 복원하는 중이다 → 결과가 나올 때까지 아무것도 그리지 않는다
+  // (안내 문구를 띄우면 이 주소가 특별하다는 걸 알 수 있다)
   if (!initialized) {
-    return <p role="status">로그인 상태를 확인하는 중입니다…</p>;
+    return null;
   }
-  if (!accessToken) {
-    return <Navigate to="/admin/login" replace state={{ from: location.pathname + location.search }} />;
-  }
-  if (blocked) {
-    return <Navigate to="/" replace />;
+  if (!accessToken || !isAdminRole(role)) {
+    // App.jsx 의 없는 주소(*)와 같은 화면 — 헤더까지 똑같이
+    return <Layout><NotFound /></Layout>;
   }
   return <Outlet />;
 }

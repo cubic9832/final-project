@@ -1,4 +1,8 @@
-.admin-page { padding: var(--space-12) 0 var(--space-48); color: var(--color-text); }
+/* 보완 11: 공통 Layout 밖(/console)이라 화면 폭 · 여백을 직접 잡는다 */
+.admin-page { max-width: var(--layout-max-width); margin: 0 auto; padding: var(--space-32) var(--layout-gutter) var(--space-48); color: var(--color-text); }
+.admin-account-bar { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-8); }
+.admin-account-name { display: inline-flex; align-items: baseline; gap: var(--space-8); margin-right: var(--space-8); color: var(--color-text-sub); font-size: var(--font-caption); }
+.admin-account-name strong { color: var(--color-primary); font-size: var(--font-body); }
 .admin-page h1,.admin-page h2,.admin-page h3 { color: var(--color-primary); letter-spacing: -.5px; }
 .admin-workspace-heading { display: flex; justify-content: space-between; align-items: center; gap: var(--space-16); flex-wrap: wrap; margin-bottom: var(--space-24); }
 .admin-eyebrow { color: var(--color-blue-strong); font-size: var(--font-caption); font-weight: 700; letter-spacing: 1px; }
@@ -8,7 +12,7 @@
 .admin-example-badge { color: var(--color-primary); background: var(--color-warning-tint); }
 .admin-count-badge { color: var(--color-primary); background: var(--color-blue-tint); }
 .admin-workspace { display: grid; grid-template-columns: 200px minmax(0,1fr); align-items: start; gap: var(--space-24); }
-.admin-sidebar { position: sticky; top: 96px; overflow: hidden; border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); }
+.admin-sidebar { position: sticky; top: var(--space-24); overflow: hidden; border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface); }
 .admin-sidebar-heading { display: flex; align-items: center; gap: var(--space-12); padding: var(--space-24) var(--space-16); color: var(--color-primary); border-bottom: 1px solid var(--color-border); }
 .admin-sidebar-heading strong,.admin-sidebar-heading span { display: block; }
 .admin-sidebar-heading span { margin-top: var(--space-4); color: var(--color-muted); font-size: var(--font-caption); }
@@ -72,6 +76,9 @@
 .admin-filters { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-16); margin-bottom: var(--space-24); }
 .admin-search-field { display: flex; align-items: center; gap: var(--space-8); flex: 1 1 200px; max-width: 360px; min-width: 0; padding: 0 var(--space-12); border: 1px solid var(--color-border-input); border-radius: var(--radius-sm); color: var(--color-muted); }
 .admin-search-field input { min-width: 0; width: 100%; min-height: 44px; border: 0; background: transparent; color: var(--color-text); }
+/* 보완 11: 돋보기 검색란은 안쪽 입력칸 대신 바깥 테두리에 포커스 (다른 입력칸 · 추천 목록 검색과 같은 모양) */
+.admin-page .admin-search-field input:focus-visible { outline: 0; }
+.admin-search-field:focus-within { border-color: var(--color-blue); outline: 2px solid var(--color-blue); outline-offset: 2px; }
 .admin-filter-field { display: flex; align-items: center; gap: var(--space-8); color: var(--color-text-sub); font-size: var(--font-caption); }
 .admin-filter-field select { min-height: 44px; padding: 0 var(--space-12); border: 1px solid var(--color-border-input); border-radius: var(--radius-sm); color: var(--color-text-sub); background: var(--color-surface); }
 .admin-table-wrap { overflow-x: auto; }

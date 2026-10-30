@@ -18,6 +18,8 @@ repositories {
 }
 
 dependencies {
+	implementation platform('org.springframework.ai:spring-ai-bom:2.0.2')
+	implementation 'org.springframework.ai:spring-ai-starter-model-openai'
 	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:4.0.1'
 	implementation 'org.springframework.boot:spring-boot-starter-flyway'
@@ -32,6 +34,8 @@ dependencies {
 	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.13.0'
 	// 보완 7: 이메일 인증 코드 발송 (SMTP)
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	// 검색: docker-compose 의 Elasticsearch(nori) 연결
+	implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.mysql:mysql-connector-j'

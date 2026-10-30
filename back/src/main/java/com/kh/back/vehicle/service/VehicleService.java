@@ -5,4 +5,6 @@ import java.util.List;
 
 public interface VehicleService {
     List<VehicleResponse> getVehicles();
+
+    List<VehicleResponse> searchVehicles(String keyword);
 }

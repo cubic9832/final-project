@@ -149,7 +149,7 @@
 }
 
 .signup-birth-selects select:focus-visible {
-  outline: 2px solid #09988f;
+  outline: 2px solid var(--color-blue); /* 보완 11: 다른 화면과 같은 파란 포커스 */
   outline-offset: 1px;
 }
 
@@ -176,7 +176,7 @@
 .signup-field input:focus-visible,
 .signup-page button:focus-visible,
 .signup-page a:focus-visible {
-  outline: 2px solid #09988f;
+  outline: 2px solid var(--color-blue); /* 보완 11: 다른 화면과 같은 파란 포커스 */
   outline-offset: 3px;
 }
 
@@ -216,7 +216,7 @@
 }
 
 .signup-gender input:focus-visible + span {
-  outline: 2px solid #09988f;
+  outline: 2px solid var(--color-blue); /* 보완 11: 다른 화면과 같은 파란 포커스 */
   outline-offset: 3px;
 }
 

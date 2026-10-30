@@ -1,0 +1,50 @@
+{
+  "checked_on": "2026-10-27",
+  "documents": [
+    {
+      "model": "무쏘",
+      "kind": "price",
+      "url": "https://www.kg-mobility.com/attached/contents/display/file/200000200010009/20260930235631587_DTUhhe.pdf",
+      "sha256": "280734b10eb061701da10f4a7d50822190162a48969b942ebf9ef008f48d9625",
+      "verified_pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "model": "무쏘",
+      "kind": "catalog",
+      "url": "https://www.kg-mobility.com/attached/contents/display/file/200000200010009/20260930235631342_MBxm14.pdf",
+      "sha256": "29b564821df8f5424b53e037bfa36c4e23641f3e617b352dab9094599125c467",
+      "verified_pages": [
+        23
+      ]
+    },
+    {
+      "model": "무쏘 EV",
+      "kind": "price",
+      "url": "https://www.kg-mobility.com/attached/contents/display/file/200000200010012/20261001172517269_B7kbfj.pdf",
+      "sha256": "a8fde5dcd86b57af53277e7b80533c724146383093d13b96dc8ebfb33b3a26bb",
+      "verified_pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "model": "무쏘 EV",
+      "kind": "catalog",
+      "url": "https://www.kg-mobility.com/attached/contents/display/file/200000200010012/20261001172517034_E4XQVb.pdf",
+      "sha256": "479d7a7001f1eec10e2d1383066c3319b2a5209fb52292a79459546d8c3a9251",
+      "verified_pages": [
+        17
+      ]
+    }
+  ],
+  "public_price_api": "https://web.kg-mobility.com/app/estimate/getCarModelTrimList.do",
+  "notes": [
+    "KGM API carSuplAmt 소비자가와 10월 가격표 대조. getCarSpec carSaleAmt는 일부 항목과 금액이 달라 가격 근거로 쓰지 않음.",
+    "토요타와 폭스바겐 원문 URL은 additions.json에 사양별로 기록.",
+    "정원 숫자가 없는 자료는 시트 사진만으로 정원을 추정하지 않음.",
+    "연식은 공식 가격표에 명시된 무쏘 EV 2027만 입력; 나머지 연식은 미확인 공란."
+  ]
+}

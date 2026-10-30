@@ -10,7 +10,7 @@ import { buildRecommendationView, conditionSummary, selectComparisonViews, evalu
 import RecommendationGrid from './RecommendationGrid.jsx';
 import './FinancialRecommendationsPage.css';
 
-const exclusionLabels = { 'purchase-price-ceiling': '구매가격 상한 초과', 'insufficient-cash-for-outright-purchase': '일시불 자금 부족', 'insufficient-monthly-buffer': '월 여유자금 부족' };
+const exclusionLabels = { 'below-preferred-price-band': '가성비별 추천 가격대 하한 미달', 'purchase-price-ceiling': '구매가격 상한 초과', 'insufficient-cash-for-outright-purchase': '일시불 자금 부족', 'insufficient-monthly-buffer': '월 여유자금 부족' };
 
 export default function FinancialRecommendationsPage() {
   const { state } = useLocation();
@@ -62,9 +62,10 @@ export default function FinancialRecommendationsPage() {
       {!result.evaluationSummary?.complete && <p>전체 후보의 선호 충족 집계가 없어, 현재 표시된 차량의 평가만 설명합니다.</p>}
       <p className="candidate-cost-definition">입력한 예금으로 차량 가격을 지불하는 기준이에요. 월 유지비에 할부금은 포함되지 않으며, 구매 가격에 취득·등록비와 보조금은 반영하지 않았어요.</p>
     </section>
+    {result.budgetPolicy?.policy === 'cash-importance-band-v1' && <p className="candidate-condition-summary">가성비 중요도에 따른 추천 가격대: {candidateMoney(result.budgetPolicy.lower)}~{candidateMoney(result.budgetPolicy.upper)} · 구매 가능 자금의 {Math.round(result.budgetPolicy.lowerRatio * 100)}~100%. 이 범위에서도 월 유지비와 최소 인원을 확인해요.</p>}
     <section id="recommended-vehicles" aria-label="추천 차량 목록">
       <div className="financial-recommendations-list-heading"><h2>상위 추천 차량</h2><span>추천 후보 총 {candidates.length}대 · 최대 9대</span></div>
-      {candidates.length ? <RecommendationGrid candidates={candidates.slice(0, 3)} preferences={diagnosis.vehicle} views={views} comparisonIds={comparisonIds} onToggleComparison={toggleComparison} /> : <div className="financial-recommendations-empty"><h2>추천 가능한 차량이 없습니다.</h2><p>구매 예산·월 유지비와 최소 탑승 인원을 충족하는 차량이 없습니다. 조건을 조정하거나 아래 사양 확인 필요 후보를 확인해 주세요.</p></div>}
+      {candidates.length ? <RecommendationGrid candidates={candidates.slice(0, 3)} preferences={diagnosis.vehicle} views={views} comparisonIds={comparisonIds} onToggleComparison={toggleComparison} /> : <div className="financial-recommendations-empty"><h2>추천 가능한 차량이 없습니다.</h2><p>가성비별 추천 가격대·월 유지비·최소 탑승 인원을 모두 충족하는 차량이 없습니다. 가성비 중요도나 구매 자금을 조정해 주세요. 가격대 하한을 임의로 낮춰 추천하지 않습니다.</p></div>}
     </section>
     {candidates.length > 3 && <section aria-labelledby="additional-candidates-title">
       <div className="financial-recommendations-list-heading"><h2 id="additional-candidates-title">다른 추천 후보</h2><span>4위부터 최대 9위까지</span></div>
@@ -87,7 +88,7 @@ export default function FinancialRecommendationsPage() {
     </section>}
     <details className="financial-recommendations-note"><summary>추천 기준과 비용 계산 안내</summary><div>
       <p>총 {result.catalogCount}개 사양 중 {result.eligibleCount}개가 재무 조건을 충족했습니다.</p>
-      {result.budgetPolicy && <p>구매 가격 상한은 {candidateMoney(result.budgetPolicy.financialUpper)}입니다. 예산 상단의 차량에 별도 가점을 주지 않습니다. 구매 자금에 대출·할부는 포함하지 않습니다.</p>}
+      {result.budgetPolicy && <p>추천 가격대는 {candidateMoney(result.budgetPolicy.lower)}~{candidateMoney(result.budgetPolicy.upper)}입니다. 가성비 중요도에 따라 하한을 적용하고, 범위 안에서는 선호 조건과 모델 점수로 정렬합니다. 구매 자금에 대출·할부는 포함하지 않습니다.</p>}
       <p>재무 조건을 충족한 서로 다른 모델을 최대 9개 제시합니다. 상위 3대 아래에서 나머지 후보를 펼쳐 볼 수 있습니다. 최소 탑승 인원이 부족한 차량은 제외하고, 정원 미확인·충돌 차량은 사양 확인 필요 후보로 구분합니다. 크기 비교는 전장 기준이며 실제 정원과 판매 사양은 확인이 필요합니다.</p>
       {assumptions && <p>월 보험 {candidateMoney(assumptions.monthly_insurance)}, 정비 {candidateMoney(assumptions.monthly_maintenance)}, 세금 {candidateMoney(assumptions.monthly_tax)}에 주행거리 기반 에너지비를 더합니다. 실제 세금·보험 견적이 아닙니다.</p>}
       <p>차량 이미지는 예시이며 실제 연식·트림·색상과 다를 수 있습니다.</p>

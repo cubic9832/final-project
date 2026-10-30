@@ -59,7 +59,11 @@ export default function FinancialVehiclePage() {
                 {availableBodyTypeOptions.map(item => <label key={item.value}><input type="radio" name="preferredBodyType" value={item.value} checked={vehicle.preferredBodyType === item.value} onChange={() => setVehicle(previous => ({ ...previous, preferredBodyType: item.value }))} /><span>{item.label}</span></label>)}
               </div>
               <BodyTypePreview value={vehicle.preferredBodyType} label={bodyTypeLabel(vehicle.preferredBodyType)} />
+<<<<<<< HEAD
               <p className="vehicle-field-help">그 외 차체에는 쿠페·오픈카·해치백·왜건·미니밴·픽업·박스카가 포함돼요. 차체는 추천 순위에 반영되는 선호 조건이에요.</p>
+=======
+              <p className="vehicle-field-help">그 외 차체에는 해치백·왜건·미니밴·픽업·박스카가 포함돼요. 차체는 필수 제한이 아닌 선호 조건이에요.</p>
+>>>>>>> fe943476966c5a3cb271518b545315571ab574d3
             </fieldset>
             <fieldset className="vehicle-purpose vehicle-size-preference">
               <legend>선호 크기</legend>
@@ -88,7 +92,7 @@ export default function FinancialVehiclePage() {
 
             </fieldset>
 
-            <p className="vehicle-field-help">가성비를 높게 선택하면 구매비·유지비 절약을 더 중요하게 반영해요. 낮게 선택하면 비용 차이의 영향이 줄고 다른 선호가 상대적으로 더 반영됩니다. 비싼 차량에 별도 가점은 주지 않아요.</p>
+            <p className="vehicle-field-help">추천 가격대는 구매 가능 자금의 일정 비율부터 시작해요. 가성비 높음은 60%, 보통은 70%, 낮음은 80%가 하한이며 상한은 100%예요. 월 유지비와 최소 탑승 인원도 충족해야 해요.</p>
 
           </section>
           <FinancialBudgetSummary values={state.values} assets={state.assets} loans={state.loans} />

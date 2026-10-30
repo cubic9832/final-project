@@ -41,7 +41,7 @@ export default function ModelMetricChart({ metrics, previousLabel, currentLabel 
 
       {/* 화면 읽기 프로그램용 표 (차트 내용과 같음) */}
       <table className="metric-chart-table">
-        <caption>검증 지표 비교 (예시값)</caption>
+        <caption>검증 지표 비교</caption>
         <thead>
           <tr>
             <th scope="col">지표</th>

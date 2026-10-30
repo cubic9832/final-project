@@ -15,7 +15,11 @@ export const bodyPreferenceOptions = [
   { value: 'any', label: '상관없음' }, { value: 'SEDAN', label: '세단' },
   { value: 'SUV', label: 'SUV' }, { value: 'OTHER', label: '그 외 차체' },
 ];
+<<<<<<< HEAD
 export const normalizeBodyPreference = value => ['HATCHBACK', 'WAGON', 'MPV', 'BOX', 'PICKUP', 'COUPE', 'CONVERTIBLE', 'ROADSTER'].includes(value) ? 'OTHER' : (bodyPreferenceOptions.some(item => item.value === value) ? value : 'any');
+=======
+export const normalizeBodyPreference = value => ['HATCHBACK', 'WAGON', 'MPV', 'BOX', 'PICKUP'].includes(value) ? 'OTHER' : (bodyPreferenceOptions.some(item => item.value === value) ? value : 'any');
+>>>>>>> fe943476966c5a3cb271518b545315571ab574d3
 export const bodyTypeLabel = value => [...bodyTypeOptions, ...bodyPreferenceOptions].find(item => item.value === value)?.label ?? '형태 미확인';
 export const sizeOptions = [
   { value: 'any', label: '상관없음 · 크기 평가 제외' },

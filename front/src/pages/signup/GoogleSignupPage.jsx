@@ -71,7 +71,7 @@ export default function GoogleSignupPage() {
     if (birthError) nextErrors.birthDate = birthError;
     const genderError = validateGender(form.gender);
     if (genderError) nextErrors.gender = genderError;
-    const phoneError = validatePhone(form.phone);
+    const phoneError = validatePhone(form.phone, { required: true });
     if (phoneError) nextErrors.phone = phoneError;
     if (!agreed) nextErrors.terms = '필수 동의 항목에 체크해 주세요.';
     setErrors(nextErrors);
@@ -127,7 +127,7 @@ export default function GoogleSignupPage() {
         <form onSubmit={handleSubmit} noValidate>
           <div className="signup-fields">
             <div className="signup-field">
-              <label htmlFor="google-birth-date">생년월일</label>
+              <label htmlFor="google-birth-date">생년월일<span className="form-required" aria-hidden="true"> *</span></label>
               <div className="signup-input-wrap">
                 <BirthDateInput
                   id="google-birth-date"
@@ -142,7 +142,7 @@ export default function GoogleSignupPage() {
 
             <div className="signup-field">
               <span className="signup-field-label" id="google-gender-label">
-                성별
+                성별<span className="form-required" aria-hidden="true"> *</span>
               </span>
               <div className="signup-input-wrap">
                 <div
@@ -169,7 +169,7 @@ export default function GoogleSignupPage() {
 
             <div className="signup-field">
               <label htmlFor="google-phone">
-                전화번호 <span className="signup-optional">(선택)</span>
+                전화번호<span className="form-required" aria-hidden="true"> *</span>
               </label>
               <div className="signup-input-wrap">
                 <input
@@ -188,7 +188,7 @@ export default function GoogleSignupPage() {
             </div>
 
             <p className="signup-privacy-note">
-              생년월일 · 성별은 연령대별 차량 추천과 통계에 사용합니다. 전화번호는 선택이며, 입력하면 서비스 관련 연락에만 사용합니다.
+              생년월일 · 성별은 연령대별 차량 추천과 통계에 사용합니다. 전화번호는 서비스 관련 연락에만 사용합니다.
               <br />
               차량 추천 서비스라 운전면허를 딸 수 있는 <strong>만 {MIN_SIGNUP_AGE}세 이상</strong>부터 가입할 수
               있습니다.

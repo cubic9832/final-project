@@ -1,0 +1,71 @@
+{
+  "catalogCount": 297,
+  "cases": [
+    {
+      "body": "HATCHBACK",
+      "assets": 55000000,
+      "minimum_seats": 0,
+      "status": "recommended",
+      "added_regular": [
+        "Golf 2.0 TDI Premium 2WD 17인치",
+        "Golf GTI 2.0 TSI 2WD 19인치"
+      ],
+      "added_conditional": []
+    },
+    {
+      "body": "PICKUP",
+      "assets": 55000000,
+      "minimum_seats": 0,
+      "status": "recommended",
+      "added_regular": [
+        "무쏘 EV MX 2WD 17인치",
+        "무쏘 M9 가솔린 2WD 스탠다드 데크 20인치",
+        "Golf 2.0 TDI Premium 2WD 17인치"
+      ],
+      "added_conditional": []
+    },
+    {
+      "body": "PICKUP",
+      "assets": 55000000,
+      "minimum_seats": 5,
+      "status": "recommended",
+      "added_regular": [],
+      "added_conditional": [
+        "무쏘 EV MX 2WD 17인치",
+        "무쏘 M9 가솔린 2WD 스탠다드 데크 20인치",
+        "Golf 2.0 TDI Premium 2WD 17인치",
+        "Golf GTI 2.0 TSI 2WD 19인치"
+      ]
+    },
+    {
+      "body": "MPV",
+      "assets": 100000000,
+      "minimum_seats": 7,
+      "status": "recommended",
+      "added_regular": [
+        "시에나 HEV 2WD 20인치",
+        "알파드 HEV PREMIUM AWD"
+      ],
+      "added_conditional": []
+    }
+  ],
+  "existing_rows_unchanged": 282,
+  "added_rows_validated": 15,
+  "backend_classes": "passed",
+  "flyway_version": "18",
+  "flyway_success": true,
+  "ml_regression": {
+    "run": 121,
+    "passed": 119,
+    "failures": [
+      {
+        "test": "test_population_partition.PopulationPartitionTests.test_all_cases_partition_once_without_changing_original_splits_or_cells",
+        "reason": "Unverified body type: Example brand 0"
+      },
+      {
+        "test": "test_seating_registry.SeatingRegistrationTests.test_all_registered_candidates_use_seating_data_instead_of_generic_assumption",
+        "reason": "Historical registry omits 16 supplemental candidate IDs"
+      }
+    ]
+  }
+}

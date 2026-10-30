@@ -37,7 +37,7 @@ class AdminRoleChangeTests {
 
         service.changeRole(SUPER_ADMIN_ID, 7L, "ADMIN");
 
-        verify(adminMemberMapper).updateRole(7L, "ADMIN");
+        verify(adminMemberMapper).grantAdmin(7L, "ADMIN", SUPER_ADMIN_ID); // 보완 11: admin_accounts 에 넣고 지정한 사람도 남긴다
         verify(refreshTokenMapper).deleteByUserId(7L); // 로그인된 기기 모두 로그아웃 → 다시 로그인하면 새 권한
         verify(adminAuditLogMapper).insert(SUPER_ADMIN_ID, "ROLE_CHANGE", "MEMBER", 7L, "USER → ADMIN"); // 운영 로그
     }
@@ -46,7 +46,7 @@ class AdminRoleChangeTests {
     void 자기_자신의_권한은_못_바꾼다() {
         assertThatThrownBy(() -> service.changeRole(SUPER_ADMIN_ID, SUPER_ADMIN_ID, "USER"))
                 .isInstanceOfSatisfying(ApiException.class, e -> assertThat(e.getCode()).isEqualTo("SELF_ROLE_CHANGE"));
-        verify(adminMemberMapper, never()).updateRole(anyLong(), any());
+        verify(adminMemberMapper, never()).grantAdmin(anyLong(), any(), any());
     }
 
     @Test
@@ -55,13 +55,13 @@ class AdminRoleChangeTests {
 
         assertThatThrownBy(() -> service.changeRole(SUPER_ADMIN_ID, 2L, "USER"))
                 .isInstanceOfSatisfying(ApiException.class, e -> assertThat(e.getCode()).isEqualTo("SUPER_ADMIN_PROTECTED"));
-        verify(adminMemberMapper, never()).updateRole(anyLong(), any());
+        verify(adminMemberMapper, never()).grantAdmin(anyLong(), any(), any());
     }
 
     @Test
     void 없는_회원이면_404() {
         assertThatThrownBy(() -> service.changeRole(SUPER_ADMIN_ID, 99L, "ADMIN"))
-                .isInstanceOfSatisfying(ApiException.class, e -> assertThat(e.getCode()).isEqualTo("MEMBER_NOT_FOUND"));
+                .isInstanceOfSatisfying(ApiException.class, e -> assertThat(e.getCode()).isEqualTo("TARGET_MEMBER_NOT_FOUND"));
     }
 
     @Test
@@ -70,9 +70,19 @@ class AdminRoleChangeTests {
 
         service.changeRole(SUPER_ADMIN_ID, 7L, "ADMIN");
 
-        verify(adminMemberMapper, never()).updateRole(anyLong(), any());
+        verify(adminMemberMapper, never()).grantAdmin(anyLong(), any(), any());
         verify(refreshTokenMapper, never()).deleteByUserId(anyLong());
         verify(adminAuditLogMapper, never()).insert(any(), any(), any(), any(), any());
+    }
+
+    @Test
+    void 관리자를_해제하면_표에서_지운다() {
+        when(adminMemberMapper.findRole(7L)).thenReturn("ADMIN");
+
+        service.changeRole(SUPER_ADMIN_ID, 7L, "USER");
+
+        verify(adminMemberMapper).revokeAdmin(7L);
+        verify(adminAuditLogMapper).insert(SUPER_ADMIN_ID, "ROLE_CHANGE", "MEMBER", 7L, "ADMIN → USER");
     }
 
     @Test
@@ -88,7 +98,7 @@ class AdminRoleChangeTests {
     @Test
     void 없는_회원의_잠금은_풀_수_없다() {
         assertThatThrownBy(() -> service.unlockLogin(SUPER_ADMIN_ID, 99L))
-                .isInstanceOfSatisfying(ApiException.class, e -> assertThat(e.getCode()).isEqualTo("MEMBER_NOT_FOUND"));
+                .isInstanceOfSatisfying(ApiException.class, e -> assertThat(e.getCode()).isEqualTo("TARGET_MEMBER_NOT_FOUND"));
         verify(loginAttemptLimiter, never()).reset(any());
     }
 }

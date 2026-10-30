@@ -111,3 +111,11 @@
 .preset-comparison-note p + p { margin-top: var(--space-8); }
 .preset-comparison-note a { display: inline-flex; align-items: center; min-height: var(--layout-control-height); color: var(--color-blue-strong); font-weight: 700; }
 .vehicle-page > .vehicle-actions { margin-bottom: var(--space-24); }
+.vehicle-keyword { flex: 1 1 280px; max-width: 360px; gap: var(--space-8); border: 1px solid var(--color-border-input); border-radius: var(--radius-sm); padding: 0 var(--space-12); background: var(--color-surface); color: var(--color-muted); }
+.vehicle-keyword:focus-within { border-color: var(--color-blue); outline: 2px solid var(--color-blue); outline-offset: 2px; }
+.vehicle-keyword input { flex: 1; min-width: 0; height: var(--layout-control-height); border: 0; background: transparent; color: var(--color-text); }
+.vehicle-keyword input:focus-visible { outline: none; }
+.vehicle-search-status { margin: calc(var(--space-8) * -2) 0 var(--space-16); font-size: var(--font-caption); color: var(--color-muted); }
+.vehicle-search-status:empty { display: none; }
+@media(max-width: 480px) { .vehicle-keyword { max-width: none; flex-basis: 100%; } }
+.vehicle-search-status.vehicle-error { color: var(--color-danger); }

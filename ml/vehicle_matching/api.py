@@ -49,7 +49,11 @@ class ProfileRequest(BaseModel):
     purchase_price_ceiling: float = Field(default=0, ge=0, le=1e12)
     minimum_seats: int = Field(default=0, ge=0, le=9, strict=True)
     preferred_size: Literal['any', 'small', 'medium', 'large'] = 'any'
+<<<<<<< HEAD
     preferred_body_type: Literal['any', 'SEDAN', 'SUV', 'HATCHBACK', 'WAGON', 'MPV', 'BOX', 'PICKUP', 'COUPE', 'CONVERTIBLE', 'ROADSTER', 'OTHER'] = 'any'
+=======
+    preferred_body_type: Literal['any', 'SEDAN', 'SUV', 'HATCHBACK', 'WAGON', 'MPV', 'BOX', 'PICKUP', 'OTHER'] = 'any'
+>>>>>>> fe943476966c5a3cb271518b545315571ab574d3
     body_importance: int = Field(default=3, ge=1, le=5, strict=True)
     financing_mode: Literal['fixed', 'automatic', 'recommendation'] = Field(default='recommendation', exclude=True, deprecated=True)
 

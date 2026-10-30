@@ -1,0 +1,5 @@
+.purchase-plan-insight { padding:var(--space-24); border:1px solid var(--color-border); border-radius:var(--radius-lg); background:var(--color-blue-tint); }
+.purchase-plan-insight>svg { color:var(--color-blue-strong); margin-bottom:var(--space-12); }
+.purchase-plan-insight h2 { font-size:var(--font-card-title); }
+.purchase-plan-insight p { margin-top:var(--space-12); color:var(--color-text-sub); }
+.purchase-plan-insight strong { color:var(--color-primary); }
