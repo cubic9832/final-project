@@ -14,6 +14,11 @@ export const closeMyConsultation = async () => {
   await client.post('/chat/me/close');
 };
 
+// 끝난 상담의 만족도 { rating, comment, reported, reportReason } (상담 1번에 한 번)
+export const submitFeedback = async (feedback) => {
+  await client.post('/chat/me/feedback', feedback);
+};
+
 // ── 회원 · 관리자 공통 ──
 // 지난 메시지 (오래된 → 최근). beforeId 를 주면 그보다 오래된 30개
 export const getMessages = async (roomId, beforeId) =>
@@ -48,6 +53,12 @@ export const restrictRoom = async (roomId, days, reason) => {
 export const warnRoom = async (roomId, reason) => {
   await client.post(`/admin/chat/rooms/${roomId}/warn`, { reason });
 };
+
+// 만족도 · 신고 (총관리자만): 상담원별 평균 → [{ adminId, nickName, count, averageRating, reportCount }]
+export const getFeedbackSummary = async () => (await client.get('/admin/chat/feedback/summary')).data.data;
+
+// 이 회원이 남긴 만족도 · 신고 → [{ rating, comment, reported, reportReason, adminNickName, createdAt }]
+export const getRoomFeedback = async (roomId) => (await client.get(`/admin/chat/rooms/${roomId}/feedback`)).data.data;
 
 // 자주 쓰는 문구 (내 것만) → [{ id, content }]. 등록 · 삭제는 바뀐 목록을 돌려준다
 export const getQuickReplies = async () => (await client.get('/admin/chat/quick-replies')).data.data;

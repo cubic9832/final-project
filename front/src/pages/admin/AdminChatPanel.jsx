@@ -1,8 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ChatThread from '../../features/chat/components/ChatThread';
+import ChoiceWithOther from '../../features/chat/components/ChoiceWithOther';
+import { choiceText, OTHER } from '../../features/chat/choice';
 import {
-  addQuickReply, assignRoom, chatErrorMessage, closeRoom, deleteQuickReply, getAdminRooms, getChatAdmins, getQuickReplies,
+  addQuickReply, assignRoom, chatErrorMessage, closeRoom, deleteQuickReply, getAdminRooms, getChatAdmins, getFeedbackSummary,
+  getQuickReplies, getRoomFeedback,
   restrictionLabel, restrictRoom, transferRoom, unrestrictRoom, warnRoom,
 } from '../../features/chat/chatApi';
 import { createStompClient } from '../../features/chat/stompClient';
@@ -79,6 +82,8 @@ export default function AdminChatPanel() {
 
   return (
     <div className="admin-chat">
+      {/* 상담원별 만족도 · 신고 — 총관리자만 (신고당한 상담원 본인이 보지 않게) */}
+      {isSuper && <FeedbackSummary version={version} />}
       <section className="admin-card admin-chat-list" aria-label="상담 목록">
         <div className="admin-chat-filters" role="tablist">
           {FILTERS.map(({ value, label }) => (
@@ -96,6 +101,7 @@ export default function AdminChatPanel() {
                 <span className="admin-chat-row">
                   <strong>{room.userNickName}</strong>
                   <span className="admin-chat-badges">
+                    {room.reportCount > 0 && <span className="admin-chat-badge is-restricted">신고 {room.reportCount}</span>}
                     {room.warningCount > 0 && <span className="admin-chat-badge is-warned">경고 {room.warningCount}</span>}
                     {room.restricted && <span className="admin-chat-badge is-restricted">제한</span>}
                     <span className={`admin-chat-badge is-${room.status.toLowerCase()}`}>{STATUS_LABELS[room.status]}</span>
@@ -238,7 +244,66 @@ function RoomDetail({ room, meId, isSuper, onChanged, myReplies, onRepliesChange
           {openForm === 'replies' ? '문구 관리 닫기' : '자주 쓰는 문구 관리'}
         </button>
       )}
+      {isSuper && <RoomFeedback roomId={room.id} reportCount={room.reportCount} />}
     </>
+  );
+}
+
+const stars = (rating) => '★'.repeat(rating) + '☆'.repeat(5 - rating);
+const shortDate = (value) => (value ? value.slice(0, 10).replaceAll('-', '.') : '');
+
+// 상담원별 만족도 표 (총관리자). 신고가 많은 상담원 → 평균이 낮은 상담원 순
+function FeedbackSummary({ version }) {
+  const [rows, setRows] = useState(null);
+  useEffect(() => {
+    getFeedbackSummary().then(setRows).catch(() => setRows([]));
+  }, [version]);
+
+  return (
+    <section className="admin-card admin-chat-summary" aria-label="상담원 만족도">
+      <h3>상담원 만족도 · 신고 <small>총관리자만 볼 수 있어요</small></h3>
+      {rows === null && <p className="admin-chat-note">불러오는 중…</p>}
+      {rows?.length === 0 && <p className="admin-chat-note">아직 받은 평가가 없습니다.</p>}
+      {rows?.length > 0 && (
+        <table>
+          <thead><tr><th>상담원</th><th>평가 수</th><th>평균 별점</th><th>신고</th></tr></thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.adminId ?? 'none'}>
+                <td>{row.nickName}</td>
+                <td>{row.count}</td>
+                <td>★ {row.averageRating}</td>
+                <td className={row.reportCount > 0 ? 'is-reported' : undefined}>{row.reportCount}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </section>
+  );
+}
+
+// 이 회원이 남긴 만족도 · 신고 (총관리자). 신고 수가 바뀌면 다시 읽는다
+function RoomFeedback({ roomId, reportCount }) {
+  const [list, setList] = useState([]);
+  useEffect(() => {
+    getRoomFeedback(roomId).then(setList).catch(() => setList([]));
+  }, [roomId, reportCount]);
+
+  if (list.length === 0) return null;
+  return (
+    <div className="admin-chat-feedback">
+      <strong>이 회원이 남긴 평가 (총관리자만)</strong>
+      <ul>
+        {list.map((item) => (
+          <li key={item.id}>
+            <span className="admin-chat-stars">{stars(item.rating)}</span>
+            {' '}{item.comment ?? '의견 없음'} · 상담원 {item.adminNickName ?? '(탈퇴)'} · {shortDate(item.createdAt)}
+            {item.reported && <span className="admin-chat-report">신고: {item.reportReason}</span>}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
@@ -320,31 +385,12 @@ function QuickReplyForm({ replies, onChange, onClose }) {
 }
 
 // 사유: 자주 있는 것을 고르고, 없으면 [기타] → 직접 쓰기 (제한 · 넘기기는 운영 로그에만, 경고는 회원에게도)
-const OTHER = '기타';
 const RESTRICT_REASONS = ['욕설 · 비속어', '부모 · 가족 비하', '성희롱 · 음란', '상담원 인격 모독 · 협박', '같은 말 반복 · 도배', '상담과 무관한 내용 반복', OTHER];
 const TRANSFER_REASONS = ['휴가', '퇴근 · 교대', '퇴사 · 업무 변경', '상담이 몰림', '다른 상담원이 더 잘 아는 내용', OTHER];
+const reasonText = choiceText;
 
-// 고른 사유 → 서버로 보낼 글 ("기타" 면 직접 쓴 글, 비었으면 null = 아직 못 고름)
-const reasonText = (choice, other) => (choice === OTHER ? other.trim() || null : choice || null);
-
-function ReasonField({ label, note = '운영 로그에만 남아요', options, choice, other, onChoice, onOther }) {
-  return (
-    <>
-      <label>
-        {label} ({note})
-        <select value={choice} onChange={(event) => onChoice(event.target.value)} required>
-          <option value="">선택하세요</option>
-          {options.map((option) => <option key={option} value={option}>{option}</option>)}
-        </select>
-      </label>
-      {choice === OTHER && (
-        <label>
-          기타 사유
-          <input value={other} onChange={(event) => onOther(event.target.value)} maxLength={100} required placeholder="사유를 직접 적어 주세요" />
-        </label>
-      )}
-    </>
-  );
+function ReasonField({ label, note = '운영 로그에만 남아요', ...props }) {
+  return <ChoiceWithOther label={`${label} (${note})`} otherLabel="기타 사유" maxLength={100} {...props} />;
 }
 
 // 상담 제한: 기간 + 사유. 진행 중이면 종료되고, 회원은 기간이 끝날 때까지 새 상담을 못 한다

@@ -93,6 +93,70 @@
   background: var(--color-background);
 }
 
+/* 끝난 상담의 만족도 · 신고 */
+.consult-feedback {
+  display: grid;
+  gap: var(--space-12);
+  padding: var(--space-16);
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+}
+
+.consult-feedback label {
+  display: grid;
+  gap: var(--space-4);
+  font-size: var(--font-body);
+  font-weight: 600;
+}
+
+.consult-feedback select,
+.consult-feedback input:not([type="checkbox"]) {
+  height: 40px;
+  padding: 0 var(--space-12);
+  font-size: var(--font-body);
+  border: 1px solid var(--color-border-input);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.consult-feedback .consult-report-check {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-weight: 400;
+  color: var(--color-text-sub);
+}
+
+.consult-feedback .consult-button {
+  justify-self: start;
+}
+
+.consult-stars {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.consult-stars button {
+  padding: 0 2px;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--color-border);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.consult-stars button.is-on {
+  color: #f5b301;
+}
+
+.consult-stars span {
+  margin-left: var(--space-8);
+  font-size: var(--font-body);
+  color: var(--color-text-sub);
+}
+
 .consult-button,
 .consult-outline {
   height: 40px;

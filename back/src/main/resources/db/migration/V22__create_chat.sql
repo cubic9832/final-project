@@ -17,6 +17,8 @@ CREATE TABLE chat_room (
     restricted_until DATETIME NULL,
     -- 상담원이 준 경고 횟수 (제한하기 전 단계, 회원 1명 기준으로 계속 쌓인다)
     warning_count INT NOT NULL DEFAULT 0,
+    -- 상담원이 맡았던 상담이 끝나고 회원이 아직 만족도를 남기지 않았으면 TRUE (남기거나 새로 상담하면 FALSE)
+    feedback_open BOOLEAN NOT NULL DEFAULT FALSE,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     CONSTRAINT uk_chat_room_user UNIQUE (user_id),
@@ -41,6 +43,24 @@ CREATE TABLE chat_message (
     CONSTRAINT fk_chat_message_sender FOREIGN KEY (sender_id) REFERENCES users (id) ON DELETE SET NULL,
     -- "이 방의 최근 메시지" 를 빠르게 (샘플과 같음)
     INDEX idx_chat_message_room (room_id, id)
+);
+
+-- 상담 만족도 + 상담원 신고 (상담 1번 끝날 때마다 1개, 총관리자만 본다)
+CREATE TABLE chat_feedback (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    room_id BIGINT NOT NULL,
+    -- 평가받은 상담원 (상담이 끝날 때의 담당자, 탈퇴하면 NULL)
+    admin_id BIGINT NULL,
+    rating TINYINT NOT NULL,
+    -- 의견: 선택지 또는 기타에 직접 쓴 글 (없으면 NULL)
+    comment VARCHAR(200) NULL,
+    reported BOOLEAN NOT NULL DEFAULT FALSE,
+    report_reason VARCHAR(200) NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT chk_chat_feedback_rating CHECK (rating BETWEEN 1 AND 5),
+    CONSTRAINT fk_chat_feedback_room FOREIGN KEY (room_id) REFERENCES chat_room (id) ON DELETE CASCADE,
+    CONSTRAINT fk_chat_feedback_admin FOREIGN KEY (admin_id) REFERENCES users (id) ON DELETE SET NULL,
+    INDEX idx_chat_feedback_admin (admin_id)
 );
 
 -- 상담원이 등록한 자주 쓰는 문구 (상담원마다 따로, 기본 문구는 화면에 들어 있다)

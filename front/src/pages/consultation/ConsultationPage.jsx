@@ -1,11 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ChatThread from '../../features/chat/components/ChatThread';
+import ChoiceWithOther from '../../features/chat/components/ChoiceWithOther';
+import { choiceText, OTHER } from '../../features/chat/choice';
 import {
-  chatErrorMessage, closeMyConsultation, getMyRoom, restrictionLabel, startConsultation,
+  chatErrorMessage, closeMyConsultation, getMyRoom, restrictionLabel, startConsultation, submitFeedback,
 } from '../../features/chat/chatApi';
 import useChatRoom from '../../features/chat/useChatRoom';
 import useAuthStore from '../../stores/useAuthStore';
+import { showToast } from '../../stores/useToastStore';
 import './ConsultationPage.css';
 
 const STATUS_LABELS = { WAITING: '상담원 연결 대기', ACTIVE: '상담 중', CLOSED: '상담 종료' };
@@ -100,6 +103,8 @@ export default function ConsultationPage() {
                 ? <button type="button" className="consult-button" onClick={handleStart} disabled={busy || room.restricted}>새로 상담하기</button>
                 : <button type="button" className="consult-outline" onClick={handleClose} disabled={busy}>상담 종료</button>}
             </div>
+            {/* 상담원이 맡았던 상담이 끝나면 한 번 — 남기면 서버가 닫고(feedbackOpen=false) 다시 읽는다 */}
+            {room.status === 'CLOSED' && room.feedbackOpen && <FeedbackForm onDone={loadRoom} />}
             <ChatThread
               messages={chat.messages}
               viewer="member"
@@ -116,5 +121,63 @@ export default function ConsultationPage() {
         {actionError && <p className="consult-error" role="alert">{actionError}</p>}
       </section>
     </div>
+  );
+}
+
+// 만족도 의견 · 신고 사유: 자주 있는 것을 고르고, 없으면 [기타] → 직접 쓰기
+const COMMENTS = ['친절하고 빨랐어요', '궁금한 점이 해결됐어요', '설명이 이해하기 쉬웠어요', '답변이 늦었어요', '궁금한 점이 해결되지 않았어요', '설명이 어려웠어요', OTHER];
+const REPORT_REASONS = ['불친절한 응대', '반말 · 욕설 등 부적절한 말', '성희롱', '잘못된 안내', '불필요한 개인정보 요구', OTHER];
+const STARS = [1, 2, 3, 4, 5];
+
+// 상담 만족도 + 상담원 신고 (신고는 총관리자만 본다)
+function FeedbackForm({ onDone }) {
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState({ choice: '', other: '' });
+  const [reported, setReported] = useState(false);
+  const [reason, setReason] = useState({ choice: '', other: '' });
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState('');
+  const reportReason = choiceText(reason.choice, reason.other);
+  const ready = rating > 0 && (!reported || reportReason);
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    if (!ready) return;
+    setSaving(true);
+    setError('');
+    try {
+      await submitFeedback({ rating, comment: choiceText(comment.choice, comment.other), reported, reportReason: reported ? reportReason : null });
+      showToast(reported ? '평가와 신고를 접수했습니다. 감사합니다.' : '평가해 주셔서 감사합니다.');
+      onDone();
+    } catch (err) {
+      setError(chatErrorMessage(err, '저장하지 못했습니다. 잠시 후 다시 시도해 주세요.'));
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  return (
+    <form className="consult-feedback" onSubmit={handleSubmit}>
+      <strong>상담은 어떠셨나요?</strong>
+      <div className="consult-stars" role="radiogroup" aria-label="별점">
+        {STARS.map((value) => (
+          <button key={value} type="button" role="radio" aria-checked={rating === value} aria-label={`${value}점`}
+            className={value <= rating ? 'is-on' : undefined} onClick={() => setRating(value)}>★</button>
+        ))}
+        {rating > 0 && <span>{rating}점</span>}
+      </div>
+      <ChoiceWithOther label="의견 (선택)" options={COMMENTS} required={false} choice={comment.choice} other={comment.other}
+        onChoice={(choice) => setComment((prev) => ({ ...prev, choice }))} onOther={(other) => setComment((prev) => ({ ...prev, other }))} />
+      <label className="consult-report-check">
+        <input type="checkbox" checked={reported} onChange={(event) => setReported(event.target.checked)} />
+        상담원의 응대를 신고합니다 (운영 관리자만 확인해요)
+      </label>
+      {reported && (
+        <ChoiceWithOther label="신고 사유" options={REPORT_REASONS} choice={reason.choice} other={reason.other}
+          onChoice={(choice) => setReason((prev) => ({ ...prev, choice }))} onOther={(other) => setReason((prev) => ({ ...prev, other }))} />
+      )}
+      {error && <p className="consult-error" role="alert">{error}</p>}
+      <button type="submit" className="consult-button" disabled={saving || !ready}>{reported ? '평가 · 신고 보내기' : '평가 보내기'}</button>
+    </form>
   );
 }

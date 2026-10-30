@@ -1,12 +1,15 @@
 package com.kh.back.chat.controller;
 
 import com.kh.back.chat.dto.ChatAdminOption;
+import com.kh.back.chat.dto.ChatFeedbackDto;
+import com.kh.back.chat.dto.ChatFeedbackSummary;
 import com.kh.back.chat.dto.ChatQuickReply;
 import com.kh.back.chat.dto.ChatQuickReplyRequest;
 import com.kh.back.chat.dto.ChatRestrictRequest;
 import com.kh.back.chat.dto.ChatRoomDto;
 import com.kh.back.chat.dto.ChatTransferRequest;
 import com.kh.back.chat.dto.ChatWarnRequest;
+import com.kh.back.chat.service.ChatFeedbackService;
 import com.kh.back.chat.service.ChatQuickReplyService;
 import com.kh.back.chat.service.ChatRoomService;
 import com.kh.back.common.dto.ApiResponse;
@@ -34,12 +37,25 @@ public class AdminChatApiController {
 
     private final ChatRoomService chatRoomService;
     private final ChatQuickReplyService chatQuickReplyService;
+    private final ChatFeedbackService chatFeedbackService;
 
     // GET /api/v1/admin/chat/rooms?status=WAITING — 상담 목록 (없으면 전체, 최근 메시지 순)
     // 호출: AdminChatPanel.jsx 화면이 열릴 때 · /topic/admin/chat 알림을 받을 때 → chatApi.getAdminRooms
     @GetMapping("/rooms")
-    public ApiResponse<List<ChatRoomDto>> rooms(@RequestParam(required = false) String status) {
-        return ApiResponse.ok(chatRoomService.getRooms(status));
+    public ApiResponse<List<ChatRoomDto>> rooms(@AuthenticationPrincipal Long userId, @RequestParam(required = false) String status) {
+        return ApiResponse.ok(chatRoomService.getRooms(userId, status));
+    }
+
+    // GET /api/v1/admin/chat/feedback/summary — 상담원별 만족도 평균 · 신고 수 (총관리자만)
+    @GetMapping("/feedback/summary")
+    public ApiResponse<List<ChatFeedbackSummary>> feedbackSummary(@AuthenticationPrincipal Long userId) {
+        return ApiResponse.ok(chatFeedbackService.getSummary(userId));
+    }
+
+    // GET /api/v1/admin/chat/rooms/{id}/feedback — 이 회원이 남긴 만족도 · 신고 (총관리자만)
+    @GetMapping("/rooms/{id}/feedback")
+    public ApiResponse<List<ChatFeedbackDto>> roomFeedback(@AuthenticationPrincipal Long userId, @PathVariable Long id) {
+        return ApiResponse.ok(chatFeedbackService.getRoomFeedback(userId, id));
     }
 
     // GET /api/v1/admin/chat/admins — 넘겨받을 수 있는 관리자 목록

@@ -121,6 +121,73 @@
   color: var(--color-danger);
 }
 
+/* 상담원별 만족도 표 (총관리자) — 목록 · 대화 위 한 줄 전체 */
+.admin-chat-summary {
+  grid-column: 1 / -1;
+}
+
+.admin-chat-summary h3 {
+  margin: 0 0 var(--space-12);
+  font-size: var(--font-card-title);
+}
+
+.admin-chat-summary h3 small {
+  margin-left: var(--space-8);
+  font-size: var(--font-caption);
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+.admin-chat-summary table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-body);
+}
+
+.admin-chat-summary th,
+.admin-chat-summary td {
+  padding: var(--space-8) var(--space-12);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.admin-chat-summary th {
+  font-size: var(--font-caption);
+  color: var(--color-muted);
+}
+
+.admin-chat-summary .is-reported {
+  font-weight: 700;
+  color: var(--color-danger);
+}
+
+/* 이 회원이 남긴 평가 (총관리자) */
+.admin-chat-feedback {
+  padding: var(--space-12) var(--space-16);
+  font-size: var(--font-body);
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+}
+
+.admin-chat-feedback ul {
+  margin: var(--space-8) 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-8);
+}
+
+.admin-chat-stars {
+  color: #f5b301;
+}
+
+.admin-chat-report {
+  display: block;
+  margin-top: 2px;
+  font-weight: 600;
+  color: var(--color-danger);
+}
+
 .admin-chat-form-note {
   margin: 0;
   font-size: var(--font-caption);

@@ -1,15 +1,19 @@
 package com.kh.back.chat.controller;
 
+import com.kh.back.chat.dto.ChatFeedbackRequest;
 import com.kh.back.chat.dto.ChatMessageDto;
 import com.kh.back.chat.dto.ChatRoomDto;
+import com.kh.back.chat.service.ChatFeedbackService;
 import com.kh.back.chat.service.ChatRoomService;
 import com.kh.back.common.dto.ApiResponse;
+import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ChatApiController {
 
     private final ChatRoomService chatRoomService;
+    private final ChatFeedbackService chatFeedbackService;
 
     // GET /api/v1/chat/me — 내 상담방 (없으면 data: null)
     // 호출: ConsultationPage.jsx 화면이 열릴 때 · SYSTEM 메시지(연결 · 종료)를 받을 때 → chatApi.getMyRoom
@@ -43,6 +48,13 @@ public class ChatApiController {
     @PostMapping("/me/close")
     public ApiResponse<Void> close(@AuthenticationPrincipal Long userId) {
         chatRoomService.closeByMember(userId);
+        return ApiResponse.ok(null);
+    }
+
+    // POST /api/v1/chat/me/feedback — 본문 { rating, comment, reported, reportReason } 끝난 상담의 만족도 (상담 1번에 한 번)
+    @PostMapping("/me/feedback")
+    public ApiResponse<Void> feedback(@AuthenticationPrincipal Long userId, @Valid @RequestBody ChatFeedbackRequest request) {
+        chatFeedbackService.submit(userId, request);
         return ApiResponse.ok(null);
     }
 

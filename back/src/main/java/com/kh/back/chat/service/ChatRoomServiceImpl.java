@@ -47,6 +47,7 @@ public class ChatRoomServiceImpl implements ChatRoomService {
         if (room != null) {
             room.setAssignedAdminId(null);
             room.setAssignedAdminNickName(null);
+            room.setReportCount(0); // 신고 수는 총관리자만
         }
         return room;
     }
@@ -143,11 +144,16 @@ public class ChatRoomServiceImpl implements ChatRoomService {
     // ───────────── 관리자 ─────────────
 
     @Override
-    public List<ChatRoomDto> getRooms(String status) {
+    public List<ChatRoomDto> getRooms(Long viewerId, String status) {
         if (status != null && !Set.of(ChatRoomDto.WAITING, ChatRoomDto.ACTIVE, ChatRoomDto.CLOSED).contains(status)) {
             status = null; // 모르는 값이면 전체
         }
-        return chatMapper.findRooms(status);
+        List<ChatRoomDto> rooms = chatMapper.findRooms(status);
+        // 신고 수는 총관리자만 — 신고당한 상담원이 보지 않게 일반 관리자에게는 0 으로 보낸다
+        if (!"SUPER_ADMIN".equals(currentRoleLookup.currentRole(viewerId))) {
+            rooms.forEach(room -> room.setReportCount(0));
+        }
+        return rooms;
     }
 
     @Override

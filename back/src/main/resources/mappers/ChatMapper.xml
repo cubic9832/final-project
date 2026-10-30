@@ -10,7 +10,9 @@
         r.assigned_admin_id, a.nick_name AS assigned_admin_nick_name,
         (SELECT LEFT(m.content, 60) FROM chat_message m WHERE m.room_id = r.id ORDER BY m.id DESC LIMIT 1) AS last_message,
         r.last_message_at, r.created_at,
-        r.restricted_until, COALESCE(r.restricted_until &gt; NOW(), FALSE) AS restricted, r.warning_count
+        r.restricted_until, COALESCE(r.restricted_until &gt; NOW(), FALSE) AS restricted, r.warning_count,
+        r.feedback_open,
+        (SELECT COUNT(*) FROM chat_feedback f WHERE f.room_id = r.id AND f.reported) AS report_count
     </sql>
     <sql id="roomFrom">
         FROM chat_room r
@@ -35,7 +37,7 @@
 
     <!-- 종료된 상담을 다시: 대기로, 담당자는 비운다. 상담 제한 중이면 0줄 -->
     <update id="reopen">
-        UPDATE chat_room SET status = 'WAITING', assigned_admin_id = NULL
+        UPDATE chat_room SET status = 'WAITING', assigned_admin_id = NULL, feedback_open = FALSE
         WHERE id = #{roomId} AND status = 'CLOSED'
           AND (restricted_until IS NULL OR restricted_until &lt;= NOW())
     </update>
@@ -72,10 +74,41 @@
         WHERE id = #{roomId} AND status = 'ACTIVE' AND assigned_admin_id &lt;=&gt; #{fromAdminId}
     </update>
 
+    <!-- 종료: 상담원이 맡았던 상담이면 만족도를 받을 수 있게 연다 (대기 중에 끝난 상담은 평가할 상대가 없다) -->
     <update id="close">
-        UPDATE chat_room SET status = 'CLOSED'
+        UPDATE chat_room SET status = 'CLOSED', feedback_open = (assigned_admin_id IS NOT NULL)
         WHERE id = #{roomId} AND status IN ('WAITING', 'ACTIVE')
     </update>
+
+    <!-- 만족도 받기를 닫는다 (열려 있을 때만 1줄 → 두 번 눌러도 한 번만 저장) -->
+    <update id="closeFeedback">
+        UPDATE chat_room SET feedback_open = FALSE WHERE id = #{roomId} AND feedback_open
+    </update>
+
+    <insert id="insertFeedback">
+        INSERT INTO chat_feedback (room_id, admin_id, rating, comment, reported, report_reason)
+        VALUES (#{roomId}, #{adminId}, #{rating}, #{comment}, #{reported}, #{reportReason})
+    </insert>
+
+    <!-- 이 회원이 남긴 만족도 · 신고 (최근 순) — 총관리자 상담 상세 -->
+    <select id="findFeedbackByRoom" resultType="com.kh.back.chat.dto.ChatFeedbackDto">
+        SELECT f.id, f.room_id, f.admin_id, a.nick_name AS admin_nick_name, f.rating, f.comment,
+               f.reported, f.report_reason, f.created_at
+        FROM chat_feedback f
+        LEFT JOIN users a ON a.id = f.admin_id
+        WHERE f.room_id = #{roomId}
+        ORDER BY f.id DESC
+    </select>
+
+    <!-- 상담원별 만족도 평균 · 신고 수 — 총관리자 상담 탭 위 표 -->
+    <select id="findFeedbackSummary" resultType="com.kh.back.chat.dto.ChatFeedbackSummary">
+        SELECT f.admin_id, COALESCE(a.nick_name, '(탈퇴한 상담원)') AS nick_name, COUNT(*) AS count,
+               ROUND(AVG(f.rating), 1) AS average_rating, CAST(SUM(f.reported) AS SIGNED) AS report_count
+        FROM chat_feedback f
+        LEFT JOIN users a ON a.id = f.admin_id
+        GROUP BY f.admin_id, a.nick_name
+        ORDER BY report_count DESC, average_rating
+    </select>
 
     <!-- 관리자 해제: 그 사람이 맡던 진행 중 상담을 대기로 되돌린다 -->
     <select id="findActiveRoomIdsByAdmin" resultType="long">

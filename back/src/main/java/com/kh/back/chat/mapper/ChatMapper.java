@@ -1,6 +1,8 @@
 package com.kh.back.chat.mapper;
 
 import com.kh.back.chat.dto.ChatAdminOption;
+import com.kh.back.chat.dto.ChatFeedbackDto;
+import com.kh.back.chat.dto.ChatFeedbackSummary;
 import com.kh.back.chat.dto.ChatMessageDto;
 import com.kh.back.chat.dto.ChatQuickReply;
 import com.kh.back.chat.dto.ChatRoomDto;
@@ -39,6 +41,15 @@ public interface ChatMapper {
     void unrestrict(@Param("roomId") Long roomId);
 
     void warn(@Param("roomId") Long roomId);
+
+    // 만족도 · 신고
+    int closeFeedback(@Param("roomId") Long roomId);
+
+    void insertFeedback(ChatFeedbackDto feedback);
+
+    List<ChatFeedbackDto> findFeedbackByRoom(@Param("roomId") Long roomId);
+
+    List<ChatFeedbackSummary> findFeedbackSummary();
 
     // 자주 쓰는 문구 (상담원마다)
     List<ChatQuickReply> findQuickReplies(@Param("adminId") Long adminId);
