@@ -9,7 +9,8 @@
         r.id, r.user_id, u.nick_name AS user_nick_name, r.status,
         r.assigned_admin_id, a.nick_name AS assigned_admin_nick_name,
         (SELECT LEFT(m.content, 60) FROM chat_message m WHERE m.room_id = r.id ORDER BY m.id DESC LIMIT 1) AS last_message,
-        r.last_message_at, r.created_at
+        r.last_message_at, r.created_at,
+        r.restricted_until, COALESCE(r.restricted_until &gt; NOW(), FALSE) AS restricted
     </sql>
     <sql id="roomFrom">
         FROM chat_room r
@@ -32,10 +33,20 @@
         INSERT INTO chat_room (user_id, status) VALUES (#{userId}, 'WAITING')
     </insert>
 
-    <!-- 종료된 상담을 다시: 대기로, 담당자는 비운다 -->
+    <!-- 종료된 상담을 다시: 대기로, 담당자는 비운다. 상담 제한 중이면 0줄 -->
     <update id="reopen">
         UPDATE chat_room SET status = 'WAITING', assigned_admin_id = NULL
         WHERE id = #{roomId} AND status = 'CLOSED'
+          AND (restricted_until IS NULL OR restricted_until &lt;= NOW())
+    </update>
+
+    <!-- 상담 제한: 지금부터 days 일 뒤까지 새 상담 불가 -->
+    <update id="restrict">
+        UPDATE chat_room SET restricted_until = NOW() + INTERVAL #{days} DAY WHERE id = #{roomId}
+    </update>
+
+    <update id="unrestrict">
+        UPDATE chat_room SET restricted_until = NULL WHERE id = #{roomId}
     </update>
 
     <!-- 맡기: 대기일 때만 → 먼저 누른 관리자만 1줄이 바뀐다 -->

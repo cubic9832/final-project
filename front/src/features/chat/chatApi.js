@@ -39,5 +39,18 @@ export const closeRoom = async (roomId) => {
   await client.post(`/admin/chat/rooms/${roomId}/close`);
 };
 
+// [상담 제한]: days 일 동안 새 상담 불가 (진행 중이면 종료). 이유는 운영 로그에만
+export const restrictRoom = async (roomId, days, reason) => {
+  await client.post(`/admin/chat/rooms/${roomId}/restrict`, { days, reason: reason || undefined });
+};
+
+export const unrestrictRoom = async (roomId) => {
+  await client.post(`/admin/chat/rooms/${roomId}/unrestrict`);
+};
+
+// 제한 끝나는 시각 "2026-11-02T15:00:00" → "11월 2일 15:00" (서버 안내 문구와 같은 모양)
+export const formatRestrictedUntil = (value) =>
+  (value ? `${Number(value.slice(5, 7))}월 ${Number(value.slice(8, 10))}일 ${value.slice(11, 16)}` : '');
+
 // 서버 실패 봉투의 안내 문구 (없으면 fallback)
 export const chatErrorMessage = (error, fallback) => error?.response?.data?.error?.message ?? fallback;

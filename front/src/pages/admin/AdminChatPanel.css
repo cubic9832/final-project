@@ -101,6 +101,20 @@
   background: var(--color-background);
 }
 
+.admin-chat-badges {
+  display: inline-flex;
+  gap: var(--space-4);
+}
+
+.admin-chat-badge.is-restricted {
+  color: var(--color-danger);
+  background: var(--color-background);
+}
+
+.admin-chat-danger {
+  color: var(--color-danger);
+}
+
 .admin-chat-note {
   margin: var(--space-16) 0;
   font-size: var(--font-body);

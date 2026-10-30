@@ -24,6 +24,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 // 8단계: 1:1 상담 규칙 — 회원은 내 방만 · 종료되면 못 씀, 관리자는 맡은 상담만 답장, 넘기기 · 종료는 담당자 또는 총관리자
@@ -41,6 +42,7 @@ class ChatRoomServiceTests {
     @Mock ChatBroadcaster broadcaster;
     @Mock CurrentRoleLookup currentRoleLookup;
     @Mock AdminAuditLogMapper adminAuditLogMapper;
+    @Spy ChatContentFilter contentFilter = new ChatContentFilter(); // 진짜 금칙어 목록으로 검사
     @InjectMocks ChatRoomServiceImpl service;
 
     @BeforeEach
@@ -174,6 +176,55 @@ class ChatRoomServiceTests {
     void 관리자가_아닌_사람에게는_넘길_수_없다() {
         room(ChatRoomDto.ACTIVE, ADMIN);
         assertCode(() -> service.transfer(ADMIN, ROOM, OTHER_MEMBER, null), "CHAT_TARGET_NOT_ADMIN");
+    }
+
+    // ── 욕설 막기 · 상담 제한 ──
+
+    @Test
+    void 욕설은_회원과_상담원_모두_보낼_수_없고_저장하지_않는다() {
+        room(ChatRoomDto.ACTIVE, ADMIN);
+        assertCode(() -> service.sendMessage(MEMBER, ROOM, "씨 1 발 왜 안돼"), "CHAT_BLOCKED_WORD"); // 띄어쓰기 · 숫자로 피해도 걸린다
+        assertCode(() -> service.sendMessage(ADMIN, ROOM, "병신같은 질문"), "CHAT_BLOCKED_WORD");
+        verify(chatMapper, never()).insertMessage(any());
+    }
+
+    @Test
+    void 금칙어와_글자가_겹치는_일상_표현은_보낼_수_있다() {
+        room(ChatRoomDto.ACTIVE, ADMIN);
+        service.sendMessage(MEMBER, ROOM, "대출 시 발생하는 이자는요? 질병 신고도 궁금해요");
+        verify(chatMapper).insertMessage(any());
+    }
+
+    @Test
+    void 제한된_회원은_기간이_끝날_때까지_새_상담을_시작할_수_없다() {
+        ChatRoomDto room = room(ChatRoomDto.CLOSED, ADMIN);
+        room.setRestricted(true);
+        room.setRestrictedUntil(java.time.LocalDateTime.of(2026, 11, 2, 15, 0));
+        assertThatThrownBy(() -> service.startConsultation(MEMBER))
+                .isInstanceOfSatisfying(ApiException.class, e -> {
+                    assertThat(e.getCode()).isEqualTo("CHAT_RESTRICTED");
+                    assertThat(e.getMessage()).contains("11월 2일 15:00");
+                });
+        verify(chatMapper, never()).reopen(anyLong());
+    }
+
+    @Test
+    void 담당_관리자는_상담을_제한하면_종료되고_운영_로그에_남는다() {
+        ChatRoomDto room = room(ChatRoomDto.ACTIVE, ADMIN);
+        room.setRestrictedUntil(java.time.LocalDateTime.of(2026, 11, 2, 15, 0)); // restrict 뒤 다시 읽은 값
+        service.restrict(ADMIN, ROOM, 3, "욕설 반복");
+        verify(chatMapper).restrict(ROOM, 3);
+        verify(chatMapper).close(ROOM);
+        verify(adminAuditLogMapper).insert(ADMIN, "CHAT_RESTRICT", "MEMBER", MEMBER, "상담 제한 3일 (욕설 반복)");
+        verify(broadcaster).roomChanged(ROOM, ChatRoomDto.CLOSED);
+    }
+
+    @Test
+    void 일반_관리자는_남의_상담을_제한하거나_풀_수_없다() {
+        room(ChatRoomDto.ACTIVE, OTHER_ADMIN);
+        assertCode(() -> service.restrict(ADMIN, ROOM, 3, null), "CHAT_FORBIDDEN");
+        assertCode(() -> service.unrestrict(ADMIN, ROOM), "CHAT_FORBIDDEN");
+        verify(chatMapper, never()).restrict(anyLong(), org.mockito.ArgumentMatchers.anyInt());
     }
 
     @Test

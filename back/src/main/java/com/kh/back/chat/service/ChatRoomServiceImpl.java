@@ -7,6 +7,7 @@ import com.kh.back.chat.dto.ChatRoomDto;
 import com.kh.back.chat.mapper.ChatMapper;
 import com.kh.back.common.exception.ApiException;
 import com.kh.back.common.security.CurrentRoleLookup;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Set;
 import lombok.RequiredArgsConstructor;
@@ -27,11 +28,13 @@ public class ChatRoomServiceImpl implements ChatRoomService {
 
     private static final int MAX_LENGTH = 1000; // chat_message.content VARCHAR(1000)
     private static final Set<String> ADMIN_ROLES = Set.of("ADMIN", "SUPER_ADMIN");
+    private static final DateTimeFormatter UNTIL_FORMAT = DateTimeFormatter.ofPattern("M월 d일 HH:mm"); // 제한 안내
 
     private final ChatMapper chatMapper;
     private final ChatBroadcaster broadcaster;
     private final CurrentRoleLookup currentRoleLookup;
     private final AdminAuditLogMapper adminAuditLogMapper;
+    private final ChatContentFilter contentFilter;
 
     // ───────────── 회원 ─────────────
 
@@ -51,6 +54,11 @@ public class ChatRoomServiceImpl implements ChatRoomService {
     @Transactional
     public ChatRoomDto startConsultation(Long userId) {
         ChatRoomDto room = chatMapper.findRoomByUserId(userId);
+        if (room != null && ChatRoomDto.CLOSED.equals(room.getStatus()) && room.isRestricted()) {
+            // 욕설 등으로 관리자가 제한한 회원: 기간이 끝날 때까지 새 상담 불가
+            throw new ApiException(HttpStatus.FORBIDDEN, "CHAT_RESTRICTED",
+                    room.getRestrictedUntil().format(UNTIL_FORMAT) + "까지 새 상담을 시작할 수 없습니다.");
+        }
         if (room == null) {
             room = new ChatRoomDto();
             room.setUserId(userId);
@@ -100,6 +108,11 @@ public class ChatRoomServiceImpl implements ChatRoomService {
         String text = content == null ? "" : content.strip(); // 앞뒤 공백 제거
         if (text.isEmpty() || text.length() > MAX_LENGTH) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "CHAT_INVALID", "메시지는 1~1000자로 입력해 주세요.");
+        }
+        // 욕설 · 패드립 · 성적인 표현은 저장하지 않고 막는다 (회원 · 상담원 모두). 보낸 사람에게만 오류가 간다
+        if (contentFilter.isBlocked(text)) {
+            throw new ApiException(HttpStatus.BAD_REQUEST, "CHAT_BLOCKED_WORD",
+                    "욕설이나 부적절한 표현이 있어 보낼 수 없습니다. 내용을 고쳐 다시 보내 주세요.");
         }
         ChatRoomDto room = chatMapper.findRoomById(roomId);
         if (room == null) {
@@ -188,6 +201,38 @@ public class ChatRoomServiceImpl implements ChatRoomService {
         ChatRoomDto room = requireRoom(roomId);
         requireOwnerOrSuper(actorId, room, "담당 상담원 또는 총관리자만 종료할 수 있습니다.");
         closeRoom(roomId, "상담원이 상담을 종료했습니다.");
+    }
+
+    // [상담 제한]: 욕설 등 → 진행 중이면 종료하고, days 일 동안 새 상담 불가. 담당 관리자 또는 총관리자
+    // 이유는 운영 로그에만 (회원에게는 기간만 안내)
+    @Override
+    @Transactional
+    public void restrict(Long actorId, Long roomId, int days, String reason) {
+        ChatRoomDto room = requireRoom(roomId);
+        requireOwnerOrSuper(actorId, room, "담당 상담원 또는 총관리자만 제한할 수 있습니다.");
+        chatMapper.restrict(roomId, days);
+        chatMapper.close(roomId); // 이미 종료된 상담이면 0줄 — 그대로 둔다
+        ChatRoomDto restricted = chatMapper.findRoomById(roomId);
+        String memo = reason == null || reason.isBlank() ? "" : " (" + reason.strip() + ")";
+        adminAuditLogMapper.insert(actorId, "CHAT_RESTRICT", "MEMBER", room.getUserId(), "상담 제한 " + days + "일" + memo);
+        system(roomId, "운영 정책 위반으로 상담이 종료되었습니다. "
+                + restricted.getRestrictedUntil().format(UNTIL_FORMAT) + "까지 새 상담을 시작할 수 없습니다.");
+        broadcaster.roomChanged(roomId, ChatRoomDto.CLOSED);
+    }
+
+    // [제한 풀기]: 잘못 제한했을 때. 담당 관리자 또는 총관리자
+    @Override
+    @Transactional
+    public void unrestrict(Long actorId, Long roomId) {
+        ChatRoomDto room = requireRoom(roomId);
+        requireOwnerOrSuper(actorId, room, "담당 상담원 또는 총관리자만 제한을 풀 수 있습니다.");
+        if (!room.isRestricted()) {
+            throw new ApiException(HttpStatus.CONFLICT, "CHAT_NOT_RESTRICTED", "제한 중인 상담이 아닙니다.");
+        }
+        chatMapper.unrestrict(roomId);
+        adminAuditLogMapper.insert(actorId, "CHAT_UNRESTRICT", "MEMBER", room.getUserId(), "상담 제한 풀기");
+        system(roomId, "상담 제한이 풀렸습니다. [새로 상담하기]로 다시 상담할 수 있어요.");
+        broadcaster.roomChanged(roomId, ChatRoomDto.CLOSED);
     }
 
     // 관리자에서 해제될 때 (AdminMemberServiceImpl.changeRole): 맡던 진행 중 상담을 대기로 → 다른 관리자가 다시 맡는다

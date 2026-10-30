@@ -1,6 +1,7 @@
 package com.kh.back.chat.controller;
 
 import com.kh.back.chat.dto.ChatAdminOption;
+import com.kh.back.chat.dto.ChatRestrictRequest;
 import com.kh.back.chat.dto.ChatRoomDto;
 import com.kh.back.chat.dto.ChatTransferRequest;
 import com.kh.back.chat.service.ChatRoomService;
@@ -53,6 +54,21 @@ public class AdminChatApiController {
     public ApiResponse<Void> transfer(@AuthenticationPrincipal Long userId, @PathVariable Long id,
                                       @Valid @RequestBody ChatTransferRequest request) {
         chatRoomService.transfer(userId, id, request.getAdminId(), request.getReason());
+        return ApiResponse.ok(null);
+    }
+
+    // POST /api/v1/admin/chat/rooms/{id}/restrict — 본문 { days, reason } [상담 제한] (진행 중이면 종료 + days 일 새 상담 불가)
+    @PostMapping("/rooms/{id}/restrict")
+    public ApiResponse<Void> restrict(@AuthenticationPrincipal Long userId, @PathVariable Long id,
+                                      @Valid @RequestBody ChatRestrictRequest request) {
+        chatRoomService.restrict(userId, id, request.getDays(), request.getReason());
+        return ApiResponse.ok(null);
+    }
+
+    // POST /api/v1/admin/chat/rooms/{id}/unrestrict — [제한 풀기]
+    @PostMapping("/rooms/{id}/unrestrict")
+    public ApiResponse<Void> unrestrict(@AuthenticationPrincipal Long userId, @PathVariable Long id) {
+        chatRoomService.unrestrict(userId, id);
         return ApiResponse.ok(null);
     }
 

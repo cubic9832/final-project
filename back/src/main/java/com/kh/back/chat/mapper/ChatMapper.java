@@ -32,6 +32,11 @@ public interface ChatMapper {
 
     int releaseByAdmin(@Param("adminId") Long adminId);
 
+    // 상담 제한: 지금부터 days 일 뒤까지 (풀면 NULL)
+    void restrict(@Param("roomId") Long roomId, @Param("days") int days);
+
+    void unrestrict(@Param("roomId") Long roomId);
+
     List<ChatRoomDto> findRooms(@Param("status") String status);
 
     void insertMessage(ChatMessageDto message);

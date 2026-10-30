@@ -13,6 +13,8 @@ CREATE TABLE chat_room (
     assigned_admin_id BIGINT NULL,
     -- 마지막 메시지 시각 (관리자 목록을 최근 순으로)
     last_message_at DATETIME NULL,
+    -- 상담 제한이 끝나는 시각 (욕설 등으로 관리자가 제한하면 이때까지 새 상담 불가, 제한한 적 없으면 NULL)
+    restricted_until DATETIME NULL,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     CONSTRAINT uk_chat_room_user UNIQUE (user_id),

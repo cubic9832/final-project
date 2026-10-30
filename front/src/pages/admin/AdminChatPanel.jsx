@@ -2,7 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ChatThread from '../../features/chat/components/ChatThread';
 import {
-  assignRoom, chatErrorMessage, closeRoom, getAdminRooms, getChatAdmins, transferRoom,
+  assignRoom, chatErrorMessage, closeRoom, formatRestrictedUntil, getAdminRooms, getChatAdmins, restrictRoom,
+  transferRoom, unrestrictRoom,
 } from '../../features/chat/chatApi';
 import { createStompClient } from '../../features/chat/stompClient';
 import useChatRoom from '../../features/chat/useChatRoom';
@@ -78,7 +79,10 @@ export default function AdminChatPanel() {
               <button type="button" className={selectedId === room.id ? 'is-selected' : undefined} onClick={() => setSelectedId(room.id)}>
                 <span className="admin-chat-row">
                   <strong>{room.userNickName}</strong>
-                  <span className={`admin-chat-badge is-${room.status.toLowerCase()}`}>{STATUS_LABELS[room.status]}</span>
+                  <span className="admin-chat-badges">
+                    {room.restricted && <span className="admin-chat-badge is-restricted">제한</span>}
+                    <span className={`admin-chat-badge is-${room.status.toLowerCase()}`}>{STATUS_LABELS[room.status]}</span>
+                  </span>
                 </span>
                 <span className="admin-chat-preview">{room.lastMessage ?? '메시지 없음'}</span>
                 <span className="admin-chat-meta">
@@ -105,9 +109,10 @@ function RoomDetail({ room, meId, isSuper, onChanged }) {
   const navigate = useNavigate();
   const chat = useChatRoom(room.id, onChanged);
   const [busy, setBusy] = useState(false);
-  const [transferOpen, setTransferOpen] = useState(false);
+  const [openForm, setOpenForm] = useState(''); // 'transfer' · 'restrict' · '' (한 번에 하나만 펼친다)
   const mine = room.assignedAdminId === meId;
-  const canManage = mine || isSuper; // 넘기기 · 종료
+  const canManage = mine || isSuper; // 넘기기 · 종료 · 상담 제한
+  const toggleForm = (name) => setOpenForm((open) => (open === name ? '' : name));
 
   async function run(action, done) {
     setBusy(true);
@@ -134,7 +139,10 @@ function RoomDetail({ room, meId, isSuper, onChanged }) {
       <div className="admin-chat-head">
         <div>
           <h3>{room.userNickName}</h3>
-          <p>{STATUS_LABELS[room.status]} · 담당 {room.assignedAdminNickName ? (mine ? '나' : room.assignedAdminNickName) : '없음'}</p>
+          <p>
+            {STATUS_LABELS[room.status]} · 담당 {room.assignedAdminNickName ? (mine ? '나' : room.assignedAdminNickName) : '없음'}
+            {room.restricted && ` · ${formatRestrictedUntil(room.restrictedUntil)}까지 상담 제한`}
+          </p>
         </div>
         <div className="admin-chat-actions">
           {/* 회원 관리 탭에서 이 회원 찾기 (주소에 개인정보를 싣지 않고 화면 이동 상태로 넘긴다) */}
@@ -145,21 +153,36 @@ function RoomDetail({ room, meId, isSuper, onChanged }) {
               onClick={() => run(() => assignRoom(room.id), '상담을 맡았습니다.')}>맡기</button>
           )}
           {room.status === 'ACTIVE' && canManage && (
-            <button type="button" className="admin-outline-button" disabled={busy} onClick={() => setTransferOpen((open) => !open)}>넘기기</button>
+            <button type="button" className="admin-outline-button" disabled={busy} onClick={() => toggleForm('transfer')}>넘기기</button>
           )}
           {room.status !== 'CLOSED' && (room.status === 'ACTIVE' ? canManage : isSuper) && (
             <button type="button" className="admin-outline-button" disabled={busy}
               onClick={() => window.confirm('이 상담을 종료할까요?') && run(() => closeRoom(room.id), '상담을 종료했습니다.')}>상담 종료</button>
           )}
+          {/* 욕설 · 성희롱 등: 상담을 끝내고 며칠간 새 상담을 막는다 (잘못 눌렀으면 [제한 풀기]) */}
+          {canManage && !room.restricted && (
+            <button type="button" className="admin-outline-button admin-chat-danger" disabled={busy} onClick={() => toggleForm('restrict')}>상담 제한</button>
+          )}
+          {canManage && room.restricted && (
+            <button type="button" className="admin-outline-button" disabled={busy}
+              onClick={() => window.confirm('상담 제한을 풀까요?') && run(() => unrestrictRoom(room.id), '상담 제한을 풀었습니다.')}>제한 풀기</button>
+          )}
         </div>
       </div>
 
-      {transferOpen && (
+      {openForm === 'transfer' && (
         <TransferForm
           room={room}
           busy={busy}
-          onCancel={() => setTransferOpen(false)}
-          onSubmit={(adminId, reason) => run(() => transferRoom(room.id, adminId, reason), '상담을 넘겼습니다.').then(() => setTransferOpen(false))}
+          onCancel={() => setOpenForm('')}
+          onSubmit={(adminId, reason) => run(() => transferRoom(room.id, adminId, reason), '상담을 넘겼습니다.').then(() => setOpenForm(''))}
+        />
+      )}
+      {openForm === 'restrict' && (
+        <RestrictForm
+          busy={busy}
+          onCancel={() => setOpenForm('')}
+          onSubmit={(days, reason) => run(() => restrictRoom(room.id, days, reason), `${days}일 동안 상담을 제한했습니다.`).then(() => setOpenForm(''))}
         />
       )}
 
@@ -174,6 +197,38 @@ function RoomDetail({ room, meId, isSuper, onChanged }) {
         onSend={chat.send}
       />
     </>
+  );
+}
+
+// 상담 제한: 기간 + 이유(선택, 운영 로그에만 남는다). 진행 중이면 종료되고, 회원은 기간이 끝날 때까지 새 상담을 못 한다
+const RESTRICT_DAYS = [1, 3, 7, 30];
+
+function RestrictForm({ busy, onCancel, onSubmit }) {
+  const [days, setDays] = useState(3);
+  const [reason, setReason] = useState('');
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (window.confirm(`${days}일 동안 이 회원의 상담을 제한할까요? 진행 중인 상담은 종료됩니다.`)) onSubmit(days, reason.trim());
+  }
+
+  return (
+    <form className="admin-chat-transfer" onSubmit={handleSubmit}>
+      <label>
+        제한 기간
+        <select value={days} onChange={(event) => setDays(Number(event.target.value))}>
+          {RESTRICT_DAYS.map((value) => <option key={value} value={value}>{value}일</option>)}
+        </select>
+      </label>
+      <label>
+        이유 (선택 · 운영 로그에만 남아요)
+        <input value={reason} onChange={(event) => setReason(event.target.value)} maxLength={100} placeholder="예: 욕설 반복" />
+      </label>
+      <div className="admin-chat-transfer-actions">
+        <button type="button" className="admin-outline-button" onClick={onCancel}>취소</button>
+        <button type="submit" className="admin-outline-button admin-chat-danger" disabled={busy}>제한하기</button>
+      </div>
+    </form>
   );
 }
 

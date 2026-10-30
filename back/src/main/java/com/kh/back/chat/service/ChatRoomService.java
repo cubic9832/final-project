@@ -36,5 +36,9 @@ public interface ChatRoomService {
 
     void closeByAdmin(Long actorId, Long roomId);
 
+    void restrict(Long actorId, Long roomId, int days, String reason);
+
+    void unrestrict(Long actorId, Long roomId);
+
     void releaseRoomsOf(Long adminId);
 }

@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ChatThread from '../../features/chat/components/ChatThread';
-import { chatErrorMessage, closeMyConsultation, getMyRoom, startConsultation } from '../../features/chat/chatApi';
+import {
+  chatErrorMessage, closeMyConsultation, formatRestrictedUntil, getMyRoom, startConsultation,
+} from '../../features/chat/chatApi';
 import useChatRoom from '../../features/chat/useChatRoom';
 import useAuthStore from '../../stores/useAuthStore';
 import './ConsultationPage.css';
@@ -65,6 +67,8 @@ export default function ConsultationPage() {
           <span className="consult-eyebrow">1:1 상담</span>
           <h1>상담원에게 직접 물어보세요</h1>
           <p>재무 진단 결과나 차량 선택이 고민될 때 상담원이 답해 드려요. 상담원이 자리에 없어도 남긴 메시지는 저장됩니다.</p>
+          {/* 상담원 보호 안내: 금칙어는 서버가 막고(ChatContentFilter), 반복되면 관리자가 상담을 제한한다 */}
+          <p className="consult-policy">욕설 · 비하 · 성적인 표현은 보낼 수 없으며, 반복되면 상담이 일정 기간 제한될 수 있습니다.</p>
         </div>
         <Link className="consult-back" to="/mypage">마이페이지로</Link>
       </header>
@@ -91,7 +95,7 @@ export default function ConsultationPage() {
             <div className="consult-status">
               <span className={`consult-badge is-${room.status.toLowerCase()}`}>{STATUS_LABELS[room.status]}</span>
               {room.status === 'CLOSED'
-                ? <button type="button" className="consult-button" onClick={handleStart} disabled={busy}>새로 상담하기</button>
+                ? <button type="button" className="consult-button" onClick={handleStart} disabled={busy || room.restricted}>새로 상담하기</button>
                 : <button type="button" className="consult-outline" onClick={handleClose} disabled={busy}>상담 종료</button>}
             </div>
             <ChatThread
@@ -100,7 +104,9 @@ export default function ConsultationPage() {
               connected={chat.connected}
               error={chat.error}
               canSend={room.status !== 'CLOSED'}
-              disabledText="종료된 상담입니다. 더 궁금한 점이 있으면 [새로 상담하기]를 눌러 주세요."
+              disabledText={room.restricted
+                ? `운영 정책 위반으로 ${formatRestrictedUntil(room.restrictedUntil)}까지 새 상담을 시작할 수 없습니다.`
+                : '종료된 상담입니다. 더 궁금한 점이 있으면 [새로 상담하기]를 눌러 주세요.'}
               onSend={chat.send}
             />
           </>

@@ -29,4 +29,6 @@ public class ChatRoomDto {
     private String lastMessage;        // 관리자 목록의 미리보기 (마지막 메시지 앞부분)
     private LocalDateTime lastMessageAt;
     private LocalDateTime createdAt;
+    private LocalDateTime restrictedUntil; // 상담 제한이 끝나는 시각 (제한한 적 없으면 null)
+    private boolean restricted;            // 지금 제한 중인가 (DB 시각 기준으로 SQL 에서 계산)
 }
