@@ -69,8 +69,8 @@ function App() {
           <Route path="/mypage" element={<MyPage />} />
           {/* 6단계: 개인정보 · 계정 관리 */}
           <Route path="/mypage/profile" element={<ProfilePage />} />
-          {/* 8단계: 1:1 상담 (마이페이지 · 콤파의 [1:1 상담] 버튼) */}
-          <Route path="/consultation" element={<ConsultationPage />} />
+          {/* 8단계: 1:1 상담 (마이페이지 · 콤파의 [1:1 상담] 버튼) — 마이페이지 아래 화면이라 /mypage/... */}
+          <Route path="/mypage/consultation" element={<ConsultationPage />} />
         </Route>
         <Route path="/financial" element={<FinancialPage />} />
         <Route path="/financial/assets" element={<FinancialAssetsPage />} />

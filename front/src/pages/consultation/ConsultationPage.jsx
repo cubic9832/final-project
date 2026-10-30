@@ -10,7 +10,7 @@ import './ConsultationPage.css';
 
 const STATUS_LABELS = { WAITING: '상담원 연결 대기', ACTIVE: '상담 중', CLOSED: '상담 종료' };
 
-// 8단계: /consultation — 회원의 1:1 상담 (마이페이지 · 콤파의 [1:1 상담] 버튼이 여기로 온다). 로그인 필요(RequireAuth)
+// 8단계: /mypage/consultation — 회원의 1:1 상담 (마이페이지 · 콤파의 [1:1 상담] 버튼이 여기로 온다). 로그인 필요(RequireAuth)
 // 상태: 상담 전(방 없음) → [상담 시작] → 대기 → 상담원이 맡으면 상담 중 → 종료 → [새로 상담하기] → 대기 (같은 방, 지난 대화가 이어진다)
 export default function ConsultationPage() {
   const member = useAuthStore((state) => state.member);
@@ -62,15 +62,17 @@ export default function ConsultationPage() {
 
   return (
     <div className="consult-page">
+      {/* 지금 위치 — 개인정보 · 계정 관리(ProfilePage)와 같은 모양: 마이페이지 아래 화면 */}
+      <nav className="consult-breadcrumb" aria-label="현재 위치">
+        <Link to="/mypage">마이페이지</Link>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">1:1 상담</span>
+      </nav>
       <header className="consult-heading">
-        <div>
-          <span className="consult-eyebrow">1:1 상담</span>
-          <h1>상담원에게 직접 물어보세요</h1>
-          <p>재무 진단 결과나 차량 선택이 고민될 때 상담원이 답해 드려요. 상담원이 자리에 없어도 남긴 메시지는 저장됩니다.</p>
-          {/* 상담원 보호 안내: 금칙어는 서버가 막고(ChatContentFilter), 반복되면 관리자가 상담을 제한한다 */}
-          <p className="consult-policy">욕설 · 비하 · 성적인 표현은 보낼 수 없으며, 반복되면 상담이 일정 기간 제한될 수 있습니다.</p>
-        </div>
-        <Link className="consult-back" to="/mypage">마이페이지로</Link>
+        <h1>1:1 상담</h1>
+        <p>재무 진단 결과나 차량 선택이 고민될 때 상담원이 답해 드려요. 상담원이 자리에 없어도 남긴 메시지는 저장됩니다.</p>
+        {/* 상담원 보호 안내: 금칙어는 서버가 막고(ChatContentFilter), 반복되면 관리자가 상담을 제한한다 */}
+        <p className="consult-policy">욕설 · 비하 · 성적인 표현은 보낼 수 없으며, 반복되면 상담이 일정 기간 제한될 수 있습니다.</p>
       </header>
 
       <section className="consult-card" aria-label="상담">
